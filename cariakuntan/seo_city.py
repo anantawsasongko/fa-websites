@@ -8,7 +8,10 @@ SERVICES = [
  ("kjpp", "kjpp", "KJPP", "KJPP dan Jasa Penilai", "Kantor Jasa Penilai Publik (KJPP), appraisal aset, dan penilaian bisnis", "KJPP / penilaian aset"),
  ("pajak", "konsultan-pajak", "Konsultan Pajak", "Konsultan Pajak", "konsultan pajak berizin (KKP), pendampingan SPT, Coretax, dan pemeriksaan pajak", "konsultan pajak"),
  ("lk", "jasa-laporan-keuangan", "Jasa Laporan Keuangan", "Jasa Penyusunan Laporan Keuangan", "jasa penyusunan laporan keuangan, pembukuan, dan Kantor Jasa Akuntansi (KJA)", "penyusunan laporan keuangan"),
+ ("ltp", "laporan-tahunan-pt", "Laporan Tahunan PT", "Jasa Laporan Tahunan PT (Permenkum 49/2025)", "jasa penyusunan laporan tahunan PT untuk akta notaris dan SABH sesuai Permenkum 49/2025", "laporan tahunan PT untuk akta notaris (Permenkum 49/2025)"),
 ]
+def has_page(city, key):
+    return city in PRIORITY or key == "ltp"
 SV = {s[0]: s for s in SERVICES}
 
 PRIORITY = ["Malang","Surabaya","Batam","Jakarta","Sidoarjo","Denpasar","Bandung","Semarang","Medan",
@@ -19,6 +22,7 @@ HOOK = {
  "kap": {"dagang":"distributor yang mengajukan kredit modal kerja","manufaktur":"pabrik yang mengajukan kredit investasi mesin","tambang":"kontraktor tambang yang diminta laporan audited oleh pemberi kerja","smelter":"pemasok kawasan smelter yang ikut tender","sawit":"grup perkebunan dengan kewajiban audit tahunan","perikanan":"usaha cold storage yang mengakses pembiayaan ekspor","wisata":"hotel dan vila PMA yang wajib laporan audited","migas":"penunjang migas yang perlu kualifikasi vendor","konstruksi":"kontraktor yang butuh LK audited untuk SBU dan tender","properti":"pengembang yang mengajukan kredit konstruksi","kesehatan":"rumah sakit yang baru pertama kali diaudit","bpr":"BPR dan koperasi dengan audit wajib regulator","pendidikan":"yayasan pendidikan dengan audit dana hibah","logistik":"perusahaan logistik yang membiayai armada","bumd":"BUMD dan mitra pemerintah daerah"},
  "kjpp": {"dagang":"gudang dan ruko yang dijadikan agunan","manufaktur":"mesin dan bangunan pabrik","tambang":"alat berat dan izin usaha","smelter":"aset kontraktor kawasan industri","sawit":"lahan dan tanaman perkebunan","perikanan":"kapal dan cold storage","wisata":"hotel, vila, dan tanah di kawasan wisata","migas":"peralatan penunjang migas","konstruksi":"alat berat kontraktor","properti":"tanah, ruko, dan proyek properti","kesehatan":"gedung dan alat kesehatan rumah sakit","bpr":"agunan kredit nasabah BPR","pendidikan":"tanah dan gedung yayasan","logistik":"armada truk dan kapal","bumd":"aset BUMD dan pemerintah daerah"},
  "pajak": {"dagang":"pedagang dengan omzet besar dan PPN","manufaktur":"pabrik dengan restitusi PPN","tambang":"jasa tambang dengan PPh potong pungut","smelter":"pemasok kawasan berikat","sawit":"perkebunan dengan pemeriksaan pajak","perikanan":"eksportir hasil laut","wisata":"hotel dan restoran dengan pajak daerah","migas":"vendor migas","konstruksi":"kontraktor dengan PPh final jasa konstruksi","properti":"pengembang dengan PPh final dan BPHTB","kesehatan":"rumah sakit dan klinik","bpr":"BPR dan koperasi","pendidikan":"yayasan dengan fasilitas pajak","logistik":"perusahaan logistik","bumd":"BUMD"},
+ "ltp": {"dagang":"PT distributor yang mau ganti direksi atau jual saham","manufaktur":"PT pabrik dengan pemegang saham lebih dari satu","tambang":"PT jasa tambang yang sedang ganti pengurus","smelter":"PT pemasok kawasan industri","sawit":"PT perkebunan keluarga","perikanan":"PT perikanan dan cold storage","wisata":"PT pengelola hotel dan vila","migas":"PT penunjang migas","konstruksi":"PT kontraktor yang perlu data AHU bersih untuk tender","properti":"PT pengembang dengan banyak pemegang saham","kesehatan":"PT rumah sakit dan klinik","bpr":"PT BPR","pendidikan":"PT pengelola sekolah dan kampus","logistik":"PT logistik","bumd":"Perseroda BUMD"},
  "lk": {"dagang":"toko dan distributor dengan persediaan banyak","manufaktur":"pabrik dengan perhitungan harga pokok","tambang":"jasa tambang","smelter":"kontraktor kawasan industri","sawit":"perkebunan dan agribisnis","perikanan":"usaha perikanan","wisata":"hotel, restoran, dan kafe","migas":"penunjang migas","konstruksi":"kontraktor dengan proyek berjalan","properti":"pengembang dengan unit inden","kesehatan":"rumah sakit dan klinik","bpr":"koperasi","pendidikan":"yayasan dan sekolah","logistik":"usaha logistik","bumd":"BUMD"},
 }
 
@@ -35,6 +39,10 @@ BODY = {
    f"Pemilik usaha di {c} mencari konsultan pajak untuk SPT Tahunan badan, transisi Coretax, pemeriksaan dan surat teguran, restitusi PPN, keberatan, serta perencanaan pajak sebelum ekspansi.",
    f"Kami hubungkan dengan konsultan pajak berizin (KKP) yang terbiasa menangani perusahaan sejenis di {p}, dan yang bisa berkoordinasi dengan KAP bila laporan Anda juga diaudit.",
    "Untuk PMA, tersedia pendampingan transfer pricing, tax treaty, dan pelaporan kepada investor asing."],
+ "ltp": lambda c, p: [
+   f"Sejak Permenkum 49/2025, persetujuan RUPS atas laporan tahunan PT di {c} wajib dituangkan dalam akta notaris lalu disampaikan lewat SABH paling lama 30 hari sejak akta. Kewajiban ini berlaku untuk PT persekutuan modal, termasuk PT tertutup yang tidak wajib audit.",
+   f"Kami bantu PT di {c} menyusun laporan keuangan lengkap dengan catatan, laporan tahunan sesuai isi minimal Pasal 16, dan draf keputusan RUPS atau sirkuler, sampai siap dibawa ke notaris pilihan Anda di {p}.",
+   "Bila tidak dilaporkan, perseroan bisa ditegur lalu diblokir aksesnya di SABH, sehingga ganti direksi, jual beli saham, dan perubahan data tertahan."],
  "lk": lambda c, p: [
    f"Banyak usaha di {c} punya omzet miliaran tapi belum punya laporan keuangan yang rapi. Kami bantu susun laporan keuangan sesuai SAK EMKM, SAK EP, atau PSAK, dari pembukuan bulanan sampai laporan tahunan lengkap dengan catatan.",
    f"Penyusunan dikerjakan bersama Kantor Jasa Akuntansi (KJA) dan akuntan berpraktik, sehingga laporan siap dipakai untuk kredit bank, SPT, tender, atau diaudit KAP. Bisa juga tutup buku tahunan saja untuk usaha di {c} yang pembukuannya tertinggal beberapa tahun.",
@@ -45,6 +53,7 @@ TABLE = {
  "kap": [("Kredit bank baru atau perpanjangan","Laporan audited, kelas KAP sesuai bank","4 sampai 8 minggu"),("Wajib audit UU PT (aset/omzet ≥ Rp50 miliar)","Audit umum tahunan","Sebelum RUPS"),("Belum pernah diaudit","Audit pertama, saldo awal diperiksa","6 sampai 10 minggu"),("Permintaan investor atau mitra","Audit, review, atau AUP","2 sampai 6 minggu")],
  "kjpp": [("Agunan kredit","Penilaian tanah, bangunan, mesin","1 sampai 3 minggu"),("Revaluasi aset tetap","Laporan penilaian untuk PSAK 216","2 sampai 4 minggu"),("Merger, akuisisi, investor","Penilaian bisnis dan saham","3 sampai 6 minggu"),("Asuransi atau sengketa","Penilaian objek tertentu","1 sampai 3 minggu")],
  "pajak": [("SPT Tahunan badan","Penyusunan dan review SPT","Sebelum 30 April"),("Pemeriksaan atau SP2DK","Pendampingan dan tanggapan","Sesuai tenggat surat"),("Restitusi PPN","Persiapan dokumen dan pendampingan","Sesuai proses DJP"),("Ekspansi atau PMA","Perencanaan dan struktur pajak","Sebelum transaksi")],
+ "ltp": [("Tahun buku 2025 belum dilaporkan","LK, laporan tahunan, draf keputusan RUPS","1 sampai 3 minggu"),("LK sudah ada, laporan tahunan belum","Laporan tahunan dan draf keputusan","3 sampai 7 hari"),("PT wajib audit","Koordinasi KAP lalu laporan tahunan","4 sampai 8 minggu"),("Mau ganti direksi atau jual saham","Laporan tahunan dulu agar SABH tidak terblokir","Segera")],
  "lk": [("Butuh LK untuk kredit bank","Penyusunan LK tahunan lengkap","2 sampai 4 minggu"),("Pembukuan tertinggal","Tutup buku dan rekonsiliasi","3 sampai 8 minggu"),("Persiapan audit","LK, lead schedule, dokumen pendukung","2 sampai 6 minggu"),("Pembukuan rutin","Laporan bulanan","Setiap bulan")],
 }
 
@@ -64,6 +73,7 @@ def city_faq(c, p, secs):
      (f"Berapa biaya audit KAP di {c}?", "Biaya audit bergantung pada total aset, jumlah transaksi, kondisi pembukuan, dan kelas KAP yang diminta. Kami sampaikan kisaran biaya setelah melihat laporan keuangan terakhir Anda, sebelum Anda berkomitmen."),
      (f"Apakah ada KJPP untuk penilaian aset di {c}?", f"Ada. Kami carikan KJPP rekanan bank tujuan Anda yang bisa menjadwalkan inspeksi di {c} dan sekitarnya untuk agunan kredit, revaluasi aset, atau penilaian bisnis."),
      (f"Saya butuh konsultan pajak di {c}, bisa dibantu?", "Bisa. Kami hubungkan dengan konsultan pajak berizin untuk SPT Tahunan badan, Coretax, pemeriksaan pajak, restitusi, dan perencanaan pajak."),
+     (f"Apakah PT di {c} wajib menyampaikan laporan tahunan lewat notaris?", "Ya, untuk PT persekutuan modal sesuai Permenkum 49/2025: persetujuan RUPS dituangkan dalam akta notaris dan disampaikan lewat SABH paling lama 30 hari sejak akta. Kami siapkan laporan keuangan dan laporan tahunannya sampai siap dibawa ke notaris."),
      (f"Siapa yang bisa menyusun laporan keuangan perusahaan di {c}?", "Kantor Jasa Akuntansi (KJA) dan akuntan berpraktik di jaringan kami menyusun laporan keuangan sesuai SAK EMKM, SAK EP, atau PSAK, sehingga siap untuk bank, pajak, dan audit."),
     ]
 
@@ -76,12 +86,12 @@ def svc_section(key, c, p, secs, anchor=True, h="h2"):
     return (f'<{h} id="{sl}"' + '>' + f'{title} di {c}</{h}>'
             + f"<p>{paras[0]}</p>{extra}<p>{paras[1]}</p><p>{paras[2]}</p>")
 
-def popular_links(cities, keys=("kap","kjpp","pajak","lk")):
+def popular_links(cities, keys=("kap","kjpp","pajak","lk","ltp")):
     out = []
     for c in cities:
         for key in keys:
             k, sl, short, *_ = SV[key]
-            href = f"/kota/{slug(c)}/{sl}/" if c in PRIORITY else f"/kota/{slug(c)}/#{sl}"
+            href = f"/kota/{slug(c)}/{sl}/" if has_page(c, key) else f"/kota/{slug(c)}/#{sl}"
             out.append(f'<a href="{href}">{short} {c}</a>')
     return out
 
@@ -109,12 +119,13 @@ for name, prov, reg, secs, note in CITIES:
         {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Beranda","item":DOMAIN+"/"},{"@type":"ListItem","position":2,"name":"Wilayah","item":DOMAIN+"/kota/"},{"@type":"ListItem","position":3,"name":name,"item":url}]}]}
     html = head(title, desc, url, extra=ldtag(ld))
     pri = name in PRIORITY
-    jump = " ".join(f'<a href="/kota/{s}/{SV[k][1]}/">{SV[k][2]} {name}</a>' if pri else f'<a href="#{SV[k][1]}">{SV[k][2]} {name}</a>' for k in SV)
+    jump = " ".join(f'<a href="/kota/{s}/{SV[k][1]}/">{SV[k][2]} {name}</a>' if has_page(name, k) else f'<a href="#{SV[k][1]}">{SV[k][2]} {name}</a>' for k in SV)
     overview = tblx(["Kebutuhan", "Siapa yang mengerjakan", "Contoh di " + name], [
         ("Audit laporan keuangan", "KAP (akuntan publik)", (hooks("kap", secs) or "perusahaan yang mengajukan kredit").split("; ")[0]),
         ("Penilaian aset dan bisnis", "KJPP (penilai publik)", (hooks("kjpp", secs) or "agunan kredit").split("; ")[0]),
         ("Pajak badan dan pemeriksaan", "Konsultan pajak berizin", (hooks("pajak", secs) or "SPT Tahunan badan").split("; ")[0]),
-        ("Penyusunan laporan keuangan", "KJA dan akuntan berpraktik", (hooks("lk", secs) or "usaha yang belum punya LK").split("; ")[0])])
+        ("Penyusunan laporan keuangan", "KJA dan akuntan berpraktik", (hooks("lk", secs) or "usaha yang belum punya LK").split("; ")[0]),
+        ("Laporan tahunan PT (Permenkum 49/2025)", "Penyusun laporan, lalu akta notaris", (hooks("ltp", secs) or "PT yang belum melapor ke SABH").split("; ")[0])])
     secs_html = "".join(svc_section(k, name, prov, secs) for k in SV)
     faq_html = "".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in faq)
     html += header(ID,"home") + f'''<main class="wrap art">
@@ -145,16 +156,16 @@ for name, prov, reg, secs, note in CITIES:
     write(f"/kota/{s}/", html); urls.append(f"/kota/{s}/")
 
     # ---------- halaman layanan x kota (kota prioritas) ----------
-    if pri:
-        for k in SV:
+    if True:
+        for k in [k for k in SV if has_page(name, k)]:
             _, sl, short, stitle, syn, wak = SV[k]
-            others = " ".join(f'<a href="/kota/{s}/{SV[o][1]}/">{SV[o][2]} {name}</a>' for o in SV if o != k)
-            nearsvc = " ".join(f'<a href="/kota/{slug(c[0])}/{sl}/">{short} {c[0]}</a>' if c[0] in PRIORITY else f'<a href="/kota/{slug(c[0])}/#{sl}">{short} {c[0]}</a>' for c in near[:6])
+            others = " ".join((f'<a href="/kota/{s}/{SV[o][1]}/">{SV[o][2]} {name}</a>' if has_page(name, o) else f'<a href="/kota/{s}/#{SV[o][1]}">{SV[o][2]} {name}</a>') for o in SV if o != k)
+            nearsvc = " ".join(f'<a href="/kota/{slug(c[0])}/{sl}/">{short} {c[0]}</a>' if has_page(c[0], k) else f'<a href="/kota/{slug(c[0])}/#{sl}">{short} {c[0]}</a>' for c in near[:6])
             u2 = f"{DOMAIN}/kota/{s}/{sl}/"
             t2 = f"{stitle} di {name}: {short} Terpercaya Sesuai Kebutuhan Bank | cariakuntan.com"
             if len(t2) > 95: t2 = f"{stitle} di {name} | cariakuntan.com"
             d2 = f"Cari {syn} di {name}, {prov}. Dipilihkan sesuai syarat bank, regulator, atau investor. Chat Ananta, CPA, konsultasi awal gratis."
-            q2 = [x for x in faq if (short.split()[0] in x[0]) or (k=="lk" and "laporan keuangan" in x[0])]
+            q2 = [x for x in faq if (k!="ltp" and short.split()[0] in x[0]) or (k=="lk" and "laporan keuangan" in x[0]) or (k=="ltp" and "laporan tahunan" in x[0])]
             q2.append((f"Berapa biaya {short} di {name}?", "Biaya bergantung pada skala usaha, kondisi dokumen, dan tenggat yang diminta. Kami sampaikan kisaran biaya setelah melihat data Anda, sebelum Anda berkomitmen.") if k != "kap" else faq[1])
             ld2 = {"@context":"https://schema.org","@graph":[
                 {"@type":"Service","name":f"{stitle} di {name}","serviceType":stitle,"areaServed":{"@type":"City","name":name},"provider":{"@type":"ProfessionalService","name":"cariakuntan.com","url":DOMAIN+"/"},"url":u2,"description":d2},
@@ -187,7 +198,7 @@ for k in SV:
     _, sl, short, stitle, syn, wak = SV[k]
     rows = ""
     for r,(rname, rline) in REGIONS.items():
-        ls = " ".join((f'<a href="/kota/{slug(c[0])}/{sl}/">{short} {c[0]}</a>' if c[0] in PRIORITY else f'<a href="/kota/{slug(c[0])}/#{sl}">{short} {c[0]}</a>') for c in CITIES if c[2]==r)
+        ls = " ".join((f'<a href="/kota/{slug(c[0])}/{sl}/">{short} {c[0]}</a>' if has_page(c[0], k) else f'<a href="/kota/{slug(c[0])}/#{sl}">{short} {c[0]}</a>') for c in CITIES if c[2]==r)
         rows += f'<h2 id="{r}" style="margin-top:30px">{short} di {rname}</h2><div class="citylist">{ls}</div>'
     u3 = f"{DOMAIN}/layanan/{sl}/"
     t3 = f"{stitle} di Seluruh Indonesia, {len(CITIES)} Kota | cariakuntan.com"
