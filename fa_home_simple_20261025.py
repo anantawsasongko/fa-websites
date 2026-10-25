@@ -26,10 +26,12 @@ HERO = main[len('<main id="top">'):hero_end]
 PEND = sec("pendekatan")
 KONTAK = sec("kontak")
 
-MOVE_L = ["layanan", "paket", "fee", "rekam", "arsip", "galeri", "pendiri", "grup", "ekosistem", "afiliasi"]
-MOVE_U = ["unduhan", "publikasi", "kabar"]
+MOVE_L = ["layanan", "paket", "fee", "rekam", "arsip", "pendiri", "grup", "ekosistem", "afiliasi"]
+MOVE_B = ["unduhan", "publikasi"]
+MOVE_E = ["galeri", "kabar"]
 WHERE = {k: "/layanan/" for k in MOVE_L}
-WHERE.update({k: "/unduhan/" for k in MOVE_U})
+WHERE.update({k: "/buku/" for k in MOVE_B})
+WHERE.update({k: "/artikel/" for k in MOVE_E})
 
 def set_alt(blocks):
     out = []
@@ -42,7 +44,7 @@ def set_alt(blocks):
 T = {
  "hs01": ("Peta Layanan", "Service Map", "服务地图"),
  "hs02": ("Satu pintu, tiga jalur <em>uang masuk.</em>", "One door, three routes to <em>funding.</em>", "一个入口，三条<em>资金</em>路径。"),
- "hs03": ("Perusahaan Anda", "Your company", "您的公司"),
+ "hs03": ("Perusahaan Anda", "Your Company", "您的公司"),
  "hs04": ("Dari UMKM sampai calon Tbk", "From small businesses to IPO candidates", "从小微企业到上市候选公司"),
  "hs05": ("Kredit Bank", "Bank Credit", "银行贷款"),
  "hs06": ("Due diligence sampai pencairan", "Due diligence to disbursement", "从尽职调查到放款"),
@@ -56,19 +58,19 @@ T = {
  "hs14": ("Kredit perbankan yang <em>sudah cair.</em>", "Bank credit <em>already disbursed.</em>", "<em>已发放</em>的银行贷款。"),
  "hs15": ("Kumulatif per jenis bank, dalam Rp miliar", "Cumulative by bank type, in Rp billion", "按银行类型累计，单位：十亿印尼盾"),
  "hs16": ("Ditambah BPD, BPR, dan kredit sindikasi, serta pendanaan investor hingga US$3 juta. Total mendekati Rp1 triliun.", "Plus regional banks, rural banks and syndicated loans, and investor funding up to US$3 million. Close to Rp1 trillion in total.", "另有地方银行、农村银行及银团贷款，以及最高 300 万美元的投资者资金。合计接近 1 万亿印尼盾。"),
- "hs17": ("Lihat rekam jejak lengkap", "See full track record", "查看完整业绩"),
+ "hs17": ("Lihat Rekam Jejak Lengkap", "See Full Track Record", "查看完整业绩"),
  "hs18": ("Untuk Siapa", "Who It Is For", "服务对象"),
  "hs19": ("Semua skala perusahaan, <em>satu standar.</em>", "Every company size, <em>one standard.</em>", "各种规模的企业，<em>同一标准。</em>"),
  "hs20": ("Dari usaha kecil sampai calon emiten, kebutuhannya berbeda, standar kerjanya sama", "From small businesses to IPO candidates: different needs, the same working standard", "从小企业到上市候选公司：需求不同，标准一致"),
  "hs21": ("Setiap klien ditangani langsung oleh Ananta, CPA", "Every client is handled personally by Ananta, CPA", "每位客户均由 Ananta, CPA 亲自负责"),
- "hs60": ("UMKM", "Small business", "小微企业"), "hs61": ("LK SAK EMKM, siap kredit", "SAK EMKM statements, loan-ready", "小微准则报表，可申请贷款"),
- "hs62": ("Menengah", "Mid-sized", "中型企业"), "hs63": ("Audit, kredit bank, GCG", "Audit, bank credit, governance", "审计、银行贷款、治理"),
- "hs64": ("Besar &amp; Grup", "Large &amp; groups", "大型企业与集团"), "hs65": ("Sindikasi, investor, M&amp;A", "Syndication, investors, M&amp;A", "银团贷款、投资者、并购"),
- "hs66": ("Calon Tbk &amp; BUMN", "IPO candidates &amp; SOEs", "上市候选与国企"), "hs67": ("IPO, komite audit, pelaporan", "IPO, audit committee, reporting", "IPO、审计委员会、报告"),
+ "hs60": ("UMKM", "Small Business", "小微企业"), "hs61": ("LK SAK EMKM, siap kredit", "SAK EMKM statements, loan-ready", "小微准则报表，可申请贷款"),
+ "hs62": ("Menengah", "Mid-Sized", "中型企业"), "hs63": ("Audit, kredit bank, GCG", "Audit, bank credit, governance", "审计、银行贷款、治理"),
+ "hs64": ("Besar &amp; Grup", "Large &amp; Groups", "大型企业与集团"), "hs65": ("Sindikasi, investor, M&amp;A", "Syndication, investors, M&amp;A", "银团贷款、投资者、并购"),
+ "hs66": ("Calon Tbk &amp; BUMN", "IPO Candidates &amp; SOEs", "上市候选与国企"), "hs67": ("IPO, komite audit, pelaporan", "IPO, audit committee, reporting", "IPO、审计委员会、报告"),
  "hs68": ("Klien penugasan penuh per tahun, semua skala perusahaan", "Full engagements per year, every company size", "每年全程服务客户，覆盖各种规模"),
- "hs22": ("Rumah sakit", "Hospitals", "医院"), "hs23": ("BPR", "Rural banks (BPR)", "农村银行"),
- "hs24": ("Kontraktor", "Contractors", "承包商"), "hs25": ("Logistik &amp; kargo", "Logistics &amp; cargo", "物流与货运"),
- "hs26": ("Farmasi &amp; kimia", "Pharma &amp; chemicals", "制药与化工"), "hs27": ("Klinik &amp; kecantikan", "Clinics &amp; beauty", "诊所与美容"),
+ "hs22": ("Rumah Sakit", "Hospitals", "医院"), "hs23": ("BPR", "Rural Banks (BPR)", "农村银行"),
+ "hs24": ("Kontraktor", "Contractors", "承包商"), "hs25": ("Logistik &amp; Kargo", "Logistics &amp; Cargo", "物流与货运"),
+ "hs26": ("Farmasi &amp; Kimia", "Pharma &amp; Chemicals", "制药与化工"), "hs27": ("Klinik &amp; Kecantikan", "Clinics &amp; Beauty", "诊所与美容"),
  "hs28": ("Cara Mulai", "How to Start", "如何开始"),
  "hs29": ("Empat langkah, <em>satu orang.</em>", "Four steps, <em>one person.</em>", "四个步骤，<em>一位负责人。</em>"),
  "hs30": ("Chat", "Chat", "沟通"), "hs31": ("Ceritakan kebutuhan lewat WhatsApp atau email", "Tell us what you need via WhatsApp or email", "通过 WhatsApp 或邮件说明需求"),
@@ -76,15 +78,15 @@ T = {
  "hs34": ("NDA &amp; Kontrak", "NDA &amp; Engagement", "保密协议与合同"), "hs35": ("Retainer bulanan plus success fee saat dana masuk", "Monthly retainer plus success fee when funds arrive", "月度顾问费加资金到位后的成功费"),
  "hs36": ("Eksekusi", "Execution", "执行"), "hs37": ("Dikawal sampai laporan terbit atau dana cair", "Guided until reports are issued or funds are disbursed", "全程陪同至报表出具或资金到位"),
  "hs38": ("Jelajahi", "Explore", "浏览"),
- "hs39": ("Layanan &amp; Rekam Jejak", "Services &amp; Track Record", "服务与业绩"), "hs40": ("Paket, fee, penugasan, galeri, dan profil tim", "Packages, fees, engagements, gallery and team", "套餐、费用、项目、图库与团队"),
+ "hs39": ("Layanan &amp; Rekam Jejak", "Services &amp; Track Record", "服务与业绩"), "hs40": ("Paket, fee, penugasan, dan profil tim", "Packages, fees, engagements and team", "套餐、费用、项目与团队"),
  "hs41": ("Apps", "Apps", "应用"), "hs42": ("FA Jupiter, FA Saturn, FA Venus", "FA Jupiter, FA Saturn, FA Venus", "FA Jupiter、FA Saturn、FA Venus"),
  "hs43": ("E-Book &amp; Materi", "E-Books &amp; Materials", "电子书与资料"), "hs44": ("Buku Penerbit FA, materi gratis, dan publikasi", "Penerbit FA books, free materials and publications", "Penerbit FA 图书、免费资料与出版物"),
- "hs45": ("Wawasan", "Insights", "洞见"), "hs46": ("Artikel SAK terbaru dan berita bisnis", "Latest SAK articles and business news", "最新会计准则文章与商业新闻"),
+ "hs45": ("Eksplor", "Explore", "探索"), "hs46": ("Berita, artikel, dan galeri foto", "News, articles and photo gallery", "新闻、文章与图库"),
  "hs47": ("Butuh KAP, KJPP, atau konsultan pajak?", "Need an audit firm, valuer or tax consultant?", "需要会计师事务所、评估师或税务顾问？"),
- "hs48": ("Cek dulu di CariAkuntan", "Screen first at CariAkuntan", "先在 CariAkuntan 筛选"),
+ "hs48": ("Cek Dulu di CariAkuntan", "Screen First at CariAkuntan", "先在 CariAkuntan 筛选"),
  "hs49": ("Layanan &amp; Rekam Jejak", "Services &amp; Track Record", "服务与业绩"),
  "hs50": ("Materi &amp; Publikasi", "Materials &amp; Publications", "资料与出版物"),
- "hs51": ("Kembali ke beranda", "Back to home", "返回首页"),
+ "hs51": ("Kembali ke Beranda", "Back to Home", "返回首页"),
  "hs52": ("E-Book berbayar ada di Toko Buku Penerbit FA", "Paid e-books are in the Penerbit FA Bookstore", "付费电子书请见 Penerbit FA 书店"),
 }
 def t(k, tag="span", cls=""):
@@ -197,7 +199,7 @@ ICON = {
  "ins": '<svg viewBox="0 0 24 24"><path d="M4 19h16M6 16l4-5 3 3 5-7"/></svg>',
 }
 
-BANKS = [("Bank BUMN", 440, "440+"), ("Bank syariah", 90, "90+"), ("Bank swasta", 85, "85+")]
+BANKS = [("Bank BUMN", 440, "440+"), ("Bank Syariah", 90, "90+"), ("Bank Swasta", 85, "85+")]
 bars = "".join(f'<div class="bar"><span class="n">{n}</span><span class="tr"><i style="--w:{v/440*100:.0f}%"></i></span><span class="v">{lbl}</span></div>' for n, v, lbl in BANKS)
 
 PETA = f'''<section class="block alt hs" id="peta">
@@ -361,33 +363,64 @@ def subpage(path, title, desc, h1key, ids):
 subpage("/layanan/", "Layanan, Paket, Fee dan Rekam Jejak | FA Indonesia",
         "Layanan FA Indonesia: pendampingan kredit bank, investor, M&amp;A, IPO dan GCG. Paket, model fee, rekam jejak pendanaan, galeri, dan profil tim Ananta W. Sasongko, CPA.",
         "hs49", MOVE_L)
-subpage("/unduhan/", "Materi Gratis dan Publikasi | FA Indonesia",
-        "Unduh materi gratis FA Indonesia: panduan PSAK 118, toolkit Excel, prosedur audit, serta publikasi buku dan artikel Ananta W. Sasongko, CPA dan tim.",
-        "hs50", MOVE_U)
 
 # ---------------- link di halaman lain + sitemap ----------------
 for root, _, files in os.walk(FA):
     for f in files:
         if not f.endswith(".html"): continue
         p = os.path.join(root, f)
-        if p in (os.path.join(FA, "index.html"), os.path.join(FA, "layanan", "index.html"), os.path.join(FA, "unduhan", "index.html")): continue
+        if p in (os.path.join(FA, "index.html"), os.path.join(FA, "layanan", "index.html")): continue
         s = open(p, encoding="utf-8").read()
         s2 = re.sub(r'href="/#(%s)"' % "|".join(WHERE), lambda m: f'href="{WHERE[m.group(1)]}#{m.group(1)}"', s)
         if s2 != s: open(p, "w", encoding="utf-8").write(s2)
 
-bk = os.path.join(FA, "buku", "index.html")
-b = open(bk, encoding="utf-8").read()
-if 'id="ke-unduhan"' not in b:
+import shutil
+TAILRAW = h[h.find('</footer>'):]
+def grab(pat):
+    m = re.search(pat, TAILRAW, re.S); assert m, pat; return m.group(0)
+SH_TOAST = grab(r'<div class="shtoast" id="shtoast".*?</script>')
+LEAD = grab(r'<div id="leadModal".*?</div>\s*<script>\(function\(\)\{var G=.*?</script>')
+LIGHT = grab(r"<script>\s*\(function\(\)\{var d=document.getElementById\('lightbox'\).*?</script>")
+FEEDJS = grab(r'<script id="feed-js">.*?</script>')
+HOMECSS = absol_css = "".join(re.findall(r'<style[^>]*>(.*?)</style>', h[:h.find('</head>')], re.S)).replace('url("img/', 'url("/img/')
+def absol(x):
+    x = re.sub(r'(src|href|data-full|srcset|data-story)="(?!https?:|/|#|mailto:|tel:|data:|javascript:)([^"]+)"', r'\1="/\2"', x)
+    return x.replace('url("img/', 'url("/img/')
+def inject(rel, blocks, tail, css="", subs=()):
+    pth = os.path.join(FA, rel)
+    b = open(pth, encoding="utf-8").read()
+    b = re.sub(r'<div id="ke-unduhan".*?</div>\n?', '', b, flags=re.S)
+    b = re.sub(r'<!--fa-inj-->.*?<!--/fa-inj-->\n?', '', b, flags=re.S)
+    b = re.sub(r'<!--fa-injt-->.*?<!--/fa-injt-->\n?', '', b, flags=re.S)
+    b = re.sub(r'<style id="fa-injc">.*?</style>', '', b, flags=re.S)
+    for a, c in subs: b = b.replace(a, c)
+    body = absol(fix_links(set_alt(blocks), "/" + rel.split("/")[0] + "/"))
     i = b.rfind("<footer")
-    blk = ('<div id="ke-unduhan" style="max-width:1080px;margin:32px auto;padding:16px 20px;border:1px dashed rgba(127,127,127,.4);border-radius:10px;'
-           'display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;align-items:center;font-family:Poppins,sans-serif;font-size:.9rem">'
-           '<span>Cari materi gratis dan publikasi FA?</span><a href="/unduhan/" style="color:inherit;font-weight:600">Materi &amp; Publikasi &#8594;</a></div>')
-    b = b[:i] + blk + "\n" + b[i:]
-    open(bk, "w", encoding="utf-8").write(b)
+    b = b[:i] + "<!--fa-inj-->" + body + "<!--/fa-inj-->\n" + b[i:]
+    b = b.replace("</body>", "<!--fa-injt-->" + absol(tail) + "<!--/fa-injt-->\n</body>", 1)
+    b = re.sub(r'<style id="fa-injbase">.*?</style>', '', b, flags=re.S)
+    b = b.replace('<meta charset="utf-8">', '<meta charset="utf-8"><style id="fa-injbase">' + HOMECSS + "</style>", 1)
+    if css: b = b.replace("</head>", '<style id="fa-injc">' + css + "</style></head>", 1)
+    open(pth, "w", encoding="utf-8").write(b)
+
+BK_CSS = (".bk-steps li{position:relative;padding:18px 18px 18px 58px!important;line-height:1.6}"
+          ".bk-steps li:before{position:absolute;left:18px;top:17px;margin:0!important;width:28px!important;height:28px!important}"
+          "#unduhan,#publikasi{border-top:1px solid var(--line)}")
+inject("buku/index.html", [sec("unduhan"), sec("publikasi")], SH_TOAST + LEAD, BK_CSS,
+       subs=[('Cara membeli</h2>', 'Cara Membeli</h2>'), ('Pertanyaan umum</h2>', 'Pertanyaan Umum</h2>'), ('>Beli paket<', '>Beli Paket<'), ('Paket 6 E-book Penerbit FA</h2>', 'Paket 6 E-Book Penerbit FA</h2>')])
+inject("artikel/index.html", [sec("galeri"), sec("kabar")], LIGHT + FEEDJS,
+       subs=[('<p class="eyebrow">Wawasan</p>', '<p class="eyebrow">Eksplor</p>'),
+             ('Wawasan: Artikel dan Berita Keuangan</h1>', 'Eksplor: Berita, Artikel, dan Galeri</h1>')])
+ud = os.path.join(FA, "unduhan")
+if os.path.isdir(ud): shutil.rmtree(ud)
+rd = os.path.join(FA, "_redirects"); r = open(rd, encoding="utf-8").read()
+if "/unduhan/" not in r:
+    open(rd, "a", encoding="utf-8").write("\n/unduhan/*  /buku/#unduhan  301\n")
 
 sm = os.path.join(FA, "sitemap.xml")
 x = open(sm, encoding="utf-8").read()
-for u in ["https://faindonesia.co.id/layanan/", "https://faindonesia.co.id/unduhan/"]:
+x = x.replace("<url><loc>https://faindonesia.co.id/unduhan/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n", "")
+for u in ["https://faindonesia.co.id/layanan/"]:
     if u not in x:
         x = x.replace("</urlset>", f"<url><loc>{u}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n</urlset>")
 open(sm, "w", encoding="utf-8").write(x)

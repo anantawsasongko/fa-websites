@@ -12,3 +12,5 @@ https://www.faindonesia.co.id/*  https://faindonesia.co.id/:splat  301!
 # FA Venus (kalkulator & app kecil) -> faindonesia-venus
 /cek-psak-118/*  https://faindonesia-venus.netlify.app/cek-psak-118/:splat    200!
 /app/*           https://faindonesia-venus.netlify.app/app/:splat             200!
+
+/unduhan/*  /buku/#unduhan  301

@@ -61,7 +61,7 @@ idx = os.path.join(fa, "index.html")
 s = open(idx, encoding="utf-8").read()
 old_nav = re.search(r'<nav aria-label="Navigasi utama" class="links">.*?</nav>', s, re.S).group(0)
 new_nav = ('<nav aria-label="Navigasi utama" class="links"> <a data-i18n="kapp" href="/apps/">Apps</a> '
-           '<a data-i18n="k2" href="/layanan/">Layanan</a> <a data-i18n="kebk" href="/buku/">E-Book</a> <a data-i18n="kwws" href="/artikel/">Wawasan</a> <a data-i18n="kcak" href="https://cariakuntan.com/" target="_blank" rel="noopener">Cari Akuntan</a> '
+           '<a data-i18n="k2" href="/layanan/">Layanan</a> <a data-i18n="kebk" href="/buku/">E-Book</a> <a data-i18n="kwws" href="/artikel/">Eksplor</a> <a data-i18n="kcak" href="https://cariakuntan.com/" target="_blank" rel="noopener">Cari Akuntan</a> '
            '<a data-i18n="k321" href="#kontak">Kontak</a> </nav>')
 s = s.replace(old_nav, new_nav)
 s = s.replace(' data-netlify="true" netlify-honeypot="bot-field"', '')
@@ -81,7 +81,7 @@ for root, _, files in os.walk(fa):
         t2 = re.sub(r'<a class="btn solid sm" data-i18n="k8" href="/?#kontak">Kontak</a>', '', t)
         if 'Navigasi utama' in t2 and 'id="nav4"' not in t2:
             t2 = t2.replace('</head>', NAV_CSS + '</head>', 1)
-            t2 = t2.replace('"en": {', '"en": {"kapp": "Apps", "kebk": "E-Books", "kcak": "Accountants", "kwws": "Insights", ').replace('"zh": {', '"zh": {"kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kwws": "洞见", ')
+            t2 = t2.replace('"en": {', '"en": {"kapp": "Apps", "kebk": "E-Books", "kcak": "Find Accountants", "kwws": "Explore", ').replace('"zh": {', '"zh": {"kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kwws": "探索", ')
         if m or t2 != t: open(p, "w", encoding="utf-8").write(t2)
 # beranda FA dibuat ringkas (25 Okt 2026): berita hanya di tab Wawasan
 if os.path.exists(os.path.join(fa, "artikel", "index.html")):
