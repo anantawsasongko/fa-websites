@@ -43,3 +43,8 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 - cariakuntan: kartu kebutuhan "Laporan Tahunan PT" (ganti Koperasi), "Pendanaan & IPO" ditambah IPO mapping; 2 artikel baru di gen/berita.json dan gen/lk.json.
 - Deploy 25 Okt: faindonesia dan cariakuntan sudah di-upload ke Cloudflare Pages (live di *.pages.dev).
 - PENTING: domain faindonesia.co.id dan cariakuntan.com masih memakai nameserver NSONE (Netlify). Ganti nameserver di registrar ke amy.ns.cloudflare.com dan hans.ns.cloudflare.com (cek angka NS cariakuntan di dashboard zone-nya), lalu pasang Custom domain di tiap project Pages. Sebelum itu, domain masih menampilkan versi Netlify lama.
+
+## Beranda Ringkas (25 Okt 2026, sore)
+- Beranda FA dibuat ringkas gaya cariakuntan: hero + angka, Peta Layanan (bagan 3 jalur), bar chart kredit cair per bank, Pendekatan (alur 5 tahap), rentang aset klien, Cara Mulai (4 langkah), Jelajahi, Kontak. Berita tidak lagi di beranda (hanya di Wawasan).
+- Section detail dipindah: /layanan/ (layanan, paket, fee, rekam jejak, arsip, galeri, pendiri, grup, ekosistem, afiliasi) dan /unduhan/ (materi gratis, publikasi, kabar kanal; ditautkan dari /buku/). Tab Layanan sekarang ke /layanan/.
+- Script: fa_home_simple_20261025.py, membangun dari backup/index-v58-full-20261025.html (sumber lengkap lama). Untuk edit konten section lama, edit backup lalu jalankan ulang script. Link lama /#rekam dsb otomatis diarahkan ke halaman barunya.
