@@ -79,8 +79,8 @@ def qualifies(el):
     if any(getattr(c, "name", None) and c.name not in INLINE for c in el.children): return False
     if el.name in ("span","b","strong","a","em","small") and el.parent is not None and el.parent.name in ("li","div") :
         # bagian dari kalimat yang lebih panjang? cek teks induk
-        pt = el.parent.get_text(" ", strip=True)
-        if not short_ok(pt) and len(words(pt)) > len(words(el.get_text(" ", strip=True))) + 2: return False
+        own = " ".join(str(x) for x in el.parent.children if isinstance(x, NavigableString) and not isinstance(x, Comment))
+        if len(words(own)) >= 2: return False  # bagian dari kalimat
     return short_ok(el.get_text(" ", strip=True))
 
 def fix_i18n(html, keys):
