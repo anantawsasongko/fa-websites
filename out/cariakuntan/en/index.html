@@ -432,8 +432,8 @@ if(!v0()){show(0);document.getElementById("f_err0").textContent=S.need;return fa
 if(miss.length){e.textContent=S.need_rows+miss.join(", ");show(1);return false}e.textContent="";return true}
 function sheet(m){try{if(!D.gs)return;var g=function(id){var e=document.getElementById(id);return e?e.value:""};var u=f.querySelector("#f_unit");var p=new URLSearchParams();p.append("pt",g("f_pt"));p.append("email",g("f_em"));p.append("goal",goal);p.append("unit",u.options[u.selectedIndex].text);
 S.rows.forEach(function(r){var a=val(r[0]);p.append(r[0],D.yrs.map(function(y,i){return y+": "+(a[i]==null?"-":fmt(a[i]))}).join(" | "))});
-["der","debt","growth","margin","roa"].forEach(function(k){p.append("k_"+k,document.getElementById("k_"+k).querySelector("b").textContent)});
-p.append("nama",g("f_nm"));p.append("wa",g("f_wa"));p.append("lang",document.documentElement.lang||"");p.append("page",location.pathname+" ("+m+")");p.append("summary",summary());
+["der","debt","growth","margin","roa"].forEach(function(k){p.append("k_"+k,"'"+document.getElementById("k_"+k).querySelector("b").textContent)});
+p.append("nama",g("f_nm"));p.append("wa",g("f_wa")?"'"+g("f_wa"):"");p.append("lang",document.documentElement.lang||"");p.append("page",location.pathname+" ("+m+")");p.append("summary",summary());
 if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(x){}}
 function sent(m){sheet(m);document.getElementById("f_done").style.display="block";try{if(window.gtag)gtag("event","generate_lead",{method:m,form:"screening"})}catch(x){}}
 document.getElementById("f_send").addEventListener("click",function(){if(!ok())return;window.open("https://wa.me/"+D.wa+"?text="+encodeURIComponent(summary()),"_blank","noopener");sent("whatsapp")});
