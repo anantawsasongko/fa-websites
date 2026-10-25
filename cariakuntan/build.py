@@ -7,7 +7,7 @@ from news import NEWS
 from cities import CITIES, SECTOR_LINES, REGIONS
 from i18n import LANGS
 from qa import QA
-from land import LAND, landing2, search_widget, SRCH_TXT, cap1
+from land import LAND, landing2, search_widget, SRCH_TXT, cap1, screening_form, SCR
 MAP = json.load(open(os.path.join(ROOT,"map.json")))
 HUBS = ["Jakarta","Surabaya","Medan","Makassar","Batam","Denpasar","Balikpapan","Jayapura","Morowali","Sorong"]
 
@@ -414,7 +414,13 @@ for k, T in LANGS.items():
     html = head(T["meta_title"], T["meta_desc"], DOMAIN+T["path"], "nan" if k=="hokkien" else T["html_lang"], alternates=alts, extra=ldtag(ld))
     _L = LAND[k]; _S = SRCH_TXT[k]
     _sw = search_widget(k, wa(_S["wa"]).split("?text=")[0] + "?text=" + quote(_S["wa"]), [(c[0], slug(c[0])) for c in CITIES])
-    write(T["path"], html + header(T, "home", k) + landing2(T, _L, wa, ICONS, _sw, _S["h2"], _S["sub"]) + footer(T, k)); urls.append(T["path"])
+    write(T["path"], html + header(T, "home", k) + landing2(T, _L, wa, ICONS, _sw, _S["h2"], _S["sub"], screening_form(k, WA, EMAIL), SCR[k]["h2"], SCR[k]["sub"]) + footer(T, k)); urls.append(T["path"])
+
+# halaman screening mandiri
+_scr = screening_form("id", WA, EMAIL)
+html = head("Screening Instan Gratis: Siap Kredit Bank, Investor, atau IPO? | cariakuntan.com","Isi total aset, utang bank, pendapatan, dan laba 3 tahun terakhir. Indikasi awal langsung tampil, hasil lengkap dikirim ke email Anda. Gratis.",DOMAIN+"/screening/")
+html += header(ID,"home") + f'''<main class="wrap art" style="max-width:1100px"><p class="label">Screening Awal</p><h1>{SCR["id"]["h2"]}</h1><p class="sub">{SCR["id"]["sub"]}</p><div style="margin-top:26px">{_scr}</div></main>''' + footer(ID)
+write("/screening/", html); urls.append("/screening/")
 
 import glob as _g
 GEN = []
