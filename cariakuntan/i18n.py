@@ -2,7 +2,7 @@ LANGS = {
 "id": dict(
  path="/", html_lang="id", switch="ID",
  meta_title="Cari Akuntan Publik, KAP, Konsultan Pajak & KJPP di Seluruh Indonesia | cariakuntan.com",
- meta_desc="Butuh auditor, konsultan pajak, atau penilai? Kantor berizin yang diterima bank, untuk usaha Rp5 miliar sampai korporasi Rp2 triliun, PMDN maupun PMA. Aceh sampai Papua.",
+ meta_desc="Screening awal gratis sebelum Anda membayar akuntan, audit, atau KJPP: cek rasio untuk kredit bank, investor, dan IPO, lalu kami dampingi memilih kantor berizin sampai tuntas. Seluruh Indonesia.",
  nav_home="Beranda", nav_ins="Wawasan",
  label="Audit · Pajak · Penilaian · Pendanaan",
  h1="Butuh Auditor, Konsultan Pajak, atau Penilai? Kami Carikan.",

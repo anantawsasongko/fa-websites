@@ -7,6 +7,7 @@ from news import NEWS
 from cities import CITIES, SECTOR_LINES, REGIONS
 from i18n import LANGS
 from qa import QA
+from land import LAND, landing2, search_widget, SRCH_TXT, cap1
 MAP = json.load(open(os.path.join(ROOT,"map.json")))
 HUBS = ["Jakarta","Surabaya","Medan","Makassar","Batam","Denpasar","Balikpapan","Jayapura","Morowali","Sorong"]
 
@@ -409,9 +410,11 @@ for k, T in LANGS.items():
     ld = {"@context":"https://schema.org","@graph":[
         {"@type":"ProfessionalService","@id":DOMAIN+"/#svc","name":"cariakuntan.com","url":DOMAIN+"/","email":"ananta@faindonesia.co.id","areaServed":"ID",
          "founder":{"@type":"Person","name":"Ananta","honorificSuffix":"CPA"},"parentOrganization":{"@type":"Organization","name":"FA Indonesia","url":"https://faindonesia.co.id/"}},
-        {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub("<[^>]+>","",a)}} for q,a in T["faqs"]]}]}
+        ]}
     html = head(T["meta_title"], T["meta_desc"], DOMAIN+T["path"], "nan" if k=="hokkien" else T["html_lang"], alternates=alts, extra=ldtag(ld))
-    write(T["path"], html + header(T, "home", k) + landing_body(T) + footer(T, k)); urls.append(T["path"])
+    _L = LAND[k]; _S = SRCH_TXT[k]
+    _sw = search_widget(k, wa(_S["wa"]).split("?text=")[0] + "?text=" + quote(_S["wa"]), [(c[0], slug(c[0])) for c in CITIES])
+    write(T["path"], html + header(T, "home", k) + landing2(T, _L, wa, ICONS, _sw, _S["h2"], _S["sub"]) + footer(T, k)); urls.append(T["path"])
 
 import glob as _g
 GEN = []
@@ -422,7 +425,7 @@ for a in NEWS + GEN + ARTICLES:
     if a["slug"] in _seen: continue
     _seen.add(a["slug"]); a.setdefault("date", TODAY); a.setdefault("sources", []); _all.append(a)
 _all.sort(key=lambda a: (a.get("date",TODAY)), reverse=True)
-ALL = [dict(a, title=tc(a["title"]), body=tc_h2(a["body"])) for a in _all]
+ALL = [dict(a, title=tc(a["title"]), body=tc_h2(a["body"]), tag=tc(cap1(a["tag"]))) for a in _all]
 FEED = json.load(open(os.path.join(ROOT,"feed.json"))) if os.path.exists(os.path.join(ROOT,"feed.json")) else []
 for a in ALL:
     url = f"{DOMAIN}/artikel/{a['slug']}/"
@@ -463,8 +466,41 @@ if FEED:
     feed_html = f'<section class="feed"><div class="feed-h"><h2>Berita Terkini</h2><span>Diperbarui otomatis setiap hari dari media bisnis nasional</span></div><ul>{items}</ul></section>'
 hub_css = """<style>.feed{margin-top:26px;border:1px solid var(--line);padding:18px 20px;background:var(--panel)}.feed-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;align-items:baseline}.feed-h h2{font-size:1.2rem}.feed-h span{font-size:.82rem;color:var(--muted)}.feed ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:0}.feed li{display:grid;gap:2px;padding:10px 0;border-top:1px solid var(--line)}.feed li a{color:var(--ink);text-decoration:none;font-weight:500}.feed li a:hover{color:var(--accent)}.feed li span{font-size:.8rem;color:var(--muted)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 6px}.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:7px 13px;border-radius:999px;font:500 .86rem var(--body);cursor:pointer}.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}.card[hidden]{display:none}.cnt{font-size:.86rem;color:var(--muted);margin-top:4px}</style>"""
 hub_js = """<script>(function(){var c=document.querySelectorAll('.chip'),k=document.querySelectorAll('.card[data-t]'),n=document.getElementById('cnt');function f(t){var v=0;k.forEach(function(e){var s=!t||e.getAttribute('data-t')===t;e.hidden=!s;if(s)v++});n.textContent=v+' artikel';c.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-t')===t)})}c.forEach(function(b){b.addEventListener('click',function(){f(b.getAttribute('data-t'))})});f('')})();</script>"""
-html = head("Wawasan: Audit, Pajak, Penilaian &amp; Pendanaan | cariakuntan.com","Berita terkini dan panduan ringkas soal audit, laporan keuangan untuk kredit bank, pajak, PMA, BPR, rumah sakit, KJPP, dan IPO di seluruh Indonesia.",DOMAIN+"/artikel/", extra=hub_css)
-html += header(ID,"art") + f'<main class="wrap art"><p class="label">Wawasan</p><h1>Audit, Penilaian, Perpajakan, dan Pendanaan</h1><p class="sub">Berita terkini dan panduan ringkas bagi direksi, manajer keuangan, dan fungsi risiko perbankan.</p>{feed_html}<div class="chips">{chips}</div><p class="cnt" id="cnt"></p><div class="list" style="margin-top:10px"><a class="card" data-t="Tanya jawab" href="/artikel/tanya-jawab/"><span class="label">Tanya jawab</span><h2 style="font-size:1.2rem">Tanya Jawab Audit, KAP, Pajak, dan Kredit Bank</h2><p>Jawaban singkat untuk pertanyaan yang paling sering diajukan.</p></a>{cards}</div></main>\n' + hub_js + footer(ID)
+def wawasan_blocks():
+    T = ID
+    aud = "".join(f"<div><h3>{a}</h3><p>{b}</p></div>" for a,b in T["aud"])
+    FULL = {"OJK":"Otoritas Jasa Keuangan","KEMENKEU":"Kementerian Keuangan","IAPI":"Institut Akuntan Publik Indonesia","IAI":"Ikatan Akuntan Indonesia","IKPI":"Ikatan Konsultan Pajak Indonesia","MAPPI":"Masyarakat Profesi Penilai Indonesia"}
+    creds = "".join(f'<div class="cred"><span class="mono">{a}</span><div><b>{FULL[a]}</b><span>{b}</span></div></div>' for a,b in T["creds"])
+    faqs = "".join(f"<details{' open' if i==0 else ''}><summary>{q}</summary><p>{a}</p></details>" for i,(q,a) in enumerate(T["faqs"]))
+    S = SRCH_TXT["id"]
+    sw = search_widget("id", wa(S["wa"]), [(c[0], slug(c[0])) for c in CITIES])
+    return f'''<div class="wv">
+  <section id="cek-izin-resmi"><div class="wrap"><h2 class="sec-h">{S["h2"]}</h2><p class="sub" style="margin:-6px 0 18px">{S["sub"]}</p>{sw}</div></section>
+  <section><div class="wrap"><h2 class="sec-h">{T["map_h2"]}</h2>{india_map(T)}</div></section>
+  {popular_block()}
+  <section><div class="wrap two">
+    <div><h2 class="sec-h">{T["trig_h2"]}</h2>{table(T["trig_head"], T["trig_rows"])}<p class="tnote">{T["trig_note"]}</p></div>
+    <div><h2 class="sec-h">{T["cmp_h2"]}</h2>{table(T["cmp_head"], T["cmp_rows"])}</div>
+  </div></section>
+  <section><div class="wrap"><h2 class="sec-h">{T["aud_h2"]}</h2><div class="aud">{aud}</div></div></section>
+  <section><div class="wrap"><h2 class="sec-h">{T["scale_h2"]}</h2>{table(T["scale_head"], T["scale_rows"])}</div></section>
+  <section><div class="wrap"><h2 class="sec-h">{T["docs_h2"]}</h2>{table(T["docs_head"], T["docs_rows"])}</div></section>
+  <section><div class="wrap two">
+    <div><h2 class="sec-h">{T["time_h2"]}</h2>{timetable(T["time_head"], T["time_rows"])}<p class="tnote">{T["time_note"]}</p></div>
+    <div><h2 class="sec-h">{T["ind_h2"]}</h2>{table(T["ind_head"], T["ind_rows"])}</div>
+  </div></section>
+  <section><div class="wrap two">
+    <div><h2 class="sec-h">{T["bank_h2"]}</h2>{table(T["bank_head"], T["bank_rows"], kcol=True)}</div>
+    <div><h2 class="sec-h">{T["who_h2"]}</h2>{table(T["who_head"], T["who_rows"], ycol=2)}<p class="lic">{T["lic"]}</p></div>
+  </div></section>
+  <section><div class="wrap"><h2 class="sec-h">{T["cred_h2"]}</h2><div class="creds">{creds}</div></div></section>
+  <section id="faq"><div class="wrap"><h2 class="sec-h">{T["faq_h2"]}</h2>{faqs}</div></section>
+</div>
+<script>(function(){{var s=document.querySelectorAll(".wv section");s.forEach(function(sec){{sec.classList.add("rv");sec.querySelectorAll(".tbl tbody tr").forEach(function(tr,i){{tr.style.setProperty("--r",i);tr.querySelectorAll("td").forEach(function(td,j){{td.style.setProperty("--c",j)}})}})}});if("IntersectionObserver" in window){{var io=new IntersectionObserver(function(es){{es.forEach(function(e){{if(e.isIntersecting){{e.target.classList.add("in");io.unobserve(e.target)}}}})}},{{threshold:.12}});s.forEach(function(x){{io.observe(x)}})}}else{{s.forEach(function(x){{x.classList.add("in")}})}}}})();</script>
+'''
+_faq_ld = ldtag({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub("<[^>]+>","",a)}} for q,a in ID["faqs"]]})
+html = head("Wawasan: Audit, Pajak, Penilaian &amp; Pendanaan | cariakuntan.com","Berita terkini, panduan ringkas, cek izin resmi KAP dan KJPP, serta layanan per kota soal audit, laporan keuangan, pajak, dan IPO di seluruh Indonesia.",DOMAIN+"/artikel/", extra=hub_css + _faq_ld)
+html += header(ID,"art") + f'<main class="wrap art"><p class="label">Wawasan</p><h1>Audit, Penilaian, Perpajakan, dan Pendanaan</h1><p class="sub">Berita terkini dan panduan ringkas bagi direksi, manajer keuangan, dan fungsi risiko perbankan.</p>{feed_html}<div class="chips">{chips}</div><p class="cnt" id="cnt"></p><div class="list" style="margin-top:10px"><a class="card" data-t="Tanya Jawab" href="/artikel/tanya-jawab/"><span class="label">Tanya Jawab</span><h2 style="font-size:1.2rem">Tanya Jawab Audit, KAP, Pajak, dan Kredit Bank</h2><p>Jawaban singkat untuk pertanyaan yang paling sering diajukan.</p></a>{cards}</div></main>\n' + wawasan_blocks() + hub_js + footer(ID)
 write("/artikel/", html); urls.append("/artikel/")
 
 def sector_html(x):
