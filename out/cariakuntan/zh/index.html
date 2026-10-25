@@ -341,7 +341,7 @@ footer a{color:var(--muted)}
 </style><main class="l2">
   <section class="hero"><div class="wrap">
     <p class="label">前期筛查 · 全程陪同</p>
-    <h1>先看方向，再付钱请会计师。</h1>
+    <h1>先看方向，再付钱请会计师与相关专业人士。</h1>
     <p class="sub">许多公司先付钱编制报表或审计，之后才发现比率过不了银行、投资人或上市的门槛。我们先免费筛查，再陪您走完全程。</p>
     <div class="cta"><a class="btn btn-wa arrow" href="#screening">免费即时筛查</a><a class="btn btn-line" href="https://wa.me/6282245260121?text=%E6%82%A8%E5%A5%BD%20Ananta%20%E5%85%88%E7%94%9F%EF%BC%8C%E6%88%91%E4%BB%AC%E6%83%B3%E5%9C%A8%E9%80%89%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B9%8B%E5%89%8D%EF%BC%8C%E5%85%88%E8%AF%B7%E6%82%A8%E7%AD%9B%E6%9F%A5%E6%88%91%E4%BB%AC%E7%9A%84%E8%B4%A2%E5%8A%A1%E6%8A%A5%E8%A1%A8%E3%80%82" target="_blank" rel="noopener">WhatsApp</a></div>
   </div></section>
@@ -349,6 +349,7 @@ footer a{color:var(--muted)}
 .scr{max-width:980px;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
 .scr .f{padding:26px 26px 22px;display:grid;gap:16px;align-content:start}
 .scr .pv{padding:26px;background:linear-gradient(160deg,#0B1F33,#163a63);color:#fff;display:grid;gap:14px;align-content:start}
+.scr .pv{position:relative}.scr .pv.lock .kpis{filter:blur(5px);opacity:.5;pointer-events:none}.scr .pv .lk{display:none}.scr .pv.lock .lk{display:grid;place-items:center;gap:8px;text-align:center;position:absolute;inset:70px 26px auto;z-index:2;padding:18px;background:rgba(11,31,51,.85);border:1px solid rgba(255,255,255,.2);animation:up .4s ease both}.scr .pv .lk span{font-size:1.6rem}.scr label .rq{color:#B42318;font-style:normal;margin-left:3px}
 .scr .pv h3{color:#fff;font-family:var(--display);font-size:1.25rem}
 .scr .pv .note{font-size:.8rem;color:rgba(255,255,255,.65)}
 .stp{display:flex;gap:6px;align-items:center}
@@ -363,7 +364,7 @@ footer a{color:var(--muted)}
 .chipsg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .grid3{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:8px;align-items:center}
 .grid3 .yh{font-size:.78rem;color:var(--muted);font-weight:600;text-align:center}
-.grid3 .rl{font-size:.86rem;font-weight:600}
+.grid3 .rl{font-size:.86rem;font-weight:600;display:block}.grid3 .rl .rq{color:#B42318;font-style:normal;margin-left:3px;display:inline}.grid3 .rl .op{display:block;font-weight:400;color:var(--muted);font-size:.72rem}.grid3 input.miss{border-color:#B42318;background:#FFF5F5}
 .grid3 input{text-align:right;padding:10px 10px;font-variant-numeric:tabular-nums}
 .nav2{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
 .nav2 .btn-line{background:#fff}
@@ -381,18 +382,19 @@ footer a{color:var(--muted)}
  <div class="f">
   <div class="stp"><span class="on" data-s="0">1 · 公司</span><span data-s="1">2 · 三年数字</span><span data-s="2">3 · 联系方式</span></div>
   <div class="pane on" data-p="0">
-    <label>公司名称<input id="f_pt" placeholder="PT 示例公司" autocomplete="organization"></label>
+    <label><span>公司名称<em class="rq">*</em></span><input id="f_pt" placeholder="PT 示例公司" autocomplete="organization" required></label>
+    <label><span>邮箱<em class="rq">*</em></span><input id="f_em" type="email" placeholder="name@company.com" autocomplete="email" required></label>
     <label>目标</label><div class="chipsg" id="f_goal"><button type="button" data-g="银行贷款" class=on>银行贷款</button><button type="button" data-g="投资人">投资人</button><button type="button" data-g="上市">上市</button><button type="button" data-g="还不确定">还不确定</button></div>
-    <div class="nav2"><span></span><button class="btn btn-wa arrow" type="button" data-go="1">下一步</button></div>
+    <p class="err" id="f_err0"></p>
+    <div class="nav2"><span></span><button class="btn btn-wa arrow" type="button" id="f_go1">下一步</button></div>
   </div>
   <div class="pane" data-p="1">
     <label style="max-width:220px">单位<select id="f_unit"><option value="1000000">百万印尼盾</option><option value="1000000000" selected>十亿印尼盾</option></select></label>
-    <div class="grid3"><span></span><span class="yh">2023</span><span class="yh">2024</span><span class="yh">2025</span><span class="rl">总资产</span><input inputmode="decimal" data-k="aset" data-y="0" aria-label="总资产 2023" placeholder="0"><input inputmode="decimal" data-k="aset" data-y="1" aria-label="总资产 2024" placeholder="0"><input inputmode="decimal" data-k="aset" data-y="2" aria-label="总资产 2025" placeholder="0"><span class="rl">银行负债</span><input inputmode="decimal" data-k="utang" data-y="0" aria-label="银行负债 2023" placeholder="0"><input inputmode="decimal" data-k="utang" data-y="1" aria-label="银行负债 2024" placeholder="0"><input inputmode="decimal" data-k="utang" data-y="2" aria-label="银行负债 2025" placeholder="0"><span class="rl">营业收入</span><input inputmode="decimal" data-k="rev" data-y="0" aria-label="营业收入 2023" placeholder="0"><input inputmode="decimal" data-k="rev" data-y="1" aria-label="营业收入 2024" placeholder="0"><input inputmode="decimal" data-k="rev" data-y="2" aria-label="营业收入 2025" placeholder="0"><span class="rl">税前利润</span><input inputmode="decimal" data-k="lsp" data-y="0" aria-label="税前利润 2023" placeholder="0"><input inputmode="decimal" data-k="lsp" data-y="1" aria-label="税前利润 2024" placeholder="0"><input inputmode="decimal" data-k="lsp" data-y="2" aria-label="税前利润 2025" placeholder="0"></div>
+    <div class="grid3"><span></span><span class="yh">2023</span><span class="yh">2024</span><span class="yh">2025</span><span class="rl">总资产<em class="rq">*</em></span><input inputmode="decimal" data-k="aset" data-y="0" aria-label="总资产 2023" placeholder="0"><input inputmode="decimal" data-k="aset" data-y="1" aria-label="总资产 2024" placeholder="0"><input inputmode="decimal" data-k="aset" data-y="2" aria-label="总资产 2025" placeholder="0"><span class="rl">总负债<em class="rq">*</em></span><input inputmode="decimal" data-k="liab" data-y="0" aria-label="总负债 2023" placeholder="0"><input inputmode="decimal" data-k="liab" data-y="1" aria-label="总负债 2024" placeholder="0"><input inputmode="decimal" data-k="liab" data-y="2" aria-label="总负债 2025" placeholder="0"><span class="rl">银行借款<em class="rq">*</em></span><input inputmode="decimal" data-k="utang" data-y="0" aria-label="银行借款 2023" placeholder="0"><input inputmode="decimal" data-k="utang" data-y="1" aria-label="银行借款 2024" placeholder="0"><input inputmode="decimal" data-k="utang" data-y="2" aria-label="银行借款 2025" placeholder="0"><span class="rl">营业收入<em class="rq">*</em></span><input inputmode="decimal" data-k="rev" data-y="0" aria-label="营业收入 2023" placeholder="0"><input inputmode="decimal" data-k="rev" data-y="1" aria-label="营业收入 2024" placeholder="0"><input inputmode="decimal" data-k="rev" data-y="2" aria-label="营业收入 2025" placeholder="0"><span class="rl">净利润<em class="rq">*</em></span><input inputmode="decimal" data-k="lb" data-y="0" aria-label="净利润 2023" placeholder="0"><input inputmode="decimal" data-k="lb" data-y="1" aria-label="净利润 2024" placeholder="0"><input inputmode="decimal" data-k="lb" data-y="2" aria-label="净利润 2025" placeholder="0"><span class="rl">EBITDA<small class="op">可选</small></span><input inputmode="decimal" data-k="ebitda" data-y="0" aria-label="EBITDA 2023" placeholder="0"><input inputmode="decimal" data-k="ebitda" data-y="1" aria-label="EBITDA 2024" placeholder="0"><input inputmode="decimal" data-k="ebitda" data-y="2" aria-label="EBITDA 2025" placeholder="0"><span class="rl">有形净资产 NTA<small class="op">可选</small></span><input inputmode="decimal" data-k="nta" data-y="0" aria-label="有形净资产 NTA 2023" placeholder="0"><input inputmode="decimal" data-k="nta" data-y="1" aria-label="有形净资产 NTA 2024" placeholder="0"><input inputmode="decimal" data-k="nta" data-y="2" aria-label="有形净资产 NTA 2025" placeholder="0"></div>
     <div class="nav2"><button class="btn btn-line" type="button" data-go="0">返回</button><button class="btn btn-wa arrow" type="button" data-go="2">下一步</button></div>
   </div>
   <div class="pane" data-p="2">
     <label>您的姓名<input id="f_nm" autocomplete="name"></label>
-    <label>邮箱<input id="f_em" type="email" placeholder="name@company.com" autocomplete="email"></label>
     <label>WhatsApp（可选）<input id="f_wa" type="tel" autocomplete="tel"></label>
     <p class="err" id="f_err"></p>
     <div class="nav2"><button class="btn btn-line" type="button" data-go="1">返回</button><span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-line" type="button" id="f_mail">通过邮件发送</button><button class="btn btn-wa arrow" type="button" id="f_send">通过 WhatsApp 发送</button></span></div>
@@ -400,30 +402,40 @@ footer a{color:var(--muted)}
     <p class="privacy">数据仅用于筛查，并严格保密。</p>
   </div>
  </div>
- <div class="pv"><h3>初步指标</h3><div class="kpis"><div class="kp" id="k_debt"><small>银行负债/资产</small><b>-</b><i></i><em></em></div><div class="kp" id="k_growth"><small>收入增长</small><b>-</b><i></i><em></em></div><div class="kp" id="k_margin"><small>税前利润率</small><b>-</b><i></i><em></em></div><div class="kp" id="k_roa"><small>利润/资产</small><b>-</b><i></i><em></em></div></div><p class="note">根据您填写的数字自动计算，并非意见。完整结果与建议路线将发到您的邮箱。</p></div>
+ <div class="pv lock" id="f_pv"><div class="lk"><span>🔒</span><b>填写公司名称和邮箱后即可查看初步指标。</b></div><h3>初步指标</h3><div class="kpis"><div class="kp" id="k_der"><small>负债/权益 (DER)</small><b>-</b><i></i><em></em></div><div class="kp" id="k_debt"><small>银行借款/EBITDA</small><b>-</b><i></i><em></em></div><div class="kp" id="k_growth"><small>收入增长</small><b>-</b><i></i><em></em></div><div class="kp" id="k_margin"><small>净利润率</small><b>-</b><i></i><em></em></div><div class="kp" id="k_roa"><small>净利润/资产</small><b>-</b><i></i><em></em></div></div><p class="note">根据您填写的数字自动计算，并非意见。完整结果与建议路线将发到您的邮箱。</p></div>
 </form>
-<script>(function(){var D={"S": {"h2": "免费即时筛查", "sub": "填写近三年的简要数字，立即看到初步指标，完整结果发到您的邮箱。", "s1": "公司", "s2": "三年数字", "s3": "联系方式", "pt": "公司名称", "pt_ph": "PT 示例公司", "goal": "目标", "goals": ["银行贷款", "投资人", "上市", "还不确定"], "unit": "单位", "units": [["1000000", "百万印尼盾"], ["1000000000", "十亿印尼盾"]], "rows": [["aset", "总资产"], ["utang", "银行负债"], ["rev", "营业收入"], ["lsp", "税前利润"]], "name": "您的姓名", "email": "邮箱", "email_ph": "name@company.com", "wa": "WhatsApp（可选）", "next": "下一步", "back": "返回", "send": "通过 WhatsApp 发送", "send2": "通过邮件发送", "prev_h": "初步指标", "note": "根据您填写的数字自动计算，并非意见。完整结果与建议路线将发到您的邮箱。", "k_debt": "银行负债/资产", "k_growth": "收入增长", "k_margin": "税前利润率", "k_roa": "利润/资产", "good": "健康", "mid": "需核查", "bad": "需整改", "need": "请填写公司名称、邮箱和至少一年的数字。", "wa_head": "您好 Ananta 先生，请为我们公司做初步筛查：", "thanks": "已发送。完整结果通常当天发到您的邮箱。", "privacy": "数据仅用于筛查，并严格保密。"}, "yrs": [2023, 2024, 2025], "wa": "6282245260121", "to": "ananta@faindonesia.co.id"},S=D.S,f=document.getElementById("screening");if(!f)return;
+<script>(function(){var D={"S": {"h2": "免费即时筛查", "sub": "填写近三年的简要数字，立即看到初步指标，完整结果发到您的邮箱。", "s1": "公司", "s2": "三年数字", "s3": "联系方式", "pt": "公司名称", "pt_ph": "PT 示例公司", "goal": "目标", "goals": ["银行贷款", "投资人", "上市", "还不确定"], "unit": "单位", "units": [["1000000", "百万印尼盾"], ["1000000000", "十亿印尼盾"]], "rows": [["aset", "总资产"], ["liab", "总负债"], ["utang", "银行借款"], ["rev", "营业收入"], ["lb", "净利润"], ["ebitda", "EBITDA"], ["nta", "有形净资产 NTA"]], "req": ["aset", "liab", "utang", "rev", "lb"], "opt": "可选", "name": "您的姓名", "email": "邮箱", "email_ph": "name@company.com", "wa": "WhatsApp（可选）", "next": "下一步", "back": "返回", "send": "通过 WhatsApp 发送", "send2": "通过邮件发送", "prev_h": "初步指标", "note": "根据您填写的数字自动计算，并非意见。完整结果与建议路线将发到您的邮箱。", "k_der": "负债/权益 (DER)", "k_debt": "银行借款/EBITDA", "k_growth": "收入增长", "k_margin": "净利润率", "k_roa": "净利润/资产", "k_noebitda": "请填 EBITDA", "need_rows": "最近一年必填：", "good": "健康", "mid": "需核查", "bad": "需整改", "need": "请填写公司名称和有效邮箱。", "lock": "填写公司名称和邮箱后即可查看初步指标。", "wa_head": "您好 Ananta 先生，请为我们公司做初步筛查：", "thanks": "已发送。完整结果通常当天发到您的邮箱。", "privacy": "数据仅用于筛查，并严格保密。"}, "yrs": [2023, 2024, 2025], "wa": "6282245260121", "to": "ananta@faindonesia.co.id", "gs": ""},S=D.S,f=document.getElementById("screening");if(!f)return;
 var goal=S.goals[0];f.querySelectorAll("#f_goal button").forEach(function(b){b.addEventListener("click",function(){f.querySelectorAll("#f_goal button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");goal=b.getAttribute("data-g")})});
-function show(i){f.querySelectorAll(".pane").forEach(function(p){p.classList.toggle("on",+p.getAttribute("data-p")===i)});f.querySelectorAll(".stp span").forEach(function(s){s.classList.toggle("on",+s.getAttribute("data-s")<=i)})}
+function show(i){if(i>0&&typeof unlocked!=="undefined"&&!unlocked)i=0;f.querySelectorAll(".pane").forEach(function(p){p.classList.toggle("on",+p.getAttribute("data-p")===i)});f.querySelectorAll(".stp span").forEach(function(s){s.classList.toggle("on",+s.getAttribute("data-s")<=i)})}
 f.querySelectorAll("[data-go]").forEach(function(b){b.addEventListener("click",function(){show(+b.getAttribute("data-go"))})});
+var unlocked=false;function v0(){var pt=document.getElementById("f_pt").value.trim(),em=document.getElementById("f_em").value.trim();return pt.length>2&&/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em)}
+document.getElementById("f_go1").addEventListener("click",function(){var e=document.getElementById("f_err0");if(!v0()){e.textContent=S.need;return}e.textContent="";unlocked=true;document.getElementById("f_pv").classList.remove("lock");show(1);calc()});
 function num(v){v=(v||"").replace(/\s/g,"");if(!v)return null;var neg=/^[-(]/.test(v);v=v.replace(/[^0-9.,]/g,"");if(/,\d{1,2}$/.test(v))v=v.replace(/\./g,"").replace(",",".");else v=v.replace(/[.,]/g,"");var n=parseFloat(v);if(isNaN(n))return null;return neg?-n:n}
 function fmt(n){return n.toLocaleString("id-ID")}function pc(x,d){return x.toFixed(d).replace(".",",")}
 f.querySelectorAll(".grid3 input").forEach(function(i){i.addEventListener("blur",function(){var n=num(i.value);i.value=n==null?"":fmt(n);calc()});i.addEventListener("input",calc)});
 function val(k){var a=[];f.querySelectorAll('.grid3 input[data-k="'+k+'"]').forEach(function(i){a[+i.getAttribute("data-y")]=num(i.value)});return a}
 function last(a){for(var i=2;i>=0;i--)if(a[i]!=null)return i;return -1}
 function set(id,txt,w,lvl){var e=document.getElementById("k_"+id);var c=lvl===2?"#3DD68C":lvl===1?"#F5B53D":lvl===0?"#FF6B6B":"#7FA0F5";e.querySelector("b").textContent=txt;e.querySelector("em").textContent=lvl===2?S.good:lvl===1?S.mid:lvl===0?S.bad:"";e.style.setProperty("--c",c);e.style.setProperty("--w",Math.max(4,Math.min(100,w))+"%")}
-function calc(){var A=val("aset"),U=val("utang"),R=val("rev"),L=val("lsp"),ia=last(A);
-if(ia>=0&&A[ia]&&U[ia]!=null){var d=U[ia]/A[ia]*100;set("debt",pc(d,0)+"%",d,d<=40?2:d<=65?1:0)}else set("debt","-",0,-1);
+function calc(){var A=val("aset"),Lb=val("liab"),U=val("utang"),R=val("rev"),N=val("lb"),E=val("ebitda"),ia=last(A);
+var il=last(Lb);if(il>=0&&A[il]!=null&&A[il]-Lb[il]>0){var d=Lb[il]/(A[il]-Lb[il]);set("der",pc(d,2)+"x",d*30,d<=1?2:d<=2.5?1:0)}else if(il>=0&&A[il]!=null){set("der","Ekuitas negatif",100,0)}else set("der","-",0,-1);
+var ie=last(E);if(ie>=0&&U[ie]!=null&&E[ie]>0){var x=U[ie]/E[ie];set("debt",pc(x,1)+"x",x*18,x<=3?2:x<=4.5?1:0)}else if(U.some(function(v){return v!=null})&&ie<0){set("debt",S.k_noebitda,0,-1)}else set("debt","-",0,-1);
 var ir=last(R),i0=R.findIndex(function(x){return x!=null&&x>0});if(ir>i0&&i0>=0){var n=ir-i0,g=(Math.pow(R[ir]/R[i0],1/n)-1)*100;set("growth",(g>0?"+":"")+pc(g,0)+"%/th",50+g,g>=10?2:g>=0?1:0)}else set("growth","-",0,-1);
-var il=last(L);if(il>=0&&R[il]){var m=L[il]/R[il]*100;set("margin",pc(m,1)+"%",m*4,m>=8?2:m>=0?1:0)}else set("margin","-",0,-1);
-if(il>=0&&A[il]){var r=L[il]/A[il]*100;set("roa",pc(r,1)+"%",r*6,r>=5?2:r>=0?1:0)}else set("roa","-",0,-1)}
+var iL=last(N);if(iL>=0&&R[iL]){var m=N[iL]/R[iL]*100;set("margin",pc(m,1)+"%",m*5,m>=5?2:m>=0?1:0)}else set("margin","-",0,-1);
+if(iL>=0&&A[iL]){var r=N[iL]/A[iL]*100;set("roa",pc(r,1)+"%",r*8,r>=5?2:r>=0?1:0)}else set("roa","-",0,-1)}
 function summary(){var u=f.querySelector("#f_unit");var ut=u.options[u.selectedIndex].text;var lines=[S.wa_head,"","PT: "+document.getElementById("f_pt").value,"Tujuan: "+goal,"Satuan: "+ut,""];
 S.rows.forEach(function(r){var a=val(r[0]);lines.push(r[1]+": "+D.yrs.map(function(y,i){return y+" "+(a[i]==null?"-":fmt(a[i]))}).join(" | "))});
-lines.push("");["debt","growth","margin","roa"].forEach(function(k){var e=document.getElementById("k_"+k);lines.push(S["k_"+k]+": "+e.querySelector("b").textContent)});
+lines.push("");["der","debt","growth","margin","roa"].forEach(function(k){var e=document.getElementById("k_"+k);lines.push(S["k_"+k]+": "+e.querySelector("b").textContent)});
 lines.push("","Nama: "+document.getElementById("f_nm").value,"Email: "+document.getElementById("f_em").value,"WA: "+(document.getElementById("f_wa").value||"-"));return lines.join("\n")}
-function ok(){var e=document.getElementById("f_err");var em=document.getElementById("f_em").value.trim();var has=["aset","rev"].some(function(k){return val(k).some(function(x){return x!=null})});
-if(!document.getElementById("f_pt").value.trim()||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)||!has){e.textContent=S.need;return false}e.textContent="";return true}
-function sent(m){document.getElementById("f_done").style.display="block";try{if(window.gtag)gtag("event","generate_lead",{method:m,form:"screening"})}catch(x){}}
+function ok(){var e=document.getElementById("f_err");var em=document.getElementById("f_em").value.trim();var miss=[];f.querySelectorAll(".grid3 input").forEach(function(x){x.classList.remove("miss")});
+S.req.forEach(function(k){var inp=f.querySelector('.grid3 input[data-k="'+k+'"][data-y="2"]');if(num(inp.value)==null){inp.classList.add("miss");miss.push(S.rows.filter(function(r){return r[0]===k})[0][1])}});
+if(!v0()){show(0);document.getElementById("f_err0").textContent=S.need;return false}
+if(miss.length){e.textContent=S.need_rows+miss.join(", ");show(1);return false}e.textContent="";return true}
+function sheet(m){try{if(!D.gs)return;var g=function(id){var e=document.getElementById(id);return e?e.value:""};var u=f.querySelector("#f_unit");var p=new URLSearchParams();p.append("pt",g("f_pt"));p.append("email",g("f_em"));p.append("goal",goal);p.append("unit",u.options[u.selectedIndex].text);
+S.rows.forEach(function(r){var a=val(r[0]);p.append(r[0],D.yrs.map(function(y,i){return y+": "+(a[i]==null?"-":fmt(a[i]))}).join(" | "))});
+["der","debt","growth","margin","roa"].forEach(function(k){p.append("k_"+k,document.getElementById("k_"+k).querySelector("b").textContent)});
+p.append("nama",g("f_nm"));p.append("wa",g("f_wa"));p.append("lang",document.documentElement.lang||"");p.append("page",location.pathname+" ("+m+")");p.append("summary",summary());
+if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(x){}}
+function sent(m){sheet(m);document.getElementById("f_done").style.display="block";try{if(window.gtag)gtag("event","generate_lead",{method:m,form:"screening"})}catch(x){}}
 document.getElementById("f_send").addEventListener("click",function(){if(!ok())return;window.open("https://wa.me/"+D.wa+"?text="+encodeURIComponent(summary()),"_blank","noopener");sent("whatsapp")});
 document.getElementById("f_mail").addEventListener("click",function(){if(!ok())return;location.href="mailto:"+D.to+"?subject="+encodeURIComponent("Screening: "+document.getElementById("f_pt").value)+"&body="+encodeURIComponent(summary());sent("email")});
 calc()})();</script></div></section>

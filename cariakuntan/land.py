@@ -4,8 +4,8 @@
 LAND = {
 "id": dict(
   label="Screening Awal · Pendampingan Proses",
-  h1="Cek Dulu Arahnya, Baru Bayar Akuntan.",
-  sub="Banyak perusahaan terlanjur membayar penyusunan laporan atau audit, lalu baru tahu rasionya tidak lolos bank, investor, atau IPO. Kami screening dulu, gratis, lalu dampingi sampai tuntas.",
+  h1="Cek Dulu Arahnya, Baru Bayar Akuntan &amp; Profesi Penunjang.",
+  sub="Banyak perusahaan terlanjur membayar penyusunan laporan, audit, penilai, atau notaris, lalu baru tahu rasionya tidak lolos bank, investor, atau IPO. Kami screening dulu, gratis, lalu dampingi sampai tuntas.",
   cta="Screening Gratis via WhatsApp",
   wa_hero="Selamat siang Pak Ananta, saya ingin screening awal laporan keuangan perusahaan kami sebelum memilih akuntan.",
   trap_h2="Salah Langkah yang Paling Mahal",
@@ -18,7 +18,7 @@ LAND = {
   center_sub="Laporan terakhir dan tujuan Anda",
   paths=[("Kredit Bank","DSCR, leverage, agunan"),("Investor","Laba, arus kas, tata kelola"),("IPO","Syarat bursa, audit, GCG"),("Benahi Dulu","Laporan, pajak, legal")],
   steps_h2="Cara Kami Mendampingi",
-  steps=[("Isi Screening","Angka 3 tahun, 2 menit"),("Hasil via Email","Rasio dan jalur yang realistis"),("Diskusi","Jadwal call dengan Ananta, CPA"),("NDA dan Kontrak","Data Anda terlindungi"),("Didampingi","Pilih KAP, KJA, KJPP sampai tuntas")],
+  steps=[("Isi Screening","Angka 3 tahun, 2 menit"),("Hasil via Email","Rasio dan jalur yang realistis"),("Diskusi","Jadwal call dengan Ananta, CPA"),("NDA dan Kontrak","Data Anda terlindungi"),("Didampingi","KAP, KJA, KJPP, Notaris sampai tuntas")],
   needs_h2="Atau Langsung Pilih Kebutuhan",
   final_h2="Kirim Laporan Terakhir Anda, Kami Baca Dulu.",
   final_sub="Gratis, tanpa kewajiban. Dibalas di hari yang sama.",
@@ -26,7 +26,7 @@ LAND = {
 ),
 "en": dict(
   label="Early Screening · Process Support",
-  h1="Check the Direction Before You Pay an Accountant.",
+  h1="Check the Direction Before You Pay Accountants &amp; Other Professionals.",
   sub="Many companies pay for financial statements or an audit, then learn their ratios fail the bank, investor, or IPO test. We screen first, free, then support you to the finish.",
   cta="Free Screening via WhatsApp",
   wa_hero="Hello Pak Ananta, I would like an early screening of our financial statements before choosing an accountant.",
@@ -48,7 +48,7 @@ LAND = {
 ),
 "zh": dict(
   label="前期筛查 · 全程陪同",
-  h1="先看方向，再付钱请会计师。",
+  h1="先看方向，再付钱请会计师与相关专业人士。",
   sub="许多公司先付钱编制报表或审计，之后才发现比率过不了银行、投资人或上市的门槛。我们先免费筛查，再陪您走完全程。",
   cta="WhatsApp 免费筛查",
   wa_hero="您好 Ananta 先生，我们想在选会计师之前，先请您筛查我们的财务报表。",
@@ -68,7 +68,7 @@ LAND = {
 ),
 "hokkien": dict(
   label="先篩檢 · 規工陪伴",
-  h1="先看方向，才開錢請會計師。",
+  h1="先看方向，才開錢請會計師佮相關專業。",
   sub="真濟公司先開錢做報表抑是查數，後來才知比率過袂了銀行、投資者抑是上市。阮先免費篩檢，才陪你行到尾。",
   cta="WhatsApp 免費篩檢",
   wa_hero="Ananta 先生你好，阮想欲揀會計師進前，先請你篩檢阮的報表。",
@@ -244,59 +244,61 @@ function go(){{var t=q.value.trim();try{{if(t&&navigator.clipboard)navigator.cli
 document.getElementById("sgo").addEventListener("click",go);q.addEventListener("keydown",function(e){{if(e.key==="Enter"){{e.preventDefault();go()}}}});upd()}})();</script>'''
 
 import json as _json
+GS_URL = ""  # Apps Script web app /exec (Sheet: CariAkuntan - Leads Screening)
 def json_dumps(x): return _json.dumps(x, ensure_ascii=False)
 
 # ---------------- Form screening instan ----------------
 SCR = {
- "id": dict(h2="Screening Instan, Gratis", sub="Isi angka ringkas 3 tahun terakhir. Indikasi awal langsung tampil, hasil lengkap kami kirim ke email Anda.",
+ "id": dict(h2="Screening Instan, Gratis", sub="Isi angka ringkas 3 tahun terakhir (bertanda * wajib). Indikasi awal langsung tampil, hasil lengkap kami kirim ke email Anda.",
    s1="Perusahaan", s2="Angka 3 Tahun", s3="Kontak",
    pt="Nama PT", pt_ph="PT Contoh Sukses Abadi", goal="Tujuan", goals=["Kredit Bank","Investor","IPO","Belum Tahu"],
    unit="Satuan", units=[("1000000","Juta Rp"),("1000000000","Miliar Rp")],
-   rows=[("aset","Total Aset"),("utang","Utang Bank"),("rev","Pendapatan"),("lsp","Laba Sebelum Pajak")],
+   rows=[("aset","Total Aset"),("liab","Total Liabilitas"),("utang","Utang Bank"),("rev","Pendapatan"),("lb","Laba Bersih"),("ebitda","EBITDA"),("nta","NTA (Aset Berwujud Bersih)")], req=["aset","liab","utang","rev","lb"], opt="opsional",
    name="Nama Anda", email="Email", email_ph="nama@perusahaan.com", wa="WhatsApp (opsional)",
    next="Lanjut", back="Kembali", send="Kirim via WhatsApp", send2="Kirim via Email",
    prev_h="Indikasi Awal", note="Indikasi otomatis dari angka yang Anda isi, bukan opini. Hasil lengkap dan rekomendasi jalur kami kirim ke email Anda.",
-   k_debt="Utang bank terhadap aset", k_growth="Pertumbuhan pendapatan", k_margin="Margin laba sebelum pajak", k_roa="Laba terhadap aset",
-   good="Sehat", mid="Perlu dicek", bad="Perlu dibenahi", need="Lengkapi nama PT, email, dan minimal satu tahun angka.",
+   k_der="Liabilitas terhadap ekuitas (DER)", k_debt="Utang bank terhadap EBITDA", k_growth="Pertumbuhan pendapatan", k_margin="Margin laba bersih", k_roa="Laba bersih terhadap aset", k_noebitda="Isi EBITDA", need_rows="Wajib diisi untuk tahun terakhir: ",
+   good="Sehat", mid="Perlu dicek", bad="Perlu dibenahi", need="Lengkapi nama PT dan email yang aktif.", lock="Isi nama PT dan email untuk melihat indikasi awal.",
    wa_head="Selamat siang Pak Ananta, mohon screening awal perusahaan kami:", thanks="Terkirim. Hasil lengkap kami kirim ke email Anda, biasanya di hari yang sama.", privacy="Data hanya dipakai untuk screening dan dijaga kerahasiaannya."),
  "en": dict(h2="Instant Screening, Free", sub="Enter a few figures for the last 3 years. A first indication appears right away; the full result goes to your email.",
    s1="Company", s2="3-Year Figures", s3="Contact",
    pt="Company name", pt_ph="PT Example Abadi", goal="Goal", goals=["Bank Loan","Investors","IPO","Not Sure"],
    unit="Unit", units=[("1000000","IDR million"),("1000000000","IDR billion")],
-   rows=[("aset","Total Assets"),("utang","Bank Debt"),("rev","Revenue"),("lsp","Profit Before Tax")],
+   rows=[("aset","Total Assets"),("liab","Total Liabilities"),("utang","Bank Debt"),("rev","Revenue"),("lb","Net Profit"),("ebitda","EBITDA"),("nta","NTA (Net Tangible Assets)")], req=["aset","liab","utang","rev","lb"], opt="optional",
    name="Your name", email="Email", email_ph="name@company.com", wa="WhatsApp (optional)",
    next="Next", back="Back", send="Send via WhatsApp", send2="Send via Email",
    prev_h="First Indication", note="Automatic indication from your figures, not an opinion. The full result and recommended path go to your email.",
-   k_debt="Bank debt to assets", k_growth="Revenue growth", k_margin="Pre-tax margin", k_roa="Profit to assets",
-   good="Healthy", mid="Worth checking", bad="Needs work", need="Please fill in the company name, email, and at least one year of figures.",
+   k_der="Liabilities to equity (DER)", k_debt="Bank debt to EBITDA", k_growth="Revenue growth", k_margin="Net margin", k_roa="Net profit to assets", k_noebitda="Add EBITDA", need_rows="Required for the latest year: ",
+   good="Healthy", mid="Worth checking", bad="Needs work", need="Please enter the company name and a working email.", lock="Enter the company name and email to see the first indication.",
    wa_head="Hello Pak Ananta, please screen our company:", thanks="Sent. The full result goes to your email, usually the same day.", privacy="Data is used only for screening and kept confidential."),
  "zh": dict(h2="免费即时筛查", sub="填写近三年的简要数字，立即看到初步指标，完整结果发到您的邮箱。",
    s1="公司", s2="三年数字", s3="联系方式",
    pt="公司名称", pt_ph="PT 示例公司", goal="目标", goals=["银行贷款","投资人","上市","还不确定"],
    unit="单位", units=[("1000000","百万印尼盾"),("1000000000","十亿印尼盾")],
-   rows=[("aset","总资产"),("utang","银行负债"),("rev","营业收入"),("lsp","税前利润")],
+   rows=[("aset","总资产"),("liab","总负债"),("utang","银行借款"),("rev","营业收入"),("lb","净利润"),("ebitda","EBITDA"),("nta","有形净资产 NTA")], req=["aset","liab","utang","rev","lb"], opt="可选",
    name="您的姓名", email="邮箱", email_ph="name@company.com", wa="WhatsApp（可选）",
    next="下一步", back="返回", send="通过 WhatsApp 发送", send2="通过邮件发送",
    prev_h="初步指标", note="根据您填写的数字自动计算，并非意见。完整结果与建议路线将发到您的邮箱。",
-   k_debt="银行负债/资产", k_growth="收入增长", k_margin="税前利润率", k_roa="利润/资产",
-   good="健康", mid="需核查", bad="需整改", need="请填写公司名称、邮箱和至少一年的数字。",
+   k_der="负债/权益 (DER)", k_debt="银行借款/EBITDA", k_growth="收入增长", k_margin="净利润率", k_roa="净利润/资产", k_noebitda="请填 EBITDA", need_rows="最近一年必填：",
+   good="健康", mid="需核查", bad="需整改", need="请填写公司名称和有效邮箱。", lock="填写公司名称和邮箱后即可查看初步指标。",
    wa_head="您好 Ananta 先生，请为我们公司做初步筛查：", thanks="已发送。完整结果通常当天发到您的邮箱。", privacy="数据仅用于筛查，并严格保密。"),
  "hokkien": dict(h2="免費即時篩檢", sub="填近三年的數字，馬上看著初步指標，完整結果寄去你的電子批。",
    s1="公司", s2="三年數字", s3="聯絡",
    pt="公司名", pt_ph="PT 範例公司", goal="目標", goals=["銀行貸款","投資者","上市","猶未知"],
    unit="單位", units=[("1000000","百萬盾"),("1000000000","十億盾")],
-   rows=[("aset","總資產"),("utang","銀行負債"),("rev","營收"),("lsp","稅前利潤")],
+   rows=[("aset","總資產"),("liab","總負債"),("utang","銀行借款"),("rev","營收"),("lb","淨利"),("ebitda","EBITDA"),("nta","有形淨資產 NTA")], req=["aset","liab","utang","rev","lb"], opt="無一定",
    name="你的名", email="電子批", email_ph="name@company.com", wa="WhatsApp（無一定）",
    next="下一步", back="轉去", send="用 WhatsApp 寄", send2="用電子批寄",
    prev_h="初步指標", note="照你填的數字自動算，毋是意見。完整結果佮建議寄去你的電子批。",
-   k_debt="銀行負債/資產", k_growth="營收成長", k_margin="稅前利潤率", k_roa="利潤/資產",
-   good="健康", mid="愛檢查", bad="愛整理", need="請填公司名、電子批，佮上少一年的數字。",
+   k_der="負債/權益 (DER)", k_debt="銀行借款/EBITDA", k_growth="營收成長", k_margin="淨利率", k_roa="淨利/資產", k_noebitda="請填 EBITDA", need_rows="上新一年愛填：",
+   good="健康", mid="愛檢查", bad="愛整理", need="請填公司名佮會通的電子批。", lock="填公司名佮電子批，就看會著初步指標。",
    wa_head="Ananta 先生你好，請替阮公司篩檢：", thanks="寄出去矣。完整結果通常當日寄去你的電子批。", privacy="資料干焦用佇篩檢，會保密。"),
 }
 SCR_CSS = """<style id="scr">
 .scr{max-width:980px;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
 .scr .f{padding:26px 26px 22px;display:grid;gap:16px;align-content:start}
 .scr .pv{padding:26px;background:linear-gradient(160deg,#0B1F33,#163a63);color:#fff;display:grid;gap:14px;align-content:start}
+.scr .pv{position:relative}.scr .pv.lock .kpis{filter:blur(5px);opacity:.5;pointer-events:none}.scr .pv .lk{display:none}.scr .pv.lock .lk{display:grid;place-items:center;gap:8px;text-align:center;position:absolute;inset:70px 26px auto;z-index:2;padding:18px;background:rgba(11,31,51,.85);border:1px solid rgba(255,255,255,.2);animation:up .4s ease both}.scr .pv .lk span{font-size:1.6rem}.scr label .rq{color:#B42318;font-style:normal;margin-left:3px}
 .scr .pv h3{color:#fff;font-family:var(--display);font-size:1.25rem}
 .scr .pv .note{font-size:.8rem;color:rgba(255,255,255,.65)}
 .stp{display:flex;gap:6px;align-items:center}
@@ -311,7 +313,7 @@ SCR_CSS = """<style id="scr">
 .chipsg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .grid3{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:8px;align-items:center}
 .grid3 .yh{font-size:.78rem;color:var(--muted);font-weight:600;text-align:center}
-.grid3 .rl{font-size:.86rem;font-weight:600}
+.grid3 .rl{font-size:.86rem;font-weight:600;display:block}.grid3 .rl .rq{color:#B42318;font-style:normal;margin-left:3px;display:inline}.grid3 .rl .op{display:block;font-weight:400;color:var(--muted);font-size:.72rem}.grid3 input.miss{border-color:#B42318;background:#FFF5F5}
 .grid3 input{text-align:right;padding:10px 10px;font-variant-numeric:tabular-nums}
 .nav2{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
 .nav2 .btn-line{background:#fff}
@@ -336,17 +338,19 @@ def screening_form(lang, wa_number, email_to):
     units = "".join(f'<option value="{v}"{" selected" if i==1 else ""}>{t}</option>' for i,(v,t) in enumerate(S["units"]))
     grid = '<div class="grid3"><span></span>' + "".join(f'<span class="yh">{yy}</span>' for yy in yrs)
     for k,lab in S["rows"]:
-        grid += f'<span class="rl">{lab}</span>' + "".join(f'<input inputmode="decimal" data-k="{k}" data-y="{j}" aria-label="{lab} {yy}" placeholder="0">' for j,yy in enumerate(yrs))
+        grid += (f'<span class="rl">{lab}<em class="rq">*</em></span>' if k in S["req"] else f'<span class="rl">{lab}<small class="op">{S["opt"]}</small></span>') + "".join(f'<input inputmode="decimal" data-k="{k}" data-y="{j}" aria-label="{lab} {yy}" placeholder="0">' for j,yy in enumerate(yrs))
     grid += "</div>"
     kp = lambda k: f'<div class="kp" id="k_{k}"><small>{S["k_"+k]}</small><b>-</b><i></i><em></em></div>'
-    js = json_dumps(dict(S=S, yrs=yrs, wa=wa_number, to=email_to))
+    js = json_dumps(dict(S=S, yrs=yrs, wa=wa_number, to=email_to, gs=GS_URL))
     return f'''{SCR_CSS}<form class="scr" id="screening" novalidate onsubmit="return false">
  <div class="f">
   <div class="stp"><span class="on" data-s="0">1 · {S["s1"]}</span><span data-s="1">2 · {S["s2"]}</span><span data-s="2">3 · {S["s3"]}</span></div>
   <div class="pane on" data-p="0">
-    <label>{S["pt"]}<input id="f_pt" placeholder="{S["pt_ph"]}" autocomplete="organization"></label>
+    <label><span>{S["pt"]}<em class="rq">*</em></span><input id="f_pt" placeholder="{S["pt_ph"]}" autocomplete="organization" required></label>
+    <label><span>{S["email"]}<em class="rq">*</em></span><input id="f_em" type="email" placeholder="{S["email_ph"]}" autocomplete="email" required></label>
     <label>{S["goal"]}</label><div class="chipsg" id="f_goal">{goals}</div>
-    <div class="nav2"><span></span><button class="btn btn-wa arrow" type="button" data-go="1">{S["next"]}</button></div>
+    <p class="err" id="f_err0"></p>
+    <div class="nav2"><span></span><button class="btn btn-wa arrow" type="button" id="f_go1">{S["next"]}</button></div>
   </div>
   <div class="pane" data-p="1">
     <label style="max-width:220px">{S["unit"]}<select id="f_unit">{units}</select></label>
@@ -355,7 +359,6 @@ def screening_form(lang, wa_number, email_to):
   </div>
   <div class="pane" data-p="2">
     <label>{S["name"]}<input id="f_nm" autocomplete="name"></label>
-    <label>{S["email"]}<input id="f_em" type="email" placeholder="{S["email_ph"]}" autocomplete="email"></label>
     <label>{S["wa"]}<input id="f_wa" type="tel" autocomplete="tel"></label>
     <p class="err" id="f_err"></p>
     <div class="nav2"><button class="btn btn-line" type="button" data-go="1">{S["back"]}</button><span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-line" type="button" id="f_mail">{S["send2"]}</button><button class="btn btn-wa arrow" type="button" id="f_send">{S["send"]}</button></span></div>
@@ -363,30 +366,40 @@ def screening_form(lang, wa_number, email_to):
     <p class="privacy">{S["privacy"]}</p>
   </div>
  </div>
- <div class="pv"><h3>{S["prev_h"]}</h3><div class="kpis">{kp("debt")}{kp("growth")}{kp("margin")}{kp("roa")}</div><p class="note">{S["note"]}</p></div>
+ <div class="pv lock" id="f_pv"><div class="lk"><span>🔒</span><b>{S["lock"]}</b></div><h3>{S["prev_h"]}</h3><div class="kpis">{kp("der")}{kp("debt")}{kp("growth")}{kp("margin")}{kp("roa")}</div><p class="note">{S["note"]}</p></div>
 </form>
 <script>(function(){{var D={js},S=D.S,f=document.getElementById("screening");if(!f)return;
 var goal=S.goals[0];f.querySelectorAll("#f_goal button").forEach(function(b){{b.addEventListener("click",function(){{f.querySelectorAll("#f_goal button").forEach(function(x){{x.classList.remove("on")}});b.classList.add("on");goal=b.getAttribute("data-g")}})}});
-function show(i){{f.querySelectorAll(".pane").forEach(function(p){{p.classList.toggle("on",+p.getAttribute("data-p")===i)}});f.querySelectorAll(".stp span").forEach(function(s){{s.classList.toggle("on",+s.getAttribute("data-s")<=i)}})}}
+function show(i){{if(i>0&&typeof unlocked!=="undefined"&&!unlocked)i=0;f.querySelectorAll(".pane").forEach(function(p){{p.classList.toggle("on",+p.getAttribute("data-p")===i)}});f.querySelectorAll(".stp span").forEach(function(s){{s.classList.toggle("on",+s.getAttribute("data-s")<=i)}})}}
 f.querySelectorAll("[data-go]").forEach(function(b){{b.addEventListener("click",function(){{show(+b.getAttribute("data-go"))}})}});
+var unlocked=false;function v0(){{var pt=document.getElementById("f_pt").value.trim(),em=document.getElementById("f_em").value.trim();return pt.length>2&&/^[^@\s]+@[^@\s]+\.[^@\s]{{2,}}$/.test(em)}}
+document.getElementById("f_go1").addEventListener("click",function(){{var e=document.getElementById("f_err0");if(!v0()){{e.textContent=S.need;return}}e.textContent="";unlocked=true;document.getElementById("f_pv").classList.remove("lock");show(1);calc()}});
 function num(v){{v=(v||"").replace(/\\s/g,"");if(!v)return null;var neg=/^[-(]/.test(v);v=v.replace(/[^0-9.,]/g,"");if(/,\\d{{1,2}}$/.test(v))v=v.replace(/\\./g,"").replace(",",".");else v=v.replace(/[.,]/g,"");var n=parseFloat(v);if(isNaN(n))return null;return neg?-n:n}}
 function fmt(n){{return n.toLocaleString("id-ID")}}function pc(x,d){{return x.toFixed(d).replace(".",",")}}
 f.querySelectorAll(".grid3 input").forEach(function(i){{i.addEventListener("blur",function(){{var n=num(i.value);i.value=n==null?"":fmt(n);calc()}});i.addEventListener("input",calc)}});
 function val(k){{var a=[];f.querySelectorAll('.grid3 input[data-k="'+k+'"]').forEach(function(i){{a[+i.getAttribute("data-y")]=num(i.value)}});return a}}
 function last(a){{for(var i=2;i>=0;i--)if(a[i]!=null)return i;return -1}}
 function set(id,txt,w,lvl){{var e=document.getElementById("k_"+id);var c=lvl===2?"#3DD68C":lvl===1?"#F5B53D":lvl===0?"#FF6B6B":"#7FA0F5";e.querySelector("b").textContent=txt;e.querySelector("em").textContent=lvl===2?S.good:lvl===1?S.mid:lvl===0?S.bad:"";e.style.setProperty("--c",c);e.style.setProperty("--w",Math.max(4,Math.min(100,w))+"%")}}
-function calc(){{var A=val("aset"),U=val("utang"),R=val("rev"),L=val("lsp"),ia=last(A);
-if(ia>=0&&A[ia]&&U[ia]!=null){{var d=U[ia]/A[ia]*100;set("debt",pc(d,0)+"%",d,d<=40?2:d<=65?1:0)}}else set("debt","-",0,-1);
+function calc(){{var A=val("aset"),Lb=val("liab"),U=val("utang"),R=val("rev"),N=val("lb"),E=val("ebitda"),ia=last(A);
+var il=last(Lb);if(il>=0&&A[il]!=null&&A[il]-Lb[il]>0){{var d=Lb[il]/(A[il]-Lb[il]);set("der",pc(d,2)+"x",d*30,d<=1?2:d<=2.5?1:0)}}else if(il>=0&&A[il]!=null){{set("der","Ekuitas negatif",100,0)}}else set("der","-",0,-1);
+var ie=last(E);if(ie>=0&&U[ie]!=null&&E[ie]>0){{var x=U[ie]/E[ie];set("debt",pc(x,1)+"x",x*18,x<=3?2:x<=4.5?1:0)}}else if(U.some(function(v){{return v!=null}})&&ie<0){{set("debt",S.k_noebitda,0,-1)}}else set("debt","-",0,-1);
 var ir=last(R),i0=R.findIndex(function(x){{return x!=null&&x>0}});if(ir>i0&&i0>=0){{var n=ir-i0,g=(Math.pow(R[ir]/R[i0],1/n)-1)*100;set("growth",(g>0?"+":"")+pc(g,0)+"%/th",50+g,g>=10?2:g>=0?1:0)}}else set("growth","-",0,-1);
-var il=last(L);if(il>=0&&R[il]){{var m=L[il]/R[il]*100;set("margin",pc(m,1)+"%",m*4,m>=8?2:m>=0?1:0)}}else set("margin","-",0,-1);
-if(il>=0&&A[il]){{var r=L[il]/A[il]*100;set("roa",pc(r,1)+"%",r*6,r>=5?2:r>=0?1:0)}}else set("roa","-",0,-1)}}
+var iL=last(N);if(iL>=0&&R[iL]){{var m=N[iL]/R[iL]*100;set("margin",pc(m,1)+"%",m*5,m>=5?2:m>=0?1:0)}}else set("margin","-",0,-1);
+if(iL>=0&&A[iL]){{var r=N[iL]/A[iL]*100;set("roa",pc(r,1)+"%",r*8,r>=5?2:r>=0?1:0)}}else set("roa","-",0,-1)}}
 function summary(){{var u=f.querySelector("#f_unit");var ut=u.options[u.selectedIndex].text;var lines=[S.wa_head,"","PT: "+document.getElementById("f_pt").value,"Tujuan: "+goal,"Satuan: "+ut,""];
 S.rows.forEach(function(r){{var a=val(r[0]);lines.push(r[1]+": "+D.yrs.map(function(y,i){{return y+" "+(a[i]==null?"-":fmt(a[i]))}}).join(" | "))}});
-lines.push("");["debt","growth","margin","roa"].forEach(function(k){{var e=document.getElementById("k_"+k);lines.push(S["k_"+k]+": "+e.querySelector("b").textContent)}});
+lines.push("");["der","debt","growth","margin","roa"].forEach(function(k){{var e=document.getElementById("k_"+k);lines.push(S["k_"+k]+": "+e.querySelector("b").textContent)}});
 lines.push("","Nama: "+document.getElementById("f_nm").value,"Email: "+document.getElementById("f_em").value,"WA: "+(document.getElementById("f_wa").value||"-"));return lines.join("\\n")}}
-function ok(){{var e=document.getElementById("f_err");var em=document.getElementById("f_em").value.trim();var has=["aset","rev"].some(function(k){{return val(k).some(function(x){{return x!=null}})}});
-if(!document.getElementById("f_pt").value.trim()||!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(em)||!has){{e.textContent=S.need;return false}}e.textContent="";return true}}
-function sent(m){{document.getElementById("f_done").style.display="block";try{{if(window.gtag)gtag("event","generate_lead",{{method:m,form:"screening"}})}}catch(x){{}}}}
+function ok(){{var e=document.getElementById("f_err");var em=document.getElementById("f_em").value.trim();var miss=[];f.querySelectorAll(".grid3 input").forEach(function(x){{x.classList.remove("miss")}});
+S.req.forEach(function(k){{var inp=f.querySelector('.grid3 input[data-k="'+k+'"][data-y="2"]');if(num(inp.value)==null){{inp.classList.add("miss");miss.push(S.rows.filter(function(r){{return r[0]===k}})[0][1])}}}});
+if(!v0()){{show(0);document.getElementById("f_err0").textContent=S.need;return false}}
+if(miss.length){{e.textContent=S.need_rows+miss.join(", ");show(1);return false}}e.textContent="";return true}}
+function sheet(m){{try{{if(!D.gs)return;var g=function(id){{var e=document.getElementById(id);return e?e.value:""}};var u=f.querySelector("#f_unit");var p=new URLSearchParams();p.append("pt",g("f_pt"));p.append("email",g("f_em"));p.append("goal",goal);p.append("unit",u.options[u.selectedIndex].text);
+S.rows.forEach(function(r){{var a=val(r[0]);p.append(r[0],D.yrs.map(function(y,i){{return y+": "+(a[i]==null?"-":fmt(a[i]))}}).join(" | "))}});
+["der","debt","growth","margin","roa"].forEach(function(k){{p.append("k_"+k,document.getElementById("k_"+k).querySelector("b").textContent)}});
+p.append("nama",g("f_nm"));p.append("wa",g("f_wa"));p.append("lang",document.documentElement.lang||"");p.append("page",location.pathname+" ("+m+")");p.append("summary",summary());
+if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{{method:"POST",mode:"no-cors",body:p,keepalive:true}})}}catch(x){{}}}}
+function sent(m){{sheet(m);document.getElementById("f_done").style.display="block";try{{if(window.gtag)gtag("event","generate_lead",{{method:m,form:"screening"}})}}catch(x){{}}}}
 document.getElementById("f_send").addEventListener("click",function(){{if(!ok())return;window.open("https://wa.me/"+D.wa+"?text="+encodeURIComponent(summary()),"_blank","noopener");sent("whatsapp")}});
 document.getElementById("f_mail").addEventListener("click",function(){{if(!ok())return;location.href="mailto:"+D.to+"?subject="+encodeURIComponent("Screening: "+document.getElementById("f_pt").value)+"&body="+encodeURIComponent(summary());sent("email")}});
 calc()}})();</script>'''
