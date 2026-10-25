@@ -386,7 +386,7 @@ HOMECSS = absol_css = "".join(re.findall(r'<style[^>]*>(.*?)</style>', h[:h.find
 def absol(x):
     x = re.sub(r'(src|href|data-full|srcset|data-story)="(?!https?:|/|#|mailto:|tel:|data:|javascript:)([^"]+)"', r'\1="/\2"', x)
     return x.replace('url("img/', 'url("/img/')
-def inject(rel, blocks, tail, css="", subs=()):
+def inject(rel, blocks, tail, css="", subs=(), mid=(), jump=""):
     pth = os.path.join(FA, rel)
     b = open(pth, encoding="utf-8").read()
     b = re.sub(r'<div id="ke-unduhan".*?</div>\n?', '', b, flags=re.S)
@@ -394,9 +394,15 @@ def inject(rel, blocks, tail, css="", subs=()):
     b = re.sub(r'<!--fa-injt-->.*?<!--/fa-injt-->\n?', '', b, flags=re.S)
     b = re.sub(r'<style id="fa-injc">.*?</style>', '', b, flags=re.S)
     for a, c in subs: b = b.replace(a, c)
+    b = re.sub(r'<!--fa-jump-->.*?<!--/fa-jump-->', '', b, flags=re.S)
     body = absol(fix_links(set_alt(blocks), "/" + rel.split("/")[0] + "/"))
     i = b.rfind("<footer")
     b = b[:i] + "<!--fa-inj-->" + body + "<!--/fa-inj-->\n" + b[i:]
+    for marker, blk in mid:
+        k = b.find(marker); assert k > 0, marker
+        b = b[:k] + "<!--fa-inj-->" + absol(fix_links(blk, "/" + rel.split("/")[0] + "/")) + "<!--/fa-inj-->" + b[k:]
+    if jump:
+        k = b.find('<div class="bk-grid">'); b = b[:k] + "<!--fa-jump-->" + jump + "<!--/fa-jump-->" + b[k:]
     b = b.replace("</body>", "<!--fa-injt-->" + absol(tail) + "<!--/fa-injt-->\n</body>", 1)
     b = re.sub(r'<style id="fa-injbase">.*?</style>', '', b, flags=re.S)
     b = b.replace('<meta charset="utf-8">', '<meta charset="utf-8"><style id="fa-injbase">' + HOMECSS + "</style>", 1)
@@ -406,7 +412,14 @@ def inject(rel, blocks, tail, css="", subs=()):
 BK_CSS = (".bk-steps li{position:relative;padding:18px 18px 18px 58px!important;line-height:1.6}"
           ".bk-steps li:before{position:absolute;left:18px;top:17px;margin:0!important;width:28px!important;height:28px!important}"
           "#unduhan,#publikasi{border-top:1px solid var(--line)}")
-inject("buku/index.html", [sec("unduhan"), sec("publikasi")], SH_TOAST + LEAD, BK_CSS,
+UND = sec("unduhan").replace('<p class="eyebrow" data-i18n="k272">Unduhan</p><h2 data-i18n="k273">Materi untuk Anda</h2>',
+                             '<p class="eyebrow">Unduhan Gratis</p><h2>Materi Gratis</h2><p class="lede" style="margin-top:8px">Brosur, panduan, dan toolkit Excel. Isi nama dan email sekali, file langsung terunduh.</p>')
+UND = UND.replace('<section class="block" id="unduhan">', '<section class="block alt" id="unduhan">', 1)
+JUMP = ('<nav class="bk-jump" aria-label="Isi halaman"><a href="#paket">E-Book Berbayar</a><a href="#unduhan" class="on">Materi Gratis &#8595;</a><a href="#publikasi">Publikasi</a></nav>')
+BK_CSS += (".bk-jump{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}.bk-jump a{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;color:#fff;text-decoration:none}"
+           ".bk-jump a.on{background:#fff;color:#171717;border-color:#fff;font-weight:500}.bk-jump a:hover{border-color:#fff}html{scroll-behavior:smooth}#unduhan,#publikasi,#paket{scroll-margin-top:80px}")
+inject("buku/index.html", [sec("publikasi").replace('class="block alt"', 'class="block"', 1)], SH_TOAST + LEAD, BK_CSS,
+       mid=[('<h2 style="margin-top:40px">Cara Membeli</h2>', '</div></section>' + UND + '<section class="block"><div class="wrap">')], jump=JUMP,
        subs=[('Cara membeli</h2>', 'Cara Membeli</h2>'), ('Pertanyaan umum</h2>', 'Pertanyaan Umum</h2>'), ('>Beli paket<', '>Beli Paket<'), ('Paket 6 E-book Penerbit FA</h2>', 'Paket 6 E-Book Penerbit FA</h2>')])
 inject("artikel/index.html", [sec("galeri"), sec("kabar")], LIGHT + FEEDJS,
        subs=[('<p class="eyebrow">Wawasan</p>', '<p class="eyebrow">Eksplor</p>'),
