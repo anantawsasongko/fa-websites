@@ -55,6 +55,8 @@ open(os.path.join(fa, "_redirects"), "w").write(
 # FA Apps digabung ke project ini saat deploy (folder audit-ready, saturn, cek-psak-118).
 /saturnus/*      /saturn/:splat      301
 /jupiter/*       /audit-ready/:splat 301
+/unduhan/*       /buku/#unduhan      301
+/unduhan         /buku/#unduhan      301
 """)
 # nav: Apps, Layanan, E-Book, Wawasan (artikel + berita), Cari Akuntan, Kontak
 idx = os.path.join(fa, "index.html")
