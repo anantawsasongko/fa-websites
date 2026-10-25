@@ -43,7 +43,7 @@ T = {
  "hs01": ("Peta Layanan", "Service Map", "服务地图"),
  "hs02": ("Satu pintu, tiga jalur <em>uang masuk.</em>", "One door, three routes to <em>funding.</em>", "一个入口，三条<em>资金</em>路径。"),
  "hs03": ("Perusahaan Anda", "Your company", "您的公司"),
- "hs04": ("Aset Rp1 M sampai Rp500 M", "Assets Rp1bn to Rp500bn", "资产 1 至 5000 亿印尼盾"),
+ "hs04": ("Dari UMKM sampai calon Tbk", "From small businesses to IPO candidates", "从小微企业到上市候选公司"),
  "hs05": ("Kredit Bank", "Bank Credit", "银行贷款"),
  "hs06": ("Due diligence sampai pencairan", "Due diligence to disbursement", "从尽职调查到放款"),
  "hs07": ("Investor &amp; IPO", "Investors &amp; IPO", "投资者与 IPO"),
@@ -54,15 +54,18 @@ T = {
  "hs12": ("Kredit cair, investor masuk, atau transaksi tuntas", "Loan disbursed, investor in, or deal closed", "贷款发放、投资者入股或交易完成"),
  "hs13": ("Rekam Jejak", "Track Record", "业绩"),
  "hs14": ("Kredit perbankan yang <em>sudah cair.</em>", "Bank credit <em>already disbursed.</em>", "<em>已发放</em>的银行贷款。"),
- "hs15": ("Kumulatif per bank, dalam Rp miliar", "Cumulative by bank, in Rp billion", "按银行累计，单位：十亿印尼盾"),
- "hs16": ("Ditambah BPD Jateng, BPR Bank Sleman, CIMB Niaga, BPD DIY, Nanobank Syariah, kredit sindikasi Bank Danagung, serta pendanaan investor hingga US$3 juta. Total mendekati Rp1 triliun.",
-          "Plus BPD Jateng, BPR Bank Sleman, CIMB Niaga, BPD DIY, Nanobank Syariah, a Bank Danagung syndicated loan, and investor funding up to US$3 million. Close to Rp1 trillion in total.",
-          "另有 BPD Jateng、BPR Bank Sleman、CIMB Niaga、BPD DIY、Nanobank Syariah、Bank Danagung 银团贷款，以及最高 300 万美元的投资者资金。合计接近 1 万亿印尼盾。"),
+ "hs15": ("Kumulatif per jenis bank, dalam Rp miliar", "Cumulative by bank type, in Rp billion", "按银行类型累计，单位：十亿印尼盾"),
+ "hs16": ("Ditambah BPD, BPR, dan kredit sindikasi, serta pendanaan investor hingga US$3 juta. Total mendekati Rp1 triliun.", "Plus regional banks, rural banks and syndicated loans, and investor funding up to US$3 million. Close to Rp1 trillion in total.", "另有地方银行、农村银行及银团贷款，以及最高 300 万美元的投资者资金。合计接近 1 万亿印尼盾。"),
  "hs17": ("Lihat rekam jejak lengkap", "See full track record", "查看完整业绩"),
  "hs18": ("Untuk Siapa", "Who It Is For", "服务对象"),
- "hs19": ("Perusahaan swasta menengah, <em>bukan UMKM.</em>", "Mid-sized private companies, <em>not micro businesses.</em>", "中型私营企业，<em>而非微型企业。</em>"),
- "hs20": ("Rentang aset dan omzet tahunan klien", "Client asset and annual revenue range", "客户资产与年营业额范围"),
- "hs21": ("2 sampai 3 klien baru per tahun, ditangani langsung oleh Ananta, CPA", "2 to 3 new clients a year, handled personally by Ananta, CPA", "每年 2 至 3 位新客户，由 Ananta, CPA 亲自负责"),
+ "hs19": ("Semua skala perusahaan, <em>satu standar.</em>", "Every company size, <em>one standard.</em>", "各种规模的企业，<em>同一标准。</em>"),
+ "hs20": ("Dari usaha kecil sampai calon emiten, kebutuhannya berbeda, standar kerjanya sama", "From small businesses to IPO candidates: different needs, the same working standard", "从小企业到上市候选公司：需求不同，标准一致"),
+ "hs21": ("Setiap klien ditangani langsung oleh Ananta, CPA", "Every client is handled personally by Ananta, CPA", "每位客户均由 Ananta, CPA 亲自负责"),
+ "hs60": ("UMKM", "Small business", "小微企业"), "hs61": ("LK SAK EMKM, siap kredit", "SAK EMKM statements, loan-ready", "小微准则报表，可申请贷款"),
+ "hs62": ("Menengah", "Mid-sized", "中型企业"), "hs63": ("Audit, kredit bank, GCG", "Audit, bank credit, governance", "审计、银行贷款、治理"),
+ "hs64": ("Besar &amp; Grup", "Large &amp; groups", "大型企业与集团"), "hs65": ("Sindikasi, investor, M&amp;A", "Syndication, investors, M&amp;A", "银团贷款、投资者、并购"),
+ "hs66": ("Calon Tbk &amp; BUMN", "IPO candidates &amp; SOEs", "上市候选与国企"), "hs67": ("IPO, komite audit, pelaporan", "IPO, audit committee, reporting", "IPO、审计委员会、报告"),
+ "hs68": ("Klien penugasan penuh per tahun, semua skala perusahaan", "Full engagements per year, every company size", "每年全程服务客户，覆盖各种规模"),
  "hs22": ("Rumah sakit", "Hospitals", "医院"), "hs23": ("BPR", "Rural banks (BPR)", "农村银行"),
  "hs24": ("Kontraktor", "Contractors", "承包商"), "hs25": ("Logistik &amp; kargo", "Logistics &amp; cargo", "物流与货运"),
  "hs26": ("Farmasi &amp; kimia", "Pharma &amp; chemicals", "制药与化工"), "hs27": ("Klinik &amp; kecantikan", "Clinics &amp; beauty", "诊所与美容"),
@@ -120,7 +123,7 @@ CSS = r'''<style id="home-simple">
 }
 /* bar chart */
 .bars{display:grid;gap:12px;margin-top:8px;max-width:820px}
-.bar{display:grid;grid-template-columns:96px 1fr 64px;align-items:center;gap:14px;font-size:.86rem}
+.bar{display:grid;grid-template-columns:120px 1fr 64px;align-items:center;gap:14px;font-size:.86rem}
 .bar .tr{height:14px;background:#232323;border-radius:7px;overflow:hidden}
 .bar .tr i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8a8a8a,#fff);border-radius:7px;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
 .bars.on .bar .tr i{width:var(--w)}
@@ -140,6 +143,17 @@ CSS = r'''<style id="home-simple">
 .scale .tk{position:absolute;top:18px;transform:translateX(-50%);font-size:.72rem;color:var(--muted);white-space:nowrap}
 .scale .tk::before{content:"";position:absolute;top:-22px;left:50%;height:10px;border-left:1px solid #555}
 .scale .tk:first-of-type{transform:none}.scale .tk:first-of-type::before{left:0}
+.tiers{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:30px 0 8px;padding-top:30px}
+.tiers .tband{position:absolute;top:8px;left:0;height:6px;width:0;border-radius:3px;background:linear-gradient(90deg,rgba(255,255,255,.2),#fff);transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.tiers.on .tband{width:100%}
+.tiers>div{position:relative;padding-right:14px}
+.tiers i{position:absolute;top:-28px;left:0;width:14px;height:14px;border-radius:50%;background:var(--paper);border:1.5px solid #fff}
+.tiers>div:last-of-type i{background:#fff}
+.tiers b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem}
+.tiers span{display:block;color:var(--muted);font-size:.78rem;margin-top:4px;line-height:1.5}
+@media (max-width:720px){.tiers{grid-template-columns:1fr;gap:18px;padding:0 0 0 30px}
+ .tiers .tband{top:0;left:6px;width:2px!important;height:0;background:linear-gradient(180deg,rgba(255,255,255,.2),#fff);transition:height 1.6s cubic-bezier(.2,.7,.2,1)}
+ .tiers.on .tband{height:100%}.tiers i{top:4px;left:-30px}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
 .chips span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.78rem;color:#ddd}
 .who{margin-top:16px;font-size:.86rem;color:#ddd}
@@ -168,7 +182,7 @@ CSS = r'''<style id="home-simple">
 .cabar{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;border:1px dashed var(--line);border-radius:12px;padding:14px 18px;font-size:.86rem}
 .cabar a{color:#fff}
 @media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.tiles{grid-template-columns:1fr}.bar{grid-template-columns:78px 1fr 52px;gap:10px}}
+@media (max-width:480px){.tiles{grid-template-columns:1fr}.bar{grid-template-columns:92px 1fr 48px;gap:10px}}
 /* pendekatan diringkas */
 #pendekatan .svcintro{display:none}
 .subhero{padding:120px 0 40px}
@@ -183,8 +197,8 @@ ICON = {
  "ins": '<svg viewBox="0 0 24 24"><path d="M4 19h16M6 16l4-5 3 3 5-7"/></svg>',
 }
 
-BANKS = [("Mandiri", 300, "300+"), ("BRI", 140, "140"), ("BSI", 90, "90"), ("BCA", 70, "70"), ("OCBC", 15, "15")]
-bars = "".join(f'<div class="bar"><span class="n">{n}</span><span class="tr"><i style="--w:{v/300*100:.0f}%"></i></span><span class="v">{lbl}</span></div>' for n, v, lbl in BANKS)
+BANKS = [("Bank BUMN", 440, "440+"), ("Bank syariah", 90, "90+"), ("Bank swasta", 85, "85+")]
+bars = "".join(f'<div class="bar"><span class="n">{n}</span><span class="tr"><i style="--w:{v/440*100:.0f}%"></i></span><span class="v">{lbl}</span></div>' for n, v, lbl in BANKS)
 
 PETA = f'''<section class="block alt hs" id="peta">
 <div class="wrap">
@@ -221,8 +235,9 @@ SIAPA = f'''<section class="block alt hs" id="siapa">
 <div class="wrap">
 <div class="head"><p class="eyebrow" data-i18n="hs18">{T["hs18"][0]}</p><h2 class="aph" data-i18n="hs19">{T["hs19"][0]}</h2></div>
 <p class="sub" data-i18n="hs20">{T["hs20"][0]}</p>
-<div class="scale" data-on><div class="axis"><span class="band"></span></div>
-<span class="tk" style="left:0">Rp1 M</span><span class="tk" style="left:31%">Rp10 M</span><span class="tk" style="left:62%">Rp100 M</span><span class="tk" style="left:92%">Rp500 M</span></div>
+<div class="tiers" data-on><span class="tband" aria-hidden="true"></span>
+<div><i></i>{t("hs60","b")}{t("hs61")}</div><div><i></i>{t("hs62","b")}{t("hs63")}</div><div><i></i>{t("hs64","b")}{t("hs65")}</div><div><i></i>{t("hs66","b")}{t("hs67")}</div>
+</div>
 <div class="chips">{"".join(t(k) for k in ["hs22","hs23","hs24","hs25","hs26","hs27"])}</div>
 <p class="who" data-i18n="hs21">{T["hs21"][0]}</p>
 </div>
@@ -304,7 +319,7 @@ def sec(id_):
     return _eco_new if id_ == "ekosistem" else _orig_sec(id_)
 
 # ---------------- BERANDA ----------------
-hero = HERO.replace('href="#rekam"', 'href="/layanan/#rekam"')
+hero = HERO.replace('href="#rekam"', 'href="/layanan/#rekam"').replace('<span data-i18n="k16">Klien baru per tahun, beraset Rp1–500 miliar</span>', '<span data-i18n="hs68">' + T['hs68'][0] + '</span>')
 home = HEAD + '<main id="top">' + hero + PETA + REKAM + PEND.replace('class="block"', 'class="block hs"', 1) + SIAPA + LANGKAH + JELAJAH + KONTAK.replace('class="block alt"', 'class="block"', 1) + TAIL
 home = home.replace("</head>", CSS + "</head>", 1)
 home = home.replace("</body>", ANIM + REDIR + "</body>", 1)
