@@ -161,6 +161,13 @@ for name, target in [("kja-farhani", "https://kja-farhani.pages.dev"), ("faindon
     open(os.path.join(d, "index.html"), "w").write(f'<!doctype html><meta charset="utf-8"><link rel="canonical" href="{target}/"><meta http-equiv="refresh" content="0;url={target}/"><a href="{target}/">{target}</a>')
     shutil.make_archive(d, "zip", d)
 
+# ---------- Title Case judul dan poin (aturan Bos, 25 Okt 2026) ----------
+import sys as _sys; _sys.path.insert(0, M)
+import titlecase as _tcm
+for _n in ("faindonesia", "cariakuntan", "kja-farhani"):
+    _p = os.path.join(OUT, _n)
+    if os.path.isdir(_p): print("titlecase", _n, _tcm.run(_p))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
