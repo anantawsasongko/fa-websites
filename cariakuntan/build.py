@@ -514,12 +514,13 @@ def sector_html(x):
     return f"<div><b>{head_}:</b>{body_}</div>"
 
 exec(open(os.path.join(ROOT, "seo_city.py"), encoding="utf-8").read())
+exec(open(os.path.join(ROOT, "seo_kawasan.py"), encoding="utf-8").read())
 
 blocks = ""
 for r,(rname, rline) in REGIONS.items():
     links = " ".join(f'<a href="/kota/{slug(c[0])}/">{c[0]}</a>' for c in CITIES if c[2]==r)
     blocks += f'<h2 id="{r}" style="margin-top:34px">{rname}</h2><p style="color:var(--muted);margin-top:6px;max-width:68ch">{rline}</p><div class="citylist">{links}</div>'
-html = head("KAP, KJPP, Konsultan Pajak &amp; Jasa Laporan Keuangan di 86 Kota Indonesia | cariakuntan.com", f"Cari KAP, KJPP, konsultan pajak, dan jasa penyusunan laporan keuangan di {len(CITIES)} kota: Malang, Surabaya, Batam, Jakarta, Denpasar, Medan, Makassar, hingga Papua.", DOMAIN+"/kota/")
+html = head("KAP, KJPP, Konsultan Pajak &amp; Jasa Laporan Keuangan di " + str(len(CITIES)) + " Kota Indonesia | cariakuntan.com", f"Cari KAP, KJPP, konsultan pajak, dan jasa penyusunan laporan keuangan di {len(CITIES)} kota: Malang, Surabaya, Batam, Jakarta, Denpasar, Medan, Makassar, hingga Papua.", DOMAIN+"/kota/")
 html += header(ID,"home") + f'<main class="wrap art"><p class="crumb"><a href="/">Beranda</a> / Wilayah</p><h1>KAP, KJPP, Konsultan Pajak, dan Jasa Laporan Keuangan dari Aceh hingga Papua</h1><p class="sub">{len(CITIES)} kota dengan aktivitas bisnis terbesar di Indonesia. Pekerjaan lapangan dijadwalkan per kunjungan, sebagian besar proses berjalan daring.</p><h2 style="margin-top:28px">Pencarian Populer</h2><div class="citylist">{" ".join(popular_links(PRIORITY))}</div><h2 style="margin-top:28px">Per Layanan</h2><div class="citylist">{" ".join(f'<a href="/layanan/{SV[k][1]}/">{SV[k][3]}</a>' for k in SV)}</div>{blocks}</main>\n' + footer(ID)
 write("/kota/", html); urls.append("/kota/")
 

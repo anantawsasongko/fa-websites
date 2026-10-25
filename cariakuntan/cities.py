@@ -120,3 +120,7 @@ REGIONS = {
 "sulawesi":("Sulawesi","Sulawesi kini menjadi pusat investasi hilirisasi. Kebutuhan audit dan penilaian dari kontraktor dan pemasok ikut meningkat."),
 "maluku-papua":("Maluku dan Papua","Jarak bukan hambatan. Mitra kami pernah menangani pekerjaan hingga Indonesia timur, dengan kunjungan lapangan terjadwal dan proses daring."),
 }
+
+# kota tambahan (25 Okt 2026)
+from kawasan import EXTRA_CITIES as _EX
+CITIES += [c for c in _EX if c[0] not in {x[0] for x in CITIES}]

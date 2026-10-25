@@ -4,18 +4,18 @@
 
 SERVICES = [
  # key, slug, label pendek, judul layanan, sinonim untuk teks, kata kunci WA
- ("kap", "kap", "KAP", "KAP dan Jasa Audit", "kantor akuntan publik (KAP), auditor, dan jasa audit laporan keuangan", "KAP / audit"),
- ("kjpp", "kjpp", "KJPP", "KJPP dan Jasa Penilai", "Kantor Jasa Penilai Publik (KJPP), appraisal aset, dan penilaian bisnis", "KJPP / penilaian aset"),
+ ("kap", "kap", "KAP", "Kantor Akuntan Publik (KAP) dan Jasa Audit", "kantor akuntan publik (KAP), auditor, dan jasa audit laporan keuangan", "KAP / audit"),
+ ("kjpp", "kjpp", "KJPP", "Jasa Penilai dan KJPP", "Kantor Jasa Penilai Publik (KJPP), appraisal aset, dan penilaian bisnis", "KJPP / penilaian aset"),
  ("pajak", "konsultan-pajak", "Konsultan Pajak", "Konsultan Pajak", "konsultan pajak berizin (KKP), pendampingan SPT, Coretax, dan pemeriksaan pajak", "konsultan pajak"),
  ("lk", "jasa-laporan-keuangan", "Jasa Laporan Keuangan", "Jasa Penyusunan Laporan Keuangan", "jasa penyusunan laporan keuangan, pembukuan, dan Kantor Jasa Akuntansi (KJA)", "penyusunan laporan keuangan"),
  ("ltp", "laporan-tahunan-pt", "Laporan Tahunan PT", "Jasa Laporan Tahunan PT (Permenkum 49/2025)", "jasa penyusunan laporan tahunan PT untuk akta notaris dan SABH sesuai Permenkum 49/2025", "laporan tahunan PT untuk akta notaris (Permenkum 49/2025)"),
 ]
 def has_page(city, key):
-    return city in PRIORITY or key == "ltp"
+    return True
 SV = {s[0]: s for s in SERVICES}
 
 PRIORITY = ["Malang","Surabaya","Batam","Jakarta","Sidoarjo","Denpasar","Bandung","Semarang","Medan",
-            "Makassar","Balikpapan","Yogyakarta","Tangerang","Bekasi","Pekanbaru","Palembang"]
+            "Makassar","Balikpapan","Yogyakarta","Tangerang","Bekasi","Pekanbaru","Palembang","Jember","Pasuruan"]
 
 # kalimat per layanan x sektor, supaya isi tiap kota berbeda sesuai ekonominya
 HOOK = {
@@ -100,6 +100,19 @@ TRUST = tblx(["Kelas", "Jenis KAP", "Umumnya diminta untuk"], [
     ("B", "KAP terdaftar OJK", "Kredit menengah, lembaga jasa keuangan"),
     ("C", "KAP berizin Kementerian Keuangan", "Kredit UKM, wajib audit UU PT, tender")])
 
+from kawasan import BOOST, KAWASAN as _KW
+def boost_html(c, short=None):
+    if c not in BOOST: return ""
+    kws = [k for k in _KW if k[1] == c]
+    ps = "".join(f"<p>{x}</p>" for x in BOOST[c])
+    kl = ("<p>Kawasan yang sering kami layani di " + c + ": " + ", ".join(f'<a href="/kota/{slug(c)}/{slug(k[0])}/' + (SV[[s_ for s_ in SV if SV[s_][2]==short][0]][1] + "/" if short else "") + f'">{k[0]}</a>' for k in kws) + ".</p>") if kws else ""
+    return f'<div class="prose"><h2>Mengenal Pasar {"" if not short else short + " "}{c}</h2>{ps}{kl}</div>'
+
+def fa_box(c, area=None):
+    w = f"https://faindonesia.co.id/wilayah/{slug(c)}/" + (f"{slug(area)}/" if area else "")
+    return (f'<div class="more"><h3>Butuh Pendampingan sampai Dana Cair?</h3><p style="color:var(--muted);margin:0 0 10px">Untuk pendampingan laporan keuangan, kredit bank, investor, IPO, konsultan rumah sakit, dan unit cost di {area or c}, lihat juga FA Indonesia.</p>'
+            f'<div class="citylist"><a href="{w}">Konsultan Keuangan {area or c}</a><a href="https://faindonesia.co.id/konsultan-rumah-sakit/{slug(c)}/">Konsultan Rumah Sakit {c}</a><a href="https://faindonesia.co.id/konsultan-unit-cost-rumah-sakit/{slug(c)}/">Konsultan Unit Cost {c}</a><a href="https://faindonesia.co.id/konsultan-kredit-bank/">Konsultan Kredit Bank</a></div></div>')
+
 # ---------------- halaman kota ----------------
 for name, prov, reg, secs, note in CITIES:
     s = slug(name); rname, rline = REGIONS[reg]
@@ -135,6 +148,7 @@ for name, prov, reg, secs, note in CITIES:
   <p class="sub">{name} adalah {note}. Kami menghubungkan perusahaan di {name} dengan kantor akuntan publik (KAP), KJPP, konsultan pajak, dan Kantor Jasa Akuntansi yang memenuhi persyaratan bank, regulator, atau investor.</p>
   <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="citylist" style="margin-top:18px">{jump}</div>
+  {boost_html(name)}
   <div class="prose"><h2>Siapa Mengerjakan Apa di {name}</h2></div>
   {overview}
   <div class="prose"><h2>Kebutuhan yang Paling Sering di {name}</h2></div>
@@ -151,6 +165,7 @@ for name, prov, reg, secs, note in CITIES:
     {faq_html}
   </div>
   <div class="more"><h3>Kota Lain di {rname}</h3><div class="citylist">{nlinks}</div></div>
+  {fa_box(name)}
 </main>
 ''' + footer(ID)
     write(f"/kota/{s}/", html); urls.append(f"/kota/{s}/")
@@ -182,6 +197,7 @@ for name, prov, reg, secs, note in CITIES:
   <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m2)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="prose"><h2>Kapan Perusahaan di {name} Membutuhkan {short}</h2><p>{body[0]}</p>{f"<p>Di {name}, {'objek yang paling sering dinilai adalah' if k=='kjpp' else 'yang paling sering menghubungi kami adalah'} {hk}.</p>" if hk else ""}</div>
   {tblx(["Situasi", "Yang dikerjakan", "Perkiraan waktu"], TABLE[k])}
+  {boost_html(name, short)}
   <div class="prose"><h2>Cara Kami Memilihkan {short} untuk {name}</h2><p>{body[1]}</p><p>{body[2]}</p>
     <h2>Alurnya</h2><p>1. Anda chat dan kirim laporan keuangan terakhir atau gambaran kebutuhan. 2. Kami petakan syarat bank atau regulator. 3. Kami ajukan kantor yang cocok beserta kisaran biaya dan jadwal. 4. Anda memutuskan, kami dampingi sampai selesai.</p>
     {"<h2>KAP Sesuai Klasifikasi Bank</h2>" if k=="kap" else ""}</div>
@@ -189,6 +205,7 @@ for name, prov, reg, secs, note in CITIES:
   <div class="prose"><h2>Tanya Jawab</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q,a in q2)}</div>
   <div class="more"><h3>Layanan Lain di {name}</h3><div class="citylist">{others}</div></div>
   <div class="more"><h3>{short} di Kota Sekitar</h3><div class="citylist">{nearsvc}</div></div>
+  {fa_box(name)}
 </main>
 ''' + footer(ID)
             write(f"/kota/{s}/{sl}/", h2); urls.append(f"/kota/{s}/{sl}/")
