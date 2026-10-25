@@ -244,7 +244,7 @@ function go(){{var t=q.value.trim();try{{if(t&&navigator.clipboard)navigator.cli
 document.getElementById("sgo").addEventListener("click",go);q.addEventListener("keydown",function(e){{if(e.key==="Enter"){{e.preventDefault();go()}}}});upd()}})();</script>'''
 
 import json as _json
-GS_URL = ""  # Apps Script web app /exec (Sheet: CariAkuntan - Leads Screening)
+GS_URL = "https://script.google.com/macros/s/AKfycbzBAfPUXS1F9zcnRBz_Xg7-IhKRrLtyOtoNY9342G2gsXwgThcXwxcwq-VE3ywgK8Dniw/exec"  # Apps Script web app /exec (Sheet: CariAkuntan - Leads Screening)
 def json_dumps(x): return _json.dumps(x, ensure_ascii=False)
 
 # ---------------- Form screening instan ----------------
