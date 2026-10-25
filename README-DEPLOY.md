@@ -1,6 +1,6 @@
 # Deploy Kit Website FA Indonesia (Cloudflare Pages)
 
-Deploy HANYA ke Cloudflare Pages (akun ananta.w.sasongko@gmail.com, account id afb677a1f9df62a249d390aef72c233c). Netlify sudah tidak dipakai.
+Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Cloudflare Pages project faindonesia-web (out/faindonesia) dan cariakuntan-web (out/cariakuntan). Project lama faindonesia/cariakuntan (upload manual) jadi cadangan. Deploy HANYA ke Cloudflare Pages (akun ananta.w.sasongko@gmail.com, account id afb677a1f9df62a249d390aef72c233c). Netlify sudah tidak dipakai.
 
 ## 7 Project Cloudflare Pages
 | Project | Domain | Isi |

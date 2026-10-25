@@ -127,7 +127,10 @@ for n in sorted(os.listdir(OUT)):
 for proj in ["cariakuntan", "faindonesia", "faindonesia-jupiter", "faindonesia-saturn", "faindonesia-venus"]:
     h = os.path.join(OUT, proj, "_headers")
     old = open(h).read() if os.path.exists(h) else ""
-    open(h, "w").write(old.rstrip() + f"\n\nhttps://{proj}.pages.dev/*\n  X-Robots-Tag: noindex\n")
+    extra = f"\n\nhttps://{proj}.pages.dev/*\n  X-Robots-Tag: noindex\n"
+    if proj in ("faindonesia", "cariakuntan"):
+        extra += f"\nhttps://{proj}-web.pages.dev/*\n  X-Robots-Tag: noindex\n"
+    open(h, "w").write(old.rstrip() + extra)
 
 # ---------- redirect-only untuk project Netlify lama (dipakai sekali, bukan deploy rutin) ----------
 NR = os.path.join(M, "netlify-redirect")
