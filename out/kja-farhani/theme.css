@@ -1,0 +1,54 @@
+/* KJA Farhani K.N. — navy theme, same visual language as FA Indonesia (Garamond titles, Poppins UI). Loaded last on every page. */
+html:root:root:root{
+  --ink:#FFFFFF;--text:#D3DCE7;--muted:#9AABC0;--line:#24384F;
+  --bg:#0E1A2B;--soft:#13233A;--accent:#FFFFFF;--accent-ink:#0E1A2B;--wa:#FFFFFF;
+  --accent-soft:rgba(255,255,255,.08);--glow:rgba(255,255,255,.22);
+  --serif:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;
+  background-image:radial-gradient(1200px 600px at 85% -10%,rgba(127,176,232,.10),transparent 60%)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.005em;color:var(--ink)}
+h1{line-height:1.08}
+h2{font-size:clamp(30px,4vw,44px);line-height:1.12}
+h3{font-size:21px;line-height:1.25}
+.intro,.lead,.bio,.article p,.article li,details p,.svc p,.rel p,.dl-list p,.lane p,.booklet,.addr{font-family:var(--serif);font-size:17.5px;line-height:1.6}
+.eyebrow{font-family:var(--sans);font-weight:500;letter-spacing:.2em;font-size:11.5px;color:var(--muted)}
+.eyebrow::before{background:var(--ink)}
+a{color:var(--ink)}
+
+/* header */
+.top{background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.brand{font-family:var(--sans);font-weight:500;letter-spacing:.01em}
+.brand img,.lh-logo,.seal img,img[src="/mark-kja.png"],img[src="/logo-fa-consult.png"]{filter:brightness(0) invert(1)}
+.top nav a{font-family:var(--sans)}
+.top nav .nav-cta{border-radius:2px;background:#fff;color:#0E1A2B}
+
+/* buttons: FA style, square corners */
+.btn{border-radius:2px;font-family:var(--sans);font-weight:500;font-size:14px;padding:13px 22px}
+.btn-primary,.btn-wa{background:#fff;color:#0E1A2B}
+.btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-line:hover{border-color:#fff}
+.btn:hover{box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.btn-primary::after,.btn-wa::after{background:linear-gradient(100deg,transparent,rgba(0,0,0,.12),transparent)}
+
+/* cards & surfaces */
+.letterhead{background:linear-gradient(160deg,#172A44,#11203A);border-top:1px solid var(--line);border:1px solid var(--line);border-radius:0}
+.letterhead:hover,.person:hover{box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.person{background:linear-gradient(160deg,#172A44,#11203A);border-color:var(--line);border-radius:0}
+details{border-color:var(--line)}
+table.seg th{color:var(--muted)}
+.box,.article .box{background:var(--soft);border-color:var(--line);border-radius:0}
+.stats-band{background:var(--soft)}
+
+/* floating WhatsApp */
+.float-wa button{background:#fff;color:#0E1A2B;font-family:var(--sans);font-weight:500;box-shadow:0 8px 22px rgba(0,0,0,.5)}
+.float-wa button::before{border-color:#fff}
+.float-wa .menu a{background:#1E1E1E;color:#fff;border-color:var(--line);box-shadow:0 6px 20px rgba(0,0,0,.5)}
+
+footer{border-top:1px solid var(--line);color:var(--muted)}
+footer a{color:var(--text)}
+.progress{background:#fff}
+::selection{background:#fff;color:#0E1A2B}

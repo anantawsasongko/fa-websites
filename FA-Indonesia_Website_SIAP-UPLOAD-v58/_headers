@@ -1,0 +1,7 @@
+/img/*
+  Cache-Control: public, max-age=2592000
+/files/*
+  Cache-Control: public, max-age=604800
+/files/cv/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-cache

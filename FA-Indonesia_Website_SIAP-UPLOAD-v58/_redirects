@@ -1,0 +1,14 @@
+https://faindonesia.netlify.app/*  https://faindonesia.co.id/:splat  301!
+https://www.faindonesia.co.id/*  https://faindonesia.co.id/:splat  301!
+
+# FA Apps: tiga site Netlify terpisah (deploy terpisah, tidak saling menimpa).
+# Jangan ganti nama site Netlify tanpa update baris di bawah.
+# FA Jupiter (penyusunan LK)  -> faindonesia-jupiter
+/audit-ready/*   https://faindonesia-jupiter.netlify.app/audit-ready/:splat   200!
+/jupiter/*       https://faindonesia-jupiter.netlify.app/jupiter/:splat       200!
+# FA Saturn (sistem audit KAP) -> faindonesia-saturn
+/saturnus/*      /saturn/:splat                                               301!
+/saturn/*        https://faindonesia-saturn.netlify.app/saturn/:splat         200!
+# FA Venus (kalkulator & app kecil) -> faindonesia-venus
+/cek-psak-118/*  https://faindonesia-venus.netlify.app/cek-psak-118/:splat    200!
+/app/*           https://faindonesia-venus.netlify.app/app/:splat             200!

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /files/
+Disallow: /files/cv/

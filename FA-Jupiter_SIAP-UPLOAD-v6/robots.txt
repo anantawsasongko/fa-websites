@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://faindonesia.co.id/sitemap.xml

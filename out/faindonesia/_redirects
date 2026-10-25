@@ -1,0 +1,6 @@
+# Cloudflare Pages. www -> apex diatur lewat Redirect Rule di zone faindonesia.co.id.
+# FA Apps digabung ke project ini saat deploy (folder audit-ready, saturn, cek-psak-118).
+/saturnus/*      /saturn/:splat      301
+/jupiter/*       /audit-ready/:splat 301
+/files/*      https://faindonesia-apps.pages.dev/files/:splat        302
+/saturn/kk/*  https://faindonesia-saturn.pages.dev/saturn/kk/:splat  302

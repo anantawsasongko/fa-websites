@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lapor UMKM | KJA Farhani K.N.</title>
+<meta name="description" content="Laporan keuangan UMKM untuk cafe dan rumah makan, toko retail, ISP lokal, kontraktor dan pengadaan kecil non-PKP, serta klinik BPJS dengan analisis casemix dan iDRG. Laba rugi, neraca SAK EMKM, PBJT, PPh final 0,5%, dan PPh final jasa konstruksi. Data diolah di browser Anda.">
+<link rel="canonical" href="https://kja-farhani.netlify.app/lapor-umkm/">
+<meta property="og:title" content="Lapor UMKM | KJA Farhani K.N.">
+<meta property="og:description" content="Laporan keuangan UMKM untuk cafe dan rumah makan, toko retail, ISP lokal, kontraktor dan pengadaan kecil non-PKP, serta klinik BPJS dengan analisis casemix dan iDRG. Laba rugi, neraca SAK EMKM, PBJT, PPh final 0,5%, dan PPh final jasa konstruksi. Data diolah di browser Anda.">
+<meta property="og:url" content="https://kja-farhani.netlify.app/lapor-umkm/">
+<meta name="theme-color" content="#0E1A2B">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: brand bar, tab strip, one working pane. Kitchen-ledger feel: KJA royal blue + sky, serif pairing. */
+:root{
+  --bg:#0E1A2B; --panel:#13233A; --ink:#FFFFFF; --muted:#9FB0C6; --line:#24395A; --soft:#182B46;
+  --accent:#7FB0E8; --accent-ink:#A9CBF2; --accent-soft:rgba(127,176,232,.12); --sky:#4F86C6;
+  --input:#1A2F4C; --input-line:#3B5A84;
+  --ok:#6FCF97; --ok-soft:rgba(111,207,151,.13); --warn:#E6B85C; --warn-soft:rgba(230,184,92,.13); --bad:#F08A7E; --bad-soft:rgba(240,138,126,.14);
+  --head:transparent; --head-ink:#9FB0C6;
+  --f-display:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;
+  --f-ui:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Poppins",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+.cred{border-left:2px solid currentColor;padding-left:12px;opacity:.95}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:inset 0 -2px 0 var(--accent-soft)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.logo{height:42px;width:auto}
+.brand{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.brand b{font-family:var(--f-display);font-weight:700;font-size:18px}
+.brand span{font-size:12px;color:var(--muted)}
+.co{margin-left:auto;text-align:right;line-height:1.3;min-width:0}
+.co b{display:block;font-family:var(--f-display);font-size:15px}
+.co span{font-size:12px;color:var(--muted)}
+.btn{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.small{padding:5px 10px;font-size:13px}
+.btn:focus-visible,input:focus-visible,select:focus-visible,.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+nav.tabs{border-bottom:1px solid var(--line);background:var(--panel)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+.tab{font:inherit;font-family:var(--f-display);font-size:15px;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:12px 14px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--accent)}
+main .wrap{padding-block:20px 48px;display:flex;flex-direction:column;gap:18px}
+h2{font-family:var(--f-display);font-weight:400;font-size:21px;margin:0;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:400;font-size:13px;margin:0;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.sec-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sp{flex:1}
+.note{color:var(--muted);font-size:13px;margin:0;max-width:80ch}
+.note a,.safe a{color:var(--accent-ink);font-weight:700}
+.demo{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px}
+.demo b{color:var(--accent-ink)}
+.demo .sp{min-width:200px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi small{display:block;color:var(--muted);font-family:var(--f-display);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.kpi b{display:block;font-family:var(--f-num);font-size:25px;font-weight:700;font-variant-numeric:lining-nums tabular-nums;margin-top:4px}
+.kpi span{font-size:12px;color:var(--muted)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:lining-nums tabular-nums}
+th{background:var(--head);color:var(--head-ink);font-family:var(--f-display);font-weight:400;font-size:13px;letter-spacing:.03em;text-align:left;padding:8px 10px;white-space:nowrap}
+td{padding:6px 10px;border-top:1px solid var(--line);vertical-align:middle}
+td.num,th.num{text-align:right;white-space:nowrap}
+td.num{font-family:var(--f-num)}
+tr.grp td{background:var(--soft);font-family:var(--f-display);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+tr.tot td{font-weight:700;border-top:1px solid var(--ink)}
+tr.gt td{font-weight:700;background:var(--accent-soft);border-top:2px solid var(--ink)}
+td.ind{padding-left:24px}
+.pill{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:2px 10px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)} .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.mute{background:var(--soft);color:var(--muted)}
+input.cell,select.cell{font:inherit;font-size:14px;width:100%;min-width:90px;background:var(--input);border:1px solid var(--input-line);color:var(--ink);border-radius:6px;padding:4px 8px}
+input.cell.num{text-align:right}
+.field{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);min-width:0}
+.field input,.field select{font:inherit;font-size:15px;color:var(--ink);background:var(--input);border:1px solid var(--input-line);border-radius:8px;padding:7px 10px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.bars{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end;height:140px;padding-top:8px}
+.bars div{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px;height:100%;min-width:0}
+.bars i{display:block;width:70%;background:var(--accent);border-radius:4px 4px 0 0;min-height:1px}
+.bars i.l{background:var(--sky)}
+.bars span{font-size:11px;color:var(--muted)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--accent);margin-right:6px;vertical-align:middle}
+.legend i.l{background:var(--sky)}
+.neg{color:#E8857F}
+.chip{font:inherit;font-size:13px;border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+.safe{border:1px solid var(--line);border-left:4px solid var(--ok);background:var(--panel);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.safe h3{color:var(--ok)}
+.safe.free{border-left-color:var(--warn)} .safe.free h3{color:var(--warn)}
+.safe ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:90ch}
+.access{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:800px){.access{grid-template-columns:1fr}}
+.codebox{display:flex;gap:8px;flex-wrap:wrap}
+.codebox input{font:inherit;letter-spacing:.06em;text-transform:uppercase;flex:1;min-width:200px;background:var(--input);border:1px solid var(--input-line);color:var(--ink);border-radius:8px;padding:8px 10px}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.price{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.price small{display:block;font-family:var(--f-display);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)}
+.price b{font-family:var(--f-num);font-size:20px}
+.price span{display:block;font-size:12px;color:var(--muted)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.savebadge{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.savebadge i{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.savebadge.ok i{background:var(--ok)} .savebadge.warn{color:var(--warn)} .savebadge.warn i{background:var(--warn)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:700;z-index:20;max-width:calc(100% - 32px)}
+footer{color:var(--muted);font-size:12px;padding-block:0 32px}
+.muted{color:var(--muted)}
+table.lr td:first-child{min-width:230px}
+@media (max-width:600px){.co{margin-left:0;text-align:left;flex-basis:100%}.kpi b{font-size:20px}}
+
+/* ---- brand layer: same visual language as the website ---- */
+body{font-family:var(--f-ui);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;background-color:var(--bg);background-image:radial-gradient(1200px 600px at 85% -10%,rgba(127,176,232,.10),transparent 60%);background-attachment:fixed}
+header.bar{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:none;transition:box-shadow .3s}
+header.bar.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.45)}
+body::before{background:var(--bg)}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:23px;letter-spacing:.005em}
+.brand span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.brand .wm{height:18px;width:auto;max-width:none;display:block;margin-top:4px;align-self:flex-start;object-fit:contain}
+.co b{font-family:var(--f-display);font-weight:400;font-size:18px}
+nav.tabs{background:transparent}
+.tab{font-family:var(--f-ui);font-size:13.5px;font-weight:400;letter-spacing:.02em;color:var(--muted);transition:color .2s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{font-weight:500;color:var(--ink);border-bottom-color:#7FB0E8}
+.btn{font-family:var(--f-ui);font-weight:500;font-size:13.5px;border-radius:6px;padding:10px 18px;background:transparent;color:var(--ink);border:1px solid rgba(255,255,255,.35);transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+.btn:hover{border-color:#fff;transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.btn.small{padding:6px 12px;font-size:12.5px}
+.btn.primary{background:#FFFFFF;border-color:#FFFFFF;color:#0E1A2B}
+.btn.primary:hover{background:#E8E8E8}
+.sec,.kpi,.safe,.price,.drop{border-radius:6px;background:var(--panel);border-color:var(--line)}
+.sec{padding:20px}
+.kpi{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
+.kpi:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.35);box-shadow:0 18px 40px -18px rgba(0,0,0,.8)}
+.kpi small,.price small{font-family:var(--f-ui);font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.kpi b{font-family:var(--f-ui);font-weight:300;font-size:28px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:6px}
+.price b{font-family:var(--f-ui);font-weight:400}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,3vw,30px);line-height:1.15;color:var(--ink)}
+h3{font-family:var(--f-ui);font-weight:500;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+h3::before{content:"";width:26px;height:1px;background:currentColor;opacity:.8}
+.safe h3::before{background:currentColor}
+.note{color:var(--muted);font-size:13px}
+.note a,.safe a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.demo{background:var(--accent-soft);border-color:var(--line);border-radius:6px;color:var(--ink)}
+.demo b{color:var(--ink)}
+.safe{border-left-width:2px}
+.tw{border-radius:4px;border-color:var(--line)}
+th{background:var(--head);color:var(--muted);font-family:var(--f-ui);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line);position:static}
+td{border-top-color:var(--line)}
+td.num,.check .v{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+td.code{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+tr.grp td{background:var(--soft);font-family:var(--f-ui);font-weight:500;font-size:11px;letter-spacing:.18em;color:var(--muted)}
+tr.tot td{border-top:1px solid rgba(255,255,255,.5);font-weight:500}
+tr.gt td{background:rgba(255,255,255,.05);border-top:1px solid #fff;font-weight:600}
+tbody tr{transition:background .2s}
+tbody tr:hover td{background:rgba(255,255,255,.025)}
+tr.grp:hover td,tr.gt:hover td{background:inherit}
+.pill{border-radius:2px;font-weight:500;letter-spacing:.04em;font-size:11.5px}
+input.cell,select.cell,.field input,.field select,.codebox input{background:var(--input);border:1px solid var(--input-line);color:var(--ink);border-radius:4px;font-family:var(--f-ui)}
+input::placeholder{color:var(--muted);opacity:.7}
+input.cell:focus,select.cell:focus,.field input:focus,.field select:focus,.codebox input:focus{border-color:#fff;outline:none}
+.chip{border-radius:6px;background:transparent;border-color:var(--line);color:var(--ink);font-family:var(--f-ui);font-weight:400;transition:border-color .2s,background .2s}
+.chip:hover{border-color:rgba(255,255,255,.5)}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:#7FB0E8}
+.bars i{background:var(--accent);border-radius:2px 2px 0 0;transform-origin:bottom;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+.bars i.l{background:var(--sky)}
+.legend i{background:var(--accent)} .legend i.l{background:var(--sky)}
+.toast{background:#fff;color:#171717;border-radius:6px;font-weight:500}
+footer{border-top:1px solid var(--line);padding-top:20px}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:#7FB0E8;transform:scaleX(0);transform-origin:0 50%;z-index:30;pointer-events:none}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+body.boot header.bar .wrap>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+body.boot main .wrap>*{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+body.boot main .wrap>*:nth-child(2){animation-delay:.08s} body.boot main .wrap>*:nth-child(3){animation-delay:.16s} body.boot main .wrap>*:nth-child(4){animation-delay:.24s} body.boot main .wrap>*:nth-child(n+5){animation-delay:.32s}
+#view.swap>*{animation:fade .45s cubic-bezier(.2,.7,.2,1) both}
+#view.swap>*:nth-child(2){animation-delay:.05s} #view.swap>*:nth-child(3){animation-delay:.1s} #view.swap>*:nth-child(n+4){animation-delay:.15s}
+details.more{margin-top:8px}
+details.more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-ui);font-size:12.5px;letter-spacing:.06em;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 14px;transition:border-color .2s,transform .2s,background .2s}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s}
+details.more[open]>summary::after{transform:rotate(225deg) translateY(-2px)}
+details.more>summary:hover{border-color:#7FB0E8;transform:translateY(-1px)}
+details.more[open]>summary{background:var(--accent-soft)}
+details.more[open]>*:not(summary){animation:fade .45s cubic-bezier(.2,.7,.2,1) both}
+.kpi{transition:transform .25s,border-color .25s,box-shadow .25s}
+.kpi:hover{transform:translateY(-3px);border-color:#7FB0E8;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.btn,.chip{transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+.btn:hover,.chip:hover{transform:translateY(-2px)}
+.btn:active,.chip:active{transform:translateY(0) scale(.98)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.risks{display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:10px}
+.risks details{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--soft);transition:border-color .25s,transform .25s}
+.risks details:hover{border-color:#7FB0E8;transform:translateY(-2px)}
+.risks summary{cursor:pointer;list-style:none;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;gap:10px}
+.risks summary::-webkit-details-marker{display:none}
+.risks summary::after{content:"+";font-size:18px;line-height:1;transition:transform .3s}
+.risks details[open] summary::after{transform:rotate(45deg)}
+.risks details p{margin:10px 0 0;font-size:13.5px;color:var(--muted);animation:fade .4s both}
+.risks details p b{color:var(--ink);font-weight:500}
+@media (prefers-reduced-motion:reduce){body.boot *,#view.swap>*,.bars i{animation:none!important}.kpi,.btn{transition:none}.rv{opacity:1;transform:none;transition:none}}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <img class="logo" alt="KJA" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAI1UlEQVR42u2da6xcVRXHf2tmbquUPtD6qBTBNkSrVo3U0hrRChFMTUmKiA8Qq61+UyPGD8YPGiIJkRhjQCNaDE3AaiA2lpYPPIyIaSBGmlISWh61oQolFgtY7e2dO+fvh7N2u3s6d+7ce+fO7dW1kpMzM+fsffZZ/7XWXnudtc4YI5AkI6inZGYa9SRJtWD+5JCk+imgVJlvZoV/ngco2NYb4QeOmtkxSXUza50CQGK+pHcBNwPv80O14N/EBB8ogH8CN5nZz3MQrML8JcCDwILg26TRdWb2o8Rzy2xTDfg98CFgCJgRvOopFa4NdeA9ZrZbUq0hycysJWk28H4/aQawEfiTN2gF/8Zt+wWcAfwQmOnfVwK7gdpxd1PSXEmHdYKuDP711APKefsF/63R6OAVzZHUABrAcLBwQhowt8Lb458bHRq3zGxYEmYWAIxP6s3MJGlE/oWLOcUUAAQAAUBQABAABAUAAUBQABAABAUAAUBQABAABAUAAUBQABAABAUAAUBQABAABAUAAUBQABAABPWYGr3oRFKtCzCLVH1TaVunUqmTUatdXdUobQDGlE7p40/9qd04T2sAfMDFONu2+tGmi/HngFhXBXVTDUBWWbMCWA40gWOcqCeoU+bEDwA7zezhrE1KXL0KeDNwhDILuw681se2zcz2Zeem/VrgHMpCkkFO1LINAK/x3zaZWXOU8af+fgws9Z//aGbfy+vlTmcNSGr7JmAtcDZwfuWcp4EXgIOVNil1+73Axylr0mpZm78CD1XOTfvzs+udk12rCewBHgU2dSk8i4GvZYdWSPqJmf2jL5pQKdB4uV0RwRj72yip6dsdo5zb8P0iSc9L+pukC8d4vb9k1/vyGNqla3/L7/dfkob885fGc+9j4O261H+tRyDWJM3wCxauWY3ykEzSTJ/oTmKA1x8sBx6jLItaY2aPSqr7ZiNcr16puU3XK3wsM7sYdjKT64GdwC/dhAm4OjkO08INdVuZPBY7+ZDJjxVtmP8B4H7gKLDKzHb6sZZv6uBRtSreC0Cy261RBKbutn8p8HbgV8Atmbm7SNISN1G10x6AMWpLYv4HKasyX3XmP5GOjaW7Ub6PNnd9zvfbzexp4IlsMr+qHzyqTRHzL3LmHwI+amZ7x8H8idjlltv3zwOP+8QN8Jvs1E9LGmCSK0RrfWT+gDP/Yspi8Oec+c+4SehXHVrNTdtK96Juz0zd3e7aAiyhrJlu+46H6QZAw8yaki4FtgJPAZeY2f7quxP6SNe6ydqSzQt7gB2ZKbt6st3QWh8kv2Zmg5JWA7/zhdK1ZnbAtaLVRy1MRelnAlcCO1wI8sn819nnNZLO8jY2HQGouyex1iV/hl/zRrfBRZ9fjZNc24uBecDtGR+SIGx1xwDgjcAnslX9tAPgZbf5vwVezm70Y8APXPrrfQSgcJPyRR/HvVlgr+aT7ovuINCPNcFkAlAAl/qEu8VjLff4gukY8A1J1/jEXO+T+SkkzQdWA1vM7HlfbzSzfQH8NJsHVklaPFlrgsYk3nMLOA+43sy+60xY73Ga8zzwdquk3Wa2qw+Tcd2vucb9/L2SPlIxPynWNNM1dp7PWZ8CbvRzi55LRi9iQUmKJf0i6+Ou1EcWe7lQ0mAWd3lS0jwPWdTGOGaT9Fh2vQ0jjTn1LekBdU/Dvt/l92BjmbO6iQU1JlnzjyYPw93Qhsd6vg78zE3RO4DbzOyTHuNRr12/LPK5CPgw8ABwg2tCq41ZHgKWUb5ipnDzudzMdrigtaaDCToem0nS5/a+YWa3SloGbKCM3V8h6TtmdoNL7/AINnw0YIY6zHUFZQh7ALjZzP4wCmgPU4apz01rAl8jTO9YkIcB6sBXgT+7jW0C35e0eqRJuUutONzhmjVgnbuYD7m2NbLIa76laOq2zBtaK2lOr9cEfQfAGSkzGwQ+S/kyu6TWmyQtyiKdZLZ+zgg3rkz691ZdRjc/cjPybvd+XkkamUVej2/AsLe5O+tvAXCZj6F+OgJgbcLD7X7DzVLdzJ51nzx5IvOBzS6BliY+4CwPX6xw7ah7v3Vf3AnYBTyT3M02i6/P+PfN/r2TFKcF4iPAsxnDr0ma2CstqPVQsof9xnM7PGRmRbtnsy7lDTPbClzvjBykfLZ8i0tjkkRRPvZc5hKaMizeQPlI0tyuF9V7ct9eHno+ANyfnlGMoqXmWro504JLJC3IxnX6ACDpTEnnAguzn98iabGkuZ3mA18nbPP5YAjYIOnbks7OXMpjwDpJFwBnSFpI+RBlLnAncKebm1buGkt6vbt9b6V88rZA0qwuGFiX9DpgfwbALOA6SQslzZrydUDm+2+QdEDSv9v40oOSXpR0V3b+SS+MdRs/X9Ieb1P4/j+SHpH0TkkvZX22ss83SRpIPnp2P3VJ90p6NTu3kHRE0nOSvlINNWdrhbdJelzSK9laIKcjkvZLuqJTuLof64Bka7e7vWxy6lMpc3e3lc7PpS9LUTkkaaWblWR2Btz+7gNWUb5Wc4FL4t+B+8xs3whuagF806/f9L1l43mpOmFnc8dByoc1TR+3KpN+3cd2cKJxosYE7b58/wJl6sm4+3EGHu7gSu72rZ0WFlWT4t+f7PYeKr8d9Ul9THyYsoVYF15FVcJGBKFdP9lirtYmutnqtALuNOxOjOsyLDLhVXuvUhNFD9603qmf8aQ/TiSzrV/5oZEdPcUUAAQAAUBQABAABAUAAUBQABAABAUAAUBQABAABAUAAUBQABAABAUAAUBQABAABE0SdUpLSWl+1udS0v8lMqnMXesWgDwnJ2UAN4OP46aUyt4cic85ANXCg9me1Rx/6DwBDXBmz8m0IOW8nmRmoPzf86cok18LynTwkP7eATHbBXkAuNzM7pFUP57K7QUT64GNnEgBjEm6dzTs1uRB4DL89ZipejEVStxGmdKtYP6kODz3AZe7gJ86O2easBS4wE8MIHowEQOHzGy783nkktvJfkfa/z0aFZfeOoAQQPSeTnkR4X8B0tSCCEoyvrgAAAAASUVORK5CYII=" style="height:42px">
+  <div class="brand"><b>Lapor UMKM</b><span>KJA Farhani K.N.</span></div>
+  <div class="co"><b id="hdrCo">-</b><span id="hdrPer">-</span><br><span class="savebadge" id="saveBadge"><i></i><em style="font-style:normal">-</em></span></div>
+  <button class="btn primary" id="btnXlsx" type="button">Download Excel</button>
+</div></header>
+<nav class="tabs" aria-label="Menu"><div class="wrap" role="tablist" id="tabs"></div></nav>
+<main><div class="wrap" id="view"></div></main>
+<footer><div class="wrap">
+  <p class="cred">Disusun oleh <b>Ananta W. Sasongko, CPA</b> (Certified Public Accountant, IAPI) dan <b>Farhani K.N., S.E., M.S.A., Ak., CA</b> (Chartered Accountant, IAI). Laporan disusun dengan pola yang dipakai auditor dan bank saat membaca laporan keuangan UMKM, jadi siap dipakai untuk KUR, tender, dan SPT. Semua rujukan standar memakai penomoran SAK Indonesia yang berlaku, sesuai SAK Online IAI.</p>
+  <p>Data diolah dan disimpan di browser ini saja, tidak dikirim ke server mana pun. Laporan keuangan tetap menjadi tanggung jawab pemilik usaha.</p>
+  <p>© KJA Farhani K.N. dan FA Indonesia. Lapor UMKM v1.1 (Oktober 2026).</p>
+</div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+const BLN=["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+const TYPES={"resto": {"label": "Cafe & Rumah Makan", "short": "cafe atau rumah makan", "sales": "Penjualan", "upload": "Export laporan penjualan dari aplikasi kasir (Moka, Majoo, Pawoon, ESB, Qasir, Olsera, iSeller, dan sejenisnya), lalu upload di sini.", "cost": "Food cost", "warn": 0.4, "ok": "Wajar untuk F&B (sekitar 28% sampai 38%)", "bad": "Di atas 40%, cek harga bahan dan porsi", "hpp": "Harga pokok penjualan (HPP)", "stok": "Stok bahan", "stokNote": "Isi nilai bahan baku, minuman, dan kemasan yang masih ada di dapur dan gudang pada akhir bulan.", "pbjt": true, "kons": false, "kat": [["bahan", "Bahan baku & minuman", "HPP"], ["kemasan", "Kemasan & cup", "HPP"], ["gaji", "Gaji & upah karyawan", "Beban"], ["sewa", "Sewa tempat", "Beban"], ["utilitas", "Listrik, air, gas, internet", "Beban"], ["ojol", "Komisi ojol & marketplace (GoFood, GrabFood, ShopeeFood)", "Beban"], ["promosi", "Promosi & iklan", "Beban"], ["perlengkapan", "Perlengkapan kecil & perbaikan", "Beban"], ["lain", "Biaya lain-lain", "Beban"], ["peralatan", "Beli peralatan atau aset (dicatat sebagai aset)", "Aset"], ["setorpajak", "Setor pajak", "Pajak"], ["bayarutang", "Bayar utang / cicilan pokok", "Utang"], ["prive", "Ambil untuk pribadi (prive)", "Prive"]]}, "retail": {"label": "Toko retail (drone, gadget, elektronik)", "short": "toko", "sales": "Penjualan", "upload": "Export laporan penjualan dari kasir atau marketplace (Moka, Majoo, Olsera, iSeller, Tokopedia, Shopee Seller Center), atau rekap Excel sendiri, lalu upload di sini.", "cost": "HPP terhadap penjualan", "warn": 0.85, "ok": "Margin kotor masih sehat", "bad": "Margin kotor tipis, cek harga beli dan diskon", "hpp": "Harga pokok penjualan (HPP)", "stok": "Stok barang dagang", "stokNote": "Isi nilai barang dagang yang masih ada di toko dan gudang pada akhir bulan, dihitung dengan harga beli.", "pbjt": false, "kons": false, "kat": [["barang", "Pembelian barang dagang", "HPP"], ["ongkirbeli", "Ongkir dan bea masuk pembelian", "HPP"], ["gaji", "Gaji karyawan toko", "Beban"], ["sewa", "Sewa toko", "Beban"], ["utilitas", "Listrik, air, internet", "Beban"], ["marketplace", "Biaya marketplace & payment (Tokopedia, Shopee, MDR QRIS)", "Beban"], ["ongkirjual", "Ongkir pengiriman ke pembeli", "Beban"], ["promosi", "Promosi & iklan", "Beban"], ["garansi", "Garansi, servis, dan retur", "Beban"], ["lain", "Biaya lain-lain", "Beban"], ["peralatan", "Beli peralatan atau aset (dicatat sebagai aset)", "Aset"], ["setorpajak", "Setor pajak", "Pajak"], ["bayarutang", "Bayar utang / cicilan pokok", "Utang"], ["prive", "Ambil untuk pribadi (prive)", "Prive"]]}, "isp": {"label": "ISP / RT RW Net lokal", "short": "ISP", "sales": "Pendapatan", "upload": "Export daftar pembayaran pelanggan dari aplikasi billing (MixRadius, Mikhmon, payment gateway, atau Excel rekap), lalu upload di sini.", "cost": "Biaya langsung terhadap pendapatan", "warn": 0.6, "ok": "Biaya langsung masih terkendali", "bad": "Biaya langsung tinggi, cek harga bandwidth dan jumlah pelanggan aktif", "hpp": "Biaya langsung layanan", "stok": "Stok perangkat pelanggan (ONT, router, kabel)", "stokNote": "Isi nilai ONT, router, kabel, dan perangkat lain yang belum terpasang pada akhir bulan.", "pbjt": false, "kons": false, "kat": [["bandwidth", "Bandwidth upstream (langganan ke ISP besar)", "HPP"], ["backbone", "Sewa tiang, backbone, dan colocation", "HPP"], ["cpe", "Perangkat pelanggan dan kabel yang terpasang", "HPP"], ["gaji", "Gaji teknisi dan admin", "Beban"], ["sewa", "Sewa kantor / NOC", "Beban"], ["utilitas", "Listrik dan genset", "Beban"], ["bhp", "BHP Telekomunikasi & USO (jika berizin)", "Beban"], ["perbaikan", "Perbaikan jaringan", "Beban"], ["promosi", "Promosi & komisi sales", "Beban"], ["lain", "Biaya lain-lain", "Beban"], ["peralatan", "Beli peralatan atau aset (dicatat sebagai aset)", "Aset"], ["setorpajak", "Setor pajak", "Pajak"], ["bayarutang", "Bayar utang / cicilan pokok", "Utang"], ["prive", "Ambil untuk pribadi (prive)", "Prive"]]}, "kontraktor": {"label": "Kontraktor & pengadaan kecil (non-PKP)", "short": "kontraktor", "sales": "Pendapatan", "upload": "Upload rekap termin atau invoice yang sudah ditagih (Excel), atau tambah manual per termin. Pilih jenisnya: jasa konstruksi atau pengadaan barang.", "cost": "Biaya proyek terhadap pendapatan", "warn": 0.9, "ok": "Margin proyek masih aman", "bad": "Margin proyek tipis, cek RAB dan realisasi", "hpp": "Biaya proyek dan barang pengadaan", "stok": "Sisa material dan barang di gudang", "stokNote": "Isi nilai material dan barang pengadaan yang belum terpakai atau belum diserahkan pada akhir bulan.", "pbjt": false, "kons": true, "kat": [["material", "Material proyek", "HPP"], ["upah", "Upah tukang dan mandor", "HPP"], ["subkon", "Subkon", "HPP"], ["sewaalat", "Sewa alat", "HPP"], ["barang", "Pembelian barang pengadaan", "HPP"], ["gaji", "Gaji staf kantor", "Beban"], ["sewa", "Sewa kantor / gudang", "Beban"], ["utilitas", "Listrik, air, internet", "Beban"], ["tender", "Biaya tender, SBU, SKK, dan perizinan", "Beban"], ["transport", "Transport dan BBM proyek", "Beban"], ["lain", "Biaya lain-lain", "Beban"], ["peralatan", "Beli peralatan atau aset (dicatat sebagai aset)", "Aset"], ["setorpajak", "Setor pajak", "Pajak"], ["bayarutang", "Bayar utang / cicilan pokok", "Utang"], ["prive", "Ambil untuk pribadi (prive)", "Prive"]]}};
+
+TYPES.kontraktor.jenis=[["kons","Jasa konstruksi"],["pengadaan","Pengadaan barang"]];
+TYPES.klinik={label:"Klinik (BPJS)",short:"klinik",sales:"Pendapatan",upload:"Isi pendapatan per bulan dari SIMKlinik atau rekap kasir, dipisah menjadi kapitasi BPJS, klaim non-kapitasi BPJS, dan pasien umum/asuransi. Bisa upload Excel per jenis atau tambah manual.",
+ cost:"Obat, BMHP & jasa medis",warn:0.55,ok:"Masih wajar untuk klinik pratama",bad:"Di atas 55%, cek pola resep, harga obat, dan skema jasa medis",hpp:"Biaya pelayanan langsung",stok:"Stok obat & BMHP",stokNote:"Isi nilai obat, alkes habis pakai, dan reagen lab yang tersisa di farmasi pada akhir bulan, termasuk obat yang mendekati kedaluwarsa.",
+ pbjt:false,kons:false,bpjs:true,jenis:[["kapitasi","Kapitasi BPJS"],["nonkap","Klaim non-kapitasi BPJS"],["umum","Pasien umum & asuransi"]],
+ kat:[["obat","Obat & BMHP","HPP"],["jasamedis","Jasa medis dokter & dokter gigi","HPP"],["lab","Reagen lab & rujukan lab","HPP"],["gaji","Gaji perawat, bidan, apoteker & admin","Beban"],["sewa","Sewa gedung","Beban"],["utilitas","Listrik, air, internet","Beban"],["izin","Perizinan, akreditasi & STR/SIP","Beban"],["simrs","SIMKlinik & P-Care","Beban"],["limbah","Pengolahan limbah medis","Beban"],["promosi","Promosi & penyuluhan","Beban"],["lain","Biaya lain-lain","Beban"]].concat(TYPES.isp.kat.filter(k=>["peralatan","setorpajak","bayarutang","prive"].includes(k[0])))};
+const ALLK={};Object.values(TYPES).forEach(t=>t.kat.forEach(k=>{if(!ALLK[k[0]])ALLK[k[0]]=k}));
+let KAT=[],KI={},TY=TYPES.resto;
+function setType(){TY=TYPES[S.usaha]||TYPES.resto;KAT=TY.kat;KI={};KAT.forEach(k=>KI[k[0]]=k)}
+const katName=k=>(KI[k]||ALLK[k]||[k,k])[1];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const nf=new Intl.NumberFormat("id-ID",{maximumFractionDigits:0});
+const fmt=n=>{n=Math.round(n||0);return n===0?"-":n<0?"("+nf.format(-n)+")":nf.format(n)};
+const pc=(a,b)=>b?(a/b*100).toFixed(1).replace(".",",")+"%":"-";
+const num=v=>{if(typeof v==="number")return v;let s=String(v??"").trim();if(!s)return 0;const neg=/^\(.*\)$/.test(s)||/^-/.test(s);s=s.replace(/[()\s-]|Rp/gi,"").replace(/[^0-9.,]/g,"");
+  if(/,\d{1,2}$/.test(s))s=s.replace(/\./g,"").replace(",",".");else if(/\.\d{1,2}$/.test(s)&&s.split(".").length===2&&!/,/.test(s)){}else s=s.replace(/[.,]/g,"");const x=parseFloat(s)||0;return neg?-x:x};
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+function pdate(v){if(v instanceof Date&&!isNaN(v))return iso(new Date(v.getTime()+12*36e5));if(typeof v==="number"&&v>20000&&v<80000){const d=new Date(Date.UTC(1899,11,30)+v*864e5);return d.toISOString().slice(0,10)}
+  const s=String(v||"").trim();let m=s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);if(m)return m[1]+"-"+m[2].padStart(2,"0")+"-"+m[3].padStart(2,"0");
+  m=s.match(/^(\d{1,2})[-/. ](\d{1,2})[-/. ](\d{2,4})/);if(m){const y=m[3].length===2?"20"+m[3]:m[3];return y+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0")}
+  const mon={jan:1,feb:2,mar:3,apr:4,mei:5,may:5,jun:6,jul:7,agu:8,aug:8,sep:9,okt:10,oct:10,nov:11,des:12,dec:12};
+  m=s.match(/^(\d{1,2})\s+([A-Za-z]{3})[a-z]*\s+(\d{4})/);if(m&&mon[m[2].toLowerCase()])return m[3]+"-"+String(mon[m[2].toLowerCase()]).padStart(2,"0")+"-"+m[1].padStart(2,"0");return ""}
+const dstr=s=>s?s.slice(8,10)+"/"+s.slice(5,7)+"/"+s.slice(0,4):"";
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2800)}
+
+// ---------- demo ----------
+function demoResto(){
+  let seed=11;const rnd=(a,b)=>{seed=(seed*1103515245+12345)%2147483648;return a+Math.floor(seed/2147483648*(b-a+1))};
+  const sales=[];for(let m=0;m<9;m++){const days=new Date(2026,m+1,0).getDate();for(let d=1;d<=days;d++){const dt=new Date(2026,m,d);const wk=dt.getDay()===0||dt.getDay()===6;
+    const net=Math.round((wk?rnd(5200,7800):rnd(3200,5200))*1000*(1+m*0.02)/1000)*1000;const disk=Math.round(net*0.03/1000)*1000;sales.push({tgl:iso(dt),net,diskon:disk,pajak:Math.round(net*0.1),sc:0})}}
+  const biaya=[];let id=1;const B=(tgl,kat,ket,n)=>biaya.push({id:id++,tgl,kat,ket,n});
+  for(let m=0;m<9;m++){const mm=String(m+1).padStart(2,"0");const omz=sales.filter(s=>s.tgl.slice(5,7)===mm).reduce((a,s)=>a+s.net,0);
+    B(`2026-${mm}-05`,"bahan","Belanja bahan pasar & supplier kopi",Math.round(omz*0.30/1000)*1000);B(`2026-${mm}-06`,"kemasan","Cup, sedotan, paper bag",Math.round(omz*0.04/1000)*1000);
+    B(`2026-${mm}-25`,"gaji","Gaji 10 karyawan",38000000);B(`2026-${mm}-01`,"sewa","Sewa ruko",15000000);B(`2026-${mm}-10`,"utilitas","PLN, PDAM, gas, wifi",3100000+rnd(0,600)*1000);
+    B(`2026-${mm}-28`,"ojol","Komisi GoFood & GrabFood",Math.round(omz*0.10/1000)*1000);B(`2026-${mm}-15`,"promosi","Iklan Instagram dan endorse",2500000);
+    if(m>0){const prev=String(m).padStart(2,"0");const pj=sales.filter(s=>s.tgl.slice(5,7)===prev).reduce((a,s)=>a+s.pajak,0);B(`2026-${mm}-10`,"setorpajak","Setor PBJT bulan "+BLN[m-1],pj)}
+    B(`2026-${mm}-20`,"prive","Ambil pribadi pemilik",5000000)}
+  B("2026-04-12","peralatan","Mesin grinder kopi",12500000);B("2026-03-02","bayarutang","Cicilan pinjaman renovasi",5000000);B("2026-06-02","bayarutang","Cicilan pinjaman renovasi",5000000);
+  return {usaha:"resto",nama:"Kopi Senja Malang",jenis:"OP",tahun:2026,pbjt:10,awal:{kas:45000000,persediaan:8000000,peralatan:85000000,akum:20000000,utang:30000000},opname:{"1":8500000,"2":9200000,"3":8800000,"4":9900000,"5":10200000,"6":9600000,"7":10400000,"8":10100000,"9":10800000},kasFisik:"",sales,biaya,demo:true};
+}
+
+function demo(t){t=t||"resto";if(t==="resto")return demoResto();
+  let seed=23;const rnd=(a,b)=>{seed=(seed*1103515245+12345)%2147483648;return a+Math.floor(seed/2147483648*(b-a+1))};
+  const sales=[],biaya=[];let id=1;const B=(tgl,kat,ket,n)=>biaya.push({id:id++,tgl,kat,ket,n:Math.round(n/1000)*1000});const r=n=>Math.round(n/1000)*1000;
+  if(t==="retail"){for(let m=0;m<9;m++){const days=new Date(2026,m+1,0).getDate();let omz=0;for(let d=1;d<=days;d++){const dt=new Date(2026,m,d);const net=r(rnd(3000,12000)*1000*(1+m*0.03));const disk=r(net*0.02);sales.push({tgl:iso(dt),net,diskon:disk,pajak:0,sc:0});omz+=net}
+      const mm=String(m+1).padStart(2,"0");B(`2026-${mm}-03`,"barang","Restock drone, baterai, dan aksesoris dari distributor",omz*0.76);B(`2026-${mm}-03`,"ongkirbeli","Ongkir dan bea masuk barang impor",omz*0.015);
+      B(`2026-${mm}-25`,"gaji","Gaji 3 karyawan toko",12000000);B(`2026-${mm}-01`,"sewa","Sewa ruko",8000000);B(`2026-${mm}-10`,"utilitas","Listrik dan internet",1800000);
+      B(`2026-${mm}-28`,"marketplace","Potongan Tokopedia, Shopee, dan MDR QRIS",omz*0.04);B(`2026-${mm}-28`,"ongkirjual","Ongkir gratis ongkir ditanggung toko",omz*0.01);B(`2026-${mm}-15`,"promosi","Iklan marketplace dan Instagram",3000000);B(`2026-${mm}-20`,"garansi","Klaim garansi dan servis",omz*0.007);B(`2026-${mm}-20`,"prive","Ambil pribadi pemilik",6000000)}
+    B("2026-05-10","peralatan","Etalase kaca dan meja servis",14000000);
+    return {usaha:"retail",nama:"Langit Drone Store",jenis:"OP",tahun:2026,pbjt:0,tarifKons:1.75,potong:true,awal:{kas:60000000,persediaan:210000000,peralatan:35000000,akum:8000000,utang:0},opname:{"1":205e6,"2":212e6,"3":220e6,"4":214e6,"5":226e6,"6":231e6,"7":228e6,"8":240e6,"9":236e6},kasFisik:"",sales,biaya,demo:true}}
+  if(t==="isp"){let pel=420;for(let m=0;m<9;m++){pel=Math.round(pel*1.03);const mm=String(m+1).padStart(2,"0");const net=pel*165000;sales.push({tgl:`2026-${mm}-10`,net,diskon:0,pajak:0,sc:0});
+      B(`2026-${mm}-05`,"bandwidth","Langganan bandwidth dedicated 1 Gbps",net*0.28);B(`2026-${mm}-05`,"backbone","Sewa tiang PLN dan jalur backbone",net*0.06);B(`2026-${mm}-12`,"cpe","ONT dan dropcore untuk pelanggan baru",(pel*0.03)*450000);
+      B(`2026-${mm}-25`,"gaji","Gaji 4 teknisi dan 1 admin",18000000);B(`2026-${mm}-01`,"sewa","Sewa ruang NOC",3000000);B(`2026-${mm}-10`,"utilitas","Listrik NOC dan BBM genset",2500000);
+      B(`2026-${mm}-15`,"perbaikan","Perbaikan kabel putus dan splicing",1500000+rnd(0,1500)*1000);B(`2026-${mm}-18`,"promosi","Komisi sales dan brosur",1000000);B(`2026-${mm}-20`,"prive","Ambil pribadi pemilik",7000000)}
+    B("2026-03-08","peralatan","OLT 16 port dan router core",45000000);B("2026-02-02","bayarutang","Cicilan pinjaman perangkat",5000000);B("2026-05-02","bayarutang","Cicilan pinjaman perangkat",5000000);
+    return {usaha:"isp",nama:"NusaNet Lokal",jenis:"OP",tahun:2026,pbjt:0,tarifKons:1.75,potong:true,awal:{kas:40000000,persediaan:12000000,peralatan:180000000,akum:45000000,utang:30000000},opname:{},kasFisik:"",sales,biaya,demo:true}}
+  if(t==="klinik"){let pes=3800;for(let m=0;m<9;m++){pes=Math.round(pes*1.015);const mm=String(m+1).padStart(2,"0");const kap=r(pes*12000*(m===3?0.95:1));const nk=r(rnd(6,12)*1e6),um=r(rnd(28,45)*1e6);
+      sales.push({tgl:`2026-${mm}-15`,net:kap,diskon:0,pajak:0,sc:0,j:"kapitasi",ket:"Kapitasi BPJS"});sales.push({tgl:`2026-${mm}-25`,net:nk,diskon:0,pajak:0,sc:0,j:"nonkap",ket:"Klaim non-kapitasi"});sales.push({tgl:`2026-${mm}-28`,net:um,diskon:0,pajak:0,sc:0,j:"umum",ket:"Pasien umum"});
+      const tot=kap+nk+um;B(`2026-${mm}-05`,"obat","Obat dan BMHP dari PBF",tot*0.2);B(`2026-${mm}-28`,"jasamedis","Jasa medis 3 dokter umum dan 1 dokter gigi",tot*0.24);B(`2026-${mm}-12`,"lab","Reagen lab",tot*0.04);
+      B(`2026-${mm}-25`,"gaji","Gaji perawat, bidan, apoteker, admin",22000000);B(`2026-${mm}-01`,"sewa","Sewa ruko 2 lantai",6000000);B(`2026-${mm}-10`,"utilitas","Listrik, air, internet",2500000);B(`2026-${mm}-20`,"limbah","Pengolahan limbah medis",800000);B(`2026-${mm}-15`,"simrs","Langganan SIMKlinik",750000);B(`2026-${mm}-20`,"prive","Ambil pribadi pemilik",6000000)}
+    B("2026-06-10","izin","Survei akreditasi klinik",15000000);B("2026-04-08","peralatan","Dental unit dan autoclave",48000000);
+    return {usaha:"klinik",nama:"Klinik Sehat Sentosa",jenis:"OP",tahun:2026,pbjt:0,tarifKons:1.75,potong:true,awal:{kas:50000000,persediaan:25000000,peralatan:150000000,akum:30000000,utang:0},opname:{"3":27e6,"6":26e6,"9":29e6},kasFisik:"",sales,biaya,demo:true}}
+  for(let m=0;m<9;m++){const mm=String(m+1).padStart(2,"0");const k=r(rnd(60,180)*1e6),p=r(rnd(20,60)*1e6);
+    sales.push({tgl:`2026-${mm}-14`,net:k,diskon:0,pajak:0,sc:0,j:"kons",ket:"Termin pekerjaan renovasi"});sales.push({tgl:`2026-${mm}-24`,net:p,diskon:0,pajak:0,sc:0,j:"pengadaan",ket:"Pengadaan barang kantor"});
+    B(`2026-${mm}-05`,"material","Semen, besi, keramik, dan cat",k*0.45);B(`2026-${mm}-28`,"upah","Upah tukang dan mandor",k*0.18);B(`2026-${mm}-20`,"subkon","Subkon instalasi listrik",k*0.06);B(`2026-${mm}-08`,"sewaalat","Sewa scaffolding dan molen",k*0.03);
+    B(`2026-${mm}-22`,"barang","Pembelian barang pengadaan",p*0.78);B(`2026-${mm}-25`,"gaji","Gaji 2 staf kantor",9000000);B(`2026-${mm}-01`,"sewa","Sewa gudang",4000000);B(`2026-${mm}-10`,"utilitas","Listrik dan internet",1000000);
+    B(`2026-${mm}-12`,"tender","Biaya tender dan administrasi",1500000);B(`2026-${mm}-15`,"transport","BBM dan transport proyek",3000000);B(`2026-${mm}-20`,"prive","Ambil pribadi pemilik",8000000)}
+  return {usaha:"kontraktor",nama:"UD Bangun Mandiri",jenis:"OP",tahun:2026,pbjt:0,tarifKons:1.75,potong:true,awal:{kas:75000000,persediaan:15000000,peralatan:60000000,akum:15000000,utang:20000000},opname:{"3":18e6,"6":22e6,"9":16e6},kasFisik:"",sales,biaya,demo:true}}
+const fresh=()=>({usaha:S&&S.usaha||"resto",tarifKons:1.75,potong:true,nama:"",jenis:"OP",tahun:new Date().getFullYear(),pbjt:10,awal:{kas:0,persediaan:0,peralatan:0,akum:0,utang:0},opname:{},kasFisik:"",sales:[],biaya:[],demo:false});
+
+// ---------- akses & simpan ----------
+const LS="kja-resto-v1",SECRET="kja-rs-4Hn8wQ2p-2026",ALPH="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",WA="6282245260121";
+let S=null,LIC=null,tab="ringkasan",saveState={t:null},saveTimer=null,dirty=false,pendingMap=null;
+S=demo();
+try{const t=localStorage.getItem(LS+"-tab");if(t)tab=t}catch(e){}
+const todayJkt=()=>new Date(Date.now()+7*36e5).toISOString().slice(2,10).replace(/-/g,"");
+async function chk(body){const b=new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(SECRET+"|"+body)));return Array.from(b.slice(0,4),x=>ALPH[x%32]).join("")}
+async function parseCode(raw){const c=String(raw||"").toUpperCase().replace(/\s+/g,"");const m=c.match(/^KJA-([DY])(\d{6})-([A-Z2-9]{4})-([A-Z2-9]{4})$/);if(!m)return {err:"Format kode tidak dikenali. Contoh: KJA-Y271017-AB23-CD45"};
+  let k;try{k=await chk(m[1]+m[2]+"-"+m[3])}catch(e){return {err:"Browser ini tidak bisa memeriksa kode."}}if(k!==m[4])return {err:"Kode akses tidak valid. Cek lagi huruf dan angkanya."};
+  if(todayJkt()>m[2])return {err:"Kode akses sudah berakhir."};return {code:c,type:m[1]==="Y"?"Tahunan":"Day pass",exp:m[2]}}
+const licensed=()=>!!LIC&&todayJkt()<=LIC.exp;
+const expStr=e=>e.slice(4,6)+"/"+e.slice(2,4)+"/20"+e.slice(0,2);
+function idbOpen(){return new Promise((res,rej)=>{try{const r=indexedDB.open("kja-resto",1);r.onupgradeneeded=()=>r.result.createObjectStore("kv");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}})}
+async function idbGet(k){const db=await idbOpen();return new Promise((res,rej)=>{const q=db.transaction("kv","readonly").objectStore("kv").get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+async function idbSet(k,v){const db=await idbOpen();return new Promise((res,rej)=>{const tx=db.transaction("kv","readwrite");tx.objectStore("kv").put(v,k);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+function save(){if(!licensed()){dirty=!S.demo;badge();return}clearTimeout(saveTimer);saveTimer=setTimeout(doSave,400)}
+async function doSave(){clearTimeout(saveTimer);saveTimer=null;if(!licensed())return;dirty=false;try{await idbSet("state",JSON.parse(JSON.stringify(S)));saveState={t:new Date(),ok:true}}catch(e){saveState={t:new Date(),ok:false}}badge()}
+function badge(){const b=$("#saveBadge");if(!b)return;const em=b.querySelector("em");
+  if(!licensed()){b.className="savebadge warn";em.textContent=S.demo?"Mode gratis, pekerjaan tidak disimpan":"Mode gratis, belum tersimpan";return}
+  b.className="savebadge ok";em.textContent="Akses "+LIC.type+" s.d. "+expStr(LIC.exp)+(saveState.ok===false?". Gagal menyimpan, simpan file proyek.":saveState.t?". Tersimpan pukul "+saveState.t.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"}):". Tersimpan di browser ini")}
+window.addEventListener("beforeunload",e=>{if(!licensed()&&dirty){e.preventDefault();e.returnValue=""}});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"&&saveTimer)doSave()});
+idbGet("state").then(v=>{if(v&&v.sales){S=v;if(!S.usaha)S.usaha="resto";render()}}).catch(()=>{});
+(async()=>{try{const c=localStorage.getItem(LS+"-lic");if(c){const r=await parseCode(c);if(!r.err){LIC=r;render()}}}catch(e){}})();
+
+// ---------- hitung ----------
+let R=null;
+function compute(){setType();
+  const Y=String(S.tahun);const M=Array.from({length:12},()=>({net:0,diskon:0,pajak:0,sc:0,hari:0,kons:0,byj:{},b:{}}));
+  S.sales.forEach(s=>{if(!s.tgl||s.tgl.slice(0,4)!==Y)return;const m=+s.tgl.slice(5,7)-1;const x=M[m];x.net+=+s.net||0;x.diskon+=+s.diskon||0;x.pajak+=+s.pajak||0;x.sc+=+s.sc||0;x.hari++;if(TY.jenis){const j=s.j||TY.jenis[0][0];x.byj[j]=(x.byj[j]||0)+(+s.net||0)+(+s.sc||0)}if(TY.kons&&s.j==="kons")x.kons+=(+s.net||0)+(+s.sc||0)});
+  S.biaya.forEach(b=>{if(!b.tgl||b.tgl.slice(0,4)!==Y)return;const m=+b.tgl.slice(5,7)-1;const k=KI[b.kat]?b.kat:"lain";M[m].b[k]=(M[m].b[k]||0)+(+b.n||0)});
+  const A=S.awal;let persAwal=+A.persediaan||0,omzKum=0,last=-1;let peralatan=+A.peralatan||0,akum=+A.akum||0;
+  M.forEach((x,m)=>{if(x.hari||Object.keys(x.b).length)last=m});
+  M.forEach((x,m)=>{const g=k=>x.b[k]||0;x.pend=x.net+x.sc;x.beli=KAT.filter(k=>k[2]==="HPP").reduce((a,k)=>a+g(k[0]),0);x.persAwal=persAwal;
+    const op=TY.stok===null?"":S.opname[String(m+1)];x.persAkhir=(op!==undefined&&op!=="")?+op:persAwal;x.hpp=x.persAwal+x.beli-x.persAkhir;persAwal=x.persAkhir;
+    x.labaKotor=x.pend-x.hpp;x.beban={};let tb=0;KAT.filter(k=>k[2]==="Beban").forEach(k=>{x.beban[k[0]]=g(k[0]);tb+=g(k[0])});
+    peralatan+=g("peralatan");x.peny=m<=last?Math.round(peralatan*0.25/12/100)*100:0;akum+=x.peny;tb+=x.peny;x.totBeban=tb;
+    x.lsp=x.labaKotor-tb;const umkm=x.pend-x.kons;const before=omzKum;omzKum+=umkm;
+    x.pphKons=TY.kons?Math.round(x.kons*(+S.tarifKons||1.75)/100):0;x.pphUmkm=S.jenis==="OP"?Math.round(0.005*Math.max(0,omzKum-Math.max(500e6,before))):0;x.pph=x.pphKons+x.pphUmkm;
+    x.laba=x.lsp-x.pph;x.foodcost=x.pend?x.hpp/x.pend:0});
+  const T={};["net","diskon","pajak","sc","pend","kons","beli","hpp","labaKotor","peny","totBeban","lsp","pph","pphKons","pphUmkm","laba"].forEach(f=>T[f]=M.reduce((a,x)=>a+x[f],0));T.byj={};M.forEach(x=>Object.entries(x.byj).forEach(([k,v])=>T.byj[k]=(T.byj[k]||0)+v));
+  T.beban={};KAT.forEach(k=>T.beban[k[0]]=M.reduce((a,x)=>a+(x.b[k[0]]||0),0));
+  // neraca akhir
+  const potong=TY.kons&&S.potong!==false;const kasIn=T.net+T.sc+T.pajak-(potong?T.pphKons:0);const kasOut=KAT.reduce((a,k)=>a+T.beban[k[0]],0);
+  const kas=(+A.kas||0)+kasIn-kasOut;const pers=last>=0?M[last].persAkhir:(+A.persediaan||0);
+  const peralatanAkhir=(+A.peralatan||0)+T.beban.peralatan,akumAkhir=(+A.akum||0)+T.peny;
+  const utangPajak=T.pajak+T.pph-(potong?T.pphKons:0)-T.beban.setorpajak,utang=(+A.utang||0)-T.beban.bayarutang;
+  const modalAwal=(+A.kas||0)+(+A.persediaan||0)+(+A.peralatan||0)-(+A.akum||0)-(+A.utang||0);
+  const ekuitas=modalAwal+T.laba-T.beban.prive;
+  const aset=kas+pers+peralatanAkhir-akumAkhir,liab=utangPajak+utang;
+  R={M,T,last,kas,pers,peralatanAkhir,akumAkhir,utangPajak,utang,modalAwal,ekuitas,aset,liab,omzKum,kasIn,kasOut};
+}
+
+// ---------- tampilan ----------
+const TABS=()=>[["ringkasan","Ringkasan"],["penjualan",TY.sales],["pengeluaran","Pengeluaran & Stok"],["laporan","Laporan Keuangan"],["pajak","Pajak"]].concat(TY.bpjs?[["casemix","Casemix & iDRG"]]:[]).concat([["profil","Profil Usaha"]]);
+function demoBar(){return S.demo?`<div class="demo"><span class="sp"><b>Mode contoh.</b> Angka di bawah adalah data fiktif ${esc(S.nama)} (${esc(TY.label)}) supaya alurnya kelihatan. Pilih jenis usaha yang paling mirip, lalu isi profil dan upload data Anda.</span><button class="btn small" data-act="clear">Mulai dengan data sendiri</button></div>`:""}
+function safeBox(){const wa=encodeURIComponent("Halo KJA Farhani, saya mau beli akses Lapor UMKM.");
+  if(!licensed())return `<section class="safe free"><h3>Mode gratis: bisa dikerjakan, belum bisa disimpan</h3><div class="access"><div><ul>
+  <li>Semua fitur bisa dipakai: upload data penjualan, catat pengeluaran, laba rugi, neraca, dan hitung pajak.</li>
+  <li>Di mode gratis pekerjaan <b>tidak disimpan</b>. Kalau halaman ditutup atau di-refresh, isian hilang.</li>
+  <li>Dengan akses berbayar, data tersimpan otomatis tiap hari, bisa disimpan sebagai file proyek, dan bisa di-download ke Excel.</li>
+  <li>Data tetap diolah di browser ini dan tidak dikirim ke server mana pun.</li></ul></div>
+  <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><div class="prices"><div class="price"><small>Day pass</small><b>Rp 19.000</b><span>Berlaku sampai besok</span></div><div class="price"><small>Tahunan</small><b>Rp 149.000</b><span>Berlaku 1 tahun</span></div></div>
+  <div class="codebox"><input id="lic-code" placeholder="KJA-XXXXXXX-XXXX-XXXX" aria-label="Kode akses" autocomplete="off"><button class="btn primary small" data-act="activate">Aktifkan</button></div>
+  <span class="note">Belum punya kode? <a href="https://wa.me/${WA}?text=${wa}" target="_blank" rel="noopener">Beli lewat WhatsApp</a> (0822 4526 0121).</span></div></div></section>`;
+  return `<section class="safe"><h3>Akses ${LIC.type} aktif sampai ${expStr(LIC.exp)}. Data Anda tetap di perangkat Anda</h3><ul>
+  <li>Data tersimpan otomatis di browser ini setiap ada perubahan. Buka lagi besok dari perangkat dan browser yang sama.</li>
+  <li>Untuk pindah perangkat atau backup, klik <b>Simpan file proyek</b>, lalu buka di tempat lain lewat <b>Buka file proyek</b>.</li>
+  <li>Hindari mode Incognito dan jangan hapus data situs browser.</li></ul>
+  <div class="acts"><button class="btn small" data-act="saveproj">Simpan file proyek</button><label class="btn small filebtn">Buka file proyek<input type="file" id="open-proj" accept=".json"></label><span class="note">Kode: ${esc(LIC.code)}</span><button class="btn small" data-act="logout">Lepas kode</button></div></section>`}
+
+function typeBar(){return `<section class="sec"><div class="sec-h"><h3>Jenis usaha</h3></div><div style="display:flex;gap:8px;flex-wrap:wrap">${Object.entries(TYPES).map(([k,t])=>`<button class="chip" aria-pressed="${S.usaha===k}" data-usaha="${k}">${esc(t.label)}</button>`).join("")}</div><p class="note">${S.demo?"Pilih jenis usaha untuk melihat contoh angkanya.":"Jenis usaha menentukan daftar biaya, cara hitung pajak, dan istilah di laporan."}</p></section>`}
+function bpjsBox(){if(!TY.bpjs)return"";const sum=j=>R.M.reduce((a,x)=>a+(x.byj[j]||0),0);const kap=sum("kapitasi"),nk=sum("nonkap"),um=sum("umum"),tot=kap+nk+um;const bln=Math.max(1,R.last+1);
+ return `<section class="sec"><div class="sec-h"><h3>Pendapatan BPJS</h3></div><div class="kpis"><div class="kpi"><small>Kapitasi</small><b>${pc(kap,tot)}</b><span>Rata-rata ${fmt(kap/bln)} per bulan</span></div><div class="kpi"><small>Non-kapitasi</small><b>${pc(nk,tot)}</b><span>Klaim di luar kapitasi</span></div><div class="kpi"><small>Pasien umum & asuransi</small><b>${pc(um,tot)}</b><span>${um/tot<0.2?"Masih sangat bergantung BPJS":"Sumber pendapatan cukup beragam"}</span></div></div>
+ <ul class="note" style="display:flex;flex-direction:column;gap:6px;padding-left:20px;margin-top:12px">
+ <li><b>Kapitasi</b> dibayar di muka per peserta terdaftar per bulan (Permenkes 3/2023, klinik pratama Rp9.000 sampai Rp16.000 tergantung SDM dan sarana), lalu dikoreksi lewat <b>Kapitasi Berbasis Kinerja</b>: angka kontak, rasio rujukan non-spesialistik, dan rasio peserta prolanis terkendali. Indikator tidak tercapai berarti kapitasi bulan berikutnya dipotong, jadi catat yang benar-benar diterima, bukan tarif penuh.</li>
+ <li><b>Non-kapitasi</b> (ANC, persalinan, KB, ambulans, rawat inap tingkat pertama, skrining) diklaim setelah pelayanan dan baru dibayar setelah verifikasi. Klaim yang belum cair di akhir tahun dicatat sebagai piutang BPJS, dikurangi estimasi klaim yang biasanya ditolak.</li>
+ <li><b>Klinik swasta:</b> dana kapitasi seluruhnya pendapatan klinik. Aturan pembagian 60% jasa pelayanan khusus berlaku untuk FKTP milik pemerintah daerah.</li>
+ <li>Kalau ada <b>uang muka</b> atau pembayaran sebelum verifikasi dari BPJS, catat sebagai utang sampai klaimnya final, jangan langsung pendapatan.</li></ul></section>`}
+const CMDEMO=[{g:"Persalinan normal",cb:"O-6-10-I",sv:"1",n:42,uc:3100000,tp:3650000,los:2},{g:"Sectio caesarea",cb:"O-6-12-II",sv:"2",n:18,uc:7400000,tp:6950000,los:3},{g:"Demam berdarah",cb:"A-4-14-I",sv:"1",n:35,uc:2600000,tp:2900000,los:3},{g:"Diare dan gastroenteritis",cb:"K-4-17-I",sv:"1",n:51,uc:1900000,tp:2250000,los:2},{g:"Pneumonia",cb:"J-4-16-II",sv:"2",n:12,uc:5200000,tp:4800000,los:5},{g:"Rawat jalan kontrol",cb:"Q-5-44-0",sv:"1",n:640,uc:210000,tp:185000,los:0}];
+const cmRows=()=>{if(!S.cm)S.cm=CMDEMO.map(r=>({...r}));return S.cm};
+function vCasemix(){const rows=cmRows();const N=v=>+v||0;
+ let tot={n:0,cost:0,rev:0,los:0,ri:0};rows.forEach(r=>{tot.n+=N(r.n);tot.cost+=N(r.n)*N(r.uc);tot.rev+=N(r.n)*N(r.tp);if(N(r.los)>0){tot.los+=N(r.n)*N(r.los);tot.ri+=N(r.n)}});
+ const base=rows.length?rows.reduce((a,r)=>a+N(r.tp)*N(r.n),0)/Math.max(1,tot.n):0;
+ const body=rows.map((r,i)=>{const m=N(r.tp)-N(r.uc);const f=(k,w,n)=>`<td><input class="cell ${n?"num":""}" style="min-width:${w}px" id="cm-${i}-${k}" data-cm="${i}|${k}" value="${n?(r[k]===""||r[k]==null?"":fmt(r[k])):esc(r[k]??"")}"></td>`;
+  return `<tr>${f("g",170)}${f("cb",100)}<td><select class="cell" style="min-width:60px" id="cm-${i}-sv" data-cm="${i}|sv">${["1","2","3"].map(o=>`<option ${String(r.sv)===o?"selected":""}>${o}</option>`).join("")}</select></td>${f("n",70,1)}${f("uc",110,1)}${f("tp",110,1)}${f("los",50,1)}
+  <td class="num"><b class="${m<0?"neg":""}">${fmt(m)}</b></td><td class="num">${fmt(m*N(r.n))}</td><td class="num">${N(r.uc)?pc(N(r.tp),N(r.uc)):"-"}</td><td><button class="btn small" data-cmdel="${i}">Hapus</button></td></tr>`}).join("");
+ const rugi=rows.filter(r=>N(r.tp)<N(r.uc));
+ return demoBar()+`<section class="sec"><div class="sec-h"><h2>Casemix & iDRG</h2><span class="sp"></span><button class="btn small" data-act="cmadd">Tambah kelompok kasus</button><button class="btn small" data-act="cmreset">Isi contoh</button></div>
+ <p class="note">Untuk klinik utama, RS pratama, dan RS kecil yang dibayar BPJS dengan tarif paket per episode. Isi biaya riil per kasus (unit cost) dan tarif paket INA-CBG per kelompok kasus, lalu lihat kelompok mana yang surplus dan mana yang defisit.</p>
+ <div class="kpis"><div class="kpi"><small>Surplus / defisit paket</small><b>${fmt(tot.rev-tot.cost)}</b><span>${pc(tot.rev,tot.cost)} cost recovery</span></div><div class="kpi"><small>Kelompok defisit</small><b>${rugi.length}</b><span>${rugi.length?esc(rugi.map(r=>r.g).join(", ")):"Semua kelompok tertutup tarif"}</span></div><div class="kpi"><small>Rata-rata lama rawat</small><b>${tot.ri?(tot.los/tot.ri).toFixed(1).replace(".",","):"-"} hari</b><span>Rawat inap saja</span></div><div class="kpi"><small>Tarif rata-rata per episode</small><b>${fmt(base)}</b><span>Indikator casemix</span></div></div>
+ <div class="tw" style="margin-top:14px"><table><thead><tr><th>Kelompok kasus</th><th>Kode grup</th><th>Severity</th><th class="num">Kasus</th><th class="num">Biaya riil per kasus</th><th class="num">Tarif paket</th><th class="num">LOS</th><th class="num">Selisih per kasus</th><th class="num">Selisih total</th><th class="num">Cost recovery</th><th></th></tr></thead>
+ <tbody>${body}<tr class="gt"><td>Jumlah</td><td></td><td></td><td class="num">${fmt(tot.n)}</td><td class="num">${fmt(tot.cost)}</td><td class="num">${fmt(tot.rev)}</td><td></td><td></td><td class="num">${fmt(tot.rev-tot.cost)}</td><td class="num">${pc(tot.rev,tot.cost)}</td><td></td></tr></tbody></table></div></section>
+ <section class="sec"><div class="sec-h"><h3>Yang kami cek saat mengelola klaim</h3></div><ul class="note" style="display:flex;flex-direction:column;gap:6px;padding-left:20px">
+ <li><b>Coding dan resume medis.</b> Tarif paket ditentukan diagnosis utama, diagnosis sekunder, dan prosedur. Diagnosis sekunder yang tidak tertulis di resume medis membuat severity turun dan tarif ikut turun.</li>
+ <li><b>Transisi ke iDRG.</b> Kemenkes dan BPJS menyiapkan iDRG sebagai pengganti INA-CBG, dengan severity yang lebih rinci dan kode ICD versi modifikasi Indonesia. Tanggal berlaku nasional belum diumumkan, jadi simulasikan dulu kelompok kasus terbesar supaya tidak kaget saat tarif berubah.</li>
+ <li><b>Klaim pending dan dispute.</b> Penyebab paling sering: berkas penunjang kurang, indikasi rawat inap dipertanyakan, readmisi kurang dari 30 hari, dan kode prosedur tidak sesuai. Catat alasan tiap pending supaya polanya kelihatan.</li>
+ <li><b>Verifikasi pasca klaim.</b> Klaim yang sudah dibayar masih bisa dikoreksi. Simpan cadangan dari histori koreksi, jangan anggap seluruh pembayaran sudah final.</li>
+ <li><b>Uang muka dan arus kas.</b> Uang muka pelayanan dari BPJS dicatat sebagai utang sampai klaimnya final. Pantau umur piutang klaim per bulan pelayanan, bukan per tanggal bayar.</li>
+ <li><b>Kelompok defisit</b> bukan otomatis rugi: cek dulu clinical pathway, pemakaian obat di luar formularium, dan lama rawat dibanding standar kelas rumah sakit.</li></ul>
+ <p class="note">Kode grup dan tarif di contoh hanya ilustrasi. Pakai tarif sesuai kelas, regional, dan grouper resmi yang berlaku untuk fasilitas Anda.</p></section>`}
+
+function vRingkasan(){const T=R.T,M=R.M;const mx=Math.max(1,...M.map(x=>x.pend));
+  const bars=M.map((x,i)=>`<div title="${BLN[i]}: omzet ${fmt(x.pend)}, laba ${fmt(x.laba)}"><i style="height:${(x.pend/mx*100).toFixed(1)}%"></i><i class="l" style="height:${(Math.max(0,x.laba)/mx*100).toFixed(1)}%"></i><span>${BLN[i]}</span></div>`).join("");
+  const fc=T.pend?T.hpp/T.pend:0;
+  return demoBar()+typeBar()+safeBox()+bpjsBox()+`<div class="kpis">
+   <div class="kpi"><small>Omzet ${S.tahun}</small><b>${fmt(T.pend)}</b><span>${R.last>=0?"Jan sampai "+BLN[R.last]:"belum ada data"}</span></div>
+   <div class="kpi"><small>Laba bersih</small><b>${fmt(T.laba)}</b><span>Marjin ${pc(T.laba,T.pend)}</span></div>
+   <div class="kpi"><small>${esc(TY.cost)}</small><b>${pc(T.hpp,T.pend)}</b><span>${fc>TY.warn?esc(TY.bad):fc?esc(TY.ok):"-"}</span></div>
+   <div class="kpi"><small>Kas & bank akhir</small><b>${fmt(R.kas)}</b><span>Menurut catatan</span></div>
+   <div class="kpi"><small>Pajak belum disetor</small><b>${fmt(R.utangPajak)}</b><span>${TY.pbjt?"PBJT "+S.pbjt+"% dan PPh final":TY.kons?"PPh final konstruksi dan 0,5%":"PPh final 0,5%"}</span></div></div>
+  <section class="sec"><div class="sec-h"><h3>Omzet dan laba per bulan</h3><span class="sp"></span><div class="legend"><span><i></i>Omzet</span><span><i class="l"></i>Laba bersih</span></div></div><div class="bars">${bars}</div></section>
+  <section class="sec"><h3>Cara pakai</h3><p class="note">1. Pilih jenis usaha dan isi Profil Usaha (nama, tahun, saldo awal). 2. ${esc(TY.upload)} 3. Catat belanja dan biaya di menu Pengeluaran & Stok, isi juga nilai stok hasil hitung fisik tiap akhir bulan. 4. Laba rugi, neraca, dan pajak langsung jadi.</p></section>`}
+
+function vPenjualan(){const M=R.M;
+  const rows=M.map((x,i)=>x.hari?`<tr><td>${BLN[i]} ${S.tahun}</td><td class="num">${x.hari}</td><td class="num">${fmt(x.net+x.diskon)}</td><td class="num">${fmt(x.diskon)}</td><td class="num"><b>${fmt(x.net)}</b></td><td class="num">${fmt(TY.jenis?(x.byj[TY.jenis[0][0]]||0):x.sc)}</td><td class="num">${fmt(x.pajak)}</td><td class="num">${fmt(x.hari?x.net/x.hari:0)}</td></tr>`:"").join("");
+  let map="";if(pendingMap){const o=pendingMap;const sel=(f,lab,req)=>`<label class="field">${lab}${req?" *":""}<select id="map-${f}" data-map="${f}"><option value="">(tidak ada)</option>${o.headers.map((h,j)=>`<option value="${j}" ${o.m[f]===j?"selected":""}>${esc(h||"Kolom "+(j+1))}</option>`).join("")}</select></label>`;
+    map=`<section class="sec"><div class="sec-h"><h3>Cocokkan kolom dari ${esc(o.name)}</h3><span class="sp"></span><span class="note">${o.rows.length} baris data</span></div>
+    <p class="note">Kolom sudah ditebak otomatis. Cek lagi, lalu klik Masukkan. Minimal isi Tanggal dan salah satu dari Penjualan bersih, Penjualan kotor, atau Total.</p>
+    <div class="fields">${sel("tgl","Tanggal",1)}${sel("net","Penjualan bersih")}${sel("gross","Penjualan kotor")}${sel("diskon","Diskon")}${TY.pbjt?sel("pajak","Pajak (PB1 / PBJT)")+sel("sc","Service charge"):""}${sel("total","Total dibayar")}${TY.jenis?`<label class="field">Jenis pendapatan di file ini<select id="map-j" data-mapj="1">${TY.jenis.map(([v,l],i)=>`<option value="${v}" ${(o.j||TY.jenis[0][0])===v?"selected":""}>${l}</option>`).join("")}</select></label>`:""}</div>
+    <div class="acts"><button class="btn primary" data-act="mapgo">Masukkan</button><button class="btn" data-act="mapcancel">Batal</button><span class="note">Data bulan yang sama di file ini akan menggantikan data lama bulan tersebut.</span></div></section>`}
+  return demoBar()+`<section class="sec"><div class="sec-h"><h2>${esc(TY.sales)}</h2></div>
+   <p class="note">${esc(TY.upload)} Format Excel atau CSV. Satu file bisa berisi satu bulan atau beberapa bulan sekaligus.</p>
+   <label class="drop" id="drop-pos"><b>Upload file ${esc(TY.sales.toLowerCase())}</b><span class="note">Kolom minimal: tanggal dan nilai ${esc(TY.sales.toLowerCase())}.</span><input type="file" id="up-pos" accept=".xlsx,.xls,.csv"></label>
+   <div class="acts"><button class="btn small" data-act="tplpos">Download template penjualan</button><button class="btn small" data-act="addsale">Tambah ${esc(TY.sales.toLowerCase())} manual</button></div></section>
+  ${map}
+  ${addSaleForm}
+  <section class="sec"><div class="sec-h"><h3>Rekap ${esc(TY.sales.toLowerCase())} ${S.tahun}</h3></div><div class="tw"><table><thead><tr><th>Bulan</th><th class="num">Transaksi</th><th class="num">Penjualan kotor</th><th class="num">Diskon</th><th class="num">Penjualan bersih</th><th class="num">${TY.jenis?TY.jenis[0][1]:"Service"}</th><th class="num">${TY.pbjt?"PBJT dipungut":"Pajak dipungut"}</th><th class="num">Rata-rata per transaksi</th></tr></thead>
+  <tbody>${rows||`<tr><td colspan="8" class="muted">Belum ada data tahun ${S.tahun}.</td></tr>`}${rows?`<tr class="gt"><td>Jumlah</td><td class="num">${M.reduce((a,x)=>a+x.hari,0)}</td><td class="num">${fmt(R.T.net+R.T.diskon)}</td><td class="num">${fmt(R.T.diskon)}</td><td class="num">${fmt(R.T.net)}</td><td class="num">${fmt(TY.jenis?R.M.reduce((a,x)=>a+(x.byj[TY.jenis[0][0]]||0),0):R.T.sc)}</td><td class="num">${fmt(R.T.pajak)}</td><td></td></tr>`:""}</tbody></table></div></section>`}
+let addSaleForm="";
+
+function vPengeluaran(){const opts=KAT.map(k=>`<option value="${k[0]}">${esc(k[1])}</option>`).join("");
+  const list=S.biaya.filter(b=>b.tgl&&b.tgl.slice(0,4)===String(S.tahun)).sort((a,b)=>b.tgl.localeCompare(a.tgl)).slice(0,300).map(b=>`<tr><td>${dstr(b.tgl)}</td><td>${esc(katName(b.kat))}</td><td>${esc(b.ket)}</td><td class="num">${fmt(b.n)}</td><td><button class="btn small" data-delb="${b.id}">Hapus</button></td></tr>`).join("");
+  const op=BLN.map((b,i)=>`<label class="field">${b}<input class="num" id="op-${i+1}" data-op="${i+1}" value="${S.opname[String(i+1)]!==undefined&&S.opname[String(i+1)]!==""?nf.format(S.opname[String(i+1)]):""}" placeholder="-"></label>`).join("");
+  return demoBar()+`<section class="sec"><div class="sec-h"><h2>Catat pengeluaran</h2></div>
+   <div class="fields"><label class="field">Tanggal<input type="date" id="b-tgl" value="${S.tahun}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}"></label>
+   <label class="field" style="grid-column:span 2">Jenis<select id="b-kat">${opts}</select></label>
+   <label class="field">Nominal (Rp)<input id="b-n" inputmode="numeric" placeholder="mis. 1.500.000"></label>
+   <label class="field" style="grid-column:span 2">Keterangan<input id="b-ket" placeholder="mis. ${esc(KAT[0][1])}"></label></div>
+   <div class="acts"><button class="btn primary" data-act="addb">Simpan pengeluaran</button><span class="note">Tekan Enter di kolom nominal untuk menyimpan cepat.</span></div></section>
+  <section class="sec"><div class="sec-h"><h3>${esc(TY.stok)}, hasil hitung fisik akhir bulan (Rp)</h3></div>
+   <p class="note">${esc(TY.stokNote)} Angka ini dipakai untuk menghitung ${esc(TY.hpp.toLowerCase())}. Kalau dikosongkan, stok dianggap sama dengan bulan sebelumnya.</p>
+   <div class="fields" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">${op}</div></section>
+  <section class="sec"><div class="sec-h"><h3>Daftar pengeluaran ${S.tahun}</h3><span class="sp"></span><span class="note">Total ${fmt(R.kasOut)}</span></div>
+   <div class="tw" style="max-height:480px"><table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Keterangan</th><th class="num">Nominal</th><th></th></tr></thead><tbody>${list||`<tr><td colspan="5" class="muted">Belum ada pengeluaran.</td></tr>`}</tbody></table></div></section>`}
+
+function vLaporan(){const M=R.M,T=R.T;const cols=M.map((x,i)=>i<=R.last).map((v,i)=>v?i:-1).filter(i=>i>=0);
+  const row=(lab,f,cls="",ind=true)=>`<tr class="${cls}"><td class="${ind&&!cls?"ind":""}">${lab}</td>${cols.map(i=>`<td class="num">${fmt(f(M[i]))}</td>`).join("")}<td class="num"><b>${fmt(f(T,true))}</b></td></tr>`;
+  const bk=k=>(x,t)=>-(t?T.beban[k]:x.b[k]||0);
+  let lr=(TY.jenis?TY.jenis.map(([j,l])=>row("Pendapatan "+l.charAt(0).toLowerCase()+l.slice(1),x=>x.byj[j]||0)).join(""):row(TY.sales+" bersih",x=>x.net)+(TY.pbjt?row("Service charge",x=>x.sc):""))+row("Total pendapatan",x=>x.pend,"tot")+row(TY.hpp,x=>-x.hpp)+row("Laba kotor",x=>x.labaKotor,"tot");
+  KAT.filter(k=>k[2]==="Beban").forEach(k=>{if(T.beban[k[0]])lr+=row(k[1],bk(k[0]))});
+  lr+=row("Penyusutan peralatan",x=>-x.peny)+row("Laba sebelum pajak",x=>x.lsp,"tot");
+  if(TY.kons)lr+=row("PPh final jasa konstruksi "+String(S.tarifKons||1.75).replace(".",",")+"%",x=>-x.pphKons);if(S.jenis==="OP")lr+=row("PPh final 0,5%",x=>-x.pphUmkm);
+  lr+=row("Laba bersih",x=>x.laba,"gt");
+  const ner=`<tr class="grp"><td colspan="2">Aset</td></tr><tr><td class="ind">Kas dan bank</td><td class="num">${fmt(R.kas)}</td></tr><tr><td class="ind">${esc(TY.stok)}</td><td class="num">${fmt(R.pers)}</td></tr><tr><td class="ind">Peralatan</td><td class="num">${fmt(R.peralatanAkhir)}</td></tr><tr><td class="ind">Akumulasi penyusutan</td><td class="num">${fmt(-R.akumAkhir)}</td></tr><tr class="tot"><td>Total aset</td><td class="num">${fmt(R.aset)}</td></tr>
+   <tr class="grp"><td colspan="2">Liabilitas</td></tr><tr><td class="ind">Utang pajak</td><td class="num">${fmt(R.utangPajak)}</td></tr><tr><td class="ind">Utang usaha dan pinjaman</td><td class="num">${fmt(R.utang)}</td></tr><tr class="tot"><td>Total liabilitas</td><td class="num">${fmt(R.liab)}</td></tr>
+   <tr class="grp"><td colspan="2">Ekuitas</td></tr><tr><td class="ind">Modal awal</td><td class="num">${fmt(R.modalAwal)}</td></tr><tr><td class="ind">Laba bersih tahun berjalan</td><td class="num">${fmt(T.laba)}</td></tr><tr><td class="ind">Prive (ambil pribadi)</td><td class="num">${fmt(-T.beban.prive)}</td></tr><tr class="tot"><td>Total ekuitas</td><td class="num">${fmt(R.ekuitas)}</td></tr>
+   <tr class="gt"><td>Total liabilitas dan ekuitas</td><td class="num">${fmt(R.liab+R.ekuitas)}</td></tr>`;
+  const bal=Math.round(R.aset-R.liab-R.ekuitas)===0;const kf=S.kasFisik===""?null:+S.kasFisik;
+  return demoBar()+`<section class="sec"><div class="sec-h"><h2>Laba rugi ${S.tahun}</h2><span class="sp"></span><span class="note">Format SAK EMKM, dalam Rupiah</span></div>
+   <div class="tw"><table class="lr"><thead><tr><th>Uraian</th>${cols.map(i=>`<th class="num">${BLN[i]}</th>`).join("")}<th class="num">Total</th></tr></thead><tbody>${lr}</tbody></table></div>
+   <p class="note">Penyusutan peralatan dihitung 25% per tahun (umur 4 tahun). ${esc(TY.hpp)} = stok awal + pembelian langsung dikurangi stok akhir hasil hitung fisik.${TY.kons&&S.potong!==false?" PPh final jasa konstruksi dianggap sudah dipotong pemberi kerja saat pembayaran termin.":""}</p></section>
+  <section class="sec"><div class="sec-h"><h2>Neraca per akhir ${R.last>=0?BLN[R.last]+" "+S.tahun:S.tahun}</h2><span class="sp"></span><span class="pill ${bal?"ok":"bad"}">${bal?"Balance":"Tidak balance"}</span></div>
+   <div class="tw"><table><tbody>${ner}</tbody></table></div>
+   <div class="fields"><label class="field">Saldo kas dan bank sebenarnya (hitung uang di laci + saldo rekening)<input class="num" id="kasfisik" value="${kf===null?"":nf.format(kf)}" placeholder="isi untuk dicocokkan"></label>
+   <div class="field">Selisih dengan catatan<span style="font-size:18px;font-family:var(--f-num);color:var(--ink)">${kf===null?"-":fmt(kf-R.kas)} ${kf===null?"":Math.round(kf-R.kas)===0?'<span class="pill ok">Cocok</span>':'<span class="pill bad">Ada selisih</span>'}</span></div></div>
+   <p class="note">Kalau ada selisih kas, biasanya karena ada pengeluaran yang belum dicatat, uang dari ojol, marketplace, atau pemberi kerja yang belum cair, atau setoran modal yang belum dicatat di saldo awal.</p></section>`}
+
+function vPajak(){const M=R.M;const op=S.jenis==="OP";let kum=0,kumU=0;const tk=String(S.tarifKons||1.75).replace(".",",");
+  const rows=M.map((x,i)=>{kum+=x.pend;kumU+=x.pend-x.kons;if(i>R.last)return"";const nx=new Date(+S.tahun,i+1,15);return `<tr><td>${BLN[i]} ${S.tahun}</td><td class="num">${fmt(x.pend)}</td><td class="num">${fmt(TY.kons?kumU:kum)}</td>${TY.pbjt?`<td class="num">${fmt(x.pajak)}</td>`:""}${TY.kons?`<td class="num">${fmt(x.pphKons)}</td>`:""}<td class="num">${op?fmt(x.pphUmkm):"-"}</td><td>${op?"15/"+String(nx.getMonth()+1).padStart(2,"0")+"/"+nx.getFullYear():"-"}</td></tr>`}).join("");
+  const ncol=5+(TY.pbjt?1:0)+(TY.kons?1:0);
+  return demoBar()+`<section class="sec"><div class="sec-h"><h2>Pajak ${S.tahun}</h2></div>
+  <div class="tw"><table><thead><tr><th>Masa</th><th class="num">Omzet</th><th class="num">${TY.kons?"Omzet kumulatif non konstruksi":"Omzet kumulatif"}</th>${TY.pbjt?`<th class="num">PBJT ${S.pbjt}% dipungut dari tamu</th>`:""}${TY.kons?`<th class="num">PPh final konstruksi ${tk}%</th>`:""}<th class="num">PPh final 0,5%</th><th>Batas setor PPh 0,5%</th></tr></thead><tbody>${rows||`<tr><td colspan="${ncol}" class="muted">Belum ada data.</td></tr>`}
+  <tr class="gt"><td>Jumlah</td><td class="num">${fmt(R.T.pend)}</td><td></td>${TY.pbjt?`<td class="num">${fmt(R.T.pajak)}</td>`:""}${TY.kons?`<td class="num">${fmt(R.T.pphKons)}</td>`:""}<td class="num">${op?fmt(R.T.pphUmkm):"-"}</td><td></td></tr></tbody></table></div>
+  <ul class="note" style="display:flex;flex-direction:column;gap:6px;padding-left:20px">
+   ${TY.pbjt?`<li><b>PBJT makanan dan minuman</b> (dulu Pajak Restoran / PB1) adalah pajak daerah yang dipungut dari tamu, maksimal 10%, lalu disetor ke Bapenda kota/kabupaten. Tarif dan batas waktu setor mengikuti Perda masing-masing daerah. Atur tarif di Profil Usaha.</li>`:""}
+   ${TY.kons?`<li><b>PPh final jasa konstruksi (PP 9/2022)</b> dikenakan atas pendapatan jasa konstruksi, berapa pun omzetnya dan apa pun bentuk usahanya. Tarif pekerjaan konstruksi: 1,75% kalau punya SBU kualifikasi kecil atau sertifikat kompetensi perorangan, 4% kalau tidak bersertifikat, 2,65% untuk penyedia lain. Konsultansi konstruksi 3,5% (bersertifikat) atau 6%. Atur tarif dan apakah dipotong pemberi kerja di Profil Usaha.</li><li><b>Pendapatan pengadaan barang</b> bukan jasa konstruksi, jadi untuk orang pribadi tetap memakai PPh final 0,5% dengan omzet Rp500 juta pertama bebas pajak. Pendapatan jasa konstruksi tidak ikut dihitung dalam batas ini.</li>`:""}
+   ${TY.bpjs?`<li><b>PPN:</b> jasa pelayanan kesehatan medis, termasuk yang dibayar BPJS, tidak dipungut PPN. Penjualan non-medis seperti produk kosmetik atau suplemen di luar resep perlu dicek terpisah.</li><li><b>Honor dokter mitra</b> (bukan pegawai) dipotong PPh 21 atas 50% dari bruto dengan tarif Pasal 17. Bukti potongnya wajib dibuat setiap bulan.</li>`:""}
+   ${op?`<li><b>PPh final 0,5%</b> untuk wajib pajak orang pribadi UMKM dengan omzet sampai Rp4,8 miliar per tahun. Omzet Rp500 juta pertama dalam setahun tidak dikenai pajak, jadi angka baru muncul setelah omzet kumulatif lewat Rp500 juta. Sejak PP 20/2026, fasilitas ini tidak lagi dibatasi waktu untuk orang pribadi.</li>`:`<li><b>Badan usaha CV, firma, atau PT</b> tidak lagi bisa memakai PPh final 0,5% sejak PP 20/2026, kecuali masih dalam masa transisi fasilitas lama. PPh badan dihitung dengan tarif umum saat SPT Tahunan, jadi tidak dihitung di sini.</li>`}
+   ${TY.pbjt?"":`<li><b>Belum PKP:</b> selama omzet setahun di bawah Rp4,8 miliar dan belum dikukuhkan sebagai PKP, usaha tidak memungut PPN. Kalau pembeli atau pemberi kerja meminta faktur pajak, perlu dikukuhkan PKP dulu.</li>`}
+   ${R.omzKum+R.T.kons>4.8e9?`<li><b>Omzet sudah di atas Rp4,8 miliar.</b> Usaha tidak lagi memenuhi syarat PPh final 0,5% dan wajib mendaftar PKP untuk PPN. Konsultasikan dengan kami.</li>`:""}
+  </ul></section>`}
+
+function vProfil(){const A=S.awal;const f=(id,lab,v,ph="")=>`<label class="field">${lab}<input class="num" id="aw-${id}" data-aw="${id}" value="${v?nf.format(v):""}" placeholder="${ph}"></label>`;
+  return demoBar()+typeBar()+safeBox()+`<section class="sec"><div class="sec-h"><h2>Profil usaha</h2></div><div class="fields">
+   <label class="field">Nama usaha<input id="p-nama" data-p="nama" value="${esc(S.nama)}" placeholder="mis. ${esc(S.demo?S.nama:"Nama usaha Anda")}"></label>
+   <label class="field">Tahun buku<input id="p-tahun" data-p="tahun" type="number" value="${S.tahun}"></label>
+   <label class="field">Bentuk usaha<select id="p-jenis" data-p="jenis"><option value="OP" ${S.jenis==="OP"?"selected":""}>Perorangan (NPWP pribadi)</option><option value="BADAN" ${S.jenis!=="OP"?"selected":""}>Badan (CV / PT)</option></select></label>
+   ${TY.pbjt?`<label class="field">Tarif PBJT daerah (%)<input id="p-pbjt" data-p="pbjt" type="number" step="0.5" value="${S.pbjt}"></label>`:""}${TY.kons?`<label class="field">Tarif PPh final jasa konstruksi<select id="p-tk" data-p="tarifKons">${[["1.75","1,75%, SBU kecil / SKK perorangan"],["2.65","2,65%, penyedia lain"],["4","4%, tanpa sertifikat"],["3.5","3,5%, konsultansi bersertifikat"],["6","6%, konsultansi tanpa sertifikat"]].map(o=>`<option value="${o[0]}" ${String(S.tarifKons||1.75)===o[0]?"selected":""}>${o[1]}</option>`).join("")}</select></label><label class="field">PPh konstruksi<select id="p-pot" data-p="potong"><option value="1" ${S.potong!==false?"selected":""}>Dipotong pemberi kerja</option><option value="0" ${S.potong===false?"selected":""}>Disetor sendiri</option></select></label>`:""}</div></section>
+  <section class="sec"><div class="sec-h"><h3>Saldo awal tahun ${S.tahun}</h3></div><p class="note">Posisi per 1 Januari, atau per hari pertama memakai aplikasi ini. Modal awal dihitung otomatis dari selisih aset dan utang.</p>
+   <div class="fields">${f("kas","Kas dan saldo bank",A.kas)}${f("persediaan",TY.stok,A.persediaan)}${f("peralatan","Harga beli peralatan",A.peralatan)}${f("akum","Penyusutan yang sudah lewat",A.akum)}${f("utang","Utang dan pinjaman",A.utang)}</div>
+   <p class="note">Modal awal: <b>${fmt(R.modalAwal)}</b></p></section>`}
+
+function render(){compute();
+  $("#tabs").innerHTML=TABS().map(([id,l])=>`<button class="tab" role="tab" id="tab-${id}" aria-selected="${tab===id}" data-tab="${id}">${l}</button>`).join("");
+  $("#hdrCo").textContent=S.nama||"[Nama usaha]";$("#hdrPer").textContent="Tahun buku "+S.tahun+(S.jenis==="OP"?", perorangan":", badan usaha");badge();
+  const sy=window.scrollY;$("#view").innerHTML=tab==="ringkasan"?vRingkasan():tab==="penjualan"?vPenjualan():tab==="pengeluaran"?vPengeluaran():tab==="laporan"?vLaporan():tab==="pajak"?vPajak():tab==="casemix"&&TY.bpjs?vCasemix():vProfil();window.scrollTo(0,sy)}
+
+// ---------- import POS ----------
+const HDR={tgl:/^(tanggal|tgl|date|waktu|tanggal transaksi|transaction date|tanggal & waktu|date time|datetime|created at|waktu transaksi)$/i,
+  net:/^(penjualan bersih|net sales|net|penjualan neto|total penjualan bersih|net amount|subtotal|sub total)$/i,
+  gross:/^(penjualan kotor|gross sales|gross|penjualan bruto|total penjualan|sales)$/i,
+  diskon:/^(diskon|discount|discounts|potongan|total diskon)$/i,
+  pajak:/^(pajak|tax|taxes|pb1|pbjt|pajak restoran|ppn|total pajak|gratuity & tax)$/i,
+  sc:/^(service( charge)?|biaya layanan|service fee|sc)$/i,
+  total:/^(total|grand total|total bayar|total dibayar|collected|total collected|jumlah|nominal|amount|total amount)$/i};
+function readFile(file){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>{try{const wb=XLSX.read(new Uint8Array(fr.result),{type:"array",cellDates:true});res(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1,raw:true,defval:""}))}catch(e){rej(e)}};fr.onerror=rej;fr.readAsArrayBuffer(file)})}
+async function importPOS(file){if(!window.XLSX){toast("Pembaca Excel belum termuat, coba lagi sebentar.");return}
+  const rows=await readFile(file);let best=null;
+  for(let i=0;i<Math.min(rows.length,30);i++){const m={};rows[i].forEach((c,j)=>{const t=String(c).trim().replace(/\s+/g," ");Object.keys(HDR).forEach(f=>{if(m[f]===undefined&&HDR[f].test(t))m[f]=j})});
+    const score=Object.keys(m).length;if(m.tgl!==undefined&&(m.net!==undefined||m.gross!==undefined||m.total!==undefined)&&(!best||score>best.score))best={i,m,score}}
+  const hi=best?best.i:0;const headers=(rows[hi]||[]).map(c=>String(c).trim());
+  pendingMap={name:file.name,headers,m:best?best.m:{},rows:rows.slice(hi+1).filter(r=>r.some(c=>String(c).trim()!==""))};tab="penjualan";render();
+  toast(best?"Kolom dikenali. Cek lalu klik Masukkan.":"Kolom belum dikenali otomatis. Pilih kolomnya secara manual.")}
+function applyMap(){const o=pendingMap,m=o.m;if(m.tgl===undefined||(m.net===undefined&&m.gross===undefined&&m.total===undefined)){toast("Pilih kolom Tanggal dan salah satu kolom nilai penjualan.");return}
+  const agg={};let skip=0;
+  o.rows.forEach(r=>{const t=pdate(r[m.tgl]);if(!t){skip++;return}const v=f=>m[f]!==undefined?num(r[m[f]]):0;
+    const disk=Math.abs(v("diskon")),pj=v("pajak"),sc=v("sc");let net=m.net!==undefined?v("net"):m.gross!==undefined?v("gross")-disk:v("total")-pj-sc;
+    const a=agg[t]||(agg[t]={tgl:t,net:0,diskon:0,pajak:0,sc:0,j:TY.jenis?(o.j||TY.jenis[0][0]):undefined});a.net+=net;a.diskon+=disk;a.pajak+=pj;a.sc+=sc});
+  const days=Object.values(agg);if(!days.length){toast("Tidak ada baris dengan tanggal yang terbaca.");return}
+  if(S.demo){const keep={nama:"",tahun:+days[0].tgl.slice(0,4),usaha:S.usaha};S=fresh();Object.assign(S,keep)}
+  const months=new Set(days.map(d=>d.tgl.slice(0,7)));S.sales=S.sales.filter(s=>!months.has(s.tgl.slice(0,7))).concat(days).sort((a,b)=>a.tgl.localeCompare(b.tgl));
+  if(!S.sales.some(s=>s.tgl.slice(0,4)===String(S.tahun)))S.tahun=+days[0].tgl.slice(0,4);
+  S.demo=false;pendingMap=null;save();render();toast(days.length+" hari penjualan masuk ("+[...months].sort().map(x=>BLN[+x.slice(5,7)-1]+" "+x.slice(0,4)).join(", ")+")"+(skip?". "+skip+" baris dilewati karena tanggal tidak terbaca":""))}
+
+// ---------- export ----------
+async function getDl(){try{return window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){return null}}
+async function offer(filename,data){const dl=await getDl();
+  if(!dl){try{const blob=data instanceof Blob?data:new Blob([data],{type:filename.endsWith(".json")?"application/json":"application/octet-stream"});const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},1500);toast("File di-download: "+filename)}catch(e){toast("Download gagal: "+e.message)}return}
+  try{await dl.save({filename,data});toast("File disimpan.")}catch(e){toast(e&&e.code==="declined"?"Download dibatalkan.":"Download gagal: "+(e&&(e.message||e.code)))}}
+function sheet(title,head,rows,widths){const brand="© KJA Farhani K.N. dan FA Indonesia, faindonesia.co.id. "+(licensed()?"Lisensi "+LIC.code:"Versi gratis")+".";
+  const ws=XLSX.utils.aoa_to_sheet([[S.nama||"[Nama usaha]"],[title],["Tahun buku "+S.tahun+", dalam Rupiah"],[brand],[],head].concat(rows));
+  Object.keys(ws).forEach(a=>{if(a[0]!=="!"&&ws[a].t==="n")ws[a].z='#,##0;(#,##0);"-"'});ws["!cols"]=widths.map(w=>({wch:w}));ws["!protect"]={password:"KJA-2026!rs"};return ws}
+function buildXlsx(){const wb=XLSX.utils.book_new(),M=R.M,T=R.T;wb.Props={Title:"Lapor UMKM",Author:"KJA Farhani K.N.",Company:"FA Indonesia"};
+  const cols=M.map((x,i)=>i).filter(i=>i<=R.last);const L=(lab,f)=>[lab].concat(cols.map(i=>f(M[i])),[f(T,true)]);
+  const lr=[L("Penjualan bersih",x=>x.net),L("Service charge",x=>x.sc),L("Total pendapatan",x=>x.pend),L("HPP",x=>-x.hpp),L("Laba kotor",x=>x.labaKotor)];
+  KAT.filter(k=>k[2]==="Beban").forEach(k=>lr.push(L(k[1],(x,t)=>-(t?T.beban[k[0]]:x.b[k[0]]||0))));
+  lr.push(L("Penyusutan peralatan",x=>-x.peny),L("Laba sebelum pajak",x=>x.lsp));if(S.jenis==="OP")lr.push(L("PPh final 0,5%",x=>-x.pph));lr.push(L("Laba bersih",x=>x.laba));
+  XLSX.utils.book_append_sheet(wb,sheet("LAPORAN LABA RUGI",["Uraian"].concat(cols.map(i=>BLN[i]),["Total"]),lr,[34].concat(cols.map(()=>14),[16])),"Laba Rugi");
+  XLSX.utils.book_append_sheet(wb,sheet("NERACA",["Uraian","Jumlah"],[["Kas dan bank",R.kas],["Persediaan bahan",R.pers],["Peralatan",R.peralatanAkhir],["Akumulasi penyusutan",-R.akumAkhir],["TOTAL ASET",R.aset],[],["Utang pajak",R.utangPajak],["Utang usaha dan pinjaman",R.utang],["TOTAL LIABILITAS",R.liab],[],["Modal awal",R.modalAwal],["Laba bersih tahun berjalan",T.laba],["Prive",-T.beban.prive],["TOTAL EKUITAS",R.ekuitas],[],["TOTAL LIABILITAS DAN EKUITAS",R.liab+R.ekuitas]],[34,18]),"Neraca");
+  XLSX.utils.book_append_sheet(wb,sheet("PAJAK",["Masa","Omzet","PBJT dipungut","PPh final 0,5%"],cols.map(i=>[BLN[i]+" "+S.tahun,M[i].pend,M[i].pajak,M[i].pph]),[14,18,18,18]),"Pajak");
+  XLSX.utils.book_append_sheet(wb,sheet("PENJUALAN HARIAN",["Tanggal","Penjualan bersih","Diskon","PBJT","Service"],S.sales.filter(s=>s.tgl.slice(0,4)===String(S.tahun)).map(s=>[dstr(s.tgl),s.net,s.diskon,s.pajak,s.sc]),[12,18,14,14,14]),"Penjualan");
+  XLSX.utils.book_append_sheet(wb,sheet("PENGELUARAN",["Tanggal","Jenis","Keterangan","Nominal"],S.biaya.filter(b=>b.tgl.slice(0,4)===String(S.tahun)).sort((a,b)=>a.tgl.localeCompare(b.tgl)).map(b=>[dstr(b.tgl),KI[b.kat]?KI[b.kat][1]:b.kat,b.ket,+b.n]),[12,40,40,16]),"Pengeluaran");
+  return XLSX.write(wb,{bookType:"xlsx",type:"array"})}
+function gate(msg){tab="ringkasan";render();window.scrollTo(0,0);toast(msg);setTimeout(()=>{const i=$("#lic-code");if(i)i.focus()},50)}
+
+// ---------- event ----------
+document.addEventListener("click",e=>{const t=e.target.closest("[data-tab],[data-act],[data-delb],[data-usaha],[data-cmdel],#btnXlsx");if(!t)return;
+  if(t.dataset.cmdel!==undefined){cmRows().splice(+t.dataset.cmdel,1);save();render();return}
+  if(t.dataset.act==="cmadd"){cmRows().push({sv:"1"});save();render();return}
+  if(t.dataset.act==="cmreset"){S.cm=CMDEMO.map(r=>({...r}));save();render();return}
+  if(t.dataset.usaha){const u=t.dataset.usaha;if(S.demo){S=demo(u)}else{S.usaha=u}save();render();toast("Jenis usaha: "+TYPES[u].label);return}
+  if(t.dataset.tab){tab=t.dataset.tab;try{localStorage.setItem(LS+"-tab",tab)}catch(_){}render();window.scrollTo(0,0);return}
+  if(t.dataset.delb){S.biaya=S.biaya.filter(b=>String(b.id)!==t.dataset.delb);save();render();return}
+  if(t.id==="btnXlsx"){if(!licensed()){gate("Download Excel tersedia setelah akses diaktifkan.");return}if(!window.XLSX){toast("Pembaca Excel belum termuat.");return}offer("Lapor UMKM "+(S.nama||"Usaha").replace(/[^\w\- ]+/g,"")+" "+S.tahun+".xlsx",new Blob([buildXlsx()]));return}
+  const a=t.dataset.act;
+  if(a==="clear"){S=fresh();save();tab="profil";render();toast("Data contoh dihapus. Isi profil usaha dulu.")}
+  if(a==="activate"){parseCode($("#lic-code")&&$("#lic-code").value).then(r=>{if(r.err){toast(r.err);return}LIC=r;try{localStorage.setItem(LS+"-lic",r.code)}catch(_){}render();doSave();toast("Akses "+r.type+" aktif sampai "+expStr(r.exp)+".")})}
+  if(a==="logout"){LIC=null;try{localStorage.removeItem(LS+"-lic")}catch(_){}render()}
+  if(a==="saveproj"){if(!licensed()){gate("Simpan file proyek tersedia setelah akses diaktifkan.");return}offer("Proyek Lapor UMKM "+(S.nama||"Usaha").replace(/[^\w\- ]+/g,"")+" "+new Date().toISOString().slice(0,10)+".json",JSON.stringify({app:"KJA Lapor UMKM",format:1,data:S}))}
+  if(a==="mapgo")applyMap();
+  if(a==="mapcancel"){pendingMap=null;render()}
+  if(a==="tplpos"&&window.XLSX){const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet([["Tanggal","Penjualan Kotor","Diskon","Penjualan Bersih","Service Charge","Pajak"],["2026-10-01",4500000,150000,4350000,0,435000],["2026-10-02",5200000,0,5200000,0,520000]]),"Penjualan");offer("Template Lapor UMKM.xlsx",new Blob([XLSX.write(wb,{bookType:"xlsx",type:"array"})]))}
+  if(a==="addsale"){addSaleForm=addSaleForm?"":`<section class="sec"><div class="sec-h"><h3>Tambah penjualan manual</h3></div><div class="fields"><label class="field">Tanggal<input type="date" id="s-tgl"></label><label class="field">Penjualan bersih<input id="s-net" inputmode="numeric"></label>${TY.pbjt?`<label class="field">PBJT dipungut<input id="s-pj" inputmode="numeric" placeholder="otomatis ${S.pbjt}% kalau kosong"></label>`:""}${TY.jenis?`<label class="field">Jenis<select id="s-j">${TY.jenis.map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></label>`:""}</div><div class="acts"><button class="btn primary" data-act="savesale">Simpan</button></div></section>`;render()}
+  if(a==="savesale"){const tg=$("#s-tgl").value,n=Math.round(num($("#s-net").value));if(!tg||!n){toast("Isi tanggal dan nilai penjualan.");return}const pjv=$("#s-pj")?$("#s-pj").value.trim():"";const sj=$("#s-j")?$("#s-j").value:undefined;
+    if(S.demo){S=fresh();S.tahun=+tg.slice(0,4)}const ex=S.sales.find(s=>s.tgl===tg&&s.j===sj);const pj=!TY.pbjt?0:pjv?Math.round(num(pjv)):Math.round(n*S.pbjt/100);
+    if(ex&&ex.j===sj){ex.net+=n;ex.pajak+=pj}else S.sales.push({tgl:tg,net:n,diskon:0,pajak:pj,sc:0,j:sj});S.sales.sort((a,b)=>a.tgl.localeCompare(b.tgl));S.demo=false;save();render();toast("Penjualan "+dstr(tg)+" tersimpan.")}
+  if(a==="addb"){const tg=$("#b-tgl").value,n=Math.round(num($("#b-n").value));if(!tg||!n){toast("Isi tanggal dan nominal.");return}
+    if(S.demo){S=fresh();S.tahun=+tg.slice(0,4)}S.biaya.push({id:Date.now(),tgl:tg,kat:$("#b-kat").value,ket:$("#b-ket").value.trim(),n});S.demo=false;const k=$("#b-kat").value;save();render();$("#b-kat").value=k;$("#b-n").focus();toast("Pengeluaran tersimpan.")}
+});
+document.addEventListener("keydown",e=>{if(e.key!=="Enter")return;if(e.target.id==="b-n")document.querySelector("[data-act=addb]").click();if(e.target.id==="lic-code")document.querySelector("[data-act=activate]").click()});
+document.addEventListener("change",e=>{const t=e.target;
+  if(t.id==="up-pos"&&t.files[0]){importPOS(t.files[0]).catch(err=>toast("File tidak bisa dibaca: "+err.message));t.value="";return}
+  if(t.id==="open-proj"&&t.files[0]){const fr=new FileReader();fr.onload=()=>{try{const o=JSON.parse(fr.result);if(!o.data||!Array.isArray(o.data.sales))throw new Error("bukan file proyek Lapor UMKM");S=o.data;doSave();render();toast("Proyek dibuka.")}catch(err){toast("File tidak bisa dibuka: "+err.message)}};fr.readAsText(t.files[0]);t.value="";return}
+  if(t.dataset.cm){const [i,k]=t.dataset.cm.split("|");cmRows()[+i][k]=/^(n|uc|tp|los)$/.test(k)?num(t.value):t.value;save();render();return}
+  if(t.dataset.mapj){pendingMap.j=t.value;return}
+  if(t.dataset.map){pendingMap.m[t.dataset.map]=t.value===""?undefined:+t.value;return}
+  if(t.dataset.p){const k=t.dataset.p;S[k]=k==="tahun"||k==="pbjt"||k==="tarifKons"?+t.value:k==="potong"?t.value==="1":t.value;if(S.demo&&k!=="tahun"){S.demo=false}save();render();return}
+  if(t.dataset.aw){S.awal[t.dataset.aw]=Math.round(num(t.value));S.demo=false;save();render();return}
+  if(t.dataset.op){S.opname[t.dataset.op]=t.value.trim()===""?"":Math.round(num(t.value));save();render();return}
+  if(t.id==="kasfisik"){S.kasFisik=t.value.trim()===""?"":Math.round(num(t.value));save();render();return}
+});
+["dragover","dragleave","drop"].forEach(ev=>document.addEventListener(ev,e=>{const d=e.target.closest&&e.target.closest(".drop");if(!d)return;e.preventDefault();if(ev==="dragover")d.classList.add("over");else d.classList.remove("over");if(ev==="drop"&&e.dataTransfer.files[0])importPOS(e.dataTransfer.files[0]).catch(err=>toast("File tidak bisa dibaca: "+err.message))}));
+render();
+})();
+
+(function(){var b=document.body;b.classList.add("boot");setTimeout(function(){b.classList.remove("boot")},1800);
+ var bar=document.createElement("div");bar.className="progress";b.appendChild(bar);var hd=document.querySelector("header.bar"),tk=false;
+ function sc(){var y=window.scrollY||0,h=document.documentElement.scrollHeight-innerHeight;if(hd)hd.classList.toggle("scrolled",y>8);bar.style.transform="scaleX("+(h>0?Math.min(1,y/h):0)+")";tk=false}
+ addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(sc)}},{passive:true});
+ var V=document.getElementById("view"),RM=matchMedia("(prefers-reduced-motion: reduce)").matches,io=("IntersectionObserver" in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -40px 0px"}):null;
+ function count(el){var t=el.textContent.trim(),m=t.match(/^(-?[0-9.]+)(,[0-9]+)?(%| hari)?$/);if(!m||RM)return;var dec=m[2]?m[2].length-1:0,n=parseFloat(m[1].replace(/\./g,"")+(m[2]?"."+m[2].slice(1):""));if(!isFinite(n)||n===0)return;var st=null;
+  function f(ts){if(!st)st=ts;var p=Math.min(1,(ts-st)/900),e=1-Math.pow(1-p,3),v=n*e;el.textContent=v.toLocaleString("id-ID",{minimumFractionDigits:dec,maximumFractionDigits:dec})+(m[3]||"");if(p<1)requestAnimationFrame(f);else el.textContent=t}requestAnimationFrame(f)}
+ function post(anim){if(!V)return;V.querySelectorAll("ul.note,p.note").forEach(function(n){if(n.closest("details")||n.dataset.k)return;n.dataset.k=1;if((n.textContent||"").length<260)return;var d=document.createElement("details");d.className="more";var sm=document.createElement("summary");sm.textContent=n.tagName==="UL"?"Lihat penjelasan":"Baca selengkapnya";n.parentNode.insertBefore(d,n);d.appendChild(sm);d.appendChild(n)});
+  if(anim){V.querySelectorAll(".kpi b").forEach(count);if(io&&!RM)V.querySelectorAll(":scope>.sec,:scope>section,:scope>.grid2").forEach(function(s,i){if(i<2)return;var r=s.getBoundingClientRect();if(r.top>innerHeight){s.classList.add("rv");io.observe(s)}})}}
+ var last="";if(V){new MutationObserver(function(){var key=(document.querySelector("#tabs [aria-selected=true],#tabs .on,#tabs [aria-current]")||{}).textContent||"";var anim=key!==last||b.classList.contains("boot");last=key;post(anim)}).observe(V,{childList:true});post(true)}
+ document.addEventListener("click",function(e){if(e.target.closest("[data-tab],[data-lk],[data-wp]")){var v=document.getElementById("view");v.classList.remove("swap");void v.offsetWidth;v.classList.add("swap");setTimeout(function(){v.classList.remove("swap")},700)}},true);
+})();
+</script>
+</body>
+</html>

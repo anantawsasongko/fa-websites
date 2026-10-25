@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09VZKH3JRJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-09VZKH3JRJ');</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FA Venus · Konversi PL PSAK 118 | FA Consult</title>
+<meta name="description" content="Kalkulator gratis untuk mengubah laporan laba rugi format PSAK 201 menjadi format PSAK 118: kategori operasi, investasi, pendanaan, subtotal wajib, rekonsiliasi laba usaha, dan contoh catatan MPM.">
+<link rel="canonical" href="https://faindonesia.co.id/cek-psak-118/">
+<meta property="og:title" content="FA Venus · Konversi PL PSAK 118 | FA Consult">
+<meta property="og:description" content="Kalkulator gratis untuk mengubah laporan laba rugi format PSAK 201 menjadi format PSAK 118: kategori operasi, investasi, pendanaan, subtotal wajib, rekonsiliasi laba usaha, dan contoh catatan MPM.">
+<meta property="og:url" content="https://faindonesia.co.id/cek-psak-118/">
+<meta name="theme-color" content="#171717">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: brand bar, input ledger on the left, PSAK 201 vs PSAK 118 statements and reconciliation below. */
+:root{
+  --bg:#171717; --panel:#1E1E1E; --ink:#FFFFFF; --muted:#A8A8A8; --line:#2F2F2F; --soft:#242424;
+  --accent:#FFFFFF; --accent-ink:#E8E8E8; --accent-soft:rgba(255,255,255,.07); --sky:#8C8C8C;
+  --input:#262626; --input-line:#4A4A4A;
+  --ok:#6FCF97; --ok-soft:rgba(111,207,151,.13); --warn:#E6B85C; --warn-soft:rgba(230,184,92,.13); --bad:#F08A7E; --bad-soft:rgba(240,138,126,.14);
+  --head:transparent; --head-ink:#A8A8A8;
+  --f-display:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;
+  --f-ui:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Poppins",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+.cred{border-left:2px solid currentColor;padding-left:12px;opacity:.95}
+
+body{background:var(--bg);color:var(--ink);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.logo{height:44px;width:auto}
+.brand{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.co{margin-left:auto;text-align:right;line-height:1.3;min-width:0}
+.co b{display:block}
+.co span{font-size:12px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;cursor:pointer}
+nav.tabs{border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:12px 14px;cursor:pointer;white-space:nowrap}
+main .wrap{padding-block:22px 48px;display:flex;flex-direction:column;gap:18px}
+.sec{border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;min-width:0}
+.sec-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sp{flex:1}
+.demo{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 16px;border:1px solid var(--line);font-size:13px}
+.demo .sp{min-width:220px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{border:1px solid var(--line);padding:14px 16px}
+.kpi small{display:block;text-transform:uppercase}
+.kpi b{display:block}
+.kpi span{font-size:12px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.tw{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th{text-align:left;padding:9px 10px;white-space:nowrap}
+td{padding:7px 10px;border-top:1px solid var(--line);vertical-align:middle}
+td.num,th.num{text-align:right;white-space:nowrap}
+td.ind{padding-left:24px}
+.pill{display:inline-block;padding:2px 10px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)} .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.mute{background:var(--soft);color:var(--muted)}
+.cat{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--line);border-radius:2px;color:var(--muted);white-space:nowrap}
+input.cell,select.cell{font-size:13.5px;width:100%;min-width:80px;padding:6px 8px}
+input.cell.num{text-align:right}
+.field{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);min-width:0}
+.field input,.field select{font-size:14px;padding:8px 10px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.chip{font:inherit;font-size:13px;border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+.toggle{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink)}
+.toggle input{margin-top:4px;accent-color:#fff}
+.hint{font-size:11.5px;color:var(--muted);line-height:1.35;margin-top:3px}
+.note{margin:0;max-width:85ch}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));padding:10px 16px;z-index:20;max-width:calc(100% - 32px)}
+footer{color:var(--muted);font-size:12px;padding-block:20px 32px}
+.muted{color:var(--muted)}
+ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;max-width:90ch}
+@media (max-width:600px){.co{margin-left:0;text-align:left;flex-basis:100%}}
+
+/* ---- brand layer: same visual language as the website ---- */
+body{font-family:var(--f-ui);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;background-color:var(--bg);background-image:radial-gradient(1200px 600px at 85% -10%,rgba(255,255,255,.05),transparent 60%);background-attachment:fixed}
+header.bar{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:none;transition:box-shadow .3s}
+header.bar.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.45)}
+body::before{background:var(--bg)}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:23px;letter-spacing:.005em}
+.brand span{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.brand .wm{height:18px;width:auto;max-width:none;display:block;margin-top:4px;align-self:flex-start;object-fit:contain}
+.co b{font-family:var(--f-display);font-weight:400;font-size:18px}
+nav.tabs{background:transparent}
+.tab{font-family:var(--f-ui);font-size:13.5px;font-weight:400;letter-spacing:.02em;color:var(--muted);transition:color .2s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{font-weight:500;color:var(--ink);border-bottom-color:#FFFFFF}
+.btn{font-family:var(--f-ui);font-weight:500;font-size:13.5px;border-radius:999px;padding:10px 18px;background:transparent;color:var(--ink);border:1px solid rgba(255,255,255,.35);transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+.btn:hover{border-color:#fff;transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.btn.small{padding:6px 12px;font-size:12.5px}
+.btn.primary{background:#FFFFFF;border-color:#FFFFFF;color:#171717}
+.btn.primary:hover{background:#E8E8E8}
+.sec,.kpi,.safe,.price,.drop{border-radius:6px;background:var(--panel);border-color:var(--line)}
+.sec{padding:20px}
+.kpi{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
+.kpi:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.35);box-shadow:0 18px 40px -18px rgba(0,0,0,.8)}
+.kpi small,.price small{font-family:var(--f-ui);font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.kpi b{font-family:var(--f-ui);font-weight:300;font-size:28px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:6px}
+.price b{font-family:var(--f-ui);font-weight:400}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,3vw,30px);line-height:1.15;color:var(--ink)}
+h3{font-family:var(--f-ui);font-weight:500;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+h3::before{content:"";width:26px;height:1px;background:currentColor;opacity:.8}
+.safe h3::before{background:currentColor}
+.note{color:var(--muted);font-size:13px}
+.note a,.safe a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.demo{background:var(--accent-soft);border-color:var(--line);border-radius:6px;color:var(--ink)}
+.demo b{color:var(--ink)}
+.safe{border-left-width:2px}
+.tw{border-radius:4px;border-color:var(--line)}
+th{background:var(--head);color:var(--muted);font-family:var(--f-ui);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line);position:static}
+td{border-top-color:var(--line)}
+td.num,.check .v{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+td.code{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+tr.grp td{background:var(--soft);font-family:var(--f-ui);font-weight:500;font-size:11px;letter-spacing:.18em;color:var(--muted)}
+tr.tot td{border-top:1px solid rgba(255,255,255,.5);font-weight:500}
+tr.gt td{background:rgba(255,255,255,.05);border-top:1px solid #fff;font-weight:600}
+tbody tr{transition:background .2s}
+tbody tr:hover td{background:rgba(255,255,255,.025)}
+tr.grp:hover td,tr.gt:hover td{background:inherit}
+.pill{border-radius:2px;font-weight:500;letter-spacing:.04em;font-size:11.5px}
+input.cell,select.cell,.field input,.field select,.codebox input{background:var(--input);border:1px solid var(--input-line);color:var(--ink);border-radius:4px;font-family:var(--f-ui)}
+input::placeholder{color:var(--muted);opacity:.7}
+input.cell:focus,select.cell:focus,.field input:focus,.field select:focus,.codebox input:focus{border-color:#fff;outline:none}
+.chip{border-radius:999px;background:transparent;border-color:var(--line);color:var(--ink);font-family:var(--f-ui);font-weight:400;transition:border-color .2s,background .2s}
+.chip:hover{border-color:rgba(255,255,255,.5)}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:#FFFFFF}
+.bars i{background:var(--accent);border-radius:2px 2px 0 0;transform-origin:bottom;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+.bars i.l{background:var(--sky)}
+.legend i{background:var(--accent)} .legend i.l{background:var(--sky)}
+.toast{background:#fff;color:#171717;border-radius:999px;font-weight:500}
+footer{border-top:1px solid var(--line);padding-top:20px}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:#FFFFFF;transform:scaleX(0);transform-origin:0 50%;z-index:30;pointer-events:none}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+body.boot header.bar .wrap>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+body.boot main .wrap>*{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+body.boot main .wrap>*:nth-child(2){animation-delay:.08s} body.boot main .wrap>*:nth-child(3){animation-delay:.16s} body.boot main .wrap>*:nth-child(4){animation-delay:.24s} body.boot main .wrap>*:nth-child(n+5){animation-delay:.32s}
+#view.swap>*{animation:fade .45s cubic-bezier(.2,.7,.2,1) both}
+#view.swap>*:nth-child(2){animation-delay:.05s} #view.swap>*:nth-child(3){animation-delay:.1s} #view.swap>*:nth-child(n+4){animation-delay:.15s}
+details.more{margin-top:8px}
+details.more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-ui);font-size:12.5px;letter-spacing:.06em;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 14px;transition:border-color .2s,transform .2s,background .2s}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s}
+details.more[open]>summary::after{transform:rotate(225deg) translateY(-2px)}
+details.more>summary:hover{border-color:#FFFFFF;transform:translateY(-1px)}
+details.more[open]>summary{background:var(--accent-soft)}
+details.more[open]>*:not(summary){animation:fade .45s cubic-bezier(.2,.7,.2,1) both}
+.kpi{transition:transform .25s,border-color .25s,box-shadow .25s}
+.kpi:hover{transform:translateY(-3px);border-color:#FFFFFF;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.btn,.chip{transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+.btn:hover,.chip:hover{transform:translateY(-2px)}
+.btn:active,.chip:active{transform:translateY(0) scale(.98)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.risks{display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:10px}
+.risks details{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--soft);transition:border-color .25s,transform .25s}
+.risks details:hover{border-color:#FFFFFF;transform:translateY(-2px)}
+.risks summary{cursor:pointer;list-style:none;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;gap:10px}
+.risks summary::-webkit-details-marker{display:none}
+.risks summary::after{content:"+";font-size:18px;line-height:1;transition:transform .3s}
+.risks details[open] summary::after{transform:rotate(45deg)}
+.risks details p{margin:10px 0 0;font-size:13.5px;color:var(--muted);animation:fade .4s both}
+.risks details p b{color:var(--ink);font-weight:500}
+@media (prefers-reduced-motion:reduce){body.boot *,#view.swap>*,.bars i{animation:none!important}.kpi,.btn{transition:none}.rv{opacity:1;transform:none;transition:none}}
+</style>
+
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <img class="logo" alt="FA" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABgCAYAAAC+EjQcAAAEWUlEQVR42u2dy4scVRSHv1PdExNNRCIYEEHQqIsgalaiC92IDoJiwI3iQhwQHxBD8B8QxY26ERF0E8HHQtAs1I2Phcug4mNjMIibMcYXcSbjkMl0/VzUuVJMujuTdPVMPc7ZzHQVt7n369+559xzb1ebpOPApcAMYWVbAVb7wHZgK/A7kAPWcTByBlcAZpJOA8eBO4Flv6mOQzLgM2BP318MgF/NbCU8y2UkDQD6JWJbJJ3puILS2JNw/gcEIDOTJMxMHVUNziBP17JwpvEWgAJQAApAASgABaAAFIDCAlAACkABKAAFoJZZf5LGkjLOr8ifN60YNxEgM8tDQeMVdC1wA+urYWfAV2Z2QpI1RUn9Cdu/DNwF/AZsGcfSAT0OfOz/D7oA6HLgdeBF4KJzDNqAk+6ag064GMVO7IKZ/RVz0GhVzEgyoHcut2nidlK/gvdI+2lq435aJIoboKBMUg/oSWpFclj1HLTkUWkQCjrbzgB7Jd3n7zUY4sJHzGy+SclhlYBOA7PALZ4HrU0Oe8CTwHyTksMqAV0MvAY874CGrc1ONS05rHoOWjazRWAx5qDh1huXKDY9N4pEMRLFAFRrQDktP/A5KaCttPyE/qSAfgH+iMXqaHsMWG1yIjhVQGa2FJP0uARIMk8Sw8VGKEihoMiDmmUb7dKNA7TRbt1EBW2T1N8oJWVNcis/TfIhcMArCL0A5P10SLcDdwNzkrYDuUPrPKBUa3oW+MLXgA/4NZu2fFck/Szpks2IEuvoX+Z/90j6V9JNkl6Q9G3ViWrJlXuSvte05VmxPQEcNbPvgPeA3cAdaUCdVFDpE90p6W9JD5eufSLpgyr73EQFpf7NAf8Ah0v3XgLukXSNRzSbZgfqGtpzSdsc0CGvHqRdlC+BH4H9Ux1LXV0szSuS9klakLQrTdqle3OSTkjaWUXfm+ZiaUlxEHjfD39mfrI27eC+S7EX99DUVFRHBblKTNKtkhYl7fXX2ZDw/5yko5JmJg37jVKQJ4FPUxwd/qa4NPRc9pvALmDW22StVlDpU7xK0ilJ947KdUoqekfS55P2vykKSn16imLX5NMU0YYJze+9Atwm6eYyuNaFeT9kNZC0A3gEeMMf2ZONqAPl7o5fA0eAZ6quF2U1Vc+DFOeNDpVBjJinUptXgfslXWlmla3yszqppwRiP/CWmS14aNeYyTztxx0G/qTYq6OyVX5dJulS8jfrk/PutaF9HW0PSJr3WtF5j6Xuk3RSz6PAR2Z2bExoP6utD+5tioOl+yrzkBqG+Rt99W4X2P46SVdXFeb71MzM7IcJo+BPrV7Np2XGhWbfk7QfZnVUUL6Z7RtTD6pbYhYWgAJQAApAASgABaAAFBaAAlAACkABKAC1xMoFsyw9tE0jHsLRAUtjz9YCEsX33/PQDFDskuQJUE7xnffrJS07vfjpmuKZbDJJSxSPmDhJ/PhR2S7Df/zoGLCDGhbwN9lWgdX/AGo+8dvjsOBhAAAAAElFTkSuQmCC" style="height:44px">
+  <div class="brand"><b>FA Venus · Konversi PL PSAK 118</b><img class="wm" alt="FA Consult" src="data:image/png;base64,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"></div>
+  <div class="co"><b id="hdrCo">-</b><span id="hdrPer">-</span></div>
+  <button class="btn primary" id="btnXlsx" type="button">Download Excel</button>
+</div></header>
+<nav class="tabs" aria-label="Menu"><div class="wrap" role="tablist" id="tabs"></div></nav>
+<main><div class="wrap" id="view"></div></main>
+<footer><div class="wrap">
+  <p class="cred">Disusun oleh <b>Ananta W. Sasongko, CPA</b> (Certified Public Accountant, IAPI) dan <b>Farhani K.N., S.E., M.S.A., Ak., CA</b> (Chartered Accountant, IAI; Akuntan Berpraktik). Klasifikasi dan subtotal mengikuti PSAK 118 dan cara auditor menguji penyajian laba rugi. Semua rujukan standar memakai penomoran SAK Indonesia yang berlaku, sesuai SAK Online IAI.</p>
+  <p>Kalkulator ini alat bantu untuk melihat dampak penyajian. Klasifikasi akhir tetap perlu dinilai sesuai fakta entitas dan dibahas dengan auditor. Data diolah di browser ini dan tidak dikirim ke server mana pun.</p>
+  <p>© FA Consult, faindonesia.co.id. FA Venus · Konversi PL PSAK 118 v1.0 (Oktober 2026). Baca juga <a href="https://faindonesia.co.id/artikel/panduan-implementasi-psak-118/" style="color:inherit">Panduan Implementasi PSAK 118</a>.</p>
+</div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+const OLD=[["pend","Pendapatan"],["hpp","Beban pokok pendapatan"],["usaha","Beban usaha (penjualan, umum, administrasi)"],["lain","Pendapatan (beban) lain-lain"],["keu","Pendapatan (beban) keuangan"],["asos","Bagian laba entitas asosiasi"],["pajak","Beban pajak penghasilan"],["henti","Operasi yang dihentikan"]];
+const OI={};OLD.forEach(o=>OI[o[0]]=o[1]);
+const CAT=[["OP","Operasi"],["INV","Investasi"],["FIN","Pendanaan"],["TAX","Pajak penghasilan"],["DISC","Operasi yang dihentikan"]];
+const CI={};CAT.forEach(c=>CI[c[0]]=c[1]);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const nf=new Intl.NumberFormat("id-ID",{maximumFractionDigits:2});
+const fmt=n=>{n=Math.round((n||0)*100)/100;return n===0?"-":n<0?"("+nf.format(-n)+")":nf.format(n)};
+const num=v=>{if(typeof v==="number")return v;let s=String(v??"").trim();if(!s)return 0;const neg=/^\(.*\)$/.test(s)||/^-/.test(s);s=s.replace(/[()\s-]|Rp/gi,"").replace(/[^0-9.,]/g,"");
+  if(/,\d{1,2}$/.test(s))s=s.replace(/\./g,"").replace(",",".");else if(/\.\d{1,2}$/.test(s)&&s.split(".").length===2&&!/,/.test(s)){}else s=s.replace(/[.,]/g,"");const x=parseFloat(s)||0;return neg?-x:x};
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2800)}
+
+// klasifikasi otomatis, mengikuti urutan pikir PSAK 118 untuk entitas umum
+function suggest(r,special){const n=(r.n||"").toLowerCase(),o=r.o;
+  if(o==="henti"||/dihentikan|discontinued/.test(n))return ["DISC","Berasal dari operasi yang dihentikan."];
+  if(o==="pajak"||/pajak penghasilan|pajak kini|pajak tangguhan|income tax/.test(n))return ["TAX","Beban atau manfaat pajak penghasilan."];
+  if(special&&/bunga|dividen|investasi|nilai wajar|interest/.test(n))return ["OP","Aktivitas utama entitas adalah investasi atau pembiayaan pelanggan, jadi masuk Operasi."];
+  if(o==="asos"||/asosiasi|ventura bersama|metode ekuitas/.test(n))return ["INV","Investasi dengan metode ekuitas selalu masuk Investasi."];
+  if(/selisih kurs|kurs|forex/.test(n)){if(/pinjaman|utang bank|obligasi|loan/.test(n))return ["FIN","Selisih kurs mengikuti pos asalnya. Pinjaman masuk Pendanaan."];if(/deposito|kas|giro|investasi/.test(n))return ["INV","Selisih kurs mengikuti pos asalnya. Kas dan investasi masuk Investasi."];return ["OP","Selisih kurs mengikuti pos asalnya. Utang dan piutang usaha masuk Operasi."]}
+  if(/bunga deposito|jasa giro|pendapatan bunga|bunga kas|interest income|dividen|nilai wajar properti investasi|properti investasi|sewa properti investasi|keuntungan.*investasi|surat berharga/.test(n))return ["INV","Return dari kas, setara kas, atau aset yang menghasilkan return terpisah."];
+  if(/beban bunga|bunga pinjaman|bunga bank|bunga obligasi|biaya provisi|beban keuangan|bunga liabilitas sewa|bunga sewa|unwinding|bunga imbalan|bunga liabilitas/.test(n))return ["FIN","Beban bunga atas pinjaman atau liabilitas lain (sewa, imbalan kerja, provisi) masuk Pendanaan."];
+  if(o==="keu"&&/pendapatan|bunga/.test(n))return ["INV","Pendapatan keuangan dari kas dan investasi masuk Investasi."];
+  if(o==="keu")return ["FIN","Beban keuangan masuk Pendanaan."];
+  return ["OP","Bukan kategori lain, jadi masuk Operasi (kategori sisa)."]}
+
+const IND=[["umum","Umum"],["konstruksi","Konstruksi"],["rs","Rumah sakit"],["bpr","BPR"]];
+function sample(ind){ind=ind||"konstruksi";const R=(n,o,v)=>({n,o,v,auto:true,c:null});
+  if(ind==="rs")return {ind,co:"RS Contoh Sehat Sentosa",th:"2026",unit:"Rp juta",special:false,fn:true,
+   rows:[R("Pendapatan rawat jalan","pend",38500),R("Pendapatan rawat inap","pend",61200),R("Pendapatan farmasi","pend",27400),R("Pendapatan penunjang medis (lab, radiologi)","pend",14900),
+    R("Beban jasa medis dokter","hpp",-41800),R("Beban obat dan bahan medis habis pakai","hpp",-30600),R("Beban gizi dan laundry pasien","hpp",-4100),
+    R("Beban pegawai non medis","usaha",-21400),R("Beban umum dan administrasi","usaha",-15300),R("Beban penyusutan gedung dan alat medis","usaha",-9800),
+    R("Pendapatan bunga deposito dan jasa giro","lain",350),R("Pendapatan sewa kantin dan parkir","lain",1200),R("Rugi selisih kurs pembelian alat medis impor","lain",-180),R("Kerugian penghapusan piutang BPJS","lain",-650),
+    R("Beban bunga pinjaman bank investasi gedung","keu",-6900),R("Beban bunga liabilitas sewa alat medis","keu",-1100),R("Beban pajak penghasilan","pajak",-3100)],
+   nat:{dep:9800,amort:150,emp:48200,imp:650,inv:120},mpm:true};
+  if(ind==="bpr")return {ind,co:"PT BPR Contoh Makmur",th:"2026",unit:"Rp juta",special:true,fn:true,
+   rows:[R("Pendapatan bunga kredit yang diberikan","pend",18600),R("Pendapatan provisi dan administrasi kredit","pend",1350),R("Pendapatan bunga penempatan pada bank lain","pend",1450),
+    R("Beban bunga deposito","hpp",-6800),R("Beban bunga tabungan","hpp",-950),R("Beban premi penjaminan LPS","hpp",-210),
+    R("Beban kerugian penurunan nilai kredit (CKPN)","usaha",-1650),R("Beban tenaga kerja","usaha",-4600),R("Beban umum dan administrasi","usaha",-2350),R("Beban penyusutan","usaha",-420),
+    R("Keuntungan penjualan agunan yang diambil alih (AYDA)","lain",280),R("Pendapatan non operasional lainnya","lain",90),R("Beban bunga pinjaman yang diterima dari bank lain","keu",-620),R("Beban pajak penghasilan","pajak",-950)],
+   nat:{dep:420,amort:40,emp:4600,imp:1650,inv:0},mpm:false};
+  if(ind==="umum")return {ind,co:"PT Contoh Dagang Sejahtera",th:"2026",unit:"Rp juta",special:false,fn:true,
+   rows:[R("Penjualan","pend",184000),R("Beban pokok penjualan","hpp",-139500),R("Beban penjualan","usaha",-12400),R("Beban umum dan administrasi","usaha",-15800),
+    R("Pendapatan bunga deposito dan jasa giro","lain",420),R("Pendapatan dividen","lain",300),R("Selisih kurs utang usaha impor","lain",-650),R("Keuntungan penjualan aset tetap","lain",210),
+    R("Beban bunga pinjaman bank","keu",-5200),R("Beban bunga liabilitas sewa","keu",-480),R("Beban pajak penghasilan","pajak",-2400)],
+   nat:{dep:3600,amort:200,emp:16800,imp:300,inv:250},mpm:true};
+  return {ind:"konstruksi",co:"PT Contoh Konstruksi Nusantara",th:"2026",unit:"Rp juta",special:false,fn:true,
+  rows:[R("Pendapatan kontrak","pend",250000),R("Pendapatan sewa alat berat","pend",12000),R("Beban pokok pendapatan","hpp",-190500),R("Beban penjualan","usaha",-6200),R("Beban umum dan administrasi","usaha",-26000),
+    R("Pendapatan bunga deposito dan jasa giro","lain",900),R("Kenaikan nilai wajar properti investasi","lain",700),R("Keuntungan penjualan aset tetap","lain",400),R("Selisih kurs utang usaha impor","lain",-300),R("Selisih kurs pinjaman USD","lain",-900),
+    R("Bagian laba entitas asosiasi","asos",1500),R("Beban bunga pinjaman bank","keu",-10800),R("Beban bunga liabilitas sewa","keu",-1200),R("Beban pajak penghasilan","pajak",-6100)],
+  nat:{dep:9800,amort:600,emp:31500,imp:450,inv:0},mpm:true}}
+const NOTE={konstruksi:"Contoh kontraktor. Pendapatan kontrak dan sewa alat masuk Operasi, bunga deposito dan bagian laba asosiasi masuk Investasi, bunga bank dan kurs pinjaman USD masuk Pendanaan.",
+ rs:"Contoh rumah sakit. Sewa kantin dan parkir tetap Operasi karena bagian dari kegiatan rumah sakit sehari-hari. Bunga pinjaman gedung dan sewa alat medis masuk Pendanaan, sehingga laba usaha baru lebih dekat dengan EBIT yang biasa dipakai bank.",
+ bpr:"Contoh BPR. Aktivitas utama BPR adalah memberi pembiayaan kepada nasabah, jadi pendapatan dan beban bunga dari kegiatan itu masuk Operasi. Catatan: BPR yang memakai SAK EP tidak wajib menerapkan PSAK 118, jadi hasil ini sebagai simulasi bila BPR beralih ke SAK Indonesia.",
+ umum:"Contoh perusahaan dagang. Dividen dan bunga deposito masuk Investasi, kurs utang usaha impor tetap Operasi, bunga bank dan bunga sewa masuk Pendanaan."};
+let S=null;try{const r=localStorage.getItem("fa-psak118");if(r)S=JSON.parse(r)}catch(e){}if(!S||!S.rows)S=sample();if(!S.ind)S.ind="umum";
+let tab="hasil";
+function save(){try{localStorage.setItem("fa-psak118",JSON.stringify(S))}catch(e){}}
+
+let R=null;
+function compute(){
+  const rows=S.rows.map(r=>{const s=suggest(r,S.special);const c=r.auto||!r.c?s[0]:r.c;return {...r,c,why:r.auto||!r.c?s[1]:"Dipilih manual.",sug:s[0]}});
+  const so=k=>rows.filter(r=>r.o===k).reduce((a,r)=>a+r.v,0),sc=k=>rows.filter(r=>r.c===k).reduce((a,r)=>a+r.v,0);
+  const o={pend:so("pend"),hpp:so("hpp"),usaha:so("usaha"),lain:so("lain"),keu:so("keu"),asos:so("asos"),pajak:so("pajak"),henti:so("henti")};
+  o.bruto=o.pend+o.hpp;o.lu=o.bruto+o.usaha;o.lsp=o.lu+o.lain+o.keu+o.asos;o.lcont=o.lsp+o.pajak;o.ln=o.lcont+o.henti;
+  const n={op:sc("OP"),inv:sc("INV"),fin:sc("FIN"),tax:sc("TAX"),disc:sc("DISC")};
+  n.lu=n.op;n.lspp=n.lu+n.inv;n.lsp=n.lspp+n.fin;n.lcont=n.lsp+n.tax;n.ln=n.lcont+n.disc;
+  // rekonsiliasi laba usaha lama ke laba usaha PSAK 118
+  const inOld=r=>["pend","hpp","usaha"].includes(r.o);
+  const out=rows.filter(r=>inOld(r)&&r.c!=="OP"),inn=rows.filter(r=>!inOld(r)&&r.c==="OP");
+  const nat=S.nat;const ebitda=n.lu+(+nat.dep||0)+(+nat.amort||0);
+  R={rows,o,n,out,inn,ebitda,same:Math.round((o.ln-n.ln)*100)===0};
+}
+
+const TABS=[["hasil","Hasil PSAK 118"],["input","Input laba rugi"],["rekon","Rekonsiliasi & catatan"]];
+function vHasil(){const o=R.o,n=R.n,u=esc(S.unit);
+  const line=(l,v,cls="",cat="")=>`<tr class="${cls}"><td class="${cls?"":"ind"}">${esc(l)}${cat?` <span class="cat">${cat}</span>`:""}</td><td class="num">${fmt(v)}</td></tr>`;
+  let a=line("Pendapatan",o.pend)+line("Beban pokok pendapatan",o.hpp)+line("Laba bruto",o.bruto,"tot")+line("Beban usaha",o.usaha)+line("Laba usaha (versi lama)",o.lu,"tot");
+  if(o.lain)a+=line("Pendapatan (beban) lain-lain",o.lain);if(o.asos)a+=line("Bagian laba entitas asosiasi",o.asos);if(o.keu)a+=line("Pendapatan (beban) keuangan",o.keu);
+  a+=line("Laba sebelum pajak penghasilan",o.lsp,"tot")+line("Beban pajak penghasilan",o.pajak);if(o.henti)a+=line("Operasi yang dihentikan",o.henti);a+=line("Laba neto",o.ln,"gt");
+  const grp=(k)=>R.rows.filter(r=>r.c===k&&r.v).map(r=>line(r.n,r.v,"",CI[k])).join("");
+  let b=grp("OP")+line("Laba usaha",n.lu,"tot")+grp("INV")+line("Laba sebelum pendanaan dan pajak penghasilan",n.lspp,"tot")+grp("FIN")+line("Laba sebelum pajak penghasilan",n.lsp,"tot")+grp("TAX");
+  if(R.rows.some(r=>r.c==="DISC"&&r.v))b+=line("Laba dari operasi yang dilanjutkan",n.lcont,"tot")+grp("DISC");b+=line("Laba neto",n.ln,"gt");
+  const d=n.lu-o.lu;
+  return `${indBar()}<div class="demo"><span class="sp"><b>Gratis.</b> ${esc(NOTE[S.ind]||"Ganti angka di tab Input laba rugi, hasilnya langsung berubah.")}</span><button class="btn small" data-act="clear">Kosongkan contoh</button></div>
+  <div class="kpis"><div class="kpi"><small>Laba usaha versi lama</small><b>${fmt(o.lu)}</b><span>PSAK 201, ${u}</span></div>
+   <div class="kpi"><small>Laba usaha PSAK 118</small><b>${fmt(n.lu)}</b><span>${d?"Berubah "+(d>0?"naik ":"turun ")+fmt(Math.abs(d))+" ("+(o.lu?(Math.abs(d)/Math.abs(o.lu)*100).toFixed(1).replace(".",","):"-")+"%)":"Sama dengan versi lama"}</span></div>
+   <div class="kpi"><small>Laba sebelum pendanaan dan pajak</small><b>${fmt(n.lspp)}</b><span>Subtotal wajib baru</span></div>
+   <div class="kpi"><small>Laba neto</small><b>${fmt(n.ln)}</b><span>${R.same?'<span class="pill ok">Sama dengan versi lama</span>':'<span class="pill bad">Tidak sama, cek input</span>'}</span></div></div>
+  <div class="grid2"><section class="sec"><div class="sec-h"><h3>Sebelum, PSAK 201</h3></div><div class="tw"><table><tbody>${a}</tbody></table></div></section>
+  <section class="sec"><div class="sec-h"><h3>Sesudah, PSAK 118</h3></div><div class="tw"><table><tbody>${b}</tbody></table></div></section></div>
+  <p class="note muted">${esc(S.co)}, tahun ${esc(S.th)}, dalam ${u}. Laba neto tidak berubah. Yang berubah adalah susunan, kategori, dan subtotal.</p>`}
+
+function indBar(){return `<section class="sec"><div class="sec-h"><h3>Pilih Jenis Laporan Keuangan</h3></div><div class="wpchips" style="display:flex;gap:8px;flex-wrap:wrap">${IND.map(x=>`<button class="chip" aria-pressed="${S.ind===x[0]}" data-ind="${x[0]}">${x[1]}</button>`).join("")}</div><p class="note muted">Memilih jenis akan mengisi contoh laba rugi khas industri itu beserta pemetaan kategorinya. Isian Anda sebelumnya akan diganti.</p></section>`}
+function vInput(){const oo=v=>OLD.map(x=>`<option value="${x[0]}" ${x[0]===v?"selected":""}>${esc(x[1])}</option>`).join("");
+  const co=(r)=>`<option value="AUTO" ${r.auto?"selected":""}>Otomatis: ${CI[r.sug]}</option>`+CAT.map(c=>`<option value="${c[0]}" ${!r.auto&&r.c===c[0]?"selected":""}>${c[1]}</option>`).join("");
+  const rows=R.rows.map((r,i)=>`<tr><td><input class="cell" id="n-${i}" data-r="${i}" data-f="n" value="${esc(r.n)}" style="min-width:220px"></td><td><select class="cell" id="o-${i}" data-r="${i}" data-f="o" style="min-width:200px">${oo(r.o)}</select></td>
+   <td><input class="cell num" id="v-${i}" data-r="${i}" data-f="v" value="${r.v?fmt(r.v):""}" style="min-width:120px"></td><td><select class="cell" id="c-${i}" data-r="${i}" data-f="c" style="min-width:190px">${co(r)}</select><div class="hint">${esc(r.why)}</div></td><td><button class="btn small" data-del="${i}" aria-label="Hapus baris">Hapus</button></td></tr>`).join("");
+  const nat=S.nat,nf2=(k,l)=>`<label class="field">${l}<input class="num" id="nat-${k}" data-nat="${k}" value="${nat[k]?fmt(nat[k]):""}"></label>`;
+  return indBar()+`<section class="sec"><div class="sec-h"><h2>Input Laba Rugi</h2></div>
+   <div class="fields"><label class="field">Nama perusahaan<input id="f-co" data-s="co" value="${esc(S.co)}"></label><label class="field">Tahun<input id="f-th" data-s="th" value="${esc(S.th)}"></label><label class="field">Satuan<input id="f-unit" data-s="unit" value="${esc(S.unit)}"></label></div>
+   <label class="toggle"><input type="checkbox" id="f-special" ${S.special?"checked":""}><span>Aktivitas bisnis utama entitas adalah investasi atau memberi pembiayaan kepada pelanggan (bank, perusahaan pembiayaan, entitas investasi). Kalau dicentang, bunga dan return investasi dari aktivitas utama masuk Operasi.</span></label>
+   <ol class="steps"><li>Salin pos laba rugi versi sekarang beserta angkanya. Pendapatan atau keuntungan positif, beban atau kerugian negatif.</li><li>Pilih letak pos itu di laporan lama.</li><li>Kategori PSAK 118 terisi otomatis beserta alasannya. Ganti kalau fakta entitas berbeda.</li></ol>
+   <div class="tw"><table><thead><tr><th>Pos laba rugi</th><th>Letak di laporan lama</th><th class="num">Jumlah</th><th>Kategori PSAK 118</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+   <div class="sec-h"><button class="btn small" data-act="add">Tambah pos</button><span class="sp"></span><span class="note muted">Laba neto: ${fmt(R.o.ln)}</span></div></section>
+  <section class="sec"><div class="sec-h"><h3>Beban Berdasarkan Sifat (untuk Catatan)</h3></div>
+   <p class="note muted">Kalau beban disajikan per fungsi (beban pokok, penjualan, umum), PSAK 118 tetap meminta pengungkapan beban tertentu berdasarkan sifatnya. Angka ini juga dipakai untuk contoh EBITDA.</p>
+   <div class="fields">${nf2("dep","Penyusutan aset tetap dan hak guna")}${nf2("amort","Amortisasi aset takberwujud")}${nf2("emp","Imbalan kerja karyawan")}${nf2("imp","Rugi penurunan nilai")}${nf2("inv","Penurunan nilai persediaan")}</div>
+   <label class="toggle"><input type="checkbox" id="f-mpm" ${S.mpm?"checked":""}><span>Perusahaan memakai EBITDA di luar laporan keuangan (bank, investor, covenant). Tampilkan contoh catatan ukuran kinerja manajemen (MPM).</span></label></section>`}
+
+function vRekon(){const o=R.o,n=R.n,nat=S.nat;
+  let rk=`<tr><td>Laba usaha versi lama (PSAK 201)</td><td class="num">${fmt(o.lu)}</td></tr>`;
+  R.inn.forEach(r=>rk+=`<tr><td class="ind">Ditambah: ${esc(r.n)} <span class="cat">masuk Operasi</span></td><td class="num">${fmt(r.v)}</td></tr>`);
+  R.out.forEach(r=>rk+=`<tr><td class="ind">Dikurangi: ${esc(r.n)} <span class="cat">keluar ke ${CI[r.c]}</span></td><td class="num">${fmt(-r.v)}</td></tr>`);
+  rk+=`<tr class="gt"><td>Laba usaha PSAK 118</td><td class="num">${fmt(n.lu)}</td></tr>`;
+  const natRows=[["Penyusutan aset tetap dan hak guna",nat.dep],["Amortisasi aset takberwujud",nat.amort],["Imbalan kerja karyawan",nat.emp],["Rugi penurunan nilai",nat.imp],["Penurunan nilai persediaan",nat.inv]].filter(x=>+x[1]);
+  const mpm=S.mpm?`<section class="sec"><div class="sec-h"><h3>Contoh Catatan MPM: EBITDA</h3></div><div class="tw"><table><tbody>
+   <tr><td>Laba usaha (subtotal PSAK 118)</td><td class="num">${fmt(n.lu)}</td></tr><tr><td class="ind">Ditambah: penyusutan</td><td class="num">${fmt(+nat.dep||0)}</td></tr><tr><td class="ind">Ditambah: amortisasi</td><td class="num">${fmt(+nat.amort||0)}</td></tr><tr class="gt"><td>EBITDA (ukuran kinerja manajemen)</td><td class="num">${fmt(R.ebitda)}</td></tr></tbody></table></div>
+   <p class="note muted">Catatan MPM juga perlu menjelaskan alasan manajemen memakai ukuran ini, cara menghitungnya, serta efek pajak dan kepentingan nonpengendali untuk tiap penyesuaian. Pastikan definisi EBITDA sama dengan yang dipakai di covenant bank dan materi investor.</p></section>`:"";
+  return `<section class="sec"><div class="sec-h"><h2>Rekonsiliasi Laba Usaha</h2></div>
+   <p class="note muted">Bahan untuk catatan transisi. Karena penerapan PSAK 118 retrospektif, angka komparatif tahun sebelumnya juga perlu disajikan ulang dengan rekonsiliasi seperti ini.</p>
+   <div class="tw"><table><tbody>${rk}</tbody></table></div></section>
+  <section class="sec"><div class="sec-h"><h3>Beban Berdasarkan Sifat</h3></div>${natRows.length?`<div class="tw"><table><tbody>${natRows.map(x=>`<tr><td>${x[0]}</td><td class="num">${fmt(x[1])}</td></tr>`).join("")}</tbody></table></div>`:`<p class="note muted">Isi di tab Input laba rugi.</p>`}</section>
+  ${mpm}
+  <section class="sec"><div class="sec-h"><h3>Yang Perlu Dicek Berikutnya</h3></div><ol class="steps">
+   <li>Pos "lain-lain" yang material dipecah dengan label yang informatif.</li>
+   <li>Laporan arus kas metode tidak langsung dimulai dari laba usaha. Bunga dan dividen untuk entitas umum tidak lagi bebas dipilih kategorinya.</li>
+   <li>Definisi EBITDA atau laba usaha di perjanjian kredit perlu dicek, karena angkanya bisa berubah walaupun laba neto sama.</li>
+   <li>Setiap akun laba rugi di sistem akuntansi diberi tag kategori PSAK 118 dan sifat beban.</li></ol></section>`}
+
+function render(){compute();
+  $("#tabs").innerHTML=TABS.map(([id,l])=>`<button class="tab" role="tab" id="tab-${id}" aria-selected="${tab===id}" data-tab="${id}">${l}</button>`).join("");
+  $("#hdrCo").textContent=S.co||"[Nama perusahaan]";$("#hdrPer").textContent="Tahun "+S.th+", dalam "+S.unit+". Gratis.";
+  const sy=window.scrollY;$("#view").innerHTML=tab==="hasil"?vHasil():tab==="input"?vInput():vRekon();window.scrollTo(0,sy)}
+
+async function getDl(){try{return window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){return null}}
+async function offer(filename,data){const dl=await getDl();
+  if(!dl){try{const u=URL.createObjectURL(data instanceof Blob?data:new Blob([data]));const a=document.createElement("a");a.href=u;a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},1500);toast("File di-download: "+filename)}catch(e){toast("Download gagal: "+e.message)}return}
+  try{await dl.save({filename,data});toast("File disimpan.")}catch(e){toast(e&&e.code==="declined"?"Download dibatalkan.":"Download gagal: "+(e&&(e.message||e.code)))}}
+function buildXlsx(){const wb=XLSX.utils.book_new(),o=R.o,n=R.n;const top=[[S.co],["Tahun "+S.th+", dalam "+S.unit],["© FA Consult, faindonesia.co.id. Dibuat dengan FA Venus · Konversi PL PSAK 118."],[]];
+  const sh=(rows,w)=>{const ws=XLSX.utils.aoa_to_sheet(top.concat(rows));Object.keys(ws).forEach(a=>{if(a[0]!=="!"&&ws[a].t==="n")ws[a].z='#,##0;(#,##0);"-"'});ws["!cols"]=w.map(x=>({wch:x}));return ws};
+  const after=[["LAPORAN LABA RUGI (PSAK 118)","Kategori","Jumlah"]];const g=k=>R.rows.filter(r=>r.c===k&&r.v).forEach(r=>after.push(["  "+r.n,CI[k],r.v]));
+  g("OP");after.push(["Laba usaha","",n.lu]);g("INV");after.push(["Laba sebelum pendanaan dan pajak penghasilan","",n.lspp]);g("FIN");after.push(["Laba sebelum pajak penghasilan","",n.lsp]);g("TAX");g("DISC");after.push(["Laba neto","",n.ln]);
+  XLSX.utils.book_append_sheet(wb,sh(after,[50,24,18]),"PSAK 118");
+  XLSX.utils.book_append_sheet(wb,sh([["LAPORAN LABA RUGI (PSAK 201)","Jumlah"],["Pendapatan",o.pend],["Beban pokok pendapatan",o.hpp],["Laba bruto",o.bruto],["Beban usaha",o.usaha],["Laba usaha",o.lu],["Pendapatan (beban) lain-lain",o.lain],["Bagian laba entitas asosiasi",o.asos],["Pendapatan (beban) keuangan",o.keu],["Laba sebelum pajak penghasilan",o.lsp],["Beban pajak penghasilan",o.pajak],["Operasi yang dihentikan",o.henti],["Laba neto",o.ln]],[50,18]),"PSAK 201");
+  XLSX.utils.book_append_sheet(wb,sh([["MAPPING POS","Letak lama","Kategori PSAK 118","Jumlah","Alasan"]].concat(R.rows.map(r=>[r.n,OI[r.o],CI[r.c],r.v,r.why])),[44,34,22,16,70]),"Mapping");
+  const rk=[["REKONSILIASI LABA USAHA","Jumlah"],["Laba usaha versi lama",o.lu]];R.inn.forEach(r=>rk.push(["Ditambah: "+r.n,r.v]));R.out.forEach(r=>rk.push(["Dikurangi: "+r.n+" (ke "+CI[r.c]+")",-r.v]));rk.push(["Laba usaha PSAK 118",n.lu]);
+  if(S.mpm)rk.push([],["CONTOH MPM: EBITDA",""],["Laba usaha",n.lu],["Penyusutan",+S.nat.dep||0],["Amortisasi",+S.nat.amort||0],["EBITDA",R.ebitda]);
+  XLSX.utils.book_append_sheet(wb,sh(rk,[56,18]),"Rekonsiliasi");
+  return XLSX.write(wb,{bookType:"xlsx",type:"array"})}
+
+document.addEventListener("click",e=>{const t=e.target.closest("[data-tab],[data-act],[data-del],[data-ind],#btnXlsx");if(!t)return;
+  if(t.dataset.ind){S=sample(t.dataset.ind);save();render();toast("Contoh "+IND.find(x=>x[0]===t.dataset.ind)[1].toLowerCase()+" dimuat.");return}
+  if(t.dataset.tab){tab=t.dataset.tab;render();window.scrollTo(0,0);return}
+  if(t.dataset.del!==undefined){S.rows.splice(+t.dataset.del,1);save();render();return}
+  if(t.id==="btnXlsx"){if(!window.XLSX){toast("Pembaca Excel belum termuat, coba lagi sebentar.");return}offer("FA Venus - Konversi PL PSAK 118 "+(S.co||"Perusahaan").replace(/[^\w\- ]+/g,"")+" "+S.th+".xlsx",new Blob([buildXlsx()]));return}
+  const a=t.dataset.act;
+  if(a==="add"){S.rows.push({n:"",o:"lain",v:0,auto:true,c:null});save();render();const i=S.rows.length-1;setTimeout(()=>{const x=$("#n-"+i);if(x)x.focus()},30)}
+  if(a==="clear"){S={ind:S.ind,co:"",th:String(new Date().getFullYear()),unit:"Rupiah",special:false,fn:true,rows:[{n:"Pendapatan",o:"pend",v:0,auto:true},{n:"Beban pokok pendapatan",o:"hpp",v:0,auto:true},{n:"Beban umum dan administrasi",o:"usaha",v:0,auto:true},{n:"Beban bunga pinjaman bank",o:"keu",v:0,auto:true},{n:"Beban pajak penghasilan",o:"pajak",v:0,auto:true}],nat:{dep:0,amort:0,emp:0,imp:0,inv:0},mpm:false};tab="input";save();render();toast("Contoh dikosongkan. Isi laba rugi perusahaan Anda.")}
+});
+document.addEventListener("change",e=>{const t=e.target;
+  if(t.id==="f-special"){S.special=t.checked;save();render();return}
+  if(t.id==="f-mpm"){S.mpm=t.checked;save();render();return}
+  if(t.dataset.s){S[t.dataset.s]=t.value;save();render();return}
+  if(t.dataset.nat){S.nat[t.dataset.nat]=num(t.value);save();render();return}
+  if(t.dataset.r!==undefined){const r=S.rows[+t.dataset.r],f=t.dataset.f;
+    if(f==="v")r.v=num(t.value);else if(f==="c"){if(t.value==="AUTO"){r.auto=true;r.c=null}else{r.auto=false;r.c=t.value}}else r[f]=t.value;save();render();return}
+});
+render();
+})();
+
+(function(){var b=document.body;b.classList.add("boot");setTimeout(function(){b.classList.remove("boot")},1800);
+ var bar=document.createElement("div");bar.className="progress";b.appendChild(bar);var hd=document.querySelector("header.bar"),tk=false;
+ function sc(){var y=window.scrollY||0,h=document.documentElement.scrollHeight-innerHeight;if(hd)hd.classList.toggle("scrolled",y>8);bar.style.transform="scaleX("+(h>0?Math.min(1,y/h):0)+")";tk=false}
+ addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(sc)}},{passive:true});
+ var V=document.getElementById("view"),RM=matchMedia("(prefers-reduced-motion: reduce)").matches,io=("IntersectionObserver" in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -40px 0px"}):null;
+ function count(el){var t=el.textContent.trim(),m=t.match(/^(-?[0-9.]+)(,[0-9]+)?(%| hari)?$/);if(!m||RM)return;var dec=m[2]?m[2].length-1:0,n=parseFloat(m[1].replace(/\./g,"")+(m[2]?"."+m[2].slice(1):""));if(!isFinite(n)||n===0)return;var st=null;
+  function f(ts){if(!st)st=ts;var p=Math.min(1,(ts-st)/900),e=1-Math.pow(1-p,3),v=n*e;el.textContent=v.toLocaleString("id-ID",{minimumFractionDigits:dec,maximumFractionDigits:dec})+(m[3]||"");if(p<1)requestAnimationFrame(f);else el.textContent=t}requestAnimationFrame(f)}
+ function post(anim){if(!V)return;V.querySelectorAll("ul.note,p.note").forEach(function(n){if(n.closest("details")||n.dataset.k)return;n.dataset.k=1;if((n.textContent||"").length<260)return;var d=document.createElement("details");d.className="more";var sm=document.createElement("summary");sm.textContent=n.tagName==="UL"?"Lihat penjelasan":"Baca selengkapnya";n.parentNode.insertBefore(d,n);d.appendChild(sm);d.appendChild(n)});
+  if(anim){V.querySelectorAll(".kpi b").forEach(count);if(io&&!RM)V.querySelectorAll(":scope>.sec,:scope>section,:scope>.grid2").forEach(function(s,i){if(i<2)return;var r=s.getBoundingClientRect();if(r.top>innerHeight){s.classList.add("rv");io.observe(s)}})}}
+ var last="";if(V){new MutationObserver(function(){var key=(document.querySelector("#tabs [aria-selected=true],#tabs .on,#tabs [aria-current]")||{}).textContent||"";var anim=key!==last||b.classList.contains("boot");last=key;post(anim)}).observe(V,{childList:true});post(true)}
+ document.addEventListener("click",function(e){if(e.target.closest("[data-tab],[data-lk],[data-wp]")){var v=document.getElementById("view");v.classList.remove("swap");void v.offsetWidth;v.classList.add("swap");setTimeout(function(){v.classList.remove("swap")},700)}},true);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09VZKH3JRJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-09VZKH3JRJ');</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171717">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<title>FA Apps: Aplikasi Laporan Keuangan, Audit KAP &amp; Kalkulator PSAK | FA Indonesia</title>
+<meta name="description" content="Empat lini aplikasi FA Consult: FA Jupiter untuk menyusun laporan keuangan, FA Saturn untuk sistem audit KAP, FA Venus untuk kalkulator dan konverter PSAK, dan FA Galaxy untuk panduan dan metodologi.">
+<link rel="canonical" href="https://faindonesia.co.id/apps/">
+<meta name="author" content="Ananta W. Sasongko, CPA, FMVA, FPAP">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FA Indonesia">
+<meta property="og:title" content="FA Apps: Aplikasi Laporan Keuangan, Audit KAP &amp; Kalkulator PSAK | FA Indonesia">
+<meta property="og:description" content="Empat lini aplikasi FA Consult: FA Jupiter untuk menyusun laporan keuangan, FA Saturn untuk sistem audit KAP, FA Venus untuk kalkulator dan konverter PSAK, dan FA Galaxy untuk panduan dan metodologi.">
+<meta property="og:url" content="https://faindonesia.co.id/apps/">
+<meta property="og:image" content="https://faindonesia.co.id/img/og/fa-indonesia-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
+<style>
+img{width:auto;height:auto}
+/* Charcoal gradients, white type, colour photography, thin white rules; Times New Roman titles, Poppins UI, Garamond prose, after the FA company-profile deck. */
+:root{
+  --paper:#171717;--surface:#1E1E1E;--ink:#FFFFFF;--muted:#A8A8A8;--line:#2F2F2F;
+  --teal:#FFFFFF;--teal-2:#E8E8E8;--red:#D4D4D4;--on-teal:#171717;color-scheme:dark;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Poppins",system-ui,sans-serif;
+  --serif:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#171717;--surface:#1E1E1E;--ink:#FFFFFF;--muted:#A8A8A8;--line:#2F2F2F;
+  --teal:#FFFFFF;--teal-2:#E8E8E8;--red:#D4D4D4;--on-teal:#171717;color-scheme:dark;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Poppins",system-ui,sans-serif;
+  --serif:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;}}
+:root[data-theme="dark"]{
+  --paper:#171717;--surface:#1E1E1E;--ink:#FFFFFF;--muted:#A8A8A8;--line:#2F2F2F;
+  --teal:#FFFFFF;--teal-2:#E8E8E8;--red:#D4D4D4;--on-teal:#171717;color-scheme:dark;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Poppins",system-ui,sans-serif;
+  --serif:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;}
+:root[data-theme="light"]{
+  --paper:#171717;--surface:#1E1E1E;--ink:#FFFFFF;--muted:#A8A8A8;--line:#2F2F2F;
+  --teal:#FFFFFF;--teal-2:#E8E8E8;--red:#D4D4D4;--on-teal:#171717;color-scheme:dark;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Poppins",system-ui,sans-serif;
+  --serif:"EB Garamond","Cormorant Garamond",Garamond,Georgia,serif;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.lede{color:var(--muted);max-width:60ch;font-size:17px}
+
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand .wm{display:grid;line-height:1.1}
+.brand .wm b{font-size:18px;font-weight:600;letter-spacing:.01em}
+.brand .wm small{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--muted)}
+nav.links{display:flex;gap:22px;font-size:14px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+@media (max-width:820px){nav.links{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn.solid{background:var(--teal);color:var(--on-teal)}
+.btn.solid:hover{background:var(--teal-2)}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{filter:brightness(1.08)}
+.btn.line{border-color:rgba(255,255,255,.5);color:#fff}
+.btn.line:hover{border-color:#fff}
+.btn.sm{padding:8px 14px;font-size:13px}
+
+/* hero (always dark: sits on a night photograph) */
+.hero{position:relative;color:#fff;background:#0A1F27;overflow:hidden}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,26,33,.94) 0%,rgba(8,26,33,.78) 45%,rgba(8,26,33,.25) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(72px,11vw,140px) clamp(64px,9vw,112px);display:grid;gap:22px}
+.hero .eyebrow{color:#F08A82}
+.hero h1{font-size:clamp(40px,6vw,72px);line-height:1.03;max-width:15ch}
+.hero h1 em{font-style:italic;color:#F3C9C3}
+.hero .lede{color:rgba(255,255,255,.8);max-width:54ch}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.hero .credit{position:absolute;right:16px;bottom:10px;z-index:1;font-size:11px;color:rgba(255,255,255,.55);font-family:var(--mono)}
+
+/* facts */
+.facts{background:var(--surface);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fact{padding-block:26px;padding-inline:20px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{display:block;font-family:var(--display);font-weight:400;font-size:42px;line-height:1;font-variant-numeric:tabular-nums}
+.fact span{display:block;margin-top:8px;color:var(--muted);font-size:14px}
+@media (max-width:720px){.facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.fact:nth-child(3){border-left:0;padding-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line)}}
+
+section.block{padding-block:clamp(56px,8vw,104px)}
+.head{display:grid;gap:14px;margin-bottom:40px;max-width:720px}
+.head h2{font-size:clamp(30px,4vw,46px);line-height:1.1}
+
+/* register */
+.register{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:900px){.register{grid-template-columns:1fr}}
+.entity{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.entity figure{margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--line)}
+.entity figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.entity:hover figure img{transform:scale(1.04)}
+.entity .body{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.entity .role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.entity h3{font-size:25px;line-height:1.15;margin-top:6px}
+.entity .short{font-size:13px;color:var(--muted);margin-top:4px}
+.entity p.desc{color:var(--muted);font-size:15px}
+.entity dl{margin:auto 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;padding-top:16px;border-top:1px dashed var(--line);font-size:12.5px}
+.entity dt{color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding-top:1px}
+.entity dd{margin:0;font-family:var(--mono);overflow-wrap:anywhere}
+
+/* practice */
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,64px);align-items:end;margin-bottom:44px}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.split .head{margin-bottom:0}
+.photo{margin:0;border-radius:6px;overflow:hidden;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo.wide{aspect-ratio:16/9}
+.photo figcaption{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,.85);text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.practice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+@media (max-width:860px){.practice{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.practice{grid-template-columns:1fr}}
+.svc{padding:28px 24px 30px 0;border-bottom:1px solid var(--line);display:grid;gap:10px;align-content:start;min-width:0}
+.svc h3{font-size:22px}
+.svc p{color:var(--muted);font-size:15px}
+.svc ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.svc li{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+
+/* process */
+.proc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,64px);align-items:stretch}
+@media (max-width:900px){.proc{grid-template-columns:1fr}.proc .photo{aspect-ratio:16/10}}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding-block:18px;border-bottom:1px solid var(--line)}
+.steps li:first-child{border-top:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--red);padding-top:2px}
+.steps h3{font-family:var(--body);font-weight:600;font-size:16px;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:14px}
+
+/* record */
+.record{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px)}
+@media (max-width:860px){.record{grid-template-columns:1fr}}
+.log{list-style:none;margin:0;padding:0}
+.log li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:16px;padding-block:18px;border-bottom:1px solid var(--line)}
+.log li:first-child{border-top:1px solid var(--line)}
+.log .yr{font-family:var(--mono);font-size:13px;color:var(--red);padding-top:3px;font-variant-numeric:tabular-nums}
+.log b{display:block;font-weight:600}
+.log span{color:var(--muted);font-size:14px}
+.people{display:grid;gap:16px;align-content:start}
+.person{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:start;padding:20px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.person .ini{width:56px;height:56px;border-radius:50%;background:var(--teal);color:var(--on-teal);display:grid;place-items:center;font-family:var(--display);font-size:22px}
+.person b{display:block;font-size:17px;line-height:1.35}
+.person .t{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-block:2px 8px}
+.person p{color:var(--muted);font-size:14px}
+
+/* ecosystem */
+.eco{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+@media (max-width:860px){.eco{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.eco div{background:var(--paper);padding:20px;min-width:0}
+.eco b{display:block;font-weight:600;margin-bottom:4px}
+.eco span{color:var(--muted);font-size:14px}
+
+/* spirit */
+.unused-spirit{background:var(--teal);color:var(--on-teal);position:relative;overflow:hidden}
+.spirit .wrap{padding-block:clamp(64px,9vw,112px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:720px){.spirit .wrap{grid-template-columns:1fr}}
+.spirit .bigmark{width:clamp(96px,14vw,168px);height:auto;color:var(--on-teal)}
+.spirit .bigmark{--mark-a:#F08A82}
+.spirit blockquote{margin:0 0 16px;font-family:var(--display);font-size:clamp(26px,3.6vw,40px);line-height:1.25}
+.spirit .eyebrow{color:#F08A82;margin-bottom:14px}
+.spirit p.en{color:color-mix(in srgb,var(--on-teal) 70%,transparent);font-style:italic;max-width:62ch}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.cards{display:grid;gap:12px}
+.cline{display:grid;grid-template-columns:110px minmax(0,1fr) auto;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+@media (max-width:520px){.cline{grid-template-columns:minmax(0,1fr) auto}.cline .k{grid-column:1/-1}}
+.cline .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cline .v{font-weight:500;overflow-wrap:anywhere;user-select:all}
+.copy{font:inherit;font-size:12px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:6px 10px;border-radius:999px;cursor:pointer}
+.copy:hover{border-color:var(--ink)}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;font-size:12.5px;color:var(--muted)}
+footer .brand{color:var(--ink)}
+
+/* logos */
+.logo{height:38px;width:auto;flex:none}
+.logo.light{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo.dark{display:none}:root:not([data-theme="light"]) .logo.light{display:block}}
+:root[data-theme="dark"] .logo.dark{display:none}
+:root[data-theme="dark"] .logo.light{display:block}
+.hero .logo-hero{height:64px;width:auto}
+.entity .badge{position:absolute;left:16px;bottom:-26px;height:52px;display:flex;align-items:center;background:#fff;border-radius:6px;padding:8px 12px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.entity .badge img{height:100%;width:auto}
+.entity .badge.round{padding:0;border-radius:50%;width:52px;background:transparent}
+.entity .badge.round img{width:52px;height:52px}
+.entity .badge.text{font-family:var(--display);font-size:18px;color:#0F2D38;letter-spacing:.02em}
+.entity figure{position:relative;overflow:visible}
+.entity figure .clip{position:absolute;inset:0;overflow:hidden}
+.entity .body{padding-top:40px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin-top:6px}
+.motto{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;color:var(--muted);font-family:var(--display);font-style:italic;font-size:18px;max-width:60ch}
+.register.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.register.two{grid-template-columns:1fr}}
+
+.th-light{display:none!important}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .th-dark{display:none!important}:root:not([data-theme="light"]) .th-light{display:block!important}}
+:root[data-theme="dark"] .th-dark{display:none!important}
+:root[data-theme="dark"] .th-light{display:block!important}
+.brand .mk{height:40px;width:auto}
+.brand .wmimg{height:22px;width:auto}
+.hero h1 img{height:clamp(44px,7vw,84px);width:auto}
+.hero h1{margin-bottom:6px}
+.person{grid-template-columns:120px minmax(0,1fr)}
+.person .pic{width:120px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#111}
+.person .pic img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+@media (max-width:480px){.person{grid-template-columns:1fr}.person .pic{width:100%;max-width:260px}}
+.pubs{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:640px){.pubs{grid-template-columns:1fr}.pubs .cover{max-width:220px}}
+.pubs .cover{border-radius:4px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.pubs .cover img{width:100%;display:block}
+.eco div{display:grid;gap:10px;align-content:start}
+.eco .lg{height:30px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
+.eco .lg.sq{height:40px}
+.eco .txt{font-weight:600;font-size:17px;height:30px;display:flex;align-items:center}
+
+.elogo{height:40px;display:flex;align-items:center}
+.elogo img{height:100%;width:auto;max-width:100%;object-fit:contain}
+.entity .body{padding-top:24px}
+.entity figure{overflow:hidden}
+/* photo gradient */
+.clip::after,.photo::after,.person .pic::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.85) 100%);mix-blend-mode:normal}
+.photo,.person .pic{position:relative}
+.clip img,.photo img{filter:saturate(.85)}
+.person .pic::after{background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.75) 100%)}
+.note{color:var(--muted);font-size:13px;margin-top:14px}
+
+.elogo{height:48px;display:flex;align-items:center}
+.elogo img{height:44px;width:auto}
+.elogo.wide img{height:22px}
+/* contact */
+.cline{grid-template-columns:minmax(0,1fr) auto;row-gap:2px}
+.cline .k{grid-column:1/-1}
+.cline .v{overflow-wrap:normal;word-break:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(15px,2.2vw,17px)}
+#kontak .btn.solid{background:var(--red);color:#fff}
+/* footer */
+footer{background:var(--surface)}
+footer .wrap.ft{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;padding-block:36px 20px}
+footer .ft .brand img{height:42px;width:auto}
+footer .ft .brand{display:flex;align-items:center;gap:12px}
+footer .ft .brand .wmimg{height:18px}
+footer .ents{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:flex-end;font-size:13px;color:var(--muted)}
+footer .wrap.fb{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:16px 28px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media (max-width:760px){footer .wrap.ft{grid-template-columns:1fr}footer .ents{justify-content:flex-start;flex-direction:column}}
+footer .wrap.fb{border-top:0;position:relative}
+footer .wrap.fb::before{content:"";position:absolute;top:0;left:clamp(16px,4vw,40px);right:clamp(16px,4vw,40px);border-top:1px solid var(--line)}
+@media (max-width:360px){.cline .v{white-space:normal;overflow-wrap:anywhere}}
+
+.arsip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px}
+@media (max-width:820px){.arsip{grid-template-columns:1fr}}
+.arsip .grp h3{font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.arsip ul{list-style:none;margin:0;padding:0}
+.arsip li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding-block:12px;border-bottom:1px solid var(--line)}
+.arsip .yr{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+.arsip b{display:block;font-weight:600;font-size:15px}
+.arsip li span:not(.yr){color:var(--muted);font-size:13.5px}
+
+.mosaic{display:grid;gap:8px;border-radius:6px;overflow:hidden}
+.mosaic img{width:100%;height:100%;object-fit:cover;object-position:center 25%;aspect-ratio:3/4;background:#111}
+.mosaic.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mosaic.quad{grid-template-columns:repeat(2,minmax(0,1fr));align-self:start}
+.teamstrip{display:grid;max-width:720px;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:32px;border-radius:6px;overflow:hidden}
+.teamstrip img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;background:#111}
+@media (max-width:760px){.teamstrip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.hero .bg{object-position:center 70%}
+.mosaic,.teamstrip{position:relative}
+.mosaic::after,.teamstrip::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55) 100%)}
+.mosaic figure{margin:0;position:relative;overflow:hidden}
+.mosaic figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.9) 100%)}
+.mosaic.trio::after{display:none}
+.mosaic figcaption{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;color:#fff;display:grid;gap:2px}
+.mosaic figcaption b{font-size:14px;font-weight:600}
+.mosaic figcaption span{font-size:11.5px;color:rgba(255,255,255,.75)}
+.svclogo img{height:clamp(30px,3.6vw,40px);width:auto;margin-bottom:6px}
+#layanan .split{grid-template-columns:1fr;margin-bottom:20px}
+.svc .num{font-family:var(--mono);font-size:12px;color:var(--red)}
+.svc.core h3{font-size:24px}
+.subhead{margin:44px 0 0}
+.practice.sup .svc h3{font-size:18px}
+.practice.sup .svc p{font-size:14px}
+.fee{margin-top:36px;padding:24px 28px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.fee .eyebrow{margin:0 0 14px}
+.feerow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 40px}
+@media (max-width:640px){.feerow{grid-template-columns:1fr}}
+.feerow b{display:block;font-family:var(--display);font-size:26px;font-weight:500;margin-bottom:4px}
+.feerow span{color:var(--muted);font-size:15px}
+.sys{margin-top:40px}
+.sys .eyebrow{margin:0 0 16px}
+.syslist{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:22px 40px;opacity:.75}
+.syslist img{width:auto;display:block}
+.sysnote{color:var(--muted);font-size:14px;margin:18px 0 0;max-width:70ch}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:720px){.compare{grid-template-columns:1fr}.cmp dl{grid-template-columns:88px 1fr}.cmp dd{font-size:18px}}
+.cmp{border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+.cmp.fa{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.cmph{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 16px;color:var(--muted)}
+.cmp.fa .cmph{color:var(--on-teal);opacity:.75}
+.cmp dl{display:grid;grid-template-columns:110px 1fr;gap:12px 16px;margin:0}
+.cmp dt{font-size:13px;color:var(--muted)}
+.cmp.fa dt{color:var(--on-teal);opacity:.7}
+.cmp dd{margin:0;font-family:var(--display);font-size:20px;line-height:1.3}
+.plans{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px}
+.plans.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.block.alt .plan:not(.main){background:var(--paper)}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--line);border-radius:6px;padding:26px;background:transparent;display:flex;flex-direction:column;gap:10px}
+.plan.main{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.plan h3{font-size:24px;margin:0}
+.plan>p:not(.cmph){color:var(--muted);font-size:15px;margin:0}
+.plan.main>p:not(.cmph),.plan.main .cmph,.plan.main dt{color:var(--on-teal);opacity:.8}
+.plan .cmph{margin:0}
+.plan dl{margin:8px 0 0;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:4px}
+.plan.main dl{border-color:rgba(255,255,255,.2)}
+.plan dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.plan dd{margin:0;font-size:15px}
+.hright{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:6px 10px;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang button:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+html[lang="zh"] body{font-family:var(--body),"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif}
+html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3,html[lang="zh"] .fact b,html[lang="zh"] .cmp dd,html[lang="zh"] .affname,html[lang="zh"] .feerow b{font-family:"Times New Roman",Times,"Songti SC","STSong","Noto Serif SC",serif}
+@media (max-width:560px){.hright .btn.sm{display:none}}
+html,body{overflow-x:clip}
+.svcintro{max-width:720px;color:var(--muted);font-size:17px;margin:0 0 32px}
+
+.eco .lgbox{height:48px;display:flex;align-items:center}
+.eco .lgbox .lg{height:26px;width:auto;max-width:100%;object-fit:contain}
+.eco .lgbox .lg.kja{height:46px}
+.brand .mk{height:38px}
+.brand .wmimg{height:15px}
+header.top .wrap{padding-block:14px}
+.eco .kjatxt{font-family:var(--body);font-weight:500;font-size:21px;letter-spacing:-.01em;color:var(--ink)}
+.brand .wmimg{height:17px}
+
+.pubs{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+@media (max-width:820px){.pubs{grid-template-columns:1fr}}
+.covers{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:repeat(3,auto);gap:12px}
+.cv{margin:0;border-radius:4px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.18);background:#222;position:relative}
+.cv img{width:100%;display:block;aspect-ratio:1735/2717;object-fit:cover}
+.cv.big{grid-row:1/span 3}
+.cv.big img{height:100%}
+.cv figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-family:var(--mono);font-size:11px;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent)}
+.aff{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,40px);align-items:center;max-width:820px;padding:28px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+@media (max-width:560px){.aff{grid-template-columns:1fr}}
+.affmark{height:110px;width:110px;object-fit:contain}
+.afftext{height:76px;width:auto;margin-bottom:14px}
+.aff+.aff{margin-top:16px}
+.affmono{width:110px;height:110px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-family:var(--display);font-size:30px;letter-spacing:.04em;color:var(--ink)}
+.aff .affname{font-family:var(--display);font-size:26px;color:var(--ink)!important;margin:0 0 10px}
+.aff p{color:var(--muted);font-size:15px;max-width:52ch}
+.eco{background:transparent;gap:0}
+.eco div{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.covers{grid-template-columns:3fr 1fr}
+.cv.big img{height:auto}
+.afftext{height:104px}
+.affmark{height:120px}
+.eco div:nth-child(4n){border-right:0}
+.eco div:nth-last-child(-n+3){border-bottom:0}
+
+/* ---- monochrome overrides ---- */
+html,body{margin:0}
+@media (max-width:560px){.fact b{font-size:30px}}
+.th-dark{display:none!important}.th-light{display:block!important}
+img.th-light.wmimg,.brand img.th-light{display:inline-block!important}
+body{font-weight:300;letter-spacing:.005em}
+h1,h2,h3{font-family:"Times New Roman",Times,"Liberation Serif",serif;font-weight:400;letter-spacing:0}
+h2{font-weight:400}
+h3{font-weight:700}
+.eyebrow{font-weight:500;letter-spacing:.22em;color:var(--red)}
+.eyebrow::before{content:"";display:block;width:56px;height:2px;background:#fff;margin-bottom:18px}
+.hero .eyebrow::before{display:none}
+.lede,.svcintro,.svc p,.desc,.person p:not(.t),.log li span:not(.yr),.aff p,.plan>p:not(.cmph),.note,.arsip li span:not(.yr),.cmp dd,.feerow span,.sysnote{font-family:var(--serif);font-weight:400;font-size:1.12em;line-height:1.55}
+.cmp dd{font-size:21px}
+.fact b{font-family:var(--display);font-weight:300}
+.hero{background:#000}
+.hero::after{background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.2) 100%)}
+.hero .lede{color:rgba(255,255,255,.82)}
+.btn{font-weight:500;border-radius:2px}
+.btn.red,#kontak .btn.solid{background:#fff;color:#171717}
+.btn.red:hover,#kontak .btn.solid:hover{background:#E8E8E8;filter:none}
+.btn.solid{background:#fff;color:#171717}
+.btn.solid:hover{background:#E8E8E8}
+.lang{border-radius:2px}
+.cmp,.plan,.entity,.aff,.cline,.svc li,.fee{border-radius:2px}
+.svc li{border-color:#3A3A3A;color:var(--muted)}
+.cmp.fa dd,.plan.main dd,.plan.main h3{color:#171717}
+.log .yr,.svc .num,.entity .role,.person .t{color:var(--red);font-weight:500}
+.syslist{opacity:.6}
+.alt{background:var(--surface)}
+header.top{background:rgba(23,23,23,.92)!important;border-bottom:1px solid var(--line)}
+footer{background:#111}
+
+.lenders{margin-top:48px;padding-top:32px;border-top:1px solid var(--line)}
+.lenders .eyebrow{margin:0 0 8px}
+.lnote{color:var(--muted);margin:0 0 22px;font-family:var(--serif);font-size:17px}
+.lenderlist{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:26px 40px;opacity:.82}
+.lenderlist img{width:auto;display:block}
+.bktxt{font-family:var(--body);font-weight:500;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.gi{margin:0;position:relative;overflow:hidden;border-radius:2px;background:#111}
+.gbtn{all:unset;cursor:zoom-in;display:block}
+.gbtn:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.gi img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .5s ease}
+.gi:hover img{transform:scale(1.04)}
+.gi figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-size:13px;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent)}
+.lightbox{border:0;padding:0;background:transparent;max-width:92vw;max-height:92vh}
+.lightbox::backdrop{background:rgba(0,0,0,.88)}
+.lightbox img{max-width:92vw;max-height:88vh;display:block}
+.lbclose{position:fixed;top:16px;right:20px;background:none;border:0;color:#fff;font-size:36px;cursor:pointer;line-height:1}
+.downloads{display:grid;gap:16px}
+.dl{display:grid;grid-template-columns:160px minmax(0,1fr);gap:28px;align-items:center;padding:22px;border:1px solid #333;border-radius:2px;text-decoration:none;color:var(--ink);background:linear-gradient(150deg,#2a2a2a 0%,#1a1a1a 55%,#121212 100%);transition:border-color .2s}
+.dl:hover{border-color:#777}
+.dl img{width:100%;height:auto;display:block;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.dl h3{font-size:24px;margin:6px 0 8px}
+.dl p:not(.cmph){color:var(--muted);font-family:var(--serif);font-size:17px;margin:0 0 14px}
+.dlbtn{display:inline-block;background:#fff;color:#171717;font-weight:500;font-size:14px;padding:10px 18px;border-radius:2px}
+@media (max-width:560px){.dl{grid-template-columns:96px minmax(0,1fr);gap:16px;padding:16px}.dl h3{font-size:19px}}
+.more{display:inline-block;margin:-18px 0 32px;color:#fff;font-weight:500;font-size:14px;text-decoration:none;border-bottom:1px solid #fff;padding-bottom:2px}
+.more:hover{opacity:.75}
+nav.links{gap:clamp(20px,3vw,40px)}
+.clientlist{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:14px 34px;opacity:.82}
+.clientlist .bktxt{font-size:13px;letter-spacing:.1em}
+#afiliasi .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+#afiliasi .wrap>.head{grid-column:1/-1}
+#afiliasi .aff{max-width:none;margin:0;height:100%;grid-template-columns:96px minmax(0,1fr);align-items:start;align-content:start;gap:28px}
+#afiliasi .aff p{max-width:none}
+#afiliasi .aff .affname{font-size:22px}
+#afiliasi .affmark{width:96px;height:96px}
+@media (max-width:820px){#afiliasi .wrap{grid-template-columns:1fr}}
+#pendiri .teamstrip{max-width:none;gap:12px;border-radius:2px}
+#pendiri .note,#pendiri .motto{max-width:none}
+#pendiri .register.two{align-items:stretch}
+#pendiri .person{height:100%;text-align:left}
+.gallery.bento{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:210px;grid-auto-flow:dense}
+.bento .gi img{aspect-ratio:auto;height:100%}
+.bento .gbtn{height:100%;width:100%}
+.bento .gi img{width:100%}
+.bento .g-big{grid-column:span 2;grid-row:span 2}
+.bento .g-tall{grid-row:span 2}
+@media (max-width:720px){.gallery.bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:180px}.bento .g-big{grid-column:span 2;grid-row:span 1}.bento .g-tall{grid-row:span 1}.gi figcaption{font-size:11px;padding:24px 10px 8px;line-height:1.35}}
+/* ---- micro-interaction ---- */
+:root{--ez:cubic-bezier(.2,.7,.2,1)}
+.links a{position:relative;transition:color .25s}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ez)}
+.links a:hover{color:#fff}.links a:hover::after{transform:scaleX(1)}
+.btn{transition:transform .25s var(--ez),background .25s,border-color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.more,.dl{transition:letter-spacing .3s var(--ez),opacity .25s}.more:hover{letter-spacing:.02em}
+.svc{transition:transform .35s var(--ez),border-color .35s}
+.svc:hover{transform:translateX(6px);border-color:rgba(255,255,255,.45)}
+.plan,.aff,.grp,.entity,.cmp,.fact,.person,.dl{transition:transform .35s var(--ez),border-color .35s,box-shadow .35s,background .35s}
+.plan:hover,.aff:hover,.grp:hover,.entity:hover,.cmp:hover,.dl:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.35);box-shadow:0 18px 40px -18px rgba(0,0,0,.8);background-color:rgba(255,255,255,.025)}
+.fact:hover{transform:translateY(-3px)}
+.lgbox img,.elogo img,.svclogo img,.affmark img{transition:transform .35s var(--ez),opacity .35s,filter .35s}
+.lgbox:hover img,.elogo:hover img,.svclogo img:hover{transform:scale(1.08)}
+.lenders .lgbox img{opacity:.8}.lenders .lgbox:hover img{opacity:1}
+.gi img{transition:transform .8s var(--ez),filter .5s}
+.gi:hover img{transform:scale(1.05);filter:brightness(1.08)}
+.gi figcaption{transition:transform .4s var(--ez)}
+.person img,.pic img{transition:transform .8s var(--ez)}.person:hover img{transform:scale(1.03)}
+.top{transition:box-shadow .3s,background .3s}.top.scrolled{box-shadow:0 10px 30px -12px rgba(0,0,0,.7)}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ez),transform .8s var(--ez)}
+.js .rv.in{opacity:1;transform:none}
+.js .head .eyebrow{position:relative}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}}
+@media (hover:none){.svc:hover,.plan:hover,.aff:hover,.grp:hover,.entity:hover,.cmp:hover,.dl:hover,.btn:hover{transform:none}}
+.others{margin:26px 0 0;font-size:13px;letter-spacing:.04em;color:var(--muted);font-family:var(--body)}.others span{text-transform:uppercase;letter-spacing:.14em;font-size:11px;margin-right:8px}
+.lenderlist li{transition:transform .35s var(--ez)}.lenderlist li:hover{transform:translateY(-2px) scale(1.06)}
+@media (min-width:900px){.downloads{grid-template-columns:1fr 1fr}.dl{align-items:start}}
+.dl.free{grid-column:1/-1;border-color:#4a4a4a}.dl .badge{display:inline-block;background:#fff;color:#111;padding:2px 9px;border-radius:999px;font-weight:600;letter-spacing:.12em;margin-right:6px}
+@media (min-width:900px){.dl.free{grid-template-columns:160px minmax(0,1fr)}.dl.free>div{max-width:720px}}
+.log li.feat{position:relative;background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,0) 70%);padding-left:14px;padding-right:8px}.log li.feat::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:2px;background:#fff}.log li.feat b{font-size:1.06em}
+/* ---- hero v2 ---- */
+.hero::after{background:linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.72) 42%,rgba(10,10,10,.18) 100%),linear-gradient(0deg,rgba(10,10,10,.55),rgba(10,10,10,0) 40%)!important}
+.hero .wrap{padding-block:clamp(84px,12vw,150px) clamp(56px,8vw,96px)!important;gap:20px!important}
+.hero .hk{margin:0;font-family:var(--body);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:14px}
+.hero .hk::before{content:"";width:40px;height:1px;background:rgba(255,255,255,.7)}
+.hero h1{font-family:"Times New Roman",Times,serif!important;font-weight:400!important;font-size:clamp(44px,5.6vw,80px)!important;line-height:1.02!important;letter-spacing:-.01em;max-width:none!important;margin:4px 0 0}
+@media (max-width:600px){.hero .hk{letter-spacing:.16em;font-size:11px}.hero .hk::before{width:24px}}
+.hero h1 em{font-style:italic;color:#fff!important;opacity:.82}
+.hero .lede{font-size:clamp(17px,1.6vw,20px)!important;max-width:46ch!important;color:rgba(255,255,255,.78)!important}
+.hero .actions{margin-top:8px}
+.hero .tagline{margin:clamp(28px,5vw,56px) 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);max-width:520px;font-family:"Times New Roman",Times,serif;font-style:italic;font-size:20px;letter-spacing:.02em;color:rgba(255,255,255,.62)}
+footer .fb{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.ftag{font-family:"Times New Roman",Times,serif;font-style:italic;opacity:.7}
+.hero .hmark{position:absolute;z-index:1;right:max(var(--gut,40px),calc((100vw - 1080px)/2));top:50%;transform:translateY(-50%);width:clamp(150px,15vw,230px);pointer-events:none}
+.hero .hmark img{width:100%;height:auto;display:block;opacity:.9;filter:drop-shadow(0 20px 50px rgba(0,0,0,.35))}
+@media (max-width:900px){.hero .hmark{display:none}}
+/* compare: baris sejajar antar kartu */
+.compare{grid-template-rows:repeat(4,auto);row-gap:0}
+.cmp{display:grid;grid-template-columns:110px minmax(0,1fr);grid-template-rows:subgrid;grid-row:span 4;column-gap:16px;align-items:stretch}
+.cmp .cmph{grid-column:1/-1}
+.cmp dl{display:contents}
+.cmp dt,.cmp dd{padding-block:8px;border-top:1px solid rgba(128,128,128,.22)}
+.cmp dt{line-height:1.3;padding-top:20px}.cmp dd{padding-top:10px;padding-bottom:10px}
+@media (max-width:900px){.compare{grid-template-rows:none;row-gap:16px}.cmp{grid-template-columns:88px minmax(0,1fr);grid-template-rows:auto;grid-row:auto}}
+/* nav: Materi + tabs mobile + scrollspy */
+nav.links .m-only{display:none}
+nav.links a.on{color:#fff}nav.links a.on::after{transform:scaleX(1)}
+@media (max-width:820px){
+header.top .wrap{flex-wrap:wrap;row-gap:0;padding-bottom:0}
+nav.links{display:flex!important;order:3;width:calc(100% + 2*clamp(16px,4vw,40px));margin-inline:calc(-1*clamp(16px,4vw,40px));padding:0 clamp(16px,4vw,40px);gap:22px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-top:1px solid var(--line);margin-top:10px}
+nav.links::-webkit-scrollbar{display:none}
+nav.links a{flex:none;padding:12px 0 13px;font-size:13.5px;white-space:nowrap}
+nav.links a::after{bottom:0}
+nav.links .m-only{display:inline-block}
+}
+html{scroll-padding-top:76px}@media (max-width:820px){html{scroll-padding-top:112px}}
+/* ---- gradasi hitam-putih ---- */
+body{background:#0f0f0f}
+.block{background:radial-gradient(120% 90% at 85% 0%,#353535 0%,#1c1c1c 38%,#0f0f0f 100%)}
+.block.alt{background:radial-gradient(120% 90% at 10% 100%,#323232 0%,#1a1a1a 40%,#0c0c0c 100%);border-block:1px solid #262626}
+.facts{background:linear-gradient(180deg,#0b0b0b,#1b1b1b)}
+.hero::after{background:radial-gradient(90% 120% at 78% 55%,rgba(0,0,0,0) 0%,rgba(0,0,0,.45) 42%,rgba(0,0,0,.94) 100%),linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,0) 100%)}
+.entity,.cmp:not(.fa),.plan:not(.main),.aff,.cline,.block.alt .plan:not(.main){background:linear-gradient(150deg,#2a2a2a 0%,#1a1a1a 55%,#121212 100%);border-color:#333}
+.cmp.fa,.plan.main{background:linear-gradient(150deg,#ffffff 0%,#e9e9e9 60%,#cfcfcf 100%)}
+#kontak{position:relative;background:#000;overflow:hidden}
+#kontak::before{content:"";position:absolute;inset:0;background:url("img/fa/landscape.jpg") center 65%/cover no-repeat;filter:brightness(.8)}
+#kontak::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 85% 50%,rgba(0,0,0,.2) 0%,rgba(0,0,0,.7) 45%,rgba(0,0,0,.95) 100%)}
+#kontak>.wrap{position:relative;z-index:1}
+#pendekatan{background:radial-gradient(70% 90% at 90% 20%,#3d3d3d 0%,#1d1d1d 40%,#0d0d0d 100%)}
+footer{background:linear-gradient(180deg,#0d0d0d,#000)}
+
+/* ---- tipografi: bobot konsisten ---- */
+body{font-weight:400}
+b,strong{font-weight:500}
+h3{font-weight:400}
+.log b,.arsip b,.eco b,.eco .txt,.steps h3,.arsip .grp h3,.mosaic figcaption b,.person b{font-weight:500}
+.dlbrand{height:22px;width:auto;display:block;margin:0 0 14px;opacity:.95}
+
+/* ---- FA Apps ---- */
+.ap-hero{padding-block:clamp(40px,6vw,88px) clamp(32px,5vw,64px);background:radial-gradient(90% 90% at 80% 30%,#2e2e2e 0%,#151515 45%,#0b0b0b 100%);border-bottom:1px solid #262626;overflow:hidden}
+.ap-hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:900px){.ap-hero .wrap{grid-template-columns:1fr}}
+.ap-hero h1{font-family:"Times New Roman",Times,serif;font-weight:400;font-size:clamp(38px,5vw,68px);line-height:1.04;margin:10px 0 18px}
+.ap-hero .lede{font-size:clamp(16px,1.5vw,19px);max-width:48ch;color:rgba(255,255,255,.78)}
+.ap-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.ap-jump a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;border:1px solid #3a3a3a;border-radius:999px;padding:7px 14px 7px 8px;color:#e6e6e6;background:rgba(255,255,255,.03)}
+.ap-jump a:hover{border-color:#fff}
+.ap-jump .glyph{width:22px;height:22px}
+.orbit{width:100%;max-width:520px;height:auto;justify-self:center;display:block}
+.orbit text{font-family:var(--body);fill:#fff}
+.orbit .lab{font-size:22px;font-weight:500}
+.orbit .sub{font-size:15px;fill:#a8a8a8}
+.orbit .ring{fill:none;stroke:#fff;stroke-opacity:.14}
+.orbit .star{fill:#fff}
+@media (prefers-reduced-motion:no-preference){
+ .orbit .spin{animation:apspin linear infinite}
+ .orbit .rev{animation:apspin linear infinite reverse}
+ .orbit .s1,.orbit .r1{animation-duration:46s}.orbit .s2,.orbit .r2{animation-duration:80s}.orbit .s3,.orbit .r3{animation-duration:120s}
+ .orbit .twk{animation:aptw 4s ease-in-out infinite}
+ @keyframes apspin{to{transform:rotate(360deg)}}
+ @keyframes aptw{50%{opacity:.25}}
+}
+.ap-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #333;border-radius:8px;overflow:hidden;background:#141414}
+.ap-flow > div{padding:22px 22px 24px;display:grid;gap:8px;align-content:start;position:relative;border-left:1px solid #2a2a2a;min-width:0}
+.ap-flow > div:first-child{border-left:0}
+.ap-flow > div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:44px;width:12px;height:12px;border-top:1px solid #777;border-right:1px solid #777;transform:rotate(45deg);background:#141414;z-index:1}
+.ap-flow .glyph{width:44px;height:44px}
+.ap-flow b{font-size:17px}
+.ap-flow span{color:var(--muted);font-size:14px}
+.ap-flow .base{grid-column:1/-1;border-left:0;border-top:1px solid #2a2a2a;display:flex;gap:14px;align-items:center;background:#101010}
+.ap-flow .base .glyph{flex:none}
+@media (max-width:760px){.ap-flow{grid-template-columns:1fr}.ap-flow > div{border-left:0;border-top:1px solid #2a2a2a}.ap-flow > div:first-child{border-top:0}
+ .ap-flow > div:not(:last-child)::after{right:auto;left:40px;top:auto;bottom:-7px;transform:rotate(135deg)}}
+.ap-line{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(20px,4vw,56px);padding-block:clamp(36px,5vw,56px);border-top:1px solid #2a2a2a}
+.ap-line:first-of-type{border-top:0}
+@media (max-width:820px){.ap-line{grid-template-columns:1fr}}
+.ap-line .id{display:grid;gap:10px;align-content:start}
+.ap-line .id .glyph{width:84px;height:84px}
+.ap-line h2{font-family:"Times New Roman",Times,serif;font-size:clamp(32px,3.6vw,44px);line-height:1.05}
+.ap-line .kick{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.ap-line .body{display:grid;gap:16px;min-width:0}
+.ap-line .desc{font-family:var(--serif);font-size:clamp(18px,1.6vw,20px);line-height:1.5;max-width:62ch;color:#e9e9e9}
+.ap-line .who{color:var(--muted);font-size:14px;max-width:66ch}
+.ap-line .who b{color:#ddd}
+.ap-apps{display:grid;gap:10px;margin-top:4px}
+.ap-app{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:center;padding:16px 18px;border:1px solid #333;border-radius:8px;background:linear-gradient(150deg,#262626 0%,#191919 60%,#121212 100%)}
+.ap-app.soon{background:transparent;border-style:dashed;border-color:#3a3a3a}
+.ap-app .nm{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;min-width:0}
+.ap-app .nm b{font-size:16px}
+.ap-app p{grid-column:1;color:var(--muted);font-size:14px}
+.ap-app .btn{grid-column:2;grid-row:1/span 2;white-space:nowrap}
+@media (max-width:560px){.ap-app{grid-template-columns:1fr}.ap-app .btn{grid-column:1;grid-row:auto;justify-self:start}}
+.chip{display:inline-block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:2px 9px;border:1px solid #555;color:#cfcfcf;white-space:nowrap}
+.chip.on{background:#fff;color:#111;border-color:#fff}
+.chip.soon{border-style:dashed;color:#9a9a9a}
+.ap-more{font-size:14px;color:#cfcfcf;text-decoration:none;border-bottom:1px solid #555;justify-self:start}
+.ap-more:hover{border-color:#fff;color:#fff}
+.ap-prin{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#2a2a2a;border:1px solid #2a2a2a;border-radius:8px;overflow:hidden}
+@media (max-width:900px){.ap-prin{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.ap-prin{grid-template-columns:1fr}}
+.ap-prin div{background:#121212;padding:20px;display:grid;gap:6px;align-content:start;min-width:0}
+.ap-prin b{font-size:15px}
+.ap-prin span{color:var(--muted);font-size:14px}
+.ap-cta{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between;padding:28px clamp(20px,3vw,36px);border:1px solid #333;border-radius:8px;background:linear-gradient(150deg,#2a2a2a,#121212)}
+.ap-cta h2{font-family:"Times New Roman",Times,serif;font-size:clamp(26px,3vw,36px);line-height:1.1;max-width:22ch}
+.ap-cta p{color:var(--muted);margin-top:8px;max-width:52ch;font-size:15px}
+/* galaxy */
+.gx-toc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:820px){.gx-toc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.gx-toc a{display:grid;gap:4px;text-decoration:none;padding:14px 16px;border:1px solid #333;border-radius:8px;background:#141414;min-width:0}
+.gx-toc a:hover{border-color:#fff}
+.gx-toc small{color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.gx-sec{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(20px,4vw,56px);padding-block:clamp(36px,5vw,56px);border-top:1px solid #2a2a2a;scroll-margin-top:90px}
+@media (max-width:820px){.gx-sec{grid-template-columns:1fr}}
+.gx-sec .id{display:grid;gap:10px;align-content:start}
+.gx-sec .id .glyph{width:64px;height:64px}
+.gx-sec h2{font-family:"Times New Roman",Times,serif;font-size:clamp(28px,3.2vw,40px);line-height:1.08}
+.gx-sec .body{display:grid;gap:18px;min-width:0}
+.gx-sec .intro{font-family:var(--serif);font-size:clamp(18px,1.6vw,20px);line-height:1.5;color:#e9e9e9;max-width:62ch}
+.gx-sec h3{font-family:var(--body);font-weight:500;font-size:16px;margin-top:6px}
+.gx-rules{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.gx-rules li{padding:14px 16px;border-left:2px solid #fff;background:#141414;border-radius:0 6px 6px 0;font-size:14.5px;color:#d6d6d6}
+.gx-rules b{color:#fff}
+.gx-read{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.gx-read{grid-template-columns:1fr}}
+.gx-read a{display:block;padding:14px 16px;border:1px solid #333;border-radius:8px;text-decoration:none;font-size:15px;background:#141414}
+.gx-read a:hover{border-color:#fff}
+.gx-read small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.steps li p b{color:#e6e6e6}
+/* ---- motion ---- */
+.orbit .shoot{stroke:#fff;stroke-width:1.5;stroke-linecap:round;opacity:0}
+.orbit .stars,.orbit .sys{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ap-app,.gx-toc a,.gx-read a,.ap-jump a{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s}
+.ap-app:hover,.gx-toc a:hover,.gx-read a:hover{transform:translateY(-3px);border-color:#777}
+.ap-jump a:hover{transform:translateY(-2px)}
+.ap-flow{position:relative}
+.ap-flow .beam{position:absolute;left:0;right:0;top:43px;height:1px;pointer-events:none;overflow:hidden;z-index:2}
+.ap-flow .beam::after{content:"";position:absolute;top:-1px;left:-30%;width:30%;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent)}
+@media (max-width:760px){.ap-flow .beam{display:none}}
+@media (prefers-reduced-motion:no-preference){
+ .orbit .ring{stroke-dasharray:100;stroke-dashoffset:100;animation:apdraw 2.2s cubic-bezier(.4,.1,.2,1) forwards}
+ .orbit .rg2{animation-delay:.25s}.orbit .rg3{animation-delay:.5s}
+ @keyframes apdraw{to{stroke-dashoffset:0}}
+ .orbit .halo{animation:aphalo 4s ease-out infinite}.orbit .h2{animation-delay:2s}
+ @keyframes aphalo{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+ .orbit .shoot{animation:apshoot 9s ease-in infinite 2s}.orbit .shoot.s2{animation-delay:6.5s;animation-duration:11s}
+ @keyframes apshoot{0%,88%{opacity:0;transform:translate(0,0)}90%{opacity:.9}97%{opacity:0;transform:translate(260px,110px)}100%{opacity:0;transform:translate(260px,110px)}}
+ .glyph .bands{animation:apbands 14s linear infinite}
+ @keyframes apbands{to{transform:translateX(60px)}}
+ .glyph .swirl{animation:apspin 50s linear infinite}
+ .ap-line .id .glyph,.gx-sec .id .glyph{animation:apbob 6s ease-in-out infinite}
+ @keyframes apbob{50%{transform:translateY(-8px)}}
+ .ap-flow .beam::after{animation:apbeam 4.5s cubic-bezier(.6,0,.4,1) infinite 1s}
+ @keyframes apbeam{0%{left:-30%}70%,100%{left:100%}}
+ .ap-hero .eyebrow,.ap-hero h1,.ap-hero .lede,.ap-jump a,.gx-toc a{animation:aprise .9s cubic-bezier(.2,.7,.2,1) both}
+ .ap-hero h1{animation-delay:.12s}.ap-hero .lede{animation-delay:.3s}
+ .ap-jump a:nth-child(1),.gx-toc a:nth-child(1){animation-delay:.45s}.ap-jump a:nth-child(2),.gx-toc a:nth-child(2){animation-delay:.55s}.ap-jump a:nth-child(3),.gx-toc a:nth-child(3){animation-delay:.65s}.ap-jump a:nth-child(4),.gx-toc a:nth-child(4){animation-delay:.75s}
+ .orbit{animation:apzoom 1.6s cubic-bezier(.2,.7,.2,1) both}
+ @keyframes aprise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+ @keyframes apzoom{from{opacity:0;transform:scale(.88) rotate(-8deg)}to{opacity:1;transform:none}}
+ html.anim .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+ html.anim .rv.in{opacity:1;transform:none}
+}
+
+/* planet links */
+.orbit a.pl{cursor:pointer;outline:none}
+.orbit .pb{transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .45s}
+.orbit a.pl text{transition:fill .3s,opacity .3s}
+.orbit a.pl:hover .pb,.orbit a.pl:focus-visible .pb{transform:scale(1.22);filter:drop-shadow(0 0 10px rgba(255,255,255,.55))}
+.orbit a.pl:hover .sub,.orbit a.pl:focus-visible .sub{fill:#fff}
+.orbit a.gx .core{transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.orbit a.gx:hover .core,.orbit a.gx:focus-visible .core{transform:scale(1.35)}
+.orbit:hover .spin,.orbit:hover .rev{animation-play-state:paused}
+@media (prefers-reduced-motion:no-preference){
+ html{scroll-behavior:smooth}
+ .orbit .p-venus .pb{animation:apglow 3.6s ease-in-out infinite}
+ .orbit .p-jupiter .bands{animation:apbands 14s linear infinite}
+ .orbit .p-saturn .pb{animation:aptilt 7s ease-in-out infinite}
+ .orbit a.pl:hover .pb{animation-play-state:paused}
+ @keyframes apglow{50%{filter:drop-shadow(0 0 8px rgba(255,255,255,.45))}}
+ @keyframes aptilt{50%{transform:rotate(-7deg)}}
+}
+.ap-jump a.hl,.ap-line.hl{border-color:#fff}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://faindonesia.co.id/apps/#page", "url": "https://faindonesia.co.id/apps/", "name": "FA Apps", "inLanguage": "id", "description": "Empat lini aplikasi FA Consult: FA Jupiter, FA Saturn, FA Venus, dan FA Galaxy.", "publisher": {"@type": "Organization", "name": "FA Indonesia", "url": "https://faindonesia.co.id/"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "FA Jupiter · Laporan Keuangan - Audit Ready", "url": "https://faindonesia.co.id/audit-ready/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "FA Saturn", "url": "https://faindonesia.co.id/saturn/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "SoftwareApplication", "name": "FA Venus · Konversi PL PSAK 118", "url": "https://faindonesia.co.id/cek-psak-118/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "IDR"}}}, {"@type": "ListItem", "position": 4, "item": {"@type": "WebPage", "name": "FA Galaxy", "url": "https://faindonesia.co.id/galaxy/"}}]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "FA Indonesia", "item": "https://faindonesia.co.id/"}, {"@type": "ListItem", "position": 2, "name": "FA Apps", "item": "https://faindonesia.co.id/apps/"}]}]}</script>
+<style>.flinks{flex-wrap:wrap}.flinks a{color:inherit;text-decoration:none;opacity:.8}.flinks a:hover{opacity:1;text-decoration:underline}</style><style>.art{max-width:760px}.art h2{font-size:clamp(24px,3vw,32px);margin:40px 0 14px}.art p,.art li{font-family:var(--serif);font-size:19px;line-height:1.65;color:#E6E6E6}.art p{margin:0 0 16px}.art ul,.art ol{margin:0 0 18px;padding-left:22px}.art li{margin:0 0 8px}.art table{width:100%;border-collapse:collapse;margin:8px 0 22px;font-size:15px}.art th,.art td{border:1px solid #333;padding:9px 10px;text-align:left;vertical-align:top}.art th{background:#222;font-weight:500}.art .meta{color:var(--muted);font-size:14px;margin:0 0 28px}.art a{color:#fff}.tw{overflow-x:auto}.cards2{display:grid;gap:14px;max-width:900px}.card2{display:block;padding:20px 22px;border:1px solid #333;border-radius:2px;text-decoration:none;background:linear-gradient(150deg,#2a2a2a 0%,#1a1a1a 55%,#121212 100%)}.card2 b{display:block;font-size:19px;font-family:"Times New Roman",Times,serif;font-weight:400;margin-bottom:6px}.card2 span{color:var(--muted);font-size:14px}</style>
+<style id="nav4">@media (max-width:820px){nav.links{justify-content:space-between!important;gap:8px!important;overflow-x:auto;scrollbar-width:none}nav.links::-webkit-scrollbar{display:none}nav.links a{flex:0 0 auto!important;font-size:12.5px!important;padding-left:0!important;padding-right:0!important;letter-spacing:0!important}}@media (max-width:370px){nav.links a{font-size:11.5px!important}}</style></head>
+<body>
+<header class="top">
+<div class="wrap">
+<a aria-label="FA Indonesia, ke atas" class="brand" href="/#top">
+<img width="120" height="160" alt="Logo FA Indonesia" class="mk th-dark" src="/img/brand/mark-dark.png"/>
+<img width="120" height="160" alt="Logo FA Indonesia" class="mk th-light" src="/img/brand/mark-light.png"/>
+<img width="648" height="120" alt="FA Indonesia" class="wmimg th-dark" src="/img/brand/wm-dark.png"/>
+<img width="864" height="160" alt="FA Indonesia" class="wmimg th-light" src="/img/brand/wm-light.png"/>
+</a>
+<nav aria-label="Navigasi utama" class="links"> <a data-i18n="kapp" href="/apps/">Apps</a> <a data-i18n="k2" href="/#layanan">Layanan</a> <a data-i18n="kebk" href="/buku/">E-Book</a> <a data-i18n="kwws" href="/artikel/">Wawasan</a> <a data-i18n="kcak" href="https://cariakuntan.com/" target="_blank" rel="noopener">Cari Akuntan</a> <a data-i18n="k321" href="/#kontak">Kontak</a> </nav>
+<div class="hright"><div class="lang" role="group" aria-label="Bahasa / Language"><button type="button" data-lang="id">ID</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中文</button></div></div>
+</div>
+</header>
+<main id="top">
+<section class="ap-hero"><div class="wrap">
+<div>
+<p data-i18n="a1" class="eyebrow">FA Apps</p>
+<h1 data-i18n="a2">Alat kerja akuntansi dan audit, dibangun dari kertas kerja nyata.</h1>
+<p data-i18n="a3" class="lede">Empat lini aplikasi dari FA Consult. Masing-masing punya tugas sendiri: menghitung cepat, menyusun laporan keuangan, menjalankan audit di KAP, dan menjelaskan metodologinya. Semua rujukan standar mengikuti SAK Online IAI dan SPAP IAPI terbaru.</p>
+<nav class="ap-jump" aria-label="Lini aplikasi">
+<a href="#jupiter"><svg class="glyph" viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><clipPath id="cJ"><circle cx="50" cy="50" r="34"/></clipPath><circle cx="50" cy="50" r="34" fill="url(#gJ)"/><g clip-path="url(#cJ)"><g class="bands" fill="#fff" fill-opacity=".18"><rect x="-70" y="36" width="160" height="5" rx="2"/><rect x="-60" y="48" width="160" height="8" rx="4"/><rect x="-80" y="62" width="160" height="4" rx="2"/></g></g><ellipse cx="62" cy="58" rx="7" ry="4" fill="#fff" fill-opacity=".35"/><circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-opacity=".35"/></svg>FA Jupiter</a>
+<a href="#saturn"><svg class="glyph" viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><ellipse cx="50" cy="52" rx="46" ry="12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" transform="rotate(-18 50 52)"/><circle cx="50" cy="50" r="24" fill="url(#gS)"/><circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-opacity=".35"/><path d="M8 64 A46 12 -18 0 0 92 37" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".9" transform="rotate(0 50 50)"/></svg>FA Saturn</a>
+<a href="#venus"><svg class="glyph" viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#gV)"/><circle cx="50" cy="50" r="26" fill="none" stroke="#fff" stroke-opacity=".35"/></svg>FA Venus</a>
+<a href="#galaxy"><svg class="glyph" viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><g transform="rotate(-20 50 50)"><g class="swirl" style="transform-origin:50px 50px"><circle cx="54.0" cy="50.0" r="2.4" fill="#fff" fill-opacity="0.90"/><circle cx="54.8" cy="51.7" r="1.6" fill="#fff" fill-opacity="0.87"/><circle cx="53.6" cy="53.8" r="1.6" fill="#fff" fill-opacity="0.85"/><circle cx="50.1" cy="55.4" r="2.4" fill="#fff" fill-opacity="0.83"/><circle cx="45.0" cy="55.5" r="1.6" fill="#fff" fill-opacity="0.81"/><circle cx="39.9" cy="53.8" r="1.6" fill="#fff" fill-opacity="0.79"/><circle cx="36.7" cy="50.2" r="2.4" fill="#fff" fill-opacity="0.77"/><circle cx="37.0" cy="45.6" r="1.6" fill="#fff" fill-opacity="0.75"/><circle cx="41.4" cy="41.3" r="1.6" fill="#fff" fill-opacity="0.73"/><circle cx="49.4" cy="38.9" r="2.4" fill="#fff" fill-opacity="0.71"/><circle cx="59.1" cy="39.3" r="1.6" fill="#fff" fill-opacity="0.68"/><circle cx="67.8" cy="43.0" r="1.6" fill="#fff" fill-opacity="0.66"/><circle cx="72.6" cy="49.4" r="2.4" fill="#fff" fill-opacity="0.64"/><circle cx="71.5" cy="56.9" r="1.6" fill="#fff" fill-opacity="0.62"/><circle cx="64.0" cy="63.4" r="1.6" fill="#fff" fill-opacity="0.60"/><circle cx="51.5" cy="66.9" r="2.4" fill="#fff" fill-opacity="0.58"/><circle cx="37.1" cy="66.0" r="1.6" fill="#fff" fill-opacity="0.56"/><circle cx="24.7" cy="60.4" r="1.6" fill="#fff" fill-opacity="0.54"/><circle cx="18.2" cy="51.3" r="2.4" fill="#fff" fill-opacity="0.51"/><circle cx="20.0" cy="40.9" r="1.6" fill="#fff" fill-opacity="0.49"/><circle cx="30.4" cy="32.0" r="1.6" fill="#fff" fill-opacity="0.47"/><circle cx="47.2" cy="27.4" r="2.4" fill="#fff" fill-opacity="0.45"/><circle cx="66.4" cy="28.7" r="1.6" fill="#fff" fill-opacity="0.43"/><circle cx="82.6" cy="36.0" r="1.6" fill="#fff" fill-opacity="0.41"/><circle cx="91.0" cy="47.8" r="2.4" fill="#fff" fill-opacity="0.39"/><circle cx="88.8" cy="61.1" r="1.6" fill="#fff" fill-opacity="0.37"/><circle cx="46.0" cy="50.0" r="1.6" fill="#fff" fill-opacity="0.90"/><circle cx="45.2" cy="48.3" r="2.4" fill="#fff" fill-opacity="0.87"/><circle cx="46.4" cy="46.2" r="1.6" fill="#fff" fill-opacity="0.85"/><circle cx="49.9" cy="44.6" r="1.6" fill="#fff" fill-opacity="0.83"/><circle cx="55.0" cy="44.5" r="2.4" fill="#fff" fill-opacity="0.81"/><circle cx="60.1" cy="46.2" r="1.6" fill="#fff" fill-opacity="0.79"/><circle cx="63.3" cy="49.8" r="1.6" fill="#fff" fill-opacity="0.77"/><circle cx="63.1" cy="54.4" r="2.4" fill="#fff" fill-opacity="0.75"/><circle cx="58.6" cy="58.6" r="1.6" fill="#fff" fill-opacity="0.73"/><circle cx="50.6" cy="61.1" r="1.6" fill="#fff" fill-opacity="0.71"/><circle cx="40.9" cy="60.7" r="2.4" fill="#fff" fill-opacity="0.68"/><circle cx="32.2" cy="57.0" r="1.6" fill="#fff" fill-opacity="0.66"/><circle cx="27.4" cy="50.6" r="1.6" fill="#fff" fill-opacity="0.64"/><circle cx="28.5" cy="43.1" r="2.4" fill="#fff" fill-opacity="0.62"/><circle cx="36.0" cy="36.6" r="1.6" fill="#fff" fill-opacity="0.60"/><circle cx="48.5" cy="33.1" r="1.6" fill="#fff" fill-opacity="0.58"/><circle cx="62.9" cy="34.0" r="2.4" fill="#fff" fill-opacity="0.56"/><circle cx="75.3" cy="39.6" r="1.6" fill="#fff" fill-opacity="0.54"/><circle cx="81.8" cy="48.7" r="1.6" fill="#fff" fill-opacity="0.51"/><circle cx="80.1" cy="59.1" r="2.4" fill="#fff" fill-opacity="0.49"/><circle cx="69.7" cy="67.9" r="1.6" fill="#fff" fill-opacity="0.47"/><circle cx="52.8" cy="72.6" r="1.6" fill="#fff" fill-opacity="0.45"/><circle cx="33.7" cy="71.3" r="2.4" fill="#fff" fill-opacity="0.43"/><circle cx="17.5" cy="64.0" r="1.6" fill="#fff" fill-opacity="0.41"/><circle cx="9.0" cy="52.2" r="1.6" fill="#fff" fill-opacity="0.39"/><circle cx="11.2" cy="38.9" r="2.4" fill="#fff" fill-opacity="0.37"/></g></g><circle cx="50" cy="50" r="6" fill="#fff"/></svg>FA Galaxy</a>
+</nav>
+</div>
+<svg class="orbit" viewBox="-110 -40 820 680" role="group" aria-label="FA Venus, FA Jupiter dan FA Saturn mengorbit di dalam FA Galaxy"><g class="stars"><circle class="star twk" cx="198" cy="97" r="0.8" fill-opacity="0.24" style="animation-delay:2.1s"/><circle class="star" cx="222" cy="44" r="1" fill-opacity="0.22" style="animation-delay:1.7s"/><circle class="star" cx="51" cy="63" r="1.6" fill-opacity="0.23" style="animation-delay:2.3s"/><circle class="star" cx="560" cy="376" r="0.8" fill-opacity="0.49" style="animation-delay:1.6s"/><circle class="star" cx="576" cy="37" r="1" fill-opacity="0.34" style="animation-delay:0.6s"/><circle class="star twk" cx="78" cy="189" r="1" fill-opacity="0.25" style="animation-delay:2.3s"/><circle class="star" cx="119" cy="67" r="0.8" fill-opacity="0.48" style="animation-delay:2.5s"/><circle class="star" cx="298" cy="318" r="1.2" fill-opacity="0.43" style="animation-delay:3.7s"/><circle class="star" cx="220" cy="154" r="1" fill-opacity="0.55" style="animation-delay:1.0s"/><circle class="star" cx="343" cy="315" r="1.2" fill-opacity="0.56" style="animation-delay:1.2s"/><circle class="star twk" cx="579" cy="78" r="1.6" fill-opacity="0.28" style="animation-delay:1.4s"/><circle class="star" cx="551" cy="255" r="0.8" fill-opacity="0.58" style="animation-delay:2.3s"/><circle class="star" cx="518" cy="192" r="1.2" fill-opacity="0.50" style="animation-delay:2.3s"/><circle class="star" cx="275" cy="497" r="1.2" fill-opacity="0.44" style="animation-delay:2.7s"/><circle class="star" cx="45" cy="417" r="1.6" fill-opacity="0.34" style="animation-delay:1.5s"/><circle class="star twk" cx="398" cy="23" r="1.6" fill-opacity="0.38" style="animation-delay:2.4s"/><circle class="star" cx="296" cy="137" r="1.2" fill-opacity="0.26" style="animation-delay:1.0s"/><circle class="star" cx="237" cy="515" r="0.8" fill-opacity="0.28" style="animation-delay:1.6s"/><circle class="star" cx="171" cy="89" r="1.6" fill-opacity="0.63" style="animation-delay:1.1s"/><circle class="star" cx="251" cy="218" r="1.6" fill-opacity="0.68" style="animation-delay:0.6s"/><circle class="star twk" cx="112" cy="145" r="1" fill-opacity="0.21" style="animation-delay:3.3s"/><circle class="star" cx="116" cy="174" r="1" fill-opacity="0.41" style="animation-delay:1.5s"/><circle class="star" cx="338" cy="563" r="0.8" fill-opacity="0.43" style="animation-delay:3.5s"/><circle class="star" cx="562" cy="405" r="1.6" fill-opacity="0.40" style="animation-delay:1.6s"/><circle class="star" cx="289" cy="242" r="1" fill-opacity="0.23" style="animation-delay:0.8s"/><circle class="star twk" cx="104" cy="207" r="0.8" fill-opacity="0.25" style="animation-delay:2.3s"/><circle class="star" cx="321" cy="560" r="0.8" fill-opacity="0.24" style="animation-delay:0.8s"/><circle class="star" cx="228" cy="378" r="1.2" fill-opacity="0.50" style="animation-delay:1.9s"/><circle class="star" cx="77" cy="293" r="1.6" fill-opacity="0.44" style="animation-delay:1.2s"/><circle class="star" cx="94" cy="445" r="1.2" fill-opacity="0.44" style="animation-delay:2.8s"/><circle class="star twk" cx="309" cy="129" r="1.2" fill-opacity="0.27" style="animation-delay:2.2s"/><circle class="star" cx="26" cy="316" r="0.8" fill-opacity="0.55" style="animation-delay:1.0s"/><circle class="star" cx="223" cy="107" r="1" fill-opacity="0.47" style="animation-delay:3.1s"/><circle class="star" cx="201" cy="139" r="1" fill-opacity="0.60" style="animation-delay:3.3s"/><circle class="star" cx="439" cy="142" r="1.6" fill-opacity="0.38" style="animation-delay:0.1s"/><circle class="star twk" cx="26" cy="172" r="1.2" fill-opacity="0.30" style="animation-delay:2.4s"/><circle class="star" cx="210" cy="479" r="1.2" fill-opacity="0.68" style="animation-delay:1.5s"/><circle class="star" cx="138" cy="142" r="1" fill-opacity="0.37" style="animation-delay:1.9s"/><circle class="star" cx="581" cy="364" r="0.8" fill-opacity="0.44" style="animation-delay:2.6s"/><circle class="star" cx="474" cy="59" r="0.8" fill-opacity="0.65" style="animation-delay:3.1s"/><circle class="star twk" cx="445" cy="287" r="1" fill-opacity="0.42" style="animation-delay:2.5s"/><circle class="star" cx="60" cy="559" r="1.6" fill-opacity="0.43" style="animation-delay:3.0s"/><circle class="star" cx="59" cy="102" r="1" fill-opacity="0.21" style="animation-delay:2.4s"/><circle class="star" cx="280" cy="390" r="1.6" fill-opacity="0.53" style="animation-delay:1.4s"/><circle class="star" cx="328" cy="86" r="0.8" fill-opacity="0.60" style="animation-delay:2.9s"/><circle class="star twk" cx="70" cy="445" r="1" fill-opacity="0.42" style="animation-delay:3.5s"/><circle class="star" cx="489" cy="132" r="1.2" fill-opacity="0.31" style="animation-delay:2.0s"/><circle class="star" cx="453" cy="199" r="1.6" fill-opacity="0.62" style="animation-delay:0.2s"/><circle class="star" cx="439" cy="531" r="1.6" fill-opacity="0.61" style="animation-delay:3.5s"/><circle class="star" cx="86" cy="98" r="0.8" fill-opacity="0.64" style="animation-delay:3.1s"/><circle class="star twk" cx="363" cy="460" r="1" fill-opacity="0.29" style="animation-delay:1.9s"/><circle class="star" cx="431" cy="333" r="1.2" fill-opacity="0.54" style="animation-delay:2.1s"/><circle class="star" cx="290" cy="460" r="0.8" fill-opacity="0.32" style="animation-delay:1.1s"/><circle class="star" cx="458" cy="304" r="0.8" fill-opacity="0.58" style="animation-delay:3.6s"/><circle class="star" cx="267" cy="365" r="1" fill-opacity="0.55" style="animation-delay:1.8s"/><circle class="star twk" cx="319" cy="287" r="1" fill-opacity="0.55" style="animation-delay:3.5s"/><circle class="star" cx="556" cy="161" r="1" fill-opacity="0.62" style="animation-delay:0.5s"/><circle class="star" cx="81" cy="266" r="0.8" fill-opacity="0.54" style="animation-delay:1.7s"/><circle class="star" cx="133" cy="186" r="0.8" fill-opacity="0.65" style="animation-delay:0.6s"/><circle class="star" cx="425" cy="393" r="1" fill-opacity="0.33" style="animation-delay:0.5s"/><circle class="star twk" cx="281" cy="443" r="0.8" fill-opacity="0.40" style="animation-delay:1.9s"/><circle class="star" cx="584" cy="493" r="1" fill-opacity="0.55" style="animation-delay:4.0s"/><circle class="star" cx="244" cy="254" r="1.2" fill-opacity="0.36" style="animation-delay:2.9s"/><circle class="star" cx="21" cy="331" r="1.6" fill-opacity="0.55" style="animation-delay:1.5s"/><circle class="star" cx="310" cy="181" r="0.8" fill-opacity="0.26" style="animation-delay:3.7s"/><circle class="star twk" cx="143" cy="518" r="0.8" fill-opacity="0.33" style="animation-delay:0.2s"/><circle class="star" cx="462" cy="167" r="1" fill-opacity="0.61" style="animation-delay:3.4s"/><circle class="star" cx="402" cy="559" r="1.6" fill-opacity="0.27" style="animation-delay:3.7s"/><circle class="star" cx="341" cy="416" r="0.8" fill-opacity="0.34" style="animation-delay:3.2s"/><circle class="star" cx="116" cy="529" r="1.2" fill-opacity="0.67" style="animation-delay:2.5s"/></g><g class="shoots"><line class="shoot" x1="-60" y1="40" x2="10" y2="70"/><line class="shoot s2" x1="420" y1="-20" x2="480" y2="10"/></g><g class="sys"><circle class="ring rg1" cx="300" cy="300" r="95" pathLength="100"/><circle class="ring rg2" cx="300" cy="300" r="170" pathLength="100"/><circle class="ring rg3" cx="300" cy="300" r="245" pathLength="100"/><circle class="halo" cx="300" cy="300" r="34" fill="#fff" fill-opacity=".08" style="transform-origin:300px 300px"/><circle class="halo h2" cx="300" cy="300" r="34" fill="#fff" fill-opacity=".05" style="transform-origin:300px 300px"/><a href="#galaxy" class="pl gx" aria-label="FA Galaxy"><circle class="core" cx="300" cy="300" r="20" fill="#fff" fill-opacity=".9"/><text x="300" y="352" text-anchor="middle" class="sub" data-i18n="ao0">FA Galaxy</text></a><g class="spin s1" style="transform-origin:300px 300px"><g class="rev r1" style="transform-origin:373px 239px"><a href="#venus" class="pl p-venus" aria-label="FA Venus"><g class="pb"><svg x="344" y="210" viewBox="0 0 100 100" width="58" height="58" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#gV)"/><circle cx="50" cy="50" r="26" fill="none" stroke="#fff" stroke-opacity=".35"/></svg></g><text class="lab" x="410" y="237" data-i18n="ao1">Venus</text><text class="sub" x="410" y="259" data-i18n="ao2">Hitung cepat</text></a></g></g><g class="spin s2" style="transform-origin:300px 300px"><g class="rev r2" style="transform-origin:153px 385px"><a href="#jupiter" class="pl p-jupiter" aria-label="FA Jupiter"><g class="pb"><svg x="112" y="344" viewBox="0 0 100 100" width="82" height="82" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><clipPath id="cJ"><circle cx="50" cy="50" r="34"/></clipPath><circle cx="50" cy="50" r="34" fill="url(#gJ)"/><g clip-path="url(#cJ)"><g class="bands" fill="#fff" fill-opacity=".18"><rect x="-70" y="36" width="160" height="5" rx="2"/><rect x="-60" y="48" width="160" height="8" rx="4"/><rect x="-80" y="62" width="160" height="4" rx="2"/></g></g><ellipse cx="62" cy="58" rx="7" ry="4" fill="#fff" fill-opacity=".35"/><circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-opacity=".35"/></svg></g><text class="lab" x="202" y="383" data-i18n="ao3">Jupiter</text><text class="sub" x="202" y="405" data-i18n="ao4">Susun LK</text></a></g></g><g class="spin s3" style="transform-origin:300px 300px"><g class="rev r3" style="transform-origin:501px 441px"><a href="#saturn" class="pl p-saturn" aria-label="FA Saturn"><g class="pb"><svg x="455" y="395" viewBox="0 0 100 100" width="92" height="92" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><ellipse cx="50" cy="52" rx="46" ry="12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" transform="rotate(-18 50 52)"/><circle cx="50" cy="50" r="24" fill="url(#gS)"/><circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-opacity=".35"/><path d="M8 64 A46 12 -18 0 0 92 37" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".9" transform="rotate(0 50 50)"/></svg></g><text class="lab" x="555" y="439" data-i18n="ao5">Saturn</text><text class="sub" x="555" y="461" data-i18n="ao6">Audit KAP</text></a></g></g></g></svg>
+</div></section>
+
+<section class="block"><div class="wrap">
+<div class="head">
+<p data-i18n="a4" class="eyebrow">Satu alur kerja</p>
+<h2 data-i18n="a5">Dari angka mentah sampai opini auditor.</h2>
+</div>
+<div class="ap-flow">
+<div><svg class="glyph" viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#gV)"/><circle cx="50" cy="50" r="26" fill="none" stroke="#fff" stroke-opacity=".35"/></svg><b>FA Venus</b><span data-i18n="a6">Cek satu hal dengan cepat: konversi PSAK 118, pajak, dan hitungan kecil lain.</span></div>
+<div><svg class="glyph" viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><clipPath id="cJ"><circle cx="50" cy="50" r="34"/></clipPath><circle cx="50" cy="50" r="34" fill="url(#gJ)"/><g clip-path="url(#cJ)"><g class="bands" fill="#fff" fill-opacity=".18"><rect x="-70" y="36" width="160" height="5" rx="2"/><rect x="-60" y="48" width="160" height="8" rx="4"/><rect x="-80" y="62" width="160" height="4" rx="2"/></g></g><ellipse cx="62" cy="58" rx="7" ry="4" fill="#fff" fill-opacity=".35"/><circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-opacity=".35"/></svg><b>FA Jupiter</b><span data-i18n="a7">Susun neraca saldo, laporan keuangan, dan lead schedule yang siap diaudit.</span></div>
+<div><svg class="glyph" viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><ellipse cx="50" cy="52" rx="46" ry="12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" transform="rotate(-18 50 52)"/><circle cx="50" cy="50" r="24" fill="url(#gS)"/><circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-opacity=".35"/><path d="M8 64 A46 12 -18 0 0 92 37" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".9" transform="rotate(0 50 50)"/></svg><b>FA Saturn</b><span data-i18n="a8">KAP menjalankan audit: task, kertas kerja, sign-off berjenjang, sampai LAI.</span></div>
+<div class="base"><svg class="glyph" viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><g transform="rotate(-20 50 50)"><g class="swirl" style="transform-origin:50px 50px"><circle cx="54.0" cy="50.0" r="2.4" fill="#fff" fill-opacity="0.90"/><circle cx="54.8" cy="51.7" r="1.6" fill="#fff" fill-opacity="0.87"/><circle cx="53.6" cy="53.8" r="1.6" fill="#fff" fill-opacity="0.85"/><circle cx="50.1" cy="55.4" r="2.4" fill="#fff" fill-opacity="0.83"/><circle cx="45.0" cy="55.5" r="1.6" fill="#fff" fill-opacity="0.81"/><circle cx="39.9" cy="53.8" r="1.6" fill="#fff" fill-opacity="0.79"/><circle cx="36.7" cy="50.2" r="2.4" fill="#fff" fill-opacity="0.77"/><circle cx="37.0" cy="45.6" r="1.6" fill="#fff" fill-opacity="0.75"/><circle cx="41.4" cy="41.3" r="1.6" fill="#fff" fill-opacity="0.73"/><circle cx="49.4" cy="38.9" r="2.4" fill="#fff" fill-opacity="0.71"/><circle cx="59.1" cy="39.3" r="1.6" fill="#fff" fill-opacity="0.68"/><circle cx="67.8" cy="43.0" r="1.6" fill="#fff" fill-opacity="0.66"/><circle cx="72.6" cy="49.4" r="2.4" fill="#fff" fill-opacity="0.64"/><circle cx="71.5" cy="56.9" r="1.6" fill="#fff" fill-opacity="0.62"/><circle cx="64.0" cy="63.4" r="1.6" fill="#fff" fill-opacity="0.60"/><circle cx="51.5" cy="66.9" r="2.4" fill="#fff" fill-opacity="0.58"/><circle cx="37.1" cy="66.0" r="1.6" fill="#fff" fill-opacity="0.56"/><circle cx="24.7" cy="60.4" r="1.6" fill="#fff" fill-opacity="0.54"/><circle cx="18.2" cy="51.3" r="2.4" fill="#fff" fill-opacity="0.51"/><circle cx="20.0" cy="40.9" r="1.6" fill="#fff" fill-opacity="0.49"/><circle cx="30.4" cy="32.0" r="1.6" fill="#fff" fill-opacity="0.47"/><circle cx="47.2" cy="27.4" r="2.4" fill="#fff" fill-opacity="0.45"/><circle cx="66.4" cy="28.7" r="1.6" fill="#fff" fill-opacity="0.43"/><circle cx="82.6" cy="36.0" r="1.6" fill="#fff" fill-opacity="0.41"/><circle cx="91.0" cy="47.8" r="2.4" fill="#fff" fill-opacity="0.39"/><circle cx="88.8" cy="61.1" r="1.6" fill="#fff" fill-opacity="0.37"/><circle cx="46.0" cy="50.0" r="1.6" fill="#fff" fill-opacity="0.90"/><circle cx="45.2" cy="48.3" r="2.4" fill="#fff" fill-opacity="0.87"/><circle cx="46.4" cy="46.2" r="1.6" fill="#fff" fill-opacity="0.85"/><circle cx="49.9" cy="44.6" r="1.6" fill="#fff" fill-opacity="0.83"/><circle cx="55.0" cy="44.5" r="2.4" fill="#fff" fill-opacity="0.81"/><circle cx="60.1" cy="46.2" r="1.6" fill="#fff" fill-opacity="0.79"/><circle cx="63.3" cy="49.8" r="1.6" fill="#fff" fill-opacity="0.77"/><circle cx="63.1" cy="54.4" r="2.4" fill="#fff" fill-opacity="0.75"/><circle cx="58.6" cy="58.6" r="1.6" fill="#fff" fill-opacity="0.73"/><circle cx="50.6" cy="61.1" r="1.6" fill="#fff" fill-opacity="0.71"/><circle cx="40.9" cy="60.7" r="2.4" fill="#fff" fill-opacity="0.68"/><circle cx="32.2" cy="57.0" r="1.6" fill="#fff" fill-opacity="0.66"/><circle cx="27.4" cy="50.6" r="1.6" fill="#fff" fill-opacity="0.64"/><circle cx="28.5" cy="43.1" r="2.4" fill="#fff" fill-opacity="0.62"/><circle cx="36.0" cy="36.6" r="1.6" fill="#fff" fill-opacity="0.60"/><circle cx="48.5" cy="33.1" r="1.6" fill="#fff" fill-opacity="0.58"/><circle cx="62.9" cy="34.0" r="2.4" fill="#fff" fill-opacity="0.56"/><circle cx="75.3" cy="39.6" r="1.6" fill="#fff" fill-opacity="0.54"/><circle cx="81.8" cy="48.7" r="1.6" fill="#fff" fill-opacity="0.51"/><circle cx="80.1" cy="59.1" r="2.4" fill="#fff" fill-opacity="0.49"/><circle cx="69.7" cy="67.9" r="1.6" fill="#fff" fill-opacity="0.47"/><circle cx="52.8" cy="72.6" r="1.6" fill="#fff" fill-opacity="0.45"/><circle cx="33.7" cy="71.3" r="2.4" fill="#fff" fill-opacity="0.43"/><circle cx="17.5" cy="64.0" r="1.6" fill="#fff" fill-opacity="0.41"/><circle cx="9.0" cy="52.2" r="1.6" fill="#fff" fill-opacity="0.39"/><circle cx="11.2" cy="38.9" r="2.4" fill="#fff" fill-opacity="0.37"/></g></g><circle cx="50" cy="50" r="6" fill="#fff"/></svg><span><b>FA Galaxy</b> &nbsp;<span data-i18n="a9">menaungi semuanya: panduan pemakaian, metodologi, dan artikel.</span></span></div>
+</div>
+</div></section>
+
+<section class="block alt"><div class="wrap">
+
+<article class="ap-line" id="jupiter">
+<div class="id"><svg class="glyph" viewBox="0 0 100 100" width="84" height="84" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><clipPath id="cJ"><circle cx="50" cy="50" r="34"/></clipPath><circle cx="50" cy="50" r="34" fill="url(#gJ)"/><g clip-path="url(#cJ)"><g class="bands" fill="#fff" fill-opacity=".18"><rect x="-70" y="36" width="160" height="5" rx="2"/><rect x="-60" y="48" width="160" height="8" rx="4"/><rect x="-80" y="62" width="160" height="4" rx="2"/></g></g><ellipse cx="62" cy="58" rx="7" ry="4" fill="#fff" fill-opacity=".35"/><circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-opacity=".35"/></svg><p data-i18n="b1" class="kick">Menyusun laporan keuangan</p><h2>FA Jupiter</h2></div>
+<div class="body">
+<p data-i18n="b2" class="desc">Dari COA dan general ledger menjadi neraca saldo, jurnal penyesuaian, laporan keuangan, dan lead schedule per WP, lengkap dengan kontrol tied up dan checklist PBC. Disusun dengan urutan yang sama seperti auditor KAP memeriksa angka Anda.</p>
+<p data-i18n="b3" class="who"><b>Untuk siapa:</b> tim keuangan perusahaan, Kantor Jasa Akuntan, dan konsultan yang menyiapkan laporan keuangan untuk audit, bank, atau investor. Ada kalkulator khusus rumah sakit, konstruksi, BPR, dan manufaktur.</p>
+<div class="ap-apps">
+<div class="ap-app"><div class="nm"><b>FA Jupiter · Laporan Keuangan - Audit Ready</b><span class="chip on" data-i18n="b4c">Live</span></div><p data-i18n="b4d">Pilih standarnya di dalam app: SAK Indonesia (PSAK), SAK EP, atau SAK EMKM. Gratis dikerjakan di browser. Simpan otomatis, file proyek, dan download Excel tersedia dengan akses berbayar.</p><a class="btn solid sm" href="/audit-ready/" data-i18n="b4b">Buka FA Jupiter</a></div>
+</div>
+<a class="ap-more" href="/galaxy/#jupiter" data-i18n="b6">Cara pakai FA Jupiter di FA Galaxy</a>
+</div>
+</article>
+
+<article class="ap-line" id="saturn">
+<div class="id"><svg class="glyph" viewBox="0 0 100 100" width="84" height="84" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><ellipse cx="50" cy="52" rx="46" ry="12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" transform="rotate(-18 50 52)"/><circle cx="50" cy="50" r="24" fill="url(#gS)"/><circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-opacity=".35"/><path d="M8 64 A46 12 -18 0 0 92 37" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".9" transform="rotate(0 50 50)"/></svg><p data-i18n="c1" class="kick">Sistem audit untuk KAP</p><h2>FA Saturn</h2></div>
+<div class="body">
+<p data-i18n="c2" class="desc">Ruang kerja audit untuk Kantor Akuntan Publik. Setiap task dari Planning sampai Reporting punya template KK Word atau Excel. Staf mengunduh, mengisi data klien dan tickmark, lalu meng-upload. Senior, Manager, dan Senior Manager me-review dan sign-off berurutan. Partner melihat apakah semuanya lengkap, memberi challenge, lalu menandatangani LAI.</p>
+<p data-i18n="c3" class="who"><b>Untuk siapa:</b> KAP skala kecil dan menengah yang ingin bekerja dengan disiplin KAP besar tanpa membangun sistem sendiri. Rujukan SA mengikuti SPAP IAPI.</p>
+<div class="ap-apps">
+<div class="ap-app"><div class="nm"><b>FA Saturn</b><span class="chip " data-i18n="c4c">Demo</span></div><p data-i18n="c4d">Coba alurnya dengan enam klien dummy: manufaktur, hotel, BPR, rumah sakit, distributor, dan yayasan. Ganti peran dari Staf sampai Partner untuk melihat sign-off berjenjang.</p><a class="btn solid sm" href="/saturn/" data-i18n="c4b">Coba demo</a></div>
+</div>
+<a class="ap-more" href="/galaxy/#saturn" data-i18n="c6">Alur kerja FA Saturn di FA Galaxy</a>
+</div>
+</article>
+
+<article class="ap-line" id="venus">
+<div class="id"><svg class="glyph" viewBox="0 0 100 100" width="84" height="84" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><circle cx="50" cy="50" r="26" fill="url(#gV)"/><circle cx="50" cy="50" r="26" fill="none" stroke="#fff" stroke-opacity=".35"/></svg><p data-i18n="d1" class="kick">Kalkulator dan konverter</p><h2>FA Venus</h2></div>
+<div class="body">
+<p data-i18n="d2" class="desc">Aplikasi kecil untuk satu pertanyaan spesifik. Isi angka, lihat hasilnya, dan bawa catatannya ke rapat dengan auditor.</p>
+<div class="ap-apps">
+<div class="ap-app"><div class="nm"><b>FA Venus · Konversi PL PSAK 118</b><span class="chip on" data-i18n="d4c">Gratis</span></div><p data-i18n="d4d">Ubah laba rugi format PSAK 201 menjadi format PSAK 118: kategori operasi, investasi, pendanaan, subtotal wajib, rekonsiliasi laba usaha, dan contoh catatan MPM. PSAK 118 berlaku 1 Januari 2027.</p><a class="btn solid sm" href="/cek-psak-118/" data-i18n="d4b">Buka FA Venus</a></div>
+<div class="ap-app soon"><div class="nm"><b>FA Venus · Kalkulator PPh 21 TER</b><span class="chip soon" data-i18n="d5c">Segera, gratis</span></div><p data-i18n="d5d">Hitung pemotongan PPh 21 bulanan dengan tarif efektif rata-rata.</p></div>
+</div>
+<a class="ap-more" href="/galaxy/#venus" data-i18n="d6">Cara pakai FA Venus di FA Galaxy</a>
+</div>
+</article>
+
+<article class="ap-line" id="galaxy">
+<div class="id"><svg class="glyph" viewBox="0 0 100 100" width="84" height="84" aria-hidden="true"><defs><radialGradient id="gV" cx=".35" cy=".3"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient><radialGradient id="gJ" cx=".35" cy=".3"><stop offset="0" stop-color="#d9d9d9"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#5c5c5c"/></radialGradient></defs><g transform="rotate(-20 50 50)"><g class="swirl" style="transform-origin:50px 50px"><circle cx="54.0" cy="50.0" r="2.4" fill="#fff" fill-opacity="0.90"/><circle cx="54.8" cy="51.7" r="1.6" fill="#fff" fill-opacity="0.87"/><circle cx="53.6" cy="53.8" r="1.6" fill="#fff" fill-opacity="0.85"/><circle cx="50.1" cy="55.4" r="2.4" fill="#fff" fill-opacity="0.83"/><circle cx="45.0" cy="55.5" r="1.6" fill="#fff" fill-opacity="0.81"/><circle cx="39.9" cy="53.8" r="1.6" fill="#fff" fill-opacity="0.79"/><circle cx="36.7" cy="50.2" r="2.4" fill="#fff" fill-opacity="0.77"/><circle cx="37.0" cy="45.6" r="1.6" fill="#fff" fill-opacity="0.75"/><circle cx="41.4" cy="41.3" r="1.6" fill="#fff" fill-opacity="0.73"/><circle cx="49.4" cy="38.9" r="2.4" fill="#fff" fill-opacity="0.71"/><circle cx="59.1" cy="39.3" r="1.6" fill="#fff" fill-opacity="0.68"/><circle cx="67.8" cy="43.0" r="1.6" fill="#fff" fill-opacity="0.66"/><circle cx="72.6" cy="49.4" r="2.4" fill="#fff" fill-opacity="0.64"/><circle cx="71.5" cy="56.9" r="1.6" fill="#fff" fill-opacity="0.62"/><circle cx="64.0" cy="63.4" r="1.6" fill="#fff" fill-opacity="0.60"/><circle cx="51.5" cy="66.9" r="2.4" fill="#fff" fill-opacity="0.58"/><circle cx="37.1" cy="66.0" r="1.6" fill="#fff" fill-opacity="0.56"/><circle cx="24.7" cy="60.4" r="1.6" fill="#fff" fill-opacity="0.54"/><circle cx="18.2" cy="51.3" r="2.4" fill="#fff" fill-opacity="0.51"/><circle cx="20.0" cy="40.9" r="1.6" fill="#fff" fill-opacity="0.49"/><circle cx="30.4" cy="32.0" r="1.6" fill="#fff" fill-opacity="0.47"/><circle cx="47.2" cy="27.4" r="2.4" fill="#fff" fill-opacity="0.45"/><circle cx="66.4" cy="28.7" r="1.6" fill="#fff" fill-opacity="0.43"/><circle cx="82.6" cy="36.0" r="1.6" fill="#fff" fill-opacity="0.41"/><circle cx="91.0" cy="47.8" r="2.4" fill="#fff" fill-opacity="0.39"/><circle cx="88.8" cy="61.1" r="1.6" fill="#fff" fill-opacity="0.37"/><circle cx="46.0" cy="50.0" r="1.6" fill="#fff" fill-opacity="0.90"/><circle cx="45.2" cy="48.3" r="2.4" fill="#fff" fill-opacity="0.87"/><circle cx="46.4" cy="46.2" r="1.6" fill="#fff" fill-opacity="0.85"/><circle cx="49.9" cy="44.6" r="1.6" fill="#fff" fill-opacity="0.83"/><circle cx="55.0" cy="44.5" r="2.4" fill="#fff" fill-opacity="0.81"/><circle cx="60.1" cy="46.2" r="1.6" fill="#fff" fill-opacity="0.79"/><circle cx="63.3" cy="49.8" r="1.6" fill="#fff" fill-opacity="0.77"/><circle cx="63.1" cy="54.4" r="2.4" fill="#fff" fill-opacity="0.75"/><circle cx="58.6" cy="58.6" r="1.6" fill="#fff" fill-opacity="0.73"/><circle cx="50.6" cy="61.1" r="1.6" fill="#fff" fill-opacity="0.71"/><circle cx="40.9" cy="60.7" r="2.4" fill="#fff" fill-opacity="0.68"/><circle cx="32.2" cy="57.0" r="1.6" fill="#fff" fill-opacity="0.66"/><circle cx="27.4" cy="50.6" r="1.6" fill="#fff" fill-opacity="0.64"/><circle cx="28.5" cy="43.1" r="2.4" fill="#fff" fill-opacity="0.62"/><circle cx="36.0" cy="36.6" r="1.6" fill="#fff" fill-opacity="0.60"/><circle cx="48.5" cy="33.1" r="1.6" fill="#fff" fill-opacity="0.58"/><circle cx="62.9" cy="34.0" r="2.4" fill="#fff" fill-opacity="0.56"/><circle cx="75.3" cy="39.6" r="1.6" fill="#fff" fill-opacity="0.54"/><circle cx="81.8" cy="48.7" r="1.6" fill="#fff" fill-opacity="0.51"/><circle cx="80.1" cy="59.1" r="2.4" fill="#fff" fill-opacity="0.49"/><circle cx="69.7" cy="67.9" r="1.6" fill="#fff" fill-opacity="0.47"/><circle cx="52.8" cy="72.6" r="1.6" fill="#fff" fill-opacity="0.45"/><circle cx="33.7" cy="71.3" r="2.4" fill="#fff" fill-opacity="0.43"/><circle cx="17.5" cy="64.0" r="1.6" fill="#fff" fill-opacity="0.41"/><circle cx="9.0" cy="52.2" r="1.6" fill="#fff" fill-opacity="0.39"/><circle cx="11.2" cy="38.9" r="2.4" fill="#fff" fill-opacity="0.37"/></g></g><circle cx="50" cy="50" r="6" fill="#fff"/></svg><p data-i18n="e1" class="kick">Panduan, metodologi, artikel</p><h2>FA Galaxy</h2></div>
+<div class="body">
+<p data-i18n="e2" class="desc">Cara pakai setiap aplikasi, metodologi auditor di baliknya, dan artikel tentang laporan keuangan, audit, kredit bank, serta IPO. Baca dulu di sini sebelum membuka aplikasinya.</p>
+<div class="ap-apps">
+<div class="ap-app"><div class="nm"><b>FA Galaxy</b><span class="chip on" data-i18n="e3c">Panduan</span></div><p data-i18n="e3d">Panduan langkah demi langkah FA Jupiter, FA Saturn, dan FA Venus, plus metodologinya.</p><a class="btn solid sm" href="/galaxy/" data-i18n="e3b">Buka FA Galaxy</a></div>
+<div class="ap-app"><div class="nm"><b data-i18n="e5n">FA Galaxy · Daftar PSAK 2026–2027</b><span class="chip on" data-i18n="e5c">Baru</span></div><p data-i18n="e5d">Daftar lengkap PSAK dan ISAK yang berlaku 2026 serta yang mulai efektif 2027, disusun dari SAK Online IAI.</p><a class="btn solid sm" href="/artikel/daftar-psak-isak-2026-2027/" data-i18n="e5b">Lihat daftar</a></div>
+<div class="ap-app"><div class="nm"><b data-i18n="e4n">FA Galaxy · Artikel</b></div><p data-i18n="e4d">Tulisan praktis tentang PSAK 2026–2027, laporan keuangan, audit, kredit bank, dan persiapan IPO.</p><a class="btn solid sm" href="/artikel/" data-i18n="e4b">Baca artikel</a></div>
+</div>
+</div>
+</article>
+
+</div></section>
+
+<section class="block"><div class="wrap">
+<div class="head"><p data-i18n="f0" class="eyebrow">Prinsip yang sama di semua lini</p></div>
+<div class="ap-prin">
+<div><b data-i18n="f1">Cara berpikir auditor</b><span data-i18n="f2">Disusun oleh CPA (IAPI) dan CA (IAI) dengan pengalaman audit di firma Big Four.</span></div>
+<div><b data-i18n="f3">Standar terbaru</b><span data-i18n="f4">Penomoran PSAK mengikuti SAK Online IAI. Rujukan audit mengikuti SPAP IAPI.</span></div>
+<div><b data-i18n="f5">Data tetap di tangan Anda</b><span data-i18n="f6">FA Jupiter dan FA Venus mengolah angka di browser Anda. Tidak ada yang dikirim ke server.</span></div>
+<div><b data-i18n="f7">Ada praktisi di baliknya</b><span data-i18n="f8">Butuh versi yang disesuaikan dengan perusahaan Anda? Kami siapkan langsung.</span></div>
+</div>
+<div style="margin-top:28px" class="ap-cta">
+<div><h2 data-i18n="g1">Butuh Template yang Pas dengan Perusahaan atau KAP Anda?</h2><p data-i18n="g2">Ceritakan kebutuhan Anda lewat WhatsApp. Ananta W. Sasongko, CPA akan membalas langsung.</p></div>
+<a class="btn solid" href="https://wa.me/6282245260121" data-i18n="g3">Chat Ananta, CPA</a>
+</div>
+</div></section>
+</main>
+<footer>
+<div class="wrap ft">
+<a aria-label="FA Indonesia, ke atas" class="brand" href="/">
+<img loading="lazy" decoding="async" width="120" height="160" alt="Logo FA Indonesia" class="th-dark" src="/img/brand/mark-dark.png"/>
+<img loading="lazy" decoding="async" width="120" height="160" alt="Logo FA Indonesia" class="th-light" src="/img/brand/mark-light.png"/>
+<img loading="lazy" decoding="async" width="648" height="120" alt="FA Indonesia" class="wmimg th-dark" src="/img/brand/wm-dark.png"/>
+<img loading="lazy" decoding="async" width="864" height="160" alt="FA Indonesia" class="wmimg th-light" src="/img/brand/wm-light.png"/>
+</a>
+<ul class="ents">
+<li data-i18n="k258">CV FA Indonesia</li>
+<li data-i18n="k259">PT FA Indonesia Ventura</li>
+<li data-i18n="k260">PT LLY Ventura</li>
+</ul>
+<ul class="ents flinks"><li><a href="/apps/">FA Apps</a></li><li><a href="/galaxy/">FA Galaxy</a></li><li><a href="/jasa-penyusunan-laporan-keuangan/">Penyusunan Laporan Keuangan</a></li><li><a href="/laporan-keuangan-umkm/">Laporan Keuangan UMKM</a></li><li><a href="/pendampingan-gcg/">Pendampingan GCG</a></li><li><a href="/konsultan-persiapan-ipo/">Pendampingan IPO</a></li><li><a href="/konsultan-kredit-bank/">Pengajuan Kredit Bank</a></li><li><a href="/laporan-tahunan-pt/">Laporan Tahunan PT</a></li><li><a href="/cfo-paruh-waktu/">CFO Paruh Waktu</a></li><li><a href="/cfo-direktur-keuangan-ipo/">CFO &amp; Direktur Keuangan IPO</a></li><li><a href="/komite-audit-komisaris-independen/">Komite Audit &amp; Komisaris</a></li><li><a href="/kja-farhani/">KJA Farhani, Malang</a></li><li><a href="/artikel/">Artikel</a></li><li><a href="/buku/">Toko Buku</a></li><li><a href="/ananta-w-sasongko/">Ananta W. Sasongko, CPA</a></li></ul>
+</div>
+<div class="wrap fb">
+<span data-i18n="k261">© 2026 FA Indonesia</span><span class="flegal" style="font-size:12px;opacity:.8"><a href="/syarat-ketentuan/" style="color:inherit">Syarat &amp; Ketentuan</a> · <a href="/kebijakan-privasi/" style="color:inherit">Privasi</a> · <a href="/kebijakan-refund/" style="color:inherit">Refund</a> · <a href="/bayar/" style="color:inherit">Pembayaran</a></span><span class="ftag">Spirit &amp; Hope.</span>
+</div>
+</footer>
+<script>(function(){function g(){if(window.gtag)gtag.apply(null,arguments)}
+document.addEventListener('click',function(e){var a=e.target.closest('a,button');if(!a)return;var h=a.getAttribute('href')||'';
+if(h.indexOf('wa.me')>-1)g('event','generate_lead',{method:'whatsapp',link_url:h});
+else if(h.indexOf('mailto:')===0)g('event','generate_lead',{method:'email'});
+else if(h.indexOf('linkedin.com/sharing')>-1)g('event','share',{method:'linkedin',content_type:'materi'});
+else if(a.hasAttribute('data-story'))g('event','share',{method:'instagram_story',content_type:'materi',item_id:a.getAttribute('data-story')});
+else if(h.indexOf('linkedin.com/in/')>-1)g('event','select_content',{content_type:'linkedin_profile'});
+else if(h.indexOf('/ananta-w-sasongko/')>-1)g('event','select_content',{content_type:'profil_ananta'});
+},true);})();</script>
+<script>(function(){var I18N={"en": {"kapp": "Apps", "kebk": "E-Books", "kcak": "Accountants", "kwws": "Insights", "k1": "About", "k2": "Services", "k3": "Track Record", "k4": "Media", "k8": "Contact", "k320": "Resources", "k321": "Contact", "k261": "© 2026 FA Indonesia", "a1": "FA Apps", "a2": "Accounting and audit tools, built from real working papers.", "a3": "Four application lines from FA Consult, each with its own job: quick calculations, preparing financial statements, running an audit at a public accounting firm, and explaining the methodology behind them. Every standard reference follows the current Indonesian SAK and the IAPI auditing standards.", "ao1": "Venus", "ao2": "Quick checks", "ao3": "Jupiter", "ao4": "Build statements", "ao5": "Saturn", "ao6": "Audit firm", "a4": "One workflow", "a5": "From raw numbers to the auditor's opinion.", "a6": "Check one thing fast: PSAK 118 conversion, tax, and other small calculations.", "a7": "Prepare the trial balance, financial statements, and audit-ready lead schedules.", "a8": "The audit firm runs the engagement: tasks, working papers, tiered sign-offs, through to the auditor's report.", "a9": "sits under all of them: user guides, methodology, and articles.", "b1": "Financial statement preparation", "b2": "From your chart of accounts and general ledger to the trial balance, adjusting entries, financial statements, and lead schedules per working paper, with tie-out controls and a PBC checklist. Built in the same order an audit firm tests your numbers.", "b3": "<b>Who it is for:</b> company finance teams, accounting service firms, and consultants preparing statements for an audit, a bank, or investors. Includes industry calculators for hospitals, construction, rural banks (BPR), and manufacturing.", "b4b": "Open FA Jupiter", "b4c": "Live", "b4d": "Choose the framework inside the app: SAK Indonesia (PSAK), SAK EP, or SAK EMKM. Free to work in your browser. Autosave, project files, and Excel download come with paid access.", "b5c": "Coming soon, free", "b5d": "Simple financial statements for small businesses reporting under SAK EMKM.", "b6": "How to use FA Jupiter, in FA Galaxy", "c1": "Audit system for audit firms", "c2": "An audit workspace for public accounting firms. Every task from Planning to Reporting carries a Word or Excel working paper template. Staff download it, fill in client data and tickmarks, then upload it back. Seniors, Managers, and Senior Managers review and sign off in order. The Partner sees whether everything is complete, raises challenges, then signs the auditor's report.", "c3": "<b>Who it is for:</b> small and mid-sized audit firms that want large-firm discipline without building their own system. Auditing standard references follow the IAPI standards.", "c4b": "Try the demo", "c4c": "Demo", "c4d": "Try the workflow with six dummy clients: manufacturing, hotel, rural bank (BPR), hospital, distributor, and foundation. Switch roles from Staff to Partner to see tiered sign-off in action.", "c6": "The FA Saturn workflow, in FA Galaxy", "d1": "Calculators and converters", "d2": "Small apps for one specific question. Enter the numbers, read the result, and take the notes into your meeting with the auditor.", "d4b": "Open FA Venus", "d4c": "Free", "d4d": "Converts a PSAK 201 income statement into the PSAK 118 format: operating, investing, and financing categories, required subtotals, an operating profit reconciliation, and a sample MPM note. PSAK 118 applies from 1 January 2027.", "d5c": "Coming soon, free", "d5d": "Monthly Article 21 income tax withholding using the average effective rate.", "d6": "How to use FA Venus, in FA Galaxy", "e1": "Guides, methodology, articles", "e2": "How to use each app, the auditor's methodology behind it, and articles on financial reporting, audit, bank credit, and IPOs. Read here first, then open the app.", "e3c": "Guides", "e3d": "Step-by-step guides to FA Jupiter, FA Saturn, and FA Venus, plus the methodology.", "e3b": "Open FA Galaxy", "e4n": "FA Galaxy · Articles", "e5n": "FA Galaxy · PSAK List 2026–2027", "e5c": "New", "e5d": "The full list of PSAK and ISAK effective in 2026 and those effective from 2027, compiled from IAI SAK Online.", "e5b": "View list", "e4d": "Practical writing on PSAK 2026–2027, financial statements, audit, bank credit, and IPO readiness.", "e4b": "Read articles", "f0": "The same principles across every line", "f1": "An auditor's way of thinking", "f2": "Built by a CPA (IAPI) and a CA (IAI) with Big Four audit experience.", "f3": "Current standards", "f4": "PSAK numbering follows SAK Online (IAI). Audit references follow the IAPI standards.", "f5": "Your data stays with you", "f6": "FA Jupiter and FA Venus process numbers in your browser. Nothing is sent to a server.", "f7": "Practitioners behind it", "f8": "Need a version fitted to your company? We prepare it directly.", "g1": "Need Templates That Fit Your Company or Audit Firm?", "g2": "Tell us what you need on WhatsApp. Ananta W. Sasongko, CPA replies personally.", "g3": "Chat Ananta, CPA"}, "zh": {"kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kwws": "洞见", "k1": "关于我们", "k2": "服务", "k3": "业绩", "k4": "媒体", "k8": "联系", "k320": "资料", "k321": "联系", "k261": "© 2026 FA Indonesia", "a1": "FA 应用", "a2": "会计与审计工具，源自真实的工作底稿。", "a3": "FA Consult 的四条应用产品线，各司其职：快速计算、编制财务报表、在会计师事务所执行审计，以及说明背后的方法论。所有准则引用均遵循印尼最新会计准则（SAK）和印尼注册会计师协会（IAPI）审计准则。", "ao1": "金星", "ao2": "快速计算", "ao3": "木星", "ao4": "编制报表", "ao5": "土星", "ao6": "会计师审计", "a4": "一条工作流程", "a5": "从原始数据到审计意见。", "a6": "快速核对单一事项：PSAK 118 转换、税务及其他小型计算。", "a7": "编制试算平衡表、财务报表及可供审计的明细表。", "a8": "会计师事务所执行审计：任务、工作底稿、逐级签核，直至出具审计报告。", "a9": "贯穿以上所有：使用指南、方法论与文章。", "b1": "财务报表编制", "b2": "从会计科目表和总账出发，生成试算平衡表、调整分录、财务报表及各工作底稿的明细表，并附核对控制和 PBC 清单。其顺序与会计师事务所检查数字的方式一致。", "b3": "<b>适用对象：</b>为审计、银行或投资者准备报表的企业财务团队、会计服务机构及顾问。内含医院、建筑、农村银行（BPR）和制造业的行业计算器。", "b4b": "打开 FA Jupiter", "b4c": "已上线", "b4d": "在应用内选择准则：SAK Indonesia（PSAK）、SAK EP 或 SAK EMKM。可在浏览器中免费使用。自动保存、项目文件和 Excel 下载需付费开通。", "b5c": "即将推出，免费", "b5d": "面向采用 SAK EMKM 的小型企业的简易财务报表。", "b6": "FA Galaxy 中的 FA Jupiter 使用指南", "c1": "会计师事务所审计系统", "c2": "面向会计师事务所的审计工作空间。从计划到报告的每项任务都配有 Word 或 Excel 工作底稿模板。审计员下载模板，填写客户数据和审计标记后上传。高级审计员、经理和高级经理依次复核并签核。合伙人确认全部完成、提出质询，然后签署审计报告。", "c3": "<b>适用对象：</b>希望以大型事务所的规范工作、又不想自建系统的中小型会计师事务所。审计准则引用遵循 IAPI 准则。", "c4b": "试用演示", "c4c": "演示", "c4d": "用六个模拟客户体验整个流程：制造业、酒店、农村银行（BPR）、医院、分销商和基金会。可在审计员到合伙人之间切换角色，查看逐级签核。", "c6": "FA Galaxy 中的 FA Saturn 工作流程", "d1": "计算器与转换器", "d2": "针对单一具体问题的小工具。输入数字、查看结果，并把要点带到与审计师的会议上。", "d4b": "打开 FA Venus", "d4c": "免费", "d4d": "将 PSAK 201 格式的损益表转换为 PSAK 118 格式：经营、投资、筹资类别，必列小计，营业利润调节，以及管理层业绩指标（MPM）附注示例。PSAK 118 自 2027 年 1 月 1 日起施行。", "d5c": "即将推出，免费", "d5d": "按平均有效税率计算每月第 21 条个人所得税预扣。", "d6": "FA Galaxy 中的 FA Venus 使用指南", "e1": "指南、方法论与文章", "e2": "每个应用的使用方法、背后的审计方法论，以及关于财务报告、审计、银行贷款和 IPO 的文章。建议先阅读，再打开应用。", "e3c": "指南", "e3d": "FA Jupiter、FA Saturn 和 FA Venus 的分步指南及其方法论。", "e3b": "打开 FA Galaxy", "e4n": "FA Galaxy · 文章", "e5n": "FA Galaxy · PSAK清单 2026–2027", "e5c": "新", "e5d": "2026年适用及2027年起生效的PSAK与ISAK完整清单，整理自IAI SAK Online。", "e5b": "查看清单", "e4d": "关于2026–2027年PSAK、财务报表、审计、银行信贷和IPO准备的实用文章。", "e4b": "阅读文章", "f0": "所有产品线的共同原则", "f1": "审计师的思维方式", "f2": "由具有四大会计师事务所审计经验的 CPA（IAPI）和 CA（IAI）设计。", "f3": "最新准则", "f4": "PSAK 编号遵循 IAI 的 SAK Online，审计引用遵循 IAPI 准则。", "f5": "数据由您掌控", "f6": "FA Jupiter 与 FA Venus 在您的浏览器中处理数据，不会发送到任何服务器。", "f7": "背后有专业人士", "f8": "需要针对贵公司定制的版本？我们可直接为您准备。", "g1": "需要适合贵公司或事务所的模板吗？", "g2": "请通过 WhatsApp 告诉我们您的需求，Ananta W. Sasongko, CPA 将亲自回复。", "g3": "Chat Ananta, CPA"}},TT={"id": "FA Apps: Aplikasi Laporan Keuangan, Audit KAP & Kalkulator PSAK | FA Indonesia", "en": "FA Apps: Financial Statement, Audit & PSAK Tools | FA Indonesia", "zh": "FA 应用：财务报表、审计与 PSAK 工具 | FA Indonesia"},orig={};var els=document.querySelectorAll("[data-i18n]");els.forEach(function(e){orig[e.dataset.i18n]=e.innerHTML});function apply(l){if(!I18N[l]&&l!=="id")l="id";els.forEach(function(e){var k=e.dataset.i18n;e.innerHTML=(l!=="id"&&I18N[l][k])||orig[k]});document.documentElement.lang=l==="zh"?"zh":l;document.title=TT[l]||TT.id;document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l?"true":"false")});try{localStorage.setItem("fa-lang",l)}catch(e){}}document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){apply(b.dataset.lang)})});var l="id";try{l=localStorage.getItem("fa-lang")||"id"}catch(e){}apply(l);})();</script>
+<script>(function(){if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;var d=document.documentElement;d.classList.add("anim");var groups=[".ap-flow > div",".ap-line .id",".ap-line .body > *",".ap-prin > div",".ap-cta",".gx-sec .id",".gx-sec .body > *",".steps li",".gx-rules li",".gx-read li",".head > *"];var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -6% 0px"});groups.forEach(function(sel){var byParent=new Map();document.querySelectorAll(sel).forEach(function(el){var p=el.parentNode,i=byParent.get(p)||0;byParent.set(p,i+1);el.classList.add("rv");el.style.setProperty("--d",Math.min(i*0.09,0.6)+"s");io.observe(el)})});var f=document.querySelector(".ap-flow");if(f){var b=document.createElement("i");b.className="beam";f.appendChild(b)}var h=document.querySelector(".ap-hero"),st=document.querySelector(".orbit .stars"),sy=document.querySelector(".orbit .sys");if(h&&st&&matchMedia("(pointer:fine)").matches){h.addEventListener("pointermove",function(e){var r=h.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;st.style.transform="translate("+(x*-28)+"px,"+(y*-28)+"px)";sy.style.transform="translate("+(x*14)+"px,"+(y*14)+"px)"});h.addEventListener("pointerleave",function(){st.style.transform="";sy.style.transform=""})}})();</script>
+</body>
+</html>

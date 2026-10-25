@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09VZKH3JRJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-09VZKH3JRJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pembayaran dan Invoice | FA Indonesia</title>
+<meta name="description" content="Buat invoice dan bayar layanan FA Indonesia lewat transfer bank. Kirim invoice dan bukti transfer, akses dikirim setelah pembayaran dikonfirmasi.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://faindonesia.co.id/bayar/">
+<meta name="theme-color" content="#171717">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=EB+Garamond:wght@400;500&display=swap">
+<style>
+:root{--bg:#141414;--surface:#1b1b1b;--sunk:#222;--ink:#fff;--muted:#a3a3a3;--line:#2e2e2e;--blue:#00abd6;--ok:#7fd1a6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Poppins,system-ui,sans-serif}
+a{color:var(--blue)}.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line)}header.top .wrap{display:flex;align-items:center;gap:12px;min-height:62px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}.brand img{height:34px}.brand b{font:400 20px "EB Garamond",serif}
+.top nav{margin-left:auto;display:flex;gap:14px;font-size:13px}.top nav a{color:#ddd;text-decoration:none}
+h1{font:400 clamp(30px,5vw,46px)/1.1 "EB Garamond",serif;margin:34px 0 8px}.lead{color:#d6d6d6;max-width:68ch;margin:0 0 22px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h2{margin:0 0 12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px}
+input,select,textarea{width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:8px;color:#fff;padding:10px 12px;font:inherit}
+textarea{min-height:64px;resize:vertical}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:none;color:#fff;font:500 14px Poppins,sans-serif;cursor:pointer;text-decoration:none}
+.btn.solid{background:#fff;color:#141414;border-color:#fff}.btn.blue{background:var(--blue);border-color:var(--blue);color:#06232c}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.steps{margin:0;padding-left:20px;color:#dcdcdc}.steps li{margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#141414;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none}.toast.on{opacity:1}
+.hint{font-size:12px;color:var(--muted)}
+#inv{display:none;margin:22px 0 40px}
+.paper{background:#fff;color:#1e1e1e;border-radius:10px;padding:34px 38px;max-width:820px;margin:0 auto;font-size:13px}
+.paper .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid #00abd6;padding-bottom:14px}
+.paper .ph img{height:44px}.paper h3{font:500 28px "EB Garamond",serif;margin:0;color:#1f2a30;text-align:right}
+.paper .meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.paper .meta b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#777;font-weight:500}
+.paper table{width:100%;border-collapse:collapse;margin:8px 0}.paper th{background:#1f2a30;color:#fff;font-weight:500;text-align:left;padding:8px;font-size:12px}
+.paper td{padding:8px;border-bottom:1px solid #e6e6e6}.paper .r{text-align:right}.paper tfoot td{font-weight:600;border-bottom:0}
+.paper .pay{background:#f3fbfd;border:1px solid #cdeef7;border-radius:8px;padding:12px 14px;margin-top:14px}
+.paper .foot{margin-top:18px;color:#777;font-size:11px;border-top:1px solid #e6e6e6;padding-top:10px}
+.after{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0}
+@media print{body{background:#fff}header.top,.no-print,.toast{display:none!important}#inv{display:block!important;margin:0}.paper{border-radius:0;padding:0;max-width:none}}
+</style>
+</head>
+<body>
+<header class="top no-print"><div class="wrap"><a class="brand" href="/"><img src="/img/brand/mark-light.png" alt="FA Indonesia" width="26" height="34" onerror="this.style.display='none'"><b>FA Indonesia</b></a>
+<nav><a href="/buku/">Toko Buku</a><a href="/apps/">FA Apps</a><a href="/audit-ready/">FA Jupiter · Laporan Keuangan - Audit Ready</a><a href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20konsultasi.">Chat Ananta, CPA</a></nav></div></header>
+<main class="wrap no-print">
+<h1>Pembayaran dan invoice</h1>
+<p class="lead">Pilih layanan, isi data Anda, lalu buat invoice. Transfer ke rekening BRI CV FA Indonesia, kemudian kirim invoice dan bukti transfer. Akses atau kode dikirim setelah pembayaran dikonfirmasi.</p>
+<div class="grid">
+<section class="card"><h2>1. Layanan</h2>
+<label for="prod">Layanan / produk</label>
+<select id="prod">
+<option value="ar-day" data-price="39000">FA Jupiter · Laporan Keuangan - Audit Ready: day pass (berlaku sampai besok)</option>
+<option value="ar-year" data-price="249000">FA Jupiter · Laporan Keuangan - Audit Ready: tahunan (berlaku 1 tahun)</option>
+<optgroup label="E-book Penerbit FA (PDF, bebas PPN)"><option value="eb-psp" data-price="129000" data-ppn="0">E-book: Prosedur Audit Substantif Primer (PDF)</option><option value="eb-auditee" data-price="59000" data-ppn="0">E-book: Audit untuk Auditee UMKM (PDF)</option><option value="eb-lkumkm" data-price="69000" data-ppn="0">E-book: Menyusun Laporan Keuangan UMKM (PDF)</option><option value="eb-akmen" data-price="49000" data-ppn="0">E-book: Akuntansi Manajemen untuk UMKM (PDF)</option><option value="eb-iso" data-price="59000" data-ppn="0">E-book: Panduan ISO 22000: Sistem Manajemen Keamanan Pangan (PDF)</option><option value="eb-makacua" data-price="39000" data-ppn="0">E-book: Social Responsibility dalam Budaya Makacua Nelayan Bugis (PDF)</option><option value="eb-paket" data-price="299000" data-ppn="0">Paket 6 E-book Penerbit FA (PDF)</option></optgroup><option value="custom" data-price="">Layanan lain sesuai penawaran</option>
+</select>
+<div id="customBox" style="display:none"><label for="cdesc">Uraian layanan</label><input id="cdesc" placeholder="Contoh: Penyusunan laporan keuangan 2025, termin 1">
+<label for="camt">Nominal (Rp)</label><input id="camt" inputmode="numeric" placeholder="Sesuai surat penawaran"></div>
+<label for="qty">Jumlah</label><input id="qty" type="number" min="1" value="1">
+</section>
+<section class="card"><h2>2. Data pembeli</h2>
+<label for="nm">Nama</label><input id="nm" autocomplete="name">
+<label for="co">Perusahaan / instansi (opsional)</label><input id="co" autocomplete="organization">
+<div class="row2"><div><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div><div><label for="ph">No. WhatsApp (opsional)</label><input id="ph" inputmode="tel" autocomplete="tel"></div></div>
+<label for="nt">Catatan (opsional)</label><textarea id="nt" placeholder="Misalnya email yang dipakai untuk kode akses"></textarea>
+</section>
+</div>
+<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:#dcdcdc;margin-top:16px"><input type="checkbox" id="agree" style="width:auto;margin-top:4px"> <span>Saya sudah membaca dan setuju dengan <a href="/syarat-ketentuan/" target="_blank">Syarat &amp; Ketentuan</a>, <a href="/kebijakan-privasi/" target="_blank">Kebijakan Privasi</a>, dan <a href="/kebijakan-refund/" target="_blank">Kebijakan Refund</a>.</span></label>
+<p class="hint">Harga layanan dan FA Apps sudah termasuk PPN. E-book dibebaskan dari PPN. Lihat semua buku di <a href="/buku/">Toko Buku</a>.</p>
+<div class="btns"><button class="btn solid" id="mk">Buat invoice</button><button class="btn" id="cp">Salin rekening BRI</button></div>
+<p class="hint">Rekening atas nama CV FA Indonesia (BRI). Tombol salin menyalin nomor rekening ke clipboard. Butuh diskusi dulu? <a href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20konsultasi%20sebelum%20membeli.">Chat Ananta, CPA</a>.</p>
+<section class="card" style="margin:18px 0"><h2>Langkah</h2><ol class="steps"><li>Buat invoice, lalu simpan sebagai PDF (tombol Simpan PDF).</li><li>Transfer sesuai total ke rekening BRI CV FA Indonesia. Tulis nomor invoice di berita transfer.</li><li>Kirim invoice dan bukti transfer lewat tombol Chat Ananta, CPA atau email.</li><li>Kode akses atau jadwal layanan dikirim setelah pembayaran dikonfirmasi.</li></ol></section>
+<p class="hint" style="margin-bottom:40px"><a href="/syarat-ketentuan/">Syarat &amp; Ketentuan</a> · <a href="/kebijakan-privasi/">Kebijakan Privasi</a> · <a href="/kebijakan-refund/">Kebijakan Refund</a></p>
+</main>
+<div id="inv">
+<div class="paper" id="paper"></div>
+<div class="after no-print"><button class="btn solid" id="pr">Simpan PDF / cetak</button><button class="btn" id="cp2">Salin rekening BRI</button><a class="btn blue" id="wa" target="_blank" rel="noopener">Kirim invoice &amp; bukti transfer: Chat Ananta, CPA</a><a class="btn" id="ml">Kirim lewat email</a></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+/* Rekening disandikan supaya tidak terbaca bot. Data asli: Drive > Legal > CV FA Indonesia (minta izin Bos). */
+var K=[25,14,30,46,8,9,57,39,11,28,42,8,37,18,7],X=[41,59,47,24,56,56,9,23,59,37,24,56,22,34,55];
+function acct(){var s='';for(var i=0;i<X.length;i++)s+=String.fromCharCode(X[i]^K[i]);return s}
+function fmtAcct(a){return a.replace(/^(\d{4})(\d{2})(\d{6})(\d{2})(\d)$/,'$1-$2-$3-$4-$5')}
+var $=function(i){return document.getElementById(i)},nf=new Intl.NumberFormat('id-ID');
+function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},2600)}
+function copy(){var a=acct(),done=function(){toast('Rekening BRI a.n. CV FA Indonesia sudah disalin');if(window.gtag)gtag('event','copy_account')};
+  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(a).then(done,fb);else fb();
+  function fb(){var t=document.createElement('textarea');t.value=a;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){toast('Gagal menyalin, silakan Chat Ananta, CPA')}t.remove()}}
+$('cp').onclick=copy;$('cp2').onclick=copy;
+var q=new URLSearchParams(location.search).get('produk');if(q&&$('prod').querySelector('option[value="'+q+'"]'))$('prod').value=q;
+function sync(){$('customBox').style.display=$('prod').value==='custom'?'block':'none'}$('prod').onchange=sync;sync();
+function terbilang(n){var h=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];n=Math.floor(n);
+  if(n<12)return h[n];if(n<20)return terbilang(n-10)+' belas';if(n<100)return terbilang(n/10)+' puluh '+terbilang(n%10);if(n<200)return 'seratus '+terbilang(n-100);
+  if(n<1000)return terbilang(n/100)+' ratus '+terbilang(n%100);if(n<2000)return 'seribu '+terbilang(n-1000);if(n<1e6)return terbilang(n/1000)+' ribu '+terbilang(n%1000);
+  if(n<1e9)return terbilang(n/1e6)+' juta '+terbilang(n%1e6);return terbilang(n/1e9)+' miliar '+terbilang(n%1e9)}
+function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function invNo(d){var p=function(n){return String(n).padStart(2,'0')};return 'INV/FA/'+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'/'+Math.random().toString(36).slice(2,6).toUpperCase()}
+var BL=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];function tgl(d){return d.getDate()+' '+BL[d.getMonth()]+' '+d.getFullYear()}
+$('mk').onclick=function(){
+  var o=$('prod').selectedOptions[0],custom=o.value==='custom',desc=custom?$('cdesc').value.trim():o.textContent,price=custom?Number(($('camt').value||'').replace(/\D/g,'')):Number(o.dataset.price),qty=Math.max(1,parseInt($('qty').value||'1',10));
+  var nm=$('nm').value.trim(),em=$('em').value.trim();
+  if(!nm||!em){toast('Isi nama dan email dulu');return}if(!$('agree').checked){toast('Centang persetujuan Syarat & Ketentuan dulu');return}if(custom&&(!desc||!price)){toast('Isi uraian dan nominal layanan');return}
+  var d=new Date(),due=new Date(d.getTime()+3*864e5),no=invNo(d),tot=price*qty,free=o.dataset.ppn==='0',dpp=free?tot:Math.round(tot*100/111),a=fmtAcct(acct());
+  $('paper').innerHTML='<div class="ph"><img src="/img/brand/fa-consult-dark.png" alt="FA Indonesia" onerror="this.style.display=\'none\'"><div><h3>INVOICE</h3><div style="text-align:right;color:#555">'+no+'</div></div></div>'+
+   '<div class="meta"><div><b>Dari</b>CV FA Indonesia<br>faindonesia.co.id · ananta@faindonesia.co.id</div><div><b>Ditagihkan kepada</b>'+esc(nm)+(($('co').value.trim())?'<br>'+esc($('co').value.trim()):'')+'<br>'+esc(em)+(($('ph').value.trim())?'<br>'+esc($('ph').value.trim()):'')+'</div>'+
+   '<div><b>Tanggal invoice</b>'+tgl(d)+'</div><div><b>Jatuh tempo</b>'+tgl(due)+'</div></div>'+
+   '<table><thead><tr><th>Uraian</th><th class="r">Harga</th><th class="r">Jumlah</th><th class="r">Total (Rp)</th></tr></thead><tbody><tr><td>'+esc(desc)+'</td><td class="r">'+nf.format(price)+'</td><td class="r">'+qty+'</td><td class="r">'+nf.format(tot)+'</td></tr></tbody>'+
+   (free?'<tfoot><tr><td colspan="3" class="r" style="font-weight:400;color:#555">PPN</td><td class="r" style="font-weight:400;color:#555">Dibebaskan (buku)</td></tr><tr><td colspan="3" class="r">Total</td><td class="r">Rp '+nf.format(tot)+'</td></tr></tfoot></table>':'<tfoot><tr><td colspan="3" class="r" style="font-weight:400;color:#555">Dasar pengenaan pajak</td><td class="r" style="font-weight:400;color:#555">'+nf.format(dpp)+'</td></tr><tr><td colspan="3" class="r" style="font-weight:400;color:#555">PPN (termasuk dalam harga)</td><td class="r" style="font-weight:400;color:#555">'+nf.format(tot-dpp)+'</td></tr><tr><td colspan="3" class="r">Total (termasuk PPN)</td><td class="r">Rp '+nf.format(tot)+'</td></tr></tfoot></table>')+'<div style="color:#555;font-style:italic">Terbilang: '+terbilang(tot).replace(/\s+/g,' ').trim()+' rupiah</div>'+
+   ($('nt').value.trim()?'<p><b>Catatan:</b> '+esc($('nt').value.trim())+'</p>':'')+
+   '<div class="pay"><b>Cara pembayaran</b><br>Transfer ke Bank BRI, a.n. <b>CV FA INDONESIA</b>, nomor rekening <b>'+a+'</b>.<br>Tulis <b>'+no+'</b> di berita transfer, lalu kirim invoice ini dan bukti transfer ke Ananta W. Sasongko, CPA (tombol Chat Ananta, CPA di faindonesia.co.id/bayar/ atau email ananta@faindonesia.co.id).</div>'+
+   '<div class="foot">'+(free?'File PDF dan password e-book dikirim ke email/WhatsApp pembeli setelah pembayaran dikonfirmasi. Invoice ini dibuat otomatis dari faindonesia.co.id/bayar/. Penyerahan buku dibebaskan dari PPN.':'Akses atau layanan diberikan setelah pembayaran dikonfirmasi. Invoice ini dibuat otomatis dari faindonesia.co.id/bayar/. Harga sudah termasuk PPN. Faktur pajak dapat diminta dengan mengirim data NPWP/NIK.')+' Ketentuan: faindonesia.co.id/syarat-ketentuan/ · Refund: faindonesia.co.id/kebijakan-refund/</div>';
+  var msg='Halo Pak Ananta, saya sudah transfer untuk invoice '+no+' ('+desc+') sebesar Rp '+nf.format(tot)+' a.n. '+nm+'. Invoice dan bukti transfer saya lampirkan di chat ini.';
+  $('wa').href='https://wa.me/6282245260121?text='+encodeURIComponent(msg);
+  $('ml').href='mailto:ananta@faindonesia.co.id?subject='+encodeURIComponent('Invoice '+no+' dan bukti transfer')+'&body='+encodeURIComponent(msg+'\n\n(Lampirkan PDF invoice dan bukti transfer.)');
+  $('inv').style.display='block';$('inv').scrollIntoView({behavior:'smooth'});if(window.gtag)gtag('event','generate_invoice',{value:tot,currency:'IDR',item_id:o.value});
+};
+$('pr').onclick=function(){window.print()};
+})();
+</script>
+</body>
+</html>
