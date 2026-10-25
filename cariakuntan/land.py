@@ -143,7 +143,7 @@ LAND_CSS = """<style id="land2">
 .final h2{color:#fff;font-family:var(--display);font-size:clamp(1.7rem,3.6vw,2.6rem);max-width:22ch;margin:0 auto}
 .final p{color:rgba(255,255,255,.75);margin:12px 0 24px}
 .final .btn-wa{background:#fff;color:var(--deep)}
-.final .more{margin-top:22px;font-size:.9rem}.final .more a{color:rgba(255,255,255,.8)}
+.final .more{margin:26px auto 0;max-width:none;font-size:.9rem;text-align:center}.final .more>a{display:inline;padding:0;border:0;color:rgba(255,255,255,.8);font-weight:600;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:5px}.final .more>a:hover{color:#fff;text-decoration-color:#fff}
 .needs.compact .need small{min-height:0}
 </style>"""
 
