@@ -281,6 +281,28 @@ def fix_links(s, here):
     s = re.sub(r'(href)="/?#([a-z0-9-]+)"', rep, s)
     return s
 
+# kotak ke-4 Lini Usaha: CariAkuntan (pendampingan)
+CA_CARD = ('<a class="eco-ca" href="https://cariakuntan.com/" target="_blank" rel="noopener">'
+           '<span class="lgbox ca-lg" aria-label="CariAkuntan"><span class="cabox">C<i>A</i></span><span class="caw">Cari<b>Akuntan</b></span></span>'
+           '<span data-i18n="hs53">Pendampingan cari KAP, KJPP, dan profesi penunjang</span></a>')
+T["hs53"] = ("Pendampingan cari KAP, KJPP, dan profesi penunjang", "Guidance to find audit firms, valuers and other professionals", "协助寻找会计师事务所、评估师及其他专业服务")
+CSS = CSS.replace("</style>", """.eco a.eco-ca{background:var(--paper);padding:20px;min-width:0;display:grid;gap:10px;align-content:start;color:inherit;text-decoration:none;transition:background .25s}
+.eco a.eco-ca:hover{background:#222}
+.ca-lg{display:inline-flex;align-items:center;gap:10px;height:30px}
+.eco .ca-lg .cabox{width:28px;height:30px;border:1.5px solid #fff;display:grid;place-items:center;font-family:Poppins,sans-serif;font-size:10px;line-height:1;letter-spacing:.04em;font-weight:500;padding-top:1px;color:#fff;text-align:center}
+.eco .ca-lg .cabox i{font-style:normal;color:#1F5BFF}
+.eco .ca-lg .caw{white-space:nowrap;display:inline;margin:0;font-family:Poppins,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.01em;color:#fff}
+.eco .ca-lg .caw b{display:inline;margin:0;font-weight:600;color:#1F5BFF}
+@media (max-width:600px){.eco .ca-lg{gap:7px}.eco .ca-lg .caw{font-size:16px}.eco .ca-lg .cabox{width:24px;height:26px;font-size:9px}}
+:root[data-theme="light"] .cabox{border-color:#171717}:root[data-theme="light"] .caw{color:#171717}
+</style>""", 1)
+_eco_old = sec("ekosistem")
+_eco_new = _eco_old.replace('</div>\n<p class="note"', CA_CARD + '</div>\n<p class="note"', 1)
+assert _eco_new != _eco_old
+_orig_sec = sec
+def sec(id_):
+    return _eco_new if id_ == "ekosistem" else _orig_sec(id_)
+
 # ---------------- BERANDA ----------------
 hero = HERO.replace('href="#rekam"', 'href="/layanan/#rekam"')
 home = HEAD + '<main id="top">' + hero + PETA + REKAM + PEND.replace('class="block"', 'class="block hs"', 1) + SIAPA + LANGKAH + JELAJAH + KONTAK.replace('class="block alt"', 'class="block"', 1) + TAIL
