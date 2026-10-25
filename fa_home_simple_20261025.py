@@ -417,7 +417,7 @@ UND = sec("unduhan").replace('<p class="eyebrow" data-i18n="k272">Unduhan</p><h2
 UND = UND.replace('<section class="block" id="unduhan">', '<section class="block alt" id="unduhan">', 1)
 QRIS_BOX = ('<div class="qris-box" id="donasi"><img src="/img/qris-fa-indonesia.jpg" width="720" height="1014" loading="lazy" alt="QRIS FA Indonesia - Book &amp; Stationery">'
             '<div><p class="eyebrow">Donasi Sukarela</p><h3>Materi ini gratis. Kalau bermanfaat, dukung lewat QRIS.</h3>'
-            '<p>Scan QRIS dengan aplikasi bank atau e-wallet apa saja. Minimal Rp10.000, sepenuhnya opsional. Dana dipakai untuk menyusun materi dan toolkit berikutnya.</p>'
+            '<p>Scan QRIS dengan aplikasi bank atau e-wallet apa saja. Nominal donasi Rp10.001, sepenuhnya opsional. Dana dipakai untuk menyusun materi dan toolkit berikutnya.</p>'
             '<a class="btn line" href="/img/qris-fa-indonesia.jpg" download="QRIS-FA-Indonesia.jpg">Simpan Gambar QRIS</a></div></div>')
 k = UND.rfind('</div>\n</div>\n</section>')
 UND = UND[:k] + '</div>\n' + QRIS_BOX + '\n</div>\n</section>'
@@ -443,7 +443,7 @@ BK_CSS += (".qris-box{display:grid;grid-template-columns:200px 1fr;gap:28px;alig
 JUMP = ('<nav class="bk-jump" aria-label="Isi halaman"><a href="#paket">E-Book Berbayar</a><a href="#unduhan" class="on">Materi Gratis &#8595;</a><a href="#publikasi">Publikasi</a></nav>')
 BK_CSS += (".bk-jump{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}.bk-jump a{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;color:#fff;text-decoration:none}"
            ".bk-jump a.on{background:#fff;color:#171717;border-color:#fff;font-weight:500}.bk-jump a:hover{border-color:#fff}html{scroll-behavior:smooth}#unduhan,#publikasi,#paket{scroll-margin-top:80px}")
-inject("buku/index.html", [sec("publikasi").replace('class="block alt"', 'class="block"', 1)], SH_TOAST + LEAD + QRIS_MODAL, BK_CSS,
+inject("buku/index.html", [sec("publikasi").replace('class="block alt"', 'class="block"', 1)], SH_TOAST + LEAD, BK_CSS,
        mid=[('<h2 style="margin-top:40px">Cara Membeli</h2>', '</div></section>' + UND + '<section class="block"><div class="wrap">')], jump=JUMP,
        subs=[('Cara membeli</h2>', 'Cara Membeli</h2>'), ('Pertanyaan umum</h2>', 'Pertanyaan Umum</h2>'), ('>Beli paket<', '>Beli Paket<'), ('Paket 6 E-book Penerbit FA</h2>', 'Paket 6 E-Book Penerbit FA</h2>')])
 inject("artikel/index.html", [sec("galeri"), sec("kabar")], LIGHT + FEEDJS,

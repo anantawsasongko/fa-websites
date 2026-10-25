@@ -89,6 +89,24 @@ for root, _, files in os.walk(fa):
 if os.path.exists(os.path.join(fa, "artikel", "index.html")):
     inject_before_footer(os.path.join(fa, "artikel", "index.html"), feed_block(n=20, font="Poppins,sans-serif"))
 
+# ---------- QRIS donasi sukarela di semua layanan gratis (25 Okt 2026) ----------
+DON_JS = os.path.join(M, "shared", "donasi.js"); DON_IMG = os.path.join(M, "shared", "qris-fa-indonesia.jpg")
+def add_donasi(site_root, pages, cfg):
+    os.makedirs(os.path.join(site_root, "js"), exist_ok=True); os.makedirs(os.path.join(site_root, "img"), exist_ok=True)
+    shutil.copy2(DON_JS, os.path.join(site_root, "js", "donasi.js")); shutil.copy2(DON_IMG, os.path.join(site_root, "img", "qris-fa-indonesia.jpg"))
+    for rel in pages:
+        pth = os.path.join(site_root, rel)
+        if not os.path.exists(pth): continue
+        t = open(pth, encoding="utf-8").read()
+        if "/js/donasi.js" in t: continue
+        t = t.replace("</body>", "<script>window.FA_DONASI=" + cfg + "</script><script src=\"/js/donasi.js\"></script></body>", 1)
+        open(pth, "w", encoding="utf-8").write(t)
+add_donasi(fa, ["buku/index.html"], "{guards:[{sel:'#unduhan a.dl:not([href*=\"fa-consult-\"])',key:'materi'}]}")
+add_donasi(fa, ["cek-psak-118/index.html"], "{guards:[{sel:'#btnXlsx,[data-tab=\"hasil\"]',key:'venus-psak118'}]}")
+add_donasi(fa, ["audit-ready/index.html"], "{guards:[{sel:'#btnXlsx,[data-act=\"calkdoc\"]',key:'jupiter',skip:function(){try{return !!localStorage.getItem('fa-auditready-v1-lic')}catch(e){return false}}}]}")
+add_donasi(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html"],
+    "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt'),m=document.getElementById('f_em');return !(p&&m&&p.value.trim().length>2&&/^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$/.test(m.value.trim()))}}]}")
+
 # ---------- apps standalone projects (for testing; public URLs stay on faindonesia.co.id) ----------
 for name, src, sub in [("faindonesia-jupiter", JUP, "audit-ready"), ("faindonesia-saturn", SAT, "saturn"), ("faindonesia-venus", VEN, "cek-psak-118")]:
     d = os.path.join(OUT, name); shutil.copytree(src, d)
