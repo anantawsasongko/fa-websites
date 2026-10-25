@@ -1417,7 +1417,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href]');
 if(G.indexOf(f)<0)return;if(window.gtag)gtag('event','file_download',{file_name:f});if(ok())return;e.preventDefault();cur=a;M.style.display='flex';var n=F.querySelector('[name=nama]');if(n)n.focus()},true);
 document.getElementById('leadX').onclick=function(){M.style.display='none'};
 F.onsubmit=function(e){e.preventDefault();var d=new FormData(F);d.append('form-name','unduhan-materi');d.append('materi',(cur.getAttribute('href')||'').split('/').pop());
-fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString()}).catch(function(){});
+try{var mt=(cur.getAttribute('href')||'').split('/').pop(),q=new URLSearchParams();q.append('nama',d.get('nama')||'');q.append('wa','');q.append('lang',document.documentElement.lang||'');q.append('page','faindonesia.co.id'+location.pathname+' (unduhan materi)');q.append('summary','Unduh materi FA: '+mt+' | email: '+(d.get('email')||''));var GS='https://script.google.com/macros/s/AKfycbzBAfPUXS1F9zcnRBz_Xg7-IhKRrLtyOtoNY9342G2gsXwgThcXwxcwq-VE3ywgK8Dniw/exec';if(!(navigator.sendBeacon&&navigator.sendBeacon(GS,q)))fetch(GS,{method:'POST',mode:'no-cors',body:q,keepalive:true}).catch(function(){})}catch(x){}
 try{localStorage.setItem('fa-lead','1')}catch(e){}if(window.gtag)gtag('event','generate_lead',{method:'download_form'});M.style.display='none';go(cur)};})();</script>
 </body>
 </html>
