@@ -166,7 +166,51 @@ def tree_svg(L, wa):
            + "".join(f'<a style="--i:{i}" href="{wa(msgs[i])}" target="_blank" rel="noopener"><b>{t}</b><small>{s}</small></a>' for i,(t,s) in enumerate(nodes)) + '</div>')
     return f'<div class="tree"><svg viewBox="0 0 {W} {H}" role="img" aria-label="{L["map_h2"]}">{lnk}{flo}{hub}{nd}</svg>{mob}</div>'
 
-def landing2(T, L, wa, ICONS, srch="", srch_h2="", srch_sub="", scr="", scr_h2="", scr_sub=""):
+
+# ---------------- Siapa Kami (kredibilitas, 26 Okt 2026): tanpa nama mitra, nomor izin bisa dicek ----------------
+WHO = {
+ "id": dict(h2="Siapa Kami dan Cara Kami Bekerja", cards=[
+   ("Kami Bukan KAP", "CariAkuntan membantu Anda memilih KAP, KJA, KJPP, dan konsultan pajak berizin. Laporan audit tetap ditandatangani Akuntan Publik dari KAP yang Anda tunjuk, dengan perikatan langsung antara Anda dan KAP."),
+   ("Izin Dicek Sebelum Anda Membayar", "Setiap rekomendasi disertai nomor izin Menteri Keuangan, dan OJK bila diperlukan, yang bisa Anda cek sendiri di registri resmi."),
+   ("Biaya Terbuka", "Diskusi awal dan screening gratis. Bila Anda memilih didampingi, retainer disepakati tertulis di depan. Mitra profesi dapat memberi imbalan rujukan kepada kami, dan ini kami sampaikan terbuka sebelum Anda memutuskan."),
+   ("NDA Sebelum Data", "Laporan keuangan lengkap baru kami minta setelah NDA ditandatangani.")],
+   cred_h="Kredensial yang Bisa Anda Cek", cred=[
+   ("Pendamping", "Ananta, Ak., CPA · Sertifikat CPA IAPI No. 000719-PCPA-VIII/2026 · Register Negara Akuntan (Kemenkeu) No. RNA 24683 · No. Registrasi IAPI 5864", "https://validasi.iapi.or.id/verifikasi/madya/5864"),
+   ("Contoh mitra KAP", "Izin usaha KAP: Keputusan Menteri Keuangan No. 592/KM.1/2023", "https://find-profkeu.kemenkeu.go.id/Ap/PeriksaKap"),
+   ("Contoh mitra KJA", "Izin KJA: Keputusan Menteri Keuangan No. 232/KM.1/PPPK/2020, dipimpin Akuntan Berpraktik izin AB.715", "https://find-profkeu.kemenkeu.go.id/Ab/PeriksaKja"),
+   ("Pengelola", "CV FA Indonesia · NIB 0208001900096 · faindonesia.co.id", ""),
+   ("Rekam jejak", "Pendampingan kredit perbankan kumulatif lebih dari Rp1,1 triliun melalui FA Indonesia", "")], check="Cek di registri"),
+ "en": dict(h2="Who We Are and How We Work", cards=[
+   ("We Are Not an Audit Firm", "CariAkuntan helps you choose licensed audit firms (KAP), accounting firms, valuers and tax consultants. Audit reports are signed by the public accountant of the firm you appoint, under a direct engagement between you and that firm."),
+   ("Licences Checked Before You Pay", "Every recommendation comes with its Ministry of Finance licence number, and OJK registration where needed, which you can verify yourself."),
+   ("Transparent Fees", "The first discussion and screening are free. If you choose ongoing support, the retainer is agreed in writing upfront. Partner firms may pay us a referral fee, and we disclose this before you decide."),
+   ("NDA Before Data", "We only ask for full financial statements after an NDA is signed.")],
+   cred_h="Credentials You Can Verify", cred=[
+   ("Adviser", "Ananta, Ak., CPA · IAPI CPA certificate no. 000719-PCPA-VIII/2026 · State Register of Accountants (Ministry of Finance) no. RNA 24683 · IAPI registration no. 5864", "https://validasi.iapi.or.id/verifikasi/madya/5864"),
+   ("Example audit partner", "Audit firm licence: Minister of Finance Decree No. 592/KM.1/2023", "https://find-profkeu.kemenkeu.go.id/Ap/PeriksaKap"),
+   ("Example accounting partner", "KJA licence: Minister of Finance Decree No. 232/KM.1/PPPK/2020, led by a practising accountant (licence AB.715)", "https://find-profkeu.kemenkeu.go.id/Ab/PeriksaKja"),
+   ("Operator", "CV FA Indonesia · NIB 0208001900096 · faindonesia.co.id", ""),
+   ("Track record", "Cumulative bank credit support of more than IDR 1.1 trillion through FA Indonesia", "")], check="Verify"),
+ "zh": dict(h2="我们是谁、如何工作", cards=[
+   ("我们不是会计师事务所", "CariAkuntan 帮助您选择持牌会计师事务所（KAP）、记账事务所、评估师和税务顾问。审计报告由您委任的事务所注册会计师签署，由您与事务所直接签约。"),
+   ("付款前先核实执照", "每项推荐都附上财政部执照号码，必要时附 OJK 登记，您可自行在官方名录核实。"),
+   ("费用透明", "初步沟通与筛查免费。若选择持续陪同，月费事先书面约定。合作事务所可能向我们支付推荐费，我们会在您决定前说明。"),
+   ("先签保密协议", "签署保密协议后才索取完整财务报表。")],
+   cred_h="可核实的资质", cred=[
+   ("顾问", "Ananta, Ak., CPA · IAPI CPA 证书 No. 000719-PCPA-VIII/2026 · 财政部国家会计师登记 RNA 24683 · IAPI 注册号 5864", "https://validasi.iapi.or.id/verifikasi/madya/5864"),
+   ("合作会计师事务所示例", "事务所执照：财政部长决定 No. 592/KM.1/2023", "https://find-profkeu.kemenkeu.go.id/Ap/PeriksaKap"),
+   ("合作记账事务所示例", "KJA 执照：财政部长决定 No. 232/KM.1/PPPK/2020，由执业会计师（执照 AB.715）主持", "https://find-profkeu.kemenkeu.go.id/Ab/PeriksaKja"),
+   ("运营方", "CV FA Indonesia · NIB 0208001900096 · faindonesia.co.id", ""),
+   ("业绩", "经 FA Indonesia 陪同的银行融资累计超过 1.1 万亿印尼盾", "")], check="核实"),
+}
+def who_html(W):
+    cards = "".join(f'<div class="need" style="--i:{i};cursor:default"><b>{a}</b><small>{b}</small></div>' for i, (a, b) in enumerate(W["cards"]))
+    rows = "".join(f'<tr><th scope="row">{a}</th><td>{b}' + (f' <a href="{u}" target="_blank" rel="noopener nofollow">{("IAPI · " if "iapi" in u else "") + W["check"]}</a>' if u else "") + '</td></tr>' for a, b, u in W["cred"])
+    css = '<style>#kami .tbl{min-width:0}@media (max-width:640px){#kami .tbl th,#kami .tbl td{display:block;width:auto;border:0;padding:4px 14px}#kami .tbl th{padding-top:12px}#kami .tbl tr{display:block;border-bottom:1px solid var(--line)}#kami .tblwrap{overflow:visible}}</style>'
+    return css + (f'<section id="kami"><div class="wrap"><h2 class="sec-h">{W["h2"]}</h2><div class="needs compact">{cards}</div>'
+            f'<h3 style="margin:26px 0 10px">{W["cred_h"]}</h3><div class="tblwrap"><table class="tbl"><tbody>{rows}</tbody></table></div></div></section>')
+
+def landing2(T, L, wa, ICONS, srch="", srch_h2="", srch_sub="", scr="", scr_h2="", scr_sub="", who=""):
     needs = "".join(
         f'<a class="need" style="--i:{i}" href="{wa(m)}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[(i+2)%10]}</svg></span><b>{cap1(t)}</b><small>{cap1(s_)}</small><em>{cap1(T["go"])}</em></a>'
         for i,(t,s_,m) in enumerate(T["needs"]))
@@ -183,6 +227,7 @@ def landing2(T, L, wa, ICONS, srch="", srch_h2="", srch_sub="", scr="", scr_h2="
   <section><div class="wrap"><h2 class="sec-h">{L["trap_h2"]}</h2><div class="traps">{traps}</div><p class="fixline"><i>✓</i>{L["fix"]}</p></div></section>
   <section style="background:var(--panel)"><div class="wrap"><h2 class="sec-h">{L["map_h2"]}</h2>{tree_svg(L, wa)}</div></section>
   <section><div class="wrap"><h2 class="sec-h">{L["steps_h2"]}</h2><div class="rail">{rail}</div></div></section>
+  {who}
   <section style="background:var(--panel)" id="cek"><div class="wrap"><h2 class="sec-h">{srch_h2}</h2><p class="sub" style="margin:-6px 0 18px">{srch_sub}</p>{srch}</div></section>
   <section><div class="wrap"><h2 class="sec-h">{L["needs_h2"]}</h2><div class="needs compact">{needs}</div></div></section>
   <section class="final"><div class="wrap"><h2>{L["final_h2"]}</h2><p>{L["final_sub"]}</p><span style="display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center"><a class="btn btn-wa arrow" href="#screening">{scr_h2}</a><a class="btn btn-line" style="color:#fff;border-color:rgba(255,255,255,.5)" href="{wa(L["wa_hero"])}" target="_blank" rel="noopener">WhatsApp</a></span><p class="more"><a href="/artikel/">{L["more"]} →</a></p></div></section>

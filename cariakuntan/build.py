@@ -7,7 +7,7 @@ from news import NEWS
 from cities import CITIES, SECTOR_LINES, REGIONS
 from i18n import LANGS
 from qa import QA
-from land import LAND, landing2, search_widget, SRCH_TXT, cap1, screening_form, SCR
+from land import LAND, landing2, search_widget, SRCH_TXT, cap1, screening_form, SCR, WHO, who_html
 MAP = json.load(open(os.path.join(ROOT,"map.json")))
 HUBS = ["Jakarta","Surabaya","Medan","Makassar","Batam","Denpasar","Balikpapan","Jayapura","Morowali","Sorong"]
 
@@ -238,7 +238,7 @@ def footer(T, cur="id"):
   <div class="wrap">
     <span>ananta@faindonesia.co.id<button class="copy" type="button" data-copy="ananta@faindonesia.co.id">{T["copy"]}</button></span>
     {lang_links(cur, True)}
-    <span>© 2026 cariakuntan.com · {T["managed"]} <a href="https://faindonesia.co.id/">FA Indonesia</a> · <a href="/kota/">Wilayah</a> · <a href="/layanan/kap/">KAP</a> · <a href="/layanan/kjpp/">KJPP</a> · <a href="/layanan/konsultan-pajak/">Konsultan Pajak</a> · <a href="/layanan/jasa-laporan-keuangan/">Jasa Laporan Keuangan</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">{T["privacy"]}</a></span>
+    <span>© 2026 cariakuntan.com · {T["managed"]} <a href="https://faindonesia.co.id/">FA Indonesia</a> (CV FA Indonesia, NIB 0208001900096) · <a href="/kota/">Wilayah</a> · <a href="/layanan/kap/">KAP</a> · <a href="/layanan/kjpp/">KJPP</a> · <a href="/layanan/konsultan-pajak/">Konsultan Pajak</a> · <a href="/layanan/jasa-laporan-keuangan/">Jasa Laporan Keuangan</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">{T["privacy"]}</a></span>
   </div>
 </footer>
 <div class="bar"><a class="btn btn-wa" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
@@ -414,7 +414,7 @@ for k, T in LANGS.items():
     html = head(T["meta_title"], T["meta_desc"], DOMAIN+T["path"], "nan" if k=="hokkien" else T["html_lang"], alternates=alts, extra=ldtag(ld))
     _L = LAND[k]; _S = SRCH_TXT[k]
     _sw = search_widget(k, wa(_S["wa"]).split("?text=")[0] + "?text=" + quote(_S["wa"]), [(c[0], slug(c[0])) for c in CITIES])
-    write(T["path"], html + header(T, "home", k) + landing2(T, _L, wa, ICONS, _sw, _S["h2"], _S["sub"], screening_form(k, WA, EMAIL), SCR[k]["h2"], SCR[k]["sub"]) + footer(T, k)); urls.append(T["path"])
+    write(T["path"], html + header(T, "home", k) + landing2(T, _L, wa, ICONS, _sw, _S["h2"], _S["sub"], screening_form(k, WA, EMAIL), SCR[k]["h2"], SCR[k]["sub"], who_html(WHO.get(k, WHO["zh"]))) + footer(T, k)); urls.append(T["path"])
 
 # halaman screening mandiri
 
