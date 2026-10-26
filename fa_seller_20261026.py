@@ -11,9 +11,9 @@ _src = open(os.path.join(HERE, "fa_lead_20261026.py"), encoding="utf-8").read()
 exec(_src[:_src.index("# ================= 1.")])
 
 RS = [
- dict(code="RS-01", tipe="RS Umum Kelas D", wil="Pantura, Jawa Tengah", akred="Paripurna", kap="72 kamar rawat inap",
+ dict(code="RS-01", tipe="RS Umum Kelas D", wil="Jawa Tengah", akred="Paripurna", kap="±70 kamar rawat inap",
       metrics=[("Pendapatan FY2025 (audit)", "Rp30–35 M"), ("Margin EBITDA FY2025", "±30%"), ("Aset Tetap (Nilai KJPP)", "Rp35–40 M"), ("Porsi BPJS", "±80%")],
-      offer="75% saham", harga="Rp8–12 M", note="Harga 100% ekuitas di bawah nilai buku. Desain dan RAB gedung 7 lantai (±190 TT) sudah tersedia. Volume 2026 sempat tertekan pesaing baru dan mulai pulih.", status="Due diligence terbuka"),
+      offer="75% saham", harga="Rp8–12 M", note="Harga 100% ekuitas di bawah nilai buku. Desain dan RAB gedung pengembangan sudah tersedia. Volume 2026 sempat tertekan pesaing baru dan mulai pulih.", status="Due diligence terbuka"),
  dict(code="RS-02", tipe="RS Umum Kelas D", wil="Pusat Kota, DI Yogyakarta", akred="Paripurna", kap="50 tempat tidur",
       metrics=[("Pendapatan FY2025 (audit)", "Rp35–40 M"), ("EBITDA FY2025", "Rp5–6 M"), ("Ekuitas", "Rp45–50 M"), ("Utang Bank / EBITDA", "<1x")],
       offer="100% saham (termasuk mayoritas klinik anak usaha)", harga="Rp45–55 M", note="Sekitar 9–10x EBITDA dan mendekati nilai buku. Persetujuan RUPSLB untuk pengalihan saham sudah ada. Rawat jalan spesialis dominan.", status="Terbuka"),

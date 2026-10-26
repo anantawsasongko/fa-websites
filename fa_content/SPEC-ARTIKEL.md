@@ -35,7 +35,7 @@ Tulis setiap artikel sebagai SATU file JSON: `/home/claude/fa-websites/fa_conten
 - DILARANG memakai em dash (—) dan en dash (–) sebagai tanda baca. Pakai koma, titik dua, atau kalimat baru. Rentang angka tulis "2 sampai 4 minggu" atau "Rp1-5 miliar" dengan tanda hubung biasa.
 - Istilah Inggris sehari-hari boleh dan dianjurkan: upload, file, review, update, link, data room, cash flow.
 - Rendah hati, tidak bombastis, tidak menjanjikan hasil ("pasti cair" dilarang). Tidak menyebut nama klien, nama bank, atau merek pihak ketiga sebagai klien/mitra. Boleh menyebut regulator dan lembaga resmi (OJK, BEI, DJP, IAI, IAPI, Kemenkes, BPJS Kesehatan, MAPPI).
-- Pengalaman yang BOLEH disebut (faktual): mendampingi akuisisi tiga rumah sakit di Jawa Tengah; pendampingan kredit perbankan kumulatif mendekati Rp1 triliun; pendanaan investor hingga US$3 juta untuk grup rumah sakit; mandat divestasi rumah sakit dan BPR; menyusun annual report perdana rumah sakit BUMN; pengalaman audit di firma Big Four. Jangan mengarang pengalaman lain.
+- Pengalaman yang BOLEH disebut (faktual): mendampingi akuisisi tiga rumah sakit di Jawa Tengah; pendampingan kredit perbankan kumulatif lebih dari Rp1,1 triliun; pendanaan investor hingga US$3 juta untuk grup rumah sakit; mandat divestasi rumah sakit dan BPR; menyusun annual report perdana rumah sakit BUMN; pengalaman audit di firma Big Four. Jangan mengarang pengalaman lain.
 - Angka contoh dalam ilustrasi boleh asumsi, tapi tandai jelas sebagai "contoh" / "ilustrasi".
 
 ## Akurasi (WAJIB)

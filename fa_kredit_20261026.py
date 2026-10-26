@@ -110,7 +110,7 @@ FORM = f"""
  <div class="kk-tw"><table id="kk_mx"></table></div><p class="kk-note" id="kk_mxn"></p>
  <h2>Jalur Pendanaan Ekuitas dan IPO</h2>
  <p class="t">Uji cepat terhadap syarat keuangan pencatatan saham di Bursa Efek Indonesia. Syarat lengkap (free float, jumlah pemegang saham, opini audit, tata kelola) dinilai saat persiapan.</p>
- <div class="kk-tw"><table id="kk_ipotb"></table></div><p class="kk-note">Acuan: Peraturan BEI Nomor I-A (opsi keuangan Papan Utama), perubahan yang berlaku 4 Februari 2026 (masa operasi dan free float), dan POJK 53/2017 untuk emiten aset skala kecil dan menengah. Bukan nasihat investasi.</p>
+ <div class="kk-tw"><table id="kk_ipotb"></table></div><p class="kk-note">Acuan: opsi keuangan Papan Utama Peraturan BEI Nomor I-A sebelum perubahan 2026, perubahan Peraturan I-A tahun 2026 (masa operasi, free float 15 sampai 25%, berlaku 31 Maret 2026), dan POJK 53/2017. Sejak 9 Oktober 2026 BEI memperketat persyaratan keuangan calon emiten dan menambah kriteria saldo laba, sehingga ambang terbaru bisa lebih tinggi dari angka di tabel. Konfirmasi saat persiapan. Bukan nasihat investasi.</p>
  <h2>Langkah Selanjutnya</h2>
  <ol class="kk-next" id="kk_next"></ol>
  <div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 6px"><a class="btn solid" id="kk_wa_btn" href="#" target="_blank" rel="noopener">Kirim Hasil ke Ananta, CPA</a><a class="btn line" id="kk_mail" href="#">Kirim via Email</a></div>
@@ -157,10 +157,11 @@ function ipoCheck(){var J=function(i){var v=g(i);return v==null?null:v*U()},eq=J
  T.push(["Papan Utama, Opsi 3","Pendapatan tahun terakhir min. Rp800 miliar, kapitalisasi pasar min. Rp8 triliun",B(o3)]);
  T.push(["Papan Utama, Opsi 4","Total aset min. Rp2 triliun, kapitalisasi pasar min. Rp4 triliun",B(o4)]);
  T.push(["Masa Operasi Papan Utama","Usaha utama berjalan komersial min. 36 bulan, ada pendapatan 3 tahun buku terakhir",B(ag3)]);
+ T.push(["Saldo Laba (Papan Utama)","Kriteria baru sejak 2026: saldo laba ikut dinilai. Besaran dicek terhadap aturan terbaru saat persiapan","Dicek Saat Persiapan"]);
  T.push(["Papan Pengembangan","Masa operasi min. 24 bulan; opsi keuangan lebih ringan dari Papan Utama, dicek detail saat persiapan",B(ag2)]);
  T.push(["Papan Akselerasi","Emiten aset skala kecil atau menengah: total aset sampai Rp250 miliar",B(ta==null?null:ta<=250000)]);
  var utama=(o1||o2||o3||o4)&&ag3!==false,head,sub;
- if(utama){head="Kandidat Papan Utama";sub="Free float min. 25% bila kapitalisasi pasar di bawah Rp5 triliun, min. 300 juta saham, 10.000 pemegang saham."}
+ if(utama){head="Kandidat Papan Utama";sub="Memenuhi opsi keuangan sebelum pengetatan 9 Oktober 2026. Konfirmasi ambang terbaru dan saldo laba. Free float min. 25% bila kapitalisasi pasar di bawah Rp5 triliun."}
  else if(ta!=null&&ta<=250000){head="Kandidat Papan Akselerasi";sub="Aset skala kecil atau menengah. Papan Pengembangan juga bisa dijajaki."}
  else if(ag2){head="Kandidat Papan Pengembangan";sub="Belum masuk opsi Papan Utama. Investor strategis atau PE bisa menjadi jembatan."}
  else if(ta==null&&pb==null){head="Isi Total Aset dan Laba";sub="Lengkapi untuk melihat jalur IPO."}
@@ -326,14 +327,14 @@ KW = [
  dict(path="/cek-kelayakan-ipo/", eyebrow="FA Venus · Cek Kelayakan IPO", h1="Cek Kelayakan IPO Gratis: Sudah Memenuhi Syarat Papan Utama, Pengembangan, atau Akselerasi BEI?",
   lead="Uji cepat syarat keuangan pencatatan saham di Bursa Efek Indonesia: aset berwujud bersih (NTA), laba sebelum pajak, pendapatan, total aset, dan masa operasi. Sekaligus lihat kapasitas kredit sebagai jalur pendanaan pembanding.",
   title="Cek Kelayakan IPO Gratis: Syarat Papan Utama, Pengembangan, Akselerasi BEI 2026 | FA Indonesia",
-  desc="Cek gratis apakah perusahaan memenuhi syarat IPO BEI: NTA Rp250 miliar dan laba Papan Utama, masa operasi 36 dan 24 bulan (aturan Februari 2026), Papan Akselerasi aset sampai Rp250 miliar.",
+  desc="Cek gratis apakah perusahaan memenuhi syarat IPO BEI: NTA Rp250 miliar dan laba Papan Utama, masa operasi 36 dan 24 bulan, pengetatan syarat keuangan 9 Oktober 2026, Papan Akselerasi aset sampai Rp250 miliar.",
   body="<h2>Ringkasan Syarat Keuangan Papan Utama</h2><div class='kk-tw'><table><thead><tr><th>Opsi</th><th>Syarat</th></tr></thead><tbody>"
        "<tr><td>1</td><td style='white-space:normal'>Laba sebelum pajak tahun terakhir positif dan aset berwujud bersih min. Rp250 miliar</td></tr>"
        "<tr><td>2</td><td style='white-space:normal'>Laba sebelum pajak kumulatif 2 tahun min. Rp100 miliar dan kapitalisasi pasar min. Rp1 triliun</td></tr>"
        "<tr><td>3</td><td style='white-space:normal'>Pendapatan tahun terakhir min. Rp800 miliar dan kapitalisasi pasar min. Rp8 triliun</td></tr>"
        "<tr><td>4</td><td style='white-space:normal'>Total aset min. Rp2 triliun dan kapitalisasi pasar min. Rp4 triliun</td></tr>"
        "<tr><td>5</td><td style='white-space:normal'>Arus kas operasi kumulatif 2 tahun min. Rp200 miliar dan kapitalisasi pasar min. Rp4 triliun</td></tr></tbody></table></div>"
-       "<p>Perubahan Peraturan BEI Nomor I-A yang berlaku 4 Februari 2026 menetapkan masa operasi minimal 36 bulan untuk Papan Utama dan 24 bulan untuk Papan Pengembangan, free float minimal 25% bila kapitalisasi pasar di bawah Rp5 triliun, serta minimal 10.000 dan 5.000 pemegang saham. Emiten aset skala kecil dan menengah (total aset sampai Rp250 miliar) dapat memakai Papan Akselerasi sesuai POJK 53/2017.</p>"
+       "<p><b>Penting:</b> tabel di atas adalah opsi keuangan Peraturan I-A sebelum pengetatan. Perubahan tahap kedua yang berlaku 9 Oktober 2026 menaikkan persyaratan keuangan calon emiten, menambah kriteria saldo laba untuk Papan Utama, menghapus harga perdana minimum, dan mewajibkan proyeksi keuangan 5 tahun setelah pencatatan. Ambang terbaru kami konfirmasi saat persiapan.</p><p>Perubahan Peraturan I-A tahun 2026 juga menetapkan masa operasi minimal 36 bulan untuk Papan Utama dan 24 bulan untuk Papan Pengembangan, free float minimal 25% bila kapitalisasi pasar di bawah Rp5 triliun, serta minimal 10.000 dan 5.000 pemegang saham. Emiten aset skala kecil dan menengah (total aset sampai Rp250 miliar) dapat memakai Papan Akselerasi sesuai POJK 53/2017.</p>"
        "<h2>Selain Angka</h2><p>IPO juga menuntut laporan keuangan diaudit KAP terdaftar OJK dengan SAK Indonesia, komisaris independen, komite audit, sekretaris perusahaan, dan tata kelola yang siap diperiksa. Lihat <a href='/konsultan-persiapan-ipo/'>persiapan IPO</a> dan <a href='/jasa-transisi-sak-ep-ke-psak/'>transisi SAK EP ke PSAK</a>.</p>",
   faq=[("Berapa aset minimal untuk IPO?", "Papan Utama opsi pertama mensyaratkan aset berwujud bersih minimal Rp250 miliar dengan laba sebelum pajak positif. Perusahaan dengan total aset sampai Rp250 miliar dapat menjajaki Papan Akselerasi."),
        ("Apakah perusahaan rugi bisa IPO?", "Untuk Papan Utama, opsi laba sebelum pajak mensyaratkan laba. Papan Pengembangan dan Akselerasi memberi ruang bagi perusahaan yang belum laba dengan syarat proyeksi tertentu."),
