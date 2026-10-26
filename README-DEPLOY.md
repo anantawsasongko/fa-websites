@@ -74,3 +74,7 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 - CariAkuntan /screening/: tanpa email (hasil langsung di web, satu tombol kirim WhatsApp), indikator Jalur IPO BEI, FAQ + WebApplication schema. Kotak CTA screening di semua halaman ID (fa_screen_seo_20261026.py).
 - FA: halaman keyword dengan kalkulator tertanam /kalkulator-dscr/, /simulasi-plafon-kredit-usaha/, /cek-kelayakan-ipo/ (dibuat di fa_kredit_20261026.py); CTA Cek Kredit & Pendanaan di semua halaman wilayah dan artikel.
 - Batas rasio (DSCR 1,25x, utang/EBITDA 3,5x, DER 2,5x, LTV 70%; CA: DER 1/2,5x, utang/EBITDA 3/4,5x) adalah praktik analis kredit, bukan peraturan. Syarat IPO: Peraturan BEI I-A (opsi keuangan Papan Utama), perubahan berlaku 4 Feb 2026 (masa operasi, free float), POJK 53/2017 (Akselerasi).
+
+## KAP Murah per Kota (26 Okt 2026 malam)
+- cariakuntan/seo_murah.py (exec dari build.py setelah seo_kawasan): /kap-murah/ + /kota/<kota>/kap-murah/ (95 halaman). Sudut: "KAP murah, apakah bijak, independen, dan dapat dipercaya?" lalu ajak diskusi kebutuhan dulu di CariAkuntan. FAQ schema, link kawasan, kota terdekat, FA.
+- fa_screen_seo_20261026.py: tombol "KAP Murah di <Kota>" di kotak CTA halaman kota CA, tombol "Cari KAP Murah di <Kota>" (ke CA) di halaman wilayah FA, artikel FA /artikel/kap-murah-apakah-bijak/ yang mengarah ke cariakuntan.com.

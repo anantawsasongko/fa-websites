@@ -531,6 +531,7 @@ def sector_html(x):
 
 exec(open(os.path.join(ROOT, "seo_city.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_kawasan.py"), encoding="utf-8").read())
+exec(open(os.path.join(ROOT, "seo_murah.py"), encoding="utf-8").read())
 
 blocks = ""
 for r,(rname, rline) in REGIONS.items():
