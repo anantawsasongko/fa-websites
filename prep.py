@@ -102,6 +102,7 @@ def add_donasi(site_root, pages, cfg):
         t = t.replace("</body>", "<script>window.FA_DONASI=" + cfg + "</script><script src=\"/js/donasi.js\"></script></body>", 1)
         open(pth, "w", encoding="utf-8").write(t)
 add_donasi(fa, ["buku/index.html"], "{guards:[{sel:'#unduhan a.dl:not([href*=\"fa-consult-\"])',key:'materi'}]}")
+add_donasi(fa, ["cek-kapasitas-kredit/index.html"], "{guards:[{sel:'#kk_go',key:'venus-kredit',skip:function(){var p=document.getElementById('kk_pt'),m=document.getElementById('kk_em');if(!(p&&m&&p.value.trim().length>2&&/^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$/.test(m.value.trim())))return true;return ['kk_rev','kk_ebit','kk_da','kk_eq','kk_os','kk_ds'].some(function(i){return !document.getElementById(i).value.trim()})}}]}")
 add_donasi(fa, ["cek-psak-118/index.html"], "{guards:[{sel:'#btnXlsx,[data-tab=\"hasil\"]',key:'venus-psak118'}]}")
 add_donasi(fa, ["audit-ready/index.html"], "{guards:[{sel:'#btnXlsx,[data-act=\"calkdoc\"]',key:'jupiter',skip:function(){try{return !!localStorage.getItem('fa-auditready-v1-lic')}catch(e){return false}}}]}")
 add_donasi(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html"],

@@ -54,7 +54,7 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 ## SEO Push Lokal (25 Okt 2026 malam)
 - cariakuntan: semua kota x 4 layanan inti punya halaman sendiri; 94 kota (+8 kota baru di kawasan.py EXTRA_CITIES); 89 kawasan bisnis (cariakuntan/kawasan.py, generator seo_kawasan.py) dengan hub + 4 halaman layanan (/kota/<kota>/<kawasan>/<kap|kjpp|konsultan-pajak|jasa-laporan-keuangan>/); BOOST konteks pasar untuk Malang, Surabaya, Jember, Pasuruan, Batam; kotak silang ke FA di setiap halaman kota/kawasan.
 - FA: fa_seo_20261025.py (jalankan setelah fa_home_simple): 30 artikel dari fa_content/articles/*.json (spec di fa_content/SPEC-ARTIKEL.md), kartu per topik di Eksplor, /konsultan-rumah-sakit/ dan /konsultan-unit-cost-rumah-sakit/ (+ per kota), /wilayah/ (kota + kawasan), footer, sitemap, llms.txt.
-- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 fa_psak_20261026.py && python3 cariakuntan/build.py && python3 prep.py
+- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 fa_psak_20261026.py && python3 fa_kredit_20261026.py && python3 cariakuntan/build.py && python3 prep.py
 
 ## Halaman dari Lead Nyata (26 Okt 2026)
 - fa_lead_20261026.py: /jasa-implementasi-psak-118/ dan /konsultan-kredit-distributor-importir/ (dua lead WA hari itu: implementasi PSAK 118 dan plafon kredit distributor/importir), kotak CTA di artikel terkait, blok di /layanan/, sitemap, llms.txt. Idempoten.
@@ -63,3 +63,6 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 
 ## Cluster Implementasi PSAK (26 Okt 2026 sore)
 - fa_psak_20261026.py: hub /jasa-implementasi-psak/ + 8 halaman (PSAK 109, 115, 116, 117, 212, 219, konsolidasi PSAK 110, transisi SAK EP ke PSAK). Penomoran SAK Online IAI. Kotak CTA di 7 halaman terkait, tombol di /layanan/, sitemap, llms.txt. Idempoten, jalankan setelah fa_lead_20261026.py.
+
+## FA Venus Cek Kapasitas Kredit (26 Okt 2026 malam)
+- fa_kredit_20261026.py: /cek-kapasitas-kredit/ (kredit baru, top up, take over): DSCR, plafon per batas (DSCR, Utang/EBITDA, DER, agunan LTV 70%, siklus modal kerja untuk KMK), matriks kemampuan bayar per bunga x tenor, bunga maksimal atau tenor minimal untuk plafon incaran, langkah lanjut. Lead ke Google Sheet CariAkuntan (goal diawali 'FA Cek Kapasitas Kredit'). QRIS Rp10.001 lewat prep.py add_donasi (key venus-kredit). Kartu di /apps/, CTA di halaman kredit, tombol /layanan/, sitemap, llms.txt.

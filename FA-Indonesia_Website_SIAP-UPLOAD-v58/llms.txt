@@ -142,3 +142,6 @@
 - PSAK 219: Imbalan kerja, pesangon → https://faindonesia.co.id/jasa-implementasi-psak-219/
 - PSAK 110: Konsolidasi grup → https://faindonesia.co.id/jasa-konsolidasi-laporan-keuangan-psak-110/
 - SAK EP ke PSAK: Naik kelas ke SAK Indonesia → https://faindonesia.co.id/jasa-transisi-sak-ep-ke-psak/
+
+## Kalkulator Kredit
+- FA Venus Cek Kapasitas Kredit (gratis): repayment capacity/DSCR, plafon indikatif per bunga dan tenor, bunga maksimal untuk plafon incaran, kredit baru/top up/take over → https://faindonesia.co.id/cek-kapasitas-kredit/
