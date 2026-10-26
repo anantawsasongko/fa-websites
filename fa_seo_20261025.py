@@ -138,9 +138,9 @@ RS_SVC = [
  ("Laporan keuangan, audit, dan GCG", "Laporan keuangan sesuai PSAK, persiapan audit pertama, annual report, SOP keuangan, dan struktur tata kelola."),
 ]
 rs_body = ("<h2>Yang Kami Kerjakan untuk Rumah Sakit Swasta</h2>" + "".join(f"<h3>{E(t)}</h3><p>{E(d)}</p>" for t, d in RS_SVC)
-  + "<h2>Alur Kerja</h2>" + flow([("Diskusi awal", "Gratis lewat WhatsApp atau video call."), ("Diagnosis", "Baca laporan keuangan, data klaim, dan rencana bisnis."), ("NDA dan kontrak", "Lingkup, jadwal, dan biaya disepakati di depan."), ("Eksekusi", "Dikerjakan langsung, bukan dioper ke tim lain."), ("Hasil", "Kredit cair, investor masuk, transaksi tuntas, atau laporan siap.")])
+  + "<h2>Alur Kerja</h2>" + flow([("Diskusi awal", "Gratis lewat WhatsApp atau video call."), ("Diagnosis", "Baca laporan keuangan, data klaim, dan rencana bisnis."), ("NDA dan kontrak", "Lingkup, jadwal, dan biaya disepakati di depan."), ("Eksekusi", "Dikerjakan tim FA Indonesia bersama mitra profesional sesuai kebutuhan."), ("Hasil", "Kredit cair, investor masuk, transaksi tuntas, atau laporan siap.")])
   + "<h2>Rekam Jejak di Sektor Rumah Sakit</h2><ul><li>Mendampingi akuisisi tiga rumah sakit di Jawa Tengah dari awal sampai tuntas.</li><li>Fasilitas kredit perbankan hingga Rp300 miliar untuk grup rumah sakit swasta.</li><li>Pendanaan investor hingga US$3 juta untuk grup rumah sakit.</li><li>Mandat divestasi rumah sakit yang sedang berjalan.</li><li>Menyusun annual report perdana sebuah rumah sakit BUMN.</li><li>Pengalaman sebagai Direktur Keuangan dan Group CFO rumah sakit.</li></ul>"
-  + "<h2>Siapa yang Menangani</h2><p>Setiap klien ditangani langsung oleh Ananta W. Sasongko, CPA, yang pernah menjadi Direktur Keuangan dan Group CFO grup rumah sakit swasta. Kami hanya mengambil beberapa klien setiap tahun supaya setiap penugasan benar-benar dikawal.</p>"
+  + "<h2>Siapa yang Menangani</h2><p>Setiap klien didampingi tim FA Indonesia. Kami hanya mengambil beberapa klien setiap tahun supaya setiap penugasan benar-benar dikawal.</p>"
   + "<h2>Bacaan untuk Pengelola Rumah Sakit</h2>" + art_list(RS_ARTS)
   + '<h2>Konsultan Rumah Sakit per Kota</h2><p class="t">' + " · ".join(f'<a href="/konsultan-rumah-sakit/{slug(c[0])}/">{c[0]}</a>' for c in CITIES) + "</p>")
 RS_FAQ = [
@@ -150,9 +150,9 @@ RS_FAQ = [
  ("Apakah bisa membantu menjual atau membeli rumah sakit?", "Bisa. Kami mendampingi dari sisi pembeli maupun penjual: due diligence, valuasi bersama KJPP, struktur transaksi, sampai penandatanganan."),
 ]
 svc_page("/konsultan-rumah-sakit/", "Layanan · Rumah Sakit", "Konsultan Rumah Sakit Swasta: Ekspansi, Kredit, Akuisisi, dan Unit Cost",
-  "Pendampingan keuangan dan bisnis untuk rumah sakit dan klinik swasta: dari studi kelayakan, kredit bank, investor, akuisisi, sampai unit cost dan tarif. Ditangani langsung oleh Ananta W. Sasongko, CPA, mantan Group CFO rumah sakit.",
+  "Pendampingan keuangan dan bisnis untuk rumah sakit dan klinik swasta: dari studi kelayakan, kredit bank, investor, akuisisi, sampai unit cost dan tarif. Ditangani tim yang berpengalaman di keuangan rumah sakit.",
   rs_body, RS_FAQ, "Konsultan Rumah Sakit Swasta: Kredit, Akuisisi, Unit Cost | FA Indonesia",
-  "Konsultan rumah sakit swasta untuk ekspansi, kredit bank, akuisisi, investor, unit cost, dan tarif. Ditangani langsung oleh mantan Group CFO rumah sakit. Seluruh Indonesia.",
+  "Konsultan rumah sakit swasta untuk ekspansi, kredit bank, akuisisi, investor, unit cost, dan tarif. Ditangani tim yang berpengalaman di keuangan rumah sakit. Seluruh Indonesia.",
   [{"@type": "Service", "name": "Konsultan Rumah Sakit Swasta", "serviceType": "Hospital financial advisory", "provider": PROVIDER, "areaServed": {"@type": "Country", "name": "Indonesia"}, "url": D + "/konsultan-rumah-sakit/"}],
   "/konsultan-unit-cost-rumah-sakit/", "Unit Cost Rumah Sakit", "Halo FA Indonesia, saya ingin konsultasi untuk rumah sakit kami.",
   [("FA Indonesia", D + "/"), ("Layanan", D + "/layanan/"), ("Konsultan Rumah Sakit", D + "/konsultan-rumah-sakit/")]); URLS.append("/konsultan-rumah-sakit/")
@@ -199,7 +199,7 @@ for c in CITIES:
     for kind in ["rs", "uc"]:
         if kind == "rs":
             path = f"/konsultan-rumah-sakit/{cs}/"; h1 = f"Konsultan Rumah Sakit di {name}"
-            lead = f"Pendampingan keuangan dan bisnis untuk rumah sakit dan klinik swasta di {name}, {prov}: ekspansi, kredit bank, akuisisi, investor, unit cost, dan tarif. Ditangani langsung oleh Ananta W. Sasongko, CPA."
+            lead = f"Pendampingan keuangan dan bisnis untuk rumah sakit dan klinik swasta di {name}, {prov}: ekspansi, kredit bank, akuisisi, investor, unit cost, dan tarif. Dikerjakan bersama tim CA dan CPA FA Indonesia."
             title = f"Konsultan Rumah Sakit {name}: Kredit, Akuisisi, Unit Cost | FA Indonesia"
             desc = f"Konsultan rumah sakit swasta di {name}, {prov}: studi kelayakan, kredit bank, akuisisi dan divestasi, investor, unit cost dan tarif. Konsultasi awal gratis."
             items = RS_SVC; other = (f"/konsultan-unit-cost-rumah-sakit/{cs}/", f"Unit Cost Rumah Sakit {name}"); base = "/konsultan-rumah-sakit/"
@@ -247,7 +247,7 @@ for c in CITIES:
            (f"Di mana mencari KAP atau KJPP di {name}?", f"Gunakan cariakuntan.com/kota/{cs}/ untuk memilih KAP, KJPP, atau konsultan pajak di {name} sesuai syarat bank atau regulator. FA Indonesia menyiapkan laporan keuangan dan dokumennya agar proses audit dan penilaian berjalan lancar."),
            ("Berapa biaya konsultasi?", "Diskusi awal gratis. Lingkup dan biaya disepakati di depan sebelum pekerjaan dimulai.")]
     svc_page(path, f"Wilayah · {E(prov)}", f"Konsultan Keuangan di {name}: Laporan Keuangan, Audit KAP, KJPP, Kredit Bank, dan Rumah Sakit",
-             f"FA Indonesia mendampingi perusahaan di {name} dari laporan keuangan dan persiapan audit KAP, penilaian KJPP, sampai kredit cair, investor masuk, atau IPO. Ditangani langsung oleh Ananta W. Sasongko, CPA.",
+             f"FA Indonesia mendampingi perusahaan di {name} dari laporan keuangan dan persiapan audit KAP, penilaian KJPP, sampai kredit cair, investor masuk, atau IPO. Dikerjakan bersama tim CA dan CPA FA Indonesia.",
              body, faq, f"Konsultan Keuangan {name}: Audit KAP, KJPP, Kredit Bank | FA Indonesia",
              f"Konsultan keuangan di {name}, {prov}: persiapan audit KAP, pendampingan penilaian KJPP, kredit bank, investor, IPO, rumah sakit dan unit cost. Konsultasi awal gratis.",
              [{"@type": "ProfessionalService", "name": f"FA Indonesia {name}", "url": D + path, "provider": PROVIDER, **({"address": {"@type": "PostalAddress", "addressLocality": "Malang", "addressRegion": "Jawa Timur", "addressCountry": "ID"}, "email": "ananta@faindonesia.co.id"} if name == "Malang" else {}), "areaServed": {"@type": "City", "name": name, "containedInPlace": {"@type": "AdministrativeArea", "name": prov}}}],
@@ -268,7 +268,7 @@ for c in CITIES:
         svc_page(path, f"Wilayah · {E(adm)}", f"KAP, Jasa Penilai KJPP, dan Kredit Bank di {kname}: Persiapan sampai Tuntas",
                  f"Pendampingan untuk perusahaan di {kname}, {adm}: laporan keuangan siap audit KAP, penilaian aset oleh KJPP, dan kredit bank sampai cair.",
                  body, faq, f"KAP & Jasa Penilai KJPP {kname}: Persiapan Audit dan Kredit | FA Indonesia",
-                 f"Persiapan audit KAP, pendampingan jasa penilai KJPP, dan kredit bank untuk perusahaan di {kname}, {adm}. Ditangani langsung Ananta W. Sasongko, CPA. Konsultasi gratis.",
+                 f"Persiapan audit KAP, pendampingan jasa penilai KJPP, dan kredit bank untuk perusahaan di {kname}, {adm}. Tim CA dan CPA FA Indonesia. Konsultasi gratis.",
                  [{"@type": "ProfessionalService", "name": f"FA Indonesia {kname}", "url": D + path, "provider": PROVIDER, "areaServed": {"@type": "Place", "name": f"{kname}, {adm}"}}],
                  f"/wilayah/{cs}/", f"Wilayah {city}", f"Halo FA Indonesia, kami dari {kname} ({adm}) ingin konsultasi.",
                  [("FA Indonesia", D + "/"), ("Wilayah", D + "/wilayah/"), (city, D + f"/wilayah/{cs}/"), (kname, D + path)]); URLS.append(path)

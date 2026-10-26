@@ -90,7 +90,7 @@ p118_body = (
    "<li>Perusahaan dengan banyak pos lain-lain, investasi pada asosiasi, atau pinjaman valas.</li>"
    "<li>Tim keuangan yang sibuk dengan tutup buku dan butuh tim tambahan yang paham standar terbaru.</li></ul>"
  + "<h2>Mencoba Sendiri Dulu</h2><p>Anda bisa membaca <a href=\"/artikel/panduan-implementasi-psak-118/\">panduan implementasi PSAK 118</a> beserta template Excel gratis, atau mencoba <a href=\"/cek-psak-118/\">konversi laba rugi PSAK 118</a> secara gratis. Bila hasilnya menunjukkan banyak pos yang perlu dipetakan ulang, kami bisa melanjutkan dari sana.</p>"
- + "<h2>Siapa yang Menangani</h2><p>Ditangani langsung oleh Ananta W. Sasongko, CPA, bersama tim Chartered Accountant dan CPA yang mengikuti SAK terbaru dan memahami cara kerja auditor. Untuk kebutuhan audit atau reviu, kami membantu menghubungkan dengan KAP berizin yang sesuai tanpa konflik kepentingan.</p>"
+ + "<h2>Siapa yang Menangani</h2><p>Ditangani tim Chartered Accountant dan CPA yang mengikuti SAK terbaru dan memahami cara kerja auditor. Untuk kebutuhan audit atau reviu, kami membantu menghubungkan dengan KAP berizin yang sesuai tanpa konflik kepentingan.</p>"
  + "<h2>Bacaan Terkait</h2><ul><li><a href=\"/artikel/panduan-implementasi-psak-118/\">Panduan Implementasi PSAK 118: Roadmap, Contoh Laba Rugi, dan Template Excel</a></li>"
    "<li><a href=\"/artikel/daftar-psak-isak-2026-2027/\">Daftar PSAK dan ISAK yang Berlaku 2026 sampai 2027</a></li>"
    "<li><a href=\"/artikel/amendemen-isak-335-entitas-nonlaba-psak-118/\">Amendemen ISAK 335 untuk Entitas Nonlaba dan PSAK 118</a></li></ul>")

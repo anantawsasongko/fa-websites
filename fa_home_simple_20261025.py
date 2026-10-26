@@ -62,7 +62,7 @@ T = {
  "hs18": ("Untuk Siapa", "Who It Is For", "服务对象"),
  "hs19": ("Semua skala perusahaan, <em>satu standar.</em>", "Every company size, <em>one standard.</em>", "各种规模的企业，<em>同一标准。</em>"),
  "hs20": ("Dari usaha kecil sampai calon emiten, kebutuhannya berbeda, standar kerjanya sama", "From small businesses to IPO candidates: different needs, the same working standard", "从小企业到上市候选公司：需求不同，标准一致"),
- "hs21": ("Setiap klien ditangani langsung oleh Ananta, CPA", "Every client is handled personally by Ananta, CPA", "每位客户均由 Ananta, CPA 亲自负责"),
+ "hs21": ("Setiap klien didampingi tim FA Indonesia", "Every client works with our CA and CPA team", "每位客户均由我们的 CA 与 CPA 团队负责"),
  "hs60": ("UMKM", "Small Business", "小微企业"), "hs61": ("LK SAK EMKM, siap kredit", "SAK EMKM statements, loan-ready", "小微准则报表，可申请贷款"),
  "hs62": ("Menengah", "Mid-Sized", "中型企业"), "hs63": ("Audit, kredit bank, GCG", "Audit, bank credit, governance", "审计、银行贷款、治理"),
  "hs64": ("Besar &amp; Grup", "Large &amp; Groups", "大型企业与集团"), "hs65": ("Sindikasi, investor, M&amp;A", "Syndication, investors, M&amp;A", "银团贷款、投资者、并购"),

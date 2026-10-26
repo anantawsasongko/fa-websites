@@ -20,7 +20,7 @@ KERJA = ("<h2>Alur Kerja</h2>" + flow([
     ("Diagnosis", "Gap assessment dan rencana kerja tertulis."),
     ("Implementasi", "Kebijakan, perhitungan, jurnal, dan template."),
     ("Siap audit", "Memo dan bukti pendukung untuk auditor.")]))
-SIAPA = ("<h2>Siapa yang Menangani</h2><p>Ditangani langsung oleh Ananta W. Sasongko, CPA, bersama tim Chartered Accountant dan CPA "
+SIAPA = ("<h2>Siapa yang Menangani</h2><p>Ditangani tim Chartered Accountant dan CPA "
          "yang mengikuti SAK terbaru dan memahami cara kerja auditor, termasuk auditor KAP besar. Audit tetap dilakukan KAP independen; "
          "bila dibutuhkan, kami bantu menghubungkan dengan KAP berizin yang sesuai.</p>")
 def baca(links):
