@@ -926,14 +926,14 @@ h3{font-weight:400}
 <div class="fact"><b>2016</b><span data-i18n="k17">Tahun berdiri</span></div>
 </div>
 </div>
-<!--fa-kk-home--><section class="block" id="cek-kredit"><div class="wrap"><div class="head"><p class="eyebrow">FA Venus · Gratis</p><h2 class="aph">Cek Kapasitas Kredit, <em>3 Menit.</em></h2></div><p class="t" style="max-width:62em">Kredit baru, top up kredit eksisting, atau take over. Lihat repayment capacity, plafon yang sanggup ditanggung di tiap suku bunga, dan langkah selanjutnya sebelum ke bank.</p>
+<!--fa-kk-home--><section class="block" id="cek-kredit"><div class="wrap"><div class="head"><p class="eyebrow">FA Venus · Gratis</p><h2 class="aph">Cek Kredit &amp; Pendanaan, <em>3 Menit.</em></h2></div><p class="t" style="max-width:62em">Kredit baru, top up, take over, sampai investor dan IPO. Lihat repayment capacity, plafon yang sanggup ditanggung di tiap suku bunga, jalur papan BEI yang mungkin, dan langkah selanjutnya.</p>
 <div class="kk" id="kk">
  <div class="kk-f">
   <div class="kk-steps" role="tablist"><button type="button" data-s="0" class="on">1 · Perusahaan</button><button type="button" data-s="1">2 · Angka Keuangan</button><button type="button" data-s="2">3 · Fasilitas</button></div>
   <div class="kk-p on" data-p="0">
    <div><label for="kk_pt">Nama PT<em>*</em></label><input id="kk_pt" placeholder="PT Contoh Sukses Abadi" autocomplete="organization"></div>
    <div><label for="kk_em">Email<em>*</em></label><input id="kk_em" type="email" inputmode="email" placeholder="nama@perusahaan.com" autocomplete="email"></div>
-   <label>Tujuan</label><div class="kk-chips" id="kk_goal"><button type="button" class="on">Kredit Baru</button><button type="button">Top Up Kredit Eksisting</button><button type="button">Take Over Bank Lain</button><button type="button">Belum Tahu</button></div>
+   <label>Tujuan</label><div class="kk-chips" id="kk_goal"><button type="button" class="on">Kredit Baru</button><button type="button">Top Up Kredit Eksisting</button><button type="button">Take Over Bank Lain</button><button type="button">Investor / IPO</button><button type="button">Belum Tahu</button></div>
    <label for="kk_unit">Satuan Angka</label><select id="kk_unit"><option value="1">Rupiah Juta</option><option value="1000">Rupiah Miliar</option></select>
    <p class="err" id="kk_e0"></p>
    <div class="kk-nav"><span></span><a class="btn solid" href="#kk" data-go="1">Lanjut →</a></div>
@@ -943,9 +943,11 @@ h3{font-weight:400}
    <div class="kk-row"><div><label for="kk_rev">Pendapatan Setahun<em>*</em></label><input id="kk_rev" inputmode="decimal" placeholder="0" autocomplete="off"></div><div><label for="kk_ebit">Laba Usaha (EBIT)<em>*</em></label><input id="kk_ebit" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Laba sebelum bunga dan pajak.</p></div></div>
    <div class="kk-row"><div><label for="kk_da">Penyusutan dan Amortisasi<em>*</em></label><input id="kk_da" inputmode="decimal" placeholder="0" autocomplete="off"></div><div><label for="kk_tax">Pajak Penghasilan Dibayar<small>opsional</small></label><input id="kk_tax" inputmode="decimal" placeholder="0" autocomplete="off"></div></div>
    <div class="kk-row"><div><label for="kk_eq">Total Ekuitas<em>*</em></label><input id="kk_eq" inputmode="decimal" placeholder="0" autocomplete="off"></div><div><label for="kk_os">Sisa Utang Bank Saat Ini<em>*</em></label><input id="kk_os" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Semua fasilitas, isi 0 bila belum ada.</p></div></div>
-   <div class="kk-row"><div><label for="kk_ds">Angsuran Bank per Bulan<em>*</em></label><input id="kk_ds" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Pokok + bunga semua fasilitas berjalan.</p></div><div><label for="kk_col">Nilai Pasar Agunan Tambahan<em>*</em></label><input id="kk_col" inputmode="decimal" placeholder="0" autocomplete="off"></div></div>
+   <div class="kk-row"><div><label for="kk_ds">Angsuran Bank per Bulan<em>*</em></label><input id="kk_ds" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Pokok + bunga semua fasilitas berjalan.</p></div><div><label for="kk_col">Nilai Pasar Agunan Tambahan<small>opsional</small></label><input id="kk_col" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Agunan yang belum diikat bank.</p></div></div>
    <div class="kk-row"><div><label for="kk_ar">Piutang Usaha<small>opsional</small></label><input id="kk_ar" inputmode="decimal" placeholder="0" autocomplete="off"></div><div><label for="kk_inv">Persediaan<small>opsional</small></label><input id="kk_inv" inputmode="decimal" placeholder="0" autocomplete="off"></div></div>
-   <div class="kk-row"><div><label for="kk_ap">Utang Usaha<small>opsional</small></label><input id="kk_ap" inputmode="decimal" placeholder="0" autocomplete="off"></div><span></span></div>
+   <div class="kk-row"><div><label for="kk_ap">Utang Usaha<small>opsional</small></label><input id="kk_ap" inputmode="decimal" placeholder="0" autocomplete="off"></div><div><label for="kk_ta">Total Aset<small>opsional</small></label><input id="kk_ta" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Untuk cek jalur IPO dan investor.</p></div></div>
+   <div class="kk-row"><div><label for="kk_pbt">Laba Sebelum Pajak Tahun Terakhir<small>opsional</small></label><input id="kk_pbt" inputmode="decimal" placeholder="0" autocomplete="off"></div><div><label for="kk_pbt0">Laba Sebelum Pajak Tahun Sebelumnya<small>opsional</small></label><input id="kk_pbt0" inputmode="decimal" placeholder="0" autocomplete="off"></div></div>
+   <div class="kk-row"><div><label for="kk_ita">Aset Tak Berwujud<small>opsional</small></label><input id="kk_ita" inputmode="decimal" placeholder="0" autocomplete="off"><p class="kk-hint">Goodwill, lisensi, software. Untuk menghitung NTA.</p></div><div><label for="kk_age">Lama Beroperasi (Tahun)<small>opsional</small></label><input id="kk_age" inputmode="numeric" placeholder="0" autocomplete="off"></div></div>
    <p class="err" id="kk_e1"></p>
    <div class="kk-nav"><a class="btn line" href="#kk" data-go="0">← Kembali</a><a class="btn solid" href="#kk" data-go="2">Lanjut →</a></div>
   </div>
@@ -957,16 +959,17 @@ h3{font-weight:400}
    <div><label for="kk_nm">Nama Anda<small>opsional</small></label><input id="kk_nm" autocomplete="name"></div>
    <div><label for="kk_wa">Nomor WhatsApp<small>opsional</small></label><input id="kk_wa" inputmode="tel" autocomplete="tel"></div>
    <p class="err" id="kk_e2"></p>
-   <div class="kk-nav"><a class="btn line" href="#kk" data-go="1">← Kembali</a><button type="button" class="btn solid" id="kk_go">Hitung Kapasitas Kredit</button></div>
+   <div class="kk-nav"><a class="btn line" href="#kk" data-go="1">← Kembali</a><button type="button" class="btn solid" id="kk_go">Hitung Kredit &amp; Pendanaan</button></div>
   </div>
  </div>
  <div class="kk-r">
-  <h3>Indikasi Kapasitas</h3>
-  <div class="kk-lock" id="kk_lock">🔒<br>Isi data lalu tekan <b>Hitung Kapasitas Kredit</b> untuk melihat hasil.</div>
+  <h3>Indikasi Kredit &amp; Pendanaan</h3>
+  <div class="kk-lock" id="kk_lock">🔒<br>Isi data lalu tekan <b>Hitung Kredit &amp; Pendanaan</b> untuk melihat hasil.</div>
   <div class="kk-res blur" id="kk_res">
    <div class="kk-big"><small id="kk_lbl">Tambahan Plafon Indikatif</small><b id="kk_cap">Rp -</b><i id="kk_bind">Pembatas utama: -</i></div>
    <div class="kk-k"><div><small>DSCR Saat Ini</small><b id="kk_k1">-</b></div><div><small>Utang / EBITDA</small><b id="kk_k2">-</b></div><div><small>DER</small><b id="kk_k3">-</b></div></div>
    <div class="kk-cap" id="kk_caps"></div>
+   <div class="kk-big" id="kk_ipobox"><small>Jalur IPO Indikatif</small><b id="kk_ipo" style="font-size:clamp(19px,2.4vw,24px)">-</b><i id="kk_ipot"></i></div>
    <div class="kk-big" id="kk_wantbox" style="display:none"><small>Bunga Maksimal untuk Plafon Incaran</small><b id="kk_maxr">-</b><i id="kk_wantt"></i></div>
   </div>
   <p class="kk-note">Indikasi otomatis dari angka yang Anda isi, bukan keputusan bank. Setiap bank memakai kebijakan, agunan, dan analisis industri sendiri.</p>
@@ -976,6 +979,9 @@ h3{font-weight:400}
  <h2>Kemampuan Bayar per Suku Bunga dan Tenor</h2>
  <p class="t">Pinjaman yang sanggup dibayar dari arus kas pada target DSCR Anda, untuk tiap kombinasi bunga dan tenor. Sel yang disorot adalah asumsi Anda.</p>
  <div class="kk-tw"><table id="kk_mx"></table></div><p class="kk-note" id="kk_mxn"></p>
+ <h2>Jalur Pendanaan Ekuitas dan IPO</h2>
+ <p class="t">Uji cepat terhadap syarat keuangan pencatatan saham di Bursa Efek Indonesia. Syarat lengkap (free float, jumlah pemegang saham, opini audit, tata kelola) dinilai saat persiapan.</p>
+ <div class="kk-tw"><table id="kk_ipotb"></table></div><p class="kk-note">Acuan: Peraturan BEI Nomor I-A (opsi keuangan Papan Utama), perubahan yang berlaku 4 Februari 2026 (masa operasi dan free float), dan POJK 53/2017 untuk emiten aset skala kecil dan menengah. Bukan nasihat investasi.</p>
  <h2>Langkah Selanjutnya</h2>
  <ol class="kk-next" id="kk_next"></ol>
  <div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 6px"><a class="btn solid" id="kk_wa_btn" href="#" target="_blank" rel="noopener">Kirim Hasil ke Ananta, CPA</a><a class="btn line" id="kk_mail" href="#">Kirim via Email</a></div>
@@ -1041,6 +1047,24 @@ function model(rate,ten){var rev=g("kk_rev"),ebit=g("kk_ebit"),da=g("kk_da")||0,
 function maxRate(want,ten){var lo=0.001,hi=0.6,M=model(11,ten);var room=M.cfads/M.dscrT-M.ds;if(room<=0)return null;
  function need(r){return type==="kmk"?want*r:want/annF(r,ten)*12}
  if(need(lo)>room)return 0;if(need(hi)<=room)return hi*100;for(var k=0;k<60;k++){var m=(lo+hi)/2;if(need(m)<=room)lo=m;else hi=m}return lo*100}
+function ipoCheck(){var J=function(i){var v=g(i);return v==null?null:v*U()},eq=J("kk_eq"),ita=J("kk_ita")||0,ta=J("kk_ta"),pb=J("kk_pbt"),pb0=J("kk_pbt0"),rv=J("kk_rev"),age=g("kk_age"),nta=eq==null?null:eq-ita;
+ var B=function(x){return x==null?"Data Belum Diisi":x?"Memenuhi":"Belum"},T=[];
+ var o1=nta==null||pb==null?null:(nta>=250000&&pb>0),o2=pb==null||pb0==null?null:(pb+pb0>=100000),o3=rv==null?null:rv>=800000,o4=ta==null?null:ta>=2000000,ag3=age==null?null:age>=3,ag2=age==null?null:age>=2;
+ T.push(["Papan Utama, Opsi 1","Aset berwujud bersih (NTA) min. Rp250 miliar dan laba sebelum pajak tahun terakhir positif",B(o1)]);
+ T.push(["Papan Utama, Opsi 2","Laba sebelum pajak kumulatif 2 tahun min. Rp100 miliar, kapitalisasi pasar min. Rp1 triliun saat IPO",B(o2)]);
+ T.push(["Papan Utama, Opsi 3","Pendapatan tahun terakhir min. Rp800 miliar, kapitalisasi pasar min. Rp8 triliun",B(o3)]);
+ T.push(["Papan Utama, Opsi 4","Total aset min. Rp2 triliun, kapitalisasi pasar min. Rp4 triliun",B(o4)]);
+ T.push(["Masa Operasi Papan Utama","Usaha utama berjalan komersial min. 36 bulan, ada pendapatan 3 tahun buku terakhir",B(ag3)]);
+ T.push(["Papan Pengembangan","Masa operasi min. 24 bulan; opsi keuangan lebih ringan dari Papan Utama, dicek detail saat persiapan",B(ag2)]);
+ T.push(["Papan Akselerasi","Emiten aset skala kecil atau menengah: total aset sampai Rp250 miliar",B(ta==null?null:ta<=250000)]);
+ var utama=(o1||o2||o3||o4)&&ag3!==false,head,sub;
+ if(utama){head="Kandidat Papan Utama";sub="Free float min. 25% bila kapitalisasi pasar di bawah Rp5 triliun, min. 300 juta saham, 10.000 pemegang saham."}
+ else if(ta!=null&&ta<=250000){head="Kandidat Papan Akselerasi";sub="Aset skala kecil atau menengah. Papan Pengembangan juga bisa dijajaki."}
+ else if(ag2){head="Kandidat Papan Pengembangan";sub="Belum masuk opsi Papan Utama. Investor strategis atau PE bisa menjadi jembatan."}
+ else if(ta==null&&pb==null){head="Isi Total Aset dan Laba";sub="Lengkapi untuk melihat jalur IPO."}
+ else{head="Investor Privat Dulu";sub="Bangun rekam jejak 2 sampai 3 tahun dengan laporan audit, lalu siapkan IPO."}
+ var tb="<thead><tr><th>Jalur</th><th>Syarat Keuangan</th><th>Status</th></tr></thead><tbody>"+T.map(function(r){return "<tr><td>"+r[0]+"</td><td style=\"white-space:normal;min-width:260px;text-align:left\">"+r[1]+"</td><td class=\""+(r[2]==="Memenuhi"?"g2":r[2]==="Belum"?"g0":"")+"\">"+r[2]+"</td></tr>"}).join("")+"</tbody>";
+ return {head:head,sub:sub,tbl:tb,utama:utama,any:head.indexOf("Kandidat")===0}}
 function cls(v,good,ok,lowGood){if(v==null)return "";return lowGood?(v<=good?"g2":v<=ok?"g1":"g0"):(v>=good?"g2":v>=ok?"g1":"g0")}
 var last=null;
 function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!v2())return false;
@@ -1059,6 +1083,7 @@ function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!
  var h="<thead><tr><th>Bunga / Tenor</th>"+tens.map(function(t){return "<th>"+(type==="kmk"?"Revolving":t+" Tahun")+"</th>"}).join("")+"</tr></thead><tbody>";
  rates.forEach(function(r){h+="<tr><td>"+r.toLocaleString("id-ID")+"%</td>"+tens.map(function(t){var m=model(r,t),cd=m.caps[0][1],lim=Math.min.apply(null,m.caps.slice(1).map(function(c){return c[1]}));return '<td'+(r===rate&&(type==="kmk"||t===ten)?' class="hl"':'')+'>'+rp(cd)+(cd>lim?" *":"")+"</td>"}).join("")+"</tr>"});
  $("kk_mx").innerHTML=h+"</tbody>";var bnd=M.caps.slice(1).reduce(function(a,c){return c[1]<a[1]?c:a});$("kk_mxn").textContent="* Melebihi "+bnd[0]+" sebesar "+rp(bnd[1])+". Bagian di atas batas ini perlu agunan, ekuitas, atau struktur fasilitas tambahan.";
+ var ipo=ipoCheck();$("kk_ipo").textContent=ipo.head;$("kk_ipot").textContent=ipo.sub;$("kk_ipotb").innerHTML=ipo.tbl;
  var N=[];
  if(M.cfads<=0)N.push(["Perbaiki Arus Kas Operasi Dulu","EBITDA setelah pajak belum positif. Bank akan menolak tambahan kredit sebelum ada perbaikan laba atau restrukturisasi biaya."]);
  if(M.bind[2]==="dscr"&&M.cfads>0)N.push(["Perpanjang Tenor atau Restrukturisasi Angsuran","Batas utama ada di kemampuan bayar. Tenor lebih panjang, grace period, atau take over ke bunga lebih rendah bisa menaikkan plafon tanpa menambah agunan."]);
@@ -1067,6 +1092,7 @@ function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!
  if(M.bind[2]==="col")N.push(["Tambah atau Nilai Ulang Agunan","Penilaian KJPP yang tepat, agunan tambahan, atau struktur berbasis transaksi seperti invoice financing dan trust receipt."]);
  if(M.bind[2]==="wc")N.push(["Data Piutang dan Persediaan","Plafon KMK mengikuti siklus modal kerja. Siapkan umur piutang dan perputaran persediaan yang rapi agar bank bisa menghitung borrowing base."]);
  if(M.dscrNow!=null&&M.dscrNow<1.2)N.push(["DSCR Saat Ini Masih Tipis","Fokuskan top up untuk refinancing yang menurunkan angsuran, bukan tambahan utang baru."]);
+ if(ipo.any||goal.indexOf("IPO")>=0){N.push(["Jalur IPO: Audit 3 Tahun dan SAK Indonesia","Laporan keuangan diaudit KAP terdaftar OJK dengan SAK Indonesia. Bila masih SAK EP, mulai <a href=\"/jasa-transisi-sak-ep-ke-psak/\">transisi ke PSAK</a> dari sekarang."]);N.push(["Tata Kelola Sebelum IPO","Komisaris independen, komite audit, dan sekretaris perusahaan. Lihat <a href=\"/komite-audit-komisaris-independen/\">komite audit dan komisaris independen</a> serta <a href=\"/konsultan-persiapan-ipo/\">persiapan IPO</a>."])}
  N.push(["Siapkan Paket Pengajuan","Laporan keuangan 3 tahun dengan CALK, rekening koran 6 sampai 12 bulan, proyeksi arus kas, dan memo penggunaan dana. Kami bantu susun sampai siap komite kredit."]);
  N.push(["Diskusi Awal Gratis","Kirim hasil ini ke Ananta, CPA. Kami baca dulu sebelum Anda mendatangi bank, supaya pengajuan pertama tidak ditolak."]);
  $("kk_next").innerHTML=N.map(function(n){return "<li><b>"+n[0]+"</b>"+n[1]+"</li>"}).join("");
@@ -1074,12 +1100,13 @@ function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!
  var s=summary();$("kk_wa_btn").href="https://wa.me/"+D.wa+"?text="+encodeURIComponent(s);$("kk_mail").href="mailto:"+D.mail+"?subject="+encodeURIComponent("Cek Kapasitas Kredit - "+$("kk_pt").value)+"&body="+encodeURIComponent(s);
  sheet("hitung");try{if(window.gtag)gtag("event","generate_lead",{method:"calculator",form:"cek-kapasitas-kredit"})}catch(x){}
  return true}
-function summary(){var M=last,L=["Halo Pak Ananta, saya sudah cek kapasitas kredit di faindonesia.co.id:","","PT: "+$("kk_pt").value,"Tujuan: "+goal,"Fasilitas: "+(type==="kmk"?"KMK Revolving":"Kredit Investasi / Term Loan"),"Bunga "+g("kk_rate")+"%, tenor "+g("kk_ten")+" tahun",""];
- [["Pendapatan","kk_rev"],["Laba Usaha","kk_ebit"],["Penyusutan","kk_da"],["Pajak","kk_tax"],["Ekuitas","kk_eq"],["Sisa Utang Bank","kk_os"],["Angsuran/Bulan","kk_ds"],["Agunan Tambahan","kk_col"],["Piutang","kk_ar"],["Persediaan","kk_inv"],["Utang Usaha","kk_ap"],["Plafon Diincar","kk_want"]].forEach(function(r){var v=g(r[1]);if(v!=null)L.push(r[0]+": "+rp(v))});
+function summary(){var M=last,L=["Halo Pak Ananta, saya sudah cek kredit dan pendanaan di faindonesia.co.id:","","PT: "+$("kk_pt").value,"Tujuan: "+goal,"Fasilitas: "+(type==="kmk"?"KMK Revolving":"Kredit Investasi / Term Loan"),"Bunga "+g("kk_rate")+"%, tenor "+g("kk_ten")+" tahun",""];
+ [["Total Aset","kk_ta"],["Laba Sebelum Pajak","kk_pbt"],["Laba Sebelum Pajak Th Sebelumnya","kk_pbt0"],["Aset Tak Berwujud","kk_ita"],["Pendapatan","kk_rev"],["Laba Usaha","kk_ebit"],["Penyusutan","kk_da"],["Pajak","kk_tax"],["Ekuitas","kk_eq"],["Sisa Utang Bank","kk_os"],["Angsuran/Bulan","kk_ds"],["Agunan Tambahan","kk_col"],["Piutang","kk_ar"],["Persediaan","kk_inv"],["Utang Usaha","kk_ap"],["Plafon Diincar","kk_want"]].forEach(function(r){var v=g(r[1]);if(v!=null)L.push(r[0]+": "+rp(v))});
  L.push("","DSCR saat ini: "+(M.dscrNow==null?"-":x1(M.dscrNow)),"Utang/EBITDA: "+x1(M.levNow),"DER: "+x1(M.derNow),"Plafon indikatif: "+rp(M.cap)+" (pembatas: "+M.bind[0]+")");
+ L.push("Jalur IPO indikatif: "+$("kk_ipo").textContent);
  if($("kk_wantbox").style.display!=="none")L.push("Bunga maksimal plafon incaran: "+$("kk_maxr").textContent);
  L.push("","Nama: "+($("kk_nm").value||"-"),"Email: "+$("kk_em").value,"WA: "+($("kk_wa").value||"-"));return L.join("\n")}
-function sheet(m){try{var p=new URLSearchParams();p.append("pt",$("kk_pt").value);p.append("email",$("kk_em").value);p.append("goal","FA Cek Kapasitas Kredit: "+goal);p.append("unit",$("kk_unit").options[$("kk_unit").selectedIndex].text);
+function sheet(m){try{var p=new URLSearchParams();p.append("pt",$("kk_pt").value);p.append("email",$("kk_em").value);p.append("goal","FA Cek Kredit & Pendanaan: "+goal);p.append("unit",$("kk_unit").options[$("kk_unit").selectedIndex].text);
  p.append("nama",$("kk_nm").value);p.append("wa",$("kk_wa").value?"'"+$("kk_wa").value:"");p.append("lang","id");p.append("page","faindonesia.co.id"+location.pathname+" ("+m+")");p.append("summary",summary());
  if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(x){}}
 $("kk_go").addEventListener("click",function(){if(calc())setTimeout(function(){$("kk_res").scrollIntoView({behavior:"smooth",block:"start"})},60)});

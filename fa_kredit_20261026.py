@@ -62,7 +62,7 @@ FORM = f"""
   <div class="kk-p on" data-p="0">
    <div><label for="kk_pt">Nama PT<em>*</em></label><input id="kk_pt" placeholder="PT Contoh Sukses Abadi" autocomplete="organization"></div>
    <div><label for="kk_em">Email<em>*</em></label><input id="kk_em" type="email" inputmode="email" placeholder="nama@perusahaan.com" autocomplete="email"></div>
-   <label>Tujuan</label><div class="kk-chips" id="kk_goal"><button type="button" class="on">Kredit Baru</button><button type="button">Top Up Kredit Eksisting</button><button type="button">Take Over Bank Lain</button><button type="button">Belum Tahu</button></div>
+   <label>Tujuan</label><div class="kk-chips" id="kk_goal"><button type="button" class="on">Kredit Baru</button><button type="button">Top Up Kredit Eksisting</button><button type="button">Take Over Bank Lain</button><button type="button">Investor / IPO</button><button type="button">Belum Tahu</button></div>
    <label for="kk_unit">Satuan Angka</label><select id="kk_unit"><option value="1">Rupiah Juta</option><option value="1000">Rupiah Miliar</option></select>
    <p class="err" id="kk_e0"></p>
    <div class="kk-nav"><span></span><a class="btn solid" href="#kk" data-go="1">Lanjut →</a></div>
@@ -72,30 +72,33 @@ FORM = f"""
    <div class="kk-row">{inp("kk_rev","Pendapatan Setahun",True)}{inp("kk_ebit","Laba Usaha (EBIT)",True,"Laba sebelum bunga dan pajak.")}</div>
    <div class="kk-row">{inp("kk_da","Penyusutan dan Amortisasi",True)}{inp("kk_tax","Pajak Penghasilan Dibayar")}</div>
    <div class="kk-row">{inp("kk_eq","Total Ekuitas",True)}{inp("kk_os","Sisa Utang Bank Saat Ini",True,"Semua fasilitas, isi 0 bila belum ada.")}</div>
-   <div class="kk-row">{inp("kk_ds","Angsuran Bank per Bulan",True,"Pokok + bunga semua fasilitas berjalan.")}{inp("kk_col","Nilai Pasar Agunan Tambahan","Agunan yang belum diikat bank.")}</div>
+   <div class="kk-row">{inp("kk_ds","Angsuran Bank per Bulan",True,"Pokok + bunga semua fasilitas berjalan.")}{inp("kk_col","Nilai Pasar Agunan Tambahan",False,"Agunan yang belum diikat bank.")}</div>
    <div class="kk-row">{inp("kk_ar","Piutang Usaha")}{inp("kk_inv","Persediaan")}</div>
-   <div class="kk-row">{inp("kk_ap","Utang Usaha")}<span></span></div>
+   <div class="kk-row">{inp("kk_ap","Utang Usaha")}{inp("kk_ta","Total Aset",False,"Untuk cek jalur IPO dan investor.")}</div>
+   <div class="kk-row">{inp("kk_pbt","Laba Sebelum Pajak Tahun Terakhir")}{inp("kk_pbt0","Laba Sebelum Pajak Tahun Sebelumnya")}</div>
+   <div class="kk-row">{inp("kk_ita","Aset Tak Berwujud",False,"Goodwill, lisensi, software. Untuk menghitung NTA.")}{inp("kk_age","Lama Beroperasi (Tahun)",False,"","0","","numeric")}</div>
    <p class="err" id="kk_e1"></p>
    <div class="kk-nav"><a class="btn line" href="#kk" data-go="0">← Kembali</a><a class="btn solid" href="#kk" data-go="2">Lanjut →</a></div>
   </div>
   <div class="kk-p" data-p="2">
    <label>Jenis Fasilitas</label><div class="kk-chips" id="kk_type"><button type="button" class="on" data-t="ki">Kredit Investasi / Term Loan</button><button type="button" data-t="kmk">KMK Revolving</button></div>
    <div class="kk-row">{inp("kk_rate","Suku Bunga per Tahun (%)",True,"",'11',"11")}{inp("kk_ten","Tenor (Tahun)",True,"KMK revolving: bunga saja, diperpanjang tahunan.",'5',"5")}</div>
-   <div class="kk-row">{inp("kk_want","Plafon yang Diincar","","Untuk menghitung bunga maksimal yang masih aman.")}{inp("kk_dscr","Target DSCR Bank","","Umumnya 1,2 sampai 1,5.",'1,25',"1,25")}</div>
-   <div class="kk-row">{inp("kk_lev","Maks. Utang / EBITDA (x)","","",'3,5',"3,5")}{inp("kk_der","Maks. DER (x)","","",'2,5',"2,5")}</div>
+   <div class="kk-row">{inp("kk_want","Plafon yang Diincar","","Untuk menghitung bunga maksimal yang masih aman.")}{inp("kk_dscr","Target DSCR Bank",False,"Umumnya 1,2 sampai 1,5.",'1,25',"1,25")}</div>
+   <div class="kk-row">{inp("kk_lev","Maks. Utang / EBITDA (x)",False,"",'3,5',"3,5")}{inp("kk_der","Maks. DER (x)",False,"",'2,5',"2,5")}</div>
    <div><label for="kk_nm">Nama Anda<small>opsional</small></label><input id="kk_nm" autocomplete="name"></div>
    <div><label for="kk_wa">Nomor WhatsApp<small>opsional</small></label><input id="kk_wa" inputmode="tel" autocomplete="tel"></div>
    <p class="err" id="kk_e2"></p>
-   <div class="kk-nav"><a class="btn line" href="#kk" data-go="1">← Kembali</a><button type="button" class="btn solid" id="kk_go">Hitung Kapasitas Kredit</button></div>
+   <div class="kk-nav"><a class="btn line" href="#kk" data-go="1">← Kembali</a><button type="button" class="btn solid" id="kk_go">Hitung Kredit &amp; Pendanaan</button></div>
   </div>
  </div>
  <div class="kk-r">
-  <h3>Indikasi Kapasitas</h3>
-  <div class="kk-lock" id="kk_lock">🔒<br>Isi data lalu tekan <b>Hitung Kapasitas Kredit</b> untuk melihat hasil.</div>
+  <h3>Indikasi Kredit &amp; Pendanaan</h3>
+  <div class="kk-lock" id="kk_lock">🔒<br>Isi data lalu tekan <b>Hitung Kredit &amp; Pendanaan</b> untuk melihat hasil.</div>
   <div class="kk-res blur" id="kk_res">
    <div class="kk-big"><small id="kk_lbl">Tambahan Plafon Indikatif</small><b id="kk_cap">Rp -</b><i id="kk_bind">Pembatas utama: -</i></div>
    <div class="kk-k"><div><small>DSCR Saat Ini</small><b id="kk_k1">-</b></div><div><small>Utang / EBITDA</small><b id="kk_k2">-</b></div><div><small>DER</small><b id="kk_k3">-</b></div></div>
    <div class="kk-cap" id="kk_caps"></div>
+   <div class="kk-big" id="kk_ipobox"><small>Jalur IPO Indikatif</small><b id="kk_ipo" style="font-size:clamp(19px,2.4vw,24px)">-</b><i id="kk_ipot"></i></div>
    <div class="kk-big" id="kk_wantbox" style="display:none"><small>Bunga Maksimal untuk Plafon Incaran</small><b id="kk_maxr">-</b><i id="kk_wantt"></i></div>
   </div>
   <p class="kk-note">Indikasi otomatis dari angka yang Anda isi, bukan keputusan bank. Setiap bank memakai kebijakan, agunan, dan analisis industri sendiri.</p>
@@ -105,6 +108,9 @@ FORM = f"""
  <h2>Kemampuan Bayar per Suku Bunga dan Tenor</h2>
  <p class="t">Pinjaman yang sanggup dibayar dari arus kas pada target DSCR Anda, untuk tiap kombinasi bunga dan tenor. Sel yang disorot adalah asumsi Anda.</p>
  <div class="kk-tw"><table id="kk_mx"></table></div><p class="kk-note" id="kk_mxn"></p>
+ <h2>Jalur Pendanaan Ekuitas dan IPO</h2>
+ <p class="t">Uji cepat terhadap syarat keuangan pencatatan saham di Bursa Efek Indonesia. Syarat lengkap (free float, jumlah pemegang saham, opini audit, tata kelola) dinilai saat persiapan.</p>
+ <div class="kk-tw"><table id="kk_ipotb"></table></div><p class="kk-note">Acuan: Peraturan BEI Nomor I-A (opsi keuangan Papan Utama), perubahan yang berlaku 4 Februari 2026 (masa operasi dan free float), dan POJK 53/2017 untuk emiten aset skala kecil dan menengah. Bukan nasihat investasi.</p>
  <h2>Langkah Selanjutnya</h2>
  <ol class="kk-next" id="kk_next"></ol>
  <div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 6px"><a class="btn solid" id="kk_wa_btn" href="#" target="_blank" rel="noopener">Kirim Hasil ke Ananta, CPA</a><a class="btn line" id="kk_mail" href="#">Kirim via Email</a></div>
@@ -143,6 +149,24 @@ function model(rate,ten){var rev=g("kk_rev"),ebit=g("kk_ebit"),da=g("kk_da")||0,
 function maxRate(want,ten){var lo=0.001,hi=0.6,M=model(11,ten);var room=M.cfads/M.dscrT-M.ds;if(room<=0)return null;
  function need(r){return type==="kmk"?want*r:want/annF(r,ten)*12}
  if(need(lo)>room)return 0;if(need(hi)<=room)return hi*100;for(var k=0;k<60;k++){var m=(lo+hi)/2;if(need(m)<=room)lo=m;else hi=m}return lo*100}
+function ipoCheck(){var J=function(i){var v=g(i);return v==null?null:v*U()},eq=J("kk_eq"),ita=J("kk_ita")||0,ta=J("kk_ta"),pb=J("kk_pbt"),pb0=J("kk_pbt0"),rv=J("kk_rev"),age=g("kk_age"),nta=eq==null?null:eq-ita;
+ var B=function(x){return x==null?"Data Belum Diisi":x?"Memenuhi":"Belum"},T=[];
+ var o1=nta==null||pb==null?null:(nta>=250000&&pb>0),o2=pb==null||pb0==null?null:(pb+pb0>=100000),o3=rv==null?null:rv>=800000,o4=ta==null?null:ta>=2000000,ag3=age==null?null:age>=3,ag2=age==null?null:age>=2;
+ T.push(["Papan Utama, Opsi 1","Aset berwujud bersih (NTA) min. Rp250 miliar dan laba sebelum pajak tahun terakhir positif",B(o1)]);
+ T.push(["Papan Utama, Opsi 2","Laba sebelum pajak kumulatif 2 tahun min. Rp100 miliar, kapitalisasi pasar min. Rp1 triliun saat IPO",B(o2)]);
+ T.push(["Papan Utama, Opsi 3","Pendapatan tahun terakhir min. Rp800 miliar, kapitalisasi pasar min. Rp8 triliun",B(o3)]);
+ T.push(["Papan Utama, Opsi 4","Total aset min. Rp2 triliun, kapitalisasi pasar min. Rp4 triliun",B(o4)]);
+ T.push(["Masa Operasi Papan Utama","Usaha utama berjalan komersial min. 36 bulan, ada pendapatan 3 tahun buku terakhir",B(ag3)]);
+ T.push(["Papan Pengembangan","Masa operasi min. 24 bulan; opsi keuangan lebih ringan dari Papan Utama, dicek detail saat persiapan",B(ag2)]);
+ T.push(["Papan Akselerasi","Emiten aset skala kecil atau menengah: total aset sampai Rp250 miliar",B(ta==null?null:ta<=250000)]);
+ var utama=(o1||o2||o3||o4)&&ag3!==false,head,sub;
+ if(utama){head="Kandidat Papan Utama";sub="Free float min. 25% bila kapitalisasi pasar di bawah Rp5 triliun, min. 300 juta saham, 10.000 pemegang saham."}
+ else if(ta!=null&&ta<=250000){head="Kandidat Papan Akselerasi";sub="Aset skala kecil atau menengah. Papan Pengembangan juga bisa dijajaki."}
+ else if(ag2){head="Kandidat Papan Pengembangan";sub="Belum masuk opsi Papan Utama. Investor strategis atau PE bisa menjadi jembatan."}
+ else if(ta==null&&pb==null){head="Isi Total Aset dan Laba";sub="Lengkapi untuk melihat jalur IPO."}
+ else{head="Investor Privat Dulu";sub="Bangun rekam jejak 2 sampai 3 tahun dengan laporan audit, lalu siapkan IPO."}
+ var tb="<thead><tr><th>Jalur</th><th>Syarat Keuangan</th><th>Status</th></tr></thead><tbody>"+T.map(function(r){return "<tr><td>"+r[0]+"</td><td style=\"white-space:normal;min-width:260px;text-align:left\">"+r[1]+"</td><td class=\""+(r[2]==="Memenuhi"?"g2":r[2]==="Belum"?"g0":"")+"\">"+r[2]+"</td></tr>"}).join("")+"</tbody>";
+ return {head:head,sub:sub,tbl:tb,utama:utama,any:head.indexOf("Kandidat")===0}}
 function cls(v,good,ok,lowGood){if(v==null)return "";return lowGood?(v<=good?"g2":v<=ok?"g1":"g0"):(v>=good?"g2":v>=ok?"g1":"g0")}
 var last=null;
 function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!v2())return false;
@@ -161,6 +185,7 @@ function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!
  var h="<thead><tr><th>Bunga / Tenor</th>"+tens.map(function(t){return "<th>"+(type==="kmk"?"Revolving":t+" Tahun")+"</th>"}).join("")+"</tr></thead><tbody>";
  rates.forEach(function(r){h+="<tr><td>"+r.toLocaleString("id-ID")+"%</td>"+tens.map(function(t){var m=model(r,t),cd=m.caps[0][1],lim=Math.min.apply(null,m.caps.slice(1).map(function(c){return c[1]}));return '<td'+(r===rate&&(type==="kmk"||t===ten)?' class="hl"':'')+'>'+rp(cd)+(cd>lim?" *":"")+"</td>"}).join("")+"</tr>"});
  $("kk_mx").innerHTML=h+"</tbody>";var bnd=M.caps.slice(1).reduce(function(a,c){return c[1]<a[1]?c:a});$("kk_mxn").textContent="* Melebihi "+bnd[0]+" sebesar "+rp(bnd[1])+". Bagian di atas batas ini perlu agunan, ekuitas, atau struktur fasilitas tambahan.";
+ var ipo=ipoCheck();$("kk_ipo").textContent=ipo.head;$("kk_ipot").textContent=ipo.sub;$("kk_ipotb").innerHTML=ipo.tbl;
  var N=[];
  if(M.cfads<=0)N.push(["Perbaiki Arus Kas Operasi Dulu","EBITDA setelah pajak belum positif. Bank akan menolak tambahan kredit sebelum ada perbaikan laba atau restrukturisasi biaya."]);
  if(M.bind[2]==="dscr"&&M.cfads>0)N.push(["Perpanjang Tenor atau Restrukturisasi Angsuran","Batas utama ada di kemampuan bayar. Tenor lebih panjang, grace period, atau take over ke bunga lebih rendah bisa menaikkan plafon tanpa menambah agunan."]);
@@ -169,6 +194,7 @@ function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!
  if(M.bind[2]==="col")N.push(["Tambah atau Nilai Ulang Agunan","Penilaian KJPP yang tepat, agunan tambahan, atau struktur berbasis transaksi seperti invoice financing dan trust receipt."]);
  if(M.bind[2]==="wc")N.push(["Data Piutang dan Persediaan","Plafon KMK mengikuti siklus modal kerja. Siapkan umur piutang dan perputaran persediaan yang rapi agar bank bisa menghitung borrowing base."]);
  if(M.dscrNow!=null&&M.dscrNow<1.2)N.push(["DSCR Saat Ini Masih Tipis","Fokuskan top up untuk refinancing yang menurunkan angsuran, bukan tambahan utang baru."]);
+ if(ipo.any||goal.indexOf("IPO")>=0){N.push(["Jalur IPO: Audit 3 Tahun dan SAK Indonesia","Laporan keuangan diaudit KAP terdaftar OJK dengan SAK Indonesia. Bila masih SAK EP, mulai <a href=\"/jasa-transisi-sak-ep-ke-psak/\">transisi ke PSAK</a> dari sekarang."]);N.push(["Tata Kelola Sebelum IPO","Komisaris independen, komite audit, dan sekretaris perusahaan. Lihat <a href=\"/komite-audit-komisaris-independen/\">komite audit dan komisaris independen</a> serta <a href=\"/konsultan-persiapan-ipo/\">persiapan IPO</a>."])}
  N.push(["Siapkan Paket Pengajuan","Laporan keuangan 3 tahun dengan CALK, rekening koran 6 sampai 12 bulan, proyeksi arus kas, dan memo penggunaan dana. Kami bantu susun sampai siap komite kredit."]);
  N.push(["Diskusi Awal Gratis","Kirim hasil ini ke Ananta, CPA. Kami baca dulu sebelum Anda mendatangi bank, supaya pengajuan pertama tidak ditolak."]);
  $("kk_next").innerHTML=N.map(function(n){return "<li><b>"+n[0]+"</b>"+n[1]+"</li>"}).join("");
@@ -176,12 +202,13 @@ function calc(){if(!v0()){go(0);return false}if(!v1()){show(1);return false}if(!
  var s=summary();$("kk_wa_btn").href="https://wa.me/"+D.wa+"?text="+encodeURIComponent(s);$("kk_mail").href="mailto:"+D.mail+"?subject="+encodeURIComponent("Cek Kapasitas Kredit - "+$("kk_pt").value)+"&body="+encodeURIComponent(s);
  sheet("hitung");try{if(window.gtag)gtag("event","generate_lead",{method:"calculator",form:"cek-kapasitas-kredit"})}catch(x){}
  return true}
-function summary(){var M=last,L=["Halo Pak Ananta, saya sudah cek kapasitas kredit di faindonesia.co.id:","","PT: "+$("kk_pt").value,"Tujuan: "+goal,"Fasilitas: "+(type==="kmk"?"KMK Revolving":"Kredit Investasi / Term Loan"),"Bunga "+g("kk_rate")+"%, tenor "+g("kk_ten")+" tahun",""];
- [["Pendapatan","kk_rev"],["Laba Usaha","kk_ebit"],["Penyusutan","kk_da"],["Pajak","kk_tax"],["Ekuitas","kk_eq"],["Sisa Utang Bank","kk_os"],["Angsuran/Bulan","kk_ds"],["Agunan Tambahan","kk_col"],["Piutang","kk_ar"],["Persediaan","kk_inv"],["Utang Usaha","kk_ap"],["Plafon Diincar","kk_want"]].forEach(function(r){var v=g(r[1]);if(v!=null)L.push(r[0]+": "+rp(v))});
+function summary(){var M=last,L=["Halo Pak Ananta, saya sudah cek kredit dan pendanaan di faindonesia.co.id:","","PT: "+$("kk_pt").value,"Tujuan: "+goal,"Fasilitas: "+(type==="kmk"?"KMK Revolving":"Kredit Investasi / Term Loan"),"Bunga "+g("kk_rate")+"%, tenor "+g("kk_ten")+" tahun",""];
+ [["Total Aset","kk_ta"],["Laba Sebelum Pajak","kk_pbt"],["Laba Sebelum Pajak Th Sebelumnya","kk_pbt0"],["Aset Tak Berwujud","kk_ita"],["Pendapatan","kk_rev"],["Laba Usaha","kk_ebit"],["Penyusutan","kk_da"],["Pajak","kk_tax"],["Ekuitas","kk_eq"],["Sisa Utang Bank","kk_os"],["Angsuran/Bulan","kk_ds"],["Agunan Tambahan","kk_col"],["Piutang","kk_ar"],["Persediaan","kk_inv"],["Utang Usaha","kk_ap"],["Plafon Diincar","kk_want"]].forEach(function(r){var v=g(r[1]);if(v!=null)L.push(r[0]+": "+rp(v))});
  L.push("","DSCR saat ini: "+(M.dscrNow==null?"-":x1(M.dscrNow)),"Utang/EBITDA: "+x1(M.levNow),"DER: "+x1(M.derNow),"Plafon indikatif: "+rp(M.cap)+" (pembatas: "+M.bind[0]+")");
+ L.push("Jalur IPO indikatif: "+$("kk_ipo").textContent);
  if($("kk_wantbox").style.display!=="none")L.push("Bunga maksimal plafon incaran: "+$("kk_maxr").textContent);
  L.push("","Nama: "+($("kk_nm").value||"-"),"Email: "+$("kk_em").value,"WA: "+($("kk_wa").value||"-"));return L.join("\n")}
-function sheet(m){try{var p=new URLSearchParams();p.append("pt",$("kk_pt").value);p.append("email",$("kk_em").value);p.append("goal","FA Cek Kapasitas Kredit: "+goal);p.append("unit",$("kk_unit").options[$("kk_unit").selectedIndex].text);
+function sheet(m){try{var p=new URLSearchParams();p.append("pt",$("kk_pt").value);p.append("email",$("kk_em").value);p.append("goal","FA Cek Kredit & Pendanaan: "+goal);p.append("unit",$("kk_unit").options[$("kk_unit").selectedIndex].text);
  p.append("nama",$("kk_nm").value);p.append("wa",$("kk_wa").value?"'"+$("kk_wa").value:"");p.append("lang","id");p.append("page","faindonesia.co.id"+location.pathname+" ("+m+")");p.append("summary",summary());
  if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(x){}}
 $("kk_go").addEventListener("click",function(){if(calc())setTimeout(function(){$("kk_res").scrollIntoView({behavior:"smooth",block:"start"})},60)});
@@ -202,17 +229,17 @@ FAQ = [
  ("Benarkah gratis?", "Ya. Di akhir ada pilihan donasi sukarela lewat QRIS sebesar Rp10.001 yang boleh dilewati."),
 ]
 main = (f'<section class="block">\n<div class="wrap art">\n<p class="eyebrow">FA Venus · Kalkulator Gratis</p>\n'
-        f'<h1 style="margin:.2em 0 .5em;font-size:clamp(32px,4.4vw,54px);line-height:1.12">Cek Kapasitas Kredit: Berapa Plafon yang Sanggup Ditanggung Perusahaan Anda?</h1>\n'
-        f'<p class="t" style="max-width:62em">Untuk pengajuan kredit baru, top up kredit eksisting, atau take over. Isi angka ringkas laporan keuangan, lalu lihat repayment capacity (DSCR), plafon indikatif per suku bunga dan tenor, bunga maksimal yang masih aman, dan langkah selanjutnya. Gratis.</p>\n'
+        f'<h1 style="margin:.2em 0 .5em;font-size:clamp(32px,4.4vw,54px);line-height:1.12">Cek Kredit dan Pendanaan: Berapa Plafon yang Sanggup Ditanggung, dan Sudah Layak IPO?</h1>\n'
+        f'<p class="t" style="max-width:62em">Untuk kredit baru, top up kredit eksisting, take over, sampai investor dan IPO. Isi angka ringkas laporan keuangan, lalu lihat repayment capacity (DSCR), plafon indikatif per suku bunga dan tenor, bunga maksimal yang masih aman, jalur papan BEI yang mungkin, dan langkah selanjutnya. Gratis.</p>\n'
         f'{FORM}\n{ABOUT}{faq_html(FAQ)}\n'
         f'<p class="t">Butuh pendampingan sampai cair? Lihat <a href="/konsultan-kredit-bank/">Konsultan Kredit Bank</a> atau <a href="/konsultan-kredit-distributor-importir/">Kredit Distributor dan Importir</a>.</p>\n'
         f'{AUTHOR_BOX}\n</div>\n</section>')
 ld = {"@context": "https://schema.org", "@graph": [
-    {"@type": "WebApplication", "name": "FA Venus · Cek Kapasitas Kredit", "url": URL, "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
+    {"@type": "WebApplication", "name": "FA Venus · Cek Kredit dan Pendanaan", "url": URL, "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "IDR"}, "provider": PROVIDER, "inLanguage": "id"},
-    faq_ld(FAQ), crumbs([("FA Indonesia", D + "/"), ("Apps", D + "/apps/"), ("Cek Kapasitas Kredit", URL)])]}
-title = "Cek Kapasitas Kredit Gratis: DSCR, Plafon & Bunga Maksimal | FA Indonesia"
-desc = "Kalkulator gratis kemampuan pengajuan atau top up kredit bank: repayment capacity (DSCR), plafon indikatif per bunga dan tenor, bunga maksimal, dan langkah selanjutnya."
+    faq_ld(FAQ), crumbs([("FA Indonesia", D + "/"), ("Apps", D + "/apps/"), ("Cek Kredit dan Pendanaan", URL)])]}
+title = "Cek Kredit & Pendanaan Gratis: DSCR, Plafon, Kelayakan IPO | FA Indonesia"
+desc = "Kalkulator gratis kredit dan pendanaan: repayment capacity (DSCR), plafon per bunga dan tenor, bunga maksimal, dan uji cepat syarat IPO Papan Utama, Pengembangan, Akselerasi BEI."
 page = set_main(set_head(TPL_SVC, title, desc, URL, ld), main).replace("</head>", CSS + "</head>", 1).replace("</body>", JS + "</body>", 1)
 p = P("cek-kapasitas-kredit", "index.html"); os.makedirs(os.path.dirname(p), exist_ok=True); wtxt(p, page)
 
@@ -220,7 +247,7 @@ p = P("cek-kapasitas-kredit", "index.html"); os.makedirs(os.path.dirname(p), exi
 def box(title, text):
     return (f'<!--fa-kk--><div style="margin:26px 0;padding:20px 22px;border:1px solid #444;border-radius:12px;background:#1e1e1e">'
             f'<p style="margin:0 0 6px;font-weight:600">{E(title)}</p><p style="margin:0 0 12px">{E(text)}</p>'
-            f'<a class="btn solid" href="{PATH}">Cek Kapasitas Kredit Gratis</a></div><!--/fa-kk-->')
+            f'<a class="btn solid" href="{PATH}">Cek Kredit &amp; Pendanaan Gratis</a></div><!--/fa-kk-->')
 INJ = {
  ("konsultan-kredit-bank",): box("Berapa Plafon yang Realistis?", "Hitung repayment capacity, plafon per suku bunga dan tenor, serta bunga maksimal yang masih aman. Gratis, 3 menit."),
  ("konsultan-kredit-distributor-importir",): box("Cek Dulu Ruang Plafon Anda", "Kalkulator gratis untuk kredit baru, top up, atau take over, termasuk batas siklus modal kerja untuk KMK."),
@@ -239,7 +266,7 @@ for parts, b in INJ.items():
 # /layanan/ tombol
 lp = P("layanan", "index.html"); t = re.sub(r"<!--fa-kk-->.*?<!--/fa-kk-->", "", rd(lp), flags=re.S)
 anchor = '<a class="btn line" href="/konsultan-kredit-distributor-importir/">'
-if anchor in t: t = t.replace(anchor, f'<!--fa-kk--><a class="btn line" href="{PATH}">Cek Kapasitas Kredit</a><!--/fa-kk-->' + anchor, 1)
+if anchor in t: t = t.replace(anchor, f'<!--fa-kk--><a class="btn line" href="{PATH}">Cek Kredit &amp; Pendanaan</a><!--/fa-kk-->' + anchor, 1)
 wtxt(lp, t)
 
 # sitemap & llms
@@ -247,14 +274,14 @@ sm = re.sub(r"<!--fa-kk-->.*?<!--/fa-kk-->\n?", "", rd(P("sitemap.xml")), flags=
 sm = sm.replace("</urlset>", f"<!--fa-kk-->\n<url><loc>{URL}</loc><lastmod>{TODAY}</lastmod><priority>0.9</priority></url>\n<!--/fa-kk-->\n</urlset>")
 wtxt(P("sitemap.xml"), sm)
 ll = re.sub(r"\n## Kalkulator Kredit.*?(?=\n## |\Z)", "", rd(P("llms.txt")), flags=re.S)
-ll = ll.rstrip("\n") + f"\n\n## Kalkulator Kredit\n- FA Venus Cek Kapasitas Kredit (gratis): repayment capacity/DSCR, plafon indikatif per bunga dan tenor, bunga maksimal untuk plafon incaran, kredit baru/top up/take over → {URL}\n"
+ll = ll.rstrip("\n") + f"\n\n## Kalkulator Kredit\n- FA Venus Cek Kredit dan Pendanaan (gratis): repayment capacity/DSCR, plafon indikatif per bunga dan tenor, bunga maksimal, uji cepat syarat IPO Papan Utama/Pengembangan/Akselerasi BEI, kredit baru/top up/take over/investor → {URL}\n"
 wtxt(P("llms.txt"), ll)
 print("ok", PATH)
 
 # /apps/ kartu FA Venus baru (setelah kartu PSAK 118)
 ap = P("apps", "index.html"); t = re.sub(r"<!--fa-kk-->.*?<!--/fa-kk-->", "", rd(ap), flags=re.S)
-card = ('<!--fa-kk--><div class="ap-app"><div class="nm"><b>FA Venus · Cek Kapasitas Kredit</b><span class="chip on">Gratis</span></div>'
-        '<p>Hitung repayment capacity (DSCR), plafon indikatif per suku bunga dan tenor, dan bunga maksimal yang masih aman untuk kredit baru, top up, atau take over.</p>'
+card = ('<!--fa-kk--><div class="ap-app"><div class="nm"><b>FA Venus · Cek Kredit &amp; Pendanaan</b><span class="chip on">Gratis</span></div>'
+        '<p>Hitung repayment capacity (DSCR), plafon per suku bunga dan tenor, bunga maksimal yang masih aman, dan uji cepat syarat IPO di BEI.</p>'
         f'<a class="btn solid sm" href="{PATH}">Buka FA Venus</a></div><!--/fa-kk-->')
 m = re.search(r'<div class="ap-app"><div class="nm"><b>FA Venus · Konversi PL PSAK 118</b>.*?</a></div>', t, re.S)
 if m: t = t[:m.end()] + card + t[m.end():]
@@ -265,8 +292,8 @@ wtxt(ap, t)
 hp = P("index.html"); t = rd(hp)
 t = re.sub(r"<!--fa-kk-home-->.*?<!--/fa-kk-home-->", "", t, flags=re.S)
 home_sec = ('<!--fa-kk-home--><section class="block" id="cek-kredit"><div class="wrap">'
-            '<div class="head"><p class="eyebrow">FA Venus · Gratis</p><h2 class="aph">Cek Kapasitas Kredit, <em>3 Menit.</em></h2></div>'
-            '<p class="t" style="max-width:62em">Kredit baru, top up kredit eksisting, atau take over. Lihat repayment capacity, plafon yang sanggup ditanggung di tiap suku bunga, dan langkah selanjutnya sebelum ke bank.</p>'
+            '<div class="head"><p class="eyebrow">FA Venus · Gratis</p><h2 class="aph">Cek Kredit &amp; Pendanaan, <em>3 Menit.</em></h2></div>'
+            '<p class="t" style="max-width:62em">Kredit baru, top up, take over, sampai investor dan IPO. Lihat repayment capacity, plafon yang sanggup ditanggung di tiap suku bunga, jalur papan BEI yang mungkin, dan langkah selanjutnya.</p>'
             + FORM + '</div></section>' + CSS + JS + '<!--/fa-kk-home-->')
 anchor = '<section class="block alt hs" id="peta">'
 assert anchor in t, "anchor beranda tidak ketemu"
