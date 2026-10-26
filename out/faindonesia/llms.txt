@@ -98,6 +98,7 @@
 
 ## Artikel Eksplor Terbaru
 - Alasan Kredit Bank Ditolak dan Cara Memperbaikinya → https://faindonesia.co.id/artikel/alasan-kredit-bank-ditolak/
+- Apakah Perusahaan Saya Butuh Diaudit KAP? Checklist untuk Pemilik → https://faindonesia.co.id/artikel/apakah-perusahaan-butuh-audit-kap/
 - Audit Rumah Sakit Pertama Kali: Area yang Diuji dan Persiapannya → https://faindonesia.co.id/artikel/audit-rumah-sakit-pertama-kali/
 - Biaya Audit KAP: 8 Faktor Penentu dan Kenapa Termurah Bisa Mahal → https://faindonesia.co.id/artikel/biaya-audit-kap-faktor-penentu/
 - Cara Memilih KAP untuk Kredit Bank: Izin, Rekanan, dan Biaya → https://faindonesia.co.id/artikel/cara-memilih-kap-untuk-kredit-bank/
@@ -107,10 +108,13 @@
 - Dokumen Pengajuan Kredit Korporasi: Checklist Lengkap untuk Bank → https://faindonesia.co.id/artikel/dokumen-pengajuan-kredit-korporasi/
 - Due Diligence Akuisisi Rumah Sakit Swasta: Area Kritis dan Checklist → https://faindonesia.co.id/artikel/due-diligence-akuisisi-rumah-sakit-swasta/
 - Due Diligence Investor: Apa yang Diperiksa dan Dokumen yang Disiapkan → https://faindonesia.co.id/artikel/due-diligence-investor-yang-perlu-disiapkan/
+- iDRG Pengganti INA-CBG: Status 2026 dan Persiapan Rumah Sakit → https://faindonesia.co.id/artikel/idrg-pengganti-ina-cbg-persiapan-rumah-sakit/
 - Indikator Keuangan Rumah Sakit yang Dilihat Investor dan Bank → https://faindonesia.co.id/artikel/indikator-keuangan-rumah-sakit-yang-dilihat-investor/
 - Jenis Opini Audit dan Dampaknya ke Bank: WTP, WDP, TW, dan TMP → https://faindonesia.co.id/artikel/jenis-opini-audit-dan-dampaknya-ke-bank/
 - Kapan Perusahaan Butuh KJPP? Panduan Jasa Penilai untuk Bisnis → https://faindonesia.co.id/artikel/kapan-perusahaan-butuh-kjpp-jasa-penilai/
+- Kapan Perusahaan Wajib Diaudit? Pasal 68 UU PT dan Syarat Kredit Bank → https://faindonesia.co.id/artikel/kapan-perusahaan-wajib-diaudit/
 - KMK vs Kredit Investasi: Perbedaan, Tenor, dan Cara Menghitung → https://faindonesia.co.id/artikel/kmk-vs-kredit-investasi/
+- Konsultan iDRG Rumah Sakit: Lingkup Kerja, Output, dan Batasnya → https://faindonesia.co.id/artikel/konsultan-idrg-rumah-sakit/
 - Konsultan Rumah Sakit Swasta: Kapan Dibutuhkan dan Cara Memilihnya → https://faindonesia.co.id/artikel/konsultan-rumah-sakit-swasta-kapan-dibutuhkan/
 - Kredit Bank untuk Rumah Sakit Swasta: Kredit Investasi dan KMK → https://faindonesia.co.id/artikel/kredit-bank-untuk-rumah-sakit-swasta/
 - Kredit Modal Kerja Kontraktor Berbasis SPK: Jenis dan Syarat Bank → https://faindonesia.co.id/artikel/kredit-modal-kerja-kontraktor-berbasis-spk/
@@ -118,13 +122,18 @@
 - Laporan Keuangan Kontraktor Sesuai PSAK 115: Pendapatan Proyek → https://faindonesia.co.id/artikel/laporan-keuangan-kontraktor-psak-115/
 - Laporan Keuangan Rumah Sakit Swasta Sesuai PSAK: Panduan Praktis → https://faindonesia.co.id/artikel/laporan-keuangan-rumah-sakit-swasta-sesuai-psak/
 - Memilih Konsultan Pajak Berizin: Cek Izin, Lingkup, dan Biaya → https://faindonesia.co.id/artikel/memilih-konsultan-pajak-berizin/
+- Mengembangkan PT Tanpa KAP: Bisa, Asal Pembukuan dan Kontrolnya Rapi → https://faindonesia.co.id/artikel/mengembangkan-pt-tanpa-audit-kap/
+- Cara Mengembangkan Usaha tanpa Utang: 9 Sumber Dana Selain Bank → https://faindonesia.co.id/artikel/mengembangkan-usaha-tanpa-utang/
 - Menghitung Tarif Layanan Klinik dan Rumah Sakit dari Unit Cost → https://faindonesia.co.id/artikel/menghitung-tarif-layanan-klinik-dan-rumah-sakit/
 - Menjual Rumah Sakit: Persiapan Sisi Penjual agar Harga Optimal → https://faindonesia.co.id/artikel/menjual-rumah-sakit-persiapan-sisi-penjual/
 - Persiapan Audit Pertama Kali: Saldo Awal, Daftar PBC, dan Timeline → https://faindonesia.co.id/artikel/persiapan-audit-pertama-kali-saldo-awal/
 - Private Equity vs Utang Bank untuk Perusahaan Menengah: Cara Memilih → https://faindonesia.co.id/artikel/private-equity-vs-utang-bank/
+- Prosedur Pengajuan Kredit Perusahaan ke Bank: 10 Tahap sampai Cair → https://faindonesia.co.id/artikel/prosedur-pengajuan-kredit-perusahaan-ke-bank/
 - Rasio Keuangan yang Dilihat Bank untuk Kredit Korporasi → https://faindonesia.co.id/artikel/rasio-keuangan-yang-dilihat-bank/
 - Revaluasi Aset Tetap PSAK 216 dan Pajaknya: Jurnal dan PPh Final → https://faindonesia.co.id/artikel/revaluasi-aset-tetap-psak-216-dan-pajak/
+- Strategi Rumah Sakit Swasta Bertahan di Tengah iDRG dan KRIS → https://faindonesia.co.id/artikel/strategi-rumah-sakit-swasta-bertahan/
 - Tata Kelola Keuangan Klinik Menjadi Rumah Sakit: Peta Jalan 7 Tahap → https://faindonesia.co.id/artikel/tata-kelola-keuangan-klinik-menjadi-rumah-sakit/
+- Unit Cost iDRG: Clinical Pathway untuk Membaca Kasus yang Rugi → https://faindonesia.co.id/artikel/unit-cost-clinical-pathway-menghadapi-idrg/
 - Unit Cost vs Tarif INA-CBG: Analisis Margin JKN Rumah Sakit Swasta → https://faindonesia.co.id/artikel/unit-cost-vs-tarif-ina-cbgs-rumah-sakit-swasta/
 - Valuasi Rumah Sakit Swasta: Metode DCF, EV/EBITDA, dan Peran KJPP → https://faindonesia.co.id/artikel/valuasi-rumah-sakit-swasta/
 
