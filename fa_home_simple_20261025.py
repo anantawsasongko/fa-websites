@@ -57,7 +57,7 @@ T = {
  "hs13": ("Rekam Jejak", "Track Record", "业绩"),
  "hs14": ("Kredit perbankan yang <em>sudah cair.</em>", "Bank credit <em>already disbursed.</em>", "<em>已发放</em>的银行贷款。"),
  "hs15": ("Kumulatif per jenis bank, dalam Rp miliar", "Cumulative by bank type, in Rp billion", "按银行类型累计，单位：十亿印尼盾"),
- "hs16": ("Ditambah BPD, BPR, dan kredit sindikasi, serta pendanaan investor hingga US$3 juta. Total mendekati Rp1 triliun.", "Plus regional banks, rural banks and syndicated loans, and investor funding up to US$3 million. Close to Rp1 trillion in total.", "另有地方银行、农村银行及银团贷款，以及最高 300 万美元的投资者资金。合计接近 1 万亿印尼盾。"),
+ "hs16": ("Ditambah BPD, BPR, dan kredit sindikasi, serta pendanaan investor hingga US$3 juta. Total lebih dari Rp1,1 triliun.", "Plus regional banks, rural banks and syndicated loans, and investor funding up to US$3 million. More than Rp1.1 trillion in total.", "另有地方银行、农村银行及银团贷款，以及最高 300 万美元的投资者资金。合计超过 1.1 万亿印尼盾。"),
  "hs17": ("Lihat Rekam Jejak Lengkap", "See Full Track Record", "查看完整业绩"),
  "hs18": ("Untuk Siapa", "Who It Is For", "服务对象"),
  "hs19": ("Semua skala perusahaan, <em>satu standar.</em>", "Every company size, <em>one standard.</em>", "各种规模的企业，<em>同一标准。</em>"),
@@ -199,8 +199,8 @@ ICON = {
  "ins": '<svg viewBox="0 0 24 24"><path d="M4 19h16M6 16l4-5 3 3 5-7"/></svg>',
 }
 
-BANKS = [("Bank BUMN", 440, "440+"), ("Bank Syariah", 90, "90+"), ("Bank Swasta", 85, "85+")]
-bars = "".join(f'<div class="bar"><span class="n">{n}</span><span class="tr"><i style="--w:{v/440*100:.0f}%"></i></span><span class="v">{lbl}</span></div>' for n, v, lbl in BANKS)
+BANKS = [("Bank BUMN", 700, "700+"), ("Bank Syariah", 350, "350+"), ("Bank Swasta", 85, "85+")]
+bars = "".join(f'<div class="bar"><span class="n">{n}</span><span class="tr"><i style="--w:{v/700*100:.0f}%"></i></span><span class="v">{lbl}</span></div>' for n, v, lbl in BANKS)
 
 PETA = f'''<section class="block alt hs" id="peta">
 <div class="wrap">
@@ -225,7 +225,7 @@ PETA = f'''<section class="block alt hs" id="peta">
 REKAM = f'''<section class="block hs" id="angka">
 <div class="wrap">
 <div class="head"><p class="eyebrow" data-i18n="hs13">{T["hs13"][0]}</p><h2 class="aph" data-i18n="hs14">{T["hs14"][0]}</h2></div>
-<div class="total"><b>±Rp1 T</b>{t("hs15")}</div>
+<div class="total"><b>Rp1,1 T+</b>{t("hs15")}</div>
 <div class="bars" data-on>{bars}</div>
 <p class="chartnote" data-i18n="hs16">{T["hs16"][0]}</p>
 <a class="morelink" href="/layanan/#rekam" data-i18n="hs17">{T["hs17"][0]}</a>
