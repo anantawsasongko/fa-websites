@@ -18,7 +18,7 @@ LAND = {
   center_sub="Laporan terakhir dan tujuan Anda",
   paths=[("Kredit Bank","DSCR, leverage, agunan"),("Investor","Laba, arus kas, tata kelola"),("IPO","Syarat bursa, audit, GCG"),("Benahi Dulu","Laporan, pajak, legal")],
   steps_h2="Cara Kami Mendampingi",
-  steps=[("Isi Screening","Angka 3 tahun, 2 menit"),("Hasil via Email","Rasio dan jalur yang realistis"),("Diskusi","Jadwal call dengan Ananta, CPA"),("NDA dan Kontrak","Data Anda terlindungi"),("Didampingi","KAP, KJA, KJPP, Notaris sampai tuntas")],
+  steps=[("Isi Screening","Angka 3 tahun, 2 menit"),("Hasil Langsung","Rasio dan jalur, kirim ke WhatsApp"),("Diskusi","Jadwal call dengan Ananta, CPA"),("NDA dan Kontrak","Data Anda terlindungi"),("Didampingi","KAP, KJA, KJPP, Notaris sampai tuntas")],
   needs_h2="Atau Langsung Pilih Kebutuhan",
   final_h2="Kirim Laporan Terakhir Anda, Kami Baca Dulu.",
   final_sub="Gratis, tanpa kewajiban. Dibalas di hari yang sama.",
@@ -40,7 +40,7 @@ LAND = {
   center_sub="Your latest statements and goals",
   paths=[("Bank Loan","DSCR, leverage, collateral"),("Investors","Profit, cash flow, governance"),("IPO","Listing rules, audit, GCG"),("Fix First","Statements, tax, legal")],
   steps_h2="How We Support You",
-  steps=[("Fill Screening","3-year figures, 2 minutes"),("Result by Email","Ratios and a realistic path"),("Discussion","Call with Ananta, CPA"),("NDA and Contract","Your data protected"),("Supported","Right firms, to the finish")],
+  steps=[("Fill Screening","3-year figures, 2 minutes"),("Instant Result","Ratios and path, send to WhatsApp"),("Discussion","Call with Ananta, CPA"),("NDA and Contract","Your data protected"),("Supported","Right firms, to the finish")],
   needs_h2="Or Pick Your Need Directly",
   final_h2="Send Your Latest Statements. We Read Them First.",
   final_sub="Free, no obligation. Same-day reply.",
@@ -60,7 +60,7 @@ LAND = {
   center_sub="最新报表和您的目标",
   paths=[("银行贷款","偿债比率、杠杆、抵押"),("投资人","利润、现金流、治理"),("上市","交易所规则、审计、治理"),("先整改","报表、税务、法务")],
   steps_h2="我们如何陪同",
-  steps=[("填写筛查","三年数字，两分钟"),("邮件结果","比率与可行路线"),("讨论","与 Ananta 通话"),("保密协议与合同","保护您的数据"),("全程陪同","选对事务所直到完成")],
+  steps=[("填写筛查","三年数字，两分钟"),("即时结果","比率与路线，发送到 WhatsApp"),("讨论","与 Ananta 通话"),("保密协议与合同","保护您的数据"),("全程陪同","选对事务所直到完成")],
   needs_h2="或直接选择需求",
   final_h2="发来最新报表，我们先帮您看。",
   final_sub="免费，无义务。当天回复。",
@@ -80,7 +80,7 @@ LAND = {
   center_sub="上新的報表佮你的目標",
   paths=[("銀行貸款","償債比率、槓桿、抵押"),("投資者","利潤、現金、治理"),("上市","交易所規則、查數"),("先整理","報表、稅務、法務")],
   steps_h2="阮按怎陪伴",
-  steps=[("填篩檢","三年數字，兩分鐘"),("電子批結果","比率佮路線"),("討論","佮 Ananta 開講"),("保密佮合約","保護你的資料"),("陪到尾","揀著事務所到完成")],
+  steps=[("填篩檢","三年數字，兩分鐘"),("馬上結果","比率佮路線，寄去 WhatsApp"),("討論","佮 Ananta 開講"),("保密佮合約","保護你的資料"),("陪到尾","揀著事務所到完成")],
   needs_h2="抑是直接揀需求",
   final_h2="寄上新的報表來，阮先看。",
   final_sub="免費，無義務。當日回。",
@@ -249,50 +249,50 @@ def json_dumps(x): return _json.dumps(x, ensure_ascii=False)
 
 # ---------------- Form screening instan ----------------
 SCR = {
- "id": dict(h2="Screening Instan, Gratis", sub="Isi angka ringkas 3 tahun terakhir (bertanda * wajib). Indikasi awal langsung tampil, hasil lengkap kami kirim ke email Anda.",
-   s1="Perusahaan", s2="Angka 3 Tahun", s3="Kontak",
+ "id": dict(h2="Screening Instan, Gratis", sub="Isi angka ringkas 3 tahun terakhir (bertanda * wajib). Indikasi langsung tampil di sini, lalu kirim hasilnya ke WhatsApp kami untuk dibahas.",
+   s1="Perusahaan", s2="Angka 3 Tahun", s3="Kirim",
    pt="Nama PT", pt_ph="PT Contoh Sukses Abadi", goal="Tujuan", goals=["Kredit Bank","Investor","IPO","Belum Tahu"],
    unit="Satuan", units=[("1000000","Juta Rp"),("1000000000","Miliar Rp")],
    rows=[("aset","Total Aset"),("liab","Total Liabilitas"),("utang","Utang Bank"),("rev","Pendapatan"),("lb","Laba Bersih"),("ebitda","EBITDA"),("nta","NTA (Aset Berwujud Bersih)")], req=["aset","liab","utang","rev","lb"], opt="opsional",
    name="Nama Anda", email="Email", email_ph="nama@perusahaan.com", wa="WhatsApp (opsional)",
-   next="Lanjut", back="Kembali", send="Kirim via WhatsApp", send2="Kirim via Email",
-   prev_h="Indikasi Awal", note="Indikasi otomatis dari angka yang Anda isi, bukan opini. Hasil lengkap dan rekomendasi jalur kami kirim ke email Anda.",
-   k_der="Liabilitas terhadap ekuitas (DER)", k_debt="Utang bank terhadap EBITDA", k_growth="Pertumbuhan pendapatan", k_margin="Margin laba bersih", k_roa="Laba bersih terhadap aset", k_noebitda="Isi EBITDA", need_rows="Wajib diisi untuk tahun terakhir: ",
-   good="Sehat", mid="Perlu dicek", bad="Perlu dibenahi", need="Lengkapi nama PT dan email yang aktif.", lock="Isi nama PT dan email untuk melihat indikasi awal.",
-   wa_head="Selamat siang Pak Ananta, mohon screening awal perusahaan kami:", thanks="Terkirim. Hasil lengkap kami kirim ke email Anda, biasanya di hari yang sama.", privacy="Data hanya dipakai untuk screening dan dijaga kerahasiaannya."),
- "en": dict(h2="Instant Screening, Free", sub="Enter a few figures for the last 3 years. A first indication appears right away; the full result goes to your email.",
-   s1="Company", s2="3-Year Figures", s3="Contact",
+   next="Lanjut", back="Kembali", send="Kirim Hasil via WhatsApp", send2="Kirim via Email",
+   prev_h="Indikasi Awal", note="Indikasi otomatis dari angka yang Anda isi, bukan opini. Kirim ke WhatsApp untuk pembahasan jalur yang realistis.",
+   k_der="Liabilitas terhadap ekuitas (DER)", k_debt="Utang bank terhadap EBITDA", k_growth="Pertumbuhan pendapatan", k_margin="Margin laba bersih", k_roa="Laba bersih terhadap aset", k_ipo="Jalur IPO BEI", ipo_u="Papan Utama", ipo_p="Papan Pengembangan", ipo_a="Papan Akselerasi", ipo_n="Belum, bangun rekam jejak dulu", ipo_g="Indikasi Memenuhi", ipo_m="Perlu Dicek", ipo_b="Belum", k_noebitda="Isi EBITDA", need_rows="Wajib diisi untuk tahun terakhir: ",
+   good="Sehat", mid="Perlu dicek", bad="Perlu dibenahi", need="Lengkapi nama PT.", lock="Isi nama PT untuk melihat indikasi awal.",
+   wa_head="Selamat siang Pak Ananta, mohon screening awal perusahaan kami:", thanks="Terkirim lewat WhatsApp. Kami balas di hari yang sama.", privacy="Data hanya dipakai untuk screening dan dijaga kerahasiaannya."),
+ "en": dict(h2="Instant Screening, Free", sub="Enter a few figures for the last 3 years. The indication appears right here; then send it to our WhatsApp to discuss.",
+   s1="Company", s2="3-Year Figures", s3="Send",
    pt="Company name", pt_ph="PT Example Abadi", goal="Goal", goals=["Bank Loan","Investors","IPO","Not Sure"],
    unit="Unit", units=[("1000000","IDR million"),("1000000000","IDR billion")],
    rows=[("aset","Total Assets"),("liab","Total Liabilities"),("utang","Bank Debt"),("rev","Revenue"),("lb","Net Profit"),("ebitda","EBITDA"),("nta","NTA (Net Tangible Assets)")], req=["aset","liab","utang","rev","lb"], opt="optional",
    name="Your name", email="Email", email_ph="name@company.com", wa="WhatsApp (optional)",
-   next="Next", back="Back", send="Send via WhatsApp", send2="Send via Email",
-   prev_h="First Indication", note="Automatic indication from your figures, not an opinion. The full result and recommended path go to your email.",
-   k_der="Liabilities to equity (DER)", k_debt="Bank debt to EBITDA", k_growth="Revenue growth", k_margin="Net margin", k_roa="Net profit to assets", k_noebitda="Add EBITDA", need_rows="Required for the latest year: ",
-   good="Healthy", mid="Worth checking", bad="Needs work", need="Please enter the company name and a working email.", lock="Enter the company name and email to see the first indication.",
-   wa_head="Hello Pak Ananta, please screen our company:", thanks="Sent. The full result goes to your email, usually the same day.", privacy="Data is used only for screening and kept confidential."),
- "zh": dict(h2="免费即时筛查", sub="填写近三年的简要数字，立即看到初步指标，完整结果发到您的邮箱。",
+   next="Next", back="Back", send="Send Result via WhatsApp", send2="Send via Email",
+   prev_h="First Indication", note="Automatic indication from your figures, not an opinion. Send it to our WhatsApp to discuss a realistic path.",
+   k_der="Liabilities to equity (DER)", k_debt="Bank debt to EBITDA", k_growth="Revenue growth", k_margin="Net margin", k_roa="Net profit to assets", k_ipo="IDX Listing Path", ipo_u="Main Board", ipo_p="Development Board", ipo_a="Acceleration Board", ipo_n="Not yet, build track record", ipo_g="Likely Eligible", ipo_m="Check Further", ipo_b="Not Yet", k_noebitda="Add EBITDA", need_rows="Required for the latest year: ",
+   good="Healthy", mid="Worth checking", bad="Needs work", need="Please enter the company name.", lock="Enter the company name to see the first indication.",
+   wa_head="Hello Pak Ananta, please screen our company:", thanks="Sent via WhatsApp. We reply the same day.", privacy="Data is used only for screening and kept confidential."),
+ "zh": dict(h2="免费即时筛查", sub="填写近三年的简要数字，指标即时显示，然后发送到我们的 WhatsApp 详谈。",
    s1="公司", s2="三年数字", s3="联系方式",
    pt="公司名称", pt_ph="PT 示例公司", goal="目标", goals=["银行贷款","投资人","上市","还不确定"],
    unit="单位", units=[("1000000","百万印尼盾"),("1000000000","十亿印尼盾")],
    rows=[("aset","总资产"),("liab","总负债"),("utang","银行借款"),("rev","营业收入"),("lb","净利润"),("ebitda","EBITDA"),("nta","有形净资产 NTA")], req=["aset","liab","utang","rev","lb"], opt="可选",
    name="您的姓名", email="邮箱", email_ph="name@company.com", wa="WhatsApp（可选）",
    next="下一步", back="返回", send="通过 WhatsApp 发送", send2="通过邮件发送",
-   prev_h="初步指标", note="根据您填写的数字自动计算，并非意见。完整结果与建议路线将发到您的邮箱。",
-   k_der="负债/权益 (DER)", k_debt="银行借款/EBITDA", k_growth="收入增长", k_margin="净利润率", k_roa="净利润/资产", k_noebitda="请填 EBITDA", need_rows="最近一年必填：",
-   good="健康", mid="需核查", bad="需整改", need="请填写公司名称和有效邮箱。", lock="填写公司名称和邮箱后即可查看初步指标。",
-   wa_head="您好 Ananta 先生，请为我们公司做初步筛查：", thanks="已发送。完整结果通常当天发到您的邮箱。", privacy="数据仅用于筛查，并严格保密。"),
- "hokkien": dict(h2="免費即時篩檢", sub="填近三年的數字，馬上看著初步指標，完整結果寄去你的電子批。",
+   prev_h="初步指标", note="根据您填写的数字自动计算，并非意见。发送到 WhatsApp，我们一起讨论可行路线。",
+   k_der="负债/权益 (DER)", k_debt="银行借款/EBITDA", k_growth="收入增长", k_margin="净利润率", k_roa="净利润/资产", k_ipo="印尼交易所上市路径", ipo_u="主板", ipo_p="发展板", ipo_a="加速板", ipo_n="暂不符合，先积累业绩", ipo_g="初步符合", ipo_m="需核查", ipo_b="暂不符合", k_noebitda="请填 EBITDA", need_rows="最近一年必填：",
+   good="健康", mid="需核查", bad="需整改", need="请填写公司名称。", lock="填写公司名称后即可查看初步指标。",
+   wa_head="您好 Ananta 先生，请为我们公司做初步筛查：", thanks="已通过 WhatsApp 发送，我们当天回复。", privacy="数据仅用于筛查，并严格保密。"),
+ "hokkien": dict(h2="免費即時篩檢", sub="填近三年的數字，指標馬上出來，才寄去阮的 WhatsApp 討論。",
    s1="公司", s2="三年數字", s3="聯絡",
    pt="公司名", pt_ph="PT 範例公司", goal="目標", goals=["銀行貸款","投資者","上市","猶未知"],
    unit="單位", units=[("1000000","百萬盾"),("1000000000","十億盾")],
    rows=[("aset","總資產"),("liab","總負債"),("utang","銀行借款"),("rev","營收"),("lb","淨利"),("ebitda","EBITDA"),("nta","有形淨資產 NTA")], req=["aset","liab","utang","rev","lb"], opt="無一定",
    name="你的名", email="電子批", email_ph="name@company.com", wa="WhatsApp（無一定）",
    next="下一步", back="轉去", send="用 WhatsApp 寄", send2="用電子批寄",
-   prev_h="初步指標", note="照你填的數字自動算，毋是意見。完整結果佮建議寄去你的電子批。",
-   k_der="負債/權益 (DER)", k_debt="銀行借款/EBITDA", k_growth="營收成長", k_margin="淨利率", k_roa="淨利/資產", k_noebitda="請填 EBITDA", need_rows="上新一年愛填：",
-   good="健康", mid="愛檢查", bad="愛整理", need="請填公司名佮會通的電子批。", lock="填公司名佮電子批，就看會著初步指標。",
-   wa_head="Ananta 先生你好，請替阮公司篩檢：", thanks="寄出去矣。完整結果通常當日寄去你的電子批。", privacy="資料干焦用佇篩檢，會保密。"),
+   prev_h="初步指標", note="照你填的數字自動算，毋是意見。寄去 WhatsApp，做伙討論會行的路。",
+   k_der="負債/權益 (DER)", k_debt="銀行借款/EBITDA", k_growth="營收成長", k_margin="淨利率", k_roa="淨利/資產", k_ipo="交易所上市路線", ipo_u="主板", ipo_p="發展板", ipo_a="加速板", ipo_n="猶未，先拍業績", ipo_g="初步符合", ipo_m="愛檢查", ipo_b="猶未", k_noebitda="請填 EBITDA", need_rows="上新一年愛填：",
+   good="健康", mid="愛檢查", bad="愛整理", need="請填公司名。", lock="填公司名，就看會著初步指標。",
+   wa_head="Ananta 先生你好，請替阮公司篩檢：", thanks="寄出去矣。阮仝工就回覆。", privacy="資料干焦用佇篩檢，會保密。"),
 }
 SCR_CSS = """<style id="scr">
 .scr{max-width:980px;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
@@ -347,7 +347,6 @@ def screening_form(lang, wa_number, email_to):
   <div class="stp"><span class="on" data-s="0">1 · {S["s1"]}</span><span data-s="1">2 · {S["s2"]}</span><span data-s="2">3 · {S["s3"]}</span></div>
   <div class="pane on" data-p="0">
     <label><span>{S["pt"]}<em class="rq">*</em></span><input id="f_pt" placeholder="{S["pt_ph"]}" autocomplete="organization" required></label>
-    <label><span>{S["email"]}<em class="rq">*</em></span><input id="f_em" type="email" placeholder="{S["email_ph"]}" autocomplete="email" required></label>
     <label>{S["goal"]}</label><div class="chipsg" id="f_goal">{goals}</div>
     <p class="err" id="f_err0"></p>
     <div class="nav2"><span></span><button class="btn btn-wa arrow" type="button" id="f_go1">{S["next"]}</button></div>
@@ -361,18 +360,18 @@ def screening_form(lang, wa_number, email_to):
     <label>{S["name"]}<input id="f_nm" autocomplete="name"></label>
     <label>{S["wa"]}<input id="f_wa" type="tel" autocomplete="tel"></label>
     <p class="err" id="f_err"></p>
-    <div class="nav2"><button class="btn btn-line" type="button" data-go="1">{S["back"]}</button><span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-line" type="button" id="f_mail">{S["send2"]}</button><button class="btn btn-wa arrow" type="button" id="f_send">{S["send"]}</button></span></div>
+    <div class="nav2"><button class="btn btn-line" type="button" data-go="1">{S["back"]}</button><span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-wa arrow" type="button" id="f_send">{S["send"]}</button></span></div>
     <div class="done" id="f_done">{S["thanks"]}</div>
     <p class="privacy">{S["privacy"]}</p>
   </div>
  </div>
- <div class="pv lock" id="f_pv"><div class="lk"><span>🔒</span><b>{S["lock"]}</b></div><h3>{S["prev_h"]}</h3><div class="kpis">{kp("der")}{kp("debt")}{kp("growth")}{kp("margin")}{kp("roa")}</div><p class="note">{S["note"]}</p></div>
+ <div class="pv lock" id="f_pv"><div class="lk"><span>🔒</span><b>{S["lock"]}</b></div><h3>{S["prev_h"]}</h3><div class="kpis">{kp("der")}{kp("debt")}{kp("growth")}{kp("margin")}{kp("roa")}{kp("ipo")}</div><p class="note">{S["note"]}</p></div>
 </form>
 <script>(function(){{var D={js},S=D.S,f=document.getElementById("screening");if(!f)return;
 var goal=S.goals[0];f.querySelectorAll("#f_goal button").forEach(function(b){{b.addEventListener("click",function(){{f.querySelectorAll("#f_goal button").forEach(function(x){{x.classList.remove("on")}});b.classList.add("on");goal=b.getAttribute("data-g")}})}});
 function show(i){{if(i>0&&typeof unlocked!=="undefined"&&!unlocked)i=0;f.querySelectorAll(".pane").forEach(function(p){{p.classList.toggle("on",+p.getAttribute("data-p")===i)}});f.querySelectorAll(".stp span").forEach(function(s){{s.classList.toggle("on",+s.getAttribute("data-s")<=i)}})}}
 f.querySelectorAll("[data-go]").forEach(function(b){{b.addEventListener("click",function(){{show(+b.getAttribute("data-go"))}})}});
-var unlocked=false;function v0(){{var pt=document.getElementById("f_pt").value.trim(),em=document.getElementById("f_em").value.trim();return pt.length>2&&/^[^@\s]+@[^@\s]+\.[^@\s]{{2,}}$/.test(em)}}
+var unlocked=false;function v0(){{var pt=document.getElementById("f_pt").value.trim();return pt.length>2}}
 document.getElementById("f_go1").addEventListener("click",function(){{var e=document.getElementById("f_err0");if(!v0()){{e.textContent=S.need;return}}e.textContent="";unlocked=true;document.getElementById("f_pv").classList.remove("lock");show(1);calc()}});
 function num(v){{v=(v||"").replace(/\\s/g,"");if(!v)return null;var neg=/^[-(]/.test(v);v=v.replace(/[^0-9.,]/g,"");if(/,\\d{{1,2}}$/.test(v))v=v.replace(/\\./g,"").replace(",",".");else v=v.replace(/[.,]/g,"");var n=parseFloat(v);if(isNaN(n))return null;return neg?-n:n}}
 function fmt(n){{return n.toLocaleString("id-ID")}}function pc(x,d){{return x.toFixed(d).replace(".",",")}}
@@ -385,21 +384,21 @@ var il=last(Lb);if(il>=0&&A[il]!=null&&A[il]-Lb[il]>0){{var d=Lb[il]/(A[il]-Lb[i
 var ie=last(E);if(ie>=0&&U[ie]!=null&&E[ie]>0){{var x=U[ie]/E[ie];set("debt",pc(x,1)+"x",x*18,x<=3?2:x<=4.5?1:0)}}else if(U.some(function(v){{return v!=null}})&&ie<0){{set("debt",S.k_noebitda,0,-1)}}else set("debt","-",0,-1);
 var ir=last(R),i0=R.findIndex(function(x){{return x!=null&&x>0}});if(ir>i0&&i0>=0){{var n=ir-i0,g=(Math.pow(R[ir]/R[i0],1/n)-1)*100;set("growth",(g>0?"+":"")+pc(g,0)+"%/th",50+g,g>=10?2:g>=0?1:0)}}else set("growth","-",0,-1);
 var iL=last(N);if(iL>=0&&R[iL]){{var m=N[iL]/R[iL]*100;set("margin",pc(m,1)+"%",m*5,m>=5?2:m>=0?1:0)}}else set("margin","-",0,-1);
-if(iL>=0&&A[iL]){{var r=N[iL]/A[iL]*100;set("roa",pc(r,1)+"%",r*8,r>=5?2:r>=0?1:0)}}else set("roa","-",0,-1)}}
+if(iL>=0&&A[iL]){{var r=N[iL]/A[iL]*100;set("roa",pc(r,1)+"%",r*8,r>=5?2:r>=0?1:0)}}else set("roa","-",0,-1);var UN=+f.querySelector("#f_unit").value,T=val("nta"),k=iL>=0?iL:ia,nta=(k>=0&&T[k]!=null)?T[k]*UN:((k>=0&&A[k]!=null&&Lb[k]!=null)?(A[k]-Lb[k])*UN:null),as=k>=0&&A[k]!=null?A[k]*UN:null,rv=k>=0&&R[k]!=null?R[k]*UN:null,nb=k>=0&&N[k]!=null?N[k]*UN:null,nb0=k>0&&N[k-1]!=null?N[k-1]*UN:null;if(as==null&&nta==null)set("ipo","-",0,-1);else if((nta!=null&&nta>=25e10&&nb>0)||(rv!=null&&rv>=8e11)||(as!=null&&as>=2e12)||(nb!=null&&nb0!=null&&nb+nb0>=1e11))set("ipo",S.ipo_u,100,2);else if(as!=null&&as<=25e10)set("ipo",S.ipo_a,Math.max(10,as/25e10*100),nb!=null&&nb>0?2:1);else if(nta!=null&&nta>0)set("ipo",S.ipo_p,Math.min(90,nta/25e10*100),1);else set("ipo",S.ipo_n,8,0);var ie2=document.getElementById("k_ipo").querySelector("em"),t2=ie2.textContent;ie2.textContent=t2===S.good?S.ipo_g:t2===S.mid?S.ipo_m:t2===S.bad?S.ipo_b:t2}}
 function summary(){{var u=f.querySelector("#f_unit");var ut=u.options[u.selectedIndex].text;var lines=[S.wa_head,"","PT: "+document.getElementById("f_pt").value,"Tujuan: "+goal,"Satuan: "+ut,""];
 S.rows.forEach(function(r){{var a=val(r[0]);lines.push(r[1]+": "+D.yrs.map(function(y,i){{return y+" "+(a[i]==null?"-":fmt(a[i]))}}).join(" | "))}});
-lines.push("");["der","debt","growth","margin","roa"].forEach(function(k){{var e=document.getElementById("k_"+k);lines.push(S["k_"+k]+": "+e.querySelector("b").textContent)}});
-lines.push("","Nama: "+document.getElementById("f_nm").value,"Email: "+document.getElementById("f_em").value,"WA: "+(document.getElementById("f_wa").value||"-"));return lines.join("\\n")}}
-function ok(){{var e=document.getElementById("f_err");var em=document.getElementById("f_em").value.trim();var miss=[];f.querySelectorAll(".grid3 input").forEach(function(x){{x.classList.remove("miss")}});
+lines.push("");["der","debt","growth","margin","roa","ipo"].forEach(function(k){{var e=document.getElementById("k_"+k);lines.push(S["k_"+k]+": "+e.querySelector("b").textContent)}});
+lines.push("","Nama: "+document.getElementById("f_nm").value,"WA: "+(document.getElementById("f_wa").value||"-"));return lines.join("\\n")}}
+function ok(){{var e=document.getElementById("f_err");var miss=[];f.querySelectorAll(".grid3 input").forEach(function(x){{x.classList.remove("miss")}});
 S.req.forEach(function(k){{var inp=f.querySelector('.grid3 input[data-k="'+k+'"][data-y="2"]');if(num(inp.value)==null){{inp.classList.add("miss");miss.push(S.rows.filter(function(r){{return r[0]===k}})[0][1])}}}});
 if(!v0()){{show(0);document.getElementById("f_err0").textContent=S.need;return false}}
 if(miss.length){{e.textContent=S.need_rows+miss.join(", ");show(1);return false}}e.textContent="";return true}}
 function sheet(m){{try{{if(!D.gs)return;var g=function(id){{var e=document.getElementById(id);return e?e.value:""}};var u=f.querySelector("#f_unit");var p=new URLSearchParams();p.append("pt",g("f_pt"));p.append("email",g("f_em"));p.append("goal",goal);p.append("unit",u.options[u.selectedIndex].text);
 S.rows.forEach(function(r){{var a=val(r[0]);p.append(r[0],D.yrs.map(function(y,i){{return y+": "+(a[i]==null?"-":fmt(a[i]))}}).join(" | "))}});
-["der","debt","growth","margin","roa"].forEach(function(k){{p.append("k_"+k,"'"+document.getElementById("k_"+k).querySelector("b").textContent)}});
+["der","debt","growth","margin","roa","ipo"].forEach(function(k){{p.append("k_"+k,"'"+document.getElementById("k_"+k).querySelector("b").textContent)}});
 p.append("nama",g("f_nm"));p.append("wa",g("f_wa")?"'"+g("f_wa"):"");p.append("lang",document.documentElement.lang||"");p.append("page",location.pathname+" ("+m+")");p.append("summary",summary());
 if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{{method:"POST",mode:"no-cors",body:p,keepalive:true}})}}catch(x){{}}}}
 function sent(m){{sheet(m);document.getElementById("f_done").style.display="block";try{{if(window.gtag)gtag("event","generate_lead",{{method:m,form:"screening"}})}}catch(x){{}}}}
 document.getElementById("f_send").addEventListener("click",function(){{if(!ok())return;window.open("https://wa.me/"+D.wa+"?text="+encodeURIComponent(summary()),"_blank","noopener");sent("whatsapp")}});
-document.getElementById("f_mail").addEventListener("click",function(){{if(!ok())return;location.href="mailto:"+D.to+"?subject="+encodeURIComponent("Screening: "+document.getElementById("f_pt").value)+"&body="+encodeURIComponent(summary());sent("email")}});
+
 calc()}})();</script>'''

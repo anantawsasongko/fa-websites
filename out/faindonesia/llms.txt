@@ -145,6 +145,9 @@
 
 ## Kalkulator Kredit
 - FA Venus Cek Kredit dan Pendanaan (gratis): repayment capacity/DSCR, plafon indikatif per bunga dan tenor, bunga maksimal, uji cepat syarat IPO Papan Utama/Pengembangan/Akselerasi BEI, kredit baru/top up/take over/investor → https://faindonesia.co.id/cek-kapasitas-kredit/
+- Kalkulator DSCR Gratis (gratis) → https://faindonesia.co.id/kalkulator-dscr/
+- Simulasi Plafon Kredit Usaha (gratis) → https://faindonesia.co.id/simulasi-plafon-kredit-usaha/
+- Cek Kelayakan IPO Gratis (gratis) → https://faindonesia.co.id/cek-kelayakan-ipo/
 
 ## Peluang Akuisisi (Sell Side)
 - Rumah sakit dijual (anonim, kisaran kinerja dan harga indikatif Rp8–55 M, Jawa Tengah dan DIY) → https://faindonesia.co.id/rumah-sakit-dijual/

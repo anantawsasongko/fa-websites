@@ -417,9 +417,25 @@ for k, T in LANGS.items():
     write(T["path"], html + header(T, "home", k) + landing2(T, _L, wa, ICONS, _sw, _S["h2"], _S["sub"], screening_form(k, WA, EMAIL), SCR[k]["h2"], SCR[k]["sub"]) + footer(T, k)); urls.append(T["path"])
 
 # halaman screening mandiri
+
+import json as _j
+_SF=[("Apa yang dicek dalam screening ini?","Lima rasio yang lazim dibaca analis kredit dan investor: liabilitas terhadap ekuitas (DER), utang bank terhadap EBITDA, pertumbuhan pendapatan, margin laba bersih, dan laba terhadap aset, ditambah indikasi jalur pencatatan saham di Bursa Efek Indonesia."),
+ ("Apakah hasilnya sama dengan keputusan bank atau BEI?","Tidak. Ini indikasi awal dari angka yang Anda isi. Bank memakai kebijakan kredit masing-masing, dan BEI serta OJK menilai syarat pencatatan secara lengkap, termasuk opini audit, free float, dan tata kelola."),
+ ("Batas rasio apa yang dipakai?","DER sampai 1x dinilai sehat dan sampai 2,5x perlu dicek; utang bank sampai 3x EBITDA sehat dan sampai 4,5x perlu dicek. Batas ini mengikuti praktik umum analis kredit, bukan angka peraturan, dan bisa berbeda per bank serta industri."),
+ ("Syarat IPO apa yang dipakai?","Papan Utama mengacu opsi keuangan Peraturan BEI Nomor I-A, misalnya aset berwujud bersih minimal Rp250 miliar dengan laba positif, pendapatan minimal Rp800 miliar, atau total aset minimal Rp2 triliun dengan kapitalisasi pasar tertentu. Papan Akselerasi untuk emiten aset skala kecil dan menengah sampai Rp250 miliar sesuai POJK 53/2017. Masa operasi dan free float mengikuti perubahan yang berlaku 4 Februari 2026."),
+ ("Apakah gratis?","Ya. Di akhir ada pilihan donasi sukarela lewat QRIS Rp10.001 yang boleh dilewati. Hasil langsung tampil di halaman ini, lalu bisa dikirim ke WhatsApp kami untuk dibahas."),
+]
+SCR_SEO = ('<section style="margin-top:34px;max-width:860px"><h2>Cara Membaca Hasil Screening</h2>'
+ '<p>Screening ini membantu pemilik dan direksi melihat posisi perusahaan sebelum memilih KAP, mengajukan kredit bank, menemui investor, atau menyiapkan IPO. Anda tidak perlu mengirim laporan keuangan lengkap; cukup angka ringkas tiga tahun terakhir.</p>'
+ '<h2>Pertanyaan Umum</h2>' + ''.join(f'<p style="margin:0 0 16px"><b>{q}</b><br>{a}</p>' for q,a in _SF) +
+ '<p>Ingin menghitung plafon kredit per suku bunga dan tenor? Coba <a href="https://faindonesia.co.id/cek-kapasitas-kredit/">Cek Kredit dan Pendanaan</a>, <a href="https://faindonesia.co.id/kalkulator-dscr/">Kalkulator DSCR</a>, atau <a href="https://faindonesia.co.id/cek-kelayakan-ipo/">Cek Kelayakan IPO</a>.</p></section>'
+ '<script type="application/ld+json">' + _j.dumps({"@context":"https://schema.org","@graph":[
+   {"@type":"WebApplication","name":"Screening Instan Laporan Keuangan","url":DOMAIN+"/screening/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"IDR"},"inLanguage":"id"},
+   {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in _SF]},
+   {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Beranda","item":DOMAIN+"/"},{"@type":"ListItem","position":2,"name":"Screening","item":DOMAIN+"/screening/"}]}]},ensure_ascii=False) + '</script>')
 _scr = screening_form("id", WA, EMAIL)
-html = head("Screening Instan Gratis: Siap Kredit Bank, Investor, atau IPO? | cariakuntan.com","Isi total aset, utang bank, pendapatan, dan laba 3 tahun terakhir. Indikasi awal langsung tampil, hasil lengkap dikirim ke email Anda. Gratis.",DOMAIN+"/screening/")
-html += header(ID,"home") + f'''<main class="wrap art" style="max-width:1100px"><p class="label">Screening Awal</p><h1>{SCR["id"]["h2"]}</h1><p class="sub">{SCR["id"]["sub"]}</p><div style="margin-top:26px">{_scr}</div></main>''' + footer(ID)
+html = head("Screening Instan Gratis: Siap Kredit Bank, Investor, atau IPO? | cariakuntan.com","Isi total aset, utang bank, pendapatan, dan laba 3 tahun terakhir. Indikasi langsung tampil termasuk jalur IPO BEI, lalu kirim ke WhatsApp. Gratis.",DOMAIN+"/screening/")
+html += header(ID,"home") + f'''<main class="wrap art" style="max-width:1100px"><p class="label">Screening Awal</p><h1>{SCR["id"]["h2"]}</h1><p class="sub">{SCR["id"]["sub"]}</p><div style="margin-top:26px">{_scr}</div>''' + SCR_SEO + '''</main>''' + footer(ID)
 write("/screening/", html); urls.append("/screening/")
 
 import glob as _g

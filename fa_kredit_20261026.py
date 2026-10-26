@@ -300,3 +300,65 @@ assert anchor in t, "anchor beranda tidak ketemu"
 t = t.replace(anchor, home_sec + anchor, 1)
 wtxt(hp, t)
 print("home ok")
+
+# ---------- Halaman target keyword dengan kalkulator tertanam (26 Okt 2026 malam) ----------
+KW = [
+ dict(path="/kalkulator-dscr/", eyebrow="FA Venus · Kalkulator DSCR", h1="Kalkulator DSCR Gratis: Hitung Debt Service Coverage Ratio Perusahaan Anda",
+  lead="DSCR (Debt Service Coverage Ratio) adalah rasio utama yang dipakai bank untuk menilai kemampuan bayar kredit usaha. Isi angka ringkas laporan keuangan, lalu lihat DSCR saat ini, DSCR setelah kredit baru, dan plafon yang masih aman.",
+  title="Kalkulator DSCR Gratis: Rumus, Contoh, dan Batas Aman Bank | FA Indonesia",
+  desc="Hitung DSCR (debt service coverage ratio) perusahaan secara gratis: rumus, contoh perhitungan, batas aman bank 1,2 sampai 1,5 kali, dan plafon kredit yang masih bisa ditanggung.",
+  body="<h2>Rumus DSCR</h2><p><b>DSCR = Arus kas tersedia untuk membayar utang / Total angsuran pokok dan bunga setahun.</b> Dalam praktik bank, arus kas tersedia sering didekati dengan EBITDA dikurangi pajak yang dibayar, kadang juga dikurangi belanja modal rutin.</p>"
+       "<h2>Contoh Perhitungan</h2><div class='kk-tw'><table><thead><tr><th>Komponen</th><th>Rp Juta</th></tr></thead><tbody><tr><td>Laba usaha (EBIT)</td><td>9.200</td></tr><tr><td>Penyusutan dan amortisasi</td><td>1.800</td></tr><tr><td>EBITDA</td><td>11.000</td></tr><tr><td>Pajak dibayar</td><td>(1.500)</td></tr><tr><td>Arus kas tersedia</td><td>9.500</td></tr><tr><td>Angsuran setahun (Rp420 juta x 12)</td><td>5.040</td></tr><tr><td><b>DSCR</b></td><td><b>1,88x</b></td></tr></tbody></table></div>"
+       "<p>Dengan target DSCR bank 1,25x, ruang angsuran tambahan sekitar Rp2,56 miliar setahun. Pada bunga 11% dan tenor 5 tahun, itu setara pinjaman baru sekitar Rp9,8 miliar, sebelum dibatasi agunan dan rasio utang lain.</p>"
+       "<h2>Berapa DSCR yang Aman?</h2><p>Banyak bank memakai batas minimal sekitar 1,2 sampai 1,5 kali, bergantung industri dan jenis fasilitas. Di bawah 1,0x berarti arus kas tidak cukup untuk membayar angsuran.</p>",
+  faq=[("Apa itu DSCR?", "Debt Service Coverage Ratio, perbandingan arus kas yang tersedia dengan kewajiban pokok dan bunga dalam satu periode."),
+       ("Apa beda DSCR dan ICR?", "ICR (interest coverage ratio) hanya membandingkan laba dengan bunga, sedangkan DSCR memasukkan pokok dan bunga sehingga lebih ketat."),
+       ("Bagaimana menaikkan DSCR?", "Menaikkan EBITDA, memperpanjang tenor, menurunkan bunga lewat take over, atau merestrukturisasi angsuran.")]),
+ dict(path="/simulasi-plafon-kredit-usaha/", eyebrow="FA Venus · Simulasi Kredit Usaha", h1="Simulasi Plafon Kredit Usaha: Berapa Pinjaman Bank yang Bisa Didapat Perusahaan?",
+  lead="Simulasikan plafon kredit investasi atau KMK berdasarkan arus kas, rasio utang, ekuitas, dan agunan perusahaan. Lihat juga matriks plafon per suku bunga dan tenor, untuk pengajuan baru, top up, maupun take over.",
+  title="Simulasi Plafon Kredit Usaha Gratis: KI, KMK, Top Up, Take Over | FA Indonesia",
+  desc="Simulasi plafon kredit usaha gratis: kredit investasi dan KMK, top up kredit eksisting, take over. Batas DSCR, utang/EBITDA, DER, agunan, dan matriks bunga x tenor.",
+  body="<h2>Lima Batas yang Menentukan Plafon</h2><ol><li><b>Kemampuan bayar (DSCR)</b>: angsuran baru harus tertutup arus kas.</li><li><b>Utang terhadap EBITDA</b>: total utang dibanding laba operasi sebelum penyusutan.</li><li><b>DER</b>: total utang dibanding ekuitas.</li><li><b>Agunan</b>: nilai pasar dikali rasio pembiayaan (LTV) bank.</li><li><b>Siklus modal kerja</b> untuk KMK: piutang ditambah persediaan dikurangi utang usaha.</li></ol>"
+       "<p>Plafon akhir mengikuti batas yang paling kecil. Kalkulator di atas menunjukkan batas mana yang paling menahan, sehingga Anda tahu apa yang perlu diperbaiki lebih dulu.</p>",
+  faq=[("Apakah top up kredit dihitung sama dengan kredit baru?", "Ya, angsuran fasilitas berjalan ikut dihitung, sehingga ruang top up adalah sisa kemampuan bayar setelah angsuran yang ada."),
+       ("Kenapa plafon dari bank berbeda dengan simulasi?", "Bank menambahkan penilaian industri, karakter, riwayat SLIK, kualitas laporan keuangan, dan kebijakan internal."),
+       ("Lebih baik KMK atau kredit investasi?", "KMK untuk siklus usaha jangka pendek, kredit investasi untuk aset jangka panjang. Pencampuran keduanya sering membuat arus kas tertekan.")]),
+ dict(path="/cek-kelayakan-ipo/", eyebrow="FA Venus · Cek Kelayakan IPO", h1="Cek Kelayakan IPO Gratis: Sudah Memenuhi Syarat Papan Utama, Pengembangan, atau Akselerasi BEI?",
+  lead="Uji cepat syarat keuangan pencatatan saham di Bursa Efek Indonesia: aset berwujud bersih (NTA), laba sebelum pajak, pendapatan, total aset, dan masa operasi. Sekaligus lihat kapasitas kredit sebagai jalur pendanaan pembanding.",
+  title="Cek Kelayakan IPO Gratis: Syarat Papan Utama, Pengembangan, Akselerasi BEI 2026 | FA Indonesia",
+  desc="Cek gratis apakah perusahaan memenuhi syarat IPO BEI: NTA Rp250 miliar dan laba Papan Utama, masa operasi 36 dan 24 bulan (aturan Februari 2026), Papan Akselerasi aset sampai Rp250 miliar.",
+  body="<h2>Ringkasan Syarat Keuangan Papan Utama</h2><div class='kk-tw'><table><thead><tr><th>Opsi</th><th>Syarat</th></tr></thead><tbody>"
+       "<tr><td>1</td><td style='white-space:normal'>Laba sebelum pajak tahun terakhir positif dan aset berwujud bersih min. Rp250 miliar</td></tr>"
+       "<tr><td>2</td><td style='white-space:normal'>Laba sebelum pajak kumulatif 2 tahun min. Rp100 miliar dan kapitalisasi pasar min. Rp1 triliun</td></tr>"
+       "<tr><td>3</td><td style='white-space:normal'>Pendapatan tahun terakhir min. Rp800 miliar dan kapitalisasi pasar min. Rp8 triliun</td></tr>"
+       "<tr><td>4</td><td style='white-space:normal'>Total aset min. Rp2 triliun dan kapitalisasi pasar min. Rp4 triliun</td></tr>"
+       "<tr><td>5</td><td style='white-space:normal'>Arus kas operasi kumulatif 2 tahun min. Rp200 miliar dan kapitalisasi pasar min. Rp4 triliun</td></tr></tbody></table></div>"
+       "<p>Perubahan Peraturan BEI Nomor I-A yang berlaku 4 Februari 2026 menetapkan masa operasi minimal 36 bulan untuk Papan Utama dan 24 bulan untuk Papan Pengembangan, free float minimal 25% bila kapitalisasi pasar di bawah Rp5 triliun, serta minimal 10.000 dan 5.000 pemegang saham. Emiten aset skala kecil dan menengah (total aset sampai Rp250 miliar) dapat memakai Papan Akselerasi sesuai POJK 53/2017.</p>"
+       "<h2>Selain Angka</h2><p>IPO juga menuntut laporan keuangan diaudit KAP terdaftar OJK dengan SAK Indonesia, komisaris independen, komite audit, sekretaris perusahaan, dan tata kelola yang siap diperiksa. Lihat <a href='/konsultan-persiapan-ipo/'>persiapan IPO</a> dan <a href='/jasa-transisi-sak-ep-ke-psak/'>transisi SAK EP ke PSAK</a>.</p>",
+  faq=[("Berapa aset minimal untuk IPO?", "Papan Utama opsi pertama mensyaratkan aset berwujud bersih minimal Rp250 miliar dengan laba sebelum pajak positif. Perusahaan dengan total aset sampai Rp250 miliar dapat menjajaki Papan Akselerasi."),
+       ("Apakah perusahaan rugi bisa IPO?", "Untuk Papan Utama, opsi laba sebelum pajak mensyaratkan laba. Papan Pengembangan dan Akselerasi memberi ruang bagi perusahaan yang belum laba dengan syarat proyeksi tertentu."),
+       ("Berapa lama persiapan IPO?", "Umumnya 12 sampai 24 bulan, bergantung kesiapan laporan audit, tata kelola, dan struktur grup.")]),
+]
+for k in KW:
+    url = D + k["path"]
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebApplication", "name": k["h1"].split(":")[0], "url": url, "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
+         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "IDR"}, "provider": PROVIDER, "inLanguage": "id"},
+        faq_ld(k["faq"] + FAQ[:2]), crumbs([("FA Indonesia", D + "/"), ("Apps", D + "/apps/"), (k["h1"].split(":")[0], url)])]}
+    mainx = (f'<section class="block">\n<div class="wrap art">\n<p class="eyebrow">{k["eyebrow"]}</p>\n'
+             f'<h1 style="margin:.2em 0 .5em;font-size:clamp(30px,4.2vw,50px);line-height:1.12">{E(k["h1"])}</h1>\n'
+             f'<p class="t" style="max-width:62em">{k["lead"]}</p>\n{FORM}\n{k["body"]}\n<h2>Pertanyaan Umum</h2>{faq_html(k["faq"] + FAQ[:2])}\n'
+             f'<p class="t">Alat lain: <a href="{PATH}">Cek Kredit dan Pendanaan</a> · <a href="/kalkulator-dscr/">Kalkulator DSCR</a> · <a href="/simulasi-plafon-kredit-usaha/">Simulasi Plafon Kredit</a> · <a href="/cek-kelayakan-ipo/">Cek Kelayakan IPO</a> · <a href="https://cariakuntan.com/screening/">Screening Laporan Keuangan 3 Tahun (cariakuntan.com)</a></p>\n'
+             f'{AUTHOR_BOX}\n</div>\n</section>')
+    pg = set_main(set_head(TPL_SVC, k["title"], k["desc"], url, ld), mainx).replace("</head>", CSS + "</head>", 1).replace("</body>", JS + "</body>", 1)
+    q = P(*k["path"].strip("/").split("/"), "index.html"); os.makedirs(os.path.dirname(q), exist_ok=True); wtxt(q, pg)
+# preselect tujuan IPO di halaman cek-kelayakan-ipo
+q = P("cek-kelayakan-ipo", "index.html"); t = rd(q)
+t = t.replace('<button type="button" class="on">Kredit Baru</button>', '<button type="button">Kredit Baru</button>', 1).replace('<button type="button">Investor / IPO</button>', '<button type="button" class="on">Investor / IPO</button>', 1)
+t = t.replace('var goal="Kredit Baru"', 'var goal="Investor / IPO"', 1); wtxt(q, t)
+sm = re.sub(r"<!--fa-kw-->.*?<!--/fa-kw-->\n?", "", rd(P("sitemap.xml")), flags=re.S)
+sm = sm.replace("</urlset>", "<!--fa-kw-->\n" + "".join(f"<url><loc>{D}{k['path']}</loc><lastmod>{TODAY}</lastmod><priority>0.8</priority></url>\n" for k in KW) + "<!--/fa-kw-->\n</urlset>")
+wtxt(P("sitemap.xml"), sm)
+ll = rd(P("llms.txt")).rstrip("\n") + "".join(f"\n- {k['h1'].split(':')[0]} (gratis) → {D}{k['path']}" for k in KW) + "\n"
+wtxt(P("llms.txt"), ll)
+print("kw ok", [k["path"] for k in KW])

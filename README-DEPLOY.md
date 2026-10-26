@@ -54,7 +54,7 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 ## SEO Push Lokal (25 Okt 2026 malam)
 - cariakuntan: semua kota x 4 layanan inti punya halaman sendiri; 94 kota (+8 kota baru di kawasan.py EXTRA_CITIES); 89 kawasan bisnis (cariakuntan/kawasan.py, generator seo_kawasan.py) dengan hub + 4 halaman layanan (/kota/<kota>/<kawasan>/<kap|kjpp|konsultan-pajak|jasa-laporan-keuangan>/); BOOST konteks pasar untuk Malang, Surabaya, Jember, Pasuruan, Batam; kotak silang ke FA di setiap halaman kota/kawasan.
 - FA: fa_seo_20261025.py (jalankan setelah fa_home_simple): 30 artikel dari fa_content/articles/*.json (spec di fa_content/SPEC-ARTIKEL.md), kartu per topik di Eksplor, /konsultan-rumah-sakit/ dan /konsultan-unit-cost-rumah-sakit/ (+ per kota), /wilayah/ (kota + kawasan), footer, sitemap, llms.txt.
-- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 fa_psak_20261026.py && python3 fa_kredit_20261026.py && python3 fa_seller_20261026.py && python3 fa_tone_20261026.py && python3 cariakuntan/build.py && python3 prep.py
+- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 fa_psak_20261026.py && python3 fa_kredit_20261026.py && python3 fa_seller_20261026.py && python3 fa_tone_20261026.py && python3 cariakuntan/build.py && python3 fa_screen_seo_20261026.py && python3 prep.py
 
 ## Halaman dari Lead Nyata (26 Okt 2026)
 - fa_lead_20261026.py: /jasa-implementasi-psak-118/ dan /konsultan-kredit-distributor-importir/ (dua lead WA hari itu: implementasi PSAK 118 dan plafon kredit distributor/importir), kotak CTA di artikel terkait, blok di /layanan/, sitemap, llms.txt. Idempoten.
@@ -69,3 +69,8 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 
 ## Aturan Nada (26 Okt 2026)
 - JANGAN PERNAH menulis "ditangani langsung oleh Ananta W. Sasongko, CPA" atau variasinya (EN/ZH juga) di FA, CariAkuntan, KJA, maupun slides. Pakai bahasa tim: "didampingi tim FA Indonesia", "tim CA dan CPA". fa_tone_20261026.py membersihkan semua sumber; jalankan sebelum prep.py.
+
+## SEO Alat Screening (26 Okt 2026 malam)
+- CariAkuntan /screening/: tanpa email (hasil langsung di web, satu tombol kirim WhatsApp), indikator Jalur IPO BEI, FAQ + WebApplication schema. Kotak CTA screening di semua halaman ID (fa_screen_seo_20261026.py).
+- FA: halaman keyword dengan kalkulator tertanam /kalkulator-dscr/, /simulasi-plafon-kredit-usaha/, /cek-kelayakan-ipo/ (dibuat di fa_kredit_20261026.py); CTA Cek Kredit & Pendanaan di semua halaman wilayah dan artikel.
+- Batas rasio (DSCR 1,25x, utang/EBITDA 3,5x, DER 2,5x, LTV 70%; CA: DER 1/2,5x, utang/EBITDA 3/4,5x) adalah praktik analis kredit, bukan peraturan. Syarat IPO: Peraturan BEI I-A (opsi keuangan Papan Utama), perubahan berlaku 4 Feb 2026 (masa operasi, free float), POJK 53/2017 (Akselerasi).
