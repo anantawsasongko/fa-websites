@@ -20,6 +20,8 @@ def tc(t, first=True):
         if not w:
             out.append(w); continue
         core = w.strip("(),:;?!\"'“”‘’.")
+        if re.match(r"^[a-z]+[A-Z]", core):  # iDRG, iDebku, eKTP: pertahankan
+            out.append(w); seen = True; continue
         if KEEP.search(w) or not core:
             out.append(w); seen = seen or bool(core); continue
         if core.islower() and core.lower() in UNITS and out and re.search(r"\d", " ".join(out[-1:])+w):
