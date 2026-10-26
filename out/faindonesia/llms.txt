@@ -131,3 +131,14 @@
 ## Layanan Spesifik
 - Jasa implementasi PSAK 118 (berlaku 1 Januari 2027): gap assessment, mapping kategori, MPM, proforma 2026, koordinasi auditor → https://faindonesia.co.id/jasa-implementasi-psak-118/
 - Konsultan kredit distributor dan importir: plafon modal kerja, LC, SKBDN, trust receipt, invoice financing → https://faindonesia.co.id/konsultan-kredit-distributor-importir/
+
+## Implementasi PSAK
+- Hub semua layanan implementasi PSAK → https://faindonesia.co.id/jasa-implementasi-psak/
+- PSAK 109: Instrumen keuangan, CKPN/ECL → https://faindonesia.co.id/jasa-implementasi-psak-109/
+- PSAK 115: Pengakuan pendapatan kontrak → https://faindonesia.co.id/jasa-implementasi-psak-115/
+- PSAK 116: Sewa, aset hak guna → https://faindonesia.co.id/jasa-implementasi-psak-116/
+- PSAK 117: Kontrak asuransi → https://faindonesia.co.id/jasa-implementasi-psak-117/
+- PSAK 212: Pajak tangguhan → https://faindonesia.co.id/jasa-implementasi-psak-212/
+- PSAK 219: Imbalan kerja, pesangon → https://faindonesia.co.id/jasa-implementasi-psak-219/
+- PSAK 110: Konsolidasi grup → https://faindonesia.co.id/jasa-konsolidasi-laporan-keuangan-psak-110/
+- SAK EP ke PSAK: Naik kelas ke SAK Indonesia → https://faindonesia.co.id/jasa-transisi-sak-ep-ke-psak/
