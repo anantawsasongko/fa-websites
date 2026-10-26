@@ -309,6 +309,7 @@ sm = sm.replace("</urlset>", "<!--fa-seo-->\n" + add + "<!--/fa-seo-->\n</urlset
 open(P("sitemap.xml"), "w", encoding="utf-8").write(sm)
 
 ll = rd(P("llms.txt")); ll = re.sub(r"\n## Rumah Sakit dan Unit Cost.*?(?=\n## |\Z)", "", ll, flags=re.S)
+ll = re.sub(r"\n## Artikel Eksplor Terbaru.*?(?=\n## |\Z)", "", ll, flags=re.S)
 ll += ("\n## Rumah Sakit dan Unit Cost\n- Konsultan rumah sakit swasta (ekspansi, kredit bank, akuisisi, investor, unit cost, tarif) → https://faindonesia.co.id/konsultan-rumah-sakit/\n"
        "- Konsultan unit cost rumah sakit dan klinik, analisis tarif INA-CBG → https://faindonesia.co.id/konsultan-unit-cost-rumah-sakit/\n"
        f"- Versi per kota tersedia untuk {len(CITIES)} kota, contoh https://faindonesia.co.id/konsultan-rumah-sakit/malang/\n"

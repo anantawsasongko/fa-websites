@@ -54,4 +54,9 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 ## SEO Push Lokal (25 Okt 2026 malam)
 - cariakuntan: semua kota x 4 layanan inti punya halaman sendiri; 94 kota (+8 kota baru di kawasan.py EXTRA_CITIES); 89 kawasan bisnis (cariakuntan/kawasan.py, generator seo_kawasan.py) dengan hub + 4 halaman layanan (/kota/<kota>/<kawasan>/<kap|kjpp|konsultan-pajak|jasa-laporan-keuangan>/); BOOST konteks pasar untuk Malang, Surabaya, Jember, Pasuruan, Batam; kotak silang ke FA di setiap halaman kota/kawasan.
 - FA: fa_seo_20261025.py (jalankan setelah fa_home_simple): 30 artikel dari fa_content/articles/*.json (spec di fa_content/SPEC-ARTIKEL.md), kartu per topik di Eksplor, /konsultan-rumah-sakit/ dan /konsultan-unit-cost-rumah-sakit/ (+ per kota), /wilayah/ (kota + kawasan), footer, sitemap, llms.txt.
-- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 cariakuntan/build.py && python3 prep.py
+- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 cariakuntan/build.py && python3 prep.py
+
+## Halaman dari Lead Nyata (26 Okt 2026)
+- fa_lead_20261026.py: /jasa-implementasi-psak-118/ dan /konsultan-kredit-distributor-importir/ (dua lead WA hari itu: implementasi PSAK 118 dan plafon kredit distributor/importir), kotak CTA di artikel terkait, blok di /layanan/, sitemap, llms.txt. Idempoten.
+- fa_seo_20261025.py diperbaiki: blok llms "Artikel Eksplor Terbaru" tidak lagi dobel saat dijalankan ulang.
+- Push tanpa akses git: GitHub > Add file > Upload files per folder; commit perantara diberi [CF-Pages-Skip], commit terakhir tanpa tanda itu supaya Cloudflare build sekali.
