@@ -161,6 +161,48 @@ for name, target in [("kja-farhani", "https://kja-farhani.pages.dev"), ("faindon
     open(os.path.join(d, "index.html"), "w").write(f'<!doctype html><meta charset="utf-8"><link rel="canonical" href="{target}/"><meta http-equiv="refresh" content="0;url={target}/"><a href="{target}/">{target}</a>')
     shutil.make_archive(d, "zip", d)
 
+# ---------- Lead tracking + CTA silang (26 Okt 2026) ----------
+GA_ID = "G-09VZKH3JRJ"
+GA_TAG = ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>'
+          '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","' + GA_ID + '");</script>')
+LEAD_JS = os.path.join(M, "shared", "lead.js")
+WA_KREDIT = "https://wa.me/6282245260121?text=" + "Halo%20FA%20Indonesia%2C%20saya%20ingin%20konsultasi%20tentang%20pendampingan%20kredit%20bank."
+CTA = ('<section class="fa-cta" aria-label="Konsultasi"><style>'
+       '.fa-cta{max-width:1080px;margin:40px auto;padding:26px 24px;border-radius:12px;background:#0f1f3d;color:#fff;font-family:inherit}'
+       '.fa-cta h2{margin:0 0 6px;font-size:1.3rem;color:#fff}.fa-cta p{margin:0 0 16px;opacity:.85;font-size:.95rem;line-height:1.55}'
+       '.fa-cta .b{display:flex;flex-wrap:wrap;gap:10px}.fa-cta a{display:inline-block;padding:11px 18px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.92rem}'
+       '.fa-cta a.w{background:#25D366;color:#06301a}.fa-cta a.l{border:1px solid rgba(255,255,255,.5);color:#fff}'
+       '@media (max-width:720px){.fa-cta{margin:28px 16px}}</style>'
+       '<h2>Mau Ajukan Kredit Bank atau Cari Investor?</h2>'
+       '<p>Kami cek dulu rasio dan laporan keuangan perusahaan Anda, supaya pengajuan tidak ditolak dan biaya audit tidak terbuang. Diskusi awal gratis.</p>'
+       '<div class="b"><a class="w" href="' + WA_KREDIT + '" target="_blank" rel="noopener">Konsultasi Kredit via WhatsApp</a>'
+       '<a class="l" href="/konsultan-kredit-bank/">Lihat Layanan Kredit Bank</a>'
+       '<a class="l" href="https://cariakuntan.com/screening/" target="_blank" rel="noopener">Screening Rasio Gratis</a></div></section>')
+
+def add_lead(site_root, cta_dirs=()):
+    os.makedirs(os.path.join(site_root, "js"), exist_ok=True)
+    shutil.copy2(LEAD_JS, os.path.join(site_root, "js", "lead.js"))
+    n = 0
+    for root, _, files in os.walk(site_root):
+        for f in files:
+            if not f.endswith(".html"): continue
+            p = os.path.join(root, f); t = open(p, encoding="utf-8").read()
+            if "</body>" not in t or 'http-equiv="refresh"' in t: continue
+            o = t
+            if "googletagmanager.com/gtag/js" not in t and "</head>" in t:
+                t = t.replace("</head>", GA_TAG + "</head>", 1)
+            if "/js/lead.js" not in t:
+                t = t.replace("</body>", '<script src="/js/lead.js" defer></script></body>', 1)
+            rel = os.path.relpath(p, site_root).replace(os.sep, "/")
+            if cta_dirs and 'class="fa-cta"' not in t and any(rel.startswith(d) for d in cta_dirs) and "konsultan-kredit-bank" not in rel:
+                i = t.rfind("<footer"); i = i if i >= 0 else t.rfind("</body>")
+                t = t[:i] + CTA + "\n" + t[i:]
+            if t != o: open(p, "w", encoding="utf-8").write(t); n += 1
+    return n
+print("lead fa", add_lead(fa, cta_dirs=("artikel/", "buku/", "laporan-tahunan-pt/", "laporan-keuangan-umkm/", "jasa-penyusunan-laporan-keuangan/", "konsultan-persiapan-ipo/")))
+print("lead ca", add_lead(os.path.join(OUT, "cariakuntan")))
+print("lead kja", add_lead(k))
+
 # ---------- Title Case judul dan poin (aturan Bos, 25 Okt 2026) ----------
 import sys as _sys; _sys.path.insert(0, M)
 import titlecase as _tcm
