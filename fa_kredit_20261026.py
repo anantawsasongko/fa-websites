@@ -260,3 +260,16 @@ m = re.search(r'<div class="ap-app"><div class="nm"><b>FA Venus · Konversi PL P
 if m: t = t[:m.end()] + card + t[m.end():]
 else: print("apps card anchor not found")
 wtxt(ap, t)
+
+# ---------- Beranda: kalkulator tepat di bawah hero (26 Okt 2026 malam) ----------
+hp = P("index.html"); t = rd(hp)
+t = re.sub(r"<!--fa-kk-home-->.*?<!--/fa-kk-home-->", "", t, flags=re.S)
+home_sec = ('<!--fa-kk-home--><section class="block" id="cek-kredit"><div class="wrap">'
+            '<div class="head"><p class="eyebrow">FA Venus · Gratis</p><h2 class="aph">Cek Kapasitas Kredit, <em>3 Menit.</em></h2></div>'
+            '<p class="t" style="max-width:62em">Kredit baru, top up kredit eksisting, atau take over. Lihat repayment capacity, plafon yang sanggup ditanggung di tiap suku bunga, dan langkah selanjutnya sebelum ke bank.</p>'
+            + FORM + '</div></section>' + CSS + JS + '<!--/fa-kk-home-->')
+anchor = '<section class="block alt hs" id="peta">'
+assert anchor in t, "anchor beranda tidak ketemu"
+t = t.replace(anchor, home_sec + anchor, 1)
+wtxt(hp, t)
+print("home ok")
