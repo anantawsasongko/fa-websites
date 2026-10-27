@@ -20,7 +20,7 @@ def murah_faq(c):
     return [
      (f"Apakah bijak memilih KAP murah di {c}?", "Bijak bila murahnya karena lingkup tepat, data rapi, dan kelas KAP sesuai kebutuhan. Tidak bijak bila murahnya karena prosedur audit dipangkas, karena laporan bisa ditolak bank atau investor dan Anda harus membayar audit ulang."),
      ("Apakah KAP dengan fee rendah tetap independen?", "Kode Etik Profesi Akuntan Publik memandang imbalan jasa yang terlalu rendah sebagai ancaman kepentingan pribadi terhadap kompetensi dan kecermatan profesional, karena sulit menjalankan prosedur sesuai standar dengan biaya tersebut. KAP yang dapat dipercaya akan menolak fee yang tidak memungkinkan prosedur memadai."),
-     (f"Berapa biaya audit KAP di {c}?", "Bergantung pada total aset, jumlah transaksi, kerapian pembukuan, kelas KAP, dan tenggat. IAPI menerbitkan panduan penetapan imbalan jasa audit, dan fee yang terlalu rendah justru berisiko pada kualitas audit. Kisaran biaya kami sampaikan setelah melihat angka ringkas Anda, sebelum Anda berkomitmen."),
+     (f"Berapa biaya audit KAP di {c}?", "Sebagai gambaran, fee audit umum berkisar Rp15 juta sampai Rp35 juta untuk aset di bawah Rp5 miliar, Rp35 juta sampai Rp100 juta untuk aset Rp5 miliar sampai Rp50 miliar, dan Rp100 juta sampai Rp250 juta untuk aset sampai Rp250 miliar. Angka pastinya bergantung pada total aset, jumlah transaksi, kerapian pembukuan, kelas KAP, dan tenggat. IAPI menerbitkan panduan penetapan imbalan jasa audit, dan fee yang terlalu rendah justru berisiko pada kualitas audit. Kisaran biaya kami sampaikan setelah melihat angka ringkas Anda, sebelum Anda berkomitmen."),
      (f"Apakah KAP murah di {c} tetap diterima bank?", "Bisa, asalkan KAP berizin Kementerian Keuangan dan masuk kelas rekanan yang diminta bank. Laporan dari KAP yang tidak sesuai daftar rekanan biasanya ditolak, sehingga Anda harus audit ulang dan biayanya jadi dua kali."),
      ("Bagaimana memastikan KAP berizin?", "Cek nama KAP dan akuntan publiknya di registri Kementerian Keuangan (PPPK) atau direktori IAPI. Untuk lembaga jasa keuangan dan emiten, pastikan juga terdaftar di OJK."),
      (f"Apakah KAP harus berkantor di {c}?", "Tidak harus. Banyak penugasan dikerjakan jarak jauh dengan kunjungan lapangan saat diperlukan, sehingga pilihan KAP lebih luas dan harga lebih kompetitif."),
@@ -63,11 +63,11 @@ for name, prov, reg, secs, note in CITIES:
     near = sorted([c for c in CITIES if c[2] == reg and c[0] != name], key=lambda c: c[1] != prov)
     kws = [k for k in _KW if k[1] == name]
     u = f"{DOMAIN}/kota/{s}/kap-murah/"
-    title = f"KAP Murah di {name}: Apakah Bijak? Cek Independensi dan Kredibilitasnya | cariakuntan.com"
-    desc = f"Cari KAP murah di {name}, {prov}? Apakah bijak, independen, dan dipercaya bank? Cara menilai kantor akuntan publik, kapan hemat masih aman, dan diskusi kebutuhan audit gratis."
+    title = f"Auditor KAP Murah {name} 2026: Kisaran Biaya Audit dan Cara Memilih | cariakuntan.com"
+    desc = f"Cari auditor KAP murah di {name}? Kisaran biaya jasa audit 2026 per skala aset, cara hemat tanpa audit ulang, dan KAP berizin yang diterima bank. Cari KAP murah di {name}, {prov}? Apakah bijak, independen, dan dipercaya bank? Cara menilai kantor akuntan publik, kapan hemat masih aman, dan diskusi kebutuhan audit gratis."
     faq = murah_faq(name)
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "Service", "name": f"KAP Murah di {name}: Pendampingan Memilih KAP", "serviceType": "Rujukan Kantor Akuntan Publik dan Jasa Audit", "areaServed": {"@type": "City", "name": name, "containedInPlace": {"@type": "AdministrativeArea", "name": prov}},
+        {"@type": "Service", "name": f"Auditor KAP Murah di {name}: Pendampingan Memilih KAP", "serviceType": "Rujukan Kantor Akuntan Publik dan Jasa Audit", "areaServed": {"@type": "City", "name": name, "containedInPlace": {"@type": "AdministrativeArea", "name": prov}},
          "provider": {"@type": "ProfessionalService", "name": "cariakuntan.com", "url": DOMAIN + "/"}, "url": u, "description": desc},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beranda", "item": DOMAIN + "/"}, {"@type": "ListItem", "position": 2, "name": name, "item": f"{DOMAIN}/kota/{s}/"}, {"@type": "ListItem", "position": 3, "name": "KAP Murah", "item": u}]}]}
@@ -76,9 +76,17 @@ for name, prov, reg, secs, note in CITIES:
     html += header(ID, "home") + f'''<main class="wrap art">
   <p class="crumb"><a href="/">Beranda</a> / <a href="/kap-murah/">KAP Murah</a> / <a href="/kota/{s}/">{name}</a></p>
   <p class="label" style="margin-top:14px">{name}, {prov}</p>
-  <h1>KAP Murah di {name}: Apakah Bijak, Independen, dan Dapat Dipercaya?</h1>
+  <h1>Auditor KAP Murah di {name}: Kisaran Biaya Audit 2026 dan Cara Memilih</h1>
   <p class="sub">Sebelum memilih KAP karena harga, diskusikan dulu kebutuhannya: untuk bank apa, wajib audit, tender, atau investor. Kami bantu memilih kantor akuntan publik berizin yang independen dan biayanya wajar untuk skala usaha Anda.</p>
   <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m)}" target="_blank" rel="noopener">Diskusikan Kebutuhan Audit</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
+  <h2 style="margin-top:34px">Kisaran Biaya Jasa Audit KAP di {name} (2026)</h2>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Total Aset Perusahaan</th><th>Kisaran Fee Audit Umum</th><th>Lama Pekerjaan</th></tr></thead><tbody>
+  <tr><td>Di bawah Rp5 miliar</td><td>Rp15 juta sampai Rp35 juta</td><td>2 sampai 4 minggu</td></tr>
+  <tr><td>Rp5 miliar sampai Rp50 miliar</td><td>Rp35 juta sampai Rp100 juta</td><td>4 sampai 6 minggu</td></tr>
+  <tr><td>Rp50 miliar sampai Rp250 miliar</td><td>Rp100 juta sampai Rp250 juta</td><td>6 sampai 8 minggu</td></tr>
+  <tr><td>Di atas Rp250 miliar</td><td>Mulai Rp250 juta</td><td>8 minggu atau lebih</td></tr>
+  </tbody></table></div>
+  <p class="tnote">Kisaran indikatif auditor KAP di {name} dan sekitarnya. Fee final ditetapkan KAP setelah menilai risiko, kerapian pembukuan, jumlah entitas, dan lokasi stock opname. Pembukuan yang sudah rapi adalah cara paling efektif menurunkan biaya audit.</p>
   {murah_body(name, prov, secs, note, near, kws)}
   <div class="prose"><h2>Tanya Jawab: KAP Murah di {name}</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in faq)}</div>
   {fa_box(name)}
