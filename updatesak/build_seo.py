@@ -13,6 +13,7 @@ TGL = "27 Oktober 2026"
 WA = "https://wa.me/6282245260121?text="
 esc = html.escape
 
+def aurl(a): return f"/{a['slug']}/" if a.get("root") else f"/artikel/{a['slug']}/"
 def slug_psak(n): return f"/psak/{n}/"
 PS = {p[0]: p for p in P}
 
@@ -173,6 +174,7 @@ def psak_page(p):
 <blockquote class="calk">{esc(calk)}</blockquote>
 <p class="note">Sesuaikan dengan fakta perusahaan. Kalimat ini ditulis ulang oleh tim UpdateSAK dan bukan kutipan teks standar.</p>
 {cta(f"Cek Apakah PSAK {n} Berlaku di Perusahaan Anda")}
+<p class="upd"><a href="/update-psak-2026/">Lihat semua Update PSAK 2026 →</a></p>
 <h2>Yang Sering Dipersoalkan Auditor</h2>
 <ul class="flags">{"".join(f"<li>{esc(x)}</li>" for x in auditor)}</ul>
 <h2>Standar Terkait</h2>
@@ -206,10 +208,11 @@ def tabel_lama():
     return f'<div class="scroll"><table class="tbl"><thead><tr><th>Nomor Lama</th><th>Nomor Baru</th><th>Judul</th><th>Padanan</th></tr></thead><tbody>{rows}</tbody></table></div>'
 
 def art_page(a):
-    url = f"{BASE}/artikel/{a['slug']}/"
+    path = a["slug"] if a.get("root") else f"artikel/{a['slug']}"
+    url = f"{BASE}/{path}/"
     key = "art-" + a["slug"]
     img = f"{BASE}/img/share/{key}-og.jpg"
-    title = a["judul"] + " | UpdateSAK"
+    title = (a["judul"].split(":")[0] + ": Perubahan SAK Terbaru DSAK IAI") if a.get("root") else a["judul"] + " | UpdateSAK"
     body_html = a["body"].replace("{{TABEL_LAMA}}", tabel_lama())
     body_html = re.sub(r"<table class=\"tbl\">", '<div class="scroll"><table class="tbl">', body_html)
     body_html = body_html.replace("</table>", "</table></div>").replace("</table></div></div>", "</table></div>")
@@ -226,12 +229,12 @@ def art_page(a):
 {cta("Hitung Langsung Untuk Perusahaan Anda")}
 {('<h2>Standar Terkait</h2><div class="pchips">' + "".join(chip(t) for t in a["psak"]) + '</div>') if a["psak"] else ""}
 {faq_html(a["faq"])}
-<h2>Baca Juga</h2><div class="reads">{"".join(f'<a href="/artikel/{r["slug"]}/"><b>{esc(r["judul"])}</b><small>{esc(r["kat"])}</small></a>' for r in rel)}</div>
+<h2>Baca Juga</h2><div class="reads">{"".join(f'<a href="{aurl(r)}"><b>{esc(r["judul"])}</b><small>{esc(r["kat"])}</small></a>' for r in rel)}</div>
 {wa_box(a["kat"] if a["kat"] not in ("Belajar",) else "Laporan Keuangan")}
 </div></article>
 '''
     ld = ld_graph(url, a["judul"], a["desc"], crumbs, a["faq"], img)
-    write(f"artikel/{a['slug']}", HEAD.format(title=esc(title), desc=esc(a["desc"]), url=url, ogt=esc(a["judul"]), img=img, ld=ld) + out + FOOT)
+    write(path, HEAD.format(title=esc(title), desc=esc(a["desc"]), url=url, ogt=esc(a["judul"]), img=img, ld=ld) + out + FOOT)
     make_images(key, a["kat"], a["judul"])
     pages.append((url, TODAY))
 
@@ -246,7 +249,7 @@ def hub():
     cats = []
     for a in A:
         if a["kat"] not in cats: cats.append(a["kat"])
-    a_html = "".join(f'<h3 class="gh">{esc(c)}</h3><div class="reads">' + "".join(f'<a href="/artikel/{a["slug"]}/"><b>{esc(a["judul"])}</b><small>{esc(a["desc"][:110])}…</small></a>' for a in A if a["kat"] == c) + "</div>" for c in cats)
+    a_html = "".join(f'<h3 class="gh">{esc(c)}</h3><div class="reads">' + "".join(f'<a href="{aurl(a)}"><b>{esc(a["judul"])}</b><small>{esc(a["desc"][:110])}…</small></a>' for a in A if a["kat"] == c) + "</div>" for c in cats)
     block = f'''<!--seo:start-->
 <section id="standar"><div class="wrap">
   <div class="head"><h2>Panduan Per Standar</h2><p>Ringkasan setiap PSAK yang berlaku: inti pengaturan, contoh kebijakan akuntansi CALK, dan temuan auditor.</p></div>
@@ -275,7 +278,7 @@ def sitemap():
 def llms():
     p = os.path.join(SITE, "llms.txt"); s = open(p, encoding="utf-8").read()
     s = s.split("\n## Panduan Per Standar")[0].rstrip() + "\n\n## Panduan Per Standar\n" + "".join(f"- [PSAK {q[0]} {q[1]}]({BASE}{slug_psak(q[0])}): {q[4]}\n" for q in P)
-    s += "\n## Artikel\n" + "".join(f"- [{a['judul']}]({BASE}/artikel/{a['slug']}/): {a['desc']}\n" for a in A)
+    s += "\n## Artikel\n" + "".join(f"- [{a['judul']}]({BASE}{aurl(a)}): {a['desc']}\n" for a in A)
     open(p, "w", encoding="utf-8").write(s)
 
 if __name__ == "__main__":

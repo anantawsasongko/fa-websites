@@ -58,6 +58,7 @@
 - [PSAK 401 Penyajian dan Pengungkapan dalam Laporan Keuangan Syariah](https://updatesak.com/psak/401/): PSAK 401 baru berlaku 1 Januari 2027 sebagai standar penyajian laporan keuangan entitas syariah seiring PSAK 118.
 
 ## Artikel
+- [Update PSAK 2026: Daftar Lengkap Perubahan SAK Terbaru dari DSAK IAI](https://updatesak.com/update-psak-2026/): Update PSAK 2026 terlengkap: pengesahan PSAK 120 (14 Oktober 2026), Amendemen PSAK 228, Amendemen ISAK 335, PSAK 338 revisi, Amendemen PSAK 109 dan 107, serta persiapan PSAK 118 dan PSAK 119 yang berlaku 1 Januari 2027.
 - [Contoh CALK Lengkap Format Auditor Big 4: Catatan 1 Sampai Penutup](https://updatesak.com/artikel/contoh-calk-format-big-4/): Struktur Catatan atas Laporan Keuangan seperti yang dipakai KAP afiliasi Big 4 di Indonesia: Catatan 1 Umum, Catatan 2 Kebijakan Akuntansi Material, Catatan 3 Estimasi, lalu catatan per akun.
 - [Penomoran PSAK Baru 3 Digit: Cara Cepat Menghafal 1xx, 2xx, 3xx, 4xx](https://updatesak.com/artikel/penomoran-psak-3-digit/): Tabel lengkap nomor PSAK lama ke nomor baru dan jembatan keledai seri 100 (IFRS), 200 (IAS), 300 (khusus Indonesia), 400 (syariah).
 - [SAK EP Pengganti SAK ETAP: Perbedaan Utama dan Langkah Transisi](https://updatesak.com/artikel/sak-ep-pengganti-sak-etap/): SAK Indonesia untuk Entitas Privat berlaku sejak 1 Januari 2025 menggantikan SAK ETAP. Siapa yang wajib, apa yang berubah, dan langkah transisinya.

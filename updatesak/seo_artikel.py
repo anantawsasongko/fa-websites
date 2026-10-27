@@ -282,3 +282,39 @@ add("lima-langkah-psak-115-kontraktor", "PSAK 115 Lima Langkah Pengakuan Pendapa
  [("Apakah termin tagihan bisa dipakai sebagai dasar pendapatan?", "Hanya bila termin mencerminkan progres pekerjaan. Bila tidak, gunakan metode input atau output."),
   ("Apa itu aset kontrak?", "Hak atas imbalan untuk pekerjaan yang sudah dilaksanakan tetapi belum dapat ditagih tanpa syarat.")],
  [115, 237])
+
+# ---- Pilar keyword "Update PSAK 2026" (URL root /update-psak-2026/) ----
+add("update-psak-2026", "Update PSAK 2026: Daftar Lengkap Perubahan SAK Terbaru dari DSAK IAI",
+ "Update PSAK 2026 terlengkap: pengesahan PSAK 120 (14 Oktober 2026), Amendemen PSAK 228, Amendemen ISAK 335, PSAK 338 revisi, Amendemen PSAK 109 dan 107, serta persiapan PSAK 118 dan PSAK 119 yang berlaku 1 Januari 2027.",
+ "Update SAK",
+ """<div class="keys"><div><b>14 Okt 2026</b><span>DSAK IAI mengesahkan PSAK 120 Aset Regulatori dan Liabilitas Regulatori (berbasis IFRS 20).</span></div><div><b>1 Jul 2026</b><span>Amendemen PSAK 228: opsi nilai wajar untuk investasi pada entitas asosiasi dan ventura bersama.</span></div><div><b>3 Jun 2026</b><span>Amendemen ISAK 335: penyajian entitas nonlaba diselaraskan dengan PSAK 118.</span></div><div><b>1 Jan 2027</b><span>PSAK 118 menggantikan PSAK 201, PSAK 119 berlaku untuk entitas anak tanpa akuntabilitas publik.</span></div></div>
+<p><b>Jawaban singkat:</b> sepanjang 2026, Dewan Standar Akuntansi Keuangan (DSAK) IAI mengesahkan tiga produk utama, yaitu <a href="/psak/120/">PSAK 120</a>, Amendemen <a href="/psak/228/">PSAK 228</a>, dan Amendemen ISAK 335. Untuk tahun buku 2026 sendiri, yang mulai berlaku efektif adalah <a href="/psak/338/">PSAK 338</a> revisi, Amendemen <a href="/psak/109/">PSAK 109</a> dan <a href="/psak/107/">PSAK 107</a>, serta Penyesuaian Tahunan SAK 2024. Perubahan terbesar, <a href="/psak/118/">PSAK 118</a>, berlaku 1 Januari 2027 tetapi wajib disiapkan di 2026 karena angka komparatifnya adalah tahun 2026.</p>
+<h2>Kronologi Update PSAK 2026</h2>
+<div class="scroll"><table class="tbl"><thead><tr><th>Tanggal</th><th>Keputusan DSAK IAI</th><th>Dampak</th></tr></thead><tbody>
+<tr><td>3 Juni 2026</td><td>Pengesahan Amendemen ISAK 335 Penyajian Laporan Keuangan Entitas Berorientasi Nonlaba</td><td>Yayasan, perkumpulan, dan lembaga nonlaba menyesuaikan format laporan dengan PSAK 118</td></tr>
+<tr><td>1 Juli 2026</td><td>Pengesahan Amendemen PSAK 228 Investasi pada Entitas Asosiasi dan Ventura Bersama</td><td>Opsi pengukuran nilai wajar untuk investasi tertentu</td></tr>
+<tr><td>26 Agustus 2026</td><td>Pengesahan Draf Eksposur PSAK 120</td><td>Dengar pendapat publik, merujuk IFRS 20</td></tr>
+<tr><td>14 Oktober 2026</td><td>Pengesahan PSAK 120 Aset Regulatori dan Liabilitas Regulatori</td><td>Utilitas listrik, air, gas, jalan tol, dan usaha dengan tarif diatur regulator</td></tr>
+</tbody></table></div>
+<h2>Standar Yang Berlaku Efektif 1 Januari 2026</h2>
+<div class="scroll"><table class="tbl"><thead><tr><th>Standar</th><th>Pokok Perubahan</th><th>Siapa Yang Terdampak</th></tr></thead><tbody>
+<tr><td><a href="/psak/338/">PSAK 338</a> (revisi)</td><td>Kombinasi bisnis entitas sepengendali, penerapan dini diizinkan</td><td>Grup usaha yang melakukan restrukturisasi atau merger internal</td></tr>
+<tr><td>Amendemen <a href="/psak/109/">PSAK 109</a> dan <a href="/psak/107/">PSAK 107</a></td><td>Klasifikasi aset keuangan (fitur ESG dan nonrecourse), penghentian pengakuan liabilitas via transfer elektronik, kontrak listrik energi terbarukan (PPA)</td><td>Perusahaan dengan pinjaman terkait ESG, pembeli listrik energi terbarukan</td></tr>
+<tr><td>Penyesuaian Tahunan SAK 2024</td><td>Klarifikasi kecil pada beberapa PSAK</td><td>Semua pengguna SAK Indonesia</td></tr>
+</tbody></table></div>
+<h2>Kenapa PSAK 118 Harus Dikerjakan Tahun 2026</h2>
+<p>PSAK 118 berlaku untuk periode yang dimulai 1 Januari 2027 secara retrospektif. Laporan keuangan 2027 wajib menyajikan angka 2026 dalam format baru, sehingga data 2026 harus sudah bisa dipetakan ke lima kategori laba rugi: operasi, investasi, pendanaan, pajak penghasilan, dan operasi yang dihentikan. Ada dua subtotal wajib, yaitu laba operasi serta laba sebelum pendanaan dan pajak. Ukuran kinerja yang ditetapkan manajemen (MPM) juga wajib diungkapkan dan direkonsiliasi di CALK. Baca rinciannya di <a href="/artikel/contoh-laba-rugi-psak-118/">Contoh Laba Rugi PSAK 118</a>.</p>
+<h2>Linimasa 2026 Sampai 2029</h2>
+<ul><li><b>2026</b>: PSAK 338 revisi, Amendemen PSAK 109/107, Penyesuaian Tahunan 2024 berlaku. Siapkan pemetaan akun untuk PSAK 118.</li><li><b>1 Januari 2027</b>: PSAK 118, <a href="/psak/119/">PSAK 119</a>, Amendemen ISAK 335 berlaku. Amendemen PSAK 228 berlaku bersama PSAK 118.</li><li><b>1 Januari 2029</b>: PSAK 120 berlaku, penerapan dini dibatasi sesuai ketentuan transisinya.</li></ul>
+<h2>Checklist CFO dan Auditor Untuk Tutup Buku 2026</h2>
+<ol><li>Ungkapkan di CALK daftar standar yang telah disahkan tetapi belum berlaku (PSAK 118, PSAK 119, PSAK 120, Amendemen PSAK 228) beserta estimasi dampaknya.</li><li>Petakan bagan akun ke kategori PSAK 118 dan uji ulang angka 2026 dalam format baru.</li><li>Tinjau kontrak pinjaman berpersyaratan ESG dan kontrak PPA energi terbarukan terhadap Amendemen PSAK 109.</li><li>Untuk grup usaha, tinjau transaksi restrukturisasi internal terhadap PSAK 338 revisi.</li><li>Entitas privat: pastikan sudah memakai <a href="/artikel/sak-ep-pengganti-sak-etap/">SAK EP</a>, bukan SAK ETAP.</li><li>Perbarui kebijakan akuntansi material di Catatan 2. Draf cepat bisa disusun di <a href="/#kalkulator">Kalkulator CALK</a>.</li></ol>
+<h2>Sumber Resmi</h2>
+<p>Seluruh tanggal di halaman ini diambil dari kanal SAK Update dan SAK Online Ikatan Akuntan Indonesia, dan dipantau setiap minggu. Teks lengkap standar tetap merujuk SAK Online IAI.</p>""",
+ [("Apa saja update PSAK 2026?", "Sepanjang 2026, DSAK IAI mengesahkan Amendemen ISAK 335 (3 Juni 2026), Amendemen PSAK 228 (1 Juli 2026), Draf Eksposur PSAK 120 (26 Agustus 2026), dan PSAK 120 Aset Regulatori dan Liabilitas Regulatori (14 Oktober 2026). Yang berlaku efektif 1 Januari 2026 adalah PSAK 338 revisi, Amendemen PSAK 109 dan PSAK 107, serta Penyesuaian Tahunan SAK 2024."),
+  ("Kapan PSAK 118 berlaku?", "PSAK 118 Penyajian dan Pengungkapan dalam Laporan Keuangan berlaku untuk periode yang dimulai 1 Januari 2027 dan menggantikan PSAK 201. Penerapannya retrospektif, sehingga angka 2026 harus disajikan ulang sebagai komparatif."),
+  ("Kapan PSAK 120 berlaku?", "PSAK 120 disahkan DSAK IAI pada 14 Oktober 2026 dan berlaku 1 Januari 2029, untuk entitas dengan aktivitas bertarif yang diatur regulator."),
+  ("Apakah UMKM terdampak update PSAK 2026?", "Entitas yang memakai SAK EMKM atau SAK EP tidak langsung terdampak PSAK 118 dan PSAK 120. Perubahan ini berlaku untuk entitas yang memakai SAK Indonesia, termasuk perusahaan yang bersiap IPO."),
+  ("Berapa nomor PSAK baru untuk PSAK 1?", "PSAK 1 Penyajian Laporan Keuangan kini bernomor PSAK 201, dan mulai 2027 digantikan PSAK 118.")],
+ [118, 119, 120, 228, 338, 109, 107, 201])
+A.insert(0, A.pop())
+A[0]["root"] = True
