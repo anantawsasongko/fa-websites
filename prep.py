@@ -149,6 +149,17 @@ import subprocess as _sp; _sp.run(["python3", os.path.join(M, "updatesak", "buil
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
+import hashlib as _hl
+_ver = {f: _hl.md5(open(os.path.join(u, f), "rb").read()).hexdigest()[:8] for f in ("css/style.css", "js/app.js", "js/sak-data.js")}
+for _d, _, _fs in os.walk(u):
+    for _f in _fs:
+        if not _f.endswith(".html"): continue
+        _p = os.path.join(_d, _f); _t = open(_p, encoding="utf-8").read(); _o = _t
+        for _k, _v in _ver.items():
+            _t = re.sub(r'"/' + re.escape(_k) + r'(\?v=[0-9a-f]+)?"', '"/' + _k + '?v=' + _v + '"', _t)
+        if _t != _o: open(_p, "w", encoding="utf-8").write(_t)
+with open(os.path.join(u, "_headers"), "a") as _h:
+    _h.write("\n/*.html\n  Cache-Control: public, max-age=0, must-revalidate\n/\n  Cache-Control: public, max-age=0, must-revalidate\n/css/*\n  Cache-Control: public, max-age=31536000, immutable\n/js/*\n  Cache-Control: public, max-age=31536000, immutable\n")
 
 for n in sorted(os.listdir(OUT)):
     cnt = sum(len(f) for _, _, f in os.walk(os.path.join(OUT, n)))
