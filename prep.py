@@ -145,6 +145,7 @@ if os.path.exists(os.path.join(k, "artikel", "index.html")):
     inject_before_footer(os.path.join(k, "artikel", "index.html"), feed_block(n=20))
 
 # ---------- updatesak.com (project Cloudflare ke-8, 27 Okt 2026) ----------
+import subprocess as _sp; _sp.run(["python3", os.path.join(M, "updatesak", "build_seo.py")], check=True)
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
@@ -219,6 +220,25 @@ import titlecase as _tcm
 for _n in ("faindonesia", "cariakuntan", "kja-farhani", "updatesak"):
     _p = os.path.join(OUT, _n)
     if os.path.isdir(_p): print("titlecase", _n, _tcm.run(_p))
+
+# ---------- backlink silang ke UpdateSAK (27 Okt 2026) ----------
+US_BOX = ('<aside class="us-x" style="max-width:1080px;margin:32px auto;padding:20px 22px;border:1px solid #c9d6ff;background:#eef3ff;'
+          'font-family:inherit;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">'
+          '<div style="max-width:60ch"><b style="display:block;font-size:1.05rem;margin-bottom:4px">Cek PSAK Yang Berlaku dan Susun CALK Otomatis</b>'
+          '<span style="font-size:.9rem;opacity:.8">Kalkulator gratis UpdateSAK: masukkan neraca dan laba rugi, ketahui kerangka SAK dan PSAK per akun, '
+          'lalu salin CALK format auditor ke Word.</span></div>'
+          '<a href="https://updatesak.com/{path}" style="background:#1F5BFF;color:#fff;padding:11px 18px;font-weight:600;text-decoration:none;border-radius:4px">Buka UpdateSAK</a></aside>')
+_n = 0
+for _d, _, _fs in os.walk(os.path.join(OUT, "faindonesia", "artikel")):
+    _slug = os.path.basename(_d)
+    if "index.html" not in _fs or not re.search(r"psak|isak|sak-|calk|laporan-keuangan", _slug): continue
+    _p = os.path.join(_d, "index.html"); _t = open(_p, encoding="utf-8").read()
+    if "us-x" in _t: continue
+    _m = re.search(r"psak-(\d{3})", _slug)
+    _path = f"psak/{_m.group(1)}/" if _m and os.path.isdir(os.path.join(OUT, "updatesak", "psak", _m.group(1))) else ""
+    _i = _t.rfind("<footer"); _i = _i if _i >= 0 else _t.rfind("</body>")
+    open(_p, "w", encoding="utf-8").write(_t[:_i] + US_BOX.format(path=_path) + "\n" + _t[_i:]); _n += 1
+print("backlink updatesak dari FA", _n)
 
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
