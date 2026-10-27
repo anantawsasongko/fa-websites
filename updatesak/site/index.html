@@ -10,17 +10,17 @@
 <meta property="og:description" content="Masukkan neraca dan laba rugi, ketahui standar yang berlaku, dan dapatkan draf CALK format auditor.">
 <meta property="og:url" content="https://updatesak.com/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0B6E4F">
+<meta name="theme-color" content="#0B1F33">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/css/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"UpdateSAK","url":"https://updatesak.com/","inLanguage":"id"},{"@type":"WebApplication","name":"Kalkulator Standar SAK UpdateSAK","url":"https://updatesak.com/#kalkulator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Menentukan kerangka SAK (SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah) dan daftar PSAK/ISAK yang relevan dari angka laporan posisi keuangan dan laba rugi."},{"@type":"WebApplication","name":"Kalkulator CALK UpdateSAK","url":"https://updatesak.com/#kalkulator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Menyusun draf Catatan atas Laporan Keuangan dengan struktur yang lazim dipakai auditor Big 4 di Indonesia dari angka neraca dan laba rugi komparatif."},{"@type":"Organization","name":"UpdateSAK","url":"https://updatesak.com/","parentOrganization":{"@type":"Organization","name":"FA Indonesia","url":"https://faindonesia.co.id/"},"email":"ananta@faindonesia.co.id"}]}</script>
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="logo" href="/" aria-label="UpdateSAK beranda"><i>US</i><b style="font-weight:inherit">Update<span>SAK</span></b></a>
+  <a class="logo" href="/" aria-label="UpdateSAK beranda"><i>US</i><b>Update<span>SAK</span></b></a>
   <nav class="tabs" aria-label="Menu utama"><a href="/" aria-current="page">Beranda</a><a href="/eksplor/">Eksplor</a></nav>
   <a class="btn btn-sm" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a>
 </div></header>
@@ -28,138 +28,243 @@
 <main>
 <section class="hero"><div class="wrap grid">
   <div>
-    <p class="label">Standar Akuntansi Keuangan Indonesia, Per Oktober 2026</p>
-    <h1>Tahu Standar Yang Wajib Anda Pakai, Lalu Susun CALK Dalam Hitungan Menit.</h1>
-    <p class="lead">Masukkan angka neraca dan laba rugi. UpdateSAK memetakan kerangka SAK dan PSAK yang relevan, lalu menyusun draf Catatan atas Laporan Keuangan dengan struktur yang dipakai auditor Big 4.</p>
-    <div class="cta"><a class="btn arrow" href="#kalkulator">Mulai Kalkulator</a><a class="btn btn-ghost" href="/eksplor/">Lihat Update SAK 2026</a></div>
+    <p class="label">Kalkulator SAK · Penyusun CALK</p>
+    <h1>Standar Yang Tepat, CALK Siap Audit.</h1>
+    <p class="sub">Isi neraca dan laba rugi. Sistem memetakan PSAK yang wajib dan menyusun CALK format auditor.</p>
+    <div class="cta"><a class="btn arrow" href="#kalkulator">Mulai Gratis</a><a class="btn btn-ghost" href="/eksplor/">Update SAK 2026</a></div>
+    <div class="stats">
+      <div><b data-count="44">0</b><span>PSAK Dipetakan</span></div>
+      <div><b>2027</b><span>PSAK 118 Berlaku</span></div>
+      <div><b data-count="0">0</b><span>Data ke Server</span></div>
+    </div>
   </div>
-  <div class="kpi" aria-label="Ringkasan">
-    <div><b>4</b><span>Pilar SAK: SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah</span></div>
-    <div><b>1 Jan 2027</b><span>PSAK 118 menggantikan PSAK 201</span></div>
-    <div><b>0 Data</b><span>Disimpan di server. Semua hitungan berjalan di browser Anda</span></div>
+  <div class="viz" aria-hidden="true">
+    <svg viewBox="0 0 480 330">
+      <path class="flowline" d="M140 95 C190 95 190 165 210 165"/>
+      <path class="flowline" d="M140 235 C190 235 190 165 210 165"/>
+      <path class="flowline" d="M270 165 C300 165 300 62 330 62"/>
+      <path class="flowline" d="M270 165 L330 165"/>
+      <path class="flowline" d="M270 165 C300 165 300 268 330 268"/>
+      <g class="nodecard"><rect x="2" y="60" width="138" height="70" rx="4"/><rect class="chip" x="14" y="74" width="28" height="28" rx="3"/><text x="52" y="90">Neraca</text><text class="s" x="52" y="108">2 Tahun</text></g>
+      <g class="nodecard"><rect x="2" y="200" width="138" height="70" rx="4"/><rect class="chip" x="14" y="214" width="28" height="28" rx="3"/><text x="52" y="230">Laba Rugi</text><text class="s" x="52" y="248">2 Tahun</text></g>
+      <g class="core"><circle class="r" cx="240" cy="165" r="30"/><circle class="r r2" cx="240" cy="165" r="30"/><circle class="c" cx="240" cy="165" r="32"/><text x="240" y="170" text-anchor="middle">SAK</text></g>
+      <g class="nodecard"><rect x="330" y="30" width="148" height="64" rx="4"/><text x="344" y="56">Kerangka SAK</text><text class="s" x="344" y="76">SAK EP · Disarankan</text></g>
+      <g class="nodecard"><rect x="330" y="133" width="148" height="64" rx="4"/><text x="344" y="159">PSAK per Akun</text><text class="s blink" x="344" y="179">17 Standar Relevan</text></g>
+      <g class="nodecard"><rect x="330" y="236" width="148" height="64" rx="4"/><text x="344" y="262">CALK Siap Word</text><text class="s" x="344" y="282">Catatan 1 Sampai 31</text></g>
+    </svg>
   </div>
 </div></section>
 
-<section id="layanan"><div class="wrap">
-  <div class="head"><p class="label">Layanan</p><h2>Dua Kalkulator, Satu Kali Input</h2><p>Angka yang Anda isi di kalkulator pertama langsung terpakai di kalkulator kedua.</p></div>
-  <div class="svc">
-    <a href="#kalkulator" data-mode="std"><span class="label">Kalkulator 01</span><b>Kalkulator PSAK, SAK EP, SAK EMKM &amp; SAK Syariah</b><small>Nama PT dan angka neraca serta laba rugi menghasilkan kerangka SAK yang tepat, daftar PSAK/ISAK per akun, standar baru 2026 sampai 2029 yang berdampak, dan indikator kewajiban audit.</small><em>Cek Standar</em></a>
-    <a href="#kalkulator" data-mode="calk"><span class="label">Kalkulator 02</span><b>Kalkulator CALK Format Auditor</b><small>Neraca dan laba rugi dua tahun menghasilkan laporan keuangan dengan kolom Catatan, Catatan 1 Umum, Catatan 2 Kebijakan Akuntansi Material, Catatan 3 Estimasi Signifikan, lalu catatan komparatif per akun. Siap disalin ke Word.</small><em>Susun CALK</em></a>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="head"><p class="label">Cara Kerja</p><h2>Empat Langkah</h2></div>
-  <ol class="flow" id="flow">
-    <li><b>Isi Profil PT</b><small>Nama, status entitas, dan karakteristik transaksi.</small></li>
-    <li><b>Masukkan Angka</b><small>Neraca dan laba rugi, tahun berjalan dan tahun lalu.</small></li>
-    <li><b>Baca Hasil Standar</b><small>Kerangka SAK, PSAK per akun, dan standar baru.</small></li>
-    <li><b>Salin CALK ke Word</b><small>Lengkapi bagian bertanda kuning, lalu review bersama auditor.</small></li>
-  </ol>
-</div></section>
-
-<section class="tool" id="kalkulator"><div class="wrap">
-  <div class="head"><p class="label">Kalkulator</p><h2>Isi Data Perusahaan</h2><p>Angka dalam Rupiah penuh. Klik Isi Contoh untuk melihat hasil dengan data perusahaan fiktif.</p></div>
+<section class="alt" id="kalkulator"><div class="wrap">
+  <div class="head"><h2>Kalkulator Standar dan CALK</h2><p>Satu kali isi angka, dua hasil. Klik Isi Contoh untuk mencoba.</p></div>
   <div class="modes" role="group" aria-label="Pilih kalkulator">
     <button type="button" data-mode="std" aria-pressed="true">Kalkulator Standar</button>
     <button type="button" data-mode="calk" aria-pressed="false">Kalkulator CALK</button>
   </div>
-
-  <form id="form" autocomplete="off" onsubmit="return false">
-  <div class="card">
-    <h3>Profil Perusahaan</h3>
-    <div class="fgrid">
-      <label class="f w2">Nama Perusahaan<input name="nama" placeholder="PT Contoh Sejahtera" required></label>
-      <label class="f">Tahun Buku<select name="tahun"><option>2026</option><option>2025</option></select></label>
-      <label class="f">Status Entitas<select name="status">
-        <option value="privat">Perseroan Tertutup (Privat)</option>
-        <option value="tbk">Perusahaan Terbuka (Tbk)</option>
-        <option value="ipo">Sedang Proses IPO / Penawaran Umum</option>
-        <option value="lk">Bank, Asuransi, Dana Pensiun, Lembaga Keuangan</option>
-        <option value="anak">Entitas Anak dari Grup Pemakai SAK Indonesia/IFRS</option>
-        <option value="bumn">BUMN / BUMD</option>
-        <option value="nonlaba">Yayasan / Entitas Nonlaba</option>
-      </select></label>
-      <label class="f">Industri<select name="industri">
-        <option value="dagang">Perdagangan / Distribusi</option>
-        <option value="manufaktur">Manufaktur</option>
-        <option value="konstruksi">Konstruksi / Kontraktor</option>
-        <option value="jasa">Jasa</option>
-        <option value="rs">Rumah Sakit / Kesehatan</option>
-        <option value="properti">Properti / Real Estat</option>
-        <option value="tambang">Pertambangan / Energi</option>
-        <option value="agri">Perkebunan / Agrikultur</option>
-        <option value="teknologi">Teknologi / Digital</option>
-      </select></label>
-      <label class="f">Kota Domisili<input name="kota" placeholder="Batam"></label>
+  <div class="calc">
+  <form id="form" class="left" autocomplete="off" onsubmit="return false">
+    <div class="stepnav" role="tablist">
+      <button type="button" role="tab" data-step="0" aria-selected="true">1 · Profil</button>
+      <button type="button" role="tab" data-step="1" aria-selected="false">2 · Neraca</button>
+      <button type="button" role="tab" data-step="2" aria-selected="false">3 · Laba Rugi</button>
+      <button type="button" role="tab" data-step="3" aria-selected="false" class="calk-only" hidden>4 · Catatan 1</button>
     </div>
-    <h3 style="margin-top:20px">Karakteristik Transaksi</h3>
-    <div class="checks" id="flags">
-      <label><input type="checkbox" name="f_valas">Ada Transaksi atau Saldo Valuta Asing</label>
-      <label><input type="checkbox" name="f_kontrak">Pendapatan dari Kontrak Jangka Panjang / Proyek (Over Time)</label>
-      <label><input type="checkbox" name="f_syariah">Menjalankan Transaksi Berbasis Akad Syariah</label>
-      <label><input type="checkbox" name="f_anak">Memiliki Entitas Anak (Wajib Konsolidasi)</label>
-      <label><input type="checkbox" name="f_hibah">Menerima Hibah atau Bantuan Pemerintah</label>
-      <label><input type="checkbox" name="f_regulasi">Tarif Usaha Diatur Regulator (Listrik, Air, Tol, Gas)</label>
-      <label><input type="checkbox" name="f_saham">Program Saham atau Opsi Saham Karyawan</label>
-      <label><input type="checkbox" name="f_obligasi">Menerbitkan Obligasi, Sukuk, atau MTN</label>
-      <label><input type="checkbox" name="f_akuisisi">Akuisisi atau Penggabungan Usaha Tahun Ini</label>
-      <label><input type="checkbox" name="f_kredit">Mengajukan atau Memiliki Kredit Bank dengan Covenant</label>
-    </div>
-  </div>
 
-  <div class="card calk-only" hidden>
-    <h3>Data Catatan 1 (Umum)</h3>
-    <p class="sub">Dipakai untuk menyusun Catatan 1. Bagian yang kosong tampil sebagai isian kuning di hasil.</p>
-    <div class="fgrid">
-      <label class="f">No. Akta Pendirian<input name="akta_no" placeholder="12"></label>
-      <label class="f">Tanggal Akta Pendirian<input name="akta_tgl" placeholder="14 Maret 2012"></label>
-      <label class="f">Notaris<input name="notaris" placeholder="Nama Notaris, S.H., M.Kn."></label>
-      <label class="f">No. Pengesahan Kemenkum<input name="sk" placeholder="AHU-0012345.AH.01.01.Tahun 2012"></label>
-      <label class="f w2">Perubahan Anggaran Dasar Terakhir<input name="akta_ubah" placeholder="Akta No. 5 tanggal 2 Februari 2026 tentang perubahan susunan pengurus"></label>
-      <label class="f w2">Kegiatan Usaha Sesuai Anggaran Dasar<input name="kegiatan" placeholder="Perdagangan besar bahan bangunan"></label>
-      <label class="f">Mulai Operasi Komersial<input name="mulai" placeholder="2012"></label>
-      <label class="f w2">Alamat Kantor Pusat<input name="alamat" placeholder="Jl. ... Batam"></label>
-      <label class="f">Entitas Induk / Pemegang Saham Utama<input name="induk" placeholder="Opsional"></label>
-      <label class="f">Dewan Komisaris (Satu Per Baris: Jabatan: Nama)<textarea name="komisaris" placeholder="Komisaris Utama: ...&#10;Komisaris: ..."></textarea></label>
-      <label class="f">Direksi (Satu Per Baris: Jabatan: Nama)<textarea name="direksi" placeholder="Direktur Utama: ...&#10;Direktur: ..."></textarea></label>
-      <label class="f">Jumlah Karyawan Tetap<input name="karyawan" inputmode="numeric" placeholder="85"></label>
-      <label class="f">Tanggal Otorisasi Laporan Keuangan<input name="otorisasi" placeholder="20 Maret 2027"></label>
-      <label class="f">Kerangka Pelaporan<select name="kerangka"><option value="auto">Ikuti hasil Kalkulator Standar</option><option value="sak">SAK Indonesia</option><option value="ep">SAK EP</option><option value="emkm">SAK EMKM</option></select></label>
+    <div class="pane on" data-pane="0">
+      <div class="fgrid">
+        <label class="f w2">Nama PT<input name="nama" placeholder="PT Contoh Sukses Abadi" required></label>
+        <label class="f">Status Entitas<select name="status">
+          <option value="privat">Perseroan Tertutup</option>
+          <option value="tbk">Perusahaan Terbuka (Tbk)</option>
+          <option value="ipo">Proses IPO</option>
+          <option value="lk">Bank, Asuransi, Lembaga Keuangan</option>
+          <option value="anak">Entitas Anak Grup SAK Indonesia</option>
+          <option value="bumn">BUMN / BUMD</option>
+          <option value="nonlaba">Yayasan / Nonlaba</option>
+        </select></label>
+        <label class="f">Industri<select name="industri">
+          <option value="dagang">Perdagangan / Distribusi</option>
+          <option value="manufaktur">Manufaktur</option>
+          <option value="konstruksi">Konstruksi</option>
+          <option value="jasa">Jasa</option>
+          <option value="rs">Rumah Sakit</option>
+          <option value="properti">Properti</option>
+          <option value="tambang">Pertambangan / Energi</option>
+          <option value="agri">Perkebunan / Agrikultur</option>
+          <option value="teknologi">Teknologi</option>
+        </select></label>
+        <label class="f">Tahun Buku<select name="tahun"><option>2026</option><option>2025</option></select></label>
+        <label class="f">Kota<input name="kota" placeholder="Batam"></label>
+      </div>
+      <p class="sub-h">Karakteristik Transaksi</p>
+      <div class="chips" id="flags">
+        <label><input type="checkbox" name="f_valas">Valuta Asing</label>
+        <label><input type="checkbox" name="f_kontrak">Kontrak Proyek</label>
+        <label><input type="checkbox" name="f_syariah">Akad Syariah</label>
+        <label><input type="checkbox" name="f_anak">Punya Entitas Anak</label>
+        <label><input type="checkbox" name="f_kredit">Kredit Bank</label>
+        <label><input type="checkbox" name="f_hibah">Hibah Pemerintah</label>
+        <label><input type="checkbox" name="f_regulasi">Tarif Diatur Regulator</label>
+        <label><input type="checkbox" name="f_saham">Opsi Saham Karyawan</label>
+        <label><input type="checkbox" name="f_obligasi">Obligasi / Sukuk</label>
+        <label><input type="checkbox" name="f_akuisisi">Akuisisi Tahun Ini</label>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h3>Laporan Posisi Keuangan dan Laba Rugi</h3>
-    <p class="sub">Isi tahun lalu untuk CALK komparatif. Angka beban diisi positif. Kolom bertanda (±) boleh negatif.</p>
-    <div class="scroll"><table class="fin" id="fin"><thead><tr><th>Akun</th><th id="th1">31 Des 2026</th><th id="th0">31 Des 2025</th></tr></thead><tbody></tbody></table></div>
-    <div class="chk" id="cek" aria-live="polite">Isi angka untuk melihat cek keseimbangan.</div>
-  </div>
-  <div class="actions">
-    <button type="button" class="btn" id="go">Cek Standar</button>
-    <button type="button" class="btn btn-ghost" id="contoh">Isi Contoh</button>
-    <button type="button" class="btn btn-ghost" id="reset">Kosongkan</button>
-  </div>
+    <div class="pane" data-pane="1">
+      <div class="scroll tall"><table class="fin finx" id="finBS"><thead><tr><th>Akun</th><th class="th1">31 Des 2026</th><th class="th0">31 Des 2025</th></tr></thead><tbody></tbody></table></div>
+      <div class="chk" id="cek" aria-live="polite">Isi angka untuk cek keseimbangan.</div>
+    </div>
+
+    <div class="pane" data-pane="2">
+      <div class="scroll tall"><table class="fin finx" id="finPL"><thead><tr><th>Akun</th><th class="th1">2026</th><th class="th0">2025</th></tr></thead><tbody></tbody></table></div>
+    </div>
+
+    <div class="pane" data-pane="3">
+      <div class="fgrid">
+        <label class="f">No. Akta Pendirian<input name="akta_no" placeholder="12"></label>
+        <label class="f">Tanggal Akta<input name="akta_tgl" placeholder="14 Maret 2012"></label>
+        <label class="f">Notaris<input name="notaris" placeholder="Nama, S.H., M.Kn."></label>
+        <label class="f">No. SK Kemenkum<input name="sk" placeholder="AHU-0012345.AH.01.01"></label>
+        <label class="f w2">Perubahan Anggaran Dasar Terakhir<input name="akta_ubah" placeholder="Akta No. 5 tanggal 2 Februari 2026"></label>
+        <label class="f w2">Kegiatan Usaha<input name="kegiatan" placeholder="Perdagangan besar bahan bangunan"></label>
+        <label class="f">Mulai Operasi<input name="mulai" placeholder="2012"></label>
+        <label class="f">Karyawan Tetap<input name="karyawan" inputmode="numeric" placeholder="85"></label>
+        <label class="f w2">Alamat Kantor Pusat<input name="alamat" placeholder="Jl. ... Batam"></label>
+        <label class="f">Dewan Komisaris<textarea name="komisaris" placeholder="Komisaris Utama: Nama"></textarea></label>
+        <label class="f">Direksi<textarea name="direksi" placeholder="Direktur Utama: Nama"></textarea></label>
+        <label class="f">Entitas Induk<input name="induk" placeholder="Opsional"></label>
+        <label class="f">Tanggal Otorisasi LK<input name="otorisasi" placeholder="20 Maret 2027"></label>
+        <label class="f w2">Kerangka Pelaporan<select name="kerangka"><option value="auto">Ikuti Hasil Kalkulator Standar</option><option value="sak">SAK Indonesia</option><option value="ep">SAK EP</option><option value="emkm">SAK EMKM</option></select></label>
+      </div>
+    </div>
+
+    <div class="nav2">
+      <div class="l"><button type="button" class="btn btn-ghost btn-sm" id="contoh">Isi Contoh</button><button type="button" class="btn btn-ghost btn-sm" id="reset">Kosongkan</button></div>
+      <div class="l"><button type="button" class="btn btn-ghost btn-sm" id="prev" hidden>Kembali</button><button type="button" class="btn btn-sm arrow" id="next">Lanjut</button><button type="button" class="btn btn-sm" id="go" hidden>Cek Standar</button></div>
+    </div>
   </form>
 
+  <aside class="right" id="live" aria-live="polite">
+    <h3>Indikasi Langsung</h3>
+    <div class="lockbox"><span>🔒</span>Isi nama PT untuk melihat indikasi.</div>
+    <div class="live">
+      <div class="badge"><div><small>Kerangka</small><b id="lvFw">SAK EP</b></div><em id="lvAudit">Belum Wajib Audit</em></div>
+      <div class="tiles">
+        <div><b id="lvPsak">0</b><span>PSAK Relevan</span></div>
+        <div><b id="lvNew">0</b><span>Standar Baru</span></div>
+        <div><b id="lvKelas">-</b><span>Skala Usaha</span></div>
+      </div>
+      <div class="bars">
+        <p>Komposisi Terhadap Total Aset</p>
+        <div class="barr"><span>Aset Lancar</span><i><u data-b="AL"></u></i><span data-p="AL">0%</span></div>
+        <div class="barr"><span>Aset Tetap</span><i><u data-b="ATL"></u></i><span data-p="ATL">0%</span></div>
+        <div class="barr"><span>Liabilitas</span><i><u data-b="LIAB"></u></i><span data-p="LIAB">0%</span></div>
+        <div class="barr"><span>Ekuitas</span><i><u data-b="EK"></u></i><span data-p="EK">0%</span></div>
+      </div>
+      <div class="gauges">
+        <div class="gauge"><svg viewBox="0 0 100 60"><path class="t" d="M10 55 A40 40 0 0 1 90 55"/><path class="v" id="gCr" d="M10 55 A40 40 0 0 1 90 55" stroke-dasharray="126" stroke-dashoffset="126"/></svg><div><small>Rasio Lancar</small><b id="lvCr">-</b></div></div>
+        <div class="gauge g2"><svg viewBox="0 0 100 60"><path class="t" d="M10 55 A40 40 0 0 1 90 55"/><path class="v" id="gDer" d="M10 55 A40 40 0 0 1 90 55" stroke-dasharray="126" stroke-dashoffset="126"/></svg><div><small>Utang Bank / Ekuitas</small><b id="lvDer">-</b></div></div>
+      </div>
+      <p class="foot">Dihitung di browser Anda, tidak dikirim ke server.</p>
+    </div>
+  </aside>
+  </div>
   <div id="hasil" hidden></div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="head"><p class="label">Tanya Jawab</p><h2>Yang Sering Ditanyakan</h2></div>
-  <details><summary>Apakah Data Keuangan Saya Dikirim ke Server?</summary><p>Tidak. Semua perhitungan dan penyusunan CALK berjalan di browser Anda. Halaman ini tidak menyimpan angka yang Anda masukkan.</p></details>
-  <details><summary>Apakah CALK dari UpdateSAK Bisa Langsung Diserahkan ke Auditor?</summary><p>CALK yang dihasilkan adalah draf dengan struktur dan kebijakan akuntansi yang lazim dipakai auditor. Bagian bertanda kuning wajib dilengkapi dengan data riil perusahaan, misalnya rincian bank, jaminan kredit, dan asumsi aktuaria, sebelum di-review auditor.</p></details>
-  <details><summary>Kapan Perusahaan Boleh Memakai SAK EP atau SAK EMKM?</summary><p>SAK EP berlaku sejak 1 Januari 2025 untuk entitas tanpa akuntabilitas publik, menggantikan SAK ETAP. SAK EMKM untuk entitas mikro, kecil, dan menengah. Perusahaan Tbk, lembaga keuangan, dan perusahaan yang sedang IPO memakai SAK Indonesia.</p></details>
-  <details><summary>Apa Dampak PSAK 118 Mulai 2027?</summary><p>PSAK 118 menggantikan PSAK 201. Laba rugi wajib dibagi ke kategori operasi, investasi, dan pendanaan dengan subtotal laba operasi, ada pengungkapan ukuran kinerja yang ditetapkan manajemen, dan aturan agregasi yang lebih ketat. Angka komparatif 2026 ikut disajikan ulang.</p></details>
-  <details><summary>Butuh Pendampingan Penerapan Standar atau Persiapan Audit?</summary><p>Tim kami terdiri dari akuntan bersertifikat CA dan CPA yang terbiasa dengan prosedur auditor, termasuk Big 4. Tekan tombol Chat Ananta, CPA untuk diskusi awal.</p></details>
+  <div class="head"><h2>Peta Memilih Kerangka SAK</h2></div>
+  <div class="tree" id="tree" aria-label="Diagram keputusan kerangka SAK">
+    <svg viewBox="0 0 600 400" role="img">
+      <path class="ln" d="M300 62 C300 100 130 100 130 128"/><path class="lnA" d="M300 62 C300 100 130 100 130 128"/>
+      <path class="ln" d="M300 62 C300 110 455 110 455 150"/><path class="lnA d2" d="M300 62 C300 110 455 110 455 150"/>
+      <path class="ln" d="M455 206 C455 250 320 250 320 290"/><path class="lnA d3" d="M455 206 C455 250 320 250 320 290"/>
+      <path class="ln" d="M455 206 C455 250 515 250 515 290"/><path class="lnA d4" d="M455 206 C455 250 515 250 515 290"/>
+      <g class="q"><rect x="120" y="10" width="360" height="52" rx="4"/><text x="300" y="41" text-anchor="middle">Tbk, Lembaga Keuangan, atau Sedang IPO?</text></g>
+      <text class="yn" x="178" y="98">YA</text><text class="yn" x="400" y="104">TIDAK</text>
+      <g class="o"><rect x="20" y="128" width="220" height="66" rx="4" fill="#1F5BFF"/><text x="130" y="158" text-anchor="middle">SAK Indonesia</text><text class="s" x="130" y="178" text-anchor="middle">Seri PSAK 100 Sampai 300</text></g>
+      <g class="q"><rect x="330" y="150" width="250" height="56" rx="4"/><text x="455" y="176" text-anchor="middle">Penjualan ≤ Rp50 M</text><text x="455" y="194" text-anchor="middle">dan Aset ≤ Rp10 M?</text></g>
+      <text class="yn" x="360" y="246">YA</text><text class="yn" x="500" y="246">TIDAK</text>
+      <g class="o d3"><rect x="230" y="290" width="180" height="66" rx="4" fill="#12A39A"/><text x="320" y="320" text-anchor="middle">SAK EMKM</text><text class="s" x="320" y="340" text-anchor="middle">UMKM, PP 7/2021</text></g>
+      <g class="o d4"><rect x="430" y="290" width="160" height="66" rx="4" fill="#0B1F33"/><text x="510" y="320" text-anchor="middle">SAK EP</text><text class="s" x="510" y="340" text-anchor="middle">Sejak 2025</text></g>
+      <g class="o d2"><rect x="20" y="214" width="220" height="44" rx="4" fill="#B26A00"/><text x="130" y="241" text-anchor="middle" style="font-size:13px">+ SAK Syariah Bila Ada Akad</text></g>
+    </svg>
+  </div>
+  <div class="tree-m" aria-hidden="true">
+    <div class="tq">Tbk, Lembaga Keuangan, atau Sedang IPO?</div>
+    <div class="tr"><span>Ya</span><b style="background:#1F5BFF">SAK Indonesia</b></div>
+    <div class="tq">Tidak: Penjualan ≤ Rp50 M dan Aset ≤ Rp10 M?</div>
+    <div class="tr"><span>Ya</span><b style="background:#12A39A">SAK EMKM</b></div>
+    <div class="tr"><span>Tidak</span><b style="background:#0B1F33">SAK EP</b></div>
+    <div class="tr"><span>Plus</span><b style="background:#B26A00">SAK Syariah Bila Ada Akad</b></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="head"><h2>Linimasa Perubahan SAK</h2></div>
+  <div class="rail" id="rail">
+    <div class="track"><u></u></div>
+    <div class="pts">
+      <div class="pt"><span class="dot"></span><time>2025</time><div class="tags"><span>SAK EP</span><span>PSAK 117</span></div></div>
+      <div class="pt now"><span class="dot"></span><time>2026</time><div class="tags"><span>Amendemen PSAK 109</span><span>PT 2024</span></div></div>
+      <div class="pt"><span class="dot"></span><time>2027</time><div class="tags"><span>PSAK 118</span><span>PSAK 119</span><span>PSAK 401</span><span>ISAK 403</span></div></div>
+      <div class="pt"><span class="dot"></span><time>2029</time><div class="tags"><span>PSAK 120</span></div></div>
+    </div>
+  </div>
+  <p class="upd" id="sakUpd">Sumber SAK Online IAI.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head"><h2>Struktur CALK Format Auditor</h2></div>
+  <div class="stack">
+    <div class="pages" id="pages">
+      <div><b>1</b><span>Umum</span><small>Pendirian · Pengurus</small></div>
+      <div><b>2</b><span>Kebijakan Akuntansi Material</span><small>PSAK Terkait</small></div>
+      <div><b>3</b><span>Pertimbangan dan Estimasi</span><small>Signifikan</small></div>
+      <div class="k"><b>4+</b><span>Catatan per Akun</span><small>Komparatif</small></div>
+      <div class="d"><b>…</b><span>Risiko, Permodalan, Standar Baru</span><small>Penutup</small></div>
+    </div>
+    <div class="doc" id="doc" aria-hidden="true">
+      <h4>4. Kas dan Setara Kas</h4>
+      <div class="tbl"><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ln" style="width:100%"></div><div class="ln" style="width:92%;transition-delay:.1s"></div><div class="ln" style="width:64%;transition-delay:.2s"></div>
+      <h4 style="margin-top:14px">5. Piutang Usaha</h4>
+      <div class="tbl"><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i></div>
+      <span class="yel">[Nama Bank dan Jaminan]</span>
+      <div class="ln" style="width:85%;transition-delay:.3s"></div>
+      <span class="cp">Salin ke Word</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="head"><h2>Atau Langsung Pilih Kebutuhan</h2></div>
+  <div class="needs">
+    <a class="need" href="#kalkulator" data-mode="std"><span class="ic" style="background:#1F5BFF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2"/></svg></span><b>Kalkulator Standar</b><small>Kerangka SAK dan PSAK</small><em>Mulai</em></a>
+    <a class="need" href="#kalkulator" data-mode="calk"><span class="ic" style="background:#12A39A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h8M9 17h6"/></svg></span><b>Kalkulator CALK</b><small>Siap Salin ke Word</small><em>Mulai</em></a>
+    <a class="need" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20kami%20butuh%20pendampingan%20implementasi%20PSAK%20118."><span class="ic" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><b>Implementasi PSAK 118</b><small>Transisi Laba Rugi 2027</small><em>Chat</em></a>
+    <a class="need" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20kami%20ingin%20migrasi%20laporan%20keuangan%20ke%20SAK%20EP."><span class="ic" style="background:#7C3AED"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg></span><b>Migrasi ke SAK EP</b><small>Dari SAK ETAP</small><em>Chat</em></a>
+    <a class="need" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20mohon%20review%20CALK%20kami%20sebelum%20audit."><span class="ic" style="background:#E11D48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></span><b>Review CALK</b><small>Sebelum Diserahkan ke KAP</small><em>Chat</em></a>
+    <a class="need" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20kami%20ingin%20persiapan%20audit%20KAP."><span class="ic" style="background:#0B1F33"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8 12l3 3 5-6"/></svg></span><b>Persiapan Audit</b><small>Kertas Kerja dan PBC</small><em>Chat</em></a>
+    <a class="need" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20kami%20butuh%20penyusunan%20laporan%20keuangan%20lengkap."><span class="ic" style="background:#0EA5E9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><b>Laporan Keuangan Lengkap</b><small>Termasuk Arus Kas</small><em>Chat</em></a>
+    <a class="need" href="https://cariakuntan.com/"><span class="ic" style="background:#16A34A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 11l2 2 4-4"/></svg></span><b>Cari KAP atau KJA</b><small>Lewat CariAkuntan</small><em>Buka</em></a>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap center">
+  <h2>CALK Sudah Jadi, Mau Dicek Tim?</h2>
+  <p>Tim akuntan bersertifikat CA dan CPA siap review sebelum diserahkan ke auditor.</p>
+  <a class="btn arrow" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20CALK%20kami%20di-review." target="_blank" rel="noopener">Chat Ananta, CPA</a>
 </div></section>
 </main>
 
 <footer><div class="wrap">
-  <span>© 2026 UpdateSAK, bagian dari <a href="https://faindonesia.co.id/">FA Indonesia</a>. Cari akuntan publik atau KJA: <a href="https://cariakuntan.com/">CariAkuntan</a>.</span>
+  <span>© 2026 UpdateSAK · <a href="https://faindonesia.co.id/">FA Indonesia</a> · <a href="https://cariakuntan.com/">CariAkuntan</a></span>
   <span><a href="/eksplor/">Eksplor</a> · <a href="mailto:ananta@faindonesia.co.id">Email</a></span>
 </div></footer>
-<div class="bar"><a class="btn" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+<div class="bar-m"><a class="btn" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+<script src="/js/sak-data.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>

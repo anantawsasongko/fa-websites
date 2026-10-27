@@ -87,16 +87,18 @@ const fmt = n => !Math.round(n) ? "-" : (n < 0 ? "(" + idn(n) + ")" : idn(n));
 const jt = n => (n / 1e9).toLocaleString("id-ID", {maximumFractionDigits: 1}) + " M";
 
 /* ---------- Bangun tabel input ---------- */
-const tbody = $("#fin tbody");
-tbody.innerHTML = ROWS.map(([id, lab, g]) => {
+const rowHtml = ([id, lab]) => {
   if (id === "#") return `<tr class="sec"><td colspan="3">${lab}</td></tr>`;
   if (id[0] === "=") return `<tr class="tot"><td>${lab}</td><td class="num" data-t="${id.slice(1)}" data-y="1">-</td><td class="num" data-t="${id.slice(1)}" data-y="0">-</td></tr>`;
   return `<tr><td>${lab}</td><td><input inputmode="decimal" data-id="${id}" data-y="1" aria-label="${lab} tahun berjalan"></td><td><input inputmode="decimal" data-id="${id}" data-y="0" aria-label="${lab} tahun lalu"></td></tr>`;
-}).join("");
+};
+const cut = ROWS.findIndex(r => r[0] === "#" && r[1].startsWith("Laba Rugi"));
+$("#finBS tbody").innerHTML = ROWS.slice(0, cut).map(rowHtml).join("");
+$("#finPL tbody").innerHTML = ROWS.slice(cut + 1).map(rowHtml).join("");
 
 function read() {
   const v = {}; IDS.forEach(id => v[id] = [0, 0]);
-  $$("#fin input").forEach(i => v[i.dataset.id][+i.dataset.y] = parse(i.value));
+  $$(".finx input").forEach(i => v[i.dataset.id][+i.dataset.y] = parse(i.value));
   const f = Object.fromEntries(new FormData($("#form")).entries());
   $$("#flags input").forEach(c => f[c.name] = c.checked);
   return {v, f, t: totals(v)};
@@ -125,8 +127,9 @@ function totals(v) {
   return t;
 }
 function refresh() {
+  live();
   const {v, t} = read();
-  $$("#fin td[data-t]").forEach(td => td.textContent = fmt(t[+td.dataset.y][td.dataset.t]));
+  $$(".finx td[data-t]").forEach(td => td.textContent = fmt(t[+td.dataset.y][td.dataset.t]));
   const any = IDS.some(id => v[id][1]);
   const el = $("#cek");
   if (!any) { el.className = "chk"; el.textContent = "Isi angka untuk melihat cek keseimbangan."; return; }
@@ -140,20 +143,34 @@ function refresh() {
   el.className = "chk" + (bad ? " bad" : "");
   el.textContent = msg.join(" · ") + (bad ? ". Hasil tetap bisa dibuat, tetapi periksa angka Anda." : ".");
 }
-$("#fin").addEventListener("input", refresh);
-$("#fin").addEventListener("focusout", e => { if (e.target.matches("input")) { e.target.value = fmtIn(parse(e.target.value)); refresh(); } });
+$$(".finx").forEach(tb => tb.addEventListener("input", refresh));
+$$(".finx").forEach(tb => tb.addEventListener("focusout", e => { if (e.target.matches("input")) { e.target.value = fmtIn(parse(e.target.value)); refresh(); } }));
 
 /* ---------- Mode ---------- */
 let mode = "std";
 function setMode(m) {
   mode = m;
   $$(".modes button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === m));
-  $$(".calk-only").forEach(e => e.hidden = m !== "calk");
+  $$(".stepnav .calk-only").forEach(e => e.hidden = m !== "calk");
   $("#go").textContent = m === "calk" ? "Susun CALK" : "Cek Standar";
+  if (m !== "calk" && step > 2) goStep(2); else goStep(step);
 }
+let step = 0;
+function lastStep() { return mode === "calk" ? 3 : 2; }
+function goStep(n) {
+  step = Math.max(0, Math.min(n, lastStep()));
+  $$(".stepnav button").forEach(b => b.setAttribute("aria-selected", +b.dataset.step === step));
+  $$(".pane").forEach(p => p.classList.toggle("on", +p.dataset.pane === step));
+  $("#prev").hidden = step === 0;
+  $("#next").hidden = step === lastStep();
+  $("#go").hidden = step !== lastStep();
+}
+$$(".stepnav button").forEach(b => b.onclick = () => goStep(+b.dataset.step));
+$("#next").onclick = () => goStep(step + 1);
+$("#prev").onclick = () => goStep(step - 1);
 $$(".modes button").forEach(b => b.onclick = () => setMode(b.dataset.mode));
-$$(".svc a").forEach(a => a.addEventListener("click", () => setMode(a.dataset.mode)));
-const yearLabels = () => { const y = +($("[name=tahun]").value || 2026); $("#th1").textContent = "31 Des " + y; $("#th0").textContent = "31 Des " + (y - 1); };
+$$(".need[data-mode]").forEach(a => a.addEventListener("click", () => setMode(a.dataset.mode)));
+const yearLabels = () => { const y = +($("[name=tahun]").value || 2026); $$("#finBS .th1").forEach(e => e.textContent = "31 Des " + y); $$("#finBS .th0").forEach(e => e.textContent = "31 Des " + (y - 1)); $$("#finPL .th1").forEach(e => e.textContent = y); $$("#finPL .th0").forEach(e => e.textContent = y - 1); };
 $("[name=tahun]").addEventListener("change", yearLabels); yearLabels();
 
 /* ---------- Mesin standar ---------- */
@@ -267,19 +284,26 @@ function renderStd(d, r) {
   const nama = esc(d.f.nama || "Perusahaan Anda");
   const yr = d.f.tahun;
   const rows = r.items.map(i => `<tr><td>${esc(i.psak)}</td><td>${esc(i.topik)}</td><td>${esc(i.why)}</td><td>${esc(i.fokus)}</td></tr>`).join("");
-  const news = r.news.map(n => `<tr><td>${esc(n.eff)}</td><td><b>${esc(n.psak)}</b><br>${esc(n.judul)}</td><td>${esc(n.dampak)}</td></tr>`).join("");
+  
   const rt = r.ratios;
   return `<div class="res">
   <h3>Hasil Kalkulator Standar: ${nama}, Tahun Buku ${esc(yr)}</h3>
   <div class="verdict"><span class="pill${r.wajib ? " r" : ""}">${r.wajib ? "Wajib" : "Disarankan"}</span><div><b>${esc(r.fwName)}${d.f.f_syariah ? " + SAK Syariah" : ""}</b><p>${r.reasons.map(esc).join(" ")}</p></div></div>
-  <p class="lock">Klasifikasi usaha (PP 7/2021, hasil penjualan): <b>${esc(r.umkm)}</b> · Rasio lancar: <b>${rt.cr ? rt.cr.toFixed(2) + "x" : "-"}</b> · Utang bank terhadap ekuitas: <b>${rt.der != null ? rt.der.toFixed(2) + "x" : "-"}</b></p>
+  <div class="catbars">
+    <div><b>${r.items.length}</b><span>PSAK Relevan</span><i></i></div>
+    <div><b style="font-size:1.15rem">${esc(r.umkm.replace(" (di atas kriteria UMKM)", ""))}</b><span>Skala Usaha (PP 7/2021)</span><i style="animation-delay:.15s"></i></div>
+    <div><b>${rt.cr ? rt.cr.toFixed(2) + "x" : "-"}</b><span>Rasio Lancar</span><i style="animation-delay:.3s"></i></div>
+    <div><b>${rt.der != null ? rt.der.toFixed(2) + "x" : "-"}</b><span>Utang Bank / Ekuitas</span><i style="animation-delay:.45s"></i></div>
+  </div>
   <h3>Kewajiban Audit Akuntan Publik</h3>
   ${r.audit.length ? `<p><span class="pill r">Wajib Audit</span>Laporan keuangan wajib diaudit akuntan publik menurut Pasal 68 UU 40/2007 tentang Perseroan Terbatas karena: ${r.audit.map(esc).join("; ")}.</p>` : `<p><span class="pill">Belum Wajib</span>Belum memenuhi kriteria wajib audit Pasal 68 UU 40/2007. ${r.kreditNote ? "Namun bank umumnya meminta laporan keuangan audit untuk plafon kredit menengah ke atas." : "Audit sukarela tetap membantu saat mengajukan kredit atau mencari investor."}</p>`}
-  <h3>Standar yang Berlaku per Akun (${r.items.length})</h3>
-  <div class="scroll"><table class="std"><thead><tr><th>${r.fw === "sak" ? "PSAK/ISAK" : "Topik " + esc(r.fwName)}</th><th>Topik</th><th>Mengapa Berlaku</th><th>Fokus Auditor</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <h3>Standar yang Berlaku (${r.items.length})</h3>
+  <div class="chipgrid">${r.items.map((i, k) => `<div style="animation-delay:${k * .04}s"><b>${esc(i.psak)}</b><span>${esc(i.topik)}</span></div>`).join("")}</div>
+  <details class="more"><summary>Lihat Alasan dan Fokus Auditor per Standar</summary>
+  <div class="scroll" style="margin-top:12px"><table class="std"><thead><tr><th>${r.fw === "sak" ? "PSAK/ISAK" : "Topik " + esc(r.fwName)}</th><th>Topik</th><th>Mengapa Berlaku</th><th>Fokus Auditor</th></tr></thead><tbody>${rows}</tbody></table></div></details>
   ${r.fw !== "sak" ? `<p class="lock">Topik ditulis menurut ${esc(r.fwName)}. Nomor PSAK hanya tampil untuk SAK Indonesia.</p>` : ""}
-  <h3>Standar Baru dan Perubahan yang Berdampak</h3>
-  <div class="scroll"><table class="std"><thead><tr><th>Efektif</th><th>Standar</th><th>Dampak untuk Anda</th></tr></thead><tbody>${news}</tbody></table></div>
+  <h3>Standar Baru yang Berdampak</h3>
+  <div class="tl">${r.news.map((n, i) => `<div style="animation-delay:${i * .12}s"><time>${esc(n.eff)}</time><b>${esc(n.psak)}</b><p>${esc(n.dampak)}</p></div>`).join("")}</div>
   <div class="actions" style="margin-top:20px"><button type="button" class="btn" id="toCalk">Lanjut Susun CALK</button><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=${encodeURIComponent("Halo tim UpdateSAK, hasil kalkulator untuk " + (d.f.nama || "perusahaan kami") + " menunjukkan " + r.fwName + ". Kami ingin diskusi penerapannya.")}">Diskusikan Hasil Ini</a></div>
   </div>`;
 }
@@ -615,6 +639,31 @@ function renderCalk(d, r) {
   </div>`;
 }
 
+
+/* ---------- Panel indikasi langsung ---------- */
+function live() {
+  const box = $("#live"); if (!box) return;
+  const d = read();
+  const ok = (d.f.nama || "").trim().length > 2;
+  box.classList.toggle("ready", ok);
+  const r = analyze(d), T = d.t[1];
+  $("#lvFw").textContent = r.fwName + (d.f.f_syariah ? " + Syariah" : "");
+  const au = $("#lvAudit"); au.textContent = r.audit.length ? "Wajib Audit" : "Belum Wajib Audit"; au.className = r.audit.length ? "w" : "";
+  $("#lvPsak").textContent = r.items.length;
+  $("#lvNew").textContent = r.news.length;
+  $("#lvKelas").textContent = d.v.pendapatan[1] ? r.umkm.replace("Usaha ", "").replace(" (di atas kriteria UMKM)", "") : "-";
+  const tot = Math.abs(T.ASET) || 1;
+  for (const k of ["AL", "ATL", "LIAB", "EK"]) {
+    const p = T.ASET ? Math.max(0, Math.min(100, T[k] / tot * 100)) : 0;
+    $(`[data-b="${k}"]`).style.width = p + "%"; $(`[data-p="${k}"]`).textContent = Math.round(p) + "%";
+  }
+  const g = (id, val, max, lab) => { const f = val == null || !isFinite(val) ? 0 : Math.max(0, Math.min(1, val / max)); $(id).style.strokeDashoffset = 126 * (1 - f); return val == null || !isFinite(val) ? "-" : val.toFixed(2) + "x"; };
+  $("#lvCr").textContent = g("#gCr", T.LPD ? T.AL / T.LPD : null, 3);
+  $("#lvDer").textContent = g("#gDer", T.EK ? T.BANK / T.EK : null, 3);
+}
+$("#form").addEventListener("input", e => { if (!e.target.closest(".finx")) live(); });
+$("#form").addEventListener("change", live);
+
 /* ---------- Aksi ---------- */
 function run() {
   const d = read();
@@ -624,7 +673,7 @@ function run() {
   box.innerHTML = mode === "calk" ? renderCalk(d, r) : renderStd(d, r);
   box.hidden = false;
   box.scrollIntoView({behavior: "smooth", block: "start"});
-  const tc = $("#toCalk"); if (tc) tc.onclick = () => { setMode("calk"); $(".calk-only").scrollIntoView({behavior: "smooth", block: "start"}); };
+  const tc = $("#toCalk"); if (tc) tc.onclick = () => { setMode("calk"); goStep(3); $("#kalkulator").scrollIntoView({behavior: "smooth", block: "start"}); };
   const cp = $("#copy"); if (cp) cp.onclick = copyDoc;
   const dl = $("#dl"); if (dl) dl.onclick = () => downloadDoc(d.f.nama);
 }
@@ -645,7 +694,7 @@ function downloadDoc(nama) {
   x.href = u; x.download = "CALK " + (nama || "Perusahaan").replace(/[^\w .-]/g, "") + ".doc"; document.body.appendChild(x); x.click(); x.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000);
 }
 $("#go").onclick = run;
-$("#reset").onclick = () => { $("#form").reset(); $$("#fin input").forEach(i => i.value = ""); $("#hasil").hidden = true; refresh(); yearLabels(); };
+$("#reset").onclick = () => { $("#form").reset(); $$(".finx input").forEach(i => i.value = ""); $("#hasil").hidden = true; refresh(); yearLabels(); };
 
 const SAMPLE = {
   nama: "PT Contoh Karya Nusantara", kota: "Batam", industri: "dagang", status: "privat",
@@ -665,11 +714,15 @@ $("#contoh").onclick = () => {
   const F = $("#form");
   for (const k of ["nama", "kota", "industri", "status", "akta_no", "akta_tgl", "kegiatan", "mulai", "komisaris", "direksi", "karyawan", "otorisasi"]) if (F.elements[k]) F.elements[k].value = SAMPLE[k];
   $$("#flags input").forEach(c => c.checked = SAMPLE.flags.includes(c.name));
-  $$("#fin input").forEach(i => { const x = SAMPLE.v[i.dataset.id]; i.value = x ? fmtIn(x[i.dataset.y === "1" ? 0 : 1] * 1e6) : ""; });
-  refresh();
+  $$(".finx input").forEach(i => { const x = SAMPLE.v[i.dataset.id]; i.value = x ? fmtIn(x[i.dataset.y === "1" ? 0 : 1] * 1e6) : ""; });
+  refresh(); live();
 };
 
-/* Animasi alur */
-const fl = $("#flow");
-if (fl) { if ("IntersectionObserver" in window) new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { fl.classList.add("on"); o.disconnect(); } }), {threshold: .3}).observe(fl); else fl.classList.add("on"); }
+/* Animasi saat terlihat */
+const io = "IntersectionObserver" in window ? new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); o.unobserve(e.target); } }), {threshold: .25}) : null;
+["#tree", "#rail", "#pages", "#doc"].forEach(sel => { const el = $(sel); if (el) io ? io.observe(el) : el.classList.add("on"); });
+$$("#pages div").forEach((e, i) => e.style.transitionDelay = (i * .12) + "s");
+$$("[data-count]").forEach(el => { const n = +el.dataset.count; if (!n) return; let c = 0; const st = performance.now(); const tick = t => { c = Math.min(1, (t - st) / 1200); el.textContent = Math.round(n * (1 - Math.pow(1 - c, 3))); if (c < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+if (window.SAK_DATA && $("#sakUpd")) $("#sakUpd").textContent = "Sumber SAK Online IAI, dicek " + SAK_DATA.updated + ".";
+goStep(0); live();
 })();
