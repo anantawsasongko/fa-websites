@@ -132,16 +132,16 @@ function refresh() {
   $$(".finx td[data-t]").forEach(td => td.textContent = fmt(t[+td.dataset.y][td.dataset.t]));
   const any = IDS.some(id => v[id][1]);
   const el = $("#cek");
-  if (!any) { el.className = "chk"; el.textContent = "Isi angka untuk melihat cek keseimbangan."; return; }
+  if (!any) { el.className = "chk"; el.textContent = "⚖️ Cek Balance: isi angka, nanti terlihat apakah Total Aset sudah sama dengan Liabilitas + Ekuitas."; return; }
   const msg = [];
   for (const y of [1, 0]) {
     if (y === 0 && !IDS.some(id => v[id][0])) continue;
     const d = t[y].ASET - t[y].LE;
-    msg.push((y ? "Tahun berjalan: " : "Tahun lalu: ") + (Math.abs(d) < 1 ? "seimbang" : "selisih Rp" + idn(d) + (d > 0 ? " (aset lebih besar)" : " (liabilitas dan ekuitas lebih besar)")));
+    msg.push((y ? "Tahun berjalan: " : "Tahun lalu: ") + (Math.abs(d) < 1 ? "✅ Balance" : "❌ Belum balance, selisih Rp" + idn(d) + (d > 0 ? " (aset lebih besar)" : " (liabilitas + ekuitas lebih besar)")));
   }
   const bad = msg.some(m => m.includes("selisih"));
   el.className = "chk" + (bad ? " bad" : "");
-  el.textContent = msg.join(" · ") + (bad ? ". Hasil tetap bisa dibuat, tetapi periksa angka Anda." : ".");
+  el.textContent = msg.join(" · ") + (bad ? ". Hasil tetap bisa dibuat, tapi cek lagi angkanya." : "");
 }
 $$(".finx").forEach(tb => tb.addEventListener("input", refresh));
 $$(".finx").forEach(tb => tb.addEventListener("focusout", e => { if (e.target.matches("input")) { e.target.value = fmtIn(parse(e.target.value)); refresh(); } }));
