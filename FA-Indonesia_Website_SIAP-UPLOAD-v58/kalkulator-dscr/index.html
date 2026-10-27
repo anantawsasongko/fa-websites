@@ -844,9 +844,9 @@ function summary(){var M=last,L=["Halo Pak Ananta, saya sudah cek kredit dan pen
  if($("kk_wantbox").style.display!=="none")L.push("Bunga maksimal plafon incaran: "+$("kk_maxr").textContent);
  L.push("","Nama: "+($("kk_nm").value||"-"),"Email: "+$("kk_em").value,"WA: "+($("kk_wa").value||"-"));return L.join("\n")}
 function sheet(m){try{var p=new URLSearchParams();p.append("pt",$("kk_pt").value);p.append("email",$("kk_em").value);p.append("goal","FA Cek Kredit & Pendanaan: "+goal);p.append("unit",$("kk_unit").options[$("kk_unit").selectedIndex].text);
- p.append("nama",$("kk_nm").value);p.append("wa",$("kk_wa").value?"'"+$("kk_wa").value:"");p.append("lang","id");p.append("page","faindonesia.co.id"+location.pathname+" ("+m+")");p.append("summary",summary());
+ p.append("nama",$("kk_nm").value);p.append("wa",$("kk_wa").value?"'"+$("kk_wa").value:"");p.append("lang","id");p.append("page","faindonesia.co.id"+location.pathname+" ("+m+")");p.append("summary",m==="hitung"?"(Baru menghitung di browser. Angka keuangan tidak dikirim; terkirim hanya jika klien klik Kirim.)":summary());
  if(navigator.sendBeacon&&navigator.sendBeacon(D.gs,p))return;fetch(D.gs,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(x){}}
 $("kk_go").addEventListener("click",function(){if(calc())setTimeout(function(){$("kk_res").scrollIntoView({behavior:"smooth",block:"start"})},60)});
-["kk_wa_btn","kk_mail"].forEach(function(i){$(i).addEventListener("click",function(){$("kk_done").style.display="block"})});
+["kk_wa_btn","kk_mail"].forEach(function(i){$(i).addEventListener("click",function(){$("kk_done").style.display="block";sheet(i==="kk_mail"?"kirim email":"kirim wa")})});
 })();</script></body>
 </html>

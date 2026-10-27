@@ -90,3 +90,8 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 ## Mitra RM Bank & Sekuritas + Perapian (27 Okt 2026)
 - fa_mitra_20261027.py: /mitra-rm-bank/ dan /mitra-sekuritas/ (dua arah rujukan, tanpa biaya untuk bank/sekuritas), 2 artikel Eksplor (cara-rm-bank-mencari-debitur-korporasi, cara-sekuritas-mencari-calon-emiten-ipo), link footer semua halaman, blok /layanan/, kotak di halaman kredit/IPO terkait, sitemap, llms.txt. Idempoten.
 - fa_rapi_20261027.py (jalankan terakhir sebelum prep.py): FAQ jadi accordion di semua halaman, teks tebal artikel terlihat, artikel lama dapat eyebrow kategori + Baca Juga, Eksplor dapat topik PSAK & SAK Terbaru (tidak ada lagi "Artikel Lainnya"), en dash jadi tanda hubung, klaim "saat ini memimpin persiapan IPO" jadi "berpengalaman memimpin", "dipimpin Ananta" jadi kata tim, rentang aset Rp1-500 miliar diganti semua skala. Ikut mengoreksi backup beranda.
+
+## Lencana Keamanan Data (27 Okt 2026)
+- `shared/secure.js` dipasang prep.py (`add_secure`): FA Secure (beranda FA, Cek Kredit, kalkulator DSCR, simulasi plafon, cek IPO, Cek PSAK 118, FA Jupiter, FA Saturn), CariAkuntan Secure (screening 4 bahasa + /screening/), UpdateSAK Secure (kalkulator beranda).
+- Mode harus sesuai perilaku kode: local (tidak ada data terkirim), drive (simpan ke Google Drive pengguna), send (dihitung di browser, hasil terkirim hanya saat klik Kirim). Kalau alat baru mengirim data otomatis, jangan beri mode local.
+- FA Cek Kredit: tombol Hitung hanya mengirim kontak ke Sheet (tanpa angka keuangan); ringkasan lengkap terkirim saat klien klik Kirim WA/email.

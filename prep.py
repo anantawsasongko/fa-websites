@@ -152,6 +152,26 @@ u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
 add_donasi(u, [os.path.relpath(os.path.join(_d, "index.html"), u) for _d, _, _fs in os.walk(os.path.join(u, "materi")) if "index.html" in _fs],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'a.dl',key:'materi-updatesak'}]}")
+
+# ---------- lencana keamanan data FA Secure / CariAkuntan Secure / UpdateSAK Secure (27 Okt 2026) ----------
+SEC_JS = os.path.join(M, "shared", "secure.js")
+def add_secure(site_root, pages, cfg):
+    os.makedirs(os.path.join(site_root, "js"), exist_ok=True); shutil.copy2(SEC_JS, os.path.join(site_root, "js", "secure.js"))
+    for rel in pages:
+        pth = os.path.join(site_root, rel)
+        if not os.path.exists(pth): continue
+        t = open(pth, encoding="utf-8").read()
+        if "/js/secure.js" in t: continue
+        t = t.replace("</body>", "<script>window.FA_SECURE=" + cfg + "</script><script src=\"/js/secure.js\"></script></body>", 1)
+        open(pth, "w", encoding="utf-8").write(t)
+add_secure(fa, ["index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html"],
+    "{brand:'fa',mode:'send',theme:'dark',at:[{sel:'#kk',pos:'beforebegin'}]}")
+add_secure(fa, ["cek-psak-118/index.html"], "{brand:'fa',mode:'local',theme:'dark',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
+add_secure(fa, ["audit-ready/index.html"], "{brand:'fa',mode:'drive',theme:'dark',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
+add_secure(fa, ["saturn/index.html"], "{brand:'fa',mode:'drive',theme:'dark',at:[{sel:'header.top',pos:'afterend',cls:'bar'}]}")
+add_secure(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html", "screening/index.html"],
+    "{brand:'ca',mode:'send',theme:'light',at:[{sel:'#screening',pos:'afterbegin'}]}")
+add_secure(u, ["index.html"], "{brand:'us',mode:'local',theme:'light',at:[{sel:'#kalkulator .calc',pos:'beforebegin'}]}")
 import hashlib as _hl
 _ver = {f: _hl.md5(open(os.path.join(u, f), "rb").read()).hexdigest()[:8] for f in ("css/style.css", "js/app.js", "js/sak-data.js")}
 for _d, _, _fs in os.walk(u):

@@ -484,5 +484,5 @@ if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es
 document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){var t=b.getAttribute("data-copy");try{navigator.clipboard.writeText(t).then(function(){b.textContent="已複製"},function(){b.textContent=t})}catch(e){b.textContent=t}})});
 document.querySelectorAll('a[href^="https://wa.me"]').forEach(function(a){a.addEventListener("click",function(){try{if(window.gtag)gtag("event","generate_lead",{method:"whatsapp"})}catch(e){}})});
 </script>
-<script>window.FA_DONASI={accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}</script><script src="/js/donasi.js"></script><script src="/js/lead.js" defer></script></body>
+<script>window.FA_DONASI={accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}</script><script src="/js/donasi.js"></script><script>window.FA_SECURE={brand:'ca',mode:'send',theme:'light',at:[{sel:'#screening',pos:'afterbegin'}]}</script><script src="/js/secure.js"></script><script src="/js/lead.js" defer></script></body>
 </html>
