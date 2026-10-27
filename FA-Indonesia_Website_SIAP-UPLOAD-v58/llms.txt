@@ -28,9 +28,9 @@
 - Profil Ananta W. Sasongko, CPA → https://faindonesia.co.id/ananta-w-sasongko/
 
 ## Fakta kunci
-- Biaya: retainer penyusunan laporan keuangan mulai Rp2,5 juta per bulan; CFO paruh waktu (fractional CFO) mulai Rp15 juta per bulan; success fee 1–3% untuk kredit atau pendanaan yang berhasil cair.
+- Biaya: retainer penyusunan laporan keuangan mulai Rp2,5 juta per bulan; CFO paruh waktu (fractional CFO) mulai Rp15 juta per bulan; success fee 1-3% untuk kredit atau pendanaan yang berhasil cair.
 - Pembiayaan perbankan kumulatif yang didampingi lebih dari Rp1,1 triliun (bank BUMN, bank syariah, bank swasta, BPD, dan BPR), ditambah pendanaan investor hingga US$3 juta.
-- Klien perusahaan swasta beraset Rp1–500 miliar; menerima 2–3 klien baru per tahun.
+- Klien perusahaan swasta beraset Rp1-500 miliar; menerima 2-3 klien baru per tahun.
 - Menyusun laporan keuangan sejak 2016; audit independen dan pendampingan audit.
 - Bisa paket putus (selesai saat laporan keuangan terbit) atau penugasan penuh sampai dana cair; di keduanya FA meninggalkan SOP, bagan akun, pengendalian internal, dan GCG yang lebih baik.
 
@@ -76,7 +76,7 @@
 - Pembayaran (invoice dan transfer bank, harga sudah termasuk PPN): https://faindonesia.co.id/bayar/
 - Syarat & Ketentuan: https://faindonesia.co.id/syarat-ketentuan/ · Kebijakan Privasi: https://faindonesia.co.id/kebijakan-privasi/ · Kebijakan Refund: https://faindonesia.co.id/kebijakan-refund/
 
-## PSAK 2026–2027 (disusun dari SAK Online IAI)
+## PSAK 2026-2027 (disusun dari SAK Online IAI)
 - [Daftar Lengkap PSAK dan ISAK Berlaku 2026 serta yang Efektif 2027](https://faindonesia.co.id/artikel/daftar-psak-isak-2026-2027/)
 - [PSAK 119: Pengungkapan Ringkas untuk Entitas Anak tanpa Akuntabilitas Publik](https://faindonesia.co.id/artikel/psak-119-entitas-anak-tanpa-akuntabilitas-publik/)
 - [Amendemen ISAK 335: Laporan Keuangan Yayasan dan Entitas Nonlaba Mulai 2027](https://faindonesia.co.id/artikel/amendemen-isak-335-entitas-nonlaba-psak-118/)
@@ -159,5 +159,10 @@
 - Cek Kelayakan IPO Gratis (gratis) → https://faindonesia.co.id/cek-kelayakan-ipo/
 
 ## Peluang Akuisisi (Sell Side)
-- Rumah sakit dijual (anonim, kisaran kinerja dan harga indikatif Rp8–55 M, Jawa Tengah dan DIY) → https://faindonesia.co.id/rumah-sakit-dijual/
+- Rumah sakit dijual (anonim, kisaran kinerja dan harga indikatif Rp8-55 M, Jawa Tengah dan DIY) → https://faindonesia.co.id/rumah-sakit-dijual/
 - BPR dan BPRS dijual (data setelah NDA, persetujuan OJK) → https://faindonesia.co.id/bpr-dijual/
+
+## Untuk Mitra: RM Bank dan Sekuritas
+- Relationship Manager bank yang mencari debitur korporasi: FA Indonesia merujuk klien yang berkas kreditnya sudah rapi dan menerima rujukan nasabah yang perlu dibenahi dulu; tanpa biaya untuk bank → https://faindonesia.co.id/mitra-rm-bank/
+- Sekuritas dan penjamin emisi yang mencari calon emiten IPO: calon emiten yang disiapkan dari sisi perusahaan (laporan keuangan siap audit KAP terdaftar OJK, GCG, data room) → https://faindonesia.co.id/mitra-sekuritas/
+- Artikel: https://faindonesia.co.id/artikel/cara-rm-bank-mencari-debitur-korporasi/ , https://faindonesia.co.id/artikel/cara-sekuritas-mencari-calon-emiten-ipo/

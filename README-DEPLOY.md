@@ -54,7 +54,7 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 ## SEO Push Lokal (25 Okt 2026 malam)
 - cariakuntan: semua kota x 4 layanan inti punya halaman sendiri; 94 kota (+8 kota baru di kawasan.py EXTRA_CITIES); 89 kawasan bisnis (cariakuntan/kawasan.py, generator seo_kawasan.py) dengan hub + 4 halaman layanan (/kota/<kota>/<kawasan>/<kap|kjpp|konsultan-pajak|jasa-laporan-keuangan>/); BOOST konteks pasar untuk Malang, Surabaya, Jember, Pasuruan, Batam; kotak silang ke FA di setiap halaman kota/kawasan.
 - FA: fa_seo_20261025.py (jalankan setelah fa_home_simple): 30 artikel dari fa_content/articles/*.json (spec di fa_content/SPEC-ARTIKEL.md), kartu per topik di Eksplor, /konsultan-rumah-sakit/ dan /konsultan-unit-cost-rumah-sakit/ (+ per kota), /wilayah/ (kota + kawasan), footer, sitemap, llms.txt.
-- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 fa_psak_20261026.py && python3 fa_kredit_20261026.py && python3 fa_seller_20261026.py && python3 fa_tone_20261026.py && python3 cariakuntan/build.py && python3 fa_screen_seo_20261026.py && python3 prep.py
+- Urutan build: python3 fa_home_simple_20261025.py && python3 fa_seo_20261025.py && python3 fa_lead_20261026.py && python3 fa_psak_20261026.py && python3 fa_kredit_20261026.py && python3 fa_seller_20261026.py && python3 fa_tone_20261026.py && python3 fa_mitra_20261027.py && python3 fa_rapi_20261027.py && python3 cariakuntan/build.py && python3 fa_screen_seo_20261026.py && python3 prep.py
 
 ## Halaman dari Lead Nyata (26 Okt 2026)
 - fa_lead_20261026.py: /jasa-implementasi-psak-118/ dan /konsultan-kredit-distributor-importir/ (dua lead WA hari itu: implementasi PSAK 118 dan plafon kredit distributor/importir), kotak CTA di artikel terkait, blok di /layanan/, sitemap, llms.txt. Idempoten.
@@ -86,3 +86,7 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 - Dashboard Midtrans: Payment Notification URL `https://faindonesia.co.id/api/pay/notify`; Finish/Unfinish/Error Redirect URL `https://faindonesia.co.id/bayar/selesai/`.
 - Lunas: /bayar/selesai/?order_id=... menampilkan kode Audit Ready (dibuat otomatis, format sama dengan app) dan tombol aktivasi /audit-ready/?kode=...; e-book dikirim manual. Webhook mencatat order lunas/expire ke Google Sheet lead (goal diawali "FA Pembayaran Midtrans", kode akses ada di summary).
 - Donasi QRIS layanan gratis naik ke Rp19.001 (semua titik).
+
+## Mitra RM Bank & Sekuritas + Perapian (27 Okt 2026)
+- fa_mitra_20261027.py: /mitra-rm-bank/ dan /mitra-sekuritas/ (dua arah rujukan, tanpa biaya untuk bank/sekuritas), 2 artikel Eksplor (cara-rm-bank-mencari-debitur-korporasi, cara-sekuritas-mencari-calon-emiten-ipo), link footer semua halaman, blok /layanan/, kotak di halaman kredit/IPO terkait, sitemap, llms.txt. Idempoten.
+- fa_rapi_20261027.py (jalankan terakhir sebelum prep.py): FAQ jadi accordion di semua halaman, teks tebal artikel terlihat, artikel lama dapat eyebrow kategori + Baca Juga, Eksplor dapat topik PSAK & SAK Terbaru (tidak ada lagi "Artikel Lainnya"), en dash jadi tanda hubung, klaim "saat ini memimpin persiapan IPO" jadi "berpengalaman memimpin", "dipimpin Ananta" jadi kata tim, rentang aset Rp1-500 miliar diganti semua skala. Ikut mengoreksi backup beranda.
