@@ -27,8 +27,8 @@ section.alt{background:var(--panel)}
 
 header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:12px;padding-block:12px}
-.logo{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.logo i{display:inline-grid;place-items:center;width:28px;height:28px;background:var(--accent);color:#fff;font:600 .72rem var(--body);font-style:normal;border-radius:3px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:Quicksand,var(--body);font-weight:300;font-size:1.42rem;color:var(--ink);text-decoration:none;letter-spacing:.01em;line-height:1}
+.logo .mk{display:block;flex:none}.logo b{font-weight:inherit}@media(max-width:420px){.logo{font-size:1.18rem;gap:8px}.logo .mk{width:23px;height:31px}}
 .logo b{font-weight:inherit}.logo span{color:var(--accent)}
 .tabs{display:flex;gap:2px;margin-left:auto}
 .tabs a{padding:8px 12px;color:var(--muted);text-decoration:none;font-weight:500;font-size:.93rem;border-bottom:2px solid transparent}

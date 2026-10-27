@@ -24,7 +24,7 @@ section{padding-block:60px;border-top:1px solid var(--line)}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--paper)}
 .top .wrap{display:flex;align-items:center;gap:12px;padding-block:12px}
-.logo{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:Quicksand,var(--body);font-weight:300;font-size:1.42rem;color:var(--ink);text-decoration:none;letter-spacing:.01em;line-height:1}.logo .mk{display:block;flex:none}.logo b{font-weight:inherit}@media(max-width:420px){.logo{font-size:1.18rem;gap:8px}.logo .mk{width:23px;height:31px}}
 .logo span{color:var(--accent)}
 .tabs{display:flex;gap:2px;margin-left:auto}
 .tabs a{padding:8px 12px;color:var(--muted);text-decoration:none;font-weight:500;font-size:.93rem;border-bottom:2px solid transparent}

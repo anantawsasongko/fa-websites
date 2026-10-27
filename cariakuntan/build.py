@@ -225,7 +225,7 @@ def header(T, active, cur="id"):
     home = T["path"]; a = ' aria-current="page"'
     return f'''<header class="top">
   <div class="wrap">
-    <a class="logo" href="{home}">cari<span>akuntan</span></a>
+    <a class="logo" href="{home}"><svg class="mk" viewBox="0 0 30 40" width="27" height="36" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x=".6" y=".6" width="28.8" height="38.8" stroke="currentColor" stroke-width="1.2"/><path d="M13.4 9.3a4.6 4.6 0 1 0 0 7.4" stroke="#1F5BFF" stroke-width="1.3"/><path d="M17.8 32L21.6 23l3.8 9" stroke="#1F5BFF" stroke-width="1.3"/></svg><b>cari<span>akuntan</span></b></a>
     <nav class="tabs" aria-label="Menu"><a href="{home}"{a if active=="home" else ""}>{T["nav_home"]}</a><a href="/artikel/"{a if active=="art" else ""}>{T["nav_ins"]}</a></nav>
     {lang_links(cur)}
     <a class="btn btn-wa btn-sm" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a>
