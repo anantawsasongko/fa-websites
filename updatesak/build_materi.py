@@ -22,42 +22,73 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, Table, TableStyle, PageBreak, KeepTogether
 from reportlab.lib.styles import ParagraphStyle
 F = os.path.join(HERE, "fonts")
-pdfmetrics.registerFont(TTFont("Serif", os.path.join(F, "SourceSerif4-Semibold.ttf")))
-pdfmetrics.registerFont(TTFont("Sans", os.path.join(F, "IBMPlexSans-Regular.ttf")))
-pdfmetrics.registerFont(TTFont("SansB", os.path.join(F, "IBMPlexSans-SemiBold.ttf")))
-INK, BLUE, MUTED, LINE, SOFT = colors.HexColor("#0B1F33"), colors.HexColor("#1F5BFF"), colors.HexColor("#516173"), colors.HexColor("#DCE2E9"), colors.HexColor("#EAF0FF")
+# Gaya dokumen mengikuti format standar FA (NDA #1): kertas putih, Lora untuk isi, Poppins untuk label,
+# header logo kiri + tagline miring kanan, garis tipis, footer merek + "Halaman X dari Y".
+for _n, _f in [("Lora", "Lora-Regular.ttf"), ("LoraB", "Lora-Bold.ttf"), ("LoraI", "Lora-Italic.ttf"), ("LoraBI", "Lora-BoldItalic.ttf"),
+               ("Pop", "Poppins-Light.ttf"), ("PopM", "Poppins-Medium.ttf"), ("PopSB", "Poppins-SemiBold.ttf")]:
+    pdfmetrics.registerFont(TTFont(_n, os.path.join(F, _f)))
+from reportlab.pdfbase.pdfmetrics import registerFontFamily
+registerFontFamily("Lora", normal="Lora", bold="LoraB", italic="LoraI", boldItalic="LoraBI")
+INK, ACC, MUTED, LINE, SOFT, BRAND = colors.HexColor("#1E1E1E"), colors.HexColor("#00ABD6"), colors.HexColor("#6B6B6B"), colors.HexColor("#D9D9D9"), colors.HexColor("#F5F5F5"), colors.HexColor("#1F5BFF")
 S = {
- "h1": ParagraphStyle("h1", fontName="Serif", fontSize=19, leading=23, textColor=INK, spaceAfter=6),
- "h2": ParagraphStyle("h2", fontName="Serif", fontSize=13.5, leading=17, textColor=INK, spaceBefore=12, spaceAfter=5),
- "kick": ParagraphStyle("k", fontName="SansB", fontSize=8, leading=11, textColor=BLUE, spaceAfter=4),
- "p": ParagraphStyle("p", fontName="Sans", fontSize=9.5, leading=14, textColor=INK, spaceAfter=5),
- "li": ParagraphStyle("li", fontName="Sans", fontSize=9.5, leading=14, textColor=INK, leftIndent=12, bulletIndent=0, spaceAfter=3),
- "q": ParagraphStyle("q", fontName="Serif", fontSize=10, leading=14.5, textColor=INK, backColor=SOFT, borderPadding=8, leftIndent=4, rightIndent=4, spaceBefore=4, spaceAfter=10),
- "small": ParagraphStyle("s", fontName="Sans", fontSize=8, leading=11, textColor=MUTED),
- "cell": ParagraphStyle("c", fontName="Sans", fontSize=8.8, leading=11.5, textColor=INK),
- "cellb": ParagraphStyle("cb", fontName="SansB", fontSize=8.5, leading=11, textColor=colors.white),
+ "h1": ParagraphStyle("h1", fontName="LoraB", fontSize=18, leading=23, textColor=INK, spaceAfter=6),
+ "h2": ParagraphStyle("h2", fontName="LoraB", fontSize=11.5, leading=15, textColor=INK, spaceBefore=12, spaceAfter=5),
+ "kick": ParagraphStyle("k", fontName="PopM", fontSize=7.5, leading=11, textColor=ACC, spaceAfter=5),
+ "p": ParagraphStyle("p", fontName="Lora", fontSize=9.8, leading=14.6, textColor=INK, spaceAfter=5, alignment=4),
+ "li": ParagraphStyle("li", fontName="Lora", fontSize=9.8, leading=14.6, textColor=INK, leftIndent=14, bulletIndent=0, spaceAfter=3, bulletFontName="Lora"),
+ "q": ParagraphStyle("q", fontName="LoraI", fontSize=9.8, leading=14.6, textColor=INK, backColor=SOFT, borderColor=ACC, borderWidth=0, borderPadding=(8, 10, 8, 10), leftIndent=6, rightIndent=6, spaceBefore=6, spaceAfter=10),
+ "small": ParagraphStyle("s", fontName="Pop", fontSize=7.5, leading=10.5, textColor=MUTED),
+ "cell": ParagraphStyle("c", fontName="Lora", fontSize=9, leading=12, textColor=INK),
+ "cellb": ParagraphStyle("cb", fontName="LoraB", fontSize=9, leading=12, textColor=INK),
 }
+from reportlab.pdfgen import canvas as _cv
+class _NumCanvas(_cv.Canvas):
+    """Simpan semua halaman dulu supaya footer bisa menulis 'Halaman X dari Y'."""
+    def __init__(self, *a, **k): super().__init__(*a, **k); self._pg = []
+    def showPage(self): self._pg.append(dict(self.__dict__)); self._startPage()
+    def save(self):
+        n = len(self._pg)
+        for st in self._pg:
+            self.__dict__.update(st)
+            self.setFont("Pop", 7); self.setFillColor(MUTED)
+            self.drawRightString(A4[0] - 18 * mm, 10 * mm, f"Halaman {self._pageNumber} dari {n}")
+            super().showPage()
+        super().save()
 def _page(c, d):
-    c.saveState()
-    c.setFillColor(INK); c.rect(0, A4[1] - 16 * mm, A4[0], 16 * mm, stroke=0, fill=1)
-    c.setFillColor(BLUE); c.rect(15 * mm, A4[1] - 12 * mm, 8 * mm, 8 * mm, stroke=0, fill=1)
-    c.setFillColor(colors.white); c.setFont("SansB", 7.5); c.drawCentredString(19 * mm, A4[1] - 9.3 * mm, "US")
-    c.setFont("Serif", 12); c.drawString(26 * mm, A4[1] - 9.8 * mm, "UpdateSAK")
-    c.setFont("Sans", 8); c.drawRightString(A4[0] - 15 * mm, A4[1] - 9.8 * mm, "Materi Latihan · updatesak.com")
-    c.setFillColor(MUTED); c.setFont("Sans", 7.5)
-    c.drawString(15 * mm, 10 * mm, "Data dan nama perusahaan adalah dummy untuk latihan. Penomoran PSAK sesuai SAK Online IAI. © 2026 UpdateSAK")
-    c.drawRightString(A4[0] - 15 * mm, 10 * mm, f"Halaman {d.page}")
+    W, H = A4; c.saveState()
+    # header: logo US + wordmark (kiri), tagline miring + label kecil berjarak (kanan), garis tipis
+    c.setFillColor(BRAND); c.roundRect(18 * mm, H - 19 * mm, 8.5 * mm, 8.5 * mm, 1.2 * mm, stroke=0, fill=1)
+    c.setFillColor(colors.white); c.setFont("PopSB", 8.5); c.drawCentredString(22.25 * mm, H - 16 * mm, "US")
+    c.setFillColor(INK); c.setFont("PopM", 15); c.drawString(29 * mm, H - 16.6 * mm, "UpdateSAK")
+    c.setFont("LoraI", 9); c.setFillColor(MUTED); c.drawRightString(W - 18 * mm, H - 13.4 * mm, "Materi Latihan Akuntansi & Audit")
+    c.setFont("PopM", 6.3); c.setFillColor(ACC)
+    _t = "UPDATESAK.COM  ·  DATA DUMMY"; _w = c.stringWidth(_t, "PopM", 6.3) + 1.1 * (len(_t) - 1)
+    _o = c.beginText(W - 18 * mm - _w, H - 17.6 * mm); _o.setFont("PopM", 6.3); _o.setCharSpace(1.1); _o.textOut(_t); _o.setCharSpace(0); c.drawText(_o)
+    c.setStrokeColor(LINE); c.setLineWidth(0.6); c.line(18 * mm, H - 22 * mm, W - 18 * mm, H - 22 * mm)
+    # footer: merek tebal + keterangan (kiri), judul dokumen (kanan); nomor halaman diisi _NumCanvas
+    c.setStrokeColor(LINE); c.line(18 * mm, 18 * mm, W - 18 * mm, 18 * mm)
+    c.setFillColor(INK); c.setFont("PopSB", 7.5); c.drawString(18 * mm, 13.6 * mm, "UpdateSAK")
+    c.setFillColor(MUTED); c.setFont("LoraI", 7.5); c.drawString(18 * mm + c.stringWidth("UpdateSAK", "PopSB", 7.5) + 2 * mm, 13.6 * mm, "Materi Latihan Akuntansi & Audit")
+    c.setFont("Pop", 6.5); c.drawString(18 * mm, 10 * mm, "www.updatesak.com  |  Data dummy untuk latihan  |  PSAK sesuai SAK Online IAI")
+    _tt = (getattr(d, "title", "") or ""); _tt = _tt if len(_tt) <= 52 else _tt[:50].rsplit(" ", 1)[0] + " ..."
+    c.setFont("LoraI", 7.3); c.drawRightString(W - 18 * mm, 13.6 * mm, _tt)
     c.restoreState()
 def doc(path, title):
-    d = BaseDocTemplate(path, pagesize=A4, leftMargin=15 * mm, rightMargin=15 * mm, topMargin=24 * mm, bottomMargin=18 * mm, title=title, author="UpdateSAK", subject="Materi latihan akuntansi")
+    d = BaseDocTemplate(path, pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm, topMargin=28 * mm, bottomMargin=24 * mm, title=title, author="UpdateSAK", subject="Materi latihan akuntansi")
     d.addPageTemplates([PageTemplate(id="p", frames=[Frame(d.leftMargin, d.bottomMargin, d.width, d.height, id="f")], onPage=_page)])
+    _b = d.build
+    d.build = lambda st: _b(st, canvasmaker=_NumCanvas)
     return d
 def tbl(head, rows, widths, num_cols=()):
+    tot = sum(widths); widths = [w * (174 * mm) / tot for w in widths] if tot > 174 * mm else widths
     data = [[Paragraph(esc(h), S["cellb"]) for h in head]] + [[Paragraph(esc(str(x)), S["cell"]) for x in r] for r in rows]
     t = Table(data, colWidths=widths, repeatRows=1)
-    st = [("BACKGROUND", (0, 0), (-1, 0), INK), ("LINEBELOW", (0, 1), (-1, -1), 0.4, LINE), ("VALIGN", (0, 0), (-1, -1), "TOP"),
-          ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4)]
-    for c in num_cols: st.append(("ALIGN", (c, 0), (c, -1), "RIGHT"))
+    st = [("BACKGROUND", (0, 0), (-1, 0), SOFT), ("LINEABOVE", (0, 0), (-1, 0), 0.8, INK), ("LINEBELOW", (0, 0), (-1, 0), 0.6, INK),
+          ("LINEBELOW", (0, 1), (-1, -1), 0.4, LINE), ("VALIGN", (0, 0), (-1, -1), "TOP"),
+          ("TOPPADDING", (0, 0), (-1, -1), 4.5), ("BOTTOMPADDING", (0, 0), (-1, -1), 4.5), ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5)]
+    for c in num_cols:
+        st.append(("ALIGN", (c, 0), (c, -1), "RIGHT"))
+        for r in range(len(data)): data[r][c].style = ParagraphStyle("r", parent=data[r][c].style, alignment=2)
     t.setStyle(TableStyle(st)); return t
 def bullets(items, numbered=False):
     return [Paragraph(esc(x), S["li"], bulletText=(f"{i+1}." if numbered else "•")) for i, x in enumerate(items)]
@@ -68,7 +99,7 @@ def case_story(k, with_head=True):
         st += [Paragraph(" · ".join(k["level"]).upper() + "  |  " + " · ".join(f"PSAK {n}" for n in k["psak"]), S["kick"]), Paragraph(esc(k["judul"]), S["h1"]), Paragraph(esc(k["ringkas"]), S["p"])]
     st += [Paragraph("Bagian A · Fakta Kasus", S["h2"])] + bullets(k["fakta"])
     if k.get("tabel_fakta"):
-        h, r = k["tabel_fakta"]; w = 180 * mm
+        h, r = k["tabel_fakta"]; w = 174 * mm
         st += [Spacer(1, 4), tbl(h, r, [w * .55] + [w * .45 / (len(h) - 1)] * (len(h) - 1), num_cols=range(1, len(h)))]
     st += [Paragraph("Pertanyaan", S["h2"])] + bullets(k["pertanyaan"], True)
     st += [PageBreak(), Paragraph("Bagian B · Pembahasan", S["kick"]), Paragraph(esc(k["judul"]), S["h2"]), Paragraph("Analisis", S["h2"])] + [Paragraph(esc(x), S["p"]) for x in k["analisis"]]
