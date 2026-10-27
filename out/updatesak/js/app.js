@@ -169,7 +169,7 @@ $$(".stepnav button").forEach(b => b.onclick = () => goStep(+b.dataset.step));
 $("#next").onclick = () => goStep(step + 1);
 $("#prev").onclick = () => goStep(step - 1);
 $$(".modes button").forEach(b => b.onclick = () => setMode(b.dataset.mode));
-$$(".need[data-mode]").forEach(a => a.addEventListener("click", () => setMode(a.dataset.mode)));
+$$("a[data-mode]").forEach(a => a.addEventListener("click", () => { setMode(a.dataset.mode); if (a.dataset.mode === "calk") goStep(0); }));
 const yearLabels = () => { const y = +($("[name=tahun]").value || 2026); $$("#finBS .th1").forEach(e => e.textContent = "31 Des " + y); $$("#finBS .th0").forEach(e => e.textContent = "31 Des " + (y - 1)); $$("#finPL .th1").forEach(e => e.textContent = y); $$("#finPL .th0").forEach(e => e.textContent = y - 1); };
 $("[name=tahun]").addEventListener("change", yearLabels); yearLabels();
 
