@@ -152,9 +152,12 @@ export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     if (!url.pathname.startsWith("/api/pay/")) return env.ASSETS.fetch(req);
-    const on = !!env.MIDTRANS_SERVER_KEY;
+    const ck = env.MIDTRANS_CLIENT_KEY || "";
+    /* Pengaman: jangan pernah kirim Server Key ke browser walau salah diisi di variabel Client Key. */
+    const ckOk = !!ck && ck !== env.MIDTRANS_SERVER_KEY && !/server/i.test(ck);
+    const on = !!env.MIDTRANS_SERVER_KEY && !/client/i.test(env.MIDTRANS_SERVER_KEY);
     try {
-      if (url.pathname === "/api/pay/config") return json({ enabled: on && !!env.MIDTRANS_CLIENT_KEY, production: env.MIDTRANS_PRODUCTION === "true", clientKey: on ? env.MIDTRANS_CLIENT_KEY || "" : "" });
+      if (url.pathname === "/api/pay/config") return json({ enabled: on && ckOk, production: env.MIDTRANS_PRODUCTION === "true", clientKey: on && ckOk ? ck : "", ...(on && !ckOk ? { note: "Client Key belum benar" } : {}) });
       if (!on) return json({ error: "Pembayaran online belum aktif. Silakan pakai transfer bank." }, 503);
       if (url.pathname === "/api/pay/create" && req.method === "POST") return await create(req, env);
       if (url.pathname === "/api/pay/status" && req.method === "GET") return await status(url, env);
