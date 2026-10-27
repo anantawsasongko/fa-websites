@@ -387,3 +387,4 @@ details.solve p{color:#24384C;margin-top:0;margin-bottom:10px}
 ul.flags.ok li::before{content:"✓";background:var(--teal)}
 .art .actions{margin:16px 0 4px}
 .mcard.pdf .tags{padding-right:44px}
+@media (max-width:620px){.modes{display:grid;grid-template-columns:1fr;width:100%}.modes button{text-align:left}}
