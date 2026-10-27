@@ -1,4 +1,4 @@
-/* UpdateSAK: Kalkulator Standar dan Kalkulator CALK. Semua hitungan di browser, tanpa server. */
+/* UpdateSAK: Kalkulator Standar Akuntansi dan Kalkulator CALK. Semua hitungan di browser, tanpa server. */
 (() => {
 "use strict";
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -287,7 +287,7 @@ function renderStd(d, r) {
   
   const rt = r.ratios;
   return `<div class="res">
-  <h3>Hasil Kalkulator Standar: ${nama}, Tahun Buku ${esc(yr)}</h3>
+  <h3>Hasil Kalkulator Standar Akuntansi: ${nama}, Tahun Buku ${esc(yr)}</h3>
   <div class="verdict"><span class="pill${r.wajib ? " r" : ""}">${r.wajib ? "Wajib" : "Disarankan"}</span><div><b>${esc(r.fwName)}${d.f.f_syariah ? " + SAK Syariah" : ""}</b><p>${r.reasons.map(esc).join(" ")}</p></div></div>
   <div class="catbars">
     <div><b>${r.items.length}</b><span>PSAK Relevan</span><i></i></div>

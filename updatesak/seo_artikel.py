@@ -58,7 +58,7 @@ add("sak-ep-pengganti-sak-etap", "SAK EP Pengganti SAK ETAP: Perbedaan Utama dan
 </tbody></table>
 <h2>Langkah Transisi</h2>
 <ol><li>Tetapkan tanggal transisi, yaitu awal periode komparatif.</li><li>Susun neraca pembukaan sesuai SAK EP dan rekonsiliasi ekuitas dari SAK ETAP.</li><li>Perbarui kebijakan akuntansi di Catatan 2.</li><li>Ungkapkan dampak transisi di CALK.</li></ol>
-<p>Belum yakin kerangka mana yang tepat? Masukkan angka perusahaan di Kalkulator Standar UpdateSAK.</p>""",
+<p>Belum yakin kerangka mana yang tepat? Masukkan angka perusahaan di Kalkulator Standar Akuntansi UpdateSAK.</p>""",
  [("Apakah SAK ETAP masih boleh dipakai di 2026?", "SAK ETAP digantikan SAK EP yang berlaku sejak 1 Januari 2025, sehingga laporan keuangan tahun buku 2025 dan seterusnya memakai SAK EP."),
   ("Apakah perusahaan privat boleh memakai SAK Indonesia penuh?", "Boleh. Perusahaan yang berencana IPO atau menjadi entitas anak grup SAK Indonesia sering memilih SAK Indonesia penuh.")],
  [109, 212, 219])
@@ -90,7 +90,7 @@ add("kapan-pt-wajib-audit", "Kapan Laporan Keuangan PT Wajib Diaudit? Pasal 68 U
 <p>Banyak perusahaan di bawah Rp50 miliar tetap diaudit karena diminta bank untuk kredit, oleh calon investor, atau mitra usaha. Audit sukarela juga melatih tim keuangan menyiapkan dokumen sesuai standar.</p>
 <h2>Persiapan Sebelum Memanggil Auditor</h2>
 <ol><li>Pastikan neraca balance dan saldo awal sama dengan laporan audit atau laporan tahun lalu.</li><li>Rekonsiliasi bank, piutang, utang, dan aset tetap.</li><li>Siapkan CALK lengkap dengan kebijakan akuntansi.</li><li>Siapkan daftar dokumen pendukung (PBC).</li></ol>
-<p>Kalkulator Standar UpdateSAK otomatis menandai apakah perusahaan Anda masuk kriteria wajib audit Pasal 68.</p>""",
+<p>Kalkulator Standar Akuntansi UpdateSAK otomatis menandai apakah perusahaan Anda masuk kriteria wajib audit Pasal 68.</p>""",
  [("Apakah aset Rp50 miliar dihitung dari total aset?", "Ya, kriteria memakai jumlah aset dan/atau peredaran usaha paling sedikit Rp50 miliar."),
   ("Apa akibat laporan keuangan wajib audit yang tidak diaudit?", "UU PT mengatur bahwa laporan keuangan yang wajib diaudit tetapi tidak diaudit tidak disahkan oleh RUPS.")],
  [201])
