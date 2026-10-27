@@ -144,12 +144,17 @@ inject_before_footer(os.path.join(k, "index.html"), feed_block())
 if os.path.exists(os.path.join(k, "artikel", "index.html")):
     inject_before_footer(os.path.join(k, "artikel", "index.html"), feed_block(n=20))
 
+# ---------- updatesak.com (project Cloudflare ke-8, 27 Okt 2026) ----------
+US = os.path.join(M, "updatesak", "site")
+u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
+inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
+
 for n in sorted(os.listdir(OUT)):
     cnt = sum(len(f) for _, _, f in os.walk(os.path.join(OUT, n)))
     print(n, cnt)
 
 # ---------- anti duplikat SEO: *.pages.dev noindex untuk project yang punya domain sendiri ----------
-for proj in ["cariakuntan", "faindonesia", "faindonesia-jupiter", "faindonesia-saturn", "faindonesia-venus"]:
+for proj in ["cariakuntan", "faindonesia", "faindonesia-jupiter", "faindonesia-saturn", "faindonesia-venus", "updatesak"]:
     h = os.path.join(OUT, proj, "_headers")
     old = open(h).read() if os.path.exists(h) else ""
     extra = f"\n\nhttps://{proj}.pages.dev/*\n  X-Robots-Tag: noindex\n"
@@ -211,7 +216,7 @@ print("lead kja", add_lead(k))
 # ---------- Title Case judul dan poin (aturan Bos, 25 Okt 2026) ----------
 import sys as _sys; _sys.path.insert(0, M)
 import titlecase as _tcm
-for _n in ("faindonesia", "cariakuntan", "kja-farhani"):
+for _n in ("faindonesia", "cariakuntan", "kja-farhani", "updatesak"):
     _p = os.path.join(OUT, _n)
     if os.path.isdir(_p): print("titlecase", _n, _tcm.run(_p))
 

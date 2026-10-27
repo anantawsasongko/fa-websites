@@ -1,0 +1,11 @@
+# UpdateSAK
+
+> Kalkulator standar akuntansi keuangan Indonesia dan penyusun Catatan atas Laporan Keuangan (CALK), bagian dari FA Indonesia (faindonesia.co.id).
+
+- [Beranda dan Kalkulator](https://updatesak.com/): Kalkulator Standar menentukan kerangka (SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah), daftar PSAK/ISAK per akun, standar baru 2026 sampai 2029, dan kewajiban audit Pasal 68 UU 40/2007 dari angka neraca dan laba rugi. Kalkulator CALK menyusun laporan posisi keuangan, laba rugi, Catatan 1 Umum, Catatan 2 Ikhtisar Informasi Kebijakan Akuntansi Material, Catatan 3 Pertimbangan dan Estimasi Signifikan, dan catatan komparatif per akun, siap disalin ke Word. Semua hitungan berjalan di browser.
+- [Eksplor](https://updatesak.com/eksplor/): Linimasa SAK 2025 sampai 2029 (SAK EP 2025, amendemen PSAK 109/107 2026, PSAK 118, PSAK 119, PSAK 401, ISAK 403 tahun 2027, PSAK 120 tahun 2029) dan daftar PSAK yang berlaku tahun buku 2026.
+
+## Kontak
+- Email: ananta@faindonesia.co.id
+- Pendampingan penerapan SAK dan persiapan audit: FA Indonesia (https://faindonesia.co.id/)
+- Mencari akuntan publik, KJA, KJPP: CariAkuntan (https://cariakuntan.com/)
