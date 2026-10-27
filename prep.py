@@ -146,9 +146,12 @@ if os.path.exists(os.path.join(k, "artikel", "index.html")):
 
 # ---------- updatesak.com (project Cloudflare ke-8, 27 Okt 2026) ----------
 import subprocess as _sp; _sp.run(["python3", os.path.join(M, "updatesak", "build_seo.py")], check=True)
+_sp.run(["python3", os.path.join(M, "updatesak", "build_materi.py")], check=True)
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
+add_donasi(u, [os.path.relpath(os.path.join(_d, "index.html"), u) for _d, _, _fs in os.walk(os.path.join(u, "materi")) if "index.html" in _fs],
+    "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'a.dl',key:'materi-updatesak'}]}")
 import hashlib as _hl
 _ver = {f: _hl.md5(open(os.path.join(u, f), "rb").read()).hexdigest()[:8] for f in ("css/style.css", "js/app.js", "js/sak-data.js")}
 for _d, _, _fs in os.walk(u):
