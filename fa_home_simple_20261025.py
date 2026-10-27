@@ -417,7 +417,7 @@ UND = sec("unduhan").replace('<p class="eyebrow" data-i18n="k272">Unduhan</p><h2
 UND = UND.replace('<section class="block" id="unduhan">', '<section class="block alt" id="unduhan">', 1)
 QRIS_BOX = ('<div class="qris-box" id="donasi"><img src="/img/qris-fa-indonesia.jpg" width="720" height="1014" loading="lazy" alt="QRIS FA Indonesia - Book &amp; Stationery">'
             '<div><p class="eyebrow">Donasi Sukarela</p><h3>Materi ini gratis. Kalau bermanfaat, dukung lewat QRIS.</h3>'
-            '<p>Scan QRIS dengan aplikasi bank atau e-wallet apa saja. Nominal donasi Rp10.001, sepenuhnya opsional. Dana dipakai untuk menyusun materi dan toolkit berikutnya.</p>'
+            '<p>Scan QRIS dengan aplikasi bank atau e-wallet apa saja. Nominal donasi Rp19.001, sepenuhnya opsional. Dana dipakai untuk menyusun materi dan toolkit berikutnya.</p>'
             '<a class="btn line" href="/img/qris-fa-indonesia.jpg" download="QRIS-FA-Indonesia.jpg">Simpan Gambar QRIS</a></div></div>')
 k = UND.rfind('</div>\n</div>\n</section>')
 UND = UND[:k] + '</div>\n' + QRIS_BOX + '\n</div>\n</section>'

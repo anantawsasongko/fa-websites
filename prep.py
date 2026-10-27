@@ -108,6 +108,10 @@ add_donasi(fa, ["audit-ready/index.html"], "{guards:[{sel:'#btnXlsx,[data-act=\"
 add_donasi(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html"],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}")
 
+# ---------- pembayaran online Midtrans (27 Okt 2026): worker hanya untuk /api/* ----------
+for f in ("_worker.js", "_routes.json"):
+    shutil.copy2(os.path.join(os.path.dirname(os.path.abspath(__file__)), "shared", "pay", f), os.path.join(fa, f))
+
 # ---------- apps standalone projects (for testing; public URLs stay on faindonesia.co.id) ----------
 for name, src, sub in [("faindonesia-jupiter", JUP, "audit-ready"), ("faindonesia-saturn", SAT, "saturn"), ("faindonesia-venus", VEN, "cek-psak-118")]:
     d = os.path.join(OUT, name); shutil.copytree(src, d)

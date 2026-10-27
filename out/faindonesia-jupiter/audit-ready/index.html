@@ -505,7 +505,7 @@ async function parseCode(raw){const c=String(raw||"").toUpperCase().replace(/\s+
   return {code:c,type:m[1]==="Y"?"Tahunan":"Day pass",exp}}
 const licensed=()=>!!LIC&&todayJkt()<=LIC.exp;
 const expStr=e=>e.slice(4,6)+"/"+e.slice(2,4)+"/20"+e.slice(0,2);
-(async()=>{try{const c=localStorage.getItem(LS+"-lic");if(c){const r=await parseCode(c);if(!r.err){LIC=r;render();save()}}}catch(e){}})();
+(async()=>{try{const u=new URLSearchParams(location.search).get("kode");if(u){const r=await parseCode(u);history.replaceState(null,"",location.pathname+location.hash);if(r.err){toast(r.err)}else{LIC=r;try{localStorage.setItem(LS+"-lic",r.code)}catch(_){}tab="mulai";render();doSave();toast("Akses "+r.type+" aktif sampai "+expStr(r.exp)+". Lanjut login Google.");return}}const c=localStorage.getItem(LS+"-lic");if(c){const r=await parseCode(c);if(!r.err){LIC=r;render();save()}}}catch(e){}})();
 let saveState={t:null,ok:null},saveTimer=null,dirty=false;
 function save(){if(!licensed()){dirty=!S.demo;renderSaveBadge();return}clearTimeout(saveTimer);saveTimer=setTimeout(doSave,400)}
 async function doSave(){clearTimeout(saveTimer);saveTimer=null;if(!licensed())return;dirty=false;

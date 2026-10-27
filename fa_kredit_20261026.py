@@ -3,7 +3,7 @@
 Screening gratis kemampuan pengajuan kredit baru / top up / take over:
 repayment capacity (DSCR), plafon maksimal per batas (DSCR, Debt/EBITDA, DER, agunan, siklus modal kerja),
 matriks plafon per suku bunga x tenor, bunga maksimal untuk plafon incaran, langkah lanjut.
-QRIS donasi Rp10.001 dipasang prep.py (add_donasi). Lead ke Google Sheet yang sama dengan CariAkuntan.
+QRIS donasi Rp19.001 dipasang prep.py (add_donasi). Lead ke Google Sheet yang sama dengan CariAkuntan.
 Idempoten. Jalankan setelah fa_psak_20261026.py, sebelum prep.py.
 """
 import os, re, json
@@ -227,7 +227,7 @@ FAQ = [
  ("Berapa DSCR yang aman?", "Banyak bank memakai batas minimal sekitar 1,2 sampai 1,5 kali. Semakin tinggi DSCR, semakin besar ruang tambahan kredit dan posisi tawar bunga."),
  ("Apa beda kredit investasi dan KMK revolving dalam perhitungan ini?", "Kredit investasi dihitung dengan angsuran pokok plus bunga selama tenor. KMK revolving dihitung bunga saja karena pokok umumnya diperpanjang tahunan, tetapi dibatasi kebutuhan modal kerja."),
  ("Apakah data saya disimpan?", "Data yang Anda kirim dipakai hanya untuk menindaklanjuti screening ini. Detail laporan keuangan lengkap baru kami minta setelah NDA."),
- ("Benarkah gratis?", "Ya. Di akhir ada pilihan donasi sukarela lewat QRIS sebesar Rp10.001 yang boleh dilewati."),
+ ("Benarkah gratis?", "Ya. Di akhir ada pilihan donasi sukarela lewat QRIS sebesar Rp19.001 yang boleh dilewati."),
 ]
 main = (f'<section class="block">\n<div class="wrap art">\n<p class="eyebrow">FA Venus · Kalkulator Gratis</p>\n'
         f'<h1 style="margin:.2em 0 .5em;font-size:clamp(32px,4.4vw,54px);line-height:1.12">Cek Kredit dan Pendanaan: Berapa Plafon yang Sanggup Ditanggung, dan Sudah Layak IPO?</h1>\n'

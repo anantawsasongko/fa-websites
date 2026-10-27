@@ -9,17 +9,17 @@
   var L = (document.documentElement.lang || 'id').toLowerCase();
   L = L.indexOf('en') === 0 ? 'en' : (L.indexOf('zh') === 0 || L === 'nan') ? 'zh' : 'id';
   var T = {
-    id: { t: 'Layanan ini gratis', s: 'Kalau bermanfaat, Anda bisa berdonasi lewat QRIS sebesar <b>Rp10.001</b>. Sepenuhnya opsional, boleh dilewati.',
+    id: { t: 'Layanan ini gratis', s: 'Kalau bermanfaat, Anda bisa berdonasi lewat QRIS sebesar <b>Rp19.001</b>. Sepenuhnya opsional, boleh dilewati.',
           done: 'Sudah Donasi, Lanjutkan', skip: 'Lewati, Lanjutkan', save: 'Simpan Gambar QRIS', thanks: 'Terima kasih',
-          s2: 'Scan QRIS dengan aplikasi bank atau e-wallet apa saja, lalu isi nominal <b>Rp10.001</b>.', close: 'Tutup',
+          s2: 'Scan QRIS dengan aplikasi bank atau e-wallet apa saja, lalu isi nominal <b>Rp19.001</b>.', close: 'Tutup',
           pill: 'Puas dengan hasilnya? Donasi via QRIS', short: 'Donasi via QRIS', x: 'Tutup' },
-    en: { t: 'This service is free', s: 'If it helps, you can donate via QRIS: <b>Rp10,001</b>. Entirely optional, you may skip.',
+    en: { t: 'This service is free', s: 'If it helps, you can donate via QRIS: <b>Rp19,001</b>. Entirely optional, you may skip.',
           done: 'I Have Donated, Continue', skip: 'Skip and Continue', save: 'Save QRIS Image', thanks: 'Thank you',
-          s2: 'Scan the QRIS with any Indonesian bank or e-wallet app and enter <b>Rp10,001</b>.', close: 'Close',
+          s2: 'Scan the QRIS with any Indonesian bank or e-wallet app and enter <b>Rp19,001</b>.', close: 'Close',
           pill: 'Happy with the result? Donate via QRIS', short: 'Donate via QRIS', x: 'Close' },
-    zh: { t: '本服务免费', s: '如果对您有帮助，可通过 QRIS 捐赠 <b>Rp10.001</b>。完全自愿，可直接跳过。',
+    zh: { t: '本服务免费', s: '如果对您有帮助，可通过 QRIS 捐赠 <b>Rp19.001</b>。完全自愿，可直接跳过。',
           done: '已捐赠，继续', skip: '跳过，继续', save: '保存 QRIS 图片', thanks: '谢谢',
-          s2: '使用任意印尼银行或电子钱包扫描 QRIS，金额 <b>Rp10.001</b>。', close: '关闭',
+          s2: '使用任意印尼银行或电子钱包扫描 QRIS，金额 <b>Rp19.001</b>。', close: '关闭',
           pill: '对结果满意？通过 QRIS 捐赠', short: 'QRIS 捐赠', x: '关闭' }
   }[L];
 
