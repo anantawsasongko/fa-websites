@@ -78,7 +78,7 @@ header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--p
 .stats span{font-size:.82rem;color:var(--muted)}
 @media (max-width:860px){.hero .grid{grid-template-columns:1fr;gap:28px}.hero{padding-block:40px}}
 
-.modes{display:inline-flex;border:1px solid var(--line);background:#fff;margin-bottom:18px;max-width:100%}
+.modes{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);background:#fff;margin-bottom:18px;max-width:100%}
 .modes button{border:0;background:transparent;padding:11px 18px;font:600 .92rem var(--body);color:var(--muted);cursor:pointer;transition:background .2s ease,color .2s ease}
 .modes button[aria-pressed="true"]{background:var(--accent);color:#fff}
 .calc{display:grid;grid-template-columns:1.45fr 1fr;border:1px solid var(--line);background:#fff;box-shadow:0 24px 60px -30px rgba(11,31,51,.35)}

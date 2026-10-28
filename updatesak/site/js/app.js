@@ -101,7 +101,8 @@ function read() {
   $$(".finx input").forEach(i => v[i.dataset.id][+i.dataset.y] = parse(i.value));
   const f = Object.fromEntries(new FormData($("#form")).entries());
   $$("#flags input").forEach(c => f[c.name] = c.checked);
-  return {v, f, t: totals(v)};
+  const X = {}; ["cf_susut", "cf_capex", "cf_jual", "cf_div", "cf_setor", "cf_wo", "cf_sewa"].forEach(k => X[k] = (f[k] || "").trim() === "" ? null : parse(f[k]));
+  return {v, f, t: totals(v), X};
 }
 function totals(v) {
   const t = {};
@@ -152,11 +153,12 @@ function setMode(m) {
   mode = m;
   $$(".modes button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === m));
   $$(".stepnav .calk-only").forEach(e => e.hidden = m !== "calk");
-  $("#go").textContent = m === "calk" ? "Susun CALK" : m === "lk" ? "Susun Laporan Keuangan" : "Cek Standar";
-  if (m !== "calk" && step > 2) goStep(2); else goStep(step);
+  $$(".stepnav .fs-only").forEach(e => e.hidden = m === "std");
+  $("#go").textContent = {calk: "Susun CALK", lk: "Susun Laporan Keuangan", cf: "Susun Laporan Arus Kas", eq: "Susun Laporan Perubahan Ekuitas"}[m] || "Cek Standar";
+  goStep(Math.min(step, lastStep()));
 }
 let step = 0;
-function lastStep() { return mode === "calk" ? 3 : 2; }
+function lastStep() { return mode === "calk" ? 4 : mode === "std" ? 2 : 3; }
 function goStep(n) {
   step = Math.max(0, Math.min(n, lastStep()));
   $$(".stepnav button").forEach(b => b.setAttribute("aria-selected", +b.dataset.step === step));
@@ -420,9 +422,13 @@ function buildCalk(d, r, onlyFS) {
   H += `<p style="text-align:center;font-weight:bold;margin:18px 0 0">LAPORAN LABA RUGI DAN PENGHASILAN KOMPREHENSIF LAIN</p><p style="text-align:center;margin:0 0 6px">Untuk Tahun yang Berakhir pada Tanggal ${d1}<br>(Disajikan dalam Rupiah, kecuali dinyatakan lain)</p>`;
   H += table(pl, {note: true});
 
+  const iEq = H.length;
   /* Laporan Perubahan Ekuitas */
   const D = id => a(id, 1) - a(id, 0);
-  const div1 = a("saldolaba", 0) + T1.LB - a("saldolaba", 1);
+  const X = d.X || {};
+  const divAuto = a("saldolaba", 0) + T1.LB - a("saldolaba", 1);
+  const div1 = X.cf_div != null ? Math.abs(X.cf_div) : divAuto;
+  const slX = divAuto - div1;
   const ociX = a("ociek", 1) - a("ociek", 0) - a("oci", 1);
   const eqRow = (lab, m, tm, sl, oc, s) => { const tot = m + tm + sl + oc; const c = x => `<td style="${TD}${s ? ";border-top:1px solid #000;font-weight:bold" : ""}">${fmt(x)}</td>`; return `<tr><td style="${TL}${s ? ";font-weight:bold" : ""}">${lab}</td>${c(m)}${c(tm)}${c(sl)}${c(oc)}${c(tot)}</tr>`; };
   const eh = ["Modal Saham", "Tambahan Modal Disetor", "Saldo Laba", "Penghasilan Komprehensif Lain", "Jumlah Ekuitas"];
@@ -435,31 +441,47 @@ function buildCalk(d, r, onlyFS) {
   E += eqRow(`Laba tahun berjalan`, 0, 0, T1.LB, 0) + eqRow(`Penghasilan komprehensif lain`, 0, 0, 0, a("oci", 1));
   if (prior && Math.round(div1)) E += eqRow(`Dividen tunai`, 0, 0, -div1, 0);
   if (prior && (Math.round(D("modal")) || Math.round(D("tmd")))) E += eqRow(`Penambahan modal disetor`, D("modal"), D("tmd"), 0, 0);
+  if (prior && Math.round(slX)) E += eqRow(`Mutasi saldo laba lainnya ${P("jelaskan")}`, 0, 0, -slX, 0);
   if (prior && Math.round(ociX)) E += eqRow(`Lain-lain ${P("jelaskan")}`, 0, 0, 0, ociX);
   E += eqRow(`Saldo 31 Desember ${Y1}`, a("modal", 1), a("tmd", 1), a("saldolaba", 1), a("ociek", 1), 1) + `</table>`;
   H += `<p style="text-align:center;font-weight:bold;margin:18px 0 0">LAPORAN PERUBAHAN EKUITAS</p><p style="text-align:center;margin:0 0 6px">Untuk Tahun yang Berakhir pada Tanggal ${d1}<br>(Disajikan dalam Rupiah, kecuali dinyatakan lain)</p>` + E;
   if (prior) H += `<p style="font-size:9pt;font-style:italic">Saldo 1 Januari ${Y0} dihitung mundur dari laba dan penghasilan komprehensif lain ${Y0}; ${P("sesuaikan bila ada dividen atau perubahan modal di " + Y0)}.</p>`;
 
+  const iCf = H.length;
   /* Laporan Arus Kas (metode langsung) */
   if (prior) {
     const rouAdd = Math.max(0, D("rou")), atbAdd = Math.max(0, D("atb"));
-    const inv = [["Perolehan aset tetap", -D("atbiaya")], ["Perolehan aset takberwujud", -atbAdd], ["Perolehan properti investasi", -D("propinv")], ["Penambahan investasi pada entitas asosiasi", -D("invasos")], ["Perubahan aset tidak lancar lainnya", -D("atllain")]].filter(x => Math.round(x[1]));
-    const fin = [["Penerimaan (pembayaran) utang bank jangka pendek, neto", D("ubpendek")], ["Penerimaan (pembayaran) utang bank jangka panjang, neto", D("ublancar") + D("ubpanjang")], ["Pembayaran liabilitas sewa", D("sewalancar") + D("sewapanjang") - rouAdd], ["Penerimaan (pembayaran) utang pihak berelasi", D("utangrel")], ["Setoran modal", D("modal") + D("tmd")], ["Pembayaran dividen", -div1]].filter(x => Math.round(x[1]));
+    const capex = X.cf_capex != null ? Math.abs(X.cf_capex) : D("atbiaya");
+    const inv = [["Perolehan aset tetap", -capex], ["Hasil penjualan aset tetap", X.cf_jual || 0], ["Perolehan aset takberwujud", -atbAdd], ["Perolehan properti investasi", -D("propinv")], ["Penambahan investasi pada entitas asosiasi", -D("invasos")], ["Perubahan aset tidak lancar lainnya", -D("atllain")]].filter(x => Math.round(x[1]));
+    const fin = [["Penerimaan (pembayaran) utang bank jangka pendek, neto", D("ubpendek")], ["Penerimaan (pembayaran) utang bank jangka panjang, neto", D("ublancar") + D("ubpanjang")], ["Pembayaran liabilitas sewa", X.cf_sewa != null ? -Math.abs(X.cf_sewa) : D("sewalancar") + D("sewapanjang") - rouAdd], ["Penerimaan (pembayaran) utang pihak berelasi", D("utangrel")], ["Setoran modal", X.cf_setor != null ? Math.abs(X.cf_setor) : D("modal") + D("tmd")], ["Pembayaran dividen", -div1]].filter(x => Math.round(x[1]));
     const sInv = inv.reduce((s, x) => s + x[1], 0), sFin = fin.reduce((s, x) => s + x[1], 0);
     const sOp = D("kas") - sInv - sFin;
-    const rec = a("pendapatan", 1) - D("piu3") - D("piurel") - D("asetkontrak") + D("liabkontrak");
+    const rec = a("pendapatan", 1) - D("piu3") - D("piurel") - Math.abs((d.X || {}).cf_wo || 0) - D("asetkontrak") + D("liabkontrak");
     const op = [["Penerimaan kas dari pelanggan", rec], ["Pembayaran kas kepada pemasok, karyawan, dan untuk beban operasional", 0], ["Penerimaan bunga", a("pkeu", 1)], ["Pembayaran bunga", -Math.abs(a("bkeu", 1))], ["Pembayaran pajak penghasilan", -(Math.abs(a("pajakkini", 1)) - D("utangpajak") + D("pajakdm"))], ["Penerimaan (pembayaran) lain-lain, neto", a("lain", 1)]];
     op[1][1] = sOp - op.filter((_, i) => i !== 1).reduce((s, x) => s + x[1], 0);
-    const rowsCF = [["ARUS KAS DARI AKTIVITAS OPERASI", 0, 0, "h"], ...op.filter(x => Math.round(x[1])).map(x => [x[0], x[1], "", "i"]), ["Kas Neto Diperoleh dari (Digunakan untuk) Aktivitas Operasi", sOp, "", "b"],
+    const tax = -(Math.abs(a("pajakkini", 1)) - D("utangpajak") + D("pajakdm"));
+    const dep = X.cf_susut != null ? Math.abs(X.cf_susut) : Math.abs(a("atakum", 1)) - Math.abs(a("atakum", 0)) + Math.max(0, -D("rou")) + Math.max(0, -D("atb"));
+    const wc = [["Piutang usaha", -(D("piu3") + D("piurel")) - Math.abs(X.cf_wo || 0)], ["Piutang lain-lain", -D("piulain")], ["Aset kontrak", -D("asetkontrak")], ["Persediaan", -D("persediaan")], ["Uang muka dan biaya dibayar di muka", -D("uangmuka")], ["Utang usaha", D("uu3") + D("uurel")], ["Utang lain-lain", D("ul")], ["Beban akrual", D("akrual")], ["Liabilitas kontrak", D("liabkontrak")], ["Liabilitas imbalan kerja", D("imbalan") + a("oci", 1)]].filter(x => Math.round(x[1]));
+    const ind = [["Laba sebelum pajak penghasilan", T1.LSBP], ["Penyusutan dan amortisasi", dep], ["Penyisihan (pemulihan) kerugian penurunan nilai piutang", Math.abs(a("cke", 1)) - Math.abs(a("cke", 0)) + Math.abs(X.cf_wo || 0)], ["Beban keuangan", Math.abs(a("bkeu", 1))], ["Pendapatan keuangan", -a("pkeu", 1)]].filter(x => Math.round(x[1]));
+    const indSum = ind.reduce((s, x) => s + x[1], 0) + wc.reduce((s, x) => s + x[1], 0) + a("pkeu", 1) - Math.abs(a("bkeu", 1)) + tax;
+    const indPlug = sOp - indSum;
+    const opInd = [...ind, ["Perubahan modal kerja:", null], ...wc.map(x => ["  " + x[0], x[1]]), ...(Math.round(indPlug) ? [["Penyesuaian lain dan pos nonkas " + P("telusuri"), indPlug]] : []), ["Penerimaan bunga", a("pkeu", 1)], ["Pembayaran bunga", -Math.abs(a("bkeu", 1))], ["Pembayaran pajak penghasilan", tax]].filter(x => x[1] === null || Math.round(x[1]));
+    const indirect = (d.f.cf_metode || "langsung") === "tidak";
+    const opRows = indirect ? opInd.map(x => x[1] === null ? [x[0], 0, 0, "h"] : [x[0], x[1], "", "i"]) : op.filter(x => Math.round(x[1])).map(x => [x[0], x[1], "", "i"]);
+    const rowsCF = [["ARUS KAS DARI AKTIVITAS OPERASI", 0, 0, "h"], ...opRows, ["Kas Neto Diperoleh dari (Digunakan untuk) Aktivitas Operasi", sOp, "", "b"],
       ["ARUS KAS DARI AKTIVITAS INVESTASI", 0, 0, "h"], ...inv.map(x => [x[0], x[1], "", "i"]), ["Kas Neto Digunakan untuk Aktivitas Investasi", sInv, "", "b"],
       ["ARUS KAS DARI AKTIVITAS PENDANAAN", 0, 0, "h"], ...fin.map(x => [x[0], x[1], "", "i"]), ["Kas Neto Diperoleh dari (Digunakan untuk) Aktivitas Pendanaan", sFin, "", "b"],
       ["KENAIKAN (PENURUNAN) NETO KAS DAN SETARA KAS", D("kas"), "", "b"], ["KAS DAN SETARA KAS AWAL TAHUN", a("kas", 0), "", ""], ["KAS DAN SETARA KAS AKHIR TAHUN", a("kas", 1), "", "bb"]];
     H += `<p style="text-align:center;font-weight:bold;margin:18px 0 0">LAPORAN ARUS KAS</p><p style="text-align:center;margin:0 0 6px">Untuk Tahun yang Berakhir pada Tanggal ${d1}<br>(Disajikan dalam Rupiah, kecuali dinyatakan lain)</p>`;
     H += table(rowsCF, {cols: [String(Y1)]});
-    H += `<p style="font-size:9pt;font-style:italic">Disusun dengan metode langsung dari perubahan saldo laporan posisi keuangan ${Y0} ke ${Y1} dan laba rugi ${Y1}. Pembayaran kepada pemasok dan karyawan merupakan angka penyeimbang; ${P("cocokkan dengan buku kas dan bank")}. Kolom komparatif ${Y0} memerlukan saldo ${Y0 - 1}.${rouAdd ? ` Transaksi nonkas: penambahan aset hak guna melalui liabilitas sewa sebesar Rp${idn(rouAdd)}.` : ""}</p>`;
+    H += `<p style="font-size:9pt;font-style:italic">Disusun dengan metode ${indirect ? "tidak langsung" : "langsung"} dari perubahan saldo laporan posisi keuangan ${Y0} ke ${Y1} dan laba rugi ${Y1}. ${indirect ? (X.cf_susut != null ? "" : "Penyusutan dan amortisasi dihitung dari kenaikan akumulasi penyusutan dan penurunan aset hak guna serta aset takberwujud; isi angka riil di langkah 4 bila ada pelepasan aset. ") : "Pembayaran kepada pemasok dan karyawan merupakan angka penyeimbang; "}${P("cocokkan dengan buku kas dan bank")}. Kolom komparatif ${Y0} memerlukan saldo ${Y0 - 1}.${rouAdd ? ` Transaksi nonkas: penambahan aset hak guna melalui liabilitas sewa sebesar Rp${idn(rouAdd)}.` : ""}</p>`;
   } else {
     H += `<p style="margin:18px 0 0">${P("Laporan arus kas memerlukan angka tahun lalu. Isi kolom tahun lalu di tabel Neraca dan Laba Rugi.")}</p>`;
   }
+  const iEnd = H.length;
+  const head = `<div style="font-family:'Times New Roman',serif;font-size:11pt;color:#000"><p style="text-align:center;font-weight:bold;margin:0">${nama.toUpperCase()}</p>`;
+  if (onlyFS === "eq") return {html: head + H.slice(iEq, iCf).replace("margin:18px 0 0", "margin:0") + `</div>`, fw, notes: 0};
+  if (onlyFS === "cf") return {html: head + H.slice(iCf, iEnd).replace("margin:18px 0 0", "margin:0") + `</div>`, fw, notes: 0};
   H += `<p style="font-style:italic;font-size:10pt">Catatan atas laporan keuangan terlampir merupakan bagian yang tidak terpisahkan dari laporan keuangan secara keseluruhan.</p>`;
   if (onlyFS) return {html: H + `</div>`, fw, notes: 0};
   H += `<br style="page-break-before:always"><p style="text-align:center;font-weight:bold;margin:12px 0 0">${nama.toUpperCase()}</p><p style="text-align:center;font-weight:bold;margin:0">CATATAN ATAS LAPORAN KEUANGAN</p><p style="text-align:center;margin:0 0 8px">Tanggal ${d1} dan untuk Tahun yang Berakhir pada Tanggal Tersebut<br>(Disajikan dalam Rupiah, kecuali dinyatakan lain)</p>`;
@@ -674,7 +696,7 @@ function renderCalk(d, r, onlyFS) {
   const out = buildCalk(d, r, onlyFS);
   const fwn = {sak: "SAK Indonesia", ep: "SAK EP", emkm: "SAK EMKM"}[out.fw];
   return `<div class="res">
-  <h3>${onlyFS ? "Laporan Keuangan" : "Draf CALK"}: ${esc(d.f.nama || "Perusahaan Anda")} (${fwn}${onlyFS ? ", 4 Laporan" : ", " + out.notes + " Catatan"})</h3>
+  <h3>${onlyFS === "cf" ? "Laporan Arus Kas" : onlyFS === "eq" ? "Laporan Perubahan Ekuitas" : onlyFS ? "Laporan Keuangan" : "Draf CALK"}: ${esc(d.f.nama || "Perusahaan Anda")} (${fwn}${onlyFS === true ? ", 4 Laporan" : onlyFS ? "" : ", " + out.notes + " Catatan"})</h3>
   <p class="lock">Bagian bertanda kuning wajib dilengkapi. Tombol Salin ke Word menyalin tabel dan format sekaligus; tempel di Word dengan Ctrl+V.</p>
   <div class="actions" style="margin:12px 0 16px"><button type="button" class="btn" id="copy">Salin ke Word</button><button type="button" class="btn btn-ghost" id="dl">Download .doc</button><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=${encodeURIComponent("Halo tim UpdateSAK, kami sudah membuat draf CALK " + (d.f.nama || "") + " dan ingin dibantu finalisasi sebelum audit.")}">Minta Review Tim</a></div>
   <div class="calk-doc" id="calkDoc">${out.html}</div>
@@ -712,10 +734,10 @@ function run() {
   if (!IDS.some(id => d.v[id][1])) { $("#cek").className = "chk bad"; $("#cek").textContent = "Isi minimal angka tahun berjalan terlebih dahulu."; $("#cek").scrollIntoView({behavior: "smooth", block: "center"}); return; }
   const r = analyze(d);
   const box = $("#hasil");
-  box.innerHTML = mode === "calk" ? renderCalk(d, r) : mode === "lk" ? renderCalk(d, r, true) : renderStd(d, r);
+  box.innerHTML = mode === "calk" ? renderCalk(d, r) : mode === "lk" ? renderCalk(d, r, true) : mode === "cf" || mode === "eq" ? renderCalk(d, r, mode) : renderStd(d, r);
   box.hidden = false;
   box.scrollIntoView({behavior: "smooth", block: "start"});
-  const tc = $("#toCalk"); if (tc) tc.onclick = () => { setMode("calk"); goStep(3); $("#kalkulator").scrollIntoView({behavior: "smooth", block: "start"}); };
+  const tc = $("#toCalk"); if (tc) tc.onclick = () => { setMode("calk"); goStep(4); $("#kalkulator").scrollIntoView({behavior: "smooth", block: "start"}); };
   const cp = $("#copy"); if (cp) cp.onclick = copyDoc;
   const dl = $("#dl"); if (dl) dl.onclick = () => downloadDoc(d.f.nama);
 }
@@ -733,7 +755,7 @@ function downloadDoc(nama) {
   const html = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>CALK</title><style>@page{size:A4;margin:2.5cm 2cm}body{font-family:'Times New Roman';font-size:11pt}</style></head><body>${$("#calkDoc").innerHTML}</body></html>`;
   const b = new Blob(["﻿", html], {type: "application/msword"});
   const u = URL.createObjectURL(b), x = document.createElement("a");
-  x.href = u; x.download = "CALK " + (nama || "Perusahaan").replace(/[^\w .-]/g, "") + ".doc"; document.body.appendChild(x); x.click(); x.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000);
+  x.href = u; x.download = ({cf: "Laporan Arus Kas ", eq: "Laporan Perubahan Ekuitas ", lk: "Laporan Keuangan "}[mode] || "CALK ") + (nama || "Perusahaan").replace(/[^\w .-]/g, "") + ".doc"; document.body.appendChild(x); x.click(); x.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000);
 }
 $("#go").onclick = run;
 $("#reset").onclick = () => { $("#form").reset(); $$(".finx input").forEach(i => i.value = ""); $("#hasil").hidden = true; refresh(); yearLabels(); };
