@@ -81,10 +81,12 @@
   }
   function fileOf(C, b) { var slug = (C.url.split('#')[0].split('/').filter(Boolean).pop() || 'faindonesia').replace(/[^\w-]/g, '').slice(0, 60) || 'share'; return new File([b], slug + '-story.jpg', { type: 'image/jpeg' }); }
   function download(C, b) { var u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = fileOf(C, b).name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 4000); }
-  function nativeShare(C, withFile) {
+  function nativeShare(C, withFile, imgOnly) {
     return makePoster(C).then(function (b) {
       var f = fileOf(C, b);
-      if (withFile && navigator.canShare && navigator.canShare({ files: [f] })) return navigator.share({ files: [f], title: C.title, text: C.text }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
+      /* imgOnly: khusus Instagram. Share sheet iOS menolak file + teks berisi link ("Can't send link"),
+         jadi kirim gambar saja; Instagram lalu menawarkan Story, Feed, atau Pesan. Link sudah tersalin untuk sticker Link. */
+      if (withFile && navigator.canShare && navigator.canShare({ files: [f] })) return navigator.share(imgOnly ? { files: [f] } : { files: [f], title: C.title, text: C.text }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
       if (!withFile && navigator.share) return navigator.share({ title: C.title, text: C.title, url: C.url }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
       return 'none';
     });
@@ -94,7 +96,7 @@
     ig: function (C) {
       ga('instagram');
       copy(C.url).then(function () {
-        nativeShare(C, true).then(function (r) {
+        nativeShare(C, true, true).then(function (r) {
           if (r === 'ok' || r === 'abort') { toast('Link sudah tersalin. Di Instagram pilih Story, tambahkan sticker Link, lalu tempel.'); return; }
           makePoster(C).then(function (b) { download(C, b); }); toast('Poster di-download dan link sudah tersalin. Upload poster ke Instagram Story, tambahkan sticker Link, lalu tempel.');
         });
@@ -127,6 +129,7 @@
     d.innerHTML = '<span>Bagikan</span>' + show.map(function (k) {
       if (BRAND[k]) return '<button type="button" data-a="' + k + '" class="br" title="Bagikan ke ' + LB[k] + '" aria-label="Bagikan ke ' + LB[k] + '" style="background:' + BRAND[k][1] + '"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="' + BRAND[k][0] + '"/></svg></button>';
       return '<button type="button" data-a="' + k + '" class="' + (k === 'all' ? 'p' : k) + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + IC[k] + '</svg><span>' + LB[k] + '</span></button>'; }).join('');
+    d.addEventListener('pointerdown', function (e) { var b = e.target.closest('button[data-a]'); if (b && /^(ig|all)$/.test(b.getAttribute('data-a'))) makePoster(C); }, { passive: true });
     d.addEventListener('click', function (e) { var b = e.target.closest('button[data-a]'); if (b) ACT[b.getAttribute('data-a')](C, b); });
     return d;
   }
