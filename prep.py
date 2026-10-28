@@ -233,11 +233,11 @@ GA_TAG = ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA
 LEAD_JS = os.path.join(M, "shared", "lead.js")
 WA_KREDIT = "https://wa.me/6282245260121?text=" + "Halo%20FA%20Indonesia%2C%20saya%20ingin%20konsultasi%20tentang%20pendampingan%20kredit%20bank."
 CTA = ('<section class="fa-cta" aria-label="Konsultasi"><style>'
-       '.fa-cta{max-width:1080px;margin:40px auto;padding:26px 24px;border-radius:12px;background:#0f1f3d;color:#fff;font-family:inherit}'
-       '.fa-cta h2{margin:0 0 6px;font-size:1.3rem;color:#fff}.fa-cta p{margin:0 0 16px;opacity:.85;font-size:.95rem;line-height:1.55}'
+       '.fa-cta{width:min(1080px,calc(100% - 32px));box-sizing:border-box;margin:40px auto 0;padding:26px 24px;border-radius:8px;background:var(--surface,#1e1e1e);border:1px solid var(--line,#2f2f2f);color:var(--ink,#fff);font-family:inherit}'
+       '.fa-cta h2{margin:0 0 6px;font-size:1.3rem;color:inherit}.fa-cta p{margin:0 0 16px;opacity:.85;font-size:.95rem;line-height:1.55}'
        '.fa-cta .b{display:flex;flex-wrap:wrap;gap:10px}.fa-cta a{display:inline-block;padding:11px 18px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.92rem}'
-       '.fa-cta a.w{background:#25D366;color:#06301a}.fa-cta a.l{border:1px solid rgba(255,255,255,.5);color:#fff}'
-       '@media (max-width:720px){.fa-cta{margin:28px 16px}}</style>'
+       '.fa-cta a.w{background:var(--ink,#fff);color:var(--paper,#171717)}.fa-cta a.l{border:1px solid rgba(127,127,127,.45);color:inherit}.fa-cta a.l:hover{background:rgba(127,127,127,.14)}'
+       '@media (max-width:720px){.fa-cta{margin-top:28px;padding:22px 18px}}</style>'
        '<h2>Mau Ajukan Kredit Bank atau Cari Investor?</h2>'
        '<p>Kami cek dulu rasio dan laporan keuangan perusahaan Anda, supaya pengajuan tidak ditolak dan biaya audit tidak terbuang. Diskusi awal gratis.</p>'
        '<div class="b"><a class="w" href="' + WA_KREDIT + '" target="_blank" rel="noopener">Konsultasi Kredit via WhatsApp</a>'
@@ -259,7 +259,8 @@ def add_lead(site_root, cta_dirs=()):
             if "/js/lead.js" not in t:
                 t = t.replace("</body>", '<script src="/js/lead.js" defer></script></body>', 1)
             rel = os.path.relpath(p, site_root).replace(os.sep, "/")
-            if cta_dirs and 'class="fa-cta"' not in t and any(rel.startswith(d) for d in cta_dirs) and "konsultan-kredit-bank" not in rel:
+            t = re.sub(r'<section class="fa-cta".*?</section>\n?', "", t, flags=re.S)
+            if cta_dirs and any(rel.startswith(d) for d in cta_dirs) and "konsultan-kredit-bank" not in rel:
                 i = t.rfind("<footer"); i = i if i >= 0 else t.rfind("</body>")
                 t = t[:i] + CTA + "\n" + t[i:]
             if t != o: open(p, "w", encoding="utf-8").write(t); n += 1
