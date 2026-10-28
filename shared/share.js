@@ -29,24 +29,31 @@
     function fb() { var a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0'; document.body.appendChild(a); a.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} a.remove(); return ok; }
   }
 
-  var ready = null;
-  function storyUrl() {
-    var d = document.querySelector('[data-story]'); if (d) return d.getAttribute('data-story');
-    var a = document.querySelector('a[href*="-story.jpg"]'); if (a) return a.getAttribute('href');
-    return null;
-  }
   function wrap(ctx, text, maxw) {
     var w = text.split(' '), lines = [], cur = '';
     w.forEach(function (x) { var t = (cur + ' ' + x).trim(); if (ctx.measureText(t).width <= maxw) cur = t; else { if (cur) lines.push(cur); cur = x; } });
     if (cur) lines.push(cur); return lines;
   }
-  function makePoster() {
-    if (ready) return ready;
-    var su = storyUrl();
-    if (su) { ready = fetch(su).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).catch(function () { return draw(); }); return ready; }
-    ready = draw(); return ready;
+  /* konteks per bar: url, judul, kicker, gambar story */
+  function mkctx(old) {
+    var C = { url: canon, title: title, kick: kick, story: null, ready: null };
+    if (old) {
+      var li = old.querySelector('a[href*="linkedin.com"]');
+      if (li) { try { var u = new URL(li.href).searchParams.get('url'); if (u) { C.url = u; var pu = new URL(u); if (pu.pathname === '/' && pu.hash && location.pathname !== '/') C.url = canon.split('#')[0] + pu.hash; } } catch (e) {} }
+      var ds = old.querySelector('[data-story]');
+      if (ds) { C.story = ds.getAttribute('data-story'); if (ds.getAttribute('data-title')) C.title = ds.getAttribute('data-title'); }
+      var ad = old.querySelector('a[href*="-story.jpg"]'); if (!C.story && ad) C.story = ad.getAttribute('href');
+    }
+    if (!C.story && !old) { var d = document.querySelector('[data-story]'); if (d) C.story = d.getAttribute('data-story'); var a = document.querySelector('a[href*="-story.jpg"]'); if (!C.story && a) C.story = a.getAttribute('href'); }
+    C.text = C.title + '\n\n' + C.url;
+    return C;
   }
-  function draw() {
+  function makePoster(C) {
+    if (C.ready) return C.ready;
+    if (C.story) { C.ready = fetch(C.story).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).catch(function () { return draw(C); }); return C.ready; }
+    C.ready = draw(C); return C.ready;
+  }
+  function draw(C) {
     return new Promise(function (res) {
       var W = 1080, Hh = 1920, c = document.createElement('canvas'); c.width = W; c.height = Hh;
       var x = c.getContext('2d');
@@ -55,50 +62,48 @@
       var serif = getComputedStyle(h1 || document.body).fontFamily || 'Georgia, serif';
       var sans = getComputedStyle(document.body).fontFamily || 'system-ui, sans-serif';
       var m = 96;
-      x.strokeStyle = '#fff'; x.lineWidth = 3; x.strokeRect(m, m, 54, 72); x.fillStyle = '#fff'; x.font = '400 22px ' + sans; x.textBaseline = 'middle'; x.fillText(B.l, m + 9, m + 20); x.lineWidth = 2.5; x.beginPath(); if (B.l === 'U') { x.moveTo(m + 32, m + 46); x.quadraticCurveTo(m + 36, m + 40, m + 40, m + 46); x.quadraticCurveTo(m + 44, m + 52, m + 40, m + 58); x.quadraticCurveTo(m + 36, m + 64, m + 32, m + 60); } else { x.moveTo(m + 30, m + 62); x.lineTo(m + 37, m + 44); x.lineTo(m + 44, m + 62); } x.stroke();
+      x.strokeStyle = '#fff'; x.lineWidth = 3; x.strokeRect(m, m, 54, 72); x.fillStyle = '#fff'; x.font = '400 22px ' + sans; x.textBaseline = 'middle'; x.fillText(B.l, m + 9, m + 20); x.lineWidth = 2.5; x.beginPath(); x.moveTo(m + 30, m + 62); x.lineTo(m + 37, m + 44); x.lineTo(m + 44, m + 62); x.stroke();
       x.fillStyle = '#fff'; x.font = '600 40px ' + sans; x.textBaseline = 'middle'; x.fillText(B.n, m + 80, m + 36);
       var y = 560;
-      if (kick) { x.fillStyle = B.ac; x.font = '600 38px ' + sans; x.fillText(kick.toUpperCase(), m, y); y += 90; }
+      if (C.kick) { x.fillStyle = B.ac; x.font = '600 38px ' + sans; x.fillText(C.kick.toUpperCase(), m, y); y += 90; }
       var size = 92, lines;
-      do { x.font = '600 ' + size + 'px ' + serif; lines = wrap(x, title, W - 2 * m); size -= 6; } while (lines.length > 7 && size > 50);
+      do { x.font = '600 ' + size + 'px ' + serif; lines = wrap(x, C.title, W - 2 * m); size -= 6; } while (lines.length > 7 && size > 50);
       size += 6; x.fillStyle = '#fff'; x.textBaseline = 'top';
       lines.forEach(function (l) { x.fillText(l, m, y); y += size * 1.2; });
       x.fillStyle = B.ac; x.fillRect(m, y + 30, 90, 8);
       x.fillStyle = 'rgba(255,255,255,.85)'; x.font = '400 38px ' + sans; x.fillText(B.tag, m, Hh - 330);
       x.fillStyle = '#fff'; x.fillRect(m, Hh - 250, W - 2 * m, 120);
       x.fillStyle = B.c1; x.font = '600 40px ' + sans; x.textBaseline = 'middle';
-      var u = canon.replace(/^https?:\/\//, ''); if (x.measureText(u).width > W - 2 * m - 60) u = B.n;
+      var u = C.url.replace(/^https?:\/\//, ''); if (x.measureText(u).width > W - 2 * m - 60) u = B.n;
       x.fillText('Baca: ' + u, m + 30, Hh - 190);
       c.toBlob(function (b) { res(b); }, 'image/jpeg', .88);
     });
   }
-  function fileOf(b) { var slug = (canon.split('/').filter(Boolean).pop() || 'artikel').slice(0, 60); return new File([b], slug + '-story.jpg', { type: 'image/jpeg' }); }
-  function download(b) { var u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = fileOf(b).name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 4000); }
-  var text = title + '\n\n' + canon;
-
-  function nativeShare(withFile) {
-    return makePoster().then(function (b) {
-      var f = fileOf(b);
-      if (withFile && navigator.canShare && navigator.canShare({ files: [f] })) return navigator.share({ files: [f], title: title, text: text }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
-      if (!withFile && navigator.share) return navigator.share({ title: title, text: title, url: canon }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
+  function fileOf(C, b) { var slug = (C.url.split('#')[0].split('/').filter(Boolean).pop() || 'faindonesia').replace(/[^\w-]/g, '').slice(0, 60) || 'share'; return new File([b], slug + '-story.jpg', { type: 'image/jpeg' }); }
+  function download(C, b) { var u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = fileOf(C, b).name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 4000); }
+  function nativeShare(C, withFile) {
+    return makePoster(C).then(function (b) {
+      var f = fileOf(C, b);
+      if (withFile && navigator.canShare && navigator.canShare({ files: [f] })) return navigator.share({ files: [f], title: C.title, text: C.text }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
+      if (!withFile && navigator.share) return navigator.share({ title: C.title, text: C.title, url: C.url }).then(function () { return 'ok'; }, function (e) { return e && e.name === 'AbortError' ? 'abort' : 'fail'; });
       return 'none';
     });
   }
   var ACT = {
-    all: function () { ga('native'); nativeShare(true).then(function (r) { if (r === 'none') nativeShare(false).then(function (r2) { if (r2 === 'none') copy(canon).then(function () { toast('Link tersalin. Tempel di aplikasi mana saja.'); }); }); }); },
-    ig: function () {
+    all: function (C) { ga('native'); nativeShare(C, true).then(function (r) { if (r === 'none') nativeShare(C, false).then(function (r2) { if (r2 === 'none') copy(C.url).then(function () { toast('Link tersalin. Tempel di aplikasi mana saja.'); }); }); }); },
+    ig: function (C) {
       ga('instagram');
-      copy(canon).then(function () {
-        nativeShare(true).then(function (r) {
+      copy(C.url).then(function () {
+        nativeShare(C, true).then(function (r) {
           if (r === 'ok' || r === 'abort') { toast('Link sudah tersalin. Di Instagram pilih Story, tambahkan sticker Link, lalu tempel.'); return; }
-          makePoster().then(download); toast('Poster di-download dan link sudah tersalin. Upload poster ke Instagram Story, tambahkan sticker Link, lalu tempel.');
+          makePoster(C).then(function (b) { download(C, b); }); toast('Poster di-download dan link sudah tersalin. Upload poster ke Instagram Story, tambahkan sticker Link, lalu tempel.');
         });
       });
     },
-    th: function () { ga('threads'); window.open('https://www.threads.com/intent/post?text=' + encodeURIComponent(text), '_blank', 'noopener'); },
-    li: function () { ga('linkedin'); copy(canon); window.open('https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(text), '_blank', 'noopener'); },
-    wa: function () { ga('whatsapp'); window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); },
-    cp: function (b) { ga('copy'); copy(canon).then(function () { var o = b.lastChild.textContent; b.lastChild.textContent = 'Tersalin'; setTimeout(function () { b.lastChild.textContent = o; }, 2000); }); }
+    th: function (C) { ga('threads'); window.open('https://www.threads.com/intent/post?text=' + encodeURIComponent(C.text), '_blank', 'noopener'); },
+    li: function (C) { ga('linkedin'); copy(C.url); window.open('https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(C.text), '_blank', 'noopener'); },
+    wa: function (C) { ga('whatsapp'); window.open('https://wa.me/?text=' + encodeURIComponent(C.text), '_blank', 'noopener'); },
+    cp: function (C, b) { ga('copy'); copy(C.url).then(function () { var o = b.lastChild.textContent; b.lastChild.textContent = 'Tersalin'; setTimeout(function () { b.lastChild.textContent = o; }, 2000); }); }
   };
   var IC = {
     all: '<path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>',
@@ -115,23 +120,24 @@
     '.fxs button:hover{transform:translateY(-1px);background:rgba(127,127,127,.12)}.fxs button svg{width:17px;height:17px;flex:none}.fxs button.p{background:' + B.c2 + ';border-color:' + B.c2 + ';color:#fff}.fxs button.br{width:40px;height:40px;padding:0;justify-content:center;border:0;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.18)}.fxs button.br svg{width:20px;height:20px}.fxs button.br:hover{transform:translateY(-2px) scale(1.06);background-blend-mode:normal;filter:brightness(1.08)}' +
     '.fxs-toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);max-width:min(92vw,460px);background:#111827;color:#fff;padding:12px 16px;border-radius:10px;font:500 .9rem/1.45 system-ui,sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.3s;z-index:9999}.fxs-toast.on{opacity:1;transform:translate(-50%,0)}' +
     '.fxs button.br{box-shadow:0 0 0 1px rgba(127,127,127,.35),0 2px 6px rgba(0,0,0,.18)}@media (max-width:520px){.fxs{gap:7px}.fxs>span{display:none}.fxs button.p,.fxs button.cp{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.fxs button.p span,.fxs button.cp span{display:none}}';
-  function bar() {
+  function bar(C) {
+    C = C || mkctx(null);
     var d = document.createElement('div'); d.className = 'fxs'; d.setAttribute('aria-label', 'Bagikan halaman ini');
     var show = navigator.share ? ['ig', 'th', 'li', 'wa', 'all', 'cp'] : ['ig', 'th', 'li', 'wa', 'cp'];
     d.innerHTML = '<span>Bagikan</span>' + show.map(function (k) {
       if (BRAND[k]) return '<button type="button" data-a="' + k + '" class="br" title="Bagikan ke ' + LB[k] + '" aria-label="Bagikan ke ' + LB[k] + '" style="background:' + BRAND[k][1] + '"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="' + BRAND[k][0] + '"/></svg></button>';
       return '<button type="button" data-a="' + k + '" class="' + (k === 'all' ? 'p' : k) + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + IC[k] + '</svg><span>' + LB[k] + '</span></button>'; }).join('');
-    d.addEventListener('click', function (e) { var b = e.target.closest('button[data-a]'); if (b) ACT[b.getAttribute('data-a')](b); });
+    d.addEventListener('click', function (e) { var b = e.target.closest('button[data-a]'); if (b) ACT[b.getAttribute('data-a')](C, b); });
     return d;
   }
   function isArticle() {
     return [].some.call(document.querySelectorAll('script[type="application/ld+json"]'), function (s) { return /"@type"\s*:\s*"(Article|NewsArticle|BlogPosting)"/.test(s.textContent); });
   }
   function run() {
-    if (!isArticle()) return;
+    var olds = document.querySelectorAll('.share');
+    if (!olds.length && !isArticle()) return;
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-    var olds = document.querySelectorAll('main .share, .art .share, article .share');
-    if (olds.length) { [].forEach.call(olds, function (o) { o.replaceWith(bar()); }); return; }
+    if (olds.length) { [].forEach.call(olds, function (o) { var lab = o.querySelector('.shlab'); var nb = bar(mkctx(o)); o.replaceWith(nb); }); return; }
     var main = document.querySelector('main') || document.body;
     var anchor = main.querySelector('.meta, .meta-line, .upd, .sub') || (h1 && h1.nextElementSibling) || h1;
     if (anchor) anchor.insertAdjacentElement('afterend', bar());

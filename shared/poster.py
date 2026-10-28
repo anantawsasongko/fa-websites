@@ -86,7 +86,7 @@ def add_share_js(root, src):
     for d, _, fs in os.walk(root):
         if "index.html" not in fs: continue
         p = os.path.join(d, "index.html"); t = open(p, encoding="utf-8").read()
-        if not re.search(r'"@type"\s*:\s*"(Article|NewsArticle|BlogPosting)"', t): continue
+        if not (re.search(r'"@type"\s*:\s*"(Article|NewsArticle|BlogPosting)"', t) or 'class="share"' in t): continue
         t = re.sub(r'<script src="/js/share\.js[^"]*" defer></script>', "", t)
         t = t.replace("</body>", f'<script src="/js/share.js?v={v}" defer></script></body>', 1)
         open(p, "w", encoding="utf-8").write(t); n += 1
