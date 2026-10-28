@@ -1,58 +1,107 @@
-/* Lencana keamanan data (FA Secure / CariAkuntan Secure / UpdateSAK Secure), 27 Okt 2026.
-   Dipasang prep.py (add_secure) pada alat yang meminta data perusahaan.
-   Konfigurasi: window.FA_SECURE = {brand:'fa'|'ca'|'us', mode:'local'|'drive'|'send', theme:'dark'|'light',
-                                    at:[{sel:'css', pos:'beforebegin'|'afterbegin'|'afterend'|'beforeend'}]}
+/* Segel keamanan data (FA Secure / CariAkuntan Secure / UpdateSAK Secure), 28 Okt 2026.
+   Tampil seperti segel software pihak ketiga yang ditempel: kartu putih tetap (tidak ikut tema situs),
+   font sistem + monospace (beda dari font situs), emblem perisai, status "Aktif", baris spesifikasi teknis.
+   Dipasang prep.py (add_secure). Konfigurasi:
+     window.FA_SECURE = {brand:'fa'|'ca'|'us', mode:'local'|'drive'|'send', at:[{sel:'css', pos:'beforebegin'|'afterbegin'|'afterend'|'beforeend', cls:'bar'}]}
    Klaim harus selalu benar terhadap kode halaman:
-   local = tidak ada data yang dikirim; drive = disimpan ke Google Drive pengguna sendiri;
-   send  = dihitung di browser, hasil hanya terkirim saat pengguna klik Kirim. */
+     local = tidak ada data yang dikirim; drive = disimpan ke Google Drive pengguna; send = dihitung di browser, terkirim hanya saat klik Kirim. */
 (function () {
   var C = window.FA_SECURE || {};
-  var B = { fa: ['FA Secure', 'FA Indonesia'], ca: ['CariAkuntan Secure', 'CariAkuntan'], us: ['UpdateSAK Secure', 'UpdateSAK'] }[C.brand || 'fa'];
+  var BR = {
+    fa: { name: 'FA', full: 'FA Indonesia', c1: '#1a1a1a', c2: '#3a3a3a', acc: '#16a34a' },
+    ca: { name: 'CariAkuntan', full: 'CariAkuntan', c1: '#0f2e8a', c2: '#1F5BFF', acc: '#16a34a' },
+    us: { name: 'UpdateSAK', full: 'UpdateSAK', c1: '#0B1F33', c2: '#1F5BFF', acc: '#16a34a' }
+  }[C.brand || 'fa'];
+  var M = C.mode || 'local';
   var L = (document.documentElement.lang || 'id').toLowerCase();
   L = L.indexOf('en') === 0 ? 'en' : (L.indexOf('zh') === 0 || L === 'nan') ? 'zh' : 'id';
-  var O = B[1], M = C.mode || 'local';
+  var O = BR.full;
   var T = {
     id: {
-      local: 'Diproses di browser Anda. Data perusahaan tidak dikirim ke server dan tidak disimpan oleh ' + O + '.',
-      drive: 'Diproses di browser Anda. Kalau disimpan, file masuk ke Google Drive Anda sendiri, bukan ke server ' + O + '.',
-      send: 'Angka keuangan dihitung di browser Anda dan tidak disimpan di server ' + O + '. Hasil hanya terkirim ke tim kami kalau Anda klik Kirim.',
-      more: 'Detail', less: 'Tutup',
-      b: ['Koneksi terenkripsi HTTPS.', 'Tanpa akun dan tanpa database data keuangan di sisi kami.',
-          C.brand === 'fa' ? 'Tim CA dan CPA terikat kode etik kerahasiaan profesi.' : C.brand === 'ca' ? 'Kalau berlanjut, data dilindungi NDA sebelum dibahas.' : 'Tidak perlu login, tidak ada data yang dikumpulkan dari kalkulator.']
+      on: 'Aktif', h: { local: 'Data Diproses di Perangkat Anda', drive: 'Data Tersimpan di Drive Anda Sendiri', send: 'Angka Keuangan Tetap di Perangkat Anda' },
+      s: {
+        local: 'Perhitungan berjalan di browser. Data perusahaan tidak dikirim ke server dan tidak disimpan oleh ' + O + '.',
+        drive: 'Perhitungan berjalan di browser. Kalau disimpan, file masuk ke Google Drive Anda, bukan ke server ' + O + '.',
+        send: 'Dihitung di browser dan tidak disimpan di server ' + O + '. Hasil hanya terkirim ke tim kami kalau Anda klik Kirim.'
+      },
+      spec: { local: ['HTTPS Terenkripsi', 'Proses di Browser', 'Tanpa Database', 'Tanpa Login'],
+              drive: ['HTTPS Terenkripsi', 'Proses di Browser', 'Google Drive Milik Anda', 'Tanpa Database'],
+              send: ['HTTPS Terenkripsi', 'Proses di Browser', 'Kirim Hanya Atas Izin Anda', 'Tanpa Database'] },
+      more: 'Detail Keamanan', less: 'Tutup',
+      d: [C.brand === 'ca' ? 'Kalau berlanjut, data dilindungi NDA sebelum dibahas.' : C.brand === 'us' ? 'Kalkulator tidak mengumpulkan data apa pun dan tidak perlu akun.' : 'Tim CA dan CPA terikat kode etik kerahasiaan profesi.',
+          'Hapus data kapan saja dengan menutup tab atau membersihkan data browser.',
+          'Pertanyaan soal data: office@faindonesia.co.id.']
     },
     en: {
-      local: 'Processed in your browser. Company data is never sent to or stored on ' + O + ' servers.',
-      drive: 'Processed in your browser. If you save, files go to your own Google Drive, not to ' + O + ' servers.',
-      send: 'Figures are calculated in your browser and not stored on ' + O + ' servers. Results reach our team only if you click Send.',
-      more: 'Details', less: 'Close',
-      b: ['Encrypted HTTPS connection.', 'No account and no financial-data database on our side.',
-          C.brand === 'ca' ? 'If you proceed, your data is covered by an NDA before review.' : 'CA and CPA team bound by professional confidentiality.']
+      on: 'Active', h: { local: 'Data Processed on Your Device', drive: 'Data Saved to Your Own Drive', send: 'Financial Figures Stay on Your Device' },
+      s: {
+        local: 'Calculations run in your browser. Company data is never sent to or stored by ' + O + '.',
+        drive: 'Calculations run in your browser. If you save, files go to your own Google Drive, not to ' + O + ' servers.',
+        send: 'Calculated in your browser and not stored on ' + O + ' servers. Results reach our team only if you click Send.'
+      },
+      spec: { local: ['HTTPS Encrypted', 'In-Browser Processing', 'No Database', 'No Login'],
+              drive: ['HTTPS Encrypted', 'In-Browser Processing', 'Your Own Google Drive', 'No Database'],
+              send: ['HTTPS Encrypted', 'In-Browser Processing', 'Sent Only With Your Consent', 'No Database'] },
+      more: 'Security Details', less: 'Close',
+      d: [C.brand === 'ca' ? 'If you proceed, your data is covered by an NDA before review.' : 'CA and CPA team bound by professional confidentiality.',
+          'Clear your data anytime by closing the tab or clearing browser data.', 'Data questions: office@faindonesia.co.id.']
     },
     zh: {
-      local: '在您的浏览器中处理。公司数据不会发送到 ' + O + ' 服务器，也不会被保存。',
-      drive: '在您的浏览器中处理。如需保存，文件存入您自己的 Google Drive，而不是 ' + O + ' 服务器。',
-      send: '财务数字在您的浏览器中计算，不保存在 ' + O + ' 服务器。只有您点击发送后，结果才会发给我们的团队。',
-      more: '详情', less: '关闭',
-      b: ['HTTPS 加密连接。', '无需账户，我们不建立财务数据库。',
-          C.brand === 'ca' ? '如继续合作，资料在审阅前受保密协议 (NDA) 保护。' : 'CA 与 CPA 团队受职业保密准则约束。']
+      on: '已启用', h: { local: '数据在您的设备上处理', drive: '数据保存在您自己的云端硬盘', send: '财务数字保留在您的设备上' },
+      s: {
+        local: '计算在您的浏览器中进行。公司数据不会发送到 ' + O + '，也不会被保存。',
+        drive: '计算在您的浏览器中进行。如需保存，文件存入您自己的 Google Drive，而不是 ' + O + ' 服务器。',
+        send: '在浏览器中计算，不保存在 ' + O + ' 服务器。只有您点击发送后，结果才会发给我们的团队。'
+      },
+      spec: { local: ['HTTPS 加密', '浏览器内处理', '无数据库', '无需登录'],
+              drive: ['HTTPS 加密', '浏览器内处理', '您自己的 Google Drive', '无数据库'],
+              send: ['HTTPS 加密', '浏览器内处理', '经您同意才发送', '无数据库'] },
+      more: '安全详情', less: '关闭',
+      d: [C.brand === 'ca' ? '如继续合作，资料在审阅前受保密协议 (NDA) 保护。' : 'CA 与 CPA 团队受职业保密准则约束。',
+          '关闭页面或清除浏览器数据即可删除数据。', '数据相关问题：office@faindonesia.co.id。']
     }
   }[L];
-  var dark = C.theme !== 'light';
-  var css = '.faSec{all:initial;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;max-width:100%;margin:12px 0;padding:11px 14px;border-radius:10px;font:400 13px/1.55 Poppins,Inter,system-ui,sans-serif;' +
-    (dark ? 'background:rgba(127,209,166,.08);border:1px solid rgba(127,209,166,.35);color:#d9efe3' : 'background:#effaf4;border:1px solid #b7e4cb;color:#1d4733') + '}' +
-    '.faSec *{box-sizing:border-box}.faSec svg{flex:none;width:30px;height:34px;margin-top:1px}.faSec .t{min-width:0;flex:1}' +
-    '.faSec b{display:inline-block;font-weight:600;letter-spacing:.02em;margin-right:6px;color:' + (dark ? '#7fd1a6' : '#137a46') + '}' +
-    '.faSec button{all:unset;cursor:pointer;font-weight:500;text-decoration:underline;margin-left:4px;color:inherit}' +
-    '.faSec ul{margin:6px 0 0;padding-left:18px}.faSec li{margin:2px 0}.faSec ul[hidden]{display:none}' +
-    '.faSec.bar{margin:0;border-radius:0;border-left:0;border-right:0;padding:8px 16px;justify-content:center}';
+
+  var SYS = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  var MONO = 'ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace';
+  var css =
+    '.faSeal{all:initial;box-sizing:border-box;display:block;width:100%;max-width:640px;margin:14px 0;font-family:' + SYS + ';-webkit-font-smoothing:antialiased}' +
+    '.faSeal *{box-sizing:border-box;font-family:inherit;margin:0;padding:0;letter-spacing:normal;text-transform:none}' +
+    '.faSeal .cd{display:flex;align-items:stretch;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:8px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.08)}' +
+    '.faSeal .em{flex:none;width:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 6px;color:#fff;background:linear-gradient(160deg,' + BR.c2 + ',' + BR.c1 + ')}' +
+    '.faSeal .em svg{width:30px;height:34px;display:block}' +
+    '.faSeal .em i{font-style:normal;font:700 8.5px/1.15 ' + MONO + ';letter-spacing:.12em;text-align:center;text-transform:uppercase}' +
+    '.faSeal .em i b{display:block;font-weight:700;letter-spacing:.08em;font-size:9.5px;max-width:78px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
+    '.faSeal .bd{min-width:0;flex:1;padding:10px 14px 10px 14px}' +
+    '.faSeal .tp{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}' +
+    '.faSeal .h{font:600 13.5px/1.3 ' + SYS + ';color:#1f2328}' +
+    '.faSeal .st{display:inline-flex;align-items:center;gap:5px;font:600 10px/1 ' + MONO + ';letter-spacing:.06em;text-transform:uppercase;color:' + BR.acc + ';background:#ecfdf3;border:1px solid #abefc6;border-radius:999px;padding:3px 7px}' +
+    '.faSeal .st:before{content:"";width:6px;height:6px;border-radius:50%;background:' + BR.acc + ';box-shadow:0 0 0 3px rgba(22,163,74,.18)}' +
+    '.faSeal .s{font:400 12.5px/1.5 ' + SYS + ';color:#475467}' +
+    '.faSeal .sp{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:7px;padding-top:7px;border-top:1px dashed #e4e7ec}' +
+    '.faSeal .sp span{display:inline-flex;align-items:center;gap:4px;font:500 10.5px/1.4 ' + MONO + ';color:#344054}' +
+    '.faSeal .sp span:before{content:"";width:10px;height:10px;flex:none;background:no-repeat center/10px url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M3 8.5l3 3 7-7%27 fill=%27none%27 stroke=%27%2316a34a%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E")}' +
+    '.faSeal button{all:unset;cursor:pointer;font:500 11px/1.4 ' + SYS + ';color:#475467;text-decoration:underline;text-underline-offset:2px;margin-left:auto}' +
+    '.faSeal button:hover{color:#1f2328}' +
+    '.faSeal ul{list-style:disc;margin:6px 0 0 16px;font:400 12px/1.5 ' + SYS + ';color:#475467}.faSeal ul[hidden]{display:none}' +
+    '.faSeal.bar{max-width:none;margin:0;padding:10px 16px;background:transparent}.faSeal.bar .cd{max-width:640px;margin:0 auto}' +
+    '@media (max-width:520px){.faSeal .em{width:66px}.faSeal .em svg{width:24px;height:28px}.faSeal .em i b{font-size:8.5px}.faSeal .bd{padding:9px 11px}.faSeal .h{font-size:12.5px}.faSeal .s{font-size:12px}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-  var ic = '<svg viewBox="0 0 30 34" aria-hidden="true"><path d="M15 1 2 6v9c0 8.3 5.6 15.4 13 18 7.4-2.6 13-9.7 13-18V6L15 1z" fill="' + (dark ? 'rgba(127,209,166,.18)' : '#d6f2e2') + '" stroke="' + (dark ? '#7fd1a6' : '#137a46') + '" stroke-width="1.6"/><path d="M10 17.5l3.6 3.6L20.5 13" fill="none" stroke="' + (dark ? '#7fd1a6' : '#137a46') + '" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var shield = '<svg viewBox="0 0 30 34" aria-hidden="true"><path d="M15 1.5 3 6v8.6c0 7.7 5.1 14.3 12 17 6.9-2.7 12-9.3 12-17V6L15 1.5z" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="1.6"/>' +
+    '<rect x="10" y="14.5" width="10" height="8" rx="1.4" fill="#fff"/><path d="M12 14.5v-2.2a3 3 0 0 1 6 0v2.2" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="15" cy="18.5" r="1.2" fill="' + BR.c1 + '"/></svg>';
+
   function make(extra) {
-    var d = document.createElement('div'); d.className = 'faSec' + (extra ? ' ' + extra : ''); d.setAttribute('role', 'note');
-    d.innerHTML = ic + '<div class="t"><b>' + B[0] + '</b>' + T[M] + '<button type="button">' + T.more + '</button><ul hidden>' + T.b.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
-    var bt = d.querySelector('button'), ul = d.querySelector('ul');
+    var w = document.createElement('div'); w.className = 'faSeal' + (extra ? ' ' + extra : ''); w.setAttribute('role', 'note');
+    w.setAttribute('aria-label', BR.name + ' Secure');
+    w.innerHTML = '<div class="cd"><div class="em">' + shield + '<i><b>' + BR.name + '</b>Secure</i></div>' +
+      '<div class="bd"><div class="tp"><span class="h">' + T.h[M] + '</span><span class="st">' + T.on + '</span></div>' +
+      '<p class="s">' + T.s[M] + '</p>' +
+      '<div class="sp">' + T.spec[M].map(function (x) { return '<span>' + x + '</span>'; }).join('') + '<button type="button">' + T.more + '</button></div>' +
+      '<ul hidden>' + T.d.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></div></div>';
+    var bt = w.querySelector('button'), ul = w.querySelector('ul');
     bt.onclick = function () { ul.hidden = !ul.hidden; bt.textContent = ul.hidden ? T.more : T.less; };
-    return d;
+    return w;
   }
   function run() {
     (C.at || []).forEach(function (a) {

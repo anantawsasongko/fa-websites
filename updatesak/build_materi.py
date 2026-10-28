@@ -25,7 +25,7 @@ F = os.path.join(HERE, "fonts")
 # Gaya dokumen mengikuti format standar FA (NDA #1): kertas putih, Lora untuk isi, Poppins untuk label,
 # header logo kiri + tagline miring kanan, garis tipis, footer merek + "Halaman X dari Y".
 for _n, _f in [("Lora", "Lora-Regular.ttf"), ("LoraB", "Lora-Bold.ttf"), ("LoraI", "Lora-Italic.ttf"), ("LoraBI", "Lora-BoldItalic.ttf"),
-               ("Pop", "Poppins-Light.ttf"), ("PopM", "Poppins-Medium.ttf"), ("PopSB", "Poppins-SemiBold.ttf")]:
+               ("Pop", "Poppins-Light.ttf"), ("Qs", "Quicksand-Light.ttf"), ("PopM", "Poppins-Medium.ttf"), ("PopSB", "Poppins-SemiBold.ttf")]:
     pdfmetrics.registerFont(TTFont(_n, os.path.join(F, _f)))
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
 registerFontFamily("Lora", normal="Lora", bold="LoraB", italic="LoraI", boldItalic="LoraBI")
@@ -54,12 +54,26 @@ class _NumCanvas(_cv.Canvas):
             self.drawRightString(A4[0] - 18 * mm, 10 * mm, f"Halaman {self._pageNumber} dari {n}")
             super().showPage()
         super().save()
+def _logo(c, x, ytop, h):
+    """Logo UpdateSAK terbaru (sama dengan favicon/header situs): kotak garis tipis, U kiri atas, S kanan bawah."""
+    k = h / 40.0; P = lambda X, Y: (x + X * k, ytop - Y * k)
+    c.saveState(); c.setStrokeColor(BRAND); c.setLineCap(1); c.setLineJoin(1)
+    c.setLineWidth(1.2 * k); c.rect(x + .6 * k, ytop - 39.4 * k, 28.8 * k, 38.8 * k, stroke=1, fill=0)
+    c.setLineWidth(1.3 * k); p = c.beginPath()
+    p.moveTo(*P(6.5, 8)); p.lineTo(*P(6.5, 14.2))
+    p.arcTo(x + 6.5 * k, ytop - 17.4 * k, x + 12.9 * k, ytop - 11.0 * k, startAng=180, extent=180)
+    p.lineTo(*P(12.9, 8)); c.drawPath(p, stroke=1, fill=0)
+    p = c.beginPath(); p.moveTo(*P(24.2, 24.4))
+    p.curveTo(*P(23.3, 23.2), *P(18.6, 22.8), *P(18.6, 25.8))
+    p.curveTo(*P(18.6, 28.7), *P(24.7, 27.4), *P(24.7, 30.4))
+    p.curveTo(*P(24.7, 33.5), *P(19.4, 33.2), *P(18.1, 31.6))
+    c.drawPath(p, stroke=1, fill=0); c.restoreState()
 def _page(c, d):
     W, H = A4; c.saveState()
     # header: logo US + wordmark (kiri), tagline miring + label kecil berjarak (kanan), garis tipis
-    c.setFillColor(BRAND); c.roundRect(18 * mm, H - 19 * mm, 8.5 * mm, 8.5 * mm, 1.2 * mm, stroke=0, fill=1)
-    c.setFillColor(colors.white); c.setFont("PopSB", 8.5); c.drawCentredString(22.25 * mm, H - 16 * mm, "US")
-    c.setFillColor(INK); c.setFont("PopM", 15); c.drawString(29 * mm, H - 16.6 * mm, "UpdateSAK")
+    _logo(c, 18 * mm, H - 10 * mm, 9.6 * mm)
+    c.setFont("Qs", 16); c.setFillColor(colors.HexColor("#0B1F33")); c.drawString(26.5 * mm, H - 17.2 * mm, "Update")
+    c.setFillColor(BRAND); c.drawString(26.5 * mm + c.stringWidth("Update", "Qs", 16), H - 17.2 * mm, "SAK")
     c.setFont("LoraI", 9); c.setFillColor(MUTED); c.drawRightString(W - 18 * mm, H - 13.4 * mm, "Materi Latihan Akuntansi & Audit")
     c.setFont("PopM", 6.3); c.setFillColor(ACC)
     _t = "UPDATESAK.COM  ·  DATA DUMMY"; _w = c.stringWidth(_t, "PopM", 6.3) + 1.1 * (len(_t) - 1)
@@ -67,8 +81,8 @@ def _page(c, d):
     c.setStrokeColor(LINE); c.setLineWidth(0.6); c.line(18 * mm, H - 22 * mm, W - 18 * mm, H - 22 * mm)
     # footer: merek tebal + keterangan (kiri), judul dokumen (kanan); nomor halaman diisi _NumCanvas
     c.setStrokeColor(LINE); c.line(18 * mm, 18 * mm, W - 18 * mm, 18 * mm)
-    c.setFillColor(INK); c.setFont("PopSB", 7.5); c.drawString(18 * mm, 13.6 * mm, "UpdateSAK")
-    c.setFillColor(MUTED); c.setFont("LoraI", 7.5); c.drawString(18 * mm + c.stringWidth("UpdateSAK", "PopSB", 7.5) + 2 * mm, 13.6 * mm, "Materi Latihan Akuntansi & Audit")
+    c.setFillColor(INK); c.setFont("Qs", 8.5); c.drawString(18 * mm, 13.6 * mm, "Update"); c.setFillColor(BRAND); c.drawString(18 * mm + c.stringWidth("Update", "Qs", 8.5), 13.6 * mm, "SAK"); c.setFillColor(INK)
+    c.setFillColor(MUTED); c.setFont("LoraI", 7.5); c.drawString(18 * mm + c.stringWidth("UpdateSAK", "Qs", 8.5) + 2 * mm, 13.6 * mm, "Materi Latihan Akuntansi & Audit")
     c.setFont("Pop", 6.5); c.drawString(18 * mm, 10 * mm, "www.updatesak.com  |  Data dummy untuk latihan  |  PSAK sesuai SAK Online IAI")
     _tt = (getattr(d, "title", "") or ""); _tt = _tt if len(_tt) <= 52 else _tt[:50].rsplit(" ", 1)[0] + " ..."
     c.setFont("LoraI", 7.3); c.drawRightString(W - 18 * mm, 13.6 * mm, _tt)

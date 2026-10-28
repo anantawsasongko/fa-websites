@@ -165,13 +165,13 @@ def add_secure(site_root, pages, cfg):
         t = t.replace("</body>", "<script>window.FA_SECURE=" + cfg + "</script><script src=\"/js/secure.js\"></script></body>", 1)
         open(pth, "w", encoding="utf-8").write(t)
 add_secure(fa, ["index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html"],
-    "{brand:'fa',mode:'send',theme:'dark',at:[{sel:'#kk',pos:'beforebegin'}]}")
-add_secure(fa, ["cek-psak-118/index.html"], "{brand:'fa',mode:'local',theme:'dark',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
-add_secure(fa, ["audit-ready/index.html"], "{brand:'fa',mode:'drive',theme:'dark',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
-add_secure(fa, ["saturn/index.html"], "{brand:'fa',mode:'drive',theme:'dark',at:[{sel:'header.top',pos:'afterend',cls:'bar'}]}")
+    "{brand:'fa',mode:'send',at:[{sel:'#kk',pos:'beforebegin'}]}")
+add_secure(fa, ["cek-psak-118/index.html"], "{brand:'fa',mode:'local',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
+add_secure(fa, ["audit-ready/index.html"], "{brand:'fa',mode:'drive',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
+add_secure(fa, ["saturn/index.html"], "{brand:'fa',mode:'drive',at:[{sel:'header.top',pos:'afterend',cls:'bar'}]}")
 add_secure(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html", "screening/index.html"],
-    "{brand:'ca',mode:'send',theme:'light',at:[{sel:'#screening',pos:'afterbegin'}]}")
-add_secure(u, ["index.html"], "{brand:'us',mode:'local',theme:'light',at:[{sel:'#kalkulator .calc',pos:'beforebegin'}]}")
+    "{brand:'ca',mode:'send',at:[{sel:'#screening',pos:'beforebegin'}]}")
+add_secure(u, ["index.html"], "{brand:'us',mode:'local',at:[{sel:'#kalkulator .calc',pos:'beforebegin'}]}")
 import hashlib as _hl
 _ver = {f: _hl.md5(open(os.path.join(u, f), "rb").read()).hexdigest()[:8] for f in ("css/style.css", "js/app.js", "js/sak-data.js")}
 for _d, _, _fs in os.walk(u):
