@@ -346,7 +346,7 @@ footer a{color:var(--muted)}
     <div class="cta"><a class="btn btn-wa arrow" href="#screening">免費即時篩檢</a><a class="btn btn-line" href="https://wa.me/6282245260121?text=Ananta%20%E5%85%88%E7%94%9F%E4%BD%A0%E5%A5%BD%EF%BC%8C%E9%98%AE%E6%83%B3%E6%AC%B2%E6%8F%80%E6%9C%83%E8%A8%88%E5%B8%AB%E9%80%B2%E5%89%8D%EF%BC%8C%E5%85%88%E8%AB%8B%E4%BD%A0%E7%AF%A9%E6%AA%A2%E9%98%AE%E7%9A%84%E5%A0%B1%E8%A1%A8%E3%80%82" target="_blank" rel="noopener">WhatsApp</a></div>
   </div></section>
   <section id="screen" style="background:var(--panel)"><div class="wrap"><h2 class="sec-h">免費即時篩檢</h2><p class="sub" style="margin:-6px 0 20px">填近三年的數字，指標馬上出來，才寄去阮的 WhatsApp 討論。</p><style id="scr">
-.scr{max-width:980px;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
+.scr{max-width:none;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
 .scr .f{padding:26px 26px 22px;display:grid;gap:16px;align-content:start}
 .scr .pv{padding:26px;background:linear-gradient(160deg,#0B1F33,#163a63);color:#fff;display:grid;gap:14px;align-content:start}
 .scr .pv{position:relative}.scr .pv.lock .kpis{filter:blur(5px);opacity:.5;pointer-events:none}.scr .pv .lk{display:none}.scr .pv.lock .lk{display:grid;place-items:center;gap:8px;text-align:center;position:absolute;inset:70px 26px auto;z-index:2;padding:18px;background:rgba(11,31,51,.85);border:1px solid rgba(255,255,255,.2);animation:up .4s ease both}.scr .pv .lk span{font-size:1.6rem}.scr label .rq{color:#B42318;font-style:normal;margin-left:3px}
@@ -484,5 +484,5 @@ if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es
 document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){var t=b.getAttribute("data-copy");try{navigator.clipboard.writeText(t).then(function(){b.textContent="已複製"},function(){b.textContent=t})}catch(e){b.textContent=t}})});
 document.querySelectorAll('a[href^="https://wa.me"]').forEach(function(a){a.addEventListener("click",function(){try{if(window.gtag)gtag("event","generate_lead",{method:"whatsapp"})}catch(e){}})});
 </script>
-<script>window.FA_DONASI={accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}</script><script src="/js/donasi.js"></script><script>window.FA_SECURE={brand:'ca',mode:'send',at:[{sel:'#screening',pos:'beforebegin'}]}</script><script src="/js/secure.js"></script><script src="/js/lead.js" defer></script></body>
+<script>window.FA_DONASI={accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}</script><script src="/js/donasi.js"></script><script>window.FA_SECURE={brand:'ca',mode:'send',at:[{sel:'#screening',pos:'beforebegin'}]}</script><script src="/js/secure.js?v=e02fe7b4"></script><script src="/js/lead.js" defer></script></body>
 </html>

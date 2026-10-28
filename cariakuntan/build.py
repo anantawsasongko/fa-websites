@@ -435,7 +435,7 @@ SCR_SEO = ('<section style="margin-top:34px;max-width:860px"><h2>Cara Membaca Ha
    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Beranda","item":DOMAIN+"/"},{"@type":"ListItem","position":2,"name":"Screening","item":DOMAIN+"/screening/"}]}]},ensure_ascii=False) + '</script>')
 _scr = screening_form("id", WA, EMAIL)
 html = head("Screening Instan Gratis: Siap Kredit Bank, Investor, atau IPO? | cariakuntan.com","Isi total aset, utang bank, pendapatan, dan laba 3 tahun terakhir. Indikasi langsung tampil termasuk jalur IPO BEI, lalu kirim ke WhatsApp. Gratis.",DOMAIN+"/screening/")
-html += header(ID,"home") + f'''<main class="wrap art" style="max-width:1100px"><p class="label">Screening Awal</p><h1>{SCR["id"]["h2"]}</h1><p class="sub">{SCR["id"]["sub"]}</p><div style="margin-top:26px">{_scr}</div>''' + SCR_SEO + '''</main>''' + footer(ID)
+html += header(ID,"home") + f'''<main class="wrap art"><p class="label">Screening Awal</p><h1>{SCR["id"]["h2"]}</h1><p class="sub">{SCR["id"]["sub"]}</p><div style="margin-top:26px">{_scr}</div>''' + SCR_SEO + '''</main>''' + footer(ID)
 write("/screening/", html); urls.append("/screening/")
 
 import glob as _g

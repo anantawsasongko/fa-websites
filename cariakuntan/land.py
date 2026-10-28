@@ -342,7 +342,7 @@ SCR = {
    wa_head="Ananta 先生你好，請替阮公司篩檢：", thanks="寄出去矣。阮仝工就回覆。", privacy="資料干焦用佇篩檢，會保密。"),
 }
 SCR_CSS = """<style id="scr">
-.scr{max-width:980px;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
+.scr{max-width:none;border:1px solid var(--line);background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,31,51,.35);display:grid;grid-template-columns:1.25fr .9fr}
 .scr .f{padding:26px 26px 22px;display:grid;gap:16px;align-content:start}
 .scr .pv{padding:26px;background:linear-gradient(160deg,#0B1F33,#163a63);color:#fff;display:grid;gap:14px;align-content:start}
 .scr .pv{position:relative}.scr .pv.lock .kpis{filter:blur(5px);opacity:.5;pointer-events:none}.scr .pv .lk{display:none}.scr .pv.lock .lk{display:grid;place-items:center;gap:8px;text-align:center;position:absolute;inset:70px 26px auto;z-index:2;padding:18px;background:rgba(11,31,51,.85);border:1px solid rgba(255,255,255,.2);animation:up .4s ease both}.scr .pv .lk span{font-size:1.6rem}.scr label .rq{color:#B42318;font-style:normal;margin-left:3px}

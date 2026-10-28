@@ -162,7 +162,8 @@ def add_secure(site_root, pages, cfg):
         if not os.path.exists(pth): continue
         t = open(pth, encoding="utf-8").read()
         if "/js/secure.js" in t: continue
-        t = t.replace("</body>", "<script>window.FA_SECURE=" + cfg + "</script><script src=\"/js/secure.js\"></script></body>", 1)
+        _sv = __import__("hashlib").md5(open(SEC_JS, "rb").read()).hexdigest()[:8]
+        t = t.replace("</body>", "<script>window.FA_SECURE=" + cfg + "</script><script src=\"/js/secure.js?v=" + _sv + "\"></script></body>", 1)
         open(pth, "w", encoding="utf-8").write(t)
 add_secure(fa, ["index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html"],
     "{brand:'fa',mode:'send',at:[{sel:'#kk',pos:'beforebegin'}]}")
