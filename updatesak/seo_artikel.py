@@ -28,7 +28,7 @@ add("contoh-calk-format-big-4", "Contoh CALK Lengkap Format Auditor Big 4: Catat
   ("Apa beda kebijakan akuntansi signifikan dan material?", "Amendemen standar penyajian mengganti istilah signifikan dengan material dan menekankan agar hanya kebijakan yang relevan bagi pembaca yang diungkapkan, bukan salinan standar.")],
  [201, 208, 210])
 
-add("penomoran-psak-3-digit", "Penomoran PSAK Baru 3 Digit: Cara Cepat Menghafal 1xx, 2xx, 3xx, 4xx",
+add("penomoran-psak-3-digit", "Penomoran PSAK Baru 3 Digit: Cara Cepat Menghafal Seri 100 Sampai 400",
  "Tabel lengkap nomor PSAK lama ke nomor baru dan jembatan keledai seri 100 (IFRS), 200 (IAS), 300 (khusus Indonesia), 400 (syariah).",
  "Update SAK",
  """<p>Sejak 1 Januari 2024, Dewan Standar Akuntansi Keuangan IAI mengganti nomor PSAK dan ISAK menjadi tiga digit. Isinya tidak berubah karena penomoran, tetapi semua laporan keuangan, kebijakan akuntansi, dan materi ujian kini memakai nomor baru.</p>
@@ -367,3 +367,25 @@ add("update-psak-2026", "Update PSAK 2026: Daftar Lengkap Perubahan SAK Terbaru 
 
 A.insert(0, A.pop())
 A[0]["root"] = True
+
+# ---- Trafik tinggi pola "Syarat, Biaya, dan Cara" (28 Okt 2026) ----
+add("gaji-akuntan-auditor-2026", "Gaji Akuntan dan Auditor 2026: Kisaran per Level dan Cara Naik Kelas",
+ "Kisaran gaji akuntan dan auditor 2026 dari data lowongan JobStreet dan Indeed: staf, senior, manajer, KAP lokal dan Big 4, plus sertifikasi dan keahlian PSAK yang paling menaikkan nilai.",
+ "Karier",
+ """<p><b>Jawaban singkat:</b> menurut data lowongan JobStreet per Oktober 2026, gaji rata-rata akuntan di Indonesia berada di kisaran <b>Rp4,25 juta sampai Rp7,25 juta per bulan</b>. Angkanya naik tajam begitu masuk level senior, pindah ke KAP besar, atau memegang sertifikasi profesi. Tabel di bawah merangkum kisaran yang dilaporkan portal kerja dan media karier, bukan survei resmi, jadi gunakan sebagai patokan awal.</p>
+<h2>Kisaran Gaji per Level (per Bulan)</h2>
+<table class="tbl"><thead><tr><th>Posisi</th><th>KAP Lokal atau Perusahaan</th><th>KAP Big 4</th></tr></thead><tbody>
+<tr><td>Staf akuntansi atau auditor junior</td><td>Rp4,8 juta sampai Rp7,3 juta</td><td>Rp7 juta sampai Rp12 juta</td></tr>
+<tr><td>Senior auditor atau senior akuntan</td><td>Rp9 juta sampai Rp15 juta</td><td>Rp13 juta sampai Rp25 juta</td></tr>
+<tr><td>Manajer audit atau manajer akuntansi</td><td>Rp14 juta sampai Rp17 juta</td><td>Rp27 juta sampai Rp50 juta</td></tr>
+</tbody></table>
+<p>Sumber kisaran: JobStreet (rata-rata akuntan nasional dan manajer audit) serta rangkuman dibimbing.id yang mengutip Indeed. Kisaran Big 4 dan senior bersifat estimasi media karier.</p>
+<h2>Yang Paling Menaikkan Gaji</h2>
+<div class="keys"><div><b>Sertifikasi</b><span>CPA dari IAPI, CA dari IAI, atau ACCA. Untuk auditor, CPA adalah jalan menjadi rekan di KAP.</span></div><div><b>Keahlian PSAK Baru</b><span>Perusahaan sedang mencari orang yang paham <a href="/psak/118/">PSAK 118</a> (berlaku 2027), <a href="/psak/116/">PSAK 116</a>, dan <a href="/psak/109/">PSAK 109</a>.</span></div><div><b>Pengalaman Audit</b><span>Dua sampai tiga tahun di KAP membuka posisi finance manager di perusahaan dengan lompatan gaji besar.</span></div><div><b>Pajak dan Coretax</b><span>Akuntan yang bisa menyelaraskan laporan keuangan dengan SPT dicari perusahaan menengah.</span></div></div>
+<h2>Peta Naik Kelas dalam 5 Tahun</h2>
+<ol><li>Tahun 1 sampai 2: kuasai tutup buku, rekonsiliasi, dan penyusunan laporan keuangan lengkap. Latihan gratis ada di <a href="/materi/">Materi UpdateSAK</a>.</li><li>Tahun 2 sampai 3: ambil sertifikasi dan pegang satu area teknis, misalnya sewa, instrumen keuangan, atau konsolidasi.</li><li>Tahun 3 sampai 5: pimpin tim kecil, kuasai CALK dan komunikasi dengan auditor. Coba susun CALK sendiri di <a href="/#kalkulator">Kalkulator CALK</a>.</li></ol>
+<p>Sedang menyiapkan ujian? Lihat <a href="/artikel/peta-belajar-psak-ujian-ca-cpa/">peta belajar PSAK untuk ujian CA dan CPA</a>.</p>""",
+ [("Berapa gaji akuntan 2026?", "Data lowongan JobStreet per Oktober 2026 menunjukkan rata-rata akuntan di Indonesia sekitar Rp4,25 juta sampai Rp7,25 juta per bulan. Level senior, manajer, dan KAP Big 4 jauh lebih tinggi."),
+  ("Berapa gaji auditor Big 4?", "Media karier melaporkan auditor junior Big 4 sekitar Rp7 juta sampai Rp12 juta, senior Rp13 juta sampai Rp25 juta, dan manajer Rp27 juta sampai Rp50 juta per bulan. Angka ini estimasi, bukan data resmi KAP."),
+  ("Sertifikasi apa yang paling menaikkan gaji akuntan?", "CPA dari IAPI untuk jalur audit, CA dari IAI untuk jalur akuntansi perusahaan, dan ACCA untuk perusahaan multinasional. Penguasaan PSAK baru seperti PSAK 118 juga sangat dicari menjelang 2027.")],
+ [118, 116, 109])

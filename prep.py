@@ -275,6 +275,12 @@ for _d, _, _fs in os.walk(os.path.join(OUT, "faindonesia", "artikel")):
     open(_p, "w", encoding="utf-8").write(_t[:_i] + US_BOX.format(path=_path) + "\n" + _t[_i:]); _n += 1
 print("backlink updatesak dari FA", _n)
 
+# ---------- Artikel Lainnya bergambar (28 Okt 2026) ----------
+_sys.path.insert(0, os.path.join(M, "shared")); import related as _rel
+print("related fa", _rel.add_related(os.path.join(OUT, "faindonesia"), "fa"))
+print("related ca", _rel.add_related(os.path.join(OUT, "cariakuntan"), "ca"))
+print("related us", _rel.add_related(os.path.join(OUT, "updatesak"), "us", extra_dirs=("update-psak-2026",)))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
