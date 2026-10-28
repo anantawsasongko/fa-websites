@@ -1,3 +1,5 @@
+from causes import CAUSES_ID as _CID, CSS as _CCSS, causes_section as _cs
+def _causes(L): return _cs(L, _CID)
 # Landing page ringkas (25 Okt 2026): posisi "screening awal dan pendampingan proses".
 # Konten SEO (peta, tabel, FAQ panjang) dipindah ke /artikel/ (Wawasan) lewat seo_blocks().
 
@@ -110,7 +112,7 @@ LAND_CSS = """<style id="land2">
 .fixline{margin-top:22px;display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:1.25rem;font-weight:600;opacity:0}
 .fixline i{width:30px;height:30px;border-radius:50%;background:#0B7A5A;color:#fff;display:grid;place-items:center;font-style:normal;font-size:.95rem}
 .rv.in .fixline{animation:up .6s ease both;animation-delay:.75s}
-@media (max-width:820px){.traps{grid-template-columns:1fr}}
+@media (max-width:820px){.traps{grid-template-columns:1fr}}.c-sub{color:var(--muted);max-width:640px;margin-top:12px}.leak{margin:26px 0 0;border:1px solid var(--line);background:var(--panel);padding:18px 16px 10px}.leak svg{display:block;width:100%;height:auto}.leak .st{fill:#1F5BFF;transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}.leak .st.ok{fill:#0B7A5A}.leak .gate{stroke:#E5484D;stroke-width:2;stroke-dasharray:4 4}.leak .nb{fill:#fff;stroke:#E5484D;stroke-width:1.5}.leak .nt{fill:#B42318;font:600 13px var(--body);text-anchor:middle}.leak .lb{fill:var(--ink);font:600 14px var(--body)}.leak .lb.ok{fill:#0B7A5A}.leak .dp{fill:#E5484D;opacity:0}.leak .v{display:none}.leak .vb{fill:#1F5BFF;transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}.leak .vb.ok{fill:#0B7A5A}.leak .vt{fill:var(--ink);font:500 13px var(--body)}.leak .vn{fill:#B42318;font:700 12px var(--body);text-anchor:middle}.rv.in .leak .vb{animation:bar .6s ease both;animation-delay:calc(var(--i)*200ms)}.leak figcaption{color:var(--muted);font-size:.82rem;margin-top:6px}.rv.in .leak .st{animation:bar .6s ease both;animation-delay:calc(var(--i)*220ms)}.rv.in .leak .dp{animation:drip 2.4s ease-in infinite;animation-delay:calc(var(--i)*220ms + .8s)}@keyframes drip{0%{opacity:0;transform:translateY(0)}15%{opacity:1}100%{opacity:0;transform:translateY(56px)}}.causes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}.cause{border:1px solid var(--line);background:var(--paper);padding:16px 14px;display:grid;gap:6px;align-content:start;position:relative;opacity:0}.cause::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:#E5484D}.cause .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#FDECEC;color:#B42318;font-weight:700;font-size:.85rem}.cause b{font-family:var(--display);font-size:1.02rem;font-weight:600;line-height:1.25}.cause span{color:var(--muted);font-size:.88rem;line-height:1.45}.cause em{font-style:normal;color:#0B7A5A;font-size:.85rem;font-weight:600;border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}.cause em::before{content:"✓ "}.cause:hover{border-color:#E5484D}.rv.in .cause{animation:up .5s ease both;animation-delay:calc(var(--i)*140ms + .4s)}.rv.in .cause::after{animation:line .8s ease both;animation-delay:calc(var(--i)*140ms + .7s)}@media (max-width:980px){.causes{grid-template-columns:repeat(2,1fr)}}@media (max-width:560px){.causes{grid-template-columns:1fr}.leak .h{display:none}.leak .v{display:block}}@media (prefers-reduced-motion:reduce){.leak .dp{display:none}.leak .st{transform:none}.cause{opacity:1}}
 .tree{max-width:900px;margin:30px auto 0}
 .tree svg{width:100%;height:auto;display:block;overflow:visible}
 .tree .lnk{fill:none;stroke:var(--line);stroke-width:2}
@@ -224,7 +226,7 @@ def landing2(T, L, wa, ICONS, srch="", srch_h2="", srch_sub="", scr="", scr_h2="
     <div class="cta"><a class="btn btn-wa arrow" href="#screening">{scr_h2}</a><a class="btn btn-line" href="{wa(L["wa_hero"])}" target="_blank" rel="noopener">WhatsApp</a></div>
   </div></section>
   <section id="screen" style="background:var(--panel)"><div class="wrap"><h2 class="sec-h">{scr_h2}</h2><p class="sub" style="margin:-6px 0 20px">{scr_sub}</p>{scr}</div></section>
-  <section><div class="wrap"><h2 class="sec-h">{L["trap_h2"]}</h2><div class="traps">{traps}</div><p class="fixline"><i>✓</i>{L["fix"]}</p></div></section>
+  {_causes(L) if L["trap_h2"]=="Salah Langkah yang Paling Mahal" else f'<section><div class="wrap"><h2 class="sec-h">{L["trap_h2"]}</h2><div class="traps">{traps}</div><p class="fixline"><i>✓</i>{L["fix"]}</p></div></section>'}
   <section style="background:var(--panel)"><div class="wrap"><h2 class="sec-h">{L["map_h2"]}</h2>{tree_svg(L, wa)}</div></section>
   <section><div class="wrap"><h2 class="sec-h">{L["steps_h2"]}</h2><div class="rail">{rail}</div></div></section>
   {who}
