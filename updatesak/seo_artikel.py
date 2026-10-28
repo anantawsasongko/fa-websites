@@ -389,3 +389,48 @@ add("gaji-akuntan-auditor-2026", "Gaji Akuntan dan Auditor 2026: Kisaran per Lev
   ("Berapa gaji auditor Big 4?", "Media karier melaporkan auditor junior Big 4 sekitar Rp7 juta sampai Rp12 juta, senior Rp13 juta sampai Rp25 juta, dan manajer Rp27 juta sampai Rp50 juta per bulan. Angka ini estimasi, bukan data resmi KAP."),
   ("Sertifikasi apa yang paling menaikkan gaji akuntan?", "CPA dari IAPI untuk jalur audit, CA dari IAI untuk jalur akuntansi perusahaan, dan ACCA untuk perusahaan multinasional. Penguasaan PSAK baru seperti PSAK 118 juga sangat dicari menjelang 2027.")],
  [118, 116, 109])
+
+add("contoh-jurnal-penyusutan-aset-tetap-psak-216", "Contoh Jurnal Penyusutan Aset Tetap PSAK 216 dan Tarif Penyusutan Pajak Terbaru",
+ "Contoh jurnal penyusutan aset tetap lengkap: perolehan, penyusutan bulanan, pelepasan, dan pajak tangguhan, plus tabel kelompok harta dan tarif penyusutan fiskal PMK 72/2023.",
+ "Contoh Jurnal",
+ """<p><b>Jawaban singkat:</b> jurnal penyusutan aset tetap adalah <b>debit Beban Penyusutan, kredit Akumulasi Penyusutan</b>, dicatat setiap bulan sejak aset siap digunakan. Besarnya mengikuti umur manfaat yang ditetapkan perusahaan menurut <a href="/psak/216/">PSAK 216</a>, sedangkan untuk SPT dipakai tarif fiskal sesuai kelompok harta dalam PMK 72/2023. Selisih keduanya masuk rekonsiliasi fiskal dan bisa menimbulkan pajak tangguhan.</p>
+<h2>Prinsip PSAK 216 yang Perlu Diingat</h2>
+<div class="keys"><div><b>Mulai</b><span>Penyusutan dimulai saat aset tersedia untuk digunakan, bukan saat faktur dibayar.</span></div><div><b>Jumlah Tersusutkan</b><span>Biaya perolehan dikurangi nilai residu, dialokasikan selama umur manfaat.</span></div><div><b>Metode</b><span>Garis lurus, saldo menurun, atau unit produksi, dipilih sesuai pola pemakaian manfaat aset.</span></div><div><b>Tinjau Ulang</b><span>Umur manfaat, nilai residu, dan metode ditinjau paling tidak setiap akhir tahun buku. Tanah tidak disusutkan.</span></div></div>
+<h2>Kasus: Truk Distribusi</h2>
+<p>PT Contoh membeli truk pada 1 April 2026 seharga Rp480.000.000. Manajemen menetapkan umur manfaat 10 tahun dan nilai residu Rp80.000.000, metode garis lurus. Penyusutan per tahun (480 juta dikurangi 80 juta) dibagi 10 sama dengan Rp40.000.000, atau Rp3.333.333 per bulan. Tahun 2026 disusutkan sembilan bulan, yaitu Rp30.000.000.</p>
+<h2>Contoh Jurnal Lengkap</h2>
+<div class="scroll"><table class="tbl"><thead><tr><th>Tanggal</th><th>Akun</th><th class="r">Debit</th><th class="r">Kredit</th></tr></thead><tbody>
+<tr><td>1 Apr 2026</td><td>Aset Tetap, Kendaraan</td><td class="r">480.000.000</td><td></td></tr>
+<tr><td></td><td class="i">Kas atau Utang Usaha</td><td></td><td class="r">480.000.000</td></tr>
+<tr><td>30 Apr 2026</td><td>Beban Penyusutan</td><td class="r">3.333.333</td><td></td></tr>
+<tr><td></td><td class="i">Akumulasi Penyusutan, Kendaraan</td><td></td><td class="r">3.333.333</td></tr>
+<tr><td>31 Des 2026</td><td>Beban Pajak Tangguhan</td><td class="r">3.300.000</td><td></td></tr>
+<tr><td></td><td class="i">Liabilitas Pajak Tangguhan</td><td></td><td class="r">3.300.000</td></tr>
+<tr><td>31 Des 2028</td><td>Kas (hasil penjualan truk)</td><td class="r">350.000.000</td><td></td></tr>
+<tr><td></td><td>Akumulasi Penyusutan, Kendaraan</td><td class="r">110.000.000</td><td></td></tr>
+<tr><td></td><td>Rugi Pelepasan Aset Tetap</td><td class="r">20.000.000</td><td></td></tr>
+<tr><td></td><td class="i">Aset Tetap, Kendaraan</td><td></td><td class="r">480.000.000</td></tr>
+</tbody></table></div>
+<p>Jurnal penyusutan bulanan diulang setiap akhir bulan. Akumulasi sampai akhir 2028 adalah Rp30 juta (2026) ditambah Rp40 juta (2027) dan Rp40 juta (2028), sehingga nilai tercatat Rp370 juta. Truk dijual Rp350 juta, jadi ada rugi Rp20 juta.</p>
+<h2>Tarif Penyusutan Pajak Menurut PMK 72/2023</h2>
+<div class="scroll"><table class="tbl"><thead><tr><th>Kelompok</th><th>Masa Manfaat</th><th class="r">Garis Lurus</th><th class="r">Saldo Menurun</th><th>Contoh Harta</th></tr></thead><tbody>
+<tr><td>Kelompok 1</td><td>4 tahun</td><td class="r">25%</td><td class="r">50%</td><td>Komputer, printer, mebel kayu, sepeda motor</td></tr>
+<tr><td>Kelompok 2</td><td>8 tahun</td><td class="r">12,5%</td><td class="r">25%</td><td>Mobil, truk, bus, AC, mebel logam</td></tr>
+<tr><td>Kelompok 3</td><td>16 tahun</td><td class="r">6,25%</td><td class="r">12,5%</td><td>Mesin industri, mesin pertambangan, pesawat</td></tr>
+<tr><td>Kelompok 4</td><td>20 tahun</td><td class="r">5%</td><td class="r">10%</td><td>Alat berat konstruksi, lokomotif, kapal besar</td></tr>
+<tr><td>Bangunan permanen</td><td>20 tahun atau umur riil di pembukuan</td><td class="r">5%</td><td class="r">Tidak boleh</td><td>Kantor, gudang, pabrik</td></tr>
+<tr><td>Bangunan tidak permanen</td><td>10 tahun</td><td class="r">10%</td><td class="r">Tidak boleh</td><td>Bangunan semipermanen</td></tr>
+</tbody></table></div>
+<p>PMK 72/2023 juga memberi pilihan baru: bangunan permanen boleh disusutkan sesuai umur manfaat riil di pembukuan, dan biaya perbaikan yang memperpanjang umur aset dikapitalisasi ke nilai sisa buku fiskal.</p>
+<h2>Selisih Komersial dan Fiskal</h2>
+<p>Truk masuk kelompok 2. Dengan garis lurus fiskal 12,5%, penyusutan pajak setahun Rp60 juta, dan untuk sembilan bulan 2026 Rp45 juta. Penyusutan komersial hanya Rp30 juta, jadi ada koreksi fiskal negatif Rp15 juta. Karena selisih ini akan berbalik di tahun-tahun berikutnya, perusahaan mengakui liabilitas pajak tangguhan 22% dikali Rp15 juta, yaitu Rp3,3 juta, sesuai <a href="/psak/212/">PSAK 212</a>. Latihan kasus serupa ada di <a href="/materi/rekonsiliasi-fiskal-dan-pajak-tangguhan/">materi rekonsiliasi fiskal dan pajak tangguhan</a> dan artikel <a href="/artikel/rekonsiliasi-tarif-pajak-efektif/">rekonsiliasi tarif pajak efektif</a>.</p>
+<h2>Kesalahan yang Sering Ditemukan Auditor</h2>
+<ol><li>Tarif fiskal dipakai langsung di laporan keuangan, padahal umur manfaat komersial harus mencerminkan pemakaian aset.</li><li>Penyusutan dimulai saat pembayaran, bukan saat aset siap digunakan.</li><li>Tanah ikut disusutkan bersama bangunan.</li><li>Aset yang sudah dijual masih tercatat di daftar aset tetap.</li><li>Kebijakan umur manfaat tidak diungkapkan di Catatan 2. Draf cepatnya bisa disusun di <a href="/#kalkulator">Kalkulator CALK</a>.</li></ol>
+<p>Daftar aset tetap perusahaan berantakan atau belum pernah direkonsiliasi? Perusahaan bisa mencari kantor jasa akuntansi berizin untuk merapikannya lewat <a href="https://cariakuntan.com/layanan/jasa-laporan-keuangan/">CariAkuntan</a>.</p>
+<h2>Sumber</h2>
+<ul><li><a href="https://www.pajak.go.id/index.php/id/siaran-pers/pmk-72-tahun-2023-terbit-berikut-pokok-aturannya" rel="noopener" target="_blank">DJP: PMK 72 Tahun 2023 Terbit, Berikut Pokok Aturannya</a></li><li><a href="https://pajakku.com/artikel/pengelompokan-aset-tetap-beserta-tarifnya" rel="noopener" target="_blank">Pajakku: Pengelompokan Aset Tetap Beserta Tarifnya</a></li><li>Teks standar PSAK 216 dan PSAK 212: SAK Online IAI</li></ul>""",
+ [("Bagaimana jurnal penyusutan aset tetap?", "Debit Beban Penyusutan, kredit Akumulasi Penyusutan, dicatat setiap bulan sejak aset siap digunakan sampai akhir umur manfaatnya."),
+  ("Apakah tarif penyusutan pajak boleh dipakai di laporan keuangan?", "Boleh hanya bila kebetulan sesuai dengan umur manfaat riil aset. PSAK 216 meminta umur manfaat mencerminkan pola pemakaian aset oleh perusahaan, bukan tarif pajak."),
+  ("Berapa tarif penyusutan fiskal mobil dan truk?", "Kendaraan seperti mobil dan truk umumnya masuk kelompok 2 dengan masa manfaat 8 tahun: 12,5% per tahun untuk garis lurus atau 25% untuk saldo menurun."),
+  ("Apakah bangunan boleh disusutkan dengan saldo menurun untuk pajak?", "Tidak. Bangunan hanya boleh memakai garis lurus: 5% untuk bangunan permanen (atau umur riil di pembukuan sesuai PMK 72/2023) dan 10% untuk bangunan tidak permanen.")],
+ [216, 212, 201])
