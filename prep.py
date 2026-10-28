@@ -147,6 +147,7 @@ if os.path.exists(os.path.join(k, "artikel", "index.html")):
 # ---------- updatesak.com (project Cloudflare ke-8, 27 Okt 2026) ----------
 import subprocess as _sp; _sp.run(["python3", os.path.join(M, "updatesak", "build_seo.py")], check=True)
 _sp.run(["python3", os.path.join(M, "updatesak", "build_materi.py")], check=True)
+_sp.run(["python3", os.path.join(M, "updatesak", "build_jadwal.py")], check=True)
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))

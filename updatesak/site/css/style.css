@@ -389,3 +389,4 @@ ul.flags.ok li::before{content:"✓";background:var(--teal)}
 .art .actions{margin:16px 0 4px}
 .mcard.pdf .tags{padding-right:44px}
 @media (max-width:620px){.modes{display:grid;grid-template-columns:1fr 1fr;width:100%}.modes button{text-align:left;padding:10px 12px;font-size:.86rem}.modes button:first-child{grid-column:1/-1}}
+/* jadwal-nav: 4 tab, di HP tab turun ke baris kedua dan dibagi rata */@media (max-width:560px){.top .wrap{flex-wrap:wrap;row-gap:2px;padding-block:10px 0}.tabs{width:100%;margin-left:0;justify-content:space-between}.tabs a{padding:8px 4px 9px;font-size:.9rem}}
