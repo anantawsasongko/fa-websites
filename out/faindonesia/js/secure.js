@@ -27,7 +27,7 @@
       spec: { local: ['HTTPS Terenkripsi', 'Proses di Browser', 'Tanpa Database', 'Tanpa Login'],
               drive: ['HTTPS Terenkripsi', 'Proses di Browser', 'Google Drive Milik Anda', 'Tanpa Database'],
               send: ['HTTPS Terenkripsi', 'Proses di Browser', 'Kirim Hanya Atas Izin Anda', 'Tanpa Database'] },
-      more: 'Detail Keamanan', less: 'Tutup',
+      more: 'Detail', less: 'Tutup',
       d: [C.brand === 'ca' ? 'Kalau berlanjut, data dilindungi NDA sebelum dibahas.' : C.brand === 'us' ? 'Kalkulator tidak mengumpulkan data apa pun dan tidak perlu akun.' : 'Tim CA dan CPA terikat kode etik kerahasiaan profesi.',
           'Hapus data kapan saja dengan menutup tab atau membersihkan data browser.',
           'Pertanyaan soal data: office@faindonesia.co.id.']
@@ -42,7 +42,7 @@
       spec: { local: ['HTTPS Encrypted', 'In-Browser Processing', 'No Database', 'No Login'],
               drive: ['HTTPS Encrypted', 'In-Browser Processing', 'Your Own Google Drive', 'No Database'],
               send: ['HTTPS Encrypted', 'In-Browser Processing', 'Sent Only With Your Consent', 'No Database'] },
-      more: 'Security Details', less: 'Close',
+      more: 'Details', less: 'Close',
       d: [C.brand === 'ca' ? 'If you proceed, your data is covered by an NDA before review.' : 'CA and CPA team bound by professional confidentiality.',
           'Clear your data anytime by closing the tab or clearing browser data.', 'Data questions: office@faindonesia.co.id.']
     },
@@ -65,16 +65,16 @@
   var SYS = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
   var MONO = 'ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace';
   var css =
-    '.faSeal{all:initial;box-sizing:border-box;display:block;width:100%;max-width:640px;margin:14px 0;font-family:' + SYS + ';-webkit-font-smoothing:antialiased}' +
+    '.faSeal{all:initial;box-sizing:border-box;display:block;width:100%;max-width:560px;margin:10px 0;font-family:' + SYS + ';-webkit-font-smoothing:antialiased}' +
     '.faSeal *{box-sizing:border-box;font-family:inherit;margin:0;padding:0;letter-spacing:normal;text-transform:none}' +
     '.faSeal .cd{display:flex;align-items:stretch;background:#fff;color:#1f2328;border:1px solid #d0d7de;border-radius:8px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.08)}' +
-    '.faSeal .em{flex:none;width:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 6px;color:#fff;background:linear-gradient(160deg,' + BR.c2 + ',' + BR.c1 + ')}' +
-    '.faSeal .em svg{width:30px;height:34px;display:block}' +
+    '.faSeal .em{flex:none;width:40px;display:flex;align-items:center;justify-content:center;padding:6px;color:#fff;background:linear-gradient(160deg,' + BR.c2 + ',' + BR.c1 + ')}' +
+    '.faSeal .em svg{width:18px;height:21px;display:block}.faSeal .em i{display:none!important}' +
     '.faSeal .em i{font-style:normal;font:700 8.5px/1.15 ' + MONO + ';letter-spacing:.12em;text-align:center;text-transform:uppercase}' +
     '.faSeal .em i b{display:block;font-weight:700;letter-spacing:.08em;font-size:9.5px;max-width:78px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
-    '.faSeal .bd{min-width:0;flex:1;padding:10px 14px 10px 14px}' +
-    '.faSeal .tp{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}' +
-    '.faSeal .h{font:600 13.5px/1.3 ' + SYS + ';color:#1f2328}' +
+    '.faSeal .bd{min-width:0;flex:1;padding:7px 12px}' +
+    '.faSeal .tp{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.faSeal .x{margin-top:6px;padding-top:6px;border-top:1px dashed #e4e7ec}.faSeal .x[hidden]{display:none}.faSeal .x .sp{border:0;margin-top:5px;padding-top:0}' +
+    '.faSeal .h{font:600 12.5px/1.3 ' + SYS + ';color:#1f2328}' +
     '.faSeal .st{display:inline-flex;align-items:center;gap:5px;font:600 10px/1 ' + MONO + ';letter-spacing:.06em;text-transform:uppercase;color:' + BR.acc + ';background:#ecfdf3;border:1px solid #abefc6;border-radius:999px;padding:3px 7px}' +
     '.faSeal .st:before{content:"";width:6px;height:6px;border-radius:50%;background:' + BR.acc + ';box-shadow:0 0 0 3px rgba(22,163,74,.18)}' +
     '.faSeal .s{font:400 12.5px/1.5 ' + SYS + ';color:#475467}' +
@@ -85,7 +85,7 @@
     '.faSeal button:hover{color:#1f2328}' +
     '.faSeal ul{list-style:disc;margin:6px 0 0 16px;font:400 12px/1.5 ' + SYS + ';color:#475467}.faSeal ul[hidden]{display:none}' +
     '.faSeal.bar{max-width:none;margin:0;padding:10px 16px;background:transparent}.faSeal.bar .cd{max-width:640px;margin:0 auto}' +
-    '@media (max-width:520px){.faSeal .em{width:66px}.faSeal .em svg{width:24px;height:28px}.faSeal .em i b{font-size:8.5px}.faSeal .bd{padding:9px 11px}.faSeal .h{font-size:12.5px}.faSeal .s{font-size:12px}}';
+    '@media (max-width:520px){.faSeal .h{font-size:12px}.faSeal .s{font-size:12px}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   var shield = '<svg viewBox="0 0 30 34" aria-hidden="true"><path d="M15 1.5 3 6v8.6c0 7.7 5.1 14.3 12 17 6.9-2.7 12-9.3 12-17V6L15 1.5z" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="1.6"/>' +
@@ -95,11 +95,11 @@
     var w = document.createElement('div'); w.className = 'faSeal' + (extra ? ' ' + extra : ''); w.setAttribute('role', 'note');
     w.setAttribute('aria-label', BR.name + ' Secure');
     w.innerHTML = '<div class="cd"><div class="em">' + shield + '<i><b>' + BR.name + '</b>Secure</i></div>' +
-      '<div class="bd"><div class="tp"><span class="h">' + T.h[M] + '</span><span class="st">' + T.on + '</span></div>' +
-      '<p class="s">' + T.s[M] + '</p>' +
-      '<div class="sp">' + T.spec[M].map(function (x) { return '<span>' + x + '</span>'; }).join('') + '<button type="button">' + T.more + '</button></div>' +
-      '<ul hidden>' + T.d.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></div></div>';
-    var bt = w.querySelector('button'), ul = w.querySelector('ul');
+      '<div class="bd"><div class="tp"><span class="h">' + BR.name + ' Secure</span><span class="st">' + T.on + '</span><button type="button">' + T.more + '</button></div>' +
+      '<div class="x" hidden><p class="s"><b style="color:#1f2328;font-weight:600">' + T.h[M] + '.</b> ' + T.s[M] + '</p>' +
+      '<div class="sp">' + T.spec[M].map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +
+      '<ul>' + T.d.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></div></div></div>';
+    var bt = w.querySelector('button'), ul = w.querySelector('.x');
     bt.onclick = function () { ul.hidden = !ul.hidden; bt.textContent = ul.hidden ? T.more : T.less; };
     return w;
   }
