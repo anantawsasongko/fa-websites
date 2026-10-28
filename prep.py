@@ -186,6 +186,24 @@ for _d, _, _fs in os.walk(u):
 with open(os.path.join(u, "_headers"), "a") as _h:
     _h.write("\n/*.html\n  Cache-Control: public, max-age=0, must-revalidate\n/\n  Cache-Control: public, max-age=0, must-revalidate\n/css/*\n  Cache-Control: public, max-age=31536000, immutable\n/js/*\n  Cache-Control: public, max-age=31536000, immutable\n")
 
+# ---------- favicon CariAkuntan + UpdateSAK (Safari/Chrome/iOS): ico, png, svg, apple-touch (28 Okt 2026) ----------
+_IC = os.path.join(M, "shared", "icons")
+for _proj, _k in (("cariakuntan", "ca"), ("updatesak", "us")):
+    _d = os.path.join(OUT, _proj)
+    if not os.path.isdir(_d): continue
+    for _src, _dst in ((f"{_k}.ico", "favicon.ico"), (f"{_k}.svg", "favicon.svg"), (f"{_k}-32.png", "favicon-32.png"), (f"{_k}-192.png", "favicon-192.png"), (f"{_k}-512.png", "favicon-512.png"), (f"{_k}-180.png", "apple-touch-icon.png")):
+        shutil.copy(os.path.join(_IC, _src), os.path.join(_d, _dst))
+    _tags = '<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">'
+    for _r, _, _fs in os.walk(_d):
+        for _f in _fs:
+            if not _f.endswith(".html"): continue
+            _p = os.path.join(_r, _f); _t = open(_p, encoding="utf-8").read()
+            if "apple-touch-icon" in _t or "</head>" not in _t: continue
+            _t2 = re.sub(r'<link[^>]*rel="icon"[^>]*>\s*', "", _t)
+            _t2 = _t2.replace("</head>", _tags + "</head>", 1)
+            open(_p, "w", encoding="utf-8").write(_t2)
+    print("favicon", _proj)
+
 for n in sorted(os.listdir(OUT)):
     cnt = sum(len(f) for _, _, f in os.walk(os.path.join(OUT, n)))
     print(n, cnt)
