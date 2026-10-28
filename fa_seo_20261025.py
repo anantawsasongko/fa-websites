@@ -116,7 +116,15 @@ chips = '<div class="chips2">' + "".join(f'<a href="#t-{slug(c)}">{E(c)}</a>' fo
 topics = "".join(f'<div class="topic" id="t-{slug(c)}"><h2>{E(c)}</h2><div class="cards2">' + "".join(
     f'<a class="card2" href="/artikel/{x["slug"]}/"><b>{E(x["title"])}</b><span>{E(x["description"])}</span></a>' for x in by_cat[c]) + "</div></div>" for c in CATS if by_cat[c])
 blk = f'<!--fa-seo-cards-->{chips}{topics}<div class="topic"><h2>Artikel Lainnya</h2></div><!--/fa-seo-cards-->'
-idx = idx.replace('<div class="cards2">', blk + '<div class="cards2">', 1)
+# Kartu dasar (artikel di luar fa_content) disimpan di fa_content/eksplor_base_cards.html supaya build berulang
+# tidak menghapusnya (fa_rapi memindahkan kartu dasar ke dalam blok topik, lalu blok ini dibuang di build berikutnya).
+_bp = os.path.join(HERE, "fa_content", "eksplor_base_cards.html")
+_base = open(_bp, encoding="utf-8").read() if os.path.exists(_bp) else ""
+idx = re.sub(r'<div class="cards2">(?:(?!</div>).)*</div>', "", idx, flags=re.S)
+_ins = blk + '<div class="cards2">' + _base + '</div>'
+_k = idx.find('<div style="margin:44px 0 0;max-width:900px', idx.find('<main id="top">'))
+if _k < 0: _k = idx.find('</div>\n</section>\n</main>')
+idx = idx[:_k] + _ins + idx[_k:]
 if 'id="fa-seo"' not in idx: idx = idx.replace("</head>", EXTRA_CSS + "</head>", 1)
 open(P("artikel", "index.html"), "w", encoding="utf-8").write(idx)
 

@@ -284,6 +284,54 @@ add("lima-langkah-psak-115-kontraktor", "PSAK 115 Lima Langkah Pengakuan Pendapa
  [115, 237])
 
 # ---- Pilar keyword "Update PSAK 2026" (URL root /update-psak-2026/) ----
+# ---- Sinergi FA Indonesia / CariAkuntan (28 Okt 2026): analis kredit, RM, dan investor ----
+add("checklist-psak-analis-kredit-membaca-laporan-keuangan-debitur", "Checklist PSAK untuk Analis Kredit dan RM: Membaca Laporan Keuangan Calon Debitur",
+ "PSAK yang paling sering mengubah angka laporan keuangan calon debitur: cadangan piutang, pengakuan pendapatan proyek, sewa, imbalan kerja, dan klasifikasi utang. Lengkap dengan pertanyaan untuk debitur.",
+ "Analisis Kredit",
+ """<p>Analis kredit dan RM membaca laporan keuangan untuk menilai kemampuan bayar. Masalahnya, angka yang sama bisa berubah cukup besar tergantung apakah perusahaan sudah menerapkan PSAK dengan benar. Checklist berikut membantu menandai pos yang perlu ditanyakan sebelum menghitung rasio.</p>
+<h2>Lima Pos yang Paling Sering Berubah</h2>
+<table class="tbl"><thead><tr><th>Pos</th><th>Standar</th><th>Yang Dicek</th><th>Dampak ke Analisis</th></tr></thead><tbody>
+<tr><td>Piutang usaha</td><td>PSAK 109</td><td>Ada cadangan kerugian kredit ekspektasian berbasis umur piutang atau hanya persentase tetap</td><td>Aset lancar dan laba bisa turun, current ratio berubah</td></tr>
+<tr><td>Pendapatan proyek</td><td>PSAK 115</td><td>Pendapatan kontraktor diakui sesuai kemajuan, bukan saat tagihan</td><td>Laba dan piutang bisa bergeser antar periode</td></tr>
+<tr><td>Sewa jangka panjang</td><td>PSAK 116</td><td>Sewa gudang, kantor, atau alat sudah dicatat sebagai aset hak guna dan liabilitas sewa</td><td>Utang naik, DER dan utang terhadap EBITDA berubah</td></tr>
+<tr><td>Imbalan kerja</td><td>PSAK 219</td><td>Liabilitas pesangon dan pensiun dihitung aktuaria sesuai PP 35/2021</td><td>Liabilitas tersembunyi yang menurunkan ekuitas</td></tr>
+<tr><td>Klasifikasi utang</td><td>PSAK 201</td><td>Utang bank yang covenant-nya dilanggar sudah direklasifikasi menjadi jangka pendek</td><td>Likuiditas jauh lebih ketat dari yang terlihat</td></tr>
+</tbody></table>
+<h2>Pertanyaan untuk Calon Debitur</h2>
+<ol><li>Siapa yang menyusun laporan keuangan dan memakai kerangka SAK apa?</li><li>Bagaimana cadangan piutang dihitung, dan berapa piutang yang lewat 90 hari?</li><li>Apakah ada sewa jangka panjang yang belum tercatat sebagai liabilitas?</li><li>Apakah ada covenant bank lain yang dilanggar di akhir tahun?</li><li>Apakah liabilitas imbalan kerja dihitung aktuaris?</li></ol>
+<h2>Mulai 2027: PSAK 118</h2>
+<p>Laporan laba rugi entitas yang memakai SAK Indonesia akan disajikan dalam kategori operasi, investasi, dan pendanaan dengan subtotal laba usaha yang baku. Analis perlu menyesuaikan cara mengambil EBIT dan EBITDA dari laporan baru. Contohnya ada di artikel <a href="/artikel/contoh-laba-rugi-psak-118/">contoh laba rugi PSAK 118</a>.</p>
+<h2>Kalau Berkas Debitur Belum Siap</h2>
+<p>Debitur yang laporan keuangannya belum siap dianalisis bisa dirujuk ke penasihat dari sisi debitur. RM dan Commercial Head dapat melihat <a href="https://faindonesia.co.id/mitra-rm-bank/">kerja sama untuk RM bank di FA Indonesia</a>. Bila bank mensyaratkan audit atau penilaian agunan, debitur bisa memilih KAP dan KJPP berizin lewat <a href="https://cariakuntan.com/artikel/kap-dan-kjpp-untuk-syarat-pencairan-kredit-bank/">CariAkuntan</a>.</p>""",
+ [("PSAK apa yang paling sering mengubah angka calon debitur?", "PSAK 109 untuk cadangan piutang, PSAK 115 untuk pendapatan proyek, PSAK 116 untuk sewa, PSAK 219 untuk imbalan kerja, dan PSAK 201 untuk klasifikasi utang."),
+  ("Kenapa sewa memengaruhi rasio utang debitur?", "Sejak PSAK 116, sewa jangka panjang dicatat sebagai aset hak guna dan liabilitas sewa, sehingga total utang dan DER naik walaupun tidak ada pinjaman baru."),
+  ("Apa dampak PSAK 118 bagi analis kredit?", "Mulai 2027 laba rugi disajikan dalam kategori operasi, investasi, dan pendanaan, sehingga cara mengambil EBIT dan EBITDA dari laporan perlu disesuaikan.")],
+ [109, 115, 116, 219, 201, 118])
+
+add("red-flag-psak-due-diligence-calon-investee", "Red Flag PSAK dalam Due Diligence Calon Investee: Panduan untuk Investor dan Analis",
+ "Pola penerapan PSAK yang sering membuat laba perusahaan privat terlihat lebih baik dari kenyataannya, dan cara mengujinya sebelum menetapkan harga.",
+ "Due Diligence",
+ """<p>Dalam transaksi investasi, harga biasanya dihitung dari kelipatan laba. Karena itu, setiap pos yang membuat laba terlihat lebih tinggi akan ikut menaikkan harga. Di perusahaan privat, pola berikut paling sering muncul.</p>
+<h2>Pola yang Menaikkan Laba</h2>
+<table class="tbl"><thead><tr><th>Pola</th><th>Standar Terkait</th><th>Cara Menguji</th></tr></thead><tbody>
+<tr><td>Cadangan piutang terlalu kecil</td><td>PSAK 109</td><td>Bandingkan cadangan dengan umur piutang dan tingkat gagal bayar historis</td></tr>
+<tr><td>Pendapatan diakui sebelum kewajiban pelaksanaan selesai</td><td>PSAK 115</td><td>Uji sampel kontrak dan bukti serah terima</td></tr>
+<tr><td>Biaya pinjaman dikapitalisasi berlebihan</td><td>PSAK 223</td><td>Cek apakah aset benar memenuhi syarat aset kualifikasian</td></tr>
+<tr><td>Persediaan usang tidak diturunkan nilainya</td><td>PSAK 202</td><td>Bandingkan nilai tercatat dengan nilai realisasi neto dan perputaran</td></tr>
+<tr><td>Liabilitas imbalan kerja belum dihitung</td><td>PSAK 219</td><td>Minta laporan aktuaria dan rekonsiliasi dengan jumlah karyawan</td></tr>
+<tr><td>Transaksi pihak berelasi tidak diungkapkan</td><td>PSAK 224</td><td>Daftar perusahaan keluarga, harga, dan saldo akhir tahun</td></tr>
+</tbody></table>
+<h2>Pola yang Menyembunyikan Utang</h2>
+<ul><li>Sewa jangka panjang yang belum dicatat sesuai PSAK 116.</li><li>Utang ke pemegang saham atau pihak berelasi yang dicatat sebagai ekuitas tanpa perjanjian.</li><li>Jaminan perusahaan untuk utang pihak lain yang tidak diungkapkan.</li></ul>
+<h2>Urutan Pengujian yang Efisien</h2>
+<ol><li>Mulai dari rekonsiliasi laporan keuangan dengan SPT dan mutasi rekening.</li><li>Normalisasi EBITDA: pisahkan pos tidak berulang dan biaya pribadi pemilik.</li><li>Uji tiga pos dengan dampak terbesar terhadap laba di sektor tersebut.</li><li>Hitung utang bersih termasuk pos yang menyerupai utang.</li></ol>
+<h2>Bacaan dan Bantuan Lanjutan</h2>
+<p>Daftar red flag dari sisi transaksi ada di artikel <a href="https://faindonesia.co.id/artikel/menilai-kesiapan-calon-investee-sebelum-term-sheet/">7 red flag calon investee</a> di FA Indonesia. Investor yang mencari peluang dengan data yang sudah dirapikan bisa melihat <a href="https://faindonesia.co.id/mitra-investor/">peluang untuk investor</a>. Untuk memilih KAP dan KJPP due diligence yang independen, lihat panduan di <a href="https://cariakuntan.com/artikel/kap-dan-kjpp-untuk-due-diligence-investor/">CariAkuntan</a>.</p>""",
+ [("PSAK apa yang paling sering membuat laba perusahaan privat terlihat lebih tinggi?", "Yang sering muncul adalah PSAK 109 untuk cadangan piutang, PSAK 115 untuk pengakuan pendapatan, PSAK 202 untuk penurunan nilai persediaan, PSAK 219 untuk imbalan kerja, dan PSAK 223 untuk kapitalisasi biaya pinjaman."),
+  ("Bagaimana menemukan utang tersembunyi calon investee?", "Cek sewa jangka panjang sesuai PSAK 116, utang ke pemegang saham atau pihak berelasi, dan jaminan perusahaan untuk utang pihak lain."),
+  ("Apa langkah pertama due diligence keuangan?", "Rekonsiliasi laporan keuangan dengan SPT dan mutasi rekening, lalu normalisasi EBITDA sebelum menguji pos-pos besar.")],
+ [109, 115, 116, 202, 219, 223, 224])
+
 add("update-psak-2026", "Update PSAK 2026: Daftar Lengkap Perubahan SAK Terbaru dari DSAK IAI",
  "Update PSAK 2026 terlengkap: pengesahan PSAK 120 (14 Oktober 2026), Amendemen PSAK 228, Amendemen ISAK 335, PSAK 338 revisi, Amendemen PSAK 109 dan 107, serta persiapan PSAK 118 dan PSAK 119 yang berlaku 1 Januari 2027.",
  "Update SAK",
@@ -316,5 +364,6 @@ add("update-psak-2026", "Update PSAK 2026: Daftar Lengkap Perubahan SAK Terbaru 
   ("Apakah UMKM terdampak update PSAK 2026?", "Entitas yang memakai SAK EMKM atau SAK EP tidak langsung terdampak PSAK 118 dan PSAK 120. Perubahan ini berlaku untuk entitas yang memakai SAK Indonesia, termasuk perusahaan yang bersiap IPO."),
   ("Berapa nomor PSAK baru untuk PSAK 1?", "PSAK 1 Penyajian Laporan Keuangan kini bernomor PSAK 201, dan mulai 2027 digantikan PSAK 118.")],
  [118, 119, 120, 228, 338, 109, 107, 201])
+
 A.insert(0, A.pop())
 A[0]["root"] = True

@@ -138,6 +138,15 @@ rm_body = (
    ("Paket Kredit", "Berkas dikirim dalam format yang biasa diminta analis: LK, proyeksi, DSCR, legal, agunan."),
    ("Proses Bank", "RM dan analis memproses sesuai kebijakan bank. Kami bantu menjawab pertanyaan dan melengkapi data."),
    ("Setelah Cair", "Kami bantu klien menjaga pelaporan berkala dan covenant supaya fasilitas tetap sehat.")])
+ + "<h2>Untuk Dept Head Commercial dan Kepala Bisnis</h2>"
+   "<p>Yang dipikirkan Commercial Head bukan satu nasabah, tetapi pipeline dan target penyaluran per kuartal. Kerja sama ini dirancang untuk membantu di tiga titik yang paling sering menahan angka:</p>"
+ + gain([
+   ("Pipeline Prospek yang Bisa Diproyeksikan", "Calon debitur yang sudah disaring masuk dengan perkiraan plafon, jenis fasilitas, dan kapan berkasnya lengkap, jadi bisa dimasukkan ke rencana penyaluran kuartal."),
+   ("Fasilitas Sudah Disetujui tapi Belum Ditarik", "Undisbursed loan sering tertahan syarat pencairan: laporan audit, dokumen proyek, agunan, atau covenant. Kami bantu debitur memenuhi syaratnya supaya fasilitas bisa ditarik."),
+   ("Kualitas Portofolio Setelah Cair", "Pelaporan berkala, covenant keuangan, dan rekonsiliasi pajak dijaga, sehingga debitur tidak berubah jadi nasabah dalam perhatian khusus."),
+   ("Sesi Saringan untuk Tim RM", "Sesi singkat untuk tim RM cabang atau wilayah: cara membaca laporan keuangan calon debitur dan menyaring prospek dalam 15 menit dengan alat Cek Kapasitas Kredit."),
+ ])
+ + "<p>Per September 2026, Bank Indonesia mencatat kredit yang sudah disetujui tetapi belum ditarik debitur (undisbursed loan) sekitar Rp2.562,7 triliun. Sebagian dari angka itu tertahan karena debitur belum siap memenuhi syarat pencairan, bukan karena tidak butuh dana. Di situ peran kami dari sisi debitur. Pembahasan lengkapnya ada di artikel <a href=\"/artikel/undisbursed-loan-cara-mempercepat-pencairan-kredit/\">undisbursed loan dan cara mempercepat pencairan</a>.</p>"
  + "<h2>Kerahasiaan dan Batas Peran</h2><ul>"
    "<li>Data klien hanya dibuka setelah NDA dan persetujuan klien.</li>"
    "<li>FA Indonesia tidak menerima imbalan dari bank. Kami dibayar oleh klien sesuai kontrak pendampingan.</li>"
@@ -147,6 +156,8 @@ rm_body = (
    "Tim kami terdiri dari Chartered Accountant dan CPA dengan latar audit firma Big Four, bekerja bersama KAP dan KJPP mitra.</p>"
  + "<h2>Bacaan untuk RM</h2><ul>"
    "<li><a href=\"/artikel/cara-rm-bank-mencari-debitur-korporasi/\">Cara RM Bank Mencari Debitur Korporasi yang Layak dan Cepat Diproses</a></li>"
+   "<li><a href=\"/artikel/cara-mencapai-target-penyaluran-kredit-korporasi/\">Cara Mencapai Target Penyaluran Kredit Korporasi: Panduan untuk RM dan Commercial Head</a></li>"
+   "<li><a href=\"/artikel/undisbursed-loan-cara-mempercepat-pencairan-kredit/\">Undisbursed Loan: Kenapa Fasilitas Kredit Belum Ditarik dan Cara Mempercepat Pencairan</a></li>"
    "<li><a href=\"/artikel/alasan-kredit-bank-ditolak/\">Alasan Kredit Bank Ditolak dan Cara Memperbaikinya</a></li>"
    "<li><a href=\"/artikel/dokumen-pengajuan-kredit-korporasi/\">Dokumen Pengajuan Kredit Korporasi</a></li>"
    "<li><a href=\"/cek-kapasitas-kredit/\">Cek Kapasitas Kredit Gratis</a>, bisa dipakai untuk menyaring prospek</li></ul>")
@@ -155,14 +166,17 @@ RM_FAQ = [
  ("Apakah klien FA bisa diarahkan ke bank tertentu?", "Pilihan bank tetap di tangan klien. Kami menyampaikan opsi yang paling sesuai dengan kebutuhan dan profil risikonya, lalu memperkenalkan RM yang segmennya cocok."),
  ("Kalau saya merujuk nasabah yang belum siap, apakah nasabah itu pindah ke bank lain?", "Tidak. Setelah data dibenahi, pengajuan kembali diproses melalui RM yang merujuk, kecuali nasabah sendiri memutuskan lain."),
  ("Sektor dan skala apa yang paling banyak?", "Rumah sakit dan klinik, kontraktor, distributor dan importir, manufaktur, logistik, dan grup usaha keluarga, dari UMKM hingga perusahaan besar."),
+ ("Bagaimana cara cari prospek kredit korporasi yang cepat cair?", "Mulai dari calon debitur yang laporan keuangannya sudah bisa dibaca analis: tiga tahun, konsisten dengan SPT, dan ada proyeksi arus kas. Kami merujuk perusahaan yang sudah melewati saringan itu, sehingga waktu dari pertemuan pertama ke pencairan lebih pendek."),
+ ("Bisakah membantu debitur menarik fasilitas yang sudah disetujui tapi belum dicairkan?", "Bisa. Kami membantu debitur memenuhi syarat pencairan seperti laporan audit, dokumen proyek, kelengkapan agunan, atau pemenuhan covenant, dengan persetujuan debitur dan tetap mengikuti ketentuan bank."),
+ ("Apakah ada program untuk tim RM satu cabang atau wilayah?", "Ada sesi saringan prospek untuk tim RM: membaca laporan keuangan calon debitur, rasio yang dilihat analis, dan pemakaian alat Cek Kapasitas Kredit. Hubungi kami untuk jadwalnya."),
  ("Bagaimana cara memulai?", "Kirim pesan lewat tombol Chat Ananta, CPA atau email ananta@faindonesia.co.id dengan segmen dan sektor yang sedang Anda cari."),
 ]
 partner_page(PRM, "Mitra · Relationship Manager Bank",
-  "Untuk RM Bank: Debitur Korporasi yang Berkas Kreditnya Sudah Siap Dianalisis",
-  "Klien FA Indonesia adalah perusahaan yang sedang mencari kredit modal kerja, kredit investasi, take over, atau refinancing. Sebelum bertemu bank, laporan keuangan, rekonsiliasi pajak, proyeksi arus kas, dan dokumen legalnya kami rapikan lebih dulu. RM menerima calon debitur yang lebih cepat diproses analis dan komite.",
-  rm_body, RM_FAQ, "Untuk RM Bank: Cari Debitur Korporasi dengan Berkas Rapi | FA Indonesia",
-  "RM bank mencari debitur korporasi? FA Indonesia merujuk perusahaan yang laporan keuangan, proyeksi, dan dokumen kreditnya sudah rapi. Tanpa biaya untuk bank.",
-  "Relationship Manager bank, account officer kredit korporasi dan komersial", WA_RM, "Mitra RM Bank")
+  "Untuk RM dan Commercial Head Bank: Prospek Debitur Korporasi yang Siap Diproses dan Siap Cair",
+  "Klien FA Indonesia adalah perusahaan yang sedang mencari kredit modal kerja, kredit investasi, take over, atau refinancing. Sebelum bertemu bank, laporan keuangan, rekonsiliasi pajak, proyeksi arus kas, dan dokumen legalnya kami rapikan lebih dulu. RM menerima calon debitur yang lebih cepat diproses analis dan komite, dan Commercial Head mendapat pipeline penyaluran yang lebih bisa diandalkan.",
+  rm_body, RM_FAQ, "Cari Prospek Kredit Korporasi Siap Cair: Untuk RM & Commercial Head | FA Indonesia",
+  "RM dan Commercial Head bank mencari prospek debitur korporasi untuk target penyaluran? FA Indonesia merujuk perusahaan yang berkas kreditnya rapi dan siap cair. Tanpa biaya untuk bank.",
+  "Relationship Manager bank, account officer, junior marketing kredit, Dept Head Commercial dan kepala bisnis kredit korporasi dan komersial", WA_RM, "Mitra RM Bank")
 
 # ================= 2. MITRA SEKURITAS =================
 PSK = "/mitra-sekuritas/"
@@ -348,9 +362,9 @@ for parts, b in INJ.items():
 # /layanan/
 lp = P("layanan", "index.html")
 t = re.sub(r"<!--fa-mitra-svc-->.*?<!--/fa-mitra-svc-->", "", rd(lp), flags=re.S)
-blk = ('<!--fa-mitra-svc--><section class="block"><div class="wrap"><div class="head"><p class="eyebrow">Untuk Mitra</p><h2>RM Bank dan Sekuritas</h2></div>'
-       '<p class="t" style="max-width:62em">RM bank mencari debitur korporasi, sekuritas mencari calon emiten. Kami merujuk klien yang berkasnya sudah rapi, dan menerima rujukan perusahaan yang perlu dibenahi dulu. Tanpa biaya untuk bank maupun sekuritas.</p>'
-       '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px"><a class="btn solid" href="/mitra-rm-bank/">Untuk RM Bank</a><a class="btn line" href="/mitra-sekuritas/">Untuk Sekuritas</a></div></div></section><!--/fa-mitra-svc-->')
+blk = ('<!--fa-mitra-svc--><section class="block"><div class="wrap"><div class="head"><p class="eyebrow">Untuk Mitra</p><h2>RM Bank, Sekuritas, dan Investor</h2></div>'
+       '<p class="t" style="max-width:62em">RM bank mencari debitur korporasi, sekuritas mencari calon emiten, investor mencari investee dan target akuisisi. Kami merujuk klien yang berkasnya sudah rapi, dan menerima rujukan perusahaan yang perlu dibenahi dulu. Tanpa biaya untuk bank, sekuritas, maupun investor.</p>'
+       '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px"><a class="btn solid" href="/mitra-rm-bank/">Untuk RM Bank</a><a class="btn line" href="/mitra-sekuritas/">Untuk Sekuritas</a><a class="btn line" href="/mitra-investor/">Untuk Investor</a></div></div></section><!--/fa-mitra-svc-->')
 i = t.find('<section class="block'); wtxt(lp, t[:i] + blk + t[i:])
 
 # footer semua halaman: sisip setelah "Pengajuan Kredit Bank"
