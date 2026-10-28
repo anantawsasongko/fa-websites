@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Quicksand:wght@300;400&display=swap">
-<link rel="stylesheet" href="/css/style.css?v=cdc7104c">
+<link rel="stylesheet" href="/css/style.css?v=8484c327">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"UpdateSAK","alternateName":"Update SAK","url":"https://updatesak.com/","inLanguage":"id"},{"@type":"WebApplication","name":"Kalkulator Standar Akuntansi SAK UpdateSAK","url":"https://updatesak.com/#kalkulator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Menentukan kerangka SAK (SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah) dan daftar PSAK/ISAK yang relevan dari angka laporan posisi keuangan dan laba rugi."},{"@type":"WebApplication","name":"Kalkulator CALK UpdateSAK","url":"https://updatesak.com/#kalkulator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Menyusun draf Catatan atas Laporan Keuangan dengan struktur yang lazim dipakai auditor Big 4 di Indonesia dari angka neraca dan laba rugi komparatif."},{"@type":"Organization","name":"UpdateSAK","url":"https://updatesak.com/","parentOrganization":{"@type":"Organization","name":"FA Indonesia","url":"https://faindonesia.co.id/"},"email":"ananta@faindonesia.co.id"}]}</script>
 </head>
 <body>
@@ -60,6 +60,8 @@
   <div class="modes" role="group" aria-label="Pilih kalkulator">
     <button type="button" data-mode="std" aria-pressed="true">Kalkulator Standar Akuntansi</button>
     <button type="button" data-mode="lk" aria-pressed="false">Laporan Keuangan</button>
+    <button type="button" data-mode="cf" aria-pressed="false">Laporan Arus Kas</button>
+    <button type="button" data-mode="eq" aria-pressed="false">Perubahan Ekuitas</button>
     <button type="button" data-mode="calk" aria-pressed="false">Kalkulator CALK</button>
   </div>
   <div class="calc">
@@ -68,7 +70,8 @@
       <button type="button" role="tab" data-step="0" aria-selected="true">1 · Profil</button>
       <button type="button" role="tab" data-step="1" aria-selected="false">2 · Neraca</button>
       <button type="button" role="tab" data-step="2" aria-selected="false">3 · Laba Rugi</button>
-      <button type="button" role="tab" data-step="3" aria-selected="false" class="calk-only" hidden>4 · Catatan 1</button>
+      <button type="button" role="tab" data-step="3" aria-selected="false" class="fs-only" hidden>4 · Arus Kas &amp; Ekuitas</button>
+      <button type="button" role="tab" data-step="4" aria-selected="false" class="calk-only" hidden>5 · Catatan 1</button>
     </div>
 
     <div class="pane on" data-pane="0">
@@ -122,6 +125,21 @@
     </div>
 
     <div class="pane" data-pane="3">
+      <p class="sub-h" style="margin-top:0">Data Tambahan Arus Kas dan Ekuitas Tahun Berjalan <small style="font-weight:400;color:var(--muted)">(opsional, kosongkan bila tidak ada; sistem menghitung dari perubahan saldo)</small></p>
+      <div class="fgrid" id="cfx">
+        <label class="f">Metode Laporan Arus Kas<select name="cf_metode"><option value="langsung">Langsung (gaya EY / emiten)</option><option value="tidak">Tidak Langsung</option></select></label>
+        <label class="f">Beban Penyusutan dan Amortisasi<input name="cf_susut" inputmode="decimal" placeholder="otomatis dari akumulasi penyusutan"></label>
+        <label class="f">Perolehan Aset Tetap (Kas)<input name="cf_capex" inputmode="decimal" placeholder="otomatis dari kenaikan aset tetap"></label>
+        <label class="f">Hasil Penjualan Aset Tetap<input name="cf_jual" inputmode="decimal" placeholder="0"></label>
+        <label class="f">Dividen Tunai Dibayar<input name="cf_div" inputmode="decimal" placeholder="otomatis dari saldo laba"></label>
+        <label class="f">Setoran Modal Tunai<input name="cf_setor" inputmode="decimal" placeholder="otomatis dari modal saham"></label>
+        <label class="f">Penghapusan Piutang<input name="cf_wo" inputmode="decimal" placeholder="0"></label>
+        <label class="f">Pembayaran Pokok Liabilitas Sewa<input name="cf_sewa" inputmode="decimal" placeholder="otomatis"></label>
+      </div>
+      <p class="note" style="margin-top:10px;color:var(--muted);font-size:.88rem">Arus kas membutuhkan kolom tahun lalu di Neraca. Laporan Perubahan Ekuitas menampilkan dua tahun bila kolom tahun lalu terisi.</p>
+    </div>
+
+    <div class="pane" data-pane="4">
       <div class="fgrid">
         <label class="f">No. Akta Pendirian<input name="akta_no" placeholder="12"></label>
         <label class="f">Tanggal Akta<input name="akta_tgl" placeholder="14 Maret 2012"></label>
@@ -266,6 +284,6 @@
 </div></footer>
 <div class="bar-m"><a class="btn" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
 <script src="/js/sak-data.js?v=2b89b80b"></script>
-<script src="/js/app.js?v=f8ae32f5"></script>
+<script src="/js/app.js?v=c504ce0f"></script>
 <script>window.FA_SECURE={brand:'us',mode:'local',at:[{sel:'#kalkulator .calc',pos:'beforebegin'}]}</script><script src="/js/secure.js"></script></body>
 </html>
