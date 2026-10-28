@@ -95,7 +95,7 @@
         });
       });
     },
-    th: function () { ga('threads'); window.open('https://www.threads.net/intent/post?text=' + encodeURIComponent(text), '_blank', 'noopener'); },
+    th: function () { ga('threads'); window.open('https://www.threads.com/intent/post?text=' + encodeURIComponent(text), '_blank', 'noopener'); },
     li: function () { ga('linkedin'); copy(canon); window.open('https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(text), '_blank', 'noopener'); },
     wa: function () { ga('whatsapp'); window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); },
     cp: function (b) { ga('copy'); copy(canon).then(function () { var o = b.lastChild.textContent; b.lastChild.textContent = 'Tersalin'; setTimeout(function () { b.lastChild.textContent = o; }, 2000); }); }
