@@ -1,0 +1,6 @@
+# Dibuat ulang oleh prep.py; tidak di-commit supaya repo kecil dan deploy Cloudflare cepat (28 Okt 2026)
+zips/*.zip
+netlify-redirect/*.zip
+__pycache__/
+*.pyc
+s-*.png

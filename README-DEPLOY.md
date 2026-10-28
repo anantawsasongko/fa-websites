@@ -16,7 +16,7 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 ## Alur Update
 1. Update `cariakuntan/feed.json` (berita bisnis/pajak/bank/pasar modal terbaru, format [tanggal, judul, link, sumber]).
 2. Opsional tambah artikel di `cariakuntan/gen/*.json`, lalu `python3 cariakuntan/build.py`.
-3. `python3 prep.py` -> hasil di `out/` dan `zips/<project>.zip` (semua < 10MB).
+3. `python3 prep.py` -> hasil di `out/` (zip di `zips/` hanya lokal, tidak di-commit sejak 28 Okt 2026 supaya clone Cloudflare cepat).
 4. Cloudflare dashboard > Workers & Pages > project > Create deployment > upload zip project yang berubah.
 5. Ping IndexNow (key c4f1a8e2b7d94e0f9a3c6b2d5e8f1a70) untuk cariakuntan.com.
 
