@@ -281,6 +281,11 @@ _sys.path.insert(0, os.path.join(M, "shared")); import related as _rel
 print("related fa", _rel.add_related(os.path.join(OUT, "faindonesia"), "fa"))
 print("related ca", _rel.add_related(os.path.join(OUT, "cariakuntan"), "ca"))
 print("related us", _rel.add_related(os.path.join(OUT, "updatesak"), "us", extra_dirs=("update-psak-2026",)))
+import poster as _po
+print("og artikel fa", _po.apply(os.path.join(OUT, "faindonesia"), "fa", "https://faindonesia.co.id"))
+print("og artikel ca", _po.apply(os.path.join(OUT, "cariakuntan"), "ca", "https://cariakuntan.com"))
+_SJ = os.path.join(M, "shared", "share.js")
+for _n in ("faindonesia", "cariakuntan", "updatesak"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
 
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
