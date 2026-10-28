@@ -1296,7 +1296,7 @@ var src=b.getAttribute('data-story'),title=b.getAttribute('data-title'),name=src
 fetch(src).then(function(r){return r.blob()}).then(function(bl){
 var f=new File([bl],name,{type:'image/jpeg'});
 if(navigator.canShare&&navigator.canShare({files:[f]})){
-return navigator.share({files:[f],title:title,text:title+' — faindonesia.co.id'}).catch(function(){});
+return navigator.share({files:[f],title:title,text:title+' | faindonesia.co.id'}).catch(function(){});
 }
 var u=URL.createObjectURL(bl),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);
 toast('Gambar story sudah di-download. Buka Instagram › Story, pilih gambar ini, lalu tambahkan sticker link ke faindonesia.co.id.');
