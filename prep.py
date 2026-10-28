@@ -287,6 +287,31 @@ print("og artikel ca", _po.apply(os.path.join(OUT, "cariakuntan"), "ca", "https:
 _SJ = os.path.join(M, "shared", "share.js")
 for _n in ("faindonesia", "cariakuntan", "updatesak"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
 
+# ---------- Gelar lengkap Ananta di semua situs (28 Okt 2026, permintaan Bos) ----------
+GELAR = "S.E., M.S.A., Ak., CPA, CTT, FMVA, FPAP"
+_G = [
+ (re.compile(r"(?<!\(C\) )Ananta (W\.|Wahyu) Sasongko, S\.E\., M\.S\.A\., Ak\., CPA, CTT, FMVA, FPAP"), r"Dr. (C) Ananta \1 Sasongko, " + GELAR),
+ (re.compile(r"(?<!\(C\) )Ananta (W\.|Wahyu) Sasongko, S\.E\., M\.S\.A\., Ak\., CPA(?!, CTT)"), r"Dr. (C) Ananta \1 Sasongko, " + GELAR),
+ (re.compile(r"(?<!\(C\) )Ananta (W\.|Wahyu) Sasongko, CPA, FMVA, FPAP"), r"Dr. (C) Ananta \1 Sasongko, " + GELAR),
+ (re.compile(r"(?<!\(C\) )Ananta (W\.|Wahyu) Sasongko, CPA(?!, (?:FMVA|CTT))"), r"Dr. (C) Ananta \1 Sasongko, " + GELAR),
+]
+_ng = 0
+for _n in ("faindonesia", "cariakuntan", "kja-farhani", "updatesak", "faindonesia-jupiter", "faindonesia-saturn", "faindonesia-venus"):
+    for _d, _, _fs in os.walk(os.path.join(OUT, _n)):
+        if os.sep + "files" in _d: continue
+        for _f in _fs:
+            if not _f.endswith((".html", ".txt", ".xml", ".json", ".js")): continue
+            _p = os.path.join(_d, _f)
+            try: _t = open(_p, encoding="utf-8").read()
+            except UnicodeDecodeError: continue
+            _o = _t
+            for _rx, _rep in _G: _t = _rx.sub(_rep, _t)
+            if '"honorificPrefix"' not in _t:
+                _t = re.sub(r'("@type": "Person", "@id": "https://faindonesia\.co\.id/ananta-w-sasongko/#person", "name": "Ananta W\. Sasongko")',
+                            r'\1, "honorificPrefix": "Dr. (C)"', _t)
+            if _t != _o: open(_p, "w", encoding="utf-8").write(_t); _ng += 1
+print("gelar lengkap:", _ng, "file")
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
