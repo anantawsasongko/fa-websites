@@ -1,0 +1,850 @@
+[
+ {
+  "kode": "SA 300",
+  "slug": "sa-300",
+  "seri": "SA 300-499 Penilaian Risiko dan Respons",
+  "judul": "Perencanaan Suatu Audit atas Laporan Keuangan",
+  "judul_en": "ISA 300 Planning an Audit of Financial Statements",
+  "ringkas": "Mengatur tanggung jawab auditor untuk merencanakan audit atas laporan keuangan, baik strategi audit menyeluruh maupun rencana audit yang rinci, khususnya untuk audit berulang.",
+  "tujuan": "Auditor merencanakan audit sedemikian rupa sehingga audit dapat dilaksanakan secara efektif.",
+  "poin": [
+   "Partner perikatan dan anggota kunci tim perikatan dilibatkan dalam perencanaan, termasuk diskusi di antara anggota tim.",
+   "Sebelum memulai pekerjaan, auditor menjalankan prosedur penerimaan atau keberlanjutan klien, mengevaluasi kepatuhan etika dan independensi, serta memastikan pemahaman atas syarat perikatan.",
+   "Auditor menyusun strategi audit menyeluruh yang menetapkan ruang lingkup, waktu, dan arah audit, termasuk karakteristik perikatan, tujuan pelaporan, dan faktor signifikan yang memengaruhi fokus tim.",
+   "Auditor menyusun rencana audit yang memuat sifat, waktu, dan luas prosedur penilaian risiko, prosedur audit lanjutan, serta prosedur lain yang diperlukan.",
+   "Strategi dan rencana audit dimutakhirkan sepanjang audit apabila terjadi peristiwa tak terduga atau bukti yang diperoleh mengubah penilaian risiko.",
+   "Auditor merencanakan sifat, waktu, dan luas arahan, supervisi, dan reviu atas anggota tim perikatan.",
+   "Strategi audit, rencana audit, dan perubahan signifikan beserta alasannya didokumentasikan.",
+   "Untuk perikatan tahun pertama, auditor melakukan aktivitas tambahan seperti komunikasi dengan auditor pendahulu."
+  ],
+  "praktik": [
+   "Dokumentasikan memo perencanaan (planning memorandum) yang merangkum pemahaman entitas, materialitas, risiko signifikan awal, tim, jadwal, dan rencana penggunaan pakar atau auditor lain.",
+   "Adakan kickoff meeting atau engagement team discussion dan simpan notulanya sebagai bukti keterlibatan partner dan anggota kunci tim.",
+   "Susun timeline: perencanaan dan interim (misalnya 2 sampai 3 bulan sebelum tanggal neraca), stock opname dan cut-off di sekitar tanggal neraca, pekerjaan final setelah draf laporan keuangan tersedia.",
+   "Buat matriks alokasi tim per area laporan keuangan beserta reviewer, sehingga rencana supervisi dan reviu terlihat jelas.",
+   "Kirim client assistance list (PBC list) lebih awal dengan tenggat yang realistis untuk mengurangi kemacetan di fieldwork.",
+   "Catat setiap perubahan strategi selama audit (misalnya risiko baru dari peristiwa kemudian) beserta alasan dan persetujuan partner."
+  ],
+  "temuan": [
+   "Strategi audit bersifat generik atau disalin dari tahun lalu tanpa mencerminkan perubahan bisnis klien.",
+   "Tidak ada bukti keterlibatan partner pada tahap perencanaan atau pada diskusi tim.",
+   "Rencana audit tidak dimutakhirkan meskipun penilaian risiko berubah selama fieldwork.",
+   "Rencana supervisi dan reviu tidak terdokumentasi, terutama untuk anggota tim yang kurang berpengalaman."
+  ],
+  "baru2025": "Edisi 2025 memuat conforming amendments dari standar manajemen mutu (SPM 1/ISQM 1 dan SA 220 revisian), sehingga istilah dan rujukan ke sistem manajemen mutu KAP diselaraskan. Untuk audit grup, perencanaan perlu dibaca bersama SA 600 revisian yang juga masuk edisi 2025.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa beda strategi audit menyeluruh dan rencana audit?",
+    "Strategi audit menetapkan arah besar (ruang lingkup, waktu, fokus, sumber daya), sedangkan rencana audit menjabarkan prosedur rinci per area: sifat, waktu, dan luasnya."
+   ],
+   [
+    "Apakah perencanaan hanya dilakukan di awal audit?",
+    "Tidak. Perencanaan adalah proses berkelanjutan dan wajib dimutakhirkan apabila ada informasi baru yang mengubah penilaian risiko."
+   ],
+   [
+    "Apakah audit entitas kecil tetap butuh dokumentasi perencanaan?",
+    "Ya, namun bisa lebih ringkas. Memo singkat yang mencakup strategi dan rencana sudah memadai jika sesuai dengan ukuran dan kompleksitas entitas."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 315",
+  "slug": "sa-315",
+  "seri": "SA 300-499 Penilaian Risiko dan Respons",
+  "judul": "Pengidentifikasian dan Penilaian Risiko Kesalahan Penyajian Material (judul perlu dicek)",
+  "judul_en": "ISA 315 (Revised 2019) Identifying and Assessing the Risks of Material Misstatement",
+  "ringkas": "Mengatur cara auditor memahami entitas, lingkungannya, kerangka pelaporan keuangan yang berlaku, dan sistem pengendalian internal untuk mengidentifikasi serta menilai risiko kesalahan penyajian material pada tingkat laporan keuangan dan asersi.",
+  "tujuan": "Auditor mengidentifikasi dan menilai risiko kesalahan penyajian material, baik karena kecurangan maupun kesalahan, pada tingkat laporan keuangan dan asersi, sehingga menjadi dasar untuk merancang dan menerapkan respons atas risiko tersebut.",
+  "poin": [
+   "Auditor merancang dan melaksanakan prosedur penilaian risiko (tanya jawab, prosedur analitis, observasi, dan inspeksi) untuk memperoleh bukti yang menjadi dasar memadai bagi penilaian risiko, tanpa bias ke arah bukti yang menguatkan atau menyangkal.",
+   "Auditor memperoleh pemahaman atas entitas dan lingkungannya, kerangka pelaporan keuangan yang berlaku, serta bagaimana faktor risiko inheren memengaruhi kerentanan asersi terhadap kesalahan penyajian.",
+   "Auditor memahami kelima komponen pengendalian internal: lingkungan pengendalian, proses penilaian risiko entitas, proses pemantauan, sistem informasi dan komunikasi, serta aktivitas pengendalian.",
+   "Auditor memahami lingkungan TI yang relevan, mengidentifikasi aplikasi TI yang terkait dengan risiko, risiko yang timbul dari penggunaan TI, serta pengendalian umum TI (ITGC) yang menanganinya.",
+   "Auditor mengidentifikasi pengendalian yang menangani risiko pada tingkat asersi (misalnya pengendalian atas risiko signifikan dan jurnal) dan mengevaluasi rancangannya serta menentukan apakah telah diimplementasikan.",
+   "Risiko inheren dinilai pada spektrum risiko inheren berdasarkan kemungkinan dan besaran kesalahan penyajian; risiko yang berada di ujung atas spektrum ditetapkan sebagai risiko signifikan.",
+   "Risiko pengendalian dinilai secara terpisah; jika auditor tidak berencana menguji efektivitas operasi pengendalian, risiko pengendalian dinilai pada tingkat maksimum.",
+   "Auditor melakukan stand-back: mengevaluasi apakah golongan transaksi, saldo akun, atau pengungkapan yang material secara kuantitatif atau kualitatif tetapi tidak dinilai signifikan memang tepat diperlakukan demikian."
+  ],
+  "praktik": [
+   "Spektrum risiko inheren: dokumentasikan penilaian per asersi (misalnya rendah, menengah, tinggi, signifikan) beserta alasan berdasarkan kombinasi kemungkinan terjadi dan besaran potensial salah saji, bukan sekadar label.",
+   "Faktor risiko inheren yang perlu dicatat di kertas kerja: kompleksitas, subjektivitas, perubahan, ketidakpastian, serta kerentanan terhadap bias manajemen atau kecurangan. Contoh: estimasi ECL tinggi pada subjektivitas dan ketidakpastian.",
+   "Pemahaman lingkungan TI: buat peta aplikasi TI (ERP, payroll, sistem penjualan), sumber data laporan, interface, serta siapa yang mengelola akses dan perubahan program; identifikasi ITGC atas akses, change management, dan operasi TI untuk aplikasi yang relevan.",
+   "Lakukan walkthrough per siklus signifikan (pendapatan, pembelian, penggajian, persediaan) dan dokumentasikan alur transaksi dari inisiasi hingga pencatatan di buku besar, termasuk titik pengendalian utama dan hasil evaluasi D&I (design and implementation).",
+   "Gunakan matriks risiko (risk register) yang menghubungkan risiko, asersi, faktor risiko inheren, pengendalian terkait, dan respons di program audit SA 330 agar ketertelusuran jelas.",
+   "Lakukan prosedur penilaian risiko pada tahap perencanaan dan perbarui saat interim; dokumentasikan diskusi tim mengenai kerentanan laporan keuangan terhadap salah saji material, termasuk kecurangan."
+  ],
+  "temuan": [
+   "Penilaian risiko tidak didukung analisis faktor risiko inheren; label risiko tanpa alasan yang terdokumentasi.",
+   "Pemahaman lingkungan TI dan ITGC dangkal atau tidak ada, padahal auditor mengandalkan laporan yang dihasilkan sistem.",
+   "Evaluasi rancangan dan implementasi pengendalian hanya berupa narasi tanpa bukti walkthrough.",
+   "Risiko signifikan tidak teridentifikasi untuk area yang jelas berisiko tinggi, misalnya pendapatan kontrak atau estimasi yang kompleks.",
+   "Tidak ada keterkaitan yang jelas antara risiko yang dinilai dan prosedur audit lanjutan."
+  ],
+  "baru2025": "Edisi 2025 berbasis Handbook IAASB 2023-2024, sehingga SA 315 mengikuti ISA 315 (Revisi 2019): spektrum risiko inheren, lima faktor risiko inheren, penilaian terpisah risiko inheren dan risiko pengendalian, persyaratan lebih rinci atas lingkungan TI dan ITGC, konsep golongan transaksi, saldo akun, dan pengungkapan yang signifikan, serta stand-back. Conforming amendments terkait juga masuk ke SA lain.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa yang dimaksud spektrum risiko inheren?",
+    "Risiko inheren tidak lagi dipandang dikotomis (tinggi atau rendah) tetapi sebagai rentang. Posisi suatu risiko ditentukan oleh kemungkinan terjadinya dan besaran potensial salah saji; yang paling atas disebut risiko signifikan."
+   ],
+   [
+    "Apakah auditor wajib menguji ITGC?",
+    "SA 315 mewajibkan pemahaman dan evaluasi D&I atas ITGC yang menangani risiko dari penggunaan TI untuk aplikasi relevan. Pengujian efektivitas operasi baru diperlukan bila auditor berencana mengandalkan pengendalian (SA 330)."
+   ],
+   [
+    "Bagaimana jika entitas kecil hampir tidak punya pengendalian formal?",
+    "Standar bersifat scalable. Pemahaman tetap diperlukan, tetapi bisa diperoleh lewat tanya jawab dan observasi sederhana; auditor biasanya lalu mengandalkan prosedur substantif."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 320",
+  "slug": "sa-320",
+  "seri": "SA 300-499 Penilaian Risiko dan Respons",
+  "judul": "Materialitas dalam Tahap Perencanaan dan Pelaksanaan Audit",
+  "judul_en": "ISA 320 Materiality in Planning and Performing an Audit",
+  "ringkas": "Mengatur penerapan konsep materialitas oleh auditor dalam merencanakan dan melaksanakan audit atas laporan keuangan.",
+  "tujuan": "Auditor menerapkan konsep materialitas secara tepat dalam perencanaan dan pelaksanaan audit.",
+  "poin": [
+   "Auditor menetapkan materialitas untuk laporan keuangan secara keseluruhan saat menyusun strategi audit.",
+   "Jika ada golongan transaksi, saldo akun, atau pengungkapan tertentu yang salah sajinya di bawah materialitas keseluruhan dapat memengaruhi keputusan pengguna, auditor menetapkan tingkat materialitas khusus untuk area tersebut.",
+   "Auditor menetapkan materialitas pelaksanaan (performance materiality) untuk menurunkan ke tingkat rendah yang tepat kemungkinan agregat salah saji yang tidak terkoreksi dan tidak terdeteksi melebihi materialitas.",
+   "Penetapan materialitas memerlukan pertimbangan profesional, umumnya dengan menerapkan persentase pada tolok ukur (benchmark) yang relevan bagi pengguna.",
+   "Materialitas direvisi apabila auditor memperoleh informasi baru yang akan menyebabkan angka berbeda jika diketahui sejak awal, misalnya hasil aktual berbeda signifikan dari proyeksi.",
+   "Jika materialitas direvisi lebih rendah, auditor menilai apakah materialitas pelaksanaan dan prosedur audit lanjutan juga perlu disesuaikan.",
+   "Auditor mendokumentasikan angka materialitas keseluruhan, materialitas khusus, materialitas pelaksanaan, faktor yang dipertimbangkan, dan setiap revisinya."
+  ],
+  "praktik": [
+   "Ilustrasi saja (bukan angka standar): laba sebelum pajak Rp 20.000.000.000, benchmark 5% sehingga materialitas keseluruhan Rp 1.000.000.000; materialitas pelaksanaan 75% dari materialitas yaitu Rp 750.000.000 (lebih rendah, misalnya 50% sampai 60%, bila risiko lebih tinggi atau banyak koreksi tahun lalu); batas clearly trivial 5% dari materialitas yaitu Rp 50.000.000.",
+   "Persentase dan benchmark pada ilustrasi di atas mengikuti praktik umum KAP, bukan ketentuan SA; selalu ikuti metodologi KAP dan dokumentasikan alasan pemilihan benchmark (laba sebelum pajak, pendapatan, total aset, ekuitas, atau beban untuk entitas nirlaba).",
+   "Jika laba fluktuatif atau mendekati nol, pertimbangkan laba yang dinormalisasi atau benchmark lain seperti pendapatan, dan jelaskan di kertas kerja.",
+   "Pertimbangkan materialitas khusus untuk item sensitif, misalnya remunerasi direksi, transaksi pihak berelasi, atau pengungkapan yang diatur regulator.",
+   "Evaluasi ulang materialitas saat menerima draf laporan keuangan final; jika angka aktual berbeda signifikan dari angka perencanaan, dokumentasikan revisi dan dampaknya pada luas pengujian.",
+   "Hubungkan materialitas pelaksanaan dengan penentuan sampel dan batas penyelidikan pada prosedur analitis substantif."
+  ],
+  "temuan": [
+   "Pemilihan benchmark dan persentase tidak dijelaskan atau tidak sesuai dengan fokus pengguna laporan keuangan.",
+   "Materialitas tidak dievaluasi ulang meskipun angka final berbeda jauh dari angka perencanaan.",
+   "Materialitas pelaksanaan ditetapkan terlalu tinggi tanpa mempertimbangkan riwayat koreksi atau risiko.",
+   "Batas clearly trivial dipakai sebagai ambang untuk tidak menginvestigasi selisih secara keseluruhan."
+  ],
+  "baru2025": "",
+  "psak": [
+   201
+  ],
+  "faq": [
+   [
+    "Apa beda materialitas keseluruhan dan materialitas pelaksanaan?",
+    "Materialitas keseluruhan adalah ambang untuk laporan keuangan secara utuh. Materialitas pelaksanaan lebih rendah, dipakai untuk merancang prosedur agar ada ruang (buffer) bagi salah saji yang tidak terdeteksi dan agregasi salah saji."
+   ],
+   [
+    "Apa itu clearly trivial?",
+    "Batas di bawah mana salah saji jelas tidak berarti, baik secara individual maupun agregat. Salah saji di atas batas ini wajib diakumulasi sesuai SA 450."
+   ],
+   [
+    "Apakah persentase 5% laba sebelum pajak diatur SA 320?",
+    "Tidak. SA 320 hanya memberi contoh pendekatan. Persentase yang dipakai adalah pertimbangan profesional dan metodologi masing-masing KAP."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 330",
+  "slug": "sa-330",
+  "seri": "SA 300-499 Penilaian Risiko dan Respons",
+  "judul": "Respons Auditor terhadap Risiko yang Telah Dinilai",
+  "judul_en": "ISA 330 The Auditor's Responses to Assessed Risks",
+  "ringkas": "Mengatur bagaimana auditor merancang dan melaksanakan respons atas risiko kesalahan penyajian material yang telah diidentifikasi dan dinilai berdasarkan SA 315.",
+  "tujuan": "Auditor memperoleh bukti audit yang cukup dan tepat atas risiko kesalahan penyajian material yang telah dinilai melalui perancangan dan penerapan respons yang tepat.",
+  "poin": [
+   "Auditor merancang respons menyeluruh untuk risiko pada tingkat laporan keuangan, misalnya penekanan skeptisisme, penugasan staf berpengalaman, supervisi lebih ketat, atau unsur ketidakterdugaan.",
+   "Prosedur audit lanjutan dirancang dengan sifat, waktu, dan luas yang responsif terhadap risiko yang dinilai pada tingkat asersi; makin tinggi risiko, makin persuasif bukti yang dibutuhkan.",
+   "Auditor menguji efektivitas operasi pengendalian bila berencana mengandalkannya atau bila prosedur substantif saja tidak cukup memberikan bukti.",
+   "Bukti efektivitas pengendalian dari audit sebelumnya boleh digunakan dengan syarat tertentu, tetapi pengendalian yang menangani risiko signifikan harus diuji pada periode berjalan.",
+   "Terlepas dari penilaian risiko, auditor melaksanakan prosedur substantif untuk setiap golongan transaksi, saldo akun, dan pengungkapan yang material.",
+   "Untuk risiko signifikan, auditor melaksanakan prosedur substantif yang spesifik merespons risiko tersebut; bila hanya prosedur substantif, harus mencakup uji detail.",
+   "Auditor melaksanakan prosedur atas proses tutup buku, termasuk mencocokkan laporan keuangan dengan catatan akuntansi dan memeriksa jurnal penyesuaian material.",
+   "Jika prosedur dilakukan pada tanggal interim, auditor melaksanakan prosedur untuk periode sisa (roll-forward) agar kesimpulan dapat diperluas ke akhir periode."
+  ],
+  "praktik": [
+   "Pastikan program audit menunjukkan keterkaitan langsung risiko dan asersi dari SA 315 ke prosedur yang dilaksanakan (linkage).",
+   "Dokumentasikan uji pengendalian: populasi, ukuran sampel, atribut yang diuji, deviasi, dan kesimpulan efektivitas; uji ITGC sebelum mengandalkan pengendalian otomatis.",
+   "Untuk pengujian interim, rancang roll-forward (analitis dan uji detail transaksi signifikan) dari tanggal interim hingga tanggal neraca.",
+   "Selipkan unsur ketidakterdugaan, misalnya memilih lokasi atau akun di bawah materialitas secara bergiliran, atau mengubah waktu pengujian.",
+   "Lakukan rekonsiliasi lead schedule ke trial balance dan laporan keuangan, serta reviu jurnal penyesuaian setelah tutup buku.",
+   "Evaluasi di akhir audit apakah penilaian risiko masih tepat dan apakah bukti sudah cukup dan tepat."
+  ],
+  "temuan": [
+   "Prosedur substantif tidak cukup spesifik untuk menangani risiko signifikan.",
+   "Pengendalian diandalkan tanpa uji efektivitas operasi atau tanpa dasar ITGC.",
+   "Tidak ada roll-forward untuk prosedur interim.",
+   "Area material tidak memiliki prosedur substantif sama sekali karena dianggap risiko rendah."
+  ],
+  "baru2025": "Conforming amendments dari SA 315 revisian: penyesuaian istilah (penilaian terpisah risiko inheren dan risiko pengendalian, golongan transaksi, saldo akun, dan pengungkapan yang signifikan) serta penegasan respons atas risiko signifikan dan pengendalian.",
+  "psak": [],
+  "faq": [
+   [
+    "Apakah auditor boleh hanya melakukan prosedur substantif?",
+    "Boleh, kecuali untuk risiko yang tidak dapat ditangani cukup dengan prosedur substantif saja, misalnya transaksi volume tinggi yang diproses otomatis. Dalam kasus itu uji pengendalian diperlukan."
+   ],
+   [
+    "Apakah pengendalian bisa tidak diuji ulang setiap tahun?",
+    "Bisa, dengan pendekatan rotasi (maksimal sekali setiap tiga tahun) bila pengendalian tidak berubah, kecuali pengendalian atas risiko signifikan yang harus diuji tiap tahun."
+   ],
+   [
+    "Apa maksud bukti yang lebih persuasif?",
+    "Bukti yang lebih relevan atau andal, misalnya dari pihak eksternal independen, atau jumlah bukti yang lebih banyak."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 402",
+  "slug": "sa-402",
+  "seri": "SA 300-499 Penilaian Risiko dan Respons",
+  "judul": "Pertimbangan Audit Terkait dengan Entitas yang Menggunakan Suatu Organisasi Jasa",
+  "judul_en": "ISA 402 Audit Considerations Relating to an Entity Using a Service Organization",
+  "ringkas": "Mengatur tanggung jawab auditor pengguna untuk memperoleh bukti audit yang cukup dan tepat ketika entitas yang diaudit menggunakan jasa dari organisasi jasa, misalnya payroll outsourcing, pengelola dana, atau penyedia cloud.",
+  "tujuan": "Auditor pengguna memahami sifat dan signifikansi jasa yang diberikan organisasi jasa serta dampaknya terhadap pengendalian internal entitas, lalu merancang prosedur yang responsif terhadap risiko tersebut.",
+  "poin": [
+   "Auditor memahami sifat jasa, materialitas transaksi yang diproses, tingkat interaksi entitas dengan organisasi jasa, dan hubungan kontraktualnya.",
+   "Auditor mengevaluasi rancangan dan implementasi pengendalian di entitas pengguna yang berkaitan dengan jasa tersebut.",
+   "Jika pemahaman tidak cukup dari entitas, auditor dapat memperoleh laporan Tipe 1 atau Tipe 2, menghubungi organisasi jasa, mengunjungi lokasi, atau menggunakan auditor lain.",
+   "Saat menggunakan laporan auditor jasa, auditor menilai kompetensi dan independensi auditor jasa serta kecukupan standar yang dipakai.",
+   "Auditor menilai kesesuaian tanggal dan periode laporan, serta mengevaluasi complementary user entity controls (CUEC) yang harus dijalankan entitas.",
+   "Jika ingin mengandalkan pengendalian di organisasi jasa, auditor memperoleh bukti efektivitas operasinya, misalnya dari laporan Tipe 2 yang mencakup periode relevan.",
+   "Auditor menanyakan apakah ada kecurangan, ketidakpatuhan, atau salah saji tidak terkoreksi yang dilaporkan organisasi jasa.",
+   "Auditor tidak merujuk pekerjaan auditor jasa dalam opini wanpengecualian."
+  ],
+  "praktik": [
+   "Buat daftar organisasi jasa yang digunakan klien dan nilai relevansinya terhadap laporan keuangan (misalnya payroll vendor, kustodian, penyedia ERP berbasis cloud).",
+   "Minta laporan SOC 1 (atau yang setara) dan dokumentasikan evaluasi: Tipe 1 atau Tipe 2, periode tercakup, pengecualian, dan CUEC yang perlu diuji di entitas.",
+   "Jika periode laporan tidak sepenuhnya mencakup periode audit, minta bridge letter dan lakukan prosedur tambahan untuk periode celah.",
+   "Jika tidak ada laporan auditor jasa, lakukan pengujian substantif langsung, misalnya rekonsiliasi payroll register dengan bukti bank dan data BPJS.",
+   "Dokumentasikan bagaimana CUEC (misalnya reviu laporan output payroll oleh HR) diuji di entitas."
+  ],
+  "temuan": [
+   "Tidak ada identifikasi organisasi jasa yang relevan, padahal klien memakai sistem pihak ketiga untuk transaksi material.",
+   "Laporan SOC diterima tetapi tidak dievaluasi (pengecualian, periode, CUEC diabaikan).",
+   "Mengandalkan laporan Tipe 1 seolah memberikan bukti efektivitas operasi.",
+   "Tidak ada prosedur untuk periode celah di luar cakupan laporan auditor jasa."
+  ],
+  "baru2025": "Conforming amendments dari SA 315 revisian, terutama terkait pemahaman sistem informasi dan lingkungan TI yang melibatkan organisasi jasa.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa beda laporan Tipe 1 dan Tipe 2?",
+    "Tipe 1 menjelaskan rancangan dan implementasi pengendalian pada suatu tanggal. Tipe 2 juga mencakup pengujian efektivitas operasi selama suatu periode, sehingga dapat dipakai untuk mengandalkan pengendalian."
+   ],
+   [
+    "Apakah penyedia cloud selalu organisasi jasa yang relevan?",
+    "Relevan bila jasanya merupakan bagian dari sistem informasi entitas yang relevan dengan pelaporan keuangan, misalnya hosting ERP yang memproses transaksi."
+   ],
+   [
+    "Bolehkah opini audit menyebut auditor jasa?",
+    "Tidak untuk opini wanpengecualian. Rujukan hanya boleh bila relevan untuk menjelaskan modifikasi opini, dan harus jelas bahwa tanggung jawab tetap pada auditor pengguna."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 450",
+  "slug": "sa-450",
+  "seri": "SA 300-499 Penilaian Risiko dan Respons",
+  "judul": "Pengevaluasian atas Kesalahan Penyajian yang Diidentifikasi selama Audit",
+  "judul_en": "ISA 450 Evaluation of Misstatements Identified during the Audit",
+  "ringkas": "Mengatur cara auditor mengakumulasi, mengomunikasikan, dan mengevaluasi dampak salah saji yang teridentifikasi terhadap audit dan laporan keuangan.",
+  "tujuan": "Auditor mengevaluasi dampak salah saji yang teridentifikasi terhadap audit dan dampak salah saji yang tidak terkoreksi, jika ada, terhadap laporan keuangan.",
+  "poin": [
+   "Auditor mengakumulasi semua salah saji yang teridentifikasi kecuali yang jelas tidak berarti (clearly trivial).",
+   "Auditor menilai apakah strategi dan rencana audit perlu direvisi bila sifat salah saji menunjukkan kemungkinan salah saji lain, atau agregatnya mendekati materialitas.",
+   "Salah saji dikomunikasikan tepat waktu kepada manajemen dengan permintaan untuk dikoreksi.",
+   "Jika manajemen menolak koreksi, auditor memahami alasannya dan mempertimbangkannya saat menilai apakah laporan keuangan bebas dari salah saji material.",
+   "Sebelum mengevaluasi, auditor menilai ulang materialitas berdasarkan hasil keuangan aktual.",
+   "Auditor menilai apakah salah saji tidak terkoreksi material secara individual atau agregat, dengan mempertimbangkan ukuran, sifat, keadaan, dan dampak salah saji tahun lalu.",
+   "Salah saji tidak terkoreksi dan dampaknya dikomunikasikan kepada pihak yang bertanggung jawab atas tata kelola, dan representasi tertulis diminta dari manajemen.",
+   "Auditor mendokumentasikan batas clearly trivial, semua salah saji yang diakumulasi, dan kesimpulan atas materialitasnya."
+  ],
+  "praktik": [
+   "Kelola Summary of Audit Differences (SAD) dengan klasifikasi factual, judgmental, dan projected misstatements, serta dampaknya ke laba, aset, dan ekuitas.",
+   "Pisahkan salah saji terkoreksi dan tidak terkoreksi, dan lampirkan daftar salah saji tidak terkoreksi pada surat representasi manajemen.",
+   "Pertimbangkan efek pembalikan (rollover dan iron curtain) dari salah saji tahun lalu yang tidak dikoreksi.",
+   "Evaluasi aspek kualitatif: salah saji kecil yang mengubah laba menjadi rugi, memengaruhi pemenuhan covenant, atau terkait pihak berelasi bisa material.",
+   "Komunikasikan salah saji secara bertahap selama fieldwork, jangan menunggu akhir audit."
+  ],
+  "temuan": [
+   "Salah saji di atas batas clearly trivial tidak diakumulasi atau hilang dalam kertas kerja.",
+   "Salah saji hasil proyeksi dari sampling tidak dimasukkan ke ringkasan.",
+   "Evaluasi kualitatif atas salah saji tidak terkoreksi tidak terdokumentasi.",
+   "Tidak ada pertimbangan ulang strategi audit meskipun agregat salah saji mendekati materialitas pelaksanaan."
+  ],
+  "baru2025": "",
+  "psak": [
+   208
+  ],
+  "faq": [
+   [
+    "Apa beda factual, judgmental, dan projected misstatement?",
+    "Factual adalah salah saji yang pasti; judgmental timbul dari perbedaan pertimbangan atas estimasi atau kebijakan; projected adalah estimasi salah saji populasi hasil ekstrapolasi sampel."
+   ],
+   [
+    "Jika semua salah saji dikoreksi, apakah masih perlu dokumentasi?",
+    "Ya. Salah saji terkoreksi yang signifikan tetap dikomunikasikan dan didokumentasikan, karena bisa menunjukkan kelemahan pengendalian."
+   ],
+   [
+    "Bisakah salah saji di bawah materialitas dianggap material?",
+    "Bisa, jika aspek kualitatifnya signifikan, misalnya terkait kecurangan, kepatuhan regulasi, atau covenant pinjaman."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 500",
+  "slug": "sa-500",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Bukti Audit",
+  "judul_en": "ISA 500 Audit Evidence",
+  "ringkas": "Menjelaskan apa yang dimaksud bukti audit dan mengatur tanggung jawab auditor untuk merancang serta melaksanakan prosedur guna memperoleh bukti yang cukup dan tepat.",
+  "tujuan": "Auditor merancang dan melaksanakan prosedur audit sehingga memperoleh bukti audit yang cukup dan tepat untuk menarik kesimpulan yang wajar sebagai dasar opini.",
+  "poin": [
+   "Auditor merancang prosedur yang tepat sesuai keadaan untuk memperoleh bukti yang cukup (kuantitas) dan tepat (relevansi dan keandalan).",
+   "Auditor mempertimbangkan relevansi dan keandalan informasi yang akan digunakan sebagai bukti.",
+   "Jika menggunakan informasi yang dihasilkan entitas, auditor mengevaluasi apakah informasi itu cukup akurat dan lengkap serta cukup tepat dan rinci untuk tujuan audit.",
+   "Jika menggunakan pekerjaan pakar manajemen, auditor mengevaluasi kompetensi, kapabilitas, objektivitas pakar, memahami pekerjaannya, dan menilai kecukupan pekerjaan sebagai bukti.",
+   "Auditor menentukan cara memilih unsur untuk pengujian: seleksi semua unsur, seleksi unsur tertentu, atau sampling audit.",
+   "Jika bukti dari satu sumber tidak konsisten dengan sumber lain, atau ada keraguan atas keandalannya, auditor menentukan modifikasi atau tambahan prosedur yang diperlukan."
+  ],
+  "praktik": [
+   "Untuk setiap laporan sistem (IPE) yang dipakai, misalnya aging piutang, uji kelengkapan dan akurasinya: rekonsiliasi ke buku besar, uji sampel data ke dokumen sumber, atau andalkan ITGC yang telah diuji.",
+   "Dokumentasikan hierarki keandalan bukti: bukti eksternal langsung ke auditor lebih andal daripada bukti internal; dokumen asli lebih andal daripada fotokopi atau scan.",
+   "Catat identifikasi unsur yang diuji (nomor dokumen, tanggal, nilai) agar pengujian dapat direplikasi reviewer.",
+   "Untuk pakar manajemen (penilai KJPP, aktuaria), simpan evaluasi kompetensi, objektivitas, dan pengujian asumsi serta data sumber.",
+   "Waspadai dokumen yang tampak diubah; tindak lanjuti dengan konfirmasi atau sumber independen."
+  ],
+  "temuan": [
+   "Laporan yang dihasilkan sistem klien dipakai tanpa pengujian kelengkapan dan akurasi.",
+   "Kertas kerja tidak mengidentifikasi unsur yang diuji sehingga pengujian tidak dapat direplikasi.",
+   "Pekerjaan pakar manajemen diterima begitu saja tanpa evaluasi asumsi dan data.",
+   "Ketidakkonsistenan bukti tidak ditindaklanjuti."
+  ],
+  "baru2025": "Conforming amendments terkait SA 315 revisian dan standar manajemen mutu. IAASB sedang menyusun revisi ISA 500 yang lebih luas, tetapi revisi tersebut belum termasuk dalam basis Handbook 2023-2024.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa beda bukti cukup dan bukti tepat?",
+    "Cukup mengacu pada kuantitas bukti; tepat mengacu pada kualitas, yaitu relevansi dan keandalannya. Bukti berkualitas tinggi dapat mengurangi kebutuhan kuantitas, tetapi kuantitas tidak dapat mengompensasi kualitas yang buruk."
+   ],
+   [
+    "Apakah tanya jawab ke manajemen cukup sebagai bukti?",
+    "Tidak. Tanya jawab saja umumnya tidak cukup untuk asersi material; perlu dikombinasikan dengan prosedur lain."
+   ],
+   [
+    "Apa itu IPE?",
+    "Information produced by the entity, yaitu informasi yang dihasilkan entitas dan dipakai auditor sebagai bukti. Akurasi dan kelengkapannya harus dievaluasi."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 501",
+  "slug": "sa-501",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Bukti Audit: Pertimbangan Spesifik atas Unsur Pilihan",
+  "judul_en": "ISA 501 Audit Evidence - Specific Considerations for Selected Items",
+  "ringkas": "Mengatur pertimbangan spesifik auditor dalam memperoleh bukti atas eksistensi dan kondisi persediaan, kelengkapan litigasi dan klaim, serta penyajian dan pengungkapan informasi segmen.",
+  "tujuan": "Auditor memperoleh bukti yang cukup dan tepat atas eksistensi dan kondisi persediaan, kelengkapan litigasi dan klaim, serta penyajian dan pengungkapan informasi segmen sesuai kerangka pelaporan.",
+  "poin": [
+   "Jika persediaan material, auditor hadir dalam penghitungan fisik (kecuali tidak praktis) untuk mengevaluasi instruksi manajemen, mengamati pelaksanaan, menginspeksi persediaan, dan melakukan test count.",
+   "Auditor melaksanakan prosedur atas catatan persediaan final untuk memastikan hasil hitung tercermin dengan akurat.",
+   "Jika penghitungan fisik dilakukan bukan pada tanggal laporan keuangan, auditor melakukan prosedur untuk memastikan perubahan persediaan di antara kedua tanggal dicatat dengan tepat.",
+   "Jika kehadiran tidak praktis, auditor melakukan prosedur alternatif; jika tidak mungkin, opini dimodifikasi.",
+   "Untuk persediaan yang dikuasai pihak ketiga, auditor melakukan konfirmasi dan/atau inspeksi atau prosedur lain yang tepat.",
+   "Auditor merancang prosedur untuk mengidentifikasi litigasi dan klaim, termasuk tanya jawab dengan manajemen dan penasihat hukum internal, reviu notulen, dan reviu biaya hukum.",
+   "Jika ada risiko salah saji material terkait litigasi, auditor berkomunikasi langsung dengan penasihat hukum eksternal entitas melalui surat permintaan yang dikirim auditor.",
+   "Untuk informasi segmen, auditor memahami metode yang dipakai manajemen dan menguji penerapannya."
+  ],
+  "praktik": [
+   "Sebelum stock opname, reviu instruksi hitung klien, siapkan memo observasi, dan tentukan lokasi yang dihadiri berdasarkan risiko.",
+   "Lakukan test count dua arah: dari kartu hitung ke fisik (eksistensi) dan dari fisik ke kartu hitung (kelengkapan); catat barang rusak, usang, atau slow moving.",
+   "Catat informasi cut-off (nomor dokumen penerimaan dan pengiriman terakhir) saat opname untuk diuji kemudian.",
+   "Kirim surat permintaan ke konsultan hukum (legal letter) menjelang tanggal laporan auditor dan cocokkan jawabannya dengan provisi atau pengungkapan kontinjensi.",
+   "Reviu akun beban jasa hukum untuk mengidentifikasi konsultan hukum yang belum dikonfirmasi.",
+   "Untuk segmen, cocokkan pengungkapan dengan laporan internal yang dipakai pengambil keputusan operasional."
+  ],
+  "temuan": [
+   "Test count terlalu sedikit atau hanya satu arah, serta hasil tidak ditelusuri ke catatan final.",
+   "Tidak ada prosedur roll-forward atau roll-back ketika opname dilakukan sebelum atau sesudah tanggal neraca.",
+   "Surat konsultan hukum tidak dikirim atau tidak ditindaklanjuti bila tidak dijawab.",
+   "Kondisi persediaan (usang, rusak) yang diamati saat opname tidak dikaitkan dengan pengujian penurunan nilai."
+  ],
+  "baru2025": "",
+  "psak": [
+   202,
+   237,
+   108
+  ],
+  "faq": [
+   [
+    "Apakah auditor wajib hadir saat stock opname?",
+    "Ya bila persediaan material, kecuali tidak praktis. Bila tidak praktis, auditor harus melakukan prosedur alternatif yang memberikan bukti cukup dan tepat."
+   ],
+   [
+    "Bagaimana jika auditor baru ditunjuk setelah tanggal neraca?",
+    "Auditor dapat melakukan penghitungan pada tanggal kemudian lalu melakukan roll-back ke tanggal neraca dengan menguji transaksi di antaranya."
+   ],
+   [
+    "Apakah surat ke konsultan hukum selalu wajib?",
+    "Wajib bila auditor menilai ada risiko salah saji material terkait litigasi atau klaim, atau ada indikasi perkara lain yang belum terungkap."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 505",
+  "slug": "sa-505",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Konfirmasi Eksternal",
+  "judul_en": "ISA 505 External Confirmations",
+  "ringkas": "Mengatur penggunaan prosedur konfirmasi eksternal oleh auditor untuk memperoleh bukti audit langsung dari pihak ketiga.",
+  "tujuan": "Auditor merancang dan melaksanakan prosedur konfirmasi eksternal untuk memperoleh bukti audit yang relevan dan andal.",
+  "poin": [
+   "Auditor mempertahankan kendali atas proses konfirmasi: menentukan informasi yang dikonfirmasi, memilih pihak yang dikonfirmasi, merancang permintaan, dan mengirimkannya sendiri.",
+   "Jika manajemen menolak auditor mengirim konfirmasi, auditor menanyakan alasannya, mengevaluasi kewajarannya, dan menilai dampaknya pada risiko termasuk kecurangan.",
+   "Jika penolakan manajemen tidak wajar atau bukti alternatif tidak dapat diperoleh, auditor berkomunikasi dengan pihak tata kelola dan menilai dampaknya pada opini.",
+   "Auditor mengevaluasi keandalan jawaban; bila ada keraguan, auditor memperoleh bukti tambahan.",
+   "Untuk konfirmasi yang tidak dijawab, auditor melaksanakan prosedur alternatif.",
+   "Auditor menginvestigasi pengecualian (perbedaan) untuk menentukan apakah menunjukkan salah saji.",
+   "Konfirmasi negatif hanya digunakan sebagai satu-satunya prosedur substantif bila risiko dinilai rendah, populasi terdiri atas banyak saldo kecil yang homogen, tingkat pengecualian diperkirakan sangat rendah, dan tidak ada indikasi responden akan mengabaikannya."
+  ],
+  "praktik": [
+   "Buat confirmation control sheet: nama dan alamat pihak, saldo, tanggal kirim, tanggal kirim ulang, tanggal jawaban, selisih, dan penyelesaian.",
+   "Verifikasi alamat atau email pihak ketiga secara independen (situs resmi, data AHU, database bank) untuk mencegah intersepsi; untuk konfirmasi bank, gunakan kanal resmi bank.",
+   "Prosedur alternatif untuk piutang yang tidak menjawab: penerimaan kas setelah tanggal neraca, surat jalan, faktur pajak, dan kontrak.",
+   "Rekonsiliasi pengecualian: bedakan timing difference (barang dalam perjalanan, pembayaran dalam proses) dari salah saji sebenarnya.",
+   "Kirim konfirmasi segera setelah tanggal neraca (atau pada tanggal interim dengan roll-forward) agar ada waktu untuk kirim ulang."
+  ],
+  "temuan": [
+   "Konfirmasi dikirim atau diterima melalui klien sehingga kendali auditor hilang.",
+   "Prosedur alternatif tidak memadai untuk konfirmasi yang tidak dijawab.",
+   "Jawaban konfirmasi elektronik tidak dievaluasi keandalannya.",
+   "Pengecualian ditutup tanpa investigasi atau penjelasan yang terdokumentasi."
+  ],
+  "baru2025": "",
+  "psak": [
+   109,
+   107
+  ],
+  "faq": [
+   [
+    "Apa beda konfirmasi positif dan negatif?",
+    "Konfirmasi positif meminta responden selalu menjawab (setuju atau tidak). Konfirmasi negatif meminta jawaban hanya bila tidak setuju, sehingga buktinya lebih lemah."
+   ],
+   [
+    "Bolehkah konfirmasi lewat email?",
+    "Boleh, asalkan auditor menilai risiko keandalan, misalnya memverifikasi alamat email dan domain, atau menggunakan platform konfirmasi yang aman."
+   ],
+   [
+    "Apa yang dilakukan jika klien melarang konfirmasi ke pelanggan tertentu?",
+    "Tanyakan alasannya dan nilai kewajarannya. Jika wajar (misalnya sengketa hukum), lakukan prosedur alternatif. Jika tidak wajar, komunikasikan ke tata kelola dan pertimbangkan dampaknya pada opini."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 510",
+  "slug": "sa-510",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Perikatan Audit Tahun Pertama: Saldo Awal",
+  "judul_en": "ISA 510 Initial Audit Engagements - Opening Balances",
+  "ringkas": "Mengatur tanggung jawab auditor terkait saldo awal pada perikatan audit tahun pertama, baik ketika laporan periode lalu diaudit auditor lain maupun tidak diaudit.",
+  "tujuan": "Auditor memperoleh bukti yang cukup dan tepat bahwa saldo awal tidak mengandung salah saji yang berdampak material pada laporan periode berjalan, dan bahwa kebijakan akuntansi diterapkan secara konsisten atau perubahannya dicatat dan diungkapkan dengan tepat.",
+  "poin": [
+   "Auditor membaca laporan keuangan terbaru dan laporan auditor pendahulu, jika ada, untuk informasi relevan mengenai saldo awal.",
+   "Auditor memastikan saldo penutup periode lalu telah dibawa ke periode berjalan dengan benar atau, bila perlu, telah disajikan kembali.",
+   "Auditor menentukan apakah saldo awal mencerminkan penerapan kebijakan akuntansi yang tepat.",
+   "Auditor memperoleh bukti dengan mereviu kertas kerja auditor pendahulu, mengevaluasi prosedur audit periode berjalan yang juga memberi bukti atas saldo awal, atau melaksanakan prosedur khusus.",
+   "Auditor mengevaluasi apakah kebijakan akuntansi periode berjalan konsisten dengan periode lalu, atau perubahannya telah dicatat dan diungkapkan sesuai kerangka pelaporan.",
+   "Jika opini auditor pendahulu dimodifikasi, auditor menilai dampaknya terhadap risiko periode berjalan.",
+   "Jika bukti atas saldo awal tidak dapat diperoleh, auditor memodifikasi opini sesuai SA 705."
+  ],
+  "praktik": [
+   "Ajukan permintaan akses kertas kerja auditor pendahulu (dengan izin klien) dan dokumentasikan area yang direviu serta kesimpulannya.",
+   "Untuk aset lancar, misalnya piutang dan persediaan awal, gunakan bukti dari penerimaan kas atau penjualan setelah awal periode.",
+   "Untuk aset tetap dan utang jangka panjang, telusuri ke register aset, akta, dan perjanjian pinjaman.",
+   "Jika persediaan awal tidak dapat diobservasi, lakukan rekonstruksi melalui gross profit test, roll-back dari opname periode berjalan, dan analisis harga pokok.",
+   "Bandingkan kebijakan akuntansi tahun lalu dan berjalan dalam checklist konsistensi."
+  ],
+  "temuan": [
+   "Tidak ada prosedur spesifik atas saldo awal; hanya mengandalkan laporan auditor pendahulu.",
+   "Reviu kertas kerja auditor pendahulu tidak didokumentasikan isinya.",
+   "Dampak saldo awal persediaan terhadap harga pokok penjualan periode berjalan tidak dipertimbangkan.",
+   "Opini tidak dimodifikasi meskipun bukti saldo awal tidak memadai."
+  ],
+  "baru2025": "",
+  "psak": [
+   208
+  ],
+  "faq": [
+   [
+    "Apakah saldo awal harus diaudit ulang sepenuhnya?",
+    "Tidak. Auditor cukup memperoleh bukti bahwa saldo awal tidak mengandung salah saji yang berdampak material pada laporan periode berjalan."
+   ],
+   [
+    "Bagaimana jika laporan tahun lalu tidak diaudit?",
+    "Auditor melaksanakan prosedur lebih luas atas saldo awal dan mengungkapkan dalam paragraf Hal Lain bahwa laporan periode lalu tidak diaudit."
+   ],
+   [
+    "Apakah auditor pendahulu wajib memberikan akses kertas kerja?",
+    "Tergantung ketentuan etika dan kebijakan KAP pendahulu, umumnya dengan izin klien. Bila ditolak, auditor menggunakan prosedur alternatif."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 520",
+  "slug": "sa-520",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Prosedur Analitis",
+  "judul_en": "ISA 520 Analytical Procedures",
+  "ringkas": "Mengatur penggunaan prosedur analitis sebagai prosedur substantif dan prosedur analitis menjelang akhir audit untuk membentuk kesimpulan menyeluruh.",
+  "tujuan": "Auditor memperoleh bukti relevan dan andal saat menggunakan prosedur analitis substantif, serta merancang prosedur analitis di akhir audit untuk menilai apakah laporan keuangan konsisten dengan pemahaman auditor atas entitas.",
+  "poin": [
+   "Auditor menentukan kecocokan prosedur analitis substantif untuk asersi tertentu, dengan mempertimbangkan risiko dan uji detail lainnya.",
+   "Auditor mengevaluasi keandalan data yang menjadi dasar ekspektasi, termasuk sumber, keterbandingan, dan pengendalian atas penyusunannya.",
+   "Auditor mengembangkan ekspektasi atas jumlah tercatat atau rasio dan menilai apakah ekspektasi tersebut cukup presisi untuk mengidentifikasi salah saji material.",
+   "Auditor menentukan selisih yang dapat diterima tanpa investigasi lebih lanjut.",
+   "Menjelang akhir audit, auditor melaksanakan prosedur analitis untuk menilai konsistensi laporan keuangan dengan pemahamannya.",
+   "Jika ditemukan fluktuasi atau hubungan yang tidak konsisten, auditor menanyakan manajemen, memperoleh bukti pendukung atas jawabannya, dan melaksanakan prosedur lain bila perlu."
+  ],
+  "praktik": [
+   "Bangun ekspektasi independen, bukan sekadar membandingkan dengan tahun lalu; misalnya beban gaji = jumlah karyawan rata-rata x gaji rata-rata x 12 plus kenaikan, atau beban bunga = saldo rata-rata pinjaman x suku bunga.",
+   "Tetapkan threshold investigasi yang terkait materialitas pelaksanaan dan dokumentasikan alasannya.",
+   "Uji keandalan data input (jumlah karyawan, tarif, volume) sebelum memakai hasilnya sebagai bukti.",
+   "Penjelasan manajemen atas selisih harus dikuatkan dengan bukti, bukan hanya dicatat.",
+   "Lakukan final analytical review atas draf laporan keuangan final dan simpan kesimpulannya."
+  ],
+  "temuan": [
+   "Ekspektasi tidak cukup presisi (misalnya hanya perbandingan tahun lalu) sehingga tidak dapat menjadi bukti substantif.",
+   "Tidak ada threshold yang ditetapkan sebelum membandingkan hasil.",
+   "Penjelasan manajemen atas fluktuasi diterima tanpa bukti pendukung.",
+   "Data yang digunakan untuk ekspektasi tidak diuji keandalannya."
+  ],
+  "baru2025": "",
+  "psak": [],
+  "faq": [
+   [
+    "Apakah prosedur analitis cukup untuk risiko signifikan?",
+    "Umumnya tidak cukup sendirian. Untuk risiko signifikan yang hanya ditangani dengan prosedur substantif, SA 330 mensyaratkan uji detail."
+   ],
+   [
+    "Apa beda prosedur analitis di tahap perencanaan, substantif, dan akhir?",
+    "Tahap perencanaan untuk penilaian risiko (SA 315), substantif sebagai bukti asersi (SA 520), dan akhir untuk kesimpulan menyeluruh (SA 520)."
+   ],
+   [
+    "Bagaimana menentukan threshold?",
+    "Berdasarkan pertimbangan profesional dengan memperhatikan materialitas pelaksanaan, risiko, dan tingkat presisi yang dibutuhkan."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 530",
+  "slug": "sa-530",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Sampling Audit",
+  "judul_en": "ISA 530 Audit Sampling",
+  "ringkas": "Mengatur penggunaan sampling audit statistik maupun nonstatistik dalam merancang dan memilih sampel, melaksanakan uji pengendalian dan uji detail, serta mengevaluasi hasilnya.",
+  "tujuan": "Auditor memberikan dasar yang memadai untuk menarik kesimpulan atas populasi dari sampel yang dipilih.",
+  "poin": [
+   "Saat merancang sampel, auditor mempertimbangkan tujuan prosedur dan karakteristik populasi dari mana sampel diambil.",
+   "Auditor menentukan ukuran sampel yang cukup untuk menurunkan risiko sampling ke tingkat rendah yang dapat diterima.",
+   "Sampel dipilih sedemikian rupa sehingga setiap unit sampling dalam populasi memiliki peluang untuk terpilih.",
+   "Auditor melaksanakan prosedur yang tepat atas setiap unsur terpilih; bila prosedur tidak dapat diterapkan, unsur tersebut diperlakukan sebagai deviasi atau salah saji.",
+   "Auditor menyelidiki sifat dan penyebab setiap deviasi atau salah saji serta dampaknya pada tujuan prosedur dan area lain.",
+   "Anomali hanya boleh dinyatakan bila auditor memperoleh tingkat kepastian tinggi bahwa kejadian tersebut tidak mewakili populasi.",
+   "Untuk uji detail, auditor memproyeksikan salah saji sampel ke populasi.",
+   "Auditor mengevaluasi hasil sampel dan menilai apakah sampel memberikan dasar memadai untuk kesimpulan atas populasi."
+  ],
+  "praktik": [
+   "Dokumentasikan definisi populasi, unit sampling, uji kelengkapan populasi (rekonsiliasi ke buku besar), metode seleksi, dan parameter ukuran sampel.",
+   "Metode seleksi umum: random, systematic dengan titik awal acak, dan monetary unit sampling (MUS); haphazard boleh untuk nonstatistik asal tanpa bias, sedangkan block selection umumnya tidak tepat.",
+   "Pisahkan unsur bernilai besar atau kunci (key items) di atas materialitas pelaksanaan untuk diuji 100%, lalu sampling untuk sisa populasi.",
+   "Untuk uji pengendalian, tentukan tingkat deviasi yang dapat ditoleransi dan tingkat deviasi yang diharapkan; ukuran sampel mengikuti metodologi KAP berdasarkan frekuensi pengendalian.",
+   "Proyeksikan salah saji: misalnya dengan ratio method (salah saji sampel dibagi nilai sampel dikali nilai populasi) dan bandingkan dengan salah saji yang dapat ditoleransi, lalu masukkan ke SAD sesuai SA 450.",
+   "Simpan daftar sampel terpilih dan hasil per unsur agar dapat direplikasi."
+  ],
+  "temuan": [
+   "Populasi tidak diuji kelengkapannya sebelum sampling.",
+   "Ukuran sampel tidak didukung perhitungan atau dasar yang terdokumentasi.",
+   "Salah saji sampel tidak diproyeksikan ke populasi atau dianggap anomali tanpa dasar kuat.",
+   "Seleksi sampel bias, misalnya hanya memilih transaksi dari bulan tertentu."
+  ],
+  "baru2025": "",
+  "psak": [],
+  "faq": [
+   [
+    "Apa beda sampling statistik dan nonstatistik?",
+    "Sampling statistik memakai seleksi acak dan teori probabilitas untuk mengevaluasi hasil dan mengukur risiko sampling. Nonstatistik tidak memenuhi kedua karakteristik itu tetapi tetap harus dirancang dengan baik."
+   ],
+   [
+    "Apakah memilih semua transaksi di atas nilai tertentu termasuk sampling?",
+    "Tidak. Seleksi unsur tertentu (specific item selection) bukan sampling sehingga hasilnya tidak diproyeksikan ke sisa populasi."
+   ],
+   [
+    "Apa itu risiko sampling?",
+    "Risiko bahwa kesimpulan dari sampel berbeda dengan kesimpulan jika seluruh populasi diuji."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 540",
+  "slug": "sa-540",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Audit atas Estimasi Akuntansi dan Pengungkapan Terkait (judul perlu dicek)",
+  "judul_en": "ISA 540 (Revised) Auditing Accounting Estimates and Related Disclosures",
+  "ringkas": "Mengatur tanggung jawab auditor atas estimasi akuntansi dan pengungkapannya, seperti ECL, nilai wajar, imbalan kerja, provisi, dan penurunan nilai, dengan pendekatan berbasis risiko yang mempertimbangkan ketidakpastian estimasi, kompleksitas, dan subjektivitas.",
+  "tujuan": "Auditor memperoleh bukti yang cukup dan tepat mengenai apakah estimasi akuntansi dan pengungkapan terkait wajar dalam konteks kerangka pelaporan keuangan yang berlaku.",
+  "poin": [
+   "Auditor memahami persyaratan kerangka pelaporan, cara manajemen mengidentifikasi kebutuhan estimasi, metode, asumsi, data, penggunaan pakar, serta pengendalian atas proses estimasi.",
+   "Auditor mereviu hasil (outcome) estimasi periode lalu atau penilaian ulangnya untuk membantu mengidentifikasi risiko periode berjalan.",
+   "Risiko inheren atas estimasi dinilai dengan memperhatikan ketidakpastian estimasi, kompleksitas, subjektivitas, dan faktor risiko inheren lain.",
+   "Respons dapat berupa satu atau kombinasi: bukti dari peristiwa hingga tanggal laporan auditor, menguji cara manajemen membuat estimasi, atau mengembangkan estimasi titik atau rentang auditor.",
+   "Saat menguji cara manajemen, auditor mengevaluasi kesesuaian metode, kewajaran asumsi signifikan, serta relevansi, keandalan, dan integritas data.",
+   "Auditor mengevaluasi bagaimana manajemen mempertimbangkan alternatif estimasi dan ketidakpastian, serta kewajaran pengungkapannya.",
+   "Auditor mengevaluasi indikator kemungkinan bias manajemen, baik secara individual maupun agregat.",
+   "Auditor menyusun kesimpulan stand-back atas seluruh bukti, baik yang menguatkan maupun yang bertentangan."
+  ],
+  "praktik": [
+   "ECL (PSAK 109): uji model staging dan definisi peningkatan risiko kredit signifikan, rekonsiliasi data aging dan historis gagal bayar, evaluasi informasi forward-looking (skenario makro dan bobotnya), serta reviu overlay manajemen.",
+   "Nilai wajar (PSAK 113): identifikasi hierarki level 1, 2, 3; untuk level 3 evaluasi input tidak terobservasi, lakukan sensitivity analysis, dan pertimbangkan pakar auditor bila diperlukan.",
+   "Imbalan kerja (PSAK 219) dan penilaian KJPP: evaluasi kompetensi dan objektivitas pakar manajemen, uji data sensus karyawan, dan bandingkan asumsi tingkat diskonto dan kenaikan gaji dengan data pasar.",
+   "Lakukan retrospective review: bandingkan estimasi tahun lalu dengan realisasi tahun ini untuk mendeteksi bias dan kualitas proses estimasi.",
+   "Bila mengembangkan rentang auditor, dokumentasikan bahwa rentang hanya mencakup jumlah yang didukung bukti dan wajar, lalu bandingkan dengan estimasi titik manajemen; selisih di luar rentang dicatat sebagai salah saji.",
+   "Evaluasi pengungkapan ketidakpastian estimasi sesuai PSAK 201 dan standar terkait."
+  ],
+  "temuan": [
+   "Asumsi signifikan diterima tanpa pengujian kritis atau tanpa pertimbangan bukti yang bertentangan.",
+   "Data yang digunakan dalam model estimasi tidak diuji kelengkapan dan akurasinya.",
+   "Pekerjaan pakar manajemen atau pakar auditor tidak dievaluasi secara memadai.",
+   "Evaluasi indikator bias manajemen tidak terdokumentasi.",
+   "Pengungkapan ketidakpastian estimasi tidak dievaluasi."
+  ],
+  "baru2025": "Basis Handbook 2023-2024 berarti SA 540 mengikuti ISA 540 (Revised) beserta conforming amendments dari ISA 315 (Revisi 2019), termasuk spektrum risiko inheren dan faktor risiko inheren khusus estimasi (ketidakpastian, kompleksitas, subjektivitas).",
+  "psak": [
+   109,
+   113,
+   116,
+   219,
+   236,
+   237,
+   212,
+   117
+  ],
+  "faq": [
+   [
+    "Apa tiga pendekatan respons utama atas estimasi?",
+    "Memperoleh bukti dari peristiwa hingga tanggal laporan auditor, menguji cara manajemen membuat estimasi, atau mengembangkan estimasi titik atau rentang auditor. Auditor dapat mengombinasikannya."
+   ],
+   [
+    "Apakah selisih estimasi auditor dengan manajemen otomatis salah saji?",
+    "Jika estimasi manajemen berada di luar rentang auditor yang didukung bukti, selisih ke titik terdekat rentang dianggap salah saji. Jika di dalam rentang, umumnya tidak, tetapi tetap perhatikan indikasi bias."
+   ],
+   [
+    "Kapan perlu pakar auditor untuk ECL atau nilai wajar?",
+    "Ketika keahlian khusus diperlukan, misalnya model statistik kompleks atau valuasi level 3, dan tim tidak memiliki keahlian itu. Penggunaan pakar mengikuti SA 620."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 550",
+  "slug": "sa-550",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Pihak Berelasi",
+  "judul_en": "ISA 550 Related Parties",
+  "ringkas": "Mengatur tanggung jawab auditor terkait hubungan dan transaksi pihak berelasi dalam audit laporan keuangan.",
+  "tujuan": "Auditor memperoleh pemahaman yang cukup atas hubungan dan transaksi pihak berelasi untuk mengidentifikasi faktor risiko kecurangan dan menyimpulkan apakah laporan keuangan menyajikan secara wajar, serta memperoleh bukti bahwa pihak berelasi telah diidentifikasi, dicatat, dan diungkapkan dengan tepat.",
+  "poin": [
+   "Sebagai bagian penilaian risiko, auditor menanyakan manajemen mengenai identitas pihak berelasi, perubahannya, serta sifat hubungan dan transaksinya.",
+   "Auditor memahami pengendalian yang ditetapkan manajemen untuk mengidentifikasi, mencatat, mengotorisasi, dan menyetujui transaksi pihak berelasi.",
+   "Selama audit, auditor tetap waspada terhadap dokumen yang dapat menunjukkan pihak berelasi yang belum diungkapkan manajemen.",
+   "Transaksi signifikan di luar kegiatan normal bisnis dengan pihak berelasi diperlakukan sebagai risiko signifikan.",
+   "Jika ditemukan pihak berelasi yang belum diungkapkan, auditor segera mengomunikasikannya ke tim, meminta manajemen mengidentifikasi seluruh transaksinya, dan menilai ulang risiko.",
+   "Untuk transaksi signifikan di luar kegiatan normal, auditor menginspeksi kontrak, menilai rasionalitas bisnisnya, dan memastikan otorisasi yang tepat.",
+   "Jika manajemen menyatakan transaksi dilakukan dengan syarat setara transaksi wajar (arm's length), auditor memperoleh bukti yang cukup dan tepat atas pernyataan tersebut.",
+   "Auditor memperoleh representasi tertulis dan mengomunikasikan hal signifikan ke pihak tata kelola."
+  ],
+  "praktik": [
+   "Minta daftar pihak berelasi dan bandingkan dengan akta, daftar pemegang saham, data AHU, struktur grup, dan daftar direksi dan komisaris.",
+   "Reviu notulen RUPS dan rapat direksi, konfirmasi bank, kontrak besar, dan daftar piutang atau utang lain untuk menemukan pihak berelasi yang tidak diungkapkan.",
+   "Cari transaksi tidak lazim: pinjaman tanpa bunga, jual beli aset jauh dari nilai wajar, jaminan pribadi direksi, dan pihak dengan alamat yang sama.",
+   "Dokumentasikan nama pihak berelasi yang teridentifikasi dan sifat hubungannya di kertas kerja, lalu bagikan ke seluruh tim.",
+   "Uji kelengkapan pengungkapan sesuai PSAK 224, termasuk kompensasi personel manajemen kunci."
+  ],
+  "temuan": [
+   "Daftar pihak berelasi hanya diperoleh dari manajemen tanpa verifikasi independen.",
+   "Rasionalitas bisnis transaksi signifikan di luar kegiatan normal tidak dievaluasi.",
+   "Pernyataan arm's length dalam pengungkapan tidak didukung bukti.",
+   "Informasi pihak berelasi tidak dibagikan ke anggota tim lain."
+  ],
+  "baru2025": "",
+  "psak": [
+   224,
+   110
+  ],
+  "faq": [
+   [
+    "Mengapa pihak berelasi berisiko tinggi?",
+    "Karena transaksi tidak selalu dilakukan dengan syarat pasar dan dapat digunakan untuk kecurangan pelaporan atau penyalahgunaan aset, dan manajemen bisa saja tidak mengungkapkannya."
+   ],
+   [
+    "Apakah auditor wajib membuktikan semua transaksi arm's length?",
+    "Tidak. Kewajiban bukti timbul jika manajemen membuat pernyataan arm's length dalam laporan keuangan."
+   ],
+   [
+    "Bagaimana jika menemukan pihak berelasi yang tidak diungkapkan?",
+    "Komunikasikan ke tim, minta manajemen mengidentifikasi seluruh transaksinya, lakukan prosedur substantif, nilai ulang risiko kecurangan, dan pertimbangkan dampak pada representasi manajemen."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 560",
+  "slug": "sa-560",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Peristiwa Kemudian",
+  "judul_en": "ISA 560 Subsequent Events",
+  "ringkas": "Mengatur tanggung jawab auditor atas peristiwa yang terjadi antara tanggal laporan keuangan dan tanggal laporan auditor, serta fakta yang diketahui setelah tanggal laporan auditor.",
+  "tujuan": "Auditor memperoleh bukti bahwa peristiwa kemudian yang memerlukan penyesuaian atau pengungkapan telah tercermin dengan tepat, dan merespons fakta yang diketahui setelah tanggal laporan auditor yang dapat mengubah laporan tersebut.",
+  "poin": [
+   "Auditor melaksanakan prosedur untuk mengidentifikasi peristiwa kemudian yang mencakup periode dari tanggal laporan keuangan hingga mendekati tanggal laporan auditor.",
+   "Prosedur meliputi pemahaman prosedur manajemen, tanya jawab dengan manajemen dan tata kelola, membaca notulen rapat, dan membaca laporan keuangan interim terbaru.",
+   "Jika ditemukan peristiwa yang memerlukan penyesuaian atau pengungkapan, auditor menentukan apakah hal itu telah tercermin dengan tepat.",
+   "Auditor meminta representasi tertulis bahwa semua peristiwa kemudian telah disesuaikan atau diungkapkan.",
+   "Setelah tanggal laporan auditor, auditor tidak wajib melakukan prosedur, tetapi jika mengetahui fakta yang dapat mengubah laporan, auditor berdiskusi dengan manajemen dan menentukan tindakan.",
+   "Jika laporan keuangan diubah, auditor memperluas prosedur hingga tanggal laporan auditor baru atau menggunakan dual dating untuk perubahan tersebut.",
+   "Jika manajemen tidak melakukan perubahan yang diperlukan setelah laporan diterbitkan, auditor mengambil tindakan untuk mencegah pihak lain mengandalkan laporan auditornya."
+  ],
+  "praktik": [
+   "Susun program subsequent events review yang ditandatangani dekat tanggal laporan auditor, bukan berminggu-minggu sebelumnya.",
+   "Reviu penerimaan kas dan pembayaran setelah tanggal neraca, notulen rapat, laporan manajemen bulanan, surat konsultan hukum, dan perjanjian baru (pinjaman, akuisisi).",
+   "Klasifikasikan peristiwa: yang memerlukan penyesuaian (bukti kondisi pada tanggal neraca, misalnya pelanggan pailit) dan yang tidak memerlukan penyesuaian tetapi diungkapkan (misalnya kebakaran pabrik setelah tanggal neraca).",
+   "Pastikan tanggal surat representasi manajemen sama atau sedekat mungkin dengan tanggal laporan auditor.",
+   "Dokumentasikan pertimbangan bila terjadi reissue atau dual dating."
+  ],
+  "temuan": [
+   "Prosedur peristiwa kemudian berhenti jauh sebelum tanggal laporan auditor.",
+   "Tidak ada bukti pembacaan notulen atau laporan interim setelah tanggal neraca.",
+   "Peristiwa yang memerlukan penyesuaian hanya diungkapkan, tanpa penyesuaian angka.",
+   "Tanggal representasi tertulis tidak selaras dengan tanggal laporan auditor."
+  ],
+  "baru2025": "",
+  "psak": [
+   210
+  ],
+  "faq": [
+   [
+    "Apa beda peristiwa penyesuai dan nonpenyesuai?",
+    "Peristiwa penyesuai memberikan bukti atas kondisi yang sudah ada pada tanggal neraca, sehingga angka disesuaikan. Nonpenyesuai menunjukkan kondisi yang timbul setelah tanggal neraca, sehingga hanya diungkapkan jika material (PSAK 210)."
+   ],
+   [
+    "Sampai kapan auditor wajib mencari peristiwa kemudian?",
+    "Hingga tanggal laporan auditor. Setelahnya auditor tidak wajib melakukan prosedur aktif, tetapi harus merespons fakta yang diketahuinya."
+   ],
+   [
+    "Apa itu dual dating?",
+    "Pencantuman dua tanggal pada laporan auditor: tanggal awal untuk keseluruhan laporan dan tanggal kemudian khusus untuk perubahan tertentu."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 570",
+  "slug": "sa-570",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Kelangsungan Usaha",
+  "judul_en": "ISA 570 (Revised) Going Concern",
+  "ringkas": "Mengatur tanggung jawab auditor terkait penggunaan basis akuntansi kelangsungan usaha oleh manajemen dan dampaknya terhadap laporan auditor, termasuk ketika ada ketidakpastian material.",
+  "tujuan": "Auditor memperoleh bukti yang cukup dan tepat atas ketepatan penggunaan basis kelangsungan usaha, menyimpulkan apakah terdapat ketidakpastian material terkait kemampuan entitas mempertahankan kelangsungan usaha, dan melaporkannya sesuai SA.",
+  "poin": [
+   "Dalam penilaian risiko, auditor mempertimbangkan apakah ada peristiwa atau kondisi yang dapat menimbulkan keraguan signifikan atas kelangsungan usaha.",
+   "Auditor mengevaluasi penilaian manajemen atas kelangsungan usaha, yang setidaknya mencakup dua belas bulan dari tanggal laporan keuangan atau periode yang disyaratkan kerangka pelaporan.",
+   "Jika penilaian manajemen mencakup kurang dari dua belas bulan, auditor meminta manajemen memperpanjangnya.",
+   "Auditor menanyakan kepada manajemen tentang peristiwa atau kondisi di luar periode penilaian yang dapat menimbulkan keraguan signifikan.",
+   "Jika teridentifikasi peristiwa atau kondisi tersebut, auditor melakukan prosedur tambahan, termasuk mengevaluasi rencana manajemen dan kelayakannya, serta menguji proyeksi arus kas.",
+   "Jika basis kelangsungan usaha tepat tetapi ada ketidakpastian material, auditor menilai kecukupan pengungkapan dan mencantumkan bagian khusus mengenai ketidakpastian material terkait kelangsungan usaha di laporan auditor.",
+   "Jika pengungkapan tidak memadai, opini dimodifikasi; jika basis kelangsungan usaha tidak tepat, auditor menyatakan opini tidak wajar.",
+   "Auditor berkomunikasi dengan tata kelola mengenai peristiwa atau kondisi yang teridentifikasi."
+  ],
+  "praktik": [
+   "Indikator yang perlu dicatat: rugi berulang, arus kas operasi negatif, modal kerja negatif, pelanggaran covenant, pinjaman jatuh tempo tanpa refinancing, kehilangan pelanggan atau izin utama, litigasi besar.",
+   "Uji proyeksi arus kas 12 bulan: cocokkan asumsi dengan kinerja historis, kontrak, dan dukungan pendanaan; lakukan sensitivity analysis atas asumsi kunci seperti penjualan dan pencairan pinjaman.",
+   "Peroleh bukti rencana mitigasi: surat dukungan pemegang saham beserta bukti kemampuan finansialnya, term sheet atau perjanjian restrukturisasi bank, dan rencana penjualan aset.",
+   "Baca perjanjian pinjaman untuk covenant dan klausul cross-default; konfirmasi status waiver kepada bank.",
+   "Dokumentasikan kesimpulan apakah ada ketidakpastian material, kecukupan pengungkapan, dan dampaknya pada laporan auditor; mintakan representasi tertulis mengenai rencana manajemen."
+  ],
+  "temuan": [
+   "Penilaian kelangsungan usaha hanya berupa tanya jawab tanpa pengujian proyeksi arus kas.",
+   "Asumsi proyeksi yang optimistis tidak ditantang secara skeptis.",
+   "Surat dukungan pemegang saham diterima tanpa menilai kemampuan finansial pemberi dukungan.",
+   "Pengungkapan kelangsungan usaha tidak memadai padahal ada kondisi close call."
+  ],
+  "baru2025": "Edisi 2025 mencakup amandemen narrow-scope atas SA 700 dan SA 260 terkait pelaporan dan komunikasi dengan tata kelola. Revisi ISA 570 (Revised 2024) dari IAASB terbit setelah basis Handbook 2023-2024, sehingga perlu dicek apakah sudah diadopsi IAPI.",
+  "psak": [
+   201,
+   210,
+   109
+  ],
+  "faq": [
+   [
+    "Berapa lama periode penilaian kelangsungan usaha?",
+    "Minimal dua belas bulan dari tanggal laporan keuangan, kecuali kerangka pelaporan mensyaratkan periode lebih panjang."
+   ],
+   [
+    "Apakah bagian ketidakpastian material sama dengan opini modifikasian?",
+    "Tidak. Bila pengungkapan memadai, opini tetap wanpengecualian dengan tambahan bagian ketidakpastian material terkait kelangsungan usaha."
+   ],
+   [
+    "Apakah rugi bersih otomatis berarti ada ketidakpastian material?",
+    "Tidak. Rugi adalah indikator yang perlu dievaluasi bersama rencana manajemen dan bukti lain sebelum menyimpulkan."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 580",
+  "slug": "sa-580",
+  "seri": "SA 500-599 Bukti Audit",
+  "judul": "Representasi Tertulis",
+  "judul_en": "ISA 580 Written Representations",
+  "ringkas": "Mengatur tanggung jawab auditor untuk memperoleh representasi tertulis dari manajemen dan, bila tepat, pihak tata kelola dalam audit laporan keuangan.",
+  "tujuan": "Auditor memperoleh representasi tertulis bahwa manajemen telah memenuhi tanggung jawabnya atas penyusunan laporan keuangan dan kelengkapan informasi, mendukung bukti lain bila diperlukan, serta merespons dengan tepat jika representasi tidak diberikan atau tidak andal.",
+  "poin": [
+   "Representasi diminta dari manajemen yang memiliki tanggung jawab dan pengetahuan memadai atas hal terkait.",
+   "Manajemen menyatakan telah memenuhi tanggung jawab atas penyusunan laporan keuangan sesuai kerangka pelaporan sebagaimana disepakati dalam syarat perikatan.",
+   "Manajemen menyatakan telah memberikan seluruh informasi dan akses yang relevan, serta semua transaksi telah dicatat dan tercermin dalam laporan keuangan.",
+   "Auditor dapat meminta representasi tambahan untuk mendukung bukti lain, sesuai SA lain atau pertimbangannya.",
+   "Tanggal representasi sedekat mungkin dengan, tetapi tidak setelah, tanggal laporan auditor, dan mencakup seluruh periode yang dilaporkan.",
+   "Representasi berbentuk surat yang ditujukan kepada auditor.",
+   "Jika ada keraguan atas integritas manajemen atau representasi tidak konsisten dengan bukti lain, auditor menilai dampaknya terhadap keandalan bukti secara umum.",
+   "Jika manajemen tidak memberikan representasi wajib atau representasinya tidak andal, auditor menyatakan opini tidak menyatakan pendapat (disclaimer)."
+  ],
+  "praktik": [
+   "Gunakan template surat representasi KAP dan sesuaikan dengan isu spesifik klien (estimasi signifikan, pihak berelasi, litigasi, kelangsungan usaha, peristiwa kemudian).",
+   "Lampirkan daftar salah saji tidak terkoreksi beserta pernyataan manajemen bahwa dampaknya tidak material.",
+   "Pastikan penandatangan adalah pihak yang tepat, misalnya direktur utama dan direktur keuangan.",
+   "Siapkan draf lebih awal agar manajemen sempat mereviu, dan tandatangani pada tanggal yang sama dengan laporan auditor.",
+   "Ingat bahwa representasi tidak menggantikan bukti audit lain yang seharusnya diperoleh."
+  ],
+  "temuan": [
+   "Surat representasi bertanggal jauh sebelum atau setelah tanggal laporan auditor.",
+   "Representasi generik tanpa hal spesifik yang diwajibkan SA lain atau relevan untuk klien.",
+   "Representasi dipakai sebagai pengganti bukti audit yang memadai.",
+   "Daftar salah saji tidak terkoreksi tidak dilampirkan."
+  ],
+  "baru2025": "",
+  "psak": [],
+  "faq": [
+   [
+    "Apakah representasi tertulis merupakan bukti audit yang cukup?",
+    "Tidak. Representasi adalah bukti yang diperlukan, tetapi tidak cukup sendirian untuk hal yang dinyatakannya."
+   ],
+   [
+    "Siapa yang menandatangani surat representasi?",
+    "Manajemen yang bertanggung jawab atas laporan keuangan dan memiliki pengetahuan atas hal terkait, biasanya direktur utama dan direktur keuangan."
+   ],
+   [
+    "Apa akibatnya jika manajemen menolak menandatangani?",
+    "Untuk representasi wajib tentang tanggung jawab manajemen, auditor menyatakan tidak menyatakan pendapat, dan menilai ulang integritas manajemen."
+   ]
+  ]
+ }
+]

@@ -1,0 +1,495 @@
+[
+ {
+  "kode": "SA 200",
+  "slug": "sa-200",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Tujuan Keseluruhan Auditor Independen dan Pelaksanaan Audit Berdasarkan Standar Audit",
+  "judul_en": "ISA 200 Overall Objectives of the Independent Auditor and the Conduct of an Audit in Accordance with International Standards on Auditing",
+  "ringkas": "Standar payung yang menjelaskan tujuan audit atas laporan keuangan, konsep keyakinan memadai, dan cara auditor membaca serta mematuhi seluruh SA lainnya.",
+  "tujuan": "Auditor berusaha memperoleh keyakinan memadai bahwa laporan keuangan secara keseluruhan bebas dari kesalahan penyajian material, baik karena kecurangan maupun kesalahan, sehingga dapat memberikan opini, lalu melaporkan dan berkomunikasi sesuai temuan audit.",
+  "poin": [
+   "Auditor wajib mematuhi ketentuan etika yang relevan, termasuk independensi, untuk setiap perikatan audit laporan keuangan.",
+   "Audit direncanakan dan dilaksanakan dengan skeptisisme profesional, yaitu sikap selalu mempertanyakan dan waspada terhadap indikasi kesalahan penyajian.",
+   "Pertimbangan profesional digunakan sepanjang audit, misalnya dalam menetapkan materialitas, menilai risiko, dan mengevaluasi bukti.",
+   "Auditor harus memperoleh bukti audit yang cukup dan tepat agar risiko audit turun ke tingkat rendah yang dapat diterima.",
+   "Auditor wajib memahami seluruh isi setiap SA yang relevan, termasuk materi penerapan, agar tujuan masing-masing SA tercapai.",
+   "Setiap ketentuan dalam SA yang relevan harus dipatuhi, kecuali ketentuan itu memang tidak relevan dengan kondisi perikatan.",
+   "Dalam keadaan luar biasa, auditor boleh menyimpang dari suatu ketentuan, asalkan melakukan prosedur alternatif yang mencapai maksud ketentuan tersebut dan mendokumentasikannya.",
+   "Jika suatu tujuan SA tidak dapat dicapai, auditor mengevaluasi dampaknya terhadap opini atau kemungkinan menarik diri dari perikatan."
+  ],
+  "praktik": [
+   "Simpan memo strategi audit yang menjelaskan kerangka pelaporan keuangan yang berlaku (misalnya SAK Indonesia atau SAK EP) dan dasar keyakinan memadai.",
+   "Buat bagian khusus di kertas kerja (misalnya indeks A atau KK umum) untuk konfirmasi independensi seluruh anggota tim di awal perikatan.",
+   "Catat contoh nyata penerapan skeptisisme profesional, seperti pertanyaan lanjutan ke manajemen dan bukti pendukung yang dikumpulkan.",
+   "Dokumentasikan setiap keputusan pertimbangan profesional yang signifikan beserta alasannya, bukan hanya kesimpulannya.",
+   "Jika ada ketentuan SA yang dinilai tidak relevan, tuliskan alasan singkatnya agar reviewer dan inspektur memahami keputusan tim."
+  ],
+  "temuan": [
+   "Skeptisisme profesional tidak terlihat di kertas kerja, misalnya penjelasan manajemen diterima tanpa dikuatkan bukti.",
+   "Bukti audit kurang cukup untuk mendukung opini, terutama pada akun dengan risiko tinggi.",
+   "Tim tidak dapat menunjukkan pemahaman atas kerangka pelaporan keuangan yang dipakai entitas.",
+   "Konfirmasi independensi tim tidak lengkap atau ditandatangani setelah pekerjaan lapangan dimulai."
+  ],
+  "baru2025": "Tidak ada perubahan substansial pada inti SA 200. Edisi 2025 memuat amendemen penyesuaian (conforming amendments) agar istilah dan rujukan selaras dengan standar manajemen mutu baru (SMM 1, SMM 2, SA 220 revisi) serta SA 315 dan SA 600 yang direvisi.",
+  "psak": [
+   201,
+   208
+  ],
+  "faq": [
+   [
+    "Apa bedanya keyakinan memadai dan keyakinan absolut?",
+    "Keyakinan memadai adalah tingkat keyakinan tinggi tetapi tidak mutlak, karena ada keterbatasan bawaan audit seperti penggunaan sampling, pertimbangan manajemen, dan kemungkinan kolusi. Auditor tidak pernah menjamin laporan keuangan seratus persen bebas salah saji."
+   ],
+   [
+    "Apakah auditor boleh tidak mematuhi suatu ketentuan SA?",
+    "Hanya dalam keadaan luar biasa dan bila ketentuan itu relevan tetapi tidak dapat dilaksanakan. Auditor harus melakukan prosedur alternatif yang mencapai maksud ketentuan tersebut dan mendokumentasikan alasannya."
+   ],
+   [
+    "Kenapa SA 200 sering keluar di ujian CPA?",
+    "Karena SA 200 berisi konsep dasar seperti risiko audit, materialitas, skeptisisme, dan pertimbangan profesional yang menjadi fondasi semua SA lain. Soal kasus biasanya menguji apakah peserta paham hubungan konsep ini."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 210",
+  "slug": "sa-210",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Persetujuan atas Ketentuan Perikatan Audit",
+  "judul_en": "ISA 210 Agreeing the Terms of Audit Engagements",
+  "ringkas": "Mengatur prasyarat sebelum menerima perikatan audit dan kesepakatan tertulis antara auditor dan manajemen atau pihak tata kelola mengenai ketentuan perikatan.",
+  "tujuan": "Auditor hanya menerima atau melanjutkan perikatan audit jika prasyarat audit terpenuhi dan sudah ada kesepahaman bersama dengan manajemen serta pihak yang bertanggung jawab atas tata kelola mengenai ketentuan perikatan.",
+  "poin": [
+   "Auditor menilai apakah kerangka pelaporan keuangan yang dipakai manajemen dapat diterima untuk tujuan laporan keuangan tersebut.",
+   "Auditor memperoleh persetujuan manajemen bahwa mereka memahami tanggung jawabnya atas penyusunan laporan keuangan, pengendalian internal, dan penyediaan akses informasi.",
+   "Jika manajemen membatasi lingkup audit sampai auditor akan menolak memberikan opini, auditor tidak boleh menerima perikatan tersebut kecuali diwajibkan regulasi.",
+   "Ketentuan perikatan dituangkan dalam surat perikatan atau bentuk perjanjian tertulis lain yang sesuai.",
+   "Surat perikatan minimal memuat tujuan dan lingkup audit, tanggung jawab auditor dan manajemen, kerangka pelaporan, serta bentuk dan isi laporan yang diharapkan.",
+   "Untuk audit berulang, auditor menilai apakah ketentuan perikatan perlu direvisi dan perlu mengingatkan entitas atas ketentuan yang berlaku.",
+   "Permintaan perubahan ketentuan perikatan sebelum audit selesai hanya diterima jika ada alasan yang wajar.",
+   "Jika kerangka pelaporan ditetapkan oleh regulasi tetapi dinilai tidak dapat diterima, auditor mempertimbangkan dampaknya terhadap laporan dan penerimaan perikatan."
+  ],
+  "praktik": [
+   "Arsipkan surat perikatan yang sudah ditandatangani kedua pihak di bagian kertas kerja administrasi perikatan (sering diberi indeks A atau 1).",
+   "Pastikan surat perikatan ditandatangani sebelum pekerjaan lapangan dimulai, bukan menyusul di akhir.",
+   "Lampirkan checklist penerimaan atau keberlanjutan klien yang menunjukkan evaluasi kerangka pelaporan dan integritas manajemen.",
+   "Untuk klien berulang, dokumentasikan review tahunan apakah surat perikatan masih relevan, terutama jika ada perubahan pemilik, manajemen, atau regulasi.",
+   "Sesuaikan isi surat perikatan dengan ketentuan regulator terkait (misalnya OJK atau Kementerian Keuangan) bila klien adalah entitas yang diatur."
+  ],
+  "temuan": [
+   "Surat perikatan ditandatangani setelah tanggal laporan atau tidak ditemukan dalam berkas.",
+   "Isi surat perikatan tidak memuat tanggung jawab manajemen secara lengkap atau tidak menyebut kerangka pelaporan yang dipakai.",
+   "Tidak ada bukti evaluasi apakah kerangka pelaporan keuangan dapat diterima.",
+   "Perubahan lingkup perikatan di tengah jalan tidak didokumentasikan alasannya."
+  ],
+  "baru2025": "Edisi 2025 memuat penyesuaian rujukan terkait standar manajemen mutu baru, misalnya keterkaitan penerimaan dan keberlanjutan perikatan dengan sistem manajemen mutu KAP berdasarkan SMM 1.",
+  "psak": [
+   201
+  ],
+  "faq": [
+   [
+    "Apakah surat perikatan wajib dibuat ulang setiap tahun?",
+    "Tidak selalu. Untuk audit berulang, auditor menilai apakah ketentuan perlu diubah. Namun banyak KAP tetap membuat surat baru tiap tahun untuk menghindari salah paham soal periode, fee, dan lingkup."
+   ],
+   [
+    "Apa yang dimaksud prasyarat audit?",
+    "Dua hal utama: kerangka pelaporan keuangan yang dapat diterima dan persetujuan manajemen atas tanggung jawabnya. Tanpa keduanya, auditor seharusnya tidak menerima perikatan."
+   ],
+   [
+    "Bagaimana jika klien minta perikatan audit diubah menjadi reviu?",
+    "Auditor menilai apakah ada alasan wajar, misalnya perubahan kebutuhan pengguna. Jika alasannya untuk menghindari opini yang dimodifikasi, permintaan itu umumnya tidak wajar dan perlu dipertimbangkan dampaknya."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 220",
+  "slug": "sa-220",
+  "seri": "Manajemen Mutu",
+  "judul": "Manajemen Mutu untuk Audit atas Laporan Keuangan (judul perlu dicek)",
+  "judul_en": "ISA 220 (Revised) Quality Management for an Audit of Financial Statements",
+  "ringkas": "Mengatur tanggung jawab auditor, khususnya rekan perikatan, dalam mengelola mutu pada tingkat perikatan audit dengan mengandalkan sistem manajemen mutu KAP.",
+  "tujuan": "Auditor mengelola mutu pada tingkat perikatan untuk memperoleh keyakinan memadai bahwa mutu tercapai, yaitu auditor memenuhi tanggung jawab profesionalnya dan menerbitkan laporan yang tepat sesuai kondisi.",
+  "poin": [
+   "Rekan perikatan memikul tanggung jawab menyeluruh atas pengelolaan dan pencapaian mutu perikatan, serta harus cukup terlibat sepanjang perikatan.",
+   "Rekan perikatan memastikan anggota tim memahami dan mematuhi ketentuan etika yang relevan, termasuk independensi.",
+   "Penerimaan dan keberlanjutan hubungan klien serta perikatan harus sesuai kebijakan KAP dan informasi yang diperoleh dipertimbangkan dalam perencanaan.",
+   "Rekan perikatan memastikan tim memiliki kompetensi, kapabilitas, waktu, dan sumber daya (termasuk teknologi) yang cukup.",
+   "Arahan, supervisi, dan review direncanakan dan dilaksanakan sesuai sifat dan kondisi perikatan, termasuk review atas dokumentasi area yang signifikan.",
+   "Konsultasi dilakukan untuk hal yang sulit atau kontroversial, dan kesimpulannya disepakati serta dilaksanakan.",
+   "Untuk perikatan yang wajib reviu mutu perikatan, laporan tidak boleh diberi tanggal sebelum reviu mutu perikatan selesai.",
+   "Sebelum menandatangani laporan, rekan perikatan menyimpulkan bahwa keterlibatannya cukup dan pertimbangan signifikan sudah tepat."
+  ],
+  "praktik": [
+   "Dokumentasikan keterlibatan rekan perikatan secara nyata, misalnya catatan rapat perencanaan, tanda tangan review pada area signifikan, dan tanggal reviewnya.",
+   "Simpan konfirmasi independensi dan kompetensi anggota tim di awal perikatan, termasuk pakar atau auditor komponen jika ada.",
+   "Buat log konsultasi berisi isu, pihak yang dikonsultasikan, kesimpulan, dan cara penerapannya di kertas kerja.",
+   "Pastikan urutan tanggal masuk akal: review rekan perikatan dan penyelesaian reviu mutu perikatan terjadi sebelum tanggal laporan auditor.",
+   "Catat perbedaan pendapat dalam tim atau dengan reviewer mutu beserta cara penyelesaiannya."
+  ],
+  "temuan": [
+   "Bukti keterlibatan rekan perikatan minim atau review baru dilakukan setelah tanggal laporan.",
+   "Supervisi dan review atas pekerjaan staf junior di area risiko signifikan tidak memadai.",
+   "Reviu mutu perikatan selesai setelah laporan auditor diberi tanggal.",
+   "Konsultasi atas isu sulit tidak didokumentasikan atau kesimpulannya tidak diterapkan."
+  ],
+  "baru2025": "SA 220 revisi menggantikan pendekatan pengendalian mutu lama dengan pendekatan manajemen mutu berbasis risiko yang terhubung dengan SMM 1 dan SMM 2. Penekanan baru ada pada keterlibatan rekan perikatan, sumber daya termasuk teknologi, dan skeptisisme profesional. Edisi 2025 juga memuat penyesuaian dari SA 600 revisi terkait audit grup.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa beda SA 220 dan SMM 1?",
+    "SMM 1 mengatur sistem manajemen mutu di tingkat KAP, sedangkan SA 220 mengatur pengelolaan mutu di tingkat satu perikatan audit. Rekan perikatan boleh mengandalkan sistem KAP kecuali ada indikasi sistem tersebut tidak efektif."
+   ],
+   [
+    "Boleh tidak rekan perikatan mendelegasikan tugas ke manajer?",
+    "Boleh mendelegasikan prosedur atau tugas, tetapi tanggung jawab menyeluruh atas mutu tetap pada rekan perikatan. Karena itu ia harus memantau dan mereview pekerjaan yang didelegasikan."
+   ],
+   [
+    "Apa bukti keterlibatan rekan perikatan yang dicari inspektur?",
+    "Biasanya catatan diskusi perencanaan, review atas risiko signifikan dan pertimbangan penting, keterlibatan dalam konsultasi, serta tanggal review yang mendahului tanggal laporan."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 230",
+  "slug": "sa-230",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Dokumentasi Audit",
+  "judul_en": "ISA 230 Audit Documentation",
+  "ringkas": "Mengatur kewajiban auditor menyusun dokumentasi audit (kertas kerja) yang memadai sebagai dasar laporan dan bukti bahwa audit dilaksanakan sesuai SA.",
+  "tujuan": "Auditor menyusun dokumentasi yang memberikan catatan cukup dan tepat sebagai basis laporan auditor, serta bukti bahwa audit direncanakan dan dilaksanakan sesuai SA dan ketentuan hukum yang berlaku.",
+  "poin": [
+   "Dokumentasi disusun tepat waktu, bukan dirapikan belakangan setelah laporan terbit.",
+   "Dokumentasi harus cukup sehingga auditor berpengalaman yang tidak terlibat dapat memahami sifat, saat, dan luas prosedur, hasilnya, serta kesimpulan atas hal signifikan.",
+   "Auditor mencatat karakteristik yang mengidentifikasi item yang diuji, siapa yang melaksanakan dan kapan, serta siapa yang mereview dan kapan.",
+   "Diskusi hal signifikan dengan manajemen, pihak tata kelola, dan pihak lain didokumentasikan, termasuk kapan dan dengan siapa.",
+   "Jika ditemukan informasi yang bertentangan dengan kesimpulan akhir atas hal signifikan, auditor mendokumentasikan cara mengatasinya.",
+   "Penyimpangan dari ketentuan SA yang relevan didokumentasikan beserta prosedur alternatif yang dilakukan.",
+   "Berkas audit final dirakit tepat waktu setelah tanggal laporan, dan setelah itu dokumentasi tidak boleh dihapus atau dibuang sebelum masa retensi berakhir.",
+   "Perubahan atau tambahan dokumentasi setelah perakitan berkas harus mencantumkan alasan, siapa yang mengubah, dan kapan."
+  ],
+  "praktik": [
+   "Gunakan struktur indeks yang konsisten, misalnya A untuk administrasi, B untuk perencanaan dan risk assessment, lalu indeks per akun dan lead schedule.",
+   "Setiap kertas kerja wajib memuat tujuan, sumber data, prosedur, hasil, kesimpulan, paraf penyusun dan reviewer beserta tanggal.",
+   "Tetapkan batas waktu internal perakitan berkas final setelah tanggal laporan dan kunci berkas elektronik setelah itu; ikuti ketentuan regulasi dan kebijakan KAP soal masa retensi.",
+   "Tulis memo untuk hal signifikan dan pertimbangan profesional, bukan hanya tick mark angka.",
+   "Simpan bukti komunikasi email penting dengan klien di berkas, beri referensi silang ke kertas kerja terkait."
+  ],
+  "temuan": [
+   "Kertas kerja hanya berisi angka dan tick mark tanpa penjelasan prosedur dan kesimpulan.",
+   "Tidak ada bukti siapa yang melakukan review dan kapan.",
+   "Dokumentasi ditambahkan atau diubah setelah perakitan berkas tanpa catatan perubahan.",
+   "Pertimbangan signifikan, misalnya atas estimasi akuntansi, tidak didokumentasikan alasannya.",
+   "Item yang diuji tidak dapat diidentifikasi sehingga pengujian tidak dapat direplikasi."
+  ],
+  "baru2025": "Tidak ada perubahan pokok pada ketentuan SA 230. Edisi 2025 memuat penyesuaian rujukan dari standar manajemen mutu baru, misalnya dokumentasi keterlibatan rekan perikatan dan reviu mutu perikatan.",
+  "psak": [],
+  "faq": [
+   [
+    "Berapa lama berkas audit harus disimpan?",
+    "SA 230 menyerahkan masa retensi pada kebijakan KAP dan ketentuan hukum yang berlaku. Di Indonesia, cek ketentuan terkini dari regulator akuntan publik dan kebijakan mutu KAP masing-masing."
+   ],
+   [
+    "Apakah semua draf kertas kerja harus disimpan?",
+    "Tidak. Draf yang sudah digantikan, catatan yang mencerminkan pemikiran awal yang tidak lengkap, dan duplikat dokumen umumnya tidak perlu disimpan, selama versi final sudah mencerminkan kesimpulan."
+   ],
+   [
+    "Apa ukuran dokumentasi yang cukup?",
+    "Uji sederhananya: auditor berpengalaman yang tidak ikut perikatan bisa memahami apa yang dilakukan, apa hasilnya, dan kenapa tim sampai pada kesimpulan tersebut hanya dengan membaca berkas."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 240",
+  "slug": "sa-240",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Tanggung Jawab Auditor Terkait dengan Kecurangan dalam suatu Audit atas Laporan Keuangan",
+  "judul_en": "ISA 240 The Auditor's Responsibilities Relating to Fraud in an Audit of Financial Statements",
+  "ringkas": "Mengatur tanggung jawab auditor dalam mengidentifikasi, menilai, dan merespons risiko kesalahan penyajian material akibat kecurangan, baik pelaporan keuangan curang maupun penyalahgunaan aset.",
+  "tujuan": "Auditor mengidentifikasi dan menilai risiko salah saji material karena kecurangan, memperoleh bukti cukup dan tepat atas risiko tersebut melalui respons yang sesuai, dan menanggapi secara tepat kecurangan atau dugaan kecurangan yang ditemukan.",
+  "poin": [
+   "Auditor menjaga skeptisisme profesional sepanjang audit dan menyadari kemungkinan kecurangan meski pengalaman masa lalu dengan manajemen baik.",
+   "Tim perikatan mendiskusikan bagaimana dan di mana laporan keuangan rentan terhadap kecurangan (brainstorming).",
+   "Auditor meminta keterangan dari manajemen, pihak tata kelola, dan pihak lain seperti fungsi audit internal mengenai risiko dan kejadian kecurangan.",
+   "Auditor mengevaluasi faktor risiko kecurangan, yaitu tekanan, kesempatan, dan rasionalisasi.",
+   "Pengakuan pendapatan dianggap mengandung risiko kecurangan, kecuali auditor menyimpulkan sebaliknya dan mendokumentasikan alasannya.",
+   "Risiko pengabaian pengendalian oleh manajemen selalu ada, sehingga auditor wajib menguji jurnal, mereview estimasi akuntansi atas bias, dan mengevaluasi transaksi signifikan yang tidak biasa.",
+   "Auditor memasukkan unsur ketidakterdugaan (unpredictability) dalam pemilihan sifat, saat, dan luas prosedur.",
+   "Jika menemukan atau menduga kecurangan, auditor mengomunikasikannya tepat waktu ke tingkat manajemen yang sesuai dan pihak tata kelola, serta mempertimbangkan kewajiban pelaporan ke pihak berwenang."
+  ],
+  "praktik": [
+   "Simpan notulen fraud brainstorming lengkap dengan daftar peserta, termasuk rekan perikatan, tanggal, dan risiko yang diidentifikasi.",
+   "Untuk journal entry testing, dokumentasikan kriteria pemilihan jurnal berisiko (misalnya jurnal akhir periode, akun jarang dipakai, angka bulat, input oleh pengguna tidak biasa) dan rekonsiliasi kelengkapan populasi.",
+   "Lakukan dan dokumentasikan review retrospektif atas estimasi tahun lalu untuk mendeteksi bias manajemen.",
+   "Kaitkan setiap risiko kecurangan yang dinilai dengan prosedur respons spesifik di program audit.",
+   "Catat hasil wawancara anti fraud dengan manajemen, komite audit, dan audit internal pada formulir terpisah yang mudah ditelusuri."
+  ],
+  "temuan": [
+   "Pengujian jurnal tidak memadai, misalnya populasi tidak diuji kelengkapannya atau kriteria pemilihan tidak dikaitkan dengan risiko.",
+   "Presumsi risiko kecurangan atas pengakuan pendapatan dibantah tanpa alasan yang kuat.",
+   "Diskusi kecurangan dalam tim hanya formalitas dan tidak tercermin di respons audit.",
+   "Review bias manajemen pada estimasi akuntansi tidak dilakukan atau tidak terdokumentasi."
+  ],
+  "baru2025": "Edisi 2025 memuat penyesuaian dari SA 315 revisi (misalnya istilah faktor risiko inheren) dan dari standar manajemen mutu. Catatan: IAASB telah menyetujui revisi besar ISA 240 pada 2025 dengan tanggal efektif internasional di masa depan; revisi ini belum termasuk dalam SPAP berbasis Handbook 2023-2024, jadi pantau adopsinya oleh IAPI.",
+  "psak": [
+   201,
+   208
+  ],
+  "faq": [
+   [
+    "Apakah auditor bertanggung jawab menemukan semua kecurangan?",
+    "Tidak. Auditor mencari keyakinan memadai bahwa laporan keuangan bebas salah saji material, termasuk karena kecurangan. Kecurangan yang melibatkan kolusi atau pemalsuan canggih bisa saja tidak terdeteksi meski audit sudah sesuai SA."
+   ],
+   [
+    "Kenapa journal entry testing selalu wajib?",
+    "Karena risiko pengabaian pengendalian oleh manajemen ada di setiap entitas dan tidak bisa dibantah. Pengujian jurnal adalah salah satu respons wajib atas risiko ini, terlepas dari hasil penilaian risiko lain."
+   ],
+   [
+    "Apa itu segitiga kecurangan?",
+    "Tiga kondisi yang biasa muncul saat kecurangan terjadi: tekanan atau insentif, kesempatan, dan rasionalisasi atau sikap. Auditor memakai kerangka ini untuk menilai faktor risiko kecurangan."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 250",
+  "slug": "sa-250",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Pertimbangan atas Peraturan Perundang-undangan dalam Audit atas Laporan Keuangan",
+  "judul_en": "ISA 250 (Revised) Consideration of Laws and Regulations in an Audit of Financial Statements",
+  "ringkas": "Mengatur tanggung jawab auditor untuk mempertimbangkan kepatuhan entitas terhadap peraturan perundang-undangan dalam audit laporan keuangan, termasuk respons atas ketidakpatuhan.",
+  "tujuan": "Auditor memperoleh bukti cukup dan tepat atas kepatuhan terhadap peraturan yang berdampak langsung pada angka dan pengungkapan material, melakukan prosedur tertentu untuk membantu mengidentifikasi ketidakpatuhan atas peraturan lain yang bisa berdampak material, dan merespons secara tepat ketidakpatuhan yang teridentifikasi atau diduga.",
+  "poin": [
+   "Auditor memahami kerangka hukum dan regulasi yang berlaku bagi entitas dan industrinya serta cara entitas mematuhinya.",
+   "Untuk peraturan yang berdampak langsung pada laporan keuangan (misalnya perpajakan, ketenagakerjaan untuk imbalan kerja), auditor memperoleh bukti kepatuhan yang cukup dan tepat.",
+   "Untuk peraturan lain yang mendasar bagi operasi entitas (misalnya izin usaha, lingkungan), auditor melakukan prosedur terbatas seperti inquiry dan inspeksi korespondensi dengan regulator.",
+   "Auditor tetap waspada bahwa prosedur audit lain dapat memunculkan indikasi ketidakpatuhan.",
+   "Auditor meminta representasi tertulis bahwa semua ketidakpatuhan yang diketahui sudah diungkapkan kepada auditor.",
+   "Jika ada indikasi ketidakpatuhan, auditor memahami sifat dan kondisinya, mengevaluasi dampaknya terhadap laporan keuangan, dan mendiskusikannya dengan manajemen dan pihak tata kelola.",
+   "Auditor menilai dampak ketidakpatuhan terhadap opini dan mempertimbangkan apakah ada kewajiban atau hak melaporkan kepada pihak berwenang di luar entitas.",
+   "Ketidakpatuhan yang teridentifikasi atau diduga beserta hasil diskusinya didokumentasikan."
+  ],
+  "praktik": [
+   "Susun daftar peraturan kunci yang relevan dengan klien (pajak, ketenagakerjaan, perizinan, regulasi sektor seperti OJK atau Kementerian terkait) di kertas kerja perencanaan.",
+   "Inspeksi surat dari regulator, surat ketetapan pajak, dan notulen rapat direksi dan komisaris untuk mencari indikasi ketidakpatuhan.",
+   "Kaitkan temuan ketidakpatuhan dengan evaluasi provisi dan liabilitas kontinjensi.",
+   "Gunakan konfirmasi ke konsultan hukum (legal letter) untuk perkara dan klaim, dan simpan di kertas kerja litigasi.",
+   "Dokumentasikan pertimbangan apakah perlu melapor ke otoritas, termasuk konsultasi dengan penasihat hukum KAP bila diperlukan."
+  ],
+  "temuan": [
+   "Pemahaman atas kerangka regulasi klien tidak didokumentasikan atau terlalu umum.",
+   "Prosedur atas peraturan yang tidak berdampak langsung hanya berupa satu pertanyaan tanpa inspeksi dokumen.",
+   "Indikasi ketidakpatuhan dari temuan lain, misalnya denda pajak, tidak ditindaklanjuti dampaknya terhadap laporan keuangan.",
+   "Representasi tertulis tidak mencakup ketidakpatuhan terhadap peraturan."
+  ],
+  "baru2025": "Edisi 2025 berbasis Handbook IAASB 2023-2024 yang sudah memuat ISA 250 revisi terkait respons atas ketidakpatuhan (NOCLAR) sejalan dengan Kode Etik IESBA, serta penyesuaian dari standar manajemen mutu. Tidak ada perubahan pokok lain yang menonjol.",
+  "psak": [
+   237,
+   201
+  ],
+  "faq": [
+   [
+    "Apakah auditor wajib mendeteksi semua pelanggaran hukum klien?",
+    "Tidak. Auditor bukan ahli hukum dan audit tidak dirancang untuk mendeteksi semua ketidakpatuhan. Tanggung jawabnya dibedakan antara peraturan yang berdampak langsung dan peraturan lain yang mendasar bagi operasi."
+   ],
+   [
+    "Apa itu NOCLAR?",
+    "Non compliance with laws and regulations, yaitu ketidakpatuhan terhadap peraturan perundang-undangan. Kode Etik mengatur cara akuntan profesional merespons NOCLAR, dan SA 250 menyelaraskannya untuk konteks audit."
+   ],
+   [
+    "Bagaimana hubungan ketidakpatuhan dengan PSAK 237?",
+    "Ketidakpatuhan bisa memunculkan denda, sanksi, atau tuntutan, yang perlu dievaluasi apakah harus diakui sebagai provisi atau diungkapkan sebagai liabilitas kontinjensi sesuai PSAK 237."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 260",
+  "slug": "sa-260",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Komunikasi dengan Pihak yang Bertanggung Jawab atas Tata Kelola",
+  "judul_en": "ISA 260 (Revised) Communication with Those Charged with Governance",
+  "ringkas": "Mengatur komunikasi dua arah antara auditor dan pihak tata kelola (misalnya dewan komisaris atau komite audit) mengenai hal penting dalam audit.",
+  "tujuan": "Auditor mengomunikasikan dengan jelas tanggung jawab auditor serta gambaran lingkup dan waktu audit, memperoleh informasi relevan dari pihak tata kelola, menyampaikan temuan signifikan tepat waktu, dan membangun komunikasi dua arah yang efektif.",
+  "poin": [
+   "Auditor menentukan siapa pihak yang tepat dalam struktur tata kelola entitas untuk diajak berkomunikasi, misalnya komite audit.",
+   "Auditor menyampaikan tanggung jawabnya dalam audit, termasuk bahwa audit tidak membebaskan manajemen dan pihak tata kelola dari tanggung jawab mereka.",
+   "Auditor menyampaikan gambaran umum lingkup dan waktu audit, termasuk risiko signifikan yang teridentifikasi.",
+   "Temuan signifikan dikomunikasikan, seperti pandangan atas praktik akuntansi, kesulitan signifikan selama audit, dan salah saji yang tidak dikoreksi.",
+   "Untuk entitas terdaftar, auditor menyampaikan pernyataan independensi tim dan KAP serta hubungan dan fee yang dapat memengaruhi independensi.",
+   "Komunikasi dilakukan tepat waktu dan hal signifikan disampaikan secara tertulis jika menurut pertimbangan auditor komunikasi lisan tidak memadai.",
+   "Auditor mengevaluasi apakah komunikasi dua arah sudah memadai untuk tujuan audit dan menanggapi jika tidak.",
+   "Komunikasi lisan didokumentasikan, dan salinan komunikasi tertulis disimpan di berkas."
+  ],
+  "praktik": [
+   "Siapkan dua komunikasi utama: presentasi perencanaan (audit plan) ke komite audit di awal dan laporan hasil audit (closing) sebelum laporan diterbitkan.",
+   "Simpan notulen rapat dengan komite audit, daftar hadir, dan materi presentasi di bagian kertas kerja komunikasi tata kelola.",
+   "Masukkan daftar salah saji tidak dikoreksi dan hal audit utama (KAM) yang direncanakan dalam komunikasi akhir.",
+   "Untuk entitas kepentingan publik, lampirkan pernyataan independensi tertulis dan rincian jasa non audit beserta fee.",
+   "Pastikan tanggal komunikasi akhir mendahului tanggal laporan auditor."
+  ],
+  "temuan": [
+   "Tidak ada bukti komunikasi dengan pihak tata kelola atau hanya dengan manajemen.",
+   "Komunikasi hal signifikan dilakukan setelah laporan auditor diterbitkan.",
+   "Salah saji yang tidak dikoreksi tidak disampaikan ke pihak tata kelola.",
+   "Pernyataan independensi untuk entitas terdaftar tidak lengkap."
+  ],
+  "baru2025": "Edisi 2025 memuat narrow scope amendments atas SA 260 hasil revisi Kode Etik IESBA: untuk entitas kepentingan publik (PIE), auditor menyampaikan kepada pihak tata kelola informasi terkait penerapan ketentuan independensi untuk PIE, sejalan dengan perubahan SA 700. Ada juga penyesuaian dari SA 600 revisi untuk audit grup dan dari standar manajemen mutu.",
+  "psak": [
+   201
+  ],
+  "faq": [
+   [
+    "Siapa pihak tata kelola di perusahaan Indonesia?",
+    "Pada PT umumnya dewan komisaris, dan untuk emiten serta entitas tertentu ada komite audit yang membantu komisaris. Dalam entitas kecil, pihak tata kelola bisa sama dengan pemilik yang juga manajemen."
+   ],
+   [
+    "Apakah komunikasi harus tertulis?",
+    "Hal signifikan disampaikan tertulis jika auditor menilai komunikasi lisan tidak memadai, dan pernyataan independensi untuk entitas terdaftar disampaikan tertulis. Komunikasi lisan tetap harus didokumentasikan."
+   ],
+   [
+    "Apa beda SA 260 dan SA 265?",
+    "SA 260 mengatur komunikasi umum dengan pihak tata kelola. SA 265 khusus mengatur komunikasi defisiensi pengendalian internal yang ditemukan selama audit."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 265",
+  "slug": "sa-265",
+  "seri": "SA 200-299 Prinsip Umum dan Tanggung Jawab",
+  "judul": "Pengomunikasian Defisiensi dalam Pengendalian Internal kepada Pihak yang Bertanggung Jawab atas Tata Kelola dan Manajemen",
+  "judul_en": "ISA 265 Communicating Deficiencies in Internal Control to Those Charged with Governance and Management",
+  "ringkas": "Mengatur kewajiban auditor mengomunikasikan defisiensi pengendalian internal yang teridentifikasi selama audit kepada pihak tata kelola dan manajemen.",
+  "tujuan": "Auditor mengomunikasikan secara tepat kepada pihak tata kelola dan manajemen defisiensi pengendalian internal yang ditemukan selama audit dan menurut pertimbangannya cukup penting untuk mendapat perhatian mereka.",
+  "poin": [
+   "Auditor menentukan apakah dari pekerjaan audit telah teridentifikasi satu atau lebih defisiensi pengendalian internal.",
+   "Auditor menilai apakah defisiensi tersebut, sendiri atau gabungan, merupakan defisiensi signifikan.",
+   "Defisiensi signifikan wajib dikomunikasikan tertulis kepada pihak tata kelola secara tepat waktu.",
+   "Defisiensi signifikan juga dikomunikasikan kepada manajemen pada tingkat yang tepat, kecuali tidak pantas dalam kondisi tertentu, misalnya melibatkan integritas manajemen.",
+   "Defisiensi lain yang tidak signifikan tetapi cukup penting juga dikomunikasikan kepada manajemen.",
+   "Komunikasi tertulis memuat uraian defisiensi, dampak potensialnya, dan penjelasan bahwa audit tidak dimaksudkan untuk menyatakan pendapat atas efektivitas pengendalian internal.",
+   "Defisiensi yang sudah pernah dikomunikasikan dan belum diperbaiki dapat dikomunikasikan ulang atau dirujuk ke komunikasi sebelumnya."
+  ],
+  "praktik": [
+   "Kumpulkan semua temuan pengendalian dari walkthrough dan test of controls ke dalam satu daftar (control deficiency log) dengan referensi silang ke kertas kerja.",
+   "Dokumentasikan penilaian tiap defisiensi: signifikan atau tidak, beserta alasan dan faktor yang dipertimbangkan.",
+   "Terbitkan management letter tertulis sebelum atau sekitar tanggal laporan, dan arsipkan tanggapan manajemen.",
+   "Tindak lanjuti status defisiensi tahun lalu dan catat apakah sudah diperbaiki.",
+   "Pertimbangkan dampak defisiensi terhadap penilaian risiko dan rencana pengujian substantif."
+  ],
+  "temuan": [
+   "Defisiensi yang ditemukan di kertas kerja tidak dievaluasi apakah signifikan.",
+   "Defisiensi signifikan hanya disampaikan lisan, padahal wajib tertulis.",
+   "Management letter terbit jauh setelah laporan auditor sehingga tidak tepat waktu.",
+   "Dampak defisiensi pengendalian tidak dikaitkan dengan respons risiko audit."
+  ],
+  "baru2025": "Tidak ada perubahan pokok. Edisi 2025 memuat penyesuaian dari SA 315 revisi, misalnya identifikasi defisiensi dari pemahaman komponen sistem pengendalian internal, termasuk pengendalian umum teknologi informasi.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa itu defisiensi signifikan?",
+    "Defisiensi atau gabungan defisiensi pengendalian internal yang menurut pertimbangan profesional auditor cukup penting untuk mendapat perhatian pihak tata kelola."
+   ],
+   [
+    "Apakah management letter sama dengan opini atas pengendalian internal?",
+    "Tidak. Komunikasi berdasarkan SA 265 tidak memberikan opini atas efektivitas pengendalian internal, karena audit laporan keuangan tidak dirancang untuk itu."
+   ],
+   [
+    "Bagaimana jika defisiensi melibatkan manajemen sendiri?",
+    "Auditor dapat tidak menyampaikannya langsung ke manajemen yang terlibat, dan cukup menyampaikannya kepada pihak tata kelola. Auditor juga perlu mempertimbangkan implikasi kecurangan berdasarkan SA 240."
+   ]
+  ]
+ },
+ {
+  "kode": "SMM 1",
+  "slug": "smm-1",
+  "seri": "Manajemen Mutu",
+  "judul": "Manajemen Mutu bagi Kantor Akuntan Publik yang Melaksanakan Audit atau Reviu atas Laporan Keuangan, atau Perikatan Asurans atau Jasa Terkait Lainnya (judul perlu dicek)",
+  "judul_en": "ISQM 1 Quality Management for Firms that Perform Audits or Reviews of Financial Statements, or Other Assurance or Related Services Engagements",
+  "ringkas": "Mengatur kewajiban KAP merancang, mengimplementasikan, dan mengoperasikan sistem manajemen mutu berbasis risiko untuk seluruh perikatan audit, reviu, asurans, dan jasa terkait. Menggantikan SPM 1.",
+  "tujuan": "KAP membangun sistem manajemen mutu yang memberikan keyakinan memadai bahwa KAP dan personelnya memenuhi tanggung jawab profesional sesuai standar dan regulasi, serta laporan perikatan yang diterbitkan tepat sesuai kondisi.",
+  "poin": [
+   "Sistem manajemen mutu terdiri dari delapan komponen: proses penilaian risiko KAP, tata kelola dan kepemimpinan, ketentuan etika relevan, penerimaan dan keberlanjutan, pelaksanaan perikatan, sumber daya, informasi dan komunikasi, serta proses pemantauan dan perbaikan.",
+   "KAP menetapkan sasaran mutu, mengidentifikasi dan menilai risiko mutu, lalu merancang respons atas risiko tersebut.",
+   "Pimpinan KAP memikul tanggung jawab akhir atas sistem dan menunjuk penanggung jawab operasional, termasuk untuk independensi dan pemantauan.",
+   "KAP menetapkan kebijakan perikatan mana yang wajib reviu mutu perikatan, minimal audit entitas terdaftar dan perikatan lain berdasarkan regulasi atau penilaian risiko.",
+   "Sumber daya mencakup sumber daya manusia, teknologi, dan intelektual, termasuk penggunaan penyedia jasa dari luar.",
+   "KAP melakukan pemantauan, menyelidiki akar penyebab defisiensi, dan menerapkan tindakan perbaikan.",
+   "Paling sedikit setahun sekali, pimpinan mengevaluasi apakah sistem manajemen mutu memberikan keyakinan memadai bahwa sasarannya tercapai.",
+   "KAP mendokumentasikan sistem manajemen mutunya secara memadai."
+  ],
+  "praktik": [
+   "Susun dokumen risk assessment KAP yang memetakan setiap sasaran mutu, risiko mutu, dan respons, lalu perbarui saat ada perubahan kondisi.",
+   "Simpan bukti evaluasi tahunan sistem oleh pimpinan, termasuk kesimpulan dan dasar pertimbangannya.",
+   "Buat register defisiensi dengan analisis akar penyebab (root cause analysis) dan status tindakan perbaikan.",
+   "Dokumentasikan kebijakan penerimaan klien, konfirmasi independensi tahunan, dan pelatihan PPL personel.",
+   "Untuk KAP kecil, sesuaikan skala dokumentasi, tetapi tetap tunjukkan bahwa kedelapan komponen sudah dipertimbangkan."
+  ],
+  "temuan": [
+   "Penilaian risiko mutu bersifat generik dan tidak disesuaikan dengan kondisi KAP.",
+   "Analisis akar penyebab tidak dilakukan, sehingga temuan inspeksi berulang setiap tahun.",
+   "Evaluasi tahunan sistem oleh pimpinan tidak didokumentasikan.",
+   "Pemantauan perikatan dalam proses dan perikatan selesai tidak memadai atau tidak independen."
+  ],
+  "baru2025": "SMM 1 menggantikan SPM 1 dan berlaku efektif 31 Desember 2025 menurut sumber yang dapat diverifikasi; tanggal persisnya perlu dicek ke dokumen resmi IAPI. Perubahan utama adalah pergeseran dari pendekatan pengendalian mutu berbasis kebijakan ke pendekatan manajemen mutu berbasis risiko.",
+  "psak": [],
+  "faq": [
+   [
+    "Apa beda SPM 1 dan SMM 1?",
+    "SPM 1 lebih bersifat daftar kebijakan dan prosedur wajib. SMM 1 mewajibkan KAP menetapkan sasaran mutu, menilai risikonya sendiri, dan merancang respons yang sesuai, sehingga lebih proaktif dan disesuaikan dengan kondisi KAP."
+   ],
+   [
+    "Apakah KAP kecil juga wajib menerapkan SMM 1?",
+    "Ya. SMM 1 berlaku untuk semua KAP yang melaksanakan audit, reviu, asurans, atau jasa terkait. Penerapannya dapat diskalakan sesuai ukuran dan kompleksitas KAP."
+   ],
+   [
+    "Apa hubungan SMM 1 dengan SA 220?",
+    "SMM 1 membangun sistem di tingkat KAP, sedangkan SA 220 mengatur penerapan mutu di tingkat perikatan audit. Rekan perikatan mengandalkan sistem KAP dalam menjalankan SA 220."
+   ]
+  ]
+ },
+ {
+  "kode": "SMM 2",
+  "slug": "smm-2",
+  "seri": "Manajemen Mutu",
+  "judul": "Reviu Mutu Perikatan (judul perlu dicek)",
+  "judul_en": "ISQM 2 Engagement Quality Reviews",
+  "ringkas": "Mengatur penunjukan dan kelayakan reviewer mutu perikatan serta pelaksanaan dan dokumentasi reviu mutu perikatan. Kode SMM 2 mengikuti pola SMM 1 dan perlu dicek ke dokumen resmi IAPI.",
+  "tujuan": "KAP, melalui reviewer mutu perikatan yang ditunjuk, melakukan evaluasi objektif atas pertimbangan signifikan yang dibuat tim perikatan dan kesimpulan yang dicapai.",
+  "poin": [
+   "KAP menetapkan kebijakan penunjukan reviewer mutu perikatan oleh pihak yang berwenang di KAP.",
+   "Reviewer harus punya kompetensi, kapabilitas, waktu, dan kewenangan yang cukup serta mematuhi ketentuan etika, termasuk objektivitas dan independensi.",
+   "KAP menetapkan masa jeda (cooling off) sebelum rekan perikatan dapat menjadi reviewer mutu untuk perikatan yang sama.",
+   "Reviewer membaca dan memahami informasi tentang perikatan, termasuk risiko signifikan dan pertimbangan penting.",
+   "Reviewer mendiskusikan hal signifikan dan pertimbangan signifikan dengan rekan perikatan dan anggota tim lain bila perlu.",
+   "Reviewer mengevaluasi dasar kesimpulan tim, termasuk penerapan skeptisisme profesional dan keterlibatan rekan perikatan.",
+   "Reviewer memberi tahu rekan perikatan jika ada kekhawatiran bahwa pertimbangan signifikan tidak tepat, dan reviu belum dinyatakan selesai sampai hal itu teratasi.",
+   "Pelaksanaan reviu didokumentasikan, termasuk nama reviewer, prosedur, dan tanggal selesai."
+  ],
+  "praktik": [
+   "Libatkan reviewer mutu sejak tahap perencanaan, bukan menjelang tanggal laporan.",
+   "Simpan surat penunjukan reviewer dan bukti evaluasi kelayakan serta objektivitasnya.",
+   "Gunakan checklist reviu mutu yang merujuk ke kertas kerja kunci: risk assessment, materialitas, risiko signifikan, estimasi, KAM, dan draf laporan.",
+   "Pastikan tanggal penyelesaian reviu mutu tercatat dan mendahului tanggal laporan auditor.",
+   "Dokumentasikan perbedaan pendapat antara reviewer dan tim beserta penyelesaiannya."
+  ],
+  "temuan": [
+   "Reviu mutu perikatan selesai setelah laporan auditor diberi tanggal.",
+   "Reviewer kurang objektif, misalnya baru saja menjadi rekan perikatan untuk klien yang sama.",
+   "Reviu hanya berupa tanda tangan checklist tanpa bukti evaluasi substantif atas pertimbangan signifikan.",
+   "Lingkup reviu tidak mencakup area risiko signifikan atau KAM."
+  ],
+  "baru2025": "Standar baru yang memisahkan ketentuan reviu mutu perikatan dari SA 220 lama, sejalan dengan SMM 1. Tanggal efektif di Indonesia perlu dicek ke dokumen resmi IAPI; secara internasional ISQM 2 berlaku sejak 15 Desember 2022.",
+  "psak": [],
+  "faq": [
+   [
+    "Perikatan apa yang wajib reviu mutu perikatan?",
+    "Minimal audit atas laporan keuangan entitas terdaftar, perikatan yang diwajibkan regulasi, dan perikatan lain yang ditetapkan KAP berdasarkan penilaian risiko mutu dalam SMM 1."
+   ],
+   [
+    "Apa beda reviu mutu perikatan dan review oleh manajer?",
+    "Review oleh manajer dan rekan perikatan adalah bagian dari pelaksanaan perikatan. Reviu mutu perikatan dilakukan oleh pihak yang objektif di luar tim untuk mengevaluasi pertimbangan signifikan tim."
+   ],
+   [
+    "Apakah reviewer mutu ikut bertanggung jawab atas opini?",
+    "Tidak. Tanggung jawab atas perikatan dan opini tetap pada rekan perikatan. Reviewer mengevaluasi pertimbangan signifikan dan kesimpulan tim secara objektif."
+   ]
+  ]
+ }
+]

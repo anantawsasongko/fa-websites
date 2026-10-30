@@ -1,0 +1,617 @@
+[
+ {
+  "kode": "SA 600",
+  "slug": "sa-600",
+  "seri": "SA 600-699 Menggunakan Pekerjaan Pihak Lain",
+  "judul": "Pertimbangan Khusus - Audit atas Laporan Keuangan Grup (Termasuk Pekerjaan Auditor Komponen)",
+  "judul_en": "ISA 600 (Revised), Special Considerations - Audits of Group Financial Statements (Including the Work of Component Auditors)",
+  "ringkas": "Mengatur cara auditor grup merencanakan, melaksanakan, dan menyimpulkan audit atas laporan keuangan grup, termasuk bagaimana melibatkan dan mengarahkan auditor komponen. Edisi 2025 mengadopsi ISA 600 (Revised) dengan pendekatan berbasis risiko.",
+  "tujuan": "Auditor grup bertujuan menentukan apakah dapat bertindak sebagai auditor grup, lalu merancang dan melaksanakan prosedur audit yang tepat (termasuk mengarahkan dan meninjau pekerjaan auditor komponen) agar memperoleh bukti audit yang cukup dan tepat sebagai dasar opini atas laporan keuangan grup, serta berkomunikasi secara jelas dengan auditor komponen.",
+  "poin": [
+   "Rekan perikatan grup bertanggung jawab penuh atas pengelolaan dan pencapaian mutu audit grup, termasuk arahan, supervisi, dan reviu atas pekerjaan auditor komponen.",
+   "Sebelum menerima atau melanjutkan perikatan, auditor grup menilai apakah bukti yang cukup dan tepat dapat diperoleh, termasuk akses ke informasi, manajemen, dan auditor komponen.",
+   "Penilaian risiko dilakukan pada tingkat grup: auditor memahami grup, lingkungan pengendalian, proses konsolidasi, dan kerangka pelaporan untuk mengidentifikasi risiko kesalahan penyajian material atas laporan keuangan grup.",
+   "Lingkup pekerjaan tidak lagi bertumpu pada klasifikasi komponen signifikan, tetapi ditentukan dari mana risiko berada; prosedur dapat dirancang pada tingkat grup, komponen, atau kombinasi keduanya.",
+   "Auditor grup menetapkan materialitas komponen dan materialitas pelaksanaan komponen yang lebih rendah dari materialitas grup, serta ambang batas salah saji yang jelas tidak signifikan untuk dikomunikasikan.",
+   "Keterlibatan auditor komponen didasarkan pada penilaian kompetensi, kemampuan, independensi, dan etika mereka; tingkat keterlibatan auditor grup disesuaikan dengan risiko dan penilaian tersebut.",
+   "Komunikasi dua arah wajib berjalan: instruksi dari auditor grup yang jelas, serta pelaporan balik dari auditor komponen mengenai temuan, salah saji, dan hal yang relevan bagi kesimpulan grup.",
+   "Dokumentasi auditor grup harus cukup untuk menunjukkan dasar penentuan lingkup, keterlibatan dalam pekerjaan auditor komponen, dan evaluasi atas kecukupan bukti audit secara keseluruhan."
+  ],
+  "praktik": [
+   "Mulai dari pemetaan struktur grup dan proses konsolidasi (termasuk eliminasi transaksi antarentitas) sebelum memutuskan lingkup per komponen.",
+   "Buat instruksi audit grup yang spesifik per komponen: risiko yang perlu ditangani, materialitas, tenggat, format pelaporan, dan daftar pihak berelasi.",
+   "Jadwalkan rapat pembukaan dan penutupan dengan auditor komponen, lalu reviu kertas kerja kunci mereka secara langsung atau jarak jauh sesuai risiko.",
+   "Uji rekonsiliasi saldo antarentitas dan penyesuaian konsolidasi sebagai area risiko tersendiri, bukan sekadar tugas administratif.",
+   "Dokumentasikan alasan mengapa komponen tertentu tidak diperiksa secara rinci dan prosedur apa yang menutup risiko residual di tingkat grup."
+  ],
+  "temuan": [
+   "Keterlibatan auditor grup dalam pekerjaan auditor komponen tidak memadai atau tidak terdokumentasi, misalnya reviu kertas kerja yang sangat terbatas.",
+   "Penentuan materialitas komponen tidak dijelaskan dasarnya atau terlalu dekat dengan materialitas grup.",
+   "Prosedur atas proses konsolidasi dan eliminasi antarentitas lemah sehingga salah saji konsolidasi tidak terdeteksi.",
+   "Penilaian kompetensi dan independensi auditor komponen bersifat formalitas tanpa bukti pendukung.",
+   "Lingkup audit grup tidak menjangkau komponen yang secara agregat menyimpan risiko material."
+  ],
+  "baru2025": "SA 600 versi 2025 mengacu pada ISA 600 (Revised). Pendekatan beralih ke basis risiko: lingkup ditentukan dari penilaian risiko pada tingkat grup, bukan dari kategori komponen signifikan. Definisi komponen lebih fleksibel (dapat berupa entitas, unit bisnis, fungsi, atau lokasi), ada penekanan pada materialitas pelaksanaan komponen, keterlibatan auditor grup yang lebih aktif dalam pekerjaan auditor komponen, komunikasi dua arah, dan keterkaitan dengan sistem manajemen mutu. Disetujui DSPAP 11 Juli 2025, ditetapkan DPN IAPI 16 Juli 2025, berlaku untuk audit laporan keuangan grup periode yang dimulai pada atau setelah 31 Desember 2025, dengan penerapan dini diizinkan.",
+  "psak": [
+   110,
+   111,
+   112,
+   228,
+   103,
+   224
+  ],
+  "faq": [
+   [
+    "Apakah istilah komponen signifikan masih dipakai di SA 600 edisi 2025?",
+    "Pendekatan barunya tidak lagi bergantung pada label komponen signifikan. Auditor grup menentukan di mana prosedur dilakukan berdasarkan penilaian risiko kesalahan penyajian material atas laporan keuangan grup."
+   ],
+   [
+    "Siapa yang bertanggung jawab atas opini audit grup?",
+    "Rekan perikatan grup. Pekerjaan auditor komponen dipakai sebagai bagian bukti, tetapi tanggung jawab atas opini tetap pada auditor grup, dan laporan auditor tidak merujuk ke auditor komponen kecuali diwajibkan regulasi."
+   ],
+   [
+    "Kapan SA 600 edisi 2025 berlaku?",
+    "Untuk audit atas laporan keuangan grup periode yang dimulai pada atau setelah 31 Desember 2025. Penerapan lebih awal diperbolehkan."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 610",
+  "slug": "sa-610",
+  "seri": "SA 600-699 Menggunakan Pekerjaan Pihak Lain",
+  "judul": "Penggunaan Pekerjaan Auditor Internal (judul perlu dicek)",
+  "judul_en": "ISA 610 (Revised 2013), Using the Work of Internal Auditors",
+  "ringkas": "Mengatur kapan dan bagaimana auditor eksternal dapat memanfaatkan pekerjaan fungsi audit internal entitas, serta batasan penggunaan auditor internal untuk memberi bantuan langsung.",
+  "tujuan": "Auditor eksternal menentukan apakah pekerjaan fungsi audit internal atau bantuan langsung dari auditor internal dapat digunakan, sejauh mana, dan di area apa; jika digunakan, auditor memastikan penggunaan itu memadai untuk tujuan audit.",
+  "poin": [
+   "Auditor mengevaluasi objektivitas fungsi audit internal, termasuk status organisasi dan kebijakan yang mendukungnya.",
+   "Auditor menilai kompetensi fungsi audit internal dan apakah fungsi tersebut menerapkan pendekatan yang sistematis dan tertib, termasuk pengendalian mutu.",
+   "Pekerjaan audit internal tidak boleh digunakan bila objektivitas, kompetensi, atau pendekatan sistematisnya tidak memadai.",
+   "Semakin tinggi risiko yang dinilai dan semakin banyak pertimbangan signifikan yang dibutuhkan, semakin sedikit pekerjaan audit internal yang boleh diandalkan.",
+   "Auditor eksternal wajib melakukan prosedur sendiri atas pekerjaan audit internal yang direncanakan untuk digunakan, termasuk melakukan ulang sebagian pekerjaan tersebut.",
+   "Bantuan langsung dari auditor internal hanya dapat digunakan jika tidak dilarang regulasi, dengan arahan, supervisi, dan reviu dari tim audit eksternal.",
+   "Auditor internal tidak boleh ditugaskan pada area yang memerlukan pertimbangan signifikan, risiko tinggi, atau pekerjaan yang pernah mereka kerjakan sendiri.",
+   "Seluruh pertimbangan signifikan dalam audit tetap menjadi tanggung jawab auditor eksternal dan didokumentasikan."
+  ],
+  "praktik": [
+   "Minta piagam audit internal, struktur pelaporan, dan rencana kerja tahunan untuk menilai objektivitas sejak awal.",
+   "Pilih area berisiko rendah dan rutin (misalnya uji pengendalian berulang) sebagai kandidat pemanfaatan pekerjaan audit internal.",
+   "Lakukan reperformance atas sampel pekerjaan audit internal dan simpan hasilnya di kertas kerja.",
+   "Bila memakai bantuan langsung, siapkan konfirmasi tertulis dari entitas bahwa auditor internal tidak akan diintervensi manajemen.",
+   "Diskusikan rencana penggunaan dengan pihak yang bertanggung jawab atas tata kelola saat komunikasi perencanaan."
+  ],
+  "temuan": [
+   "Evaluasi objektivitas dan kompetensi audit internal tidak didokumentasikan.",
+   "Auditor mengandalkan pekerjaan audit internal tanpa melakukan ulang atau menguji sebagian pekerjaan tersebut.",
+   "Pekerjaan audit internal dipakai pada area berisiko tinggi atau yang memerlukan pertimbangan signifikan.",
+   "Penggunaan bantuan langsung tanpa supervisi dan reviu yang setara dengan anggota tim sendiri."
+  ],
+  "baru2025": "",
+  "psak": [],
+  "faq": [
+   [
+    "Apakah auditor eksternal wajib memakai pekerjaan audit internal?",
+    "Tidak. SA 610 hanya mengatur bila auditor memilih memanfaatkannya; auditor dapat memutuskan untuk tidak menggunakannya sama sekali."
+   ],
+   [
+    "Apa beda memakai pekerjaan fungsi audit internal dan bantuan langsung?",
+    "Pada yang pertama, auditor memanfaatkan pekerjaan yang sudah dilakukan audit internal untuk kepentingan entitas. Pada bantuan langsung, auditor internal mengerjakan prosedur audit eksternal di bawah arahan tim audit eksternal."
+   ],
+   [
+    "Apakah tanggung jawab opini berkurang jika memakai pekerjaan audit internal?",
+    "Tidak. Auditor eksternal tetap bertanggung jawab penuh atas opini yang dinyatakan."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 620",
+  "slug": "sa-620",
+  "seri": "SA 600-699 Menggunakan Pekerjaan Pihak Lain",
+  "judul": "Penggunaan Pekerjaan Pakar Auditor (judul perlu dicek)",
+  "judul_en": "ISA 620, Using the Work of an Auditor's Expert",
+  "ringkas": "Mengatur penggunaan pakar di luar bidang akuntansi dan audit (misalnya aktuaria, penilai, ahli teknik) oleh auditor untuk membantu memperoleh bukti audit yang cukup dan tepat.",
+  "tujuan": "Auditor menentukan apakah perlu menggunakan pekerjaan pakar auditor, dan bila ya, menilai apakah pekerjaan pakar tersebut memadai sebagai bukti audit untuk tujuan auditor.",
+  "poin": [
+   "Auditor menentukan kebutuhan pakar saat keahlian di luar akuntansi atau audit diperlukan untuk memahami entitas atau memperoleh bukti.",
+   "Sifat, saat, dan luas prosedur atas pekerjaan pakar bergantung pada risiko, signifikansi pekerjaan, pengalaman sebelumnya dengan pakar, dan apakah pakar tunduk pada standar profesi atau pengendalian mutu.",
+   "Auditor mengevaluasi kompetensi, kapabilitas, dan objektivitas pakar, termasuk kepentingan atau hubungan yang dapat mengancam objektivitas.",
+   "Auditor memperoleh pemahaman yang cukup tentang bidang keahlian pakar untuk menetapkan lingkup kerja dan mengevaluasi hasilnya.",
+   "Kesepakatan dengan pakar (sebaiknya tertulis) mencakup lingkup, peran dan tanggung jawab, cara komunikasi, dan kerahasiaan.",
+   "Auditor mengevaluasi kecukupan temuan atau kesimpulan pakar, termasuk relevansi asumsi, metode, dan keandalan data sumber yang digunakan.",
+   "Auditor tidak merujuk pekerjaan pakar dalam laporan opini tanpa modifikasi, kecuali diwajibkan regulasi; bila dirujuk pada opini modifikasian, harus jelas tanggung jawab tidak berkurang."
+  ],
+  "praktik": [
+   "Bedakan pakar auditor dengan pakar manajemen (SA 500); keduanya punya perlakuan berbeda dalam evaluasi bukti.",
+   "Uji data yang diberikan entitas kepada pakar, karena kesimpulan pakar hanya sebaik data inputnya.",
+   "Buat surat penugasan pakar yang menyebut asumsi kunci yang harus dijelaskan dan format laporan yang diharapkan.",
+   "Diskusikan asumsi sensitif (misalnya tingkat diskonto, kenaikan gaji, harga pasar pembanding) dan bandingkan dengan data pasar atau ekspektasi auditor.",
+   "Simpan bukti evaluasi independensi pakar, termasuk pernyataan tidak ada hubungan keuangan dengan klien."
+  ],
+  "temuan": [
+   "Auditor menerima laporan pakar tanpa mengevaluasi asumsi dan metode secara kritis.",
+   "Data sumber yang dipakai pakar tidak diuji kelengkapan dan akurasinya.",
+   "Evaluasi kompetensi dan objektivitas pakar tidak terdokumentasi.",
+   "Tidak ada kesepakatan tertulis tentang lingkup kerja pakar sehingga hasil kerja tidak menjawab risiko audit yang dituju."
+  ],
+  "baru2025": "",
+  "psak": [
+   219,
+   113,
+   236,
+   117
+  ],
+  "faq": [
+   [
+    "Apakah ahli pajak atau ahli TI di dalam KAP termasuk pakar auditor?",
+    "Bisa, jika keahliannya di luar akuntansi dan audit dan pekerjaannya digunakan untuk membantu memperoleh bukti audit. Pakar internal KAP tunduk pada sistem manajemen mutu KAP."
+   ],
+   [
+    "Apakah laporan aktuaria dari klien sama dengan pekerjaan pakar auditor?",
+    "Tidak. Aktuaris yang ditunjuk entitas adalah pakar manajemen; evaluasinya mengikuti ketentuan bukti audit, bukan SA 620."
+   ],
+   [
+    "Bolehkah auditor menyebut nama pakar dalam opini wajar tanpa modifikasian?",
+    "Umumnya tidak, kecuali diwajibkan peraturan. Penyebutan dapat disalahartikan sebagai pembagian tanggung jawab."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 700",
+  "slug": "sa-700",
+  "seri": "SA 700-799 Kesimpulan dan Pelaporan",
+  "judul": "Perumusan Suatu Opini dan Pelaporan atas Laporan Keuangan",
+  "judul_en": "ISA 700 (Revised), Forming an Opinion and Reporting on Financial Statements",
+  "ringkas": "Menjadi dasar bagaimana auditor menyimpulkan bukti audit menjadi opini dan menyusun laporan auditor independen, termasuk struktur dan unsur wajib laporan.",
+  "tujuan": "Auditor merumuskan opini atas laporan keuangan berdasarkan evaluasi kesimpulan dari bukti audit yang diperoleh, lalu menyatakan opini itu secara jelas dalam laporan tertulis yang juga menjelaskan dasar opini.",
+  "poin": [
+   "Auditor menyimpulkan apakah telah memperoleh keyakinan memadai bahwa laporan keuangan secara keseluruhan bebas dari kesalahan penyajian material, baik karena kecurangan maupun kesalahan.",
+   "Evaluasi mencakup kecukupan bukti, salah saji yang tidak dikoreksi, aspek kualitatif praktik akuntansi termasuk potensi bias manajemen, dan apakah penyajian mencapai penyajian wajar.",
+   "Opini tanpa modifikasian dinyatakan bila laporan keuangan disajikan secara wajar dalam semua hal material sesuai kerangka pelaporan keuangan yang berlaku.",
+   "Laporan auditor memuat judul, pihak yang dituju, bagian Opini di awal, lalu Basis untuk Opini yang menyebut kepatuhan pada etika dan independensi.",
+   "Laporan memuat bagian kelangsungan usaha bila relevan (SA 570), Hal Audit Utama bila berlaku (SA 701), Informasi Lain (SA 720), serta tanggung jawab manajemen dan tanggung jawab auditor.",
+   "Nama rekan perikatan wajib dicantumkan untuk audit entitas tercatat (dan entitas lain sesuai regulasi), ditambah tanda tangan, alamat, dan tanggal laporan.",
+   "Tanggal laporan auditor tidak boleh lebih awal dari tanggal auditor memperoleh bukti cukup dan tepat, termasuk bukti bahwa laporan keuangan lengkap telah disetujui pihak berwenang.",
+   "Bila format atau isi laporan diatur regulasi, laporan harus tetap memuat unsur minimum yang ditetapkan SA 700."
+  ],
+  "praktik": [
+   "Gunakan template laporan auditor KAP yang mutakhir dan cocokkan urutan bagian dengan edisi SA terbaru sebelum tanda tangan.",
+   "Pastikan tanggal laporan auditor sama atau setelah tanggal persetujuan laporan keuangan oleh direksi, dan reviu peristiwa kemudian sampai tanggal tersebut.",
+   "Buat ringkasan salah saji tidak dikoreksi dan evaluasi dampaknya secara kuantitatif dan kualitatif sebelum menyimpulkan opini.",
+   "Periksa konsistensi nama entitas, periode, dan kerangka pelaporan antara laporan auditor dan laporan keuangan.",
+   "Untuk klien PIE, pastikan pernyataan independensi dalam bagian Basis untuk Opini sesuai ketentuan terbaru."
+  ],
+  "temuan": [
+   "Tanggal laporan auditor mendahului penyelesaian prosedur audit penting atau persetujuan laporan keuangan.",
+   "Evaluasi salah saji tidak dikoreksi tidak terdokumentasi atau hanya dilihat dari sisi kuantitatif.",
+   "Struktur laporan auditor tidak mengikuti format terbaru atau menghilangkan unsur wajib.",
+   "Opini tanpa modifikasian diterbitkan padahal bukti untuk area signifikan belum cukup."
+  ],
+  "baru2025": "Edisi 2025 memuat amandemen lingkup terbatas yang mengacu pada perubahan ISA 700 (Revised) dan ISA 260 (Revised) dari IAASB: bila auditor menerapkan ketentuan independensi khusus untuk entitas kepentingan publik (PIE), laporan auditor perlu mengungkapkan hal tersebut secara publik di bagian Basis untuk Opini. Cek tanggal efektif persisnya di dokumen IAPI.",
+  "psak": [
+   201,
+   210,
+   208
+  ],
+  "faq": [
+   [
+    "Mengapa bagian Opini diletakkan paling awal?",
+    "Agar pengguna langsung melihat kesimpulan auditor. Urutan ini mengikuti format laporan auditor yang diperbarui sejak adopsi ISA 700 (Revised)."
+   ],
+   [
+    "Apakah tanggal laporan auditor boleh sama dengan tanggal neraca?",
+    "Tidak lazim dan hampir tidak mungkin, karena auditor harus menyelesaikan prosedur dan laporan keuangan harus sudah disetujui manajemen sebelum laporan auditor diberi tanggal."
+   ],
+   [
+    "Apa perubahan untuk klien PIE di edisi 2025?",
+    "Laporan auditor perlu menyebutkan bahwa ketentuan independensi khusus untuk PIE telah diterapkan, sebagai bentuk transparansi kepada pengguna."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 701",
+  "slug": "sa-701",
+  "seri": "SA 700-799 Kesimpulan dan Pelaporan",
+  "judul": "Pengomunikasian Hal Audit Utama dalam Laporan Auditor Independen",
+  "judul_en": "ISA 701, Communicating Key Audit Matters in the Independent Auditor's Report",
+  "ringkas": "Mengatur penentuan dan pengungkapan Hal Audit Utama (HAU atau KAM), yaitu hal yang menurut pertimbangan profesional auditor paling signifikan dalam audit periode berjalan.",
+  "tujuan": "Auditor menentukan Hal Audit Utama dan, setelah merumuskan opini, mengomunikasikannya dalam laporan auditor dengan menjelaskan mengapa hal itu dianggap paling signifikan dan bagaimana ditangani dalam audit.",
+  "poin": [
+   "Hal Audit Utama adalah hal yang paling signifikan dalam audit periode berjalan, dipilih dari hal yang telah dikomunikasikan kepada pihak yang bertanggung jawab atas tata kelola.",
+   "Proses penyaringan: mulai dari area dengan risiko tinggi atau risiko signifikan, area dengan pertimbangan manajemen yang signifikan (termasuk estimasi dengan ketidakpastian tinggi), dan dampak peristiwa atau transaksi signifikan.",
+   "Wajib diterapkan untuk audit atas laporan keuangan bertujuan umum lengkap milik emiten yang efeknya tercatat di bursa, serta bila diwajibkan regulasi atau auditor memilih melaporkannya secara sukarela.",
+   "Setiap HAU diuraikan dalam subjudul tersendiri, merujuk ke pengungkapan terkait di laporan keuangan, menjelaskan alasan dianggap paling signifikan, dan cara penanganannya dalam audit.",
+   "HAU bukan pengganti opini modifikasian; hal yang menyebabkan opini dimodifikasi atau ketidakpastian material kelangsungan usaha dilaporkan di bagian masing-masing, bukan sebagai HAU.",
+   "HAU tidak memberikan opini terpisah atas hal tersebut.",
+   "HAU tidak dilaporkan hanya jika dilarang hukum, atau dalam kondisi sangat jarang ketika dampak negatif pengungkapan diperkirakan melebihi manfaat publik.",
+   "Bila auditor menyimpulkan tidak ada HAU untuk dilaporkan, hal tersebut tetap dinyatakan dalam laporan, dan seluruh pertimbangan didokumentasikan."
+  ],
+  "praktik": [
+   "Susun daftar kandidat HAU sejak tahap perencanaan dan perbarui seiring perkembangan audit, jangan menunggu tahap pelaporan.",
+   "Tulis HAU yang spesifik untuk entitas, bukan teks generik; sebutkan angka atau fakta yang sudah diungkapkan entitas di laporan keuangan.",
+   "Diskusikan draf HAU dengan komite audit lebih awal agar tidak ada kejutan dan pengungkapan entitas cukup mendukung.",
+   "Jangan mengungkapkan informasi asli tentang entitas yang belum diungkapkan manajemen tanpa pertimbangan matang.",
+   "Pastikan konsistensi HAU dengan dokumentasi risiko signifikan dan prosedur di kertas kerja."
+  ],
+  "temuan": [
+   "Uraian HAU terlalu generik dan sama dari tahun ke tahun tanpa menyesuaikan kondisi entitas.",
+   "Prosedur yang diuraikan dalam HAU tidak sepenuhnya tercermin dalam kertas kerja.",
+   "Dokumentasi alasan pemilihan atau tidak dipilihnya suatu hal sebagai HAU kurang memadai.",
+   "Hal yang semestinya menjadi dasar modifikasi opini malah dilaporkan sebagai HAU."
+  ],
+  "baru2025": "Tidak ada perubahan substantif pada konsep HAU di edisi 2025. Kaitannya muncul lewat amandemen SA 700 dan SA 260 terkait transparansi independensi untuk PIE, serta SA 600 (Revisi) yang dapat memengaruhi HAU pada audit grup.",
+  "psak": [
+   236,
+   109,
+   115,
+   113,
+   237
+  ],
+  "faq": [
+   [
+    "Apa beda HAU dan Paragraf Penekanan Suatu Hal?",
+    "HAU menjelaskan hal paling signifikan dalam proses audit dan cara auditor menanganinya. Paragraf Penekanan hanya menarik perhatian pengguna ke hal yang sudah disajikan atau diungkapkan dengan tepat di laporan keuangan."
+   ],
+   [
+    "Apakah HAU wajib untuk perusahaan tertutup?",
+    "Tidak wajib, kecuali diwajibkan peraturan atau auditor memilih melaporkannya secara sukarela. Kewajiban utama berlaku untuk emiten tercatat di bursa."
+   ],
+   [
+    "Bolehkah ketidakpastian material kelangsungan usaha dilaporkan sebagai HAU?",
+    "Tidak. Hal itu dilaporkan dalam bagian khusus sesuai SA 570, walaupun secara sifat memang termasuk hal penting."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 705",
+  "slug": "sa-705",
+  "seri": "SA 700-799 Kesimpulan dan Pelaporan",
+  "judul": "Modifikasi terhadap Opini dalam Laporan Auditor Independen",
+  "judul_en": "ISA 705 (Revised), Modifications to the Opinion in the Independent Auditor's Report",
+  "ringkas": "Mengatur kapan auditor harus memodifikasi opini dan jenis modifikasi yang tepat (wajar dengan pengecualian, tidak wajar, atau tidak menyatakan pendapat), serta format laporannya.",
+  "tujuan": "Auditor menyatakan opini modifikasian secara jelas bila menyimpulkan laporan keuangan secara keseluruhan mengandung kesalahan penyajian material, atau bila tidak dapat memperoleh bukti audit yang cukup dan tepat.",
+  "poin": [
+   "Dua pemicu modifikasi: (a) laporan keuangan mengandung kesalahan penyajian material, atau (b) auditor tidak dapat memperoleh bukti yang cukup dan tepat (pembatasan lingkup).",
+   "Jenis opini ditentukan oleh sifat masalah dan pertimbangan apakah dampaknya material saja atau material dan pervasif.",
+   "Tabel ringkas: Salah saji material tidak pervasif = Wajar Dengan Pengecualian (WDP); Salah saji material dan pervasif = Tidak Wajar.",
+   "Tabel ringkas: Bukti tidak cukup, dampak mungkin material tidak pervasif = WDP; Bukti tidak cukup, dampak mungkin material dan pervasif = Tidak Menyatakan Pendapat (TMP).",
+   "Pervasif berarti dampaknya tidak terbatas pada unsur tertentu, atau bila terbatas tetap mewakili porsi besar laporan keuangan, atau menyangkut pengungkapan yang fundamental bagi pemahaman pengguna.",
+   "Bila pembatasan lingkup dipaksakan manajemen setelah perikatan diterima, auditor meminta pembatasan dicabut, mengomunikasikan ke tata kelola, dan dapat mundur bila dampaknya pervasif dan mundur diizinkan.",
+   "Bagian Opini diberi judul sesuai jenisnya, diikuti Basis untuk Opini (WDP, Tidak Wajar, atau TMP) yang menjelaskan dan, bila praktis, mengkuantifikasi dampaknya.",
+   "Pada TMP, bagian Basis untuk Opini menjelaskan alasan, beberapa bagian laporan disesuaikan, dan HAU tidak disajikan."
+  ],
+  "praktik": [
+   "Kuantifikasi dampak salah saji terhadap laba, ekuitas, dan pos terkait sebelum memilih jenis opini, lalu dokumentasikan analisis pervasif.",
+   "Upayakan prosedur alternatif terlebih dulu sebelum menyimpulkan adanya pembatasan lingkup.",
+   "Konsultasikan rencana opini modifikasian dengan reviu mutu perikatan atau pihak teknis KAP sebelum diterbitkan.",
+   "Komunikasikan rencana modifikasi dan kata-kata yang akan dipakai kepada pihak yang bertanggung jawab atas tata kelola.",
+   "Periksa dampak opini modifikasian periode lalu terhadap angka komparatif tahun berjalan (kaitannya dengan SA 710)."
+  ],
+  "temuan": [
+   "Analisis pervasif tidak terdokumentasi sehingga pemilihan antara WDP dan Tidak Wajar atau TMP sulit dipertanggungjawabkan.",
+   "Dampak salah saji tidak dikuantifikasi padahal datanya tersedia.",
+   "Penggunaan WDP berulang tanpa evaluasi apakah masalahnya sudah menjadi pervasif.",
+   "Pembatasan lingkup diselesaikan dengan representasi manajemen saja tanpa bukti pendukung lain."
+  ],
+  "baru2025": "",
+  "psak": [
+   201,
+   208,
+   210
+  ],
+  "faq": [
+   [
+    "Apa beda opini Tidak Wajar dan Tidak Menyatakan Pendapat?",
+    "Tidak Wajar diberikan saat auditor punya cukup bukti bahwa salah sajinya material dan pervasif. TMP diberikan saat auditor tidak memperoleh cukup bukti dan dampak yang mungkin terjadi material dan pervasif."
+   ],
+   [
+    "Bolehkah memberi TMP sekaligus menambahkan HAU?",
+    "Tidak. Bila auditor tidak menyatakan pendapat, HAU tidak disajikan dalam laporan auditor."
+   ],
+   [
+    "Apakah opini WDP selalu buruk bagi entitas?",
+    "WDP berarti ada masalah material yang terbatas. Pengguna tetap dapat mengandalkan bagian lain laporan keuangan, tetapi pengecualian perlu ditindaklanjuti manajemen."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 706",
+  "slug": "sa-706",
+  "seri": "SA 700-799 Kesimpulan dan Pelaporan",
+  "judul": "Paragraf Penekanan Suatu Hal dan Paragraf Hal Lain dalam Laporan Auditor Independen",
+  "judul_en": "ISA 706 (Revised), Emphasis of Matter Paragraphs and Other Matter Paragraphs in the Independent Auditor's Report",
+  "ringkas": "Mengatur komunikasi tambahan dalam laporan auditor untuk menarik perhatian pengguna, baik pada hal yang sudah diungkapkan di laporan keuangan (Penekanan Suatu Hal) maupun hal di luar laporan keuangan (Hal Lain).",
+  "tujuan": "Auditor menarik perhatian pengguna, bila perlu, melalui komunikasi tambahan yang jelas kepada hal yang telah disajikan dengan tepat di laporan keuangan dan fundamental bagi pemahaman, atau kepada hal lain yang relevan bagi pemahaman atas audit, tanggung jawab auditor, atau laporan auditor.",
+  "poin": [
+   "Paragraf Penekanan Suatu Hal dipakai untuk hal yang sudah disajikan atau diungkapkan dengan tepat di laporan keuangan dan dianggap fundamental bagi pemahaman pengguna.",
+   "Paragraf Penekanan tidak boleh dipakai untuk hal yang menjadi alasan modifikasi opini atau yang sudah dilaporkan sebagai HAU.",
+   "Paragraf Hal Lain dipakai untuk hal yang tidak disajikan atau diungkapkan di laporan keuangan tetapi relevan bagi pemahaman pengguna atas audit atau laporan auditor.",
+   "Kedua paragraf berada di bagian terpisah dengan judul yang jelas dan merujuk ke catatan terkait di laporan keuangan (untuk Penekanan).",
+   "Kedua paragraf tidak mengubah opini auditor, dan hal ini dinyatakan secara eksplisit.",
+   "Auditor mengomunikasikan rencana penyertaan paragraf ini serta kata-katanya kepada pihak yang bertanggung jawab atas tata kelola.",
+   "Contoh penggunaan Penekanan: ketidakpastian atas litigasi luar biasa, penerapan dini standar baru yang berdampak pervasif, atau bencana besar yang berdampak signifikan."
+  ],
+  "praktik": [
+   "Gunakan Paragraf Penekanan secara hemat; terlalu sering memakainya mengurangi daya informasinya.",
+   "Pastikan catatan atas laporan keuangan sudah memadai sebelum menyusun Paragraf Penekanan, karena paragraf hanya merujuk, bukan menambah informasi.",
+   "Gunakan Paragraf Hal Lain untuk misalnya laporan keuangan periode lalu diaudit auditor lain, atau pembatasan distribusi laporan.",
+   "Bedakan dengan bagian ketidakpastian material kelangsungan usaha yang memiliki bagian tersendiri sesuai SA 570.",
+   "Cek apakah suatu hal lebih tepat dilaporkan sebagai HAU untuk entitas tercatat."
+  ],
+  "temuan": [
+   "Paragraf Penekanan dipakai untuk menutupi kekurangan pengungkapan, padahal seharusnya menjadi alasan modifikasi opini.",
+   "Ketidakpastian material kelangsungan usaha dilaporkan sebagai Paragraf Penekanan, bukan di bagian khusus.",
+   "Paragraf Hal Lain berisi informasi yang tidak relevan atau bertentangan dengan pengungkapan entitas.",
+   "Penyertaan paragraf tidak dikomunikasikan kepada tata kelola."
+  ],
+  "baru2025": "",
+  "psak": [
+   201,
+   210,
+   208
+  ],
+  "faq": [
+   [
+    "Apakah Paragraf Penekanan berarti opini dimodifikasi?",
+    "Tidak. Opini tetap seperti yang dinyatakan; paragraf hanya menarik perhatian pada hal yang sudah diungkapkan entitas."
+   ],
+   [
+    "Kapan memakai Paragraf Hal Lain?",
+    "Ketika ada hal di luar laporan keuangan yang perlu diketahui pengguna, misalnya laporan tahun lalu diaudit auditor lain atau laporan disusun untuk tujuan terbatas."
+   ],
+   [
+    "Bolehkah satu hal muncul sebagai HAU dan Paragraf Penekanan sekaligus?",
+    "Pada prinsipnya hal yang sudah menjadi HAU tidak diulang sebagai Penekanan; auditor dapat menonjolkannya dalam uraian HAU."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 710",
+  "slug": "sa-710",
+  "seri": "SA 700-799 Kesimpulan dan Pelaporan",
+  "judul": "Informasi Komparatif - Angka Koresponding dan Laporan Keuangan Komparatif",
+  "judul_en": "ISA 710, Comparative Information - Corresponding Figures and Comparative Financial Statements",
+  "ringkas": "Mengatur tanggung jawab auditor atas informasi komparatif periode lalu, baik yang disajikan sebagai angka koresponding maupun sebagai laporan keuangan komparatif.",
+  "tujuan": "Auditor memperoleh bukti yang cukup dan tepat bahwa informasi komparatif telah disajikan sesuai kerangka pelaporan yang berlaku, lalu melaporkannya sesuai pendekatan komparatif yang digunakan.",
+  "poin": [
+   "Auditor menentukan apakah laporan keuangan memuat informasi komparatif yang dipersyaratkan dan apakah informasi itu diklasifikasikan dengan tepat.",
+   "Auditor mengevaluasi kesesuaian informasi komparatif dengan angka yang disajikan periode lalu, atau bila disajikan kembali, kesesuaian dengan penyajian kembali tersebut.",
+   "Auditor menilai konsistensi kebijakan akuntansi antarperiode, atau kecukupan penyajian dan pengungkapan bila ada perubahan.",
+   "Bila ada indikasi salah saji pada informasi komparatif, auditor melakukan prosedur tambahan untuk memperoleh bukti yang cukup.",
+   "Pada pendekatan angka koresponding, opini merujuk periode berjalan saja; modifikasi opini periode lalu yang belum terselesaikan tetap memengaruhi opini periode berjalan.",
+   "Pada pendekatan laporan keuangan komparatif, opini merujuk setiap periode yang disajikan dan dapat berbeda per periode.",
+   "Bila periode lalu diaudit auditor pendahulu atau tidak diaudit, auditor menyatakannya dalam Paragraf Hal Lain sesuai ketentuan."
+  ],
+  "praktik": [
+   "Tentukan pendekatan yang dipakai (angka koresponding atau komparatif) di awal karena memengaruhi kalimat opini.",
+   "Rekonsiliasi saldo awal dan angka komparatif dengan laporan auditan tahun lalu dan kertas kerja penyesuaian.",
+   "Bila ada penyajian kembali, uji perhitungan dan pengungkapan sesuai standar akuntansi terkait perubahan kebijakan dan koreksi kesalahan.",
+   "Koordinasikan dengan SA 510 pada perikatan tahun pertama untuk saldo awal.",
+   "Periksa dampak modifikasi opini tahun lalu dan apakah masalahnya sudah terselesaikan."
+  ],
+  "temuan": [
+   "Penyajian kembali angka komparatif tidak diuji secara memadai.",
+   "Angka komparatif tidak sesuai dengan laporan keuangan auditan tahun lalu tanpa penjelasan.",
+   "Paragraf Hal Lain mengenai auditor pendahulu atau periode tidak diaudit tidak dicantumkan.",
+   "Dampak modifikasi opini tahun lalu terhadap periode berjalan diabaikan."
+  ],
+  "baru2025": "",
+  "psak": [
+   208,
+   201
+  ],
+  "faq": [
+   [
+    "Apa beda angka koresponding dan laporan keuangan komparatif?",
+    "Pada angka koresponding, angka periode lalu menjadi bagian tak terpisahkan dari laporan periode berjalan dan opini hanya merujuk periode berjalan. Pada laporan komparatif, opini merujuk setiap periode yang disajikan."
+   ],
+   [
+    "Di Indonesia pendekatan mana yang umum?",
+    "Praktik umumnya menyajikan angka koresponding dalam laporan keuangan tahunan, namun auditor harus mengikuti apa yang diwajibkan kerangka pelaporan dan regulasi terkait."
+   ],
+   [
+    "Apa yang dilakukan jika tahun lalu tidak diaudit?",
+    "Auditor mencantumkan Paragraf Hal Lain yang menyatakan informasi komparatif tidak diaudit, dan tetap melakukan prosedur atas saldo awal."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 720",
+  "slug": "sa-720",
+  "seri": "SA 700-799 Kesimpulan dan Pelaporan",
+  "judul": "Tanggung Jawab Auditor atas Informasi Lain (judul perlu dicek)",
+  "judul_en": "ISA 720 (Revised), The Auditor's Responsibilities Relating to Other Information",
+  "ringkas": "Mengatur tanggung jawab auditor untuk membaca dan mempertimbangkan informasi lain di laporan tahunan selain laporan keuangan dan laporan auditor, serta melaporkannya.",
+  "tujuan": "Setelah membaca informasi lain, auditor mempertimbangkan apakah ada inkonsistensi material dengan laporan keuangan atau dengan pengetahuan auditor dari audit, menanggapi bila ada indikasi salah saji material, dan melaporkannya sesuai standar.",
+  "poin": [
+   "Informasi lain adalah informasi keuangan atau nonkeuangan di laporan tahunan entitas, selain laporan keuangan dan laporan auditor.",
+   "Auditor mengidentifikasi dokumen yang termasuk laporan tahunan dan berupaya memperoleh informasi lain sebelum tanggal laporan auditor bila memungkinkan.",
+   "Auditor membaca dan mempertimbangkan apakah ada inkonsistensi material antara informasi lain dan laporan keuangan.",
+   "Auditor juga mempertimbangkan apakah ada inkonsistensi material dengan pengetahuan yang diperoleh selama audit.",
+   "Bila ada indikasi salah saji material, auditor membahasnya dengan manajemen dan melakukan prosedur tambahan bila perlu.",
+   "Laporan auditor memuat bagian Informasi Lain yang menjelaskan tanggung jawab auditor dan hasil pertimbangannya, termasuk bila ada salah saji yang tidak dikoreksi.",
+   "Opini atas laporan keuangan tidak mencakup informasi lain dan auditor tidak memberikan keyakinan atas informasi tersebut."
+  ],
+  "praktik": [
+   "Sepakati dengan manajemen di surat perikatan kapan draf laporan tahunan akan diberikan.",
+   "Buat checklist pencocokan angka kunci di laporan tahunan (ikhtisar keuangan, analisis manajemen) dengan laporan keuangan auditan.",
+   "Waspadai pernyataan naratif tentang kinerja atau risiko yang tidak sejalan dengan temuan audit.",
+   "Jika laporan tahunan baru tersedia setelah tanggal laporan auditor, rencanakan prosedur lanjutan dan komunikasi dengan tata kelola.",
+   "Dokumentasikan versi dokumen yang dibaca dan hasil pembacaannya."
+  ],
+  "temuan": [
+   "Tidak ada bukti bahwa auditor membaca informasi lain atau versi finalnya.",
+   "Bagian Informasi Lain dalam laporan auditor tidak sesuai kondisi aktual (misalnya informasi lain belum diterima).",
+   "Inkonsistensi angka antara laporan tahunan dan laporan keuangan auditan tidak ditindaklanjuti.",
+   "Pertimbangan atas informasi naratif yang bertentangan dengan pengetahuan audit tidak terdokumentasi."
+  ],
+  "baru2025": "",
+  "psak": [
+   201
+  ],
+  "faq": [
+   [
+    "Apakah auditor memberi opini atas laporan tahunan?",
+    "Tidak. Auditor hanya membaca dan mempertimbangkan informasi lain; opini hanya atas laporan keuangan."
+   ],
+   [
+    "Apa yang terjadi bila manajemen menolak mengoreksi salah saji di informasi lain?",
+    "Auditor mengomunikasikannya kepada tata kelola dan menjelaskan salah saji yang tidak dikoreksi tersebut dalam bagian Informasi Lain di laporan auditor, serta mempertimbangkan langkah lain yang diperlukan."
+   ],
+   [
+    "Apakah siaran pers termasuk informasi lain?",
+    "Umumnya tidak, karena informasi lain merujuk pada isi laporan tahunan entitas."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 800",
+  "slug": "sa-800",
+  "seri": "SA 800-899 Area Khusus",
+  "judul": "Pertimbangan Khusus - Audit atas Laporan Keuangan yang Disusun Sesuai dengan Kerangka Bertujuan Khusus",
+  "judul_en": "ISA 800 (Revised), Special Considerations - Audits of Financial Statements Prepared in Accordance with Special Purpose Frameworks",
+  "ringkas": "Mengatur pertimbangan khusus saat mengaudit laporan keuangan yang disusun dengan kerangka bertujuan khusus, misalnya basis kas, basis pajak, atau ketentuan kontrak dan regulator.",
+  "tujuan": "Auditor menangani secara tepat pertimbangan khusus yang relevan pada penerimaan perikatan, perencanaan dan pelaksanaan, serta perumusan opini dan pelaporan atas laporan keuangan dengan kerangka bertujuan khusus.",
+  "poin": [
+   "Kerangka bertujuan khusus dirancang untuk kebutuhan informasi pengguna tertentu, misalnya basis kas, ketentuan perpajakan, regulator, atau perjanjian.",
+   "Saat penerimaan perikatan, auditor memahami tujuan penyusunan, pengguna yang dituju, dan langkah manajemen menilai keberterimaan kerangka.",
+   "Auditor menerapkan seluruh SA yang relevan, disesuaikan dengan keadaan, termasuk pemahaman atas interpretasi signifikan ketentuan kontrak.",
+   "Laporan auditor menjelaskan tujuan penyusunan laporan keuangan dan, bila perlu, pengguna yang dituju.",
+   "Auditor menyertakan Paragraf Penekanan Suatu Hal untuk mengingatkan bahwa laporan disusun dengan kerangka bertujuan khusus sehingga mungkin tidak sesuai untuk tujuan lain.",
+   "Bila manajemen dapat memilih kerangka, tanggung jawab manajemen atas pemilihan kerangka dijelaskan dalam laporan auditor.",
+   "Auditor dapat menambahkan Paragraf Hal Lain untuk membatasi distribusi atau penggunaan laporan."
+  ],
+  "praktik": [
+   "Minta salinan kontrak atau ketentuan regulator yang menjadi dasar kerangka dan pahami interpretasi yang dipakai manajemen.",
+   "Pastikan kebijakan akuntansi diungkapkan lengkap karena pengguna tidak dapat berasumsi pada standar umum.",
+   "Gunakan format laporan khusus SA 800, jangan memakai template laporan bertujuan umum.",
+   "Pertimbangkan pembatasan distribusi untuk mencegah laporan dipakai pihak yang tidak dituju.",
+   "Untuk laporan kepada kreditur atau kontrak hibah, cek kepatuhan pada klausul pelaporan khusus."
+  ],
+  "temuan": [
+   "Laporan auditor tidak menyertakan Paragraf Penekanan tentang basis penyusunan.",
+   "Kerangka bertujuan khusus tidak dijelaskan memadai di catatan atas laporan keuangan.",
+   "Template laporan bertujuan umum dipakai untuk perikatan bertujuan khusus.",
+   "Interpretasi signifikan atas ketentuan kontrak tidak didokumentasikan."
+  ],
+  "baru2025": "",
+  "psak": [
+   201
+  ],
+  "faq": [
+   [
+    "Apa contoh kerangka bertujuan khusus di Indonesia?",
+    "Laporan berbasis kas untuk program hibah, laporan yang disusun berdasarkan ketentuan regulator tertentu, atau laporan berbasis ketentuan perjanjian pinjaman."
+   ],
+   [
+    "Apakah laporan auditor SA 800 boleh dipakai publik?",
+    "Laporan dirancang untuk pengguna tertentu, sehingga auditor mengingatkan keterbatasannya dan dapat membatasi distribusi."
+   ],
+   [
+    "Apakah SAK EP atau SAK EMKM termasuk kerangka bertujuan khusus?",
+    "Tidak, keduanya umumnya diperlakukan sebagai kerangka bertujuan umum untuk entitas sasarannya."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 805",
+  "slug": "sa-805",
+  "seri": "SA 800-899 Area Khusus",
+  "judul": "Pertimbangan Khusus - Audit atas Laporan Keuangan Tunggal dan Suatu Unsur, Akun, atau Pos Tertentu dalam Laporan Keuangan",
+  "judul_en": "ISA 805 (Revised), Special Considerations - Audits of Single Financial Statements and Specific Elements, Accounts or Items of a Financial Statement",
+  "ringkas": "Mengatur audit atas satu laporan keuangan (misalnya hanya laporan posisi keuangan) atau unsur, akun, atau pos tertentu (misalnya piutang atau persediaan), termasuk catatan terkait.",
+  "tujuan": "Auditor menangani secara tepat pertimbangan khusus pada penerimaan, perencanaan, pelaksanaan, serta pelaporan audit atas laporan keuangan tunggal atau unsur tertentu dalam laporan keuangan.",
+  "poin": [
+   "Auditor menerapkan seluruh SA yang relevan walaupun objeknya hanya satu laporan atau satu unsur, disesuaikan dengan keadaan.",
+   "Auditor menentukan apakah penerapan SA praktis, terutama bila auditor tidak mengaudit laporan keuangan lengkap entitas.",
+   "Auditor menilai keberterimaan kerangka pelaporan dan kecukupan pengungkapan atas laporan tunggal atau unsur tersebut.",
+   "Materialitas ditentukan untuk laporan tunggal atau unsur yang diaudit, sehingga dapat jauh lebih rendah dari materialitas laporan keuangan lengkap.",
+   "Unsur yang saling terkait (misalnya pendapatan dan piutang) perlu dipertimbangkan agar bukti cukup.",
+   "Bila auditor juga mengaudit laporan keuangan lengkap, opini atas unsur tertentu harus dibedakan dan disajikan terpisah.",
+   "Bila opini atas laporan lengkap dimodifikasi atau ada ketidakpastian material, auditor mempertimbangkan dampaknya terhadap opini atas unsur tertentu."
+  ],
+  "praktik": [
+   "Tetapkan dengan jelas objek audit di surat perikatan: laporan apa, akun apa, per tanggal berapa, kerangka apa.",
+   "Hitung materialitas khusus untuk objek audit dan dokumentasikan alasannya.",
+   "Lakukan prosedur atas akun terkait yang memengaruhi asersi objek audit, misalnya pisah batas dan penjualan untuk audit piutang.",
+   "Gunakan contoh format laporan khusus SA 805, bukan format laporan keuangan lengkap.",
+   "Perhatikan permintaan dari kreditur atau calon investor yang hanya butuh audit atas satu pos tertentu."
+  ],
+  "temuan": [
+   "Materialitas yang dipakai adalah materialitas laporan keuangan lengkap, bukan objek audit yang lebih kecil.",
+   "Akun terkait yang memengaruhi objek audit tidak diuji.",
+   "Laporan auditor tidak menjelaskan dengan jelas objek dan kerangka pelaporan.",
+   "Opini atas unsur tertentu tidak dipisahkan dari opini atas laporan lengkap."
+  ],
+  "baru2025": "",
+  "psak": [
+   201,
+   109,
+   202,
+   115
+  ],
+  "faq": [
+   [
+    "Kapan audit SA 805 biasanya dibutuhkan?",
+    "Misalnya untuk keperluan kontrak bagi hasil berbasis penjualan, perhitungan royalti, atau permintaan kreditur atas saldo piutang yang dijaminkan."
+   ],
+   [
+    "Apakah materialitasnya sama dengan audit laporan lengkap?",
+    "Tidak. Materialitas ditentukan untuk objek yang diaudit, sehingga biasanya lebih rendah."
+   ],
+   [
+    "Bolehkah audit atas satu akun dilakukan tanpa memahami entitas secara keseluruhan?",
+    "Tidak. Auditor tetap perlu pemahaman entitas dan pengendalian yang relevan sebagaimana diatur SA lainnya."
+   ]
+  ]
+ },
+ {
+  "kode": "SA 810",
+  "slug": "sa-810",
+  "seri": "SA 800-899 Area Khusus",
+  "judul": "Perikatan untuk Melaporkan Ikhtisar Laporan Keuangan",
+  "judul_en": "ISA 810 (Revised), Engagements to Report on Summary Financial Statements",
+  "ringkas": "Mengatur perikatan untuk melaporkan ikhtisar laporan keuangan yang berasal dari laporan keuangan auditan yang diaudit oleh auditor yang sama.",
+  "tujuan": "Auditor menentukan apakah tepat menerima perikatan, lalu merumuskan opini atas ikhtisar laporan keuangan berdasarkan evaluasi bukti dan menyatakan opini serta dasar opini secara jelas dalam laporan tertulis.",
+  "poin": [
+   "Perikatan hanya diterima oleh auditor yang mengaudit laporan keuangan dari mana ikhtisar itu diambil.",
+   "Auditor memastikan kriteria penyusunan ikhtisar dapat diterima dan manajemen mengakui tanggung jawabnya atas ikhtisar tersebut.",
+   "Prosedur meliputi evaluasi pengungkapan sifat ikhtisar, kesesuaian dengan laporan auditan, dan apakah ikhtisar memuat informasi yang cukup tanpa menyesatkan.",
+   "Auditor menilai apakah ikhtisar tersedia bersama atau dapat diakses dengan mudah bersama laporan keuangan auditan.",
+   "Opini tanpa modifikasian menyatakan bahwa ikhtisar konsisten dalam semua hal material dengan laporan auditan sesuai kriteria yang digunakan.",
+   "Bila opini atas laporan keuangan auditan dimodifikasi atau memuat penekanan, auditor mencerminkannya dalam laporan atas ikhtisar.",
+   "Tanggal laporan atas ikhtisar tidak boleh mendahului tanggal laporan auditor atas laporan keuangan auditan."
+  ],
+  "praktik": [
+   "Cocokkan setiap angka ikhtisar dengan laporan keuangan auditan dan dokumentasikan rekonsiliasinya.",
+   "Pastikan judul ikhtisar dan catatannya menjelaskan bahwa ini ringkasan dan cara mengakses laporan lengkap.",
+   "Hindari asosiasi nama auditor dengan ikhtisar bila belum ada perikatan SA 810.",
+   "Perhatikan publikasi ikhtisar di media massa atau situs entitas yang sering diminta regulator.",
+   "Cek apakah ada peristiwa setelah tanggal laporan auditan yang perlu dipertimbangkan."
+  ],
+  "temuan": [
+   "Angka ikhtisar tidak sepenuhnya konsisten dengan laporan auditan tanpa penjelasan.",
+   "Ikhtisar tidak menjelaskan cara memperoleh laporan keuangan lengkap.",
+   "Modifikasi opini atas laporan lengkap tidak dicerminkan dalam laporan atas ikhtisar.",
+   "Nama auditor dicantumkan pada ikhtisar tanpa perikatan formal."
+  ],
+  "baru2025": "",
+  "psak": [
+   201,
+   210
+  ],
+  "faq": [
+   [
+    "Apakah ikhtisar laporan keuangan diaudit ulang?",
+    "Tidak. Auditor menilai konsistensi ikhtisar dengan laporan keuangan auditan, bukan melakukan audit baru."
+   ],
+   [
+    "Bolehkah auditor lain melaporkan ikhtisar?",
+    "Perikatan SA 810 diperuntukkan bagi auditor yang mengaudit laporan keuangan sumbernya."
+   ],
+   [
+    "Apa yang dimaksud kriteria penyusunan ikhtisar?",
+    "Aturan yang menentukan informasi apa yang diringkas dan bagaimana disajikan, misalnya ditetapkan regulator atau ditetapkan manajemen dan diungkapkan."
+   ]
+  ]
+ }
+]

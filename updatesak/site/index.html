@@ -17,7 +17,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Quicksand:wght@300;400&display=swap">
 <link rel="stylesheet" href="/css/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"UpdateSAK","alternateName":"Update SAK","url":"https://updatesak.com/","inLanguage":"id"},{"@type":"WebApplication","name":"Kalkulator Standar Akuntansi SAK UpdateSAK","url":"https://updatesak.com/#kalkulator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Menentukan kerangka SAK (SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah) dan daftar PSAK/ISAK yang relevan dari angka laporan posisi keuangan dan laba rugi."},{"@type":"WebApplication","name":"Kalkulator CALK UpdateSAK","url":"https://updatesak.com/#kalkulator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Menyusun draf Catatan atas Laporan Keuangan dengan struktur yang lazim dipakai auditor Big 4 di Indonesia dari angka neraca dan laba rugi komparatif."},{"@type":"Organization","name":"UpdateSAK","url":"https://updatesak.com/","parentOrganization":{"@type":"Organization","name":"FA Indonesia","url":"https://faindonesia.co.id/"},"email":"ananta@faindonesia.co.id"}]}</script>
-</head>
+<style id="sacss">
+.sagrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:14px 0 30px}
+.sacard{display:flex;flex-direction:column;gap:5px;border:1px solid #d5dbe5;border-left:4px solid var(--c);padding:14px 16px;text-decoration:none;color:inherit;background:#fff}
+.sacard b{font-size:15px;letter-spacing:.02em;color:var(--c)}.sacard span{font-size:14.5px;line-height:1.45;color:#0B1F33}.sacard small{font-size:12.5px;color:#5b6576}
+.sanav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px}.sanav a{border:1px solid #d5dbe5;padding:7px 13px;border-radius:999px;font-weight:600;font-size:13.5px;text-decoration:none;color:inherit}
+.sabox{border-left:4px solid var(--c);background:#f5f7fb;padding:12px 16px;margin:14px 0}
+.sanew{border:1px solid #F59E0B;background:#fff8eb;padding:12px 16px;margin:14px 0;color:#0B1F33}
+.saprev{display:flex;justify-content:space-between;gap:12px;margin:28px 0 8px;flex-wrap:wrap}.saprev a{font-weight:600}
+@media (prefers-color-scheme:dark){.sacard{background:#0f1a28;border-color:#26364a}.sacard span{color:#e8edf5}.sacard small{color:#9fb0c5}.sanav a{border-color:#26364a}.sabox{background:#0f1a28;color:#e8edf5}.sanew{background:#2a2112;color:#f3e6cc}}
+</style></head>
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="/" aria-label="UpdateSAK beranda"><svg class="mk" viewBox="0 0 30 40" width="27" height="36" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x=".6" y=".6" width="28.8" height="38.8" stroke="#1F5BFF" stroke-width="1.2"/><path d="M6.5 8v6.2a3.2 3.2 0 0 0 6.4 0V8" stroke="#1F5BFF" stroke-width="1.3"/><path d="M24.2 24.4c-.9-1.2-5.6-1.6-5.6 1.4 0 2.9 6.1 1.6 6.1 4.6 0 3.1-5.3 2.8-6.6 1.2" stroke="#1F5BFF" stroke-width="1.3"/></svg><b>Update<span>SAK</span></b></a>
@@ -271,6 +280,14 @@
   </div>
 </div></section>
 
+<!--sa:start-->
+<section class="alt" id="standar-audit"><div class="wrap">
+  <div class="head"><h2>Belajar Standar Audit IAPI 2025</h2><p>49 standar: SA 200 sampai SA 810, manajemen mutu, reviu, asurans, dan jasa terkait. Ringkasan, poin kunci, kertas kerja, dan temuan reviu mutu.</p></div>
+  <div class="sagrid"><a class="sacard" href="/standar-audit/sa-315/" style="--c:#12A39A"><b>SA 315</b><span>Pengidentifikasian dan Penilaian Risiko Kesalahan Penyajian Material</span><small>ISA 315 (Revised 2019) Identifying and Assessing the Risks of Material Misstatement</small></a><a class="sacard" href="/standar-audit/sa-320/" style="--c:#12A39A"><b>SA 320</b><span>Materialitas dalam Tahap Perencanaan dan Pelaksanaan Audit</span><small>ISA 320 Materiality in Planning and Performing an Audit</small></a><a class="sacard" href="/standar-audit/sa-540/" style="--c:#0EA5E9"><b>SA 540</b><span>Audit atas Estimasi Akuntansi dan Pengungkapan Terkait</span><small>ISA 540 (Revised) Auditing Accounting Estimates and Related Disclosures</small></a><a class="sacard" href="/standar-audit/sa-600/" style="--c:#F59E0B"><b>SA 600</b><span>Pertimbangan Khusus - Audit atas Laporan Keuangan Grup (Termasuk Pekerjaan Auditor Komponen)</span><small>ISA 600 (Revised), Special Considerations - Audits of Group Financial Statements (Including the Work of Component Auditors)</small></a><a class="sacard" href="/standar-audit/sa-701/" style="--c:#E11D48"><b>SA 701</b><span>Pengomunikasian Hal Audit Utama dalam Laporan Auditor Independen</span><small>ISA 701, Communicating Key Audit Matters in the Independent Auditor&#x27;s Report</small></a><a class="sacard" href="/standar-audit/sa-705/" style="--c:#E11D48"><b>SA 705</b><span>Modifikasi terhadap Opini dalam Laporan Auditor Independen</span><small>ISA 705 (Revised), Modifications to the Opinion in the Independent Auditor&#x27;s Report</small></a></div>
+  <p><a class="btn arrow" href="/standar-audit/">Lihat Semua Standar Audit</a></p>
+</div></section>
+<!--sa:end-->
+
 <!--jadwal:start--><style>
 .exnav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}.exnav a{border:1px solid #d5dbe5;padding:8px 14px;border-radius:999px;font-weight:600;text-decoration:none;color:inherit;font-size:14px}
 .exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:22px 0}
@@ -299,7 +316,7 @@
 
 <footer><div class="wrap">
   <span>© 2026 UpdateSAK · <a href="https://faindonesia.co.id/">FA Indonesia</a> · <a href="https://cariakuntan.com/">CariAkuntan</a></span>
-  <span><a href="/eksplor/">Eksplor</a> · <a href="/materi/">Materi</a> · <a href="/jadwal-ujian/">Jadwal Ujian</a> · <a href="mailto:ananta@faindonesia.co.id">Email</a></span>
+  <span><a href="/eksplor/">Eksplor</a> · <a href="/materi/">Materi</a> · <a href="/jadwal-ujian/">Jadwal Ujian</a> · <a href="/standar-audit/">Standar Audit</a> · <a href="mailto:ananta@faindonesia.co.id">Email</a></span>
 </div></footer>
 <div class="bar-m"><a class="btn" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
 <script src="/js/sak-data.js"></script>

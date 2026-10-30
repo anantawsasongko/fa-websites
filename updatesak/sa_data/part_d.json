@@ -1,0 +1,389 @@
+[
+  {
+    "kode": "Kerangka Asurans",
+    "slug": "kerangka-asurans",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Kerangka untuk Perikatan Asurans",
+    "judul_en": "International Framework for Assurance Engagements",
+    "ringkas": "Kerangka konseptual yang menjelaskan apa itu perikatan asurans, unsur-unsurnya, dan perbedaan asurans memadai dengan asurans terbatas. Kerangka ini bukan standar yang memuat ketentuan wajib, tetapi menjadi fondasi pemahaman untuk SA, SPR, dan SPA.",
+    "tujuan": "Memberikan pemahaman bersama tentang konsep perikatan asurans sehingga praktisi, pengguna laporan, dan regulator memakai istilah dan logika yang sama ketika membicarakan audit, reviu, dan perikatan asurans lain.",
+    "poin": [
+      "Perikatan asurans melibatkan tiga pihak: praktisi, pihak yang bertanggung jawab atas hal pokok, dan pengguna yang dituju.",
+      "Unsur perikatan asurans meliputi hal pokok (underlying subject matter), kriteria yang sesuai, bukti yang cukup dan tepat, serta laporan asurans tertulis.",
+      "Kriteria dianggap sesuai bila relevan, lengkap, andal, netral, dan dapat dipahami; tanpa kriteria yang sesuai, kesimpulan asurans tidak bermakna.",
+      "Asurans memadai menurunkan risiko perikatan ke tingkat rendah yang dapat diterima dan biasanya dinyatakan dalam bentuk opini positif.",
+      "Asurans terbatas memberi tingkat keyakinan yang lebih rendah, prosedurnya lebih sempit, dan kesimpulannya dirumuskan dalam bentuk negatif.",
+      "Kerangka membedakan perikatan atestasi (pihak lain mengukur hal pokok) dengan perikatan langsung (praktisi sendiri yang mengukur atau mengevaluasi).",
+      "Perikatan yang tidak memenuhi definisi asurans, seperti prosedur yang disepakati dan kompilasi, berada di luar kerangka ini dan diatur dalam SJT.",
+      "Praktisi harus mematuhi etika profesi dan standar manajemen mutu sebagai prasyarat setiap perikatan asurans."
+    ],
+    "praktik": [
+      "Gunakan kerangka ini sebagai alat cek awal ketika klien meminta jasa yang namanya belum jelas: siapa pengguna laporannya, apa hal pokoknya, dan kriteria apa yang dipakai.",
+      "Bila klien tidak bisa menunjukkan kriteria yang sesuai (misalnya hanya ingin praktisi menyatakan bisnisnya sehat), tawarkan perikatan prosedur yang disepakati, bukan asurans.",
+      "Jelaskan kepada klien bahwa tingkat keyakinan memengaruhi biaya dan waktu: asurans memadai lebih mahal dan lama dibanding asurans terbatas.",
+      "Saat menyusun proposal, sebutkan secara eksplisit standar yang dipakai (SA, SPR, SPA, atau SJT) agar ekspektasi pengguna laporan tidak keliru.",
+      "Untuk calon CPA, pahami kerangka ini lebih dulu sebelum mempelajari SPA 3000 karena istilah dan logikanya dipakai berulang di soal ujian."
+    ],
+    "temuan": [
+      "Menyebut semua jasa KAP sebagai audit, padahal yang dikerjakan adalah reviu atau prosedur yang disepakati.",
+      "Menerima perikatan asurans tanpa memastikan kriteria yang sesuai tersedia bagi pengguna.",
+      "Tidak membedakan rumusan kesimpulan asurans memadai (positif) dan asurans terbatas (negatif) dalam laporan.",
+      "Mengabaikan identifikasi pengguna yang dituju sehingga distribusi laporan tidak terkendali."
+    ],
+    "baru2025": "Edisi 2025 disusun berbasis IAASB Handbook edisi 2023-2024. IAPI tidak mengumumkan perubahan substansi khusus untuk kerangka ini; perubahan edisi 2025 lebih banyak berupa penyesuaian terkait standar manajemen mutu.",
+    "psak": [],
+    "faq": [
+      ["Apakah Kerangka untuk Perikatan Asurans bersifat wajib?", "Kerangka ini tidak memuat ketentuan wajib dan tidak bisa dijadikan dasar laporan. Fungsinya sebagai landasan konsep; ketentuan wajibnya ada di SA, SPR, dan SPA."],
+      ["Apakah prosedur yang disepakati termasuk perikatan asurans?", "Tidak. Prosedur yang disepakati dan kompilasi adalah jasa terkait yang tidak memberikan keyakinan, sehingga berada di luar cakupan kerangka asurans."],
+      ["Apa beda perikatan atestasi dan perikatan langsung?", "Pada perikatan atestasi, pihak lain (biasanya manajemen) mengukur hal pokok lalu praktisi memberi kesimpulan atas hasilnya. Pada perikatan langsung, praktisi sendiri yang mengukur atau mengevaluasi hal pokok terhadap kriteria."]
+    ]
+  },
+  {
+    "kode": "SPR 2400",
+    "slug": "spr-2400",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Perikatan Reviu atas Laporan Keuangan Historis",
+    "judul_en": "ISRE 2400 (Revised), Engagements to Review Historical Financial Statements",
+    "ringkas": "Standar untuk perikatan reviu atas laporan keuangan oleh praktisi yang bukan auditor entitas tersebut. Hasilnya adalah kesimpulan asurans terbatas yang dirumuskan dalam bentuk negatif.",
+    "tujuan": "Memperoleh asurans terbatas, terutama melalui permintaan keterangan dan prosedur analitis, tentang apakah praktisi menemukan hal yang membuatnya yakin bahwa laporan keuangan secara keseluruhan tidak disusun sesuai kerangka pelaporan keuangan yang berlaku, lalu melaporkan dan mengomunikasikan kesimpulan tersebut.",
+    "poin": [
+      "Sebelum menerima perikatan, praktisi menilai prasyarat: kerangka pelaporan keuangan dapat diterima dan manajemen mengakui tanggung jawabnya.",
+      "Ketentuan perikatan disepakati secara tertulis, termasuk tujuan, tanggung jawab masing-masing pihak, dan bentuk laporan yang diharapkan.",
+      "Praktisi memperoleh pemahaman tentang entitas, lingkungannya, dan kerangka pelaporan keuangan untuk mengidentifikasi area yang berisiko salah saji material.",
+      "Prosedur utama adalah permintaan keterangan kepada manajemen dan pihak lain serta prosedur analitis, dirancang dengan memperhatikan materialitas.",
+      "Bila praktisi menyadari hal yang mengindikasikan salah saji material, ia wajib melakukan prosedur tambahan sampai dapat menyimpulkan atau memodifikasi kesimpulan.",
+      "Praktisi meminta representasi tertulis dari manajemen sebelum menerbitkan laporan.",
+      "Kesimpulan dapat berupa tanpa modifikasian, dengan pengecualian, tidak wajar, atau tidak menyatakan kesimpulan, tergantung sifat dan pervasivitas masalah.",
+      "Praktisi menerapkan skeptisisme dan pertimbangan profesional, mematuhi etika termasuk independensi, dan mendokumentasikan pekerjaan secara memadai."
+    ],
+    "praktik": [
+      "Bank sering meminta laporan keuangan yang direviu untuk debitur menengah yang belum diaudit. Pastikan dulu syarat bank: bila perjanjian kredit menyebut laporan keuangan audit, reviu tidak akan diterima.",
+      "Bedakan empat jenis jasa saat menjelaskan ke klien. Audit (SA) memberi asurans memadai dengan opini positif. Reviu (SPR 2400) memberi asurans terbatas dengan kesimpulan negatif. Prosedur yang disepakati (SJT 4400) tidak memberi asurans dan hanya melaporkan temuan faktual. Kompilasi (SJT 4410) juga tidak memberi asurans karena praktisi hanya membantu menyusun laporan keuangan.",
+      "Reviu cocok untuk entitas yang tidak wajib audit tetapi membutuhkan laporan yang lebih kredibel daripada laporan internal, misalnya untuk calon investor atau mitra usaha.",
+      "Jangan menggunakan SPR 2400 bila KAP Anda juga auditor tahunan entitas tersebut untuk reviu interim; untuk kasus itu yang berlaku adalah SPR 2410.",
+      "Dalam surat perikatan, jelaskan bahwa reviu tidak dirancang untuk menemukan kecurangan dan tidak mencakup pengujian pengendalian internal.",
+      "Siapkan program kerja prosedur analitis dengan ekspektasi yang jelas (misalnya tren margin dan rasio perputaran), bukan sekadar membandingkan angka tahun berjalan dengan tahun lalu."
+    ],
+    "temuan": [
+      "Laporan reviu ditulis dengan bahasa opini audit sehingga pengguna mengira laporan keuangan sudah diaudit.",
+      "Prosedur analitis tidak didokumentasikan atau tidak ada tindak lanjut atas fluktuasi yang signifikan.",
+      "Praktisi tidak melakukan prosedur tambahan meskipun sudah menemukan indikasi salah saji material.",
+      "Representasi tertulis tidak diperoleh atau bertanggal setelah tanggal laporan.",
+      "Menerima perikatan reviu padahal kerangka pelaporan keuangan yang dipakai klien tidak dapat diterima."
+    ],
+    "baru2025": "SPR 2400 sudah mengadopsi ISRE 2400 (Revised) melalui versi Revisi 2023 menurut daftar standar IAPI. Edisi 2025 memuat amandemen konsekuensial dari standar manajemen mutu; tidak ada perubahan substansi besar yang diumumkan khusus untuk standar ini.",
+    "psak": [],
+    "faq": [
+      ["Apakah laporan keuangan yang direviu sama kuatnya dengan yang diaudit?", "Tidak. Reviu memberikan asurans terbatas melalui permintaan keterangan dan prosedur analitis, sedangkan audit memberikan asurans memadai dengan pengujian bukti yang jauh lebih luas."],
+      ["Apa bentuk kesimpulan dalam laporan reviu?", "Kesimpulan dirumuskan dalam bentuk negatif, yaitu praktisi menyatakan tidak menemukan hal yang membuatnya yakin bahwa laporan keuangan tidak disajikan sesuai kerangka yang berlaku."],
+      ["Apakah praktisi reviu harus independen?", "Ya. Reviu adalah perikatan asurans sehingga ketentuan independensi dalam kode etik berlaku, berbeda dengan prosedur yang disepakati dan kompilasi."]
+    ]
+  },
+  {
+    "kode": "SPR 2410",
+    "slug": "spr-2410",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Reviu atas Informasi Keuangan Interim yang Dilaksanakan oleh Auditor Independen Entitas",
+    "judul_en": "ISRE 2410, Review of Interim Financial Information Performed by the Independent Auditor of the Entity",
+    "ringkas": "Standar untuk reviu atas laporan keuangan interim (misalnya triwulanan atau tengah tahunan) yang dilakukan oleh auditor tahunan entitas yang sama. Auditor memanfaatkan pemahaman dari audit tahunan sehingga prosedurnya lebih efisien.",
+    "tujuan": "Memungkinkan auditor menyatakan kesimpulan apakah ada hal yang membuatnya yakin bahwa informasi keuangan interim tidak disusun, dalam semua hal yang material, sesuai kerangka pelaporan keuangan yang berlaku, berdasarkan reviu yang terutama terdiri dari permintaan keterangan dan prosedur analitis.",
+    "poin": [
+      "Auditor menyepakati ketentuan perikatan reviu interim secara tertulis dengan entitas.",
+      "Auditor memperbarui pemahaman tentang entitas dan lingkungannya, termasuk pengendalian internal atas penyusunan informasi interim.",
+      "Prosedur reviu terutama berupa permintaan keterangan kepada personel keuangan dan akuntansi serta prosedur analitis.",
+      "Auditor mencocokkan informasi keuangan interim dengan catatan akuntansi yang mendasarinya.",
+      "Auditor memperhatikan peristiwa setelah periode interim, kelangsungan usaha, dan perubahan kebijakan akuntansi.",
+      "Representasi tertulis dari manajemen diperoleh, termasuk tanggung jawab atas pengendalian internal dan pengungkapan kecurangan.",
+      "Hal yang memerlukan penyesuaian material dikomunikasikan kepada manajemen dan, bila tidak ditanggapi, kepada pihak yang bertanggung jawab atas tata kelola.",
+      "Kesimpulan dapat dimodifikasi bila terdapat penyimpangan dari kerangka pelaporan atau pembatasan ruang lingkup."
+    ],
+    "praktik": [
+      "Emiten sering meminta reviu terbatas atas laporan keuangan tengah tahunan untuk keperluan aksi korporasi atau penyampaian kepada regulator; pastikan apakah aturan yang berlaku mensyaratkan reviu atau audit penuh.",
+      "Rencanakan reviu interim bersamaan dengan perencanaan audit tahunan agar temuan interim bisa menjadi masukan penilaian risiko audit akhir tahun.",
+      "Gunakan dokumentasi pengendalian internal dari audit tahun sebelumnya, tetapi perbarui untuk perubahan sistem, personel kunci, atau akuisisi.",
+      "Bila praktisi bukan auditor tahunan entitas, jangan memakai SPR 2410; gunakan SPR 2400.",
+      "Komunikasikan sejak awal kepada komite audit bahwa reviu interim tidak sama dengan audit dan tidak menghasilkan opini."
+    ],
+    "temuan": [
+      "Mengandalkan pemahaman audit tahun lalu tanpa memperbarui perubahan bisnis yang signifikan selama periode interim.",
+      "Prosedur analitis hanya dibandingkan dengan periode yang sama tahun lalu tanpa ekspektasi yang beralasan.",
+      "Tidak menindaklanjuti indikasi masalah kelangsungan usaha yang muncul di periode interim.",
+      "Laporan reviu interim tidak menjelaskan bahwa ruang lingkup reviu jauh lebih sempit daripada audit."
+    ],
+    "baru2025": "Edisi 2025 berbasis IAASB Handbook 2023-2024 dengan penyesuaian terkait standar manajemen mutu. IAPI tidak mengumumkan perubahan substansi khusus untuk SPR 2410.",
+    "psak": [],
+    "faq": [
+      ["Siapa yang boleh menerapkan SPR 2410?", "Hanya auditor independen yang juga mengaudit laporan keuangan tahunan entitas tersebut. Praktisi lain menggunakan SPR 2400."],
+      ["Mengapa reviu interim oleh auditor tahunan bisa lebih efisien?", "Karena auditor sudah memiliki pemahaman tentang entitas dan pengendalian internalnya dari audit tahunan, sehingga prosedur reviu bisa difokuskan pada perubahan dan area berisiko."],
+      ["Apakah reviu interim menghasilkan opini?", "Tidak. Hasilnya adalah kesimpulan asurans terbatas dalam bentuk negatif, bukan opini wajar tanpa pengecualian seperti pada audit."]
+    ]
+  },
+  {
+    "kode": "SPA 3000",
+    "slug": "spa-3000",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Perikatan Asurans Selain Audit atau Reviu atas Informasi Keuangan Historis",
+    "judul_en": "ISAE 3000 (Revised), Assurance Engagements Other than Audits or Reviews of Historical Financial Information",
+    "ringkas": "Standar payung untuk perikatan asurans atas hal pokok selain laporan keuangan historis, seperti pengendalian internal, kepatuhan, kinerja nonkeuangan, dan informasi keberlanjutan. Bisa dilakukan dengan asurans memadai maupun asurans terbatas.",
+    "tujuan": "Memperoleh asurans memadai atau terbatas tentang apakah informasi hal pokok bebas dari salah saji material, lalu menyatakan kesimpulan dalam laporan tertulis dan mengomunikasikan hal lain yang diwajibkan standar.",
+    "poin": [
+      "Praktisi hanya menerima perikatan bila prasyarat terpenuhi, antara lain hal pokok sesuai, kriteria sesuai dan tersedia bagi pengguna, serta ada tujuan perikatan yang rasional.",
+      "Partner perikatan harus memiliki kompetensi asurans dan pemahaman yang memadai atas hal pokok yang diperiksa.",
+      "Praktisi menentukan apakah perikatan berupa asurans memadai atau terbatas dan merancang prosedur yang sesuai dengan tingkat keyakinan tersebut.",
+      "Materialitas dipertimbangkan dari sisi kuantitatif dan kualitatif terkait kebutuhan pengguna yang dituju.",
+      "Bila menggunakan pakar praktisi, praktisi menilai kompetensi, kapabilitas, dan objektivitas pakar serta kecukupan pekerjaannya.",
+      "Praktisi meminta representasi tertulis dan mengevaluasi kecukupan serta ketepatan bukti sebelum menyimpulkan.",
+      "Laporan asurans memuat unsur minimum, termasuk identifikasi hal pokok, kriteria, tingkat asurans, prosedur ringkas untuk asurans terbatas, dan kesimpulan.",
+      "Perikatan tunduk pada kode etik termasuk independensi serta standar manajemen mutu."
+    ],
+    "praktik": [
+      "Contoh permintaan klien: asurans atas laporan kepatuhan terhadap ketentuan perjanjian, asurans atas indikator kinerja tertentu, atau asurans atas laporan keberlanjutan.",
+      "Untuk informasi keberlanjutan, ikuti perkembangan SAKb 5000 yang mengadopsi ISSA 5000. Pada Agustus 2026 IAPI mendorong adopsi formalnya sebagai standar asurans keberlanjutan, sehingga ruang lingkup SPA 3000 untuk topik ini perlu dicek ulang.",
+      "Jika klien belum punya kriteria tertulis, bantu klien memilih kriteria yang diakui atau sarankan prosedur yang disepakati sebagai alternatif.",
+      "Untuk asurans terbatas, laporan harus menjelaskan sifat dan luas prosedur cukup rinci agar pengguna paham keterbatasannya.",
+      "Gunakan SPA 3000 sebagai standar dasar, lalu periksa apakah ada standar khusus (SPA 3400, 3402, 3410, 3420) yang lebih tepat."
+    ],
+    "temuan": [
+      "Menerima perikatan tanpa kriteria yang sesuai sehingga kesimpulan tidak dapat diverifikasi pengguna.",
+      "Tim tidak memiliki keahlian atas hal pokok (misalnya data teknis atau lingkungan) dan tidak melibatkan pakar.",
+      "Laporan asurans terbatas tidak menjelaskan prosedur yang dilakukan.",
+      "Kesimpulan asurans memadai diberikan padahal bukti yang dikumpulkan hanya setara asurans terbatas."
+    ],
+    "baru2025": "Daftar standar IAPI mencantumkan SPA 3000 (Revisi 2022) yang berlaku untuk perikatan dengan surat perikatan tertanggal 1 Januari 2024 atau setelahnya. Edisi 2025 memuat penyesuaian terkait standar manajemen mutu tanpa perubahan substansi besar yang diumumkan khusus.",
+    "psak": [],
+    "faq": [
+      ["Kapan SPA 3000 dipakai, bukan SA atau SPR?", "Ketika hal pokok yang diberi asurans bukan laporan keuangan historis, misalnya pengendalian internal, kepatuhan, atau data nonkeuangan."],
+      ["Apakah SPA 3000 hanya untuk asurans memadai?", "Tidak. Standar ini mengatur asurans memadai dan asurans terbatas, dengan ketentuan prosedur dan bentuk kesimpulan yang berbeda."],
+      ["Apakah asurans laporan keberlanjutan tetap memakai SPA 3000?", "Selama ini banyak praktisi memakai SPA 3000. Dengan dorongan IAPI untuk mengadopsi SAKb 5000 berbasis ISSA 5000, perlu dicek standar mana yang berlaku saat perikatan disepakati."]
+    ]
+  },
+  {
+    "kode": "SPA 3400",
+    "slug": "spa-3400",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Pemeriksaan atas Informasi Keuangan Prospektif",
+    "judul_en": "ISAE 3400, The Examination of Prospective Financial Information",
+    "ringkas": "Standar untuk perikatan pemeriksaan atas informasi keuangan prospektif seperti prakiraan (forecast) dan proyeksi. Praktisi memberi asurans atas kewajaran asumsi dan penyusunannya, bukan atas tercapainya angka masa depan.",
+    "tujuan": "Memperoleh bukti yang cukup tentang apakah asumsi manajemen memberikan dasar yang wajar bagi informasi keuangan prospektif, apakah informasi tersebut disusun dengan benar berdasarkan asumsi itu dan disajikan secara tepat, serta apakah konsisten dengan kebijakan akuntansi historis entitas.",
+    "poin": [
+      "Praktisi membedakan prakiraan yang berbasis asumsi estimasi terbaik dengan proyeksi yang memuat asumsi hipotetis.",
+      "Praktisi memahami bisnis entitas dan pengalaman masa lalu dalam menyusun informasi prospektif sebelum menerima perikatan.",
+      "Praktisi mempertimbangkan periode yang dicakup; makin jauh periode ke depan, makin spekulatif asumsinya.",
+      "Bukti difokuskan pada sumber dan keandalan asumsi, konsistensi antar asumsi, serta ketepatan perhitungan.",
+      "Representasi tertulis diperoleh dari manajemen tentang penggunaan informasi dan kelengkapan asumsi signifikan.",
+      "Laporan memuat keyakinan negatif atas kewajaran asumsi dan opini atas penyusunan serta penyajian, disertai peringatan bahwa hasil aktual kemungkinan berbeda.",
+      "Bila asumsi hipotetis dipakai, laporan menegaskan keterbatasan penggunaan informasi tersebut."
+    ],
+    "praktik": [
+      "Permintaan umum datang dari calon kreditur atau investor yang meminta pemeriksaan proyeksi arus kas untuk pembiayaan proyek.",
+      "Jelaskan kepada klien sejak awal bahwa praktisi tidak menjamin angka proyeksi akan tercapai.",
+      "Uji asumsi kunci seperti pertumbuhan pendapatan, harga, dan suku bunga terhadap data historis, kontrak yang ada, dan sumber eksternal.",
+      "Bila klien hanya butuh pengecekan aritmetika model keuangan, pertimbangkan perikatan prosedur yang disepakati yang lebih sederhana.",
+      "Dokumentasikan analisis sensitivitas atas asumsi yang paling memengaruhi hasil."
+    ],
+    "temuan": [
+      "Laporan memberi kesan bahwa praktisi menjamin pencapaian proyeksi.",
+      "Asumsi hipotetis tidak dibedakan dengan asumsi estimasi terbaik dalam laporan.",
+      "Praktisi hanya memeriksa rumus model tanpa menguji dasar asumsi.",
+      "Tidak ada representasi tertulis manajemen tentang asumsi yang digunakan."
+    ],
+    "baru2025": "",
+    "psak": [],
+    "faq": [
+      ["Apa beda prakiraan dan proyeksi?", "Prakiraan disusun berdasarkan asumsi estimasi terbaik manajemen tentang kejadian yang diharapkan. Proyeksi memuat asumsi hipotetis, misalnya skenario ekspansi yang belum pasti dilakukan."],
+      ["Apakah praktisi memberi opini bahwa proyeksi akan tercapai?", "Tidak. Praktisi hanya menyimpulkan kewajaran asumsi serta ketepatan penyusunan dan penyajian, karena hasil aktual dapat berbeda."],
+      ["Apakah pemeriksaan informasi prospektif sama dengan audit?", "Tidak. Informasi prospektif menyangkut masa depan sehingga tidak bisa diverifikasi seperti transaksi historis; tingkat keyakinan atas asumsinya lebih terbatas."]
+    ]
+  },
+  {
+    "kode": "SPA 3402",
+    "slug": "spa-3402",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Laporan Asurans atas Pengendalian pada Organisasi Jasa",
+    "judul_en": "ISAE 3402, Assurance Reports on Controls at a Service Organization",
+    "ringkas": "Standar untuk perikatan asurans atas pengendalian di organisasi jasa yang relevan bagi pelaporan keuangan entitas pengguna, misalnya penyedia jasa penggajian atau pemrosesan transaksi. Laporannya dipakai oleh entitas pengguna dan auditornya.",
+    "tujuan": "Memperoleh asurans memadai apakah deskripsi sistem organisasi jasa disajikan wajar, apakah pengendalian dirancang dengan tepat untuk mencapai tujuan pengendalian yang dinyatakan, dan untuk laporan tipe 2 apakah pengendalian beroperasi efektif sepanjang periode tertentu.",
+    "poin": [
+      "Terdapat dua jenis laporan: tipe 1 atas deskripsi dan desain pengendalian pada suatu tanggal, dan tipe 2 yang juga mencakup efektivitas operasi selama periode.",
+      "Organisasi jasa wajib menyusun deskripsi sistem dan pernyataan tertulis yang menjadi dasar kesimpulan praktisi.",
+      "Praktisi menilai kesesuaian kriteria yang dipakai untuk mengevaluasi deskripsi, desain, dan efektivitas pengendalian.",
+      "Pengendalian komplementer di entitas pengguna diidentifikasi dan diungkapkan karena tujuan pengendalian bergantung padanya.",
+      "Bila ada organisasi subjasa, praktisi menentukan apakah memakai metode inklusif atau metode carve-out.",
+      "Untuk tipe 2, praktisi menguji efektivitas operasi pengendalian dan menguraikan pengujian beserta hasilnya dalam laporan.",
+      "Penyimpangan pengendalian dievaluasi dampaknya dan dapat menyebabkan opini dimodifikasi.",
+      "Penggunaan laporan dibatasi bagi organisasi jasa, entitas pengguna, dan auditor entitas pengguna."
+    ],
+    "praktik": [
+      "Klien tipikal adalah penyedia jasa penggajian, pusat data, pemroses pembayaran, dan penyedia sistem akuntansi berbasis cloud yang melayani banyak pelanggan.",
+      "Auditor entitas pengguna memanfaatkan laporan ini sesuai SA 402 sehingga tidak perlu menguji pengendalian di organisasi jasa satu per satu.",
+      "Untuk tahun pertama, organisasi jasa sering memulai dengan laporan tipe 1 sebelum siap menjalani tipe 2.",
+      "Bantu klien menyusun tujuan pengendalian yang jelas dan terkait dengan risiko pelaporan keuangan pelanggannya.",
+      "Bila kebutuhannya menyangkut keamanan informasi di luar pelaporan keuangan, gunakan SPA 3000 sebagai dasar."
+    ],
+    "temuan": [
+      "Deskripsi sistem terlalu umum dan tidak sesuai dengan operasi sebenarnya.",
+      "Pengendalian komplementer entitas pengguna tidak diungkapkan.",
+      "Periode pengujian tipe 2 terlalu pendek untuk mendukung kesimpulan efektivitas operasi.",
+      "Organisasi subjasa tidak diidentifikasi atau metode carve-out tidak dijelaskan."
+    ],
+    "baru2025": "",
+    "psak": [],
+    "faq": [
+      ["Apa beda laporan tipe 1 dan tipe 2?", "Tipe 1 menilai deskripsi dan desain pengendalian pada satu tanggal. Tipe 2 menambahkan pengujian efektivitas operasi pengendalian selama suatu periode, sehingga lebih bermanfaat bagi auditor pengguna."],
+      ["Siapa yang memakai laporan SPA 3402?", "Organisasi jasa, entitas pengguna jasa, dan auditor entitas pengguna untuk mendukung audit laporan keuangan entitas pengguna."],
+      ["Apakah laporan ini menjamin seluruh keamanan sistem organisasi jasa?", "Tidak. Ruang lingkupnya pengendalian yang relevan dengan pelaporan keuangan entitas pengguna sesuai tujuan pengendalian yang dinyatakan."]
+    ]
+  },
+  {
+    "kode": "SPA 3410",
+    "slug": "spa-3410",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Perikatan Asurans atas Pelaporan Gas Rumah Kaca",
+    "judul_en": "ISAE 3410, Assurance Engagements on Greenhouse Gas Statements",
+    "ringkas": "Standar untuk perikatan asurans atas laporan emisi gas rumah kaca entitas. Dapat dilakukan dengan asurans memadai maupun asurans terbatas.",
+    "tujuan": "Memperoleh asurans memadai atau terbatas apakah laporan gas rumah kaca bebas dari salah saji material akibat kecurangan atau kesalahan, lalu melaporkan kesimpulan tersebut dan mengomunikasikan hal yang diwajibkan standar.",
+    "poin": [
+      "Praktisi memahami proses kuantifikasi emisi entitas, termasuk sumber emisi, batas organisasi, dan faktor emisi yang dipakai.",
+      "Tim perikatan harus memiliki kompetensi di bidang kuantifikasi dan pelaporan emisi, atau melibatkan pakar.",
+      "Praktisi mempertimbangkan ketidakpastian ilmiah dan estimasi yang melekat dalam pengukuran emisi.",
+      "Materialitas ditetapkan dengan mempertimbangkan kebutuhan pengguna laporan emisi.",
+      "Prosedur dirancang berbeda untuk asurans memadai dan asurans terbatas sesuai penilaian risiko.",
+      "Praktisi memperhatikan pengurangan emisi seperti offset dan pembelian kredit karbon bila dilaporkan.",
+      "Laporan asurans mengidentifikasi laporan gas rumah kaca, kriteria, tingkat asurans, dan kesimpulan."
+    ],
+    "praktik": [
+      "Permintaan muncul dari perusahaan yang menerbitkan laporan keberlanjutan, ikut perdagangan karbon, atau menjadi pemasok perusahaan multinasional yang meminta data emisi terverifikasi.",
+      "Di Indonesia verifikasi emisi juga dilakukan oleh lembaga validasi dan verifikasi berbasis standar ISO; jelaskan kepada klien perbedaan asurans oleh akuntan publik dengan verifikasi teknis tersebut.",
+      "Libatkan pakar teknik lingkungan untuk menilai faktor emisi dan metode pengukuran.",
+      "Pantau perkembangan SAKb 5000 berbasis ISSA 5000 yang didorong IAPI, karena dapat memengaruhi standar mana yang dipakai untuk asurans keberlanjutan yang lebih luas.",
+      "Pastikan klien menetapkan batas organisasi dan cakupan emisi secara tertulis sebelum perikatan dimulai."
+    ],
+    "temuan": [
+      "Tim tidak memiliki kompetensi teknis atas kuantifikasi emisi dan tidak melibatkan pakar.",
+      "Batas organisasi tidak jelas sehingga sebagian sumber emisi tidak tercakup.",
+      "Faktor emisi yang usang atau tidak sesuai kriteria tidak terdeteksi.",
+      "Offset atau kredit karbon disajikan tanpa bukti kepemilikan yang memadai."
+    ],
+    "baru2025": "",
+    "psak": [],
+    "faq": [
+      ["Apakah SPA 3410 berlaku untuk seluruh laporan keberlanjutan?", "Tidak. SPA 3410 khusus untuk laporan emisi gas rumah kaca. Asurans atas informasi keberlanjutan yang lebih luas mengacu pada SPA 3000 atau standar asurans keberlanjutan yang diadopsi IAPI."],
+      ["Apakah akuntan publik boleh melakukan asurans emisi?", "Boleh, sepanjang memiliki kompetensi yang memadai atau melibatkan pakar, dan mematuhi etika serta standar manajemen mutu."],
+      ["Apa tantangan utama asurans emisi?", "Ketidakpastian pengukuran, ketergantungan pada faktor emisi, dan kebutuhan keahlian teknis di luar akuntansi."]
+    ]
+  },
+  {
+    "kode": "SPA 3420",
+    "slug": "spa-3420",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Perikatan Asurans untuk Pelaporan atas Kompilasi Informasi Keuangan Proforma yang Tercantum dalam Prospektus",
+    "judul_en": "ISAE 3420, Assurance Engagements to Report on the Compilation of Pro Forma Financial Information Included in a Prospectus",
+    "ringkas": "Standar untuk perikatan asurans atas proses kompilasi informasi keuangan proforma dalam prospektus, misalnya untuk menunjukkan dampak akuisisi atau divestasi seolah-olah terjadi lebih awal. Praktisi memberi opini atas kompilasinya, bukan atas angka historis yang mendasarinya.",
+    "tujuan": "Memperoleh asurans memadai apakah informasi keuangan proforma telah dikompilasi, dalam semua hal yang material, oleh pihak yang bertanggung jawab berdasarkan kriteria yang berlaku, lalu melaporkannya.",
+    "poin": [
+      "Praktisi menilai apakah kriteria kompilasi yang dipakai sesuai, termasuk ketentuan regulator pasar modal yang relevan.",
+      "Praktisi memahami peristiwa atau transaksi yang dampaknya disajikan secara proforma.",
+      "Sumber informasi yang belum disesuaikan diperiksa apakah berasal dari sumber yang tepat, misalnya laporan keuangan yang telah diaudit atau direviu.",
+      "Penyesuaian proforma dievaluasi apakah terkait langsung dengan peristiwa dan didukung secara faktual.",
+      "Praktisi menilai apakah penyajian dan pengungkapan proforma cukup jelas agar pengguna memahami sifat ilustratifnya.",
+      "Representasi tertulis diperoleh dari pihak yang bertanggung jawab atas kompilasi.",
+      "Perikatan ini tidak mewajibkan praktisi mengaudit ulang informasi historis yang menjadi sumber."
+    ],
+    "praktik": [
+      "Relevan saat penawaran umum atau aksi korporasi yang disertai akuisisi, merger, atau restrukturisasi signifikan sehingga prospektus memuat informasi proforma.",
+      "Koordinasikan dengan penjamin emisi dan konsultan hukum sejak awal tentang kriteria proforma yang diminta regulator.",
+      "Pastikan setiap penyesuaian proforma memiliki dokumen pendukung seperti perjanjian jual beli atau dokumen pembiayaan.",
+      "Jelaskan kepada manajemen bahwa informasi proforma bersifat ilustratif dan tidak mencerminkan posisi atau kinerja aktual."
+    ],
+    "temuan": [
+      "Penyesuaian proforma dimasukkan tanpa dukungan faktual atau tidak terkait langsung dengan transaksi.",
+      "Informasi sumber yang belum disesuaikan berasal dari laporan yang tidak diaudit atau direviu tanpa diungkapkan.",
+      "Pengungkapan tidak menjelaskan sifat ilustratif dan keterbatasan informasi proforma.",
+      "Ruang lingkup laporan disalahpahami pengguna sebagai audit atas angka proforma."
+    ],
+    "baru2025": "",
+    "psak": [],
+    "faq": [
+      ["Apakah praktisi mengaudit angka proforma?", "Tidak. Praktisi memberi opini apakah proforma telah dikompilasi sesuai kriteria, bukan opini atas kewajaran angka proforma sebagai laporan keuangan."],
+      ["Kapan informasi proforma dibutuhkan?", "Umumnya dalam prospektus ketika ada transaksi signifikan seperti akuisisi atau divestasi yang perlu diilustrasikan dampaknya."],
+      ["Apa syarat penyesuaian proforma yang baik?", "Penyesuaian harus terkait langsung dengan peristiwa yang diilustrasikan, didukung bukti faktual, dan konsisten dengan kebijakan akuntansi entitas."]
+    ]
+  },
+  {
+    "kode": "SJT 4400",
+    "slug": "sjt-4400",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Perikatan Prosedur yang Disepakati",
+    "judul_en": "ISRS 4400 (Revised), Agreed-Upon Procedures Engagements",
+    "ringkas": "Standar untuk perikatan di mana praktisi melaksanakan prosedur yang disepakati dengan pihak yang melibatkan, lalu melaporkan temuan faktual. Perikatan ini tidak memberikan asurans; pengguna menarik kesimpulan sendiri.",
+    "tujuan": "Menyepakati prosedur yang akan dilaksanakan dengan pihak yang melibatkan, melaksanakan prosedur tersebut, lalu mengomunikasikan prosedur dan temuannya dalam laporan sesuai standar.",
+    "poin": [
+      "Prosedur disepakati dengan pihak yang melibatkan dan pihak tersebut mengakui bahwa prosedurnya sesuai dengan tujuan perikatan.",
+      "Prosedur dan temuan harus dapat dijelaskan secara objektif dan tidak memakai istilah yang menyiratkan asurans.",
+      "Praktisi tetap menerapkan pertimbangan profesional dalam menerima, melaksanakan, dan melaporkan perikatan.",
+      "Independensi tidak diwajibkan secara umum, tetapi laporan harus menyatakan apakah praktisi independen atau tidak, kecuali ketentuan perikatan atau regulasi mensyaratkan independensi.",
+      "Bila menggunakan pakar praktisi, laporan menjelaskan keterlibatan pakar tersebut.",
+      "Laporan menguraikan prosedur dan temuan faktual, tanpa opini atau kesimpulan asurans.",
+      "Pembatasan penggunaan atau distribusi laporan tidak lagi otomatis diwajibkan, tetapi bisa ditambahkan sesuai pertimbangan."
+    ],
+    "praktik": [
+      "Contoh paling sering: bank meminta pengecekan pemenuhan rasio covenant kredit, rekonsiliasi piutang yang dijaminkan, atau pencocokan stok jaminan dengan catatan.",
+      "Cocok juga untuk pengecekan penggunaan dana hibah atau dana proyek, perhitungan royalti, dan pengecekan klaim tertentu.",
+      "Rumuskan prosedur secara spesifik, misalnya mencocokkan saldo dengan rekening koran pada tanggal tertentu, bukan istilah kabur seperti memastikan kewajaran.",
+      "Jelaskan ke klien posisi AUP dibanding jasa lain: audit memberi asurans memadai, reviu memberi asurans terbatas, AUP tidak memberi asurans dan hanya melaporkan temuan, sedangkan kompilasi hanya membantu menyusun laporan.",
+      "Bila pihak pengguna laporan selain klien (misalnya bank) ikut menentukan prosedur, libatkan mereka dalam menyepakati prosedur agar laporan sesuai kebutuhan.",
+      "Periksa tanggal persetujuan ketentuan perikatan untuk menentukan apakah SJT 4400 (Revisi) sudah wajib diterapkan."
+    ],
+    "temuan": [
+      "Laporan AUP memakai bahasa seperti telah diyakini atau wajar, sehingga terkesan memberi asurans.",
+      "Prosedur dirumuskan terlalu umum sehingga temuannya bergantung pada penilaian subjektif.",
+      "Laporan tidak menyatakan status independensi praktisi.",
+      "Masih memakai format laporan SJT 4400 lama untuk perikatan yang disepakati setelah tanggal efektif revisi."
+    ],
+    "baru2025": "SJT 4400 (Revisi) mengadopsi ISRS 4400 (Revised) dan menggantikan SJT 4400 lama berjudul Perikatan untuk Melaksanakan Prosedur yang Disepakati atas Informasi Keuangan. Disetujui DSPAP I pada 11 Juli 2025, ditetapkan Dewan Pengurus Nasional IAPI pada 16 Juli 2025, dan berlaku untuk perikatan yang ketentuannya disepakati pada atau setelah 31 Desember 2025, dengan penerapan dini diperkenankan. Cakupannya kini tidak terbatas pada informasi keuangan.",
+    "psak": [],
+    "faq": [
+      ["Apakah laporan AUP memberikan opini?", "Tidak. Laporan hanya memuat prosedur yang dilakukan dan temuan faktualnya; pengguna menarik kesimpulan sendiri."],
+      ["Apakah praktisi AUP harus independen?", "Secara umum tidak diwajibkan, tetapi laporan harus menyatakan apakah praktisi independen. Bila ketentuan perikatan atau regulasi mensyaratkan independensi, syarat itu wajib dipenuhi."],
+      ["Kapan SJT 4400 (Revisi) mulai berlaku?", "Untuk perikatan yang ketentuannya disepakati pada atau setelah 31 Desember 2025, dan penerapan dini diperkenankan."]
+    ]
+  },
+  {
+    "kode": "SJT 4410",
+    "slug": "sjt-4410",
+    "seri": "Reviu, Asurans, dan Jasa Terkait",
+    "judul": "Perikatan Kompilasi",
+    "judul_en": "ISRS 4410 (Revised), Compilation Engagements",
+    "ringkas": "Standar untuk perikatan di mana praktisi membantu manajemen menyusun dan menyajikan informasi keuangan sesuai kerangka pelaporan yang berlaku. Tidak ada asurans; praktisi tidak memverifikasi data yang diberikan manajemen.",
+    "tujuan": "Menerapkan keahlian akuntansi dan pelaporan keuangan untuk membantu manajemen menyusun dan menyajikan informasi keuangan sesuai kerangka pelaporan keuangan yang berlaku, lalu melaporkan perikatan tersebut sesuai standar.",
+    "poin": [
+      "Ketentuan perikatan disepakati secara tertulis, termasuk kerangka pelaporan yang dipakai dan tanggung jawab manajemen atas informasi.",
+      "Praktisi memahami bisnis dan operasi entitas serta kerangka pelaporan keuangan yang berlaku.",
+      "Praktisi menyusun informasi keuangan berdasarkan catatan, dokumen, dan penjelasan dari manajemen tanpa wajib memverifikasinya.",
+      "Bila praktisi menyadari informasi tidak lengkap, tidak akurat, atau menyesatkan, ia meminta tambahan atau koreksi dari manajemen.",
+      "Bila manajemen menolak memperbaiki informasi yang menyesatkan, praktisi mempertimbangkan untuk mengundurkan diri dari perikatan.",
+      "Manajemen menyetujui atau menerima tanggung jawab atas informasi keuangan final sebelum laporan diterbitkan.",
+      "Laporan kompilasi menegaskan bahwa tidak ada audit atau reviu yang dilakukan dan tidak ada opini atau kesimpulan asurans."
+    ],
+    "praktik": [
+      "Cocok untuk UMKM yang menyusun laporan keuangan berbasis SAK EMKM atau SAK EP dan belum memiliki staf akuntansi yang memadai.",
+      "Jelaskan kepada klien perbedaan empat jasa: audit memberi asurans memadai, reviu memberi asurans terbatas, AUP tidak memberi asurans dan hanya melaporkan temuan faktual, sedangkan kompilasi tidak memberi asurans karena praktisi hanya membantu menyusun laporan.",
+      "Bila bank meminta laporan keuangan untuk kredit kecil, tanyakan apakah laporan kompilasi diterima atau bank mensyaratkan reviu atau audit.",
+      "Di luar KAP, jasa kompilasi juga dapat diberikan oleh Kantor Jasa Akuntansi dengan acuan standar IAI (SPJ 4410); pastikan standar yang dirujuk sesuai jenis kantor.",
+      "Cantumkan rujukan ke laporan kompilasi pada setiap halaman laporan keuangan agar pengguna tidak salah mengira laporan sudah diaudit."
+    ],
+    "temuan": [
+      "Laporan kompilasi tidak menegaskan bahwa tidak ada asurans, sehingga pengguna mengira laporan sudah diaudit.",
+      "Praktisi tetap menerbitkan laporan meskipun mengetahui informasi manajemen menyesatkan.",
+      "Kerangka pelaporan keuangan tidak disebutkan secara jelas dalam laporan.",
+      "Tidak ada persetujuan tertulis manajemen atas laporan keuangan final."
+    ],
+    "baru2025": "",
+    "psak": [],
+    "faq": [
+      ["Apakah kompilasi memberikan keyakinan atas laporan keuangan?", "Tidak. Kompilasi adalah jasa terkait tanpa asurans; praktisi hanya membantu menyusun laporan dari data manajemen."],
+      ["Apakah praktisi kompilasi wajib memverifikasi data klien?", "Tidak wajib, tetapi bila menyadari data tidak lengkap atau menyesatkan, praktisi harus meminta perbaikan dan dapat mengundurkan diri bila manajemen menolak."],
+      ["Laporan apa yang tepat untuk UMKM yang butuh laporan keuangan rapi?", "Kompilasi biasanya cukup bila tujuannya penyusunan laporan sesuai SAK EMKM atau SAK EP. Bila pihak ketiga butuh keyakinan, pertimbangkan reviu atau audit."]
+    ]
+  }
+]
