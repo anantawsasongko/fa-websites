@@ -304,6 +304,7 @@ function renderStd(d, r) {
   <details class="more"><summary>Lihat Alasan dan Fokus Auditor per Standar</summary>
   <div class="scroll" style="margin-top:12px"><table class="std"><thead><tr><th>${r.fw === "sak" ? "PSAK/ISAK" : "Topik " + esc(r.fwName)}</th><th>Topik</th><th>Mengapa Berlaku</th><th>Fokus Auditor</th></tr></thead><tbody>${rows}</tbody></table></div></details>
   ${r.fw !== "sak" ? `<p class="lock">Topik ditulis menurut ${esc(r.fwName)}. Nomor PSAK hanya tampil untuk SAK Indonesia.</p>` : ""}
+  ${g7(d)}
   <h3>Standar Baru yang Berdampak</h3>
   <div class="tl">${r.news.map((n, i) => `<div style="animation-delay:${i * .12}s"><time>${esc(n.eff)}</time><b>${esc(n.psak)}</b><p>${esc(n.dampak)}</p></div>`).join("")}</div>
   <div class="actions" style="margin-top:20px"><button type="button" class="btn" id="toCalk">Lanjut Susun CALK</button><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=${encodeURIComponent("Halo tim UpdateSAK, hasil kalkulator untuk " + (d.f.nama || "perusahaan kami") + " menunjukkan " + r.fwName + ". Kami ingin diskusi penerapannya.")}">Diskusikan Hasil Ini</a></div>
@@ -491,14 +492,23 @@ function buildCalk(d, r, onlyFS) {
   H += H2("a", "Pendirian dan Informasi Umum");
   H += p(`${nama} ("Perusahaan") didirikan berdasarkan Akta Notaris No. ${val(f.akta_no, "nomor")} tanggal ${val(f.akta_tgl, "tanggal akta")} dari ${val(f.notaris, "nama notaris")}. Akta pendirian tersebut telah memperoleh pengesahan dari Menteri Hukum melalui Surat Keputusan No. ${val(f.sk, "nomor SK AHU")}. Anggaran Dasar Perusahaan telah beberapa kali mengalami perubahan, terakhir dengan ${val(f.akta_ubah, "akta perubahan terakhir, nomor, tanggal, dan pokok perubahan")}.`);
   H += p(`Sesuai dengan Pasal 3 Anggaran Dasar, ruang lingkup kegiatan Perusahaan meliputi ${val(f.kegiatan, "kegiatan usaha sesuai anggaran dasar dan KBLI")}. Perusahaan mulai beroperasi secara komersial pada tahun ${val(f.mulai, "tahun")}. Kantor pusat Perusahaan berkedudukan di ${val(f.alamat || f.kota, "alamat kantor pusat")}.`);
-  if (f.induk) H += p(`Entitas induk Perusahaan adalah ${esc(f.induk)}.`);
-  H += H2("b", "Dewan Komisaris, Direksi, dan Karyawan");
+  const TBK = ["tbk", "ipo"].includes(f.status);
+  if (f.induk && !TBK) H += p(`Entitas induk Perusahaan adalah ${esc(f.induk)}.`);
+  if (TBK) H += p(`Entitas induk Perusahaan adalah ${val(f.induk, "nama entitas induk")} dan entitas induk terakhir kelompok usaha adalah ${P("nama entitas induk terakhir")}.`);
+  let n1 = "b".charCodeAt(0);
+  if (TBK) {
+    H += H2(String.fromCharCode(n1++), "Penawaran Umum Efek Perusahaan");
+    H += p(f.status === "ipo" ? `Perusahaan sedang dalam proses penawaran umum perdana saham. ${P("Tanggal pernyataan pendaftaran, jumlah saham yang ditawarkan, harga penawaran, dan bursa tempat saham akan dicatatkan")}.` :
+      `Pada tanggal ${P("tanggal")}, Perusahaan memperoleh pernyataan efektif dari Otoritas Jasa Keuangan melalui surat No. ${P("nomor")} untuk melakukan penawaran umum perdana atas ${P("jumlah")} saham dengan nilai nominal ${P("Rp...")} per saham dan harga penawaran ${P("Rp...")} per saham. Saham tersebut dicatatkan di Bursa Efek Indonesia pada tanggal ${P("tanggal")}. ${P("Tindakan korporasi setelah penawaran umum perdana yang mempengaruhi jumlah saham, misalnya pemecahan saham, saham bonus, atau penawaran umum terbatas")}.`);
+  }
+  H += H2(String.fromCharCode(n1++), TBK ? "Dewan Komisaris, Direksi, Komite Audit, dan Karyawan" : "Dewan Komisaris, Direksi, dan Karyawan");
   H += p(`Susunan Dewan Komisaris dan Direksi Perusahaan pada tanggal ${d1} adalah sebagai berikut:`);
   const kom = lines(f.komisaris), dir = lines(f.direksi);
   const ppl = (arr, def) => (arr.length ? arr : def.map(j => [j, ""])).map(([j, nm]) => `<tr><td style="${TL};width:45%">${esc(j)}</td><td style="${TL}">: ${nm ? esc(nm) : P("nama")}</td></tr>`).join("");
   H += `<table style="${TB}"><tr><td style="${TL};font-weight:bold" colspan="2">Dewan Komisaris</td></tr>${ppl(kom, ["Komisaris Utama", "Komisaris"])}<tr><td style="${TL};font-weight:bold;padding-top:6px" colspan="2">Direksi</td></tr>${ppl(dir, ["Direktur Utama", "Direktur"])}</table>`;
+  if (TBK) H += p(`Susunan Komite Audit Perusahaan pada tanggal ${d1}: Ketua ${P("nama, Komisaris Independen")}, Anggota ${P("nama")} dan ${P("nama")}. Personel manajemen kunci Perusahaan meliputi Dewan Komisaris dan Direksi.`);
   H += p(`Pada tanggal ${d1}, Perusahaan memiliki ${val(f.karyawan, "jumlah")} karyawan tetap${prior ? ` (${d0}: ${P("jumlah")} karyawan)` : ""}.`);
-  H += H2("c", "Penyelesaian Laporan Keuangan");
+  H += H2(String.fromCharCode(n1++), "Penyelesaian Laporan Keuangan");
   H += p(`Manajemen Perusahaan bertanggung jawab atas penyusunan dan penyajian wajar laporan keuangan ini yang telah diselesaikan dan diotorisasi untuk terbit oleh Direksi pada tanggal ${val(f.otorisasi, "tanggal otorisasi")}.`);
 
   /* Catatan 2 */
@@ -665,6 +675,12 @@ function buildCalk(d, r, onlyFS) {
     const relRows = [["Piutang usaha", a("piurel", 1), a("piurel", 0), "i"], ["Utang usaha", a("uurel", 1), a("uurel", 0), "i"], ["Utang pihak berelasi jangka panjang", a("utangrel", 1), a("utangrel", 0), "i"]].filter(x => x[1] || x[2]);
     if (relRows.length) H += tb2(relRows);
     H += p(`Kompensasi yang diberikan kepada Dewan Komisaris dan Direksi sebagai personel manajemen kunci berupa imbalan kerja jangka pendek sebesar ${P("Rp...")} pada tahun ${Y1}.`);
+    if (["tbk", "ipo"].includes(f.status)) {
+      const pct = (x, tot) => tot ? (x / tot * 100).toLocaleString("id-ID", {maximumFractionDigits: 2}) + "%" : "-";
+      const rr = [["Piutang usaha pihak berelasi", a("piurel", 1), pct(a("piurel", 1), T1.ASET) + " dari total aset"], ["Utang usaha pihak berelasi", a("uurel", 1), pct(a("uurel", 1), T1.LIAB) + " dari total liabilitas"], ["Utang pihak berelasi jangka panjang", a("utangrel", 1), pct(a("utangrel", 1), T1.LIAB) + " dari total liabilitas"]].filter(x => x[1]);
+      if (rr.length) H += p(`Persentase saldo terhadap total aset atau liabilitas pada tanggal ${d1}: ${rr.map(x => x[0].toLowerCase() + " " + x[2]).join("; ")}. Persyaratan dan ketentuan saldo, termasuk jaminan, adalah ${P("tanpa jaminan, tanpa bunga, jatuh tempo ...")}.`);
+      H += p(`Kompensasi personel manajemen kunci terdiri dari imbalan kerja jangka pendek ${P("Rp...")}, imbalan pascakerja ${P("Rp...")}, imbalan kerja jangka panjang lainnya ${P("Rp...")}, pesangon ${P("Rp...")}, dan pembayaran berbasis saham ${P("Rp...")}.`);
+    }
   }
   if (N.risiko) {
     H += NT("risiko", "Tujuan dan Kebijakan Manajemen Risiko Keuangan");
@@ -703,6 +719,36 @@ function renderCalk(d, r, onlyFS) {
   </div>`;
 }
 
+
+/* ---------- Peraturan Bapepam-LK VIII.G.7 (KEP-347/BL/2012): uji materialitas agregasi dan pihak berelasi ---------- */
+function g7(d) {
+  const st = d.f.status, T = d.t[1], v = d.v;
+  if (!["tbk", "ipo"].includes(st)) return "";
+  const mA = T.ASET * .05, mL = T.LIAB * .05, mE = T.EK * .05, mP = Math.abs(v.pendapatan[1]) * .10, mPL = Math.abs(T.LSBP) * .10;
+  const modal = v.modal[1] + v.tmd[1], rpt = modal * .005;
+  const items = ROWS.filter(r => r[2] && ["AL", "ATL", "LPD", "LPJ"].includes(r[2]) && r[0] !== "=").map(r => {
+    const val = Math.abs(v[r[0]][1]), lim = ["AL", "ATL"].includes(r[2]) ? mA : mL;
+    return {lab: r[1], val, mat: val > lim};
+  }).filter(x => x.val);
+  const mat = items.filter(x => x.mat), kecil = items.filter(x => !x.mat);
+  const rel = [["Piutang usaha pihak berelasi", v.piurel[1]], ["Utang usaha pihak berelasi", v.uurel[1]], ["Utang pihak berelasi jangka panjang", v.utangrel[1]]].filter(x => x[1]);
+  const rp = x => "Rp" + idn(x);
+  return `<h3>Uji Materialitas Peraturan VIII.G.7 (Emiten)</h3>
+  <p>Peraturan Bapepam-LK Nomor VIII.G.7 (Keputusan Ketua Nomor KEP-347/BL/2012) menetapkan batas materialitas untuk agregasi pos laporan keuangan emiten dan perusahaan publik. Pos yang melewati batas wajib disajikan terpisah dan dirinci di CALK.</p>
+  <div class="scroll"><table class="std"><thead><tr><th>Dasar</th><th>Batas</th><th>Nilai ${esc(d.f.tahun)}</th></tr></thead><tbody>
+  <tr><td>Pos aset</td><td>5% dari total aset</td><td>${rp(mA)}</td></tr>
+  <tr><td>Pos liabilitas</td><td>5% dari total liabilitas</td><td>${rp(mL)}</td></tr>
+  <tr><td>Pos ekuitas</td><td>5% dari total ekuitas</td><td>${rp(mE)}</td></tr>
+  <tr><td>Pos laba rugi</td><td>10% dari pendapatan</td><td>${rp(mP)}</td></tr>
+  <tr><td>Pengaruh suatu peristiwa atau transaksi</td><td>10% dari laba sebelum pajak (operasi dilanjutkan)</td><td>${rp(mPL)}</td></tr>
+  <tr><td>Transaksi dan saldo dengan entitas berelasi</td><td>Di atas 0,5% dari modal disetor</td><td>${modal ? rp(rpt) : "isi modal saham"}</td></tr>
+  <tr><td>Transaksi dengan orang atau keluarga terdekat</td><td>Di atas Rp1.000.000.000</td><td>Rp1.000.000.000</td></tr>
+  </tbody></table></div>
+  ${mat.length ? `<p><b>Wajib disajikan terpisah (${mat.length} pos):</b> ${mat.map(x => esc(x.lab)).join("; ")}.</p>` : ""}
+  ${kecil.length ? `<p><b>Boleh digabung bila bukan komponen utama (${kecil.length} pos):</b> ${kecil.map(x => esc(x.lab)).join("; ")}. Kalau gabungannya menjadi material, unsur terbesar tetap disajikan terpisah.</p>` : ""}
+  ${rel.length ? `<p><b>Pihak berelasi:</b> ${rel.map(x => esc(x[0]) + " " + rp(x[1]) + (modal ? (x[1] > rpt ? " (wajib diungkapkan rinci)" : " (di bawah batas)") : "")).join("; ")}. Pengungkapan mencakup sifat hubungan, persentase terhadap total aset atau liabilitas dan pendapatan atau beban terkait, jaminan, serta cadangan kerugian.</p>` : ""}
+  <p class="lock">Ketentuan A.4 peraturan ini: bila SAK berubah, emiten mengikuti SAK terkini, termasuk PSAK 118 mulai 2027. Pelajari kasusnya di <a href="/materi/calon-emiten-viii-g7-materialitas-pihak-berelasi/">Materi VIII.G.7</a>.</p>`;
+}
 
 /* ---------- Panel indikasi langsung ---------- */
 function live() {

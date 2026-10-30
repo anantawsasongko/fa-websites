@@ -2,7 +2,7 @@
 import os, re, json, html, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import build_seo as B
-from seo_materi import K, CHEAT, CHECKLIST, PBC
+from seo_materi import K, CHEAT, CHECKLIST, PBC, G7CHECK
 from seo_psak import P
 esc = html.escape
 SITE = B.SITE; BASE = B.BASE
@@ -145,6 +145,10 @@ def pdf_cheat(slug, title, desc):
     elif slug == "daftar-pbc-audit":
         for g, items in PBC:
             st.append(KeepTogether([Paragraph(esc(g), S["h2"]), tbl(["", "Dokumen", "Status", "Catatan"], [["[  ]", x, "", ""] for x in items], [10 * mm, 110 * mm, 25 * mm, 35 * mm])]))
+    elif slug == "checklist-pengungkapan-viii-g7":
+        st.append(Paragraph("Dasar: Keputusan Ketua Bapepam-LK Nomor KEP-347/BL/2012 tanggal 25 Juni 2012 (Peraturan VIII.G.7). Ketentuan A.4: bila SAK berubah, emiten mengikuti SAK terkini.", S["p"]))
+        for g, items in G7CHECK:
+            st.append(Paragraph(esc(g), S["h2"])); st.append(tbl(["", "Ketentuan", "Ada", "Catatan"], [["[  ]", x, "", ""] for x in items], [10 * mm, 120 * mm, 18 * mm, 32 * mm]))
     elif slug == "peta-psak-2026":
         st.append(tbl(["PSAK", "Judul", "Padanan", "Inti Pengaturan"], [[q[0], q[1], q[2] or "Khusus Indonesia", q[4]] for q in P], [14 * mm, 45 * mm, 22 * mm, 99 * mm]))
     else:

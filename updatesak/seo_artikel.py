@@ -434,3 +434,35 @@ add("contoh-jurnal-penyusutan-aset-tetap-psak-216", "Contoh Jurnal Penyusutan As
   ("Berapa tarif penyusutan fiskal mobil dan truk?", "Kendaraan seperti mobil dan truk umumnya masuk kelompok 2 dengan masa manfaat 8 tahun: 12,5% per tahun untuk garis lurus atau 25% untuk saldo menurun."),
   ("Apakah bangunan boleh disusutkan dengan saldo menurun untuk pajak?", "Tidak. Bangunan hanya boleh memakai garis lurus: 5% untuk bangunan permanen (atau umur riil di pembukuan sesuai PMK 72/2023) dan 10% untuk bangunan tidak permanen.")],
  [216, 212, 201])
+
+# ---- Peraturan VIII.G.7 (30 Okt 2026) ----
+add("peraturan-viii-g7-penyajian-laporan-keuangan-emiten", "Peraturan VIII.G.7: Ringkasan Kewajiban Penyajian dan Pengungkapan Laporan Keuangan Emiten",
+ "Ringkasan Peraturan Bapepam-LK Nomor VIII.G.7 (KEP-347/BL/2012) untuk emiten dan calon emiten: batas materialitas 5% dan 10%, pihak berelasi 0,5% modal disetor dan Rp1 miliar, isi Catatan 1, dan hubungannya dengan PSAK terkini.",
+ "Pasar Modal",
+ """<p><b>Jawaban singkat:</b> Peraturan Bapepam-LK Nomor VIII.G.7, lampiran Keputusan Ketua Nomor KEP-347/BL/2012 tanggal 25 Juni 2012, adalah pedoman penyajian dan pengungkapan laporan keuangan emiten dan perusahaan publik. Peraturan ini berlaku untuk laporan keuangan yang berakhir pada atau setelah 31 Desember 2012. Isinya melengkapi SAK, dan ketentuan A.4 menegaskan bahwa bila SAK berubah, emiten mengikuti SAK terkini kecuali dinyatakan lain oleh regulator.</p>
+<h2>Angka Kunci yang Wajib Diingat</h2>
+<table class="tbl"><thead><tr><th>Ketentuan</th><th>Batas</th></tr></thead><tbody>
+<tr><td>Materialitas pos aset</td><td>5% dari total aset</td></tr>
+<tr><td>Materialitas pos liabilitas</td><td>5% dari total liabilitas</td></tr>
+<tr><td>Materialitas pos ekuitas</td><td>5% dari total ekuitas</td></tr>
+<tr><td>Materialitas pos laba rugi</td><td>10% dari pendapatan</td></tr>
+<tr><td>Pengaruh suatu peristiwa atau transaksi</td><td>10% dari laba operasi dilanjutkan sebelum pajak</td></tr>
+<tr><td>Pengungkapan transaksi dengan entitas berelasi</td><td>Di atas 0,5% dari modal disetor</td></tr>
+<tr><td>Pengungkapan transaksi dengan orang atau keluarga terdekat</td><td>Di atas Rp1 miliar</td></tr>
+<tr><td>Selisih tanggal laporan entitas anak untuk konsolidasi</td><td>Paling lama 3 bulan, dengan penyesuaian</td></tr>
+</tbody></table>
+<h2>Struktur Peraturan</h2>
+<ul><li><b>Bagian A, Ketentuan Umum:</b> definisi, komponen laporan keuangan, bahasa Indonesia, mata uang penyajian Rupiah, periode pelaporan, larangan saling hapus, konsistensi, materialitas dan agregasi, informasi komparatif, konsolidasi, pihak berelasi, penyajian kembali.</li>
+<li><b>Bagian B, Penyajian Laporan Keuangan:</b> pos minimum laporan posisi keuangan, laba rugi komprehensif, perubahan ekuitas, dan arus kas.</li>
+<li><b>Bagian C, Catatan atas Laporan Keuangan:</b> gambaran umum emiten, ikhtisar kebijakan akuntansi, penjelasan pos, dan 24 kelompok pengungkapan lainnya.</li>
+<li><b>Bagian D, Ketentuan Penutup.</b></li></ul>
+<h2>Isi Catatan 1 yang Khas Emiten</h2>
+<p>Dibanding perusahaan tertutup, Catatan 1 emiten wajib memuat informasi penawaran umum efek (tanggal atau nomor surat efektif, jenis dan jumlah efek, bursa, tindakan korporasi sejak IPO), entitas induk terakhir kelompok usaha, struktur entitas anak lengkap dengan persentase kepemilikan dan total aset, susunan komite audit, cakupan manajemen kunci, serta pihak yang mengotorisasi laporan keuangan. <a href="/#kalkulator">Kalkulator CALK UpdateSAK</a> otomatis menambahkan bagian ini bila status entitas dipilih Perusahaan Terbuka atau Proses IPO, dan Kalkulator Standar menampilkan uji materialitas VIII.G.7 dari angka neraca Anda.</p>
+<h2>Kesalahan yang Sering Ditemukan</h2>
+<ol><li>Pos material digabung ke "lain-lain" padahal melewati batas 5%.</li><li>Deposito atau rekening bank dikompensasikan dengan utang tanpa hak hukum saling hapus.</li><li>Piutang dan utang pihak berelasi tercampur dengan pihak ketiga.</li><li>Kompensasi manajemen kunci tidak dirinci per kategori imbalan.</li><li>Penyajian kembali tanpa label "disajikan kembali" di kolom laporan.</li></ol>
+<p>Latihan kasusnya ada di <a href="/materi/calon-emiten-viii-g7-materialitas-pihak-berelasi/">studi kasus calon emiten VIII.G.7</a>, dan daftar periksanya bisa diunduh di <a href="/materi/">Materi</a>. Untuk persiapan IPO dari sisi pendanaan, lihat <a href="https://faindonesia.co.id/konsultan-persiapan-ipo/">konsultan persiapan IPO FA Indonesia</a>.</p>""",
+ [("Apakah Peraturan VIII.G.7 masih berlaku?", "Peraturan VIII.G.7 dalam Keputusan Ketua Bapepam-LK KEP-347/BL/2012 masih menjadi pedoman penyajian laporan keuangan emiten. Ketentuan A.4 mengatur bahwa bila SAK berubah, emiten mengikuti SAK terkini sepanjang tidak dinyatakan lain oleh regulator."),
+  ("Berapa batas materialitas menurut VIII.G.7?", "5% dari total aset, total liabilitas, atau total ekuitas untuk pos masing-masing, 10% dari pendapatan untuk pos laba rugi, dan 10% dari laba operasi dilanjutkan sebelum pajak untuk pengaruh suatu transaksi."),
+  ("Kapan transaksi pihak berelasi wajib diungkapkan rinci?", "Bila transaksi atau saldonya melebihi Rp1 miliar untuk orang atau keluarga terdekat, atau melebihi 0,5% dari modal disetor untuk entitas berelasi."),
+  ("Apakah VIII.G.7 berlaku untuk perusahaan tertutup?", "Tidak. Peraturan ini untuk emiten dan perusahaan publik. Perusahaan tertutup mengikuti SAK yang berlaku, tetapi calon emiten sebaiknya menerapkannya sejak laporan keuangan yang akan dipakai untuk pernyataan pendaftaran.")],
+ [201, 224, 232, 110])
