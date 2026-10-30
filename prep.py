@@ -191,6 +191,15 @@ for _d, _, _fs in os.walk(u):
 with open(os.path.join(u, "_headers"), "a") as _h:
     _h.write("\n/*.html\n  Cache-Control: public, max-age=0, must-revalidate\n/\n  Cache-Control: public, max-age=0, must-revalidate\n/css/*\n  Cache-Control: public, max-age=31536000, immutable\n/js/*\n  Cache-Control: public, max-age=31536000, immutable\n")
 
+# ---------- FA: font body Georgia (30 Okt 2026), ganti EB Garamond yang tipis di layar; judul tetap Times ----------
+FONT_CSS = '<style id="fa-font">:root{--serif:Georgia,"Noto Serif","Times New Roman",serif}p,.plan>p:not(.cmph),.note,.arsip li span:not(.yr),.cmp dd,.feerow span,.sysnote{font-size:1.05em;line-height:1.65}.art p,.art li{font-size:17.5px!important;line-height:1.72!important}.dl p:not(.cmph){font-size:16px}</style>'
+for _r, _, _fs in os.walk(fa):
+    for _f in _fs:
+        if not _f.endswith(".html"): continue
+        _p = os.path.join(_r, _f); _t = open(_p, encoding="utf-8").read()
+        if 'id="fa-font"' in _t or "</head>" not in _t or "--serif" not in _t: continue
+        open(_p, "w", encoding="utf-8").write(_t.replace("</head>", FONT_CSS + "</head>", 1))
+
 # ---------- favicon CariAkuntan + UpdateSAK (Safari/Chrome/iOS): ico, png, svg, apple-touch (28 Okt 2026) ----------
 _IC = os.path.join(M, "shared", "icons")
 for _proj, _k in (("cariakuntan", "ca"), ("updatesak", "us")):
