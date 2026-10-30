@@ -58,17 +58,17 @@ open(os.path.join(fa, "_redirects"), "w").write(
 /unduhan/*       /buku/#unduhan      301
 /unduhan         /buku/#unduhan      301
 """)
-# nav: Apps, Layanan, E-Book, Eksplor (artikel + berita), Cari Akuntan, Update SAK, Kontak
+# nav (30 Okt 2026): Apps, Layanan, Eksplor, Kontak
 idx = os.path.join(fa, "index.html")
 s = open(idx, encoding="utf-8").read()
 old_nav = re.search(r'<nav aria-label="Navigasi utama" class="links">.*?</nav>', s, re.S).group(0)
 new_nav = ('<nav aria-label="Navigasi utama" class="links"> <a data-i18n="kapp" href="/apps/">Apps</a> '
-           '<a data-i18n="k2" href="/layanan/">Layanan</a> <a data-i18n="kebk" href="/buku/">E-Book</a> <a data-i18n="kwws" href="/artikel/">Eksplor</a> <a data-i18n="kcak" href="https://cariakuntan.com/" target="_blank" rel="noopener">Cari Akuntan</a> <a data-i18n="kusak" href="https://updatesak.com/" target="_blank" rel="noopener">Update SAK</a> '
-           '<a data-i18n="k321" href="#kontak">Kontak</a> </nav>')
+           '<a data-i18n="k2" href="/layanan/">Layanan</a> <a data-i18n="kwws" href="/artikel/">Eksplor</a> '
+           '<a data-i18n="k321" href="#kontak">Kontak</a> </nav>')  # 30 Okt 2026: 4 tab saja; E-Book, Cari Akuntan, Update SAK lewat Eksplor, beranda, dan footer
 s = s.replace(old_nav, new_nav)
 s = s.replace(' data-netlify="true" netlify-honeypot="bot-field"', '')
 open(idx, "w", encoding="utf-8").write(s)
-NAV_CSS = '<style id="nav4">@media (max-width:820px){nav.links{justify-content:space-between!important;gap:8px!important;overflow-x:auto;scrollbar-width:none}nav.links::-webkit-scrollbar{display:none}nav.links a{flex:0 0 auto!important;font-size:12.5px!important;padding-left:0!important;padding-right:0!important;letter-spacing:0!important}}@media (max-width:600px){nav.links{display:grid!important;grid-template-columns:repeat(12,1fr)!important;gap:6px 0!important;overflow:visible!important}nav.links a{grid-column:span 3;text-align:center;white-space:nowrap;padding-top:7px!important;padding-bottom:7px!important;line-height:1.2!important}nav.links a:nth-child(n+5){grid-column:span 4}}@media (max-width:370px){nav.links a{font-size:11.5px!important}}</style>'
+NAV_CSS = '<style id="nav4">@media (max-width:820px){nav.links{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;overflow:visible!important;width:100%}nav.links a{text-align:center;white-space:nowrap;font-size:13.5px!important;padding:8px 0!important;letter-spacing:0!important}}@media (max-width:360px){nav.links a{font-size:12.5px!important}}</style>'
 # same nav on other FA pages that carry the main nav
 for root, _, files in os.walk(fa):
     for f in files:
@@ -81,9 +81,14 @@ for root, _, files in os.walk(fa):
             nav2 = new_nav.replace('href="#layanan"', 'href="/#layanan"').replace('href="#kontak"', 'href="/#kontak"') if p != idx else new_nav
             t = t.replace(m.group(0), nav2)
         t2 = re.sub(r'<a class="btn solid sm" data-i18n="k8" href="/?#kontak">Kontak</a>', '', t)
+        t2 = re.sub(r'<style id="nav4">.*?</style>', '', t2, flags=re.S)
+        if '<li><a href="/buku/">Toko Buku</a></li>' in t2 and 'updatesak.com/">Update SAK</a></li>' not in t2:
+            t2 = t2.replace('<li><a href="/buku/">Toko Buku</a></li>', '<li><a href="/buku/">Toko Buku</a></li><li><a href="https://cariakuntan.com/">Cari Akuntan</a></li><li><a href="https://updatesak.com/">Update SAK</a></li>', 1)
+        if '<div class="chips2">' in t2 and 'chips2"><a href="/buku/">' not in t2:
+            t2 = t2.replace('<div class="chips2">', '<div class="chips2"><a href="/buku/">E-Book</a><a href="https://cariakuntan.com/" target="_blank" rel="noopener">Cari Akuntan</a><a href="https://updatesak.com/" target="_blank" rel="noopener">Update SAK</a>', 1)
         if 'Navigasi utama' in t2 and 'id="nav4"' not in t2:
             t2 = t2.replace('</head>', NAV_CSS + '</head>', 1)
-            t2 = t2.replace('"en": {', '"en": {"kapp": "Apps", "kebk": "E-Books", "kcak": "Find Accountants", "kusak": "SAK Updates", "kwws": "Explore", ').replace('"zh": {', '"zh": {"kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kusak": "SAK 更新", "kwws": "探索", ')
+            if '"kwws": "Explore"' not in t2: t2 = t2.replace('"en": {', '"en": {"kapp": "Apps", "kebk": "E-Books", "kcak": "Find Accountants", "kusak": "SAK Updates", "kwws": "Explore", ').replace('"zh": {', '"zh": {"kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kusak": "SAK 更新", "kwws": "探索", ')
         if m or t2 != t: open(p, "w", encoding="utf-8").write(t2)
 # beranda FA dibuat ringkas (25 Okt 2026): berita hanya di tab Wawasan
 if os.path.exists(os.path.join(fa, "artikel", "index.html")):
