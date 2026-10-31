@@ -356,6 +356,69 @@ for _r, _, _fs in os.walk(os.path.join(OUT, "cariakuntan")):
         _t = _t.replace(' · <a href="https://faindonesia.co.id/kebijakan-privasi/">Kebijakan Privasi</a></span>', ' · <a href="https://updatesak.com/">Update SAK</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">Kebijakan Privasi</a></span>', 1)
         open(_p, "w", encoding="utf-8").write(_t)
 
+# ---------- Beranda jelas untuk pemilik usaha + bar ekosistem 3 situs (31 Okt 2026) ----------
+ECO_CSS = ('<style id="ecobar-css">.ecobar{background:#0B0B0C;color:#cfcfcf;font:500 12.5px/1.2 Poppins,system-ui,sans-serif;position:relative;z-index:60}'
+  '.ecobar .in{max-width:1180px;margin:0 auto;padding:7px 16px;display:flex;gap:6px 18px;align-items:center;justify-content:center;flex-wrap:wrap}'
+  '.ecobar a{color:#cfcfcf;text-decoration:none;white-space:nowrap}.ecobar a b{color:#fff;font-weight:600}.ecobar a.on{color:#fff;border-bottom:1px solid #fff}'
+  '.ecobar span{opacity:.55}@media(max-width:600px){.ecobar .in{gap:4px 16px;font-size:12px;flex-wrap:nowrap}.ecobar .lbl,.ecobar a span{display:none}}</style>')
+def ECO(cur):
+    it = [("fa", "https://faindonesia.co.id/", "FA Indonesia", "Kredit, Investor, IPO"), ("ca", "https://cariakuntan.com/", "Cari Akuntan", "KAP, KJA, Pajak"), ("us", "https://updatesak.com/", "Update SAK", "Standar Akuntansi")]
+    return ('<div class="ecobar" id="ecobar"><div class="in"><span class="lbl">Ekosistem FA:</span>' + "".join(
+        f'<a href="{u}"{" class=on" if k == cur else ""}><b>{n}</b> <span>{d}</span></a>' for k, u, n, d in it) + '</div></div>')
+WANT_CSS = ('<style id="want-css">.want{padding:26px 16px 30px;background:var(--wbg);color:var(--wfg);border-bottom:1px solid var(--wln)}'
+  '.want .in{max-width:1180px;margin:0 auto}.want h2{margin:0 0 4px;font:600 clamp(20px,2.6vw,26px)/1.25 Poppins,system-ui,sans-serif;letter-spacing:0}'
+  '.want p.s{margin:0 0 16px;opacity:.75;font:400 14.5px/1.5 Poppins,system-ui,sans-serif}'
+  '.want .g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}'
+  '.want a.w{display:flex;flex-direction:column;gap:6px;padding:16px 16px 14px;border:1px solid var(--wln);background:var(--wcard);color:inherit;text-decoration:none;border-radius:6px;min-height:118px;transition:border-color .2s,transform .2s}'
+  '.want a.w:hover{border-color:var(--wac);transform:translateY(-2px)}.want a.w b{font:600 16px/1.3 Poppins,system-ui,sans-serif}'
+  '.want a.w span{font:400 13.5px/1.45 Poppins,system-ui,sans-serif;opacity:.8}.want a.w em{margin-top:auto;font:600 13px Poppins,system-ui,sans-serif;font-style:normal;color:var(--wac)}'
+  '.want a.w.main{background:var(--wac);color:var(--wacfg);border-color:var(--wac)}.want a.w.main em{color:var(--wacfg)}'
+  '@media(max-width:860px){.want .g{grid-template-columns:1fr 1fr}.want a.w{min-height:0}}</style>')
+def WANT(theme, title, sub, items):
+    v = {"dark": "--wbg:#0f0f10;--wfg:#fff;--wln:#2c2c2e;--wcard:#17171a;--wac:#fff;--wacfg:#111",
+         "light": "--wbg:#f6f8fc;--wfg:#0B1F33;--wln:#d8dee8;--wcard:#fff;--wac:#1F5BFF;--wacfg:#fff"}[theme]
+    cards = "".join(f'<a class="w{" main" if i == 0 else ""}" href="{h}"{" target=_blank rel=noopener" if h.startswith("https://wa.me") else ""}><b>{t}</b><span>{d}</span><em>{c} →</em></a>' for i, (t, d, h, c) in enumerate(items))
+    return f'<!--want--><section class="want" id="mulai-cepat" style="{v}"><div class="in"><h2>{title}</h2><p class="s">{sub}</p><div class="g">{cards}</div></div></section><!--/want-->'
+WA0 = "https://wa.me/6282245260121?text="
+from urllib.parse import quote as _q
+WANTS = {
+ "faindonesia": ("dark", "Saya Ingin…", "Pilih kebutuhan Anda. Diskusi awal gratis.", [
+   ("Dapat Kredit Bank", "Hitung plafon yang realistis dalam 3 menit, lalu kami dampingi sampai cair.", "#cek-kredit", "Cek Kredit Gratis"),
+   ("Cari Investor atau IPO", "Untuk aset bersih di atas Rp50 miliar: investor institusi, M&A, persiapan IPO.", "/mitra-investor/", "Lihat Jalurnya"),
+   ("Rapikan Laporan Keuangan", "Pembukuan, audit, dan pajak bersama KAP, KJA, dan KKP mitra.", "/mitra-kap-kja/", "Lihat Mitra"),
+   ("Tanya Langsung", "Ceritakan kondisi usaha Anda lewat WhatsApp.", WA0 + _q("Halo FA Indonesia, saya ingin konsultasi soal usaha saya."), "Chat Ananta, CPA")]),
+ "cariakuntan": ("light", "Saya Butuh…", "Pilih jenis akuntan. Kami bantu pilihkan kantor berizin sesuai kota dan syarat bank Anda.", [
+   ("Audit Laporan Keuangan", "KAP untuk bank, tender, investor, atau wajib audit.", "/layanan/kap/", "Cari KAP"),
+   ("Pembukuan dan Laporan Keuangan", "KJA untuk pembukuan bulanan dan laporan keuangan siap pakai.", "/kota/", "Cari KJA per Kota"),
+   ("Urusan Pajak", "Konsultan pajak berizin untuk SPT, Coretax, dan pemeriksaan.", "/layanan/konsultan-pajak/", "Cari Konsultan Pajak"),
+   ("Penilaian Aset", "KJPP rekanan bank untuk agunan dan revaluasi.", "/layanan/kjpp/", "Cari KJPP")]),
+ "updatesak": ("light", "Saya Ingin…", "Gratis, tanpa login, data tidak dikirim ke server.", [
+   ("Cek Standar Akuntansi Perusahaan Saya", "Isi neraca dan laba rugi, dapat kerangka SAK, laporan keuangan, dan CALK.", "/#kalkulator", "Mulai Gratis"),
+   ("Tahu Update SAK Terbaru", "PSAK, SAK EP, SAK EMKM, dan SAK Syariah yang berlaku 2026 sampai 2027.", "/update-psak-terbaru/", "Baca Update"),
+   ("Belajar Standar Audit", "Ringkasan SA IAPI 2025 untuk auditor dan ujian CPA.", "/standar-audit/", "Mulai Belajar"),
+   ("Cari Akuntan untuk Menerapkannya", "KAP, KJA, dan konsultan pajak berizin di kota Anda.", "https://cariakuntan.com/", "Cari Akuntan")]),
+}
+_ECOK = {"faindonesia": "fa", "cariakuntan": "ca", "updatesak": "us"}
+for _proj, _k in _ECOK.items():
+    _d = os.path.join(OUT, _proj)
+    for _r, _, _fs in os.walk(_d):
+        for _f in _fs:
+            if not _f.endswith(".html"): continue
+            _p = os.path.join(_r, _f); _t = open(_p, encoding="utf-8").read()
+            if 'id="ecobar"' in _t or "</head>" not in _t: continue
+            _m = re.search(r"<body[^>]*>", _t)
+            if not _m: continue
+            _t = _t.replace("</head>", ECO_CSS + "</head>", 1)
+            _m = re.search(r"<body[^>]*>", _t)
+            _t = _t[:_m.end()] + ECO(_k) + _t[_m.end():]
+            if os.path.relpath(_p, _d) in ("index.html",):
+                th, ti, su, items = WANTS[_proj]
+                _t = _t.replace("</head>", WANT_CSS + "</head>", 1)
+                _h = _t.find("</header>")
+                if _h > 0: _t = _t[:_h + 9] + WANT(th, ti, su, items) + _t[_h + 9:]
+            open(_p, "w", encoding="utf-8").write(_t)
+    print("ecobar", _proj)
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)

@@ -12,8 +12,9 @@ _src = _src.replace('TODAY = "2026-10-27"', 'TODAY = "2026-10-30"').replace("27 
 exec(compile(_src, "fa_mitra_helpers", "exec"))
 
 ARTS = []
-for f in ("seo20_a.json", "seo20_b.json", "seo20_c.json"):
-    ARTS += json.load(open(os.path.join(HERE, "fa_content", f), encoding="utf-8"))
+import glob as _g
+for f in sorted(_g.glob(os.path.join(HERE, "fa_content", "seo20_*.json"))) + sorted(_g.glob(os.path.join(HERE, "fa_content", "seo30_*.json"))):
+    ARTS += json.load(open(f, encoding="utf-8"))
 
 for a in ARTS:
     art_page(a["slug"], a["cat"], a["title"], a["h1"], a["desc"], a["minutes"], a["body"],
