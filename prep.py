@@ -346,6 +346,15 @@ for _n in ("faindonesia", "cariakuntan", "kja-farhani", "updatesak", "faindonesi
             if _t != _o: open(_p, "w", encoding="utf-8").write(_t); _ng += 1
 print("gelar lengkap:", _ng, "file")
 
+# ---------- backlink merek "Update SAK" di footer CariAkuntan (31 Okt 2026) ----------
+for _r, _, _fs in os.walk(os.path.join(OUT, "cariakuntan")):
+    for _f in _fs:
+        if not _f.endswith(".html"): continue
+        _p = os.path.join(_r, _f); _t = open(_p, encoding="utf-8").read()
+        if "updatesak.com/\">Update SAK</a>" in _t or 'Kebijakan Privasi</a></span>' not in _t: continue
+        _t = _t.replace(' · <a href="https://faindonesia.co.id/kebijakan-privasi/">Kebijakan Privasi</a></span>', ' · <a href="https://updatesak.com/">Update SAK</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">Kebijakan Privasi</a></span>', 1)
+        open(_p, "w", encoding="utf-8").write(_t)
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
