@@ -250,14 +250,17 @@ for c in CITIES:
             + ("".join(f"<p>{E(x)}</p>" for x in BOOST.get(name, [])))
             + (f'<h2>Kawasan Bisnis di {E(name)}</h2><p class="t">' + " · ".join(f'<a href="/wilayah/{cs}/{slug(k[0])}/">{E(k[0])}</a>' for k in kws) + "</p>" if kws else "")
             + f'<h2>Cari KAP, KJPP, dan Konsultan Pajak di {E(name)}</h2><p>Untuk memilih kantor akuntan publik, jasa penilai (KJPP), atau konsultan pajak berizin di {E(name)}, gunakan <a href="{ca}">cariakuntan.com/kota/{cs}</a>: <a href="{ca}kap/">KAP {E(name)}</a> · <a href="{ca}kjpp/">KJPP {E(name)}</a> · <a href="{ca}konsultan-pajak/">Konsultan Pajak {E(name)}</a> · <a href="{ca}jasa-laporan-keuangan/">Jasa Laporan Keuangan {E(name)}</a>.</p>'
-            + f'<h2>Kota Sekitar</h2><p class="t">' + " · ".join(f'<a href="/wilayah/{slug(x[0])}/">{E(x[0])}</a>' for x in nb) + "</p>")
-    faq = [(f"Apakah FA Indonesia melayani perusahaan di {name}?", f"Ya. Perusahaan di {name}, {prov} kami layani secara daring dan dengan kunjungan lapangan terjadwal, untuk laporan keuangan, persiapan audit, kredit bank, investor, IPO, dan rumah sakit."),
+            + f'<h2>KAP, KJA, dan Konsultan Pajak Mitra FA untuk {E(name)}</h2><p>FA {E(name)} bekerja dengan jaringan mitra lengkap: <b>KAP DHN &amp; Rekan</b> untuk audit, <b>KJA DHN</b> dan <b>KJA Farhani</b> untuk pembukuan dan penyusunan laporan keuangan, serta <b>KKP DHN</b> untuk konsultan pajak. Satu pintu dari pembukuan, audit, pajak, sampai kredit cair. <a href="/mitra-kap-kja/">Lihat mitra KAP dan KJA FA</a>.</p>'
+            + f'<p>Ingin membandingkan kantor lain? Gunakan <a href="{ca}">Cari Akuntan {E(name)}</a> untuk KAP, KJA, KJPP, dan konsultan pajak berizin di {E(name)}. Untuk cek standar akuntansi terbaru (PSAK, SAK EP, SAK EMKM), buka <a href="https://updatesak.com/">Update SAK</a>.</p>'
+            + f'<h2>Kota Sekitar</h2><p class="t">' + " · ".join(f'<a href="/wilayah/{slug(x[0])}/">FA {E(x[0])}</a>' for x in nb) + "</p>")
+    faq = [(f"Apa itu FA {name}?", f"FA {name} adalah layanan FA Indonesia (financial advisor) untuk perusahaan di {name}: kredit bank sampai cair, investor dan IPO, laporan keuangan, serta audit dan pajak bersama KAP, KJA, dan KKP mitra."),
+           (f"Apakah FA Indonesia melayani perusahaan di {name}?", f"Ya. Perusahaan di {name}, {prov} kami layani secara daring dan dengan kunjungan lapangan terjadwal, untuk laporan keuangan, persiapan audit, kredit bank, investor, IPO, dan rumah sakit."),
            (f"Di mana mencari KAP atau KJPP di {name}?", f"Gunakan cariakuntan.com/kota/{cs}/ untuk memilih KAP, KJPP, atau konsultan pajak di {name} sesuai syarat bank atau regulator. FA Indonesia menyiapkan laporan keuangan dan dokumennya agar proses audit dan penilaian berjalan lancar."),
            ("Berapa biaya konsultasi?", "Diskusi awal gratis. Lingkup dan biaya disepakati di depan sebelum pekerjaan dimulai.")]
-    svc_page(path, f"Wilayah · {E(prov)}", f"Konsultan Keuangan di {name}: Laporan Keuangan, Audit KAP, KJPP, Kredit Bank, dan Rumah Sakit",
-             f"FA Indonesia mendampingi perusahaan di {name} dari laporan keuangan dan persiapan audit KAP, penilaian KJPP, sampai kredit cair, investor masuk, atau IPO. Dikerjakan bersama tim CA dan CPA FA Indonesia.",
-             body, faq, f"Konsultan Keuangan {name}: Audit KAP, KJPP, Kredit Bank | FA Indonesia",
-             f"Konsultan keuangan di {name}, {prov}: persiapan audit KAP, pendampingan penilaian KJPP, kredit bank, investor, IPO, rumah sakit dan unit cost. Konsultasi awal gratis.",
+    svc_page(path, f"Wilayah · {E(prov)}", f"FA {name}: Financial Advisor dan Konsultan Keuangan di {name}",
+             f"FA {name} (FA Indonesia) mendampingi perusahaan di {name} dari laporan keuangan dan persiapan audit KAP, penilaian KJPP, sampai kredit cair, investor masuk, atau IPO. Dikerjakan bersama tim CA dan CPA FA Indonesia.",
+             body, faq, f"FA {name}: Financial Advisor, KAP dan KJA Mitra | FA Indonesia",
+             f"FA {name}: financial advisor di {name}, {prov}. Kredit bank, investor, IPO, laporan keuangan, audit KAP dan KJA mitra. Konsultasi awal gratis.",
              [{"@type": "ProfessionalService", "name": f"FA Indonesia {name}", "url": D + path, "provider": PROVIDER, **({"address": {"@type": "PostalAddress", "addressLocality": "Malang", "addressRegion": "Jawa Timur", "addressCountry": "ID"}, "email": "ananta@faindonesia.co.id"} if name == "Malang" else {}), "areaServed": {"@type": "City", "name": name, "containedInPlace": {"@type": "AdministrativeArea", "name": prov}}}],
              "/layanan/", "Semua Layanan", f"Halo FA Indonesia, kami dari {name} ingin konsultasi.",
              [("FA Indonesia", D + "/"), ("Wilayah", D + "/wilayah/"), (name, D + path)]); URLS.append(path)
@@ -282,12 +285,12 @@ for c in CITIES:
                  [("FA Indonesia", D + "/"), ("Wilayah", D + "/wilayah/"), (city, D + f"/wilayah/{cs}/"), (kname, D + path)]); URLS.append(path)
 
 # hub wilayah
-rows = "".join(f"<h2>{E(rn)}</h2><p class=\"t\">" + " · ".join(f'<a href="/wilayah/{slug(c[0])}/">{E(c[0])}</a>' for c in CITIES if c[2] == r) + "</p>" for r, (rn, _) in REGIONS.items())
+rows = "".join(f"<h2>{E(rn)}</h2><p class=\"t\">" + " · ".join(f'<a href="/wilayah/{slug(c[0])}/">FA {E(c[0])}</a>' for c in CITIES if c[2] == r) + "</p>" for r, (rn, _) in REGIONS.items())
 kwl = "<h2>Kawasan Bisnis</h2><p class=\"t\">" + " · ".join(f'<a href="/wilayah/{slug(k[1])}/{slug(k[0])}/">{E(k[0])}</a>' for k in KAWASAN) + "</p>"
-svc_page("/wilayah/", "Wilayah", f"Konsultan Keuangan di {len(CITIES)} Kota dan {len(KAWASAN)} Kawasan Bisnis Indonesia",
+svc_page("/wilayah/", "Wilayah", f"FA per Kota: Financial Advisor di {len(CITIES)} Kota dan {len(KAWASAN)} Kawasan Bisnis Indonesia",
          "FA Indonesia melayani perusahaan dari Aceh sampai Papua. Pilih kota atau kawasan untuk melihat layanan persiapan audit KAP, penilaian KJPP, kredit bank, investor, IPO, dan rumah sakit di wilayah Anda.",
          rows + kwl, [("Apakah FA Indonesia melayani seluruh Indonesia?", "Ya, dengan diskusi daring dan kunjungan lapangan terjadwal sesuai kebutuhan penugasan.")],
-         "Konsultan Keuangan per Kota dan Kawasan di Indonesia | FA Indonesia",
+         "FA per Kota: FA Jakarta, FA Surabaya, FA Malang dan 90+ Kota | FA Indonesia",
          f"Konsultan keuangan FA Indonesia di {len(CITIES)} kota dan {len(KAWASAN)} kawasan bisnis: persiapan audit KAP, KJPP, kredit bank, investor, IPO, rumah sakit dan unit cost.",
          [], "/layanan/", "Semua Layanan", "Halo FA Indonesia, saya ingin konsultasi.", [("FA Indonesia", D + "/"), ("Wilayah", D + "/wilayah/")]); URLS.append("/wilayah/")
 

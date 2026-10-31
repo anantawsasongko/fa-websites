@@ -131,5 +131,14 @@
 <url><loc>https://updatesak.com/standar-audit/sjt-4400/</loc><lastmod>2026-10-30</lastmod></url>
 <url><loc>https://updatesak.com/standar-audit/sjt-4410/</loc><lastmod>2026-10-30</lastmod></url>
 <!--/sa-->
+<!--lp-->
+<url><loc>https://updatesak.com/update-sak-emkm/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://updatesak.com/update-sak-ep/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://updatesak.com/update-psak-terbaru/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://updatesak.com/update-sak-syariah-terbaru/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://updatesak.com/update-isak-terbaru/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://updatesak.com/update-sak-2027/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<url><loc>https://updatesak.com/penomoran-psak-baru/</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
+<!--/lp-->
 <url><loc>https://updatesak.com/jadwal-ujian/</loc><lastmod>2026-10-28</lastmod></url>
 </urlset>

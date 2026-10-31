@@ -144,5 +144,14 @@
 - [SJT 4400 Perikatan Prosedur yang Disepakati](https://updatesak.com/standar-audit/sjt-4400/): Standar untuk perikatan di mana praktisi melaksanakan prosedur yang disepakati dengan pihak yang melibatkan, lalu melaporkan temuan faktual. Perikatan ini tidak memberikan asurans; pengguna menarik kesimpulan sendiri.
 - [SJT 4410 Perikatan Kompilasi](https://updatesak.com/standar-audit/sjt-4410/): Standar untuk perikatan di mana praktisi membantu manajemen menyusun dan menyajikan informasi keuangan sesuai kerangka pelaporan yang berlaku. Tidak ada asurans; praktisi tidak memverifikasi data yang diberikan manajemen.
 
+## Update SAK Terbaru
+- [Update SAK EMKM 2026: Status Terbaru, Siapa Yang Boleh Memakai, dan Kapan Naik ke SAK EP](https://updatesak.com/update-sak-emkm/): Update SAK EMKM terbaru 2026: status standar, kriteria UMKM PP 7/2021, tiga laporan wajib, kesalahan umum, dan kapan pindah ke SAK EP.
+- [Update SAK EP: SAK Entitas Privat Pengganti SAK ETAP Sejak 1 Januari 2025](https://updatesak.com/update-sak-ep/): Update SAK EP: SAK Entitas Privat berlaku 1 Januari 2025 menggantikan SAK ETAP. Tabel perbedaan utama, siapa pemakainya, dan langkah transisi.
+- [Update PSAK Terbaru: Yang Berubah di 2026 dan Mulai Berlaku 2027](https://updatesak.com/update-psak-terbaru/): Update PSAK terbaru dari DSAK IAI: PSAK 118 berlaku 2027, PSAK 119, PSAK 120 aset regulatori, Amendemen PSAK 228, PSAK 221, ISAK 335, dan PSAK 338.
+- [Update SAK Syariah Terbaru: PSAK 401 Baru, ISAK 403, dan Daftar PSAK Seri 400](https://updatesak.com/update-sak-syariah-terbaru/): Update SAK Syariah terbaru dari DSAS IAI: PSAK 401 penyajian dan pengungkapan, ISAK 403, PSAK 413, PSAK 414 berlaku 2027, plus daftar PSAK 4xx.
+- [Update ISAK Terbaru: Amendemen ISAK 335, ISAK 403, dan Cara Membaca Nomor ISAK](https://updatesak.com/update-isak-terbaru/): Update ISAK terbaru: Amendemen ISAK 335 entitas nonlaba selaras PSAK 118, ISAK 403 syariah berlaku 2027, dan arti penomoran ISAK 1xx sampai 4xx.
+- [Update SAK 2027: Checklist Semua Standar Yang Berlaku 1 Januari 2027 Untuk CFO dan Auditor](https://updatesak.com/update-sak-2027/): Update SAK 2027 untuk CFO dan auditor: PSAK 118, PSAK 119, Amendemen PSAK 221 dan 228, ISAK 335, PSAK 401, ISAK 403, PSAK 413 dan 414.
+- [Penomoran PSAK Baru: Aturan Seri 100 Sampai 400 dan Tabel Konversi Nomor Lama](https://updatesak.com/penomoran-psak-baru/): Penomoran PSAK baru berlaku 1 Januari 2024: aturan seri 1xx IFRS, 2xx IAS, 3xx khusus Indonesia, 4xx syariah, plus tabel PSAK 1 ke 201 dan lainnya.
+
 ## Jadwal Ujian Sertifikasi
 - [Jadwal Ujian CPA, CA, CPMA, dan Konsultan Pajak 2026](https://updatesak.com/jadwal-ujian/): CPA (IAPI): Periode IV: November sampai Desember 2026; CA (IAI): Mulai 29 Oktober 2026, berlanjut sampai 18 Desember 2026; CPMA (IAMI): Periode November 2026, tanggal pasti mengikuti pengumuman IAMI; BKP (BPPK Kemenkeu): Uji Kompetensi Perpajakan skema baru: pertengahan Oktober sampai Desember 2026

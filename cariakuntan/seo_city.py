@@ -8,6 +8,7 @@ SERVICES = [
  ("kjpp", "kjpp", "KJPP", "Jasa Penilai dan KJPP", "Kantor Jasa Penilai Publik (KJPP), appraisal aset, dan penilaian bisnis", "KJPP / penilaian aset"),
  ("pajak", "konsultan-pajak", "Konsultan Pajak", "Konsultan Pajak", "konsultan pajak berizin (KKP), pendampingan SPT, Coretax, dan pemeriksaan pajak", "konsultan pajak"),
  ("lk", "jasa-laporan-keuangan", "Jasa Laporan Keuangan", "Jasa Penyusunan Laporan Keuangan", "jasa penyusunan laporan keuangan, pembukuan, dan Kantor Jasa Akuntansi (KJA)", "penyusunan laporan keuangan"),
+ ("kja", "kja", "KJA", "Kantor Jasa Akuntansi (KJA) dan Jasa Pembukuan", "Kantor Jasa Akuntansi (KJA), jasa pembukuan, kompilasi, dan akuntan berpraktik", "KJA / pembukuan"),
  ("ltp", "laporan-tahunan-pt", "Laporan Tahunan PT", "Jasa Laporan Tahunan PT (Permenkum 49/2025)", "jasa penyusunan laporan tahunan PT untuk akta notaris dan SABH sesuai Permenkum 49/2025", "laporan tahunan PT untuk akta notaris (Permenkum 49/2025)"),
 ]
 def has_page(city, key):
@@ -57,6 +58,14 @@ TABLE = {
  "lk": [("Butuh LK untuk kredit bank","Penyusunan LK tahunan lengkap","2 sampai 4 minggu"),("Pembukuan tertinggal","Tutup buku dan rekonsiliasi","3 sampai 8 minggu"),("Persiapan audit","LK, lead schedule, dokumen pendukung","2 sampai 6 minggu"),("Pembukuan rutin","Laporan bulanan","Setiap bulan")],
 }
 
+# KJA (31 Okt 2026): halaman KJA per kota
+HOOK["kja"] = dict(HOOK["lk"])
+BODY["kja"] = lambda c, p: [
+   f"Pemilik usaha di {c} mencari Kantor Jasa Akuntansi (KJA) untuk pembukuan bulanan, tutup buku, dan penyusunan laporan keuangan yang siap dipakai untuk bank, pajak, dan audit.",
+   f"KJA berbeda dengan KAP. KJA menyusun pembukuan dan laporan keuangan tanpa memberi opini audit, sehingga biayanya lebih ringan dan cocok sebagai langkah pertama sebelum diaudit KAP di {p}.",
+   "Kami hubungkan dengan KJA dan akuntan berpraktik yang terbiasa dengan SAK EMKM, SAK EP, dan PSAK, dan bisa memakai software akuntansi apa pun atau template Excel."]
+TABLE["kja"] = [("Pembukuan bulanan","Jurnal, buku besar, laporan bulanan","Setiap bulan"),("Pembukuan tertinggal","Tutup buku dan rekonsiliasi","3 sampai 8 minggu"),("Butuh LK untuk bank atau tender","Kompilasi laporan keuangan lengkap","2 sampai 4 minggu"),("Sebelum audit KAP pertama","LK dan lead schedule siap audit","2 sampai 6 minggu")]
+
 def tblx(head, rows):
     th = "".join(f"<th>{h}</th>" for h in head)
     body = "".join("<tr>" + f'<th scope="row">{r[0]}</th>' + "".join(f"<td>{x}</td>" for x in r[1:]) + "</tr>" for r in rows)
@@ -86,7 +95,7 @@ def svc_section(key, c, p, secs, anchor=True, h="h2"):
     return (f'<{h} id="{sl}"' + '>' + f'{title} di {c}</{h}>'
             + f"<p>{paras[0]}</p>{extra}<p>{paras[1]}</p><p>{paras[2]}</p>")
 
-def popular_links(cities, keys=("kap","kjpp","pajak","lk","ltp")):
+def popular_links(cities, keys=("kap","kja","kjpp","pajak","lk","ltp")):
     out = []
     for c in cities:
         for key in keys:
@@ -119,8 +128,8 @@ for name, prov, reg, secs, note in CITIES:
     near = sorted([c for c in CITIES if c[2]==reg and c[0]!=name], key=lambda c: c[1]!=prov)[:8]
     nlinks = " ".join(f'<a href="/kota/{slug(c[0])}/">{c[0]}</a>' for c in near)
     msg = f"Selamat siang Pak Ananta, kami dari {name} membutuhkan KAP / KJPP / konsultan pajak / penyusunan laporan keuangan."
-    title = f"KAP, KJPP, Konsultan Pajak &amp; Jasa Laporan Keuangan {name} | cariakuntan.com"
-    desc = f"Cari KAP (akuntan publik), KJPP, konsultan pajak, dan jasa penyusunan laporan keuangan di {name}, {prov}. Sesuai kelas rekanan bank, PMDN dan PMA. Konsultasi awal gratis."
+    title = f"Cari Akuntan {name}: KAP, KJA, KJPP dan Konsultan Pajak | cariakuntan.com"
+    desc = f"Cari Akuntan {name}: KAP (akuntan publik), KJA, konsultan pajak, dan jasa penyusunan laporan keuangan di {name}, {prov}. Sesuai kelas rekanan bank, PMDN dan PMA. Konsultasi awal gratis."
     url = f"{DOMAIN}/kota/{s}/"
     faq = city_faq(name, prov, secs)
     ld = {"@context":"https://schema.org","@graph":[
@@ -138,13 +147,14 @@ for name, prov, reg, secs, note in CITIES:
         ("Penilaian aset dan bisnis", "KJPP (penilai publik)", (hooks("kjpp", secs) or "agunan kredit").split("; ")[0]),
         ("Pajak badan dan pemeriksaan", "Konsultan pajak berizin", (hooks("pajak", secs) or "SPT Tahunan badan").split("; ")[0]),
         ("Penyusunan laporan keuangan", "KJA dan akuntan berpraktik", (hooks("lk", secs) or "usaha yang belum punya LK").split("; ")[0]),
+        ("Kredit bank, investor, atau IPO", f'<a href="https://faindonesia.co.id/wilayah/{s}/">FA {name}</a> (financial advisor)', "pengajuan kredit dan pendanaan"),
         ("Laporan tahunan PT (Permenkum 49/2025)", "Penyusun laporan, lalu akta notaris", (hooks("ltp", secs) or "PT yang belum melapor ke SABH").split("; ")[0])])
     secs_html = "".join(svc_section(k, name, prov, secs) for k in SV)
     faq_html = "".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in faq)
     html += header(ID,"home") + f'''<main class="wrap art">
   <p class="crumb"><a href="/">Beranda</a> / <a href="/kota/">Wilayah</a> / <a href="/kota/#{reg}">{rname}</a></p>
   <p class="label" style="margin-top:14px">{prov}</p>
-  <h1>KAP, KJPP, Konsultan Pajak, dan Jasa Laporan Keuangan di {name}</h1>
+  <h1>Cari Akuntan {name}: KAP, KJA, KJPP, dan Konsultan Pajak</h1>
   <p class="sub">{name} adalah {note}. Kami menghubungkan perusahaan di {name} dengan kantor akuntan publik (KAP), KJPP, konsultan pajak, dan Kantor Jasa Akuntansi yang memenuhi persyaratan bank, regulator, atau investor.</p>
   <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="citylist" style="margin-top:18px">{jump}</div>
@@ -177,8 +187,8 @@ for name, prov, reg, secs, note in CITIES:
             others = " ".join((f'<a href="/kota/{s}/{SV[o][1]}/">{SV[o][2]} {name}</a>' if has_page(name, o) else f'<a href="/kota/{s}/#{SV[o][1]}">{SV[o][2]} {name}</a>') for o in SV if o != k)
             nearsvc = " ".join(f'<a href="/kota/{slug(c[0])}/{sl}/">{short} {c[0]}</a>' if has_page(c[0], k) else f'<a href="/kota/{slug(c[0])}/#{sl}">{short} {c[0]}</a>' for c in near[:6])
             u2 = f"{DOMAIN}/kota/{s}/{sl}/"
-            t2 = f"{stitle} di {name}: {short} Terpercaya Sesuai Kebutuhan Bank | cariakuntan.com"
-            if len(t2) > 95: t2 = f"{stitle} di {name} | cariakuntan.com"
+            t2 = f"{short} {name}: {stitle} Sesuai Kebutuhan Bank | cariakuntan.com"
+            if len(t2) > 90: t2 = f"{short} {name}: {stitle} | cariakuntan.com"
             d2 = f"Cari {syn} di {name}, {prov}. Dipilihkan sesuai syarat bank, regulator, atau investor. Chat Ananta, CPA, konsultasi awal gratis."
             q2 = [x for x in faq if (k!="ltp" and short.split()[0] in x[0]) or (k=="lk" and "laporan keuangan" in x[0]) or (k=="ltp" and "laporan tahunan" in x[0])]
             q2.append((f"Berapa biaya {short} di {name}?", "Biaya bergantung pada skala usaha, kondisi dokumen, dan tenggat yang diminta. Kami sampaikan kisaran biaya setelah melihat data Anda, sebelum Anda berkomitmen.") if k != "kap" else faq[1])
@@ -192,7 +202,7 @@ for name, prov, reg, secs, note in CITIES:
             h2 += header(ID,"home") + f'''<main class="wrap art">
   <p class="crumb"><a href="/">Beranda</a> / <a href="/kota/">Wilayah</a> / <a href="/kota/{s}/">{name}</a></p>
   <p class="label" style="margin-top:14px">{name}, {prov}</p>
-  <h1>{stitle} di {name}</h1>
+  <h1>{short} {name}: {stitle} di {name}</h1>
   <p class="sub">Cari {syn} di {name}? Ceritakan kebutuhan Anda, kami pilihkan kantor yang sesuai syarat bank, regulator, atau investor, lengkap dengan perkiraan jadwal dan biaya.</p>
   <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m2)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="prose"><h2>Kapan Perusahaan di {name} Membutuhkan {short}</h2><p>{body[0]}</p>{f"<p>Di {name}, {'objek yang paling sering dinilai adalah' if k=='kjpp' else 'yang paling sering menghubungi kami adalah'} {hk}.</p>" if hk else ""}</div>
