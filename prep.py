@@ -155,6 +155,7 @@ _sp.run(["python3", os.path.join(M, "updatesak", "build_materi.py")], check=True
 _sp.run(["python3", os.path.join(M, "updatesak", "build_sa.py")], check=True)
 _sp.run(["python3", os.path.join(M, "updatesak", "build_landing.py")], check=True)
 _sp.run(["python3", os.path.join(M, "updatesak", "build_jadwal.py")], check=True)
+_sp.run(["python3", os.path.join(M, "updatesak", "build_dosen.py")], check=True)
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
