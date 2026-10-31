@@ -420,6 +420,28 @@ for _proj, _k in _ECOK.items():
             open(_p, "w", encoding="utf-8").write(_t)
     print("ecobar", _proj)
 
+# ---------- Rapikan tab: penting di atas, tulisan panjang dilipat (31 Okt 2026) ----------
+_sys.path.insert(0, os.path.join(M, "shared"))
+import tidy_tabs as _tt
+print("tidy tabs:", _tt.run(OUT))
+# footer FA: deretan link dilipat jadi "Menu Lainnya" (31 Okt 2026)
+_FTCSS = ('<style id="ftmore-css">details.ft-more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;'
+          'padding:8px 14px;border:1px solid currentColor;border-radius:999px;font-size:12.5px;opacity:.7}'
+          'details.ft-more>summary::-webkit-details-marker{display:none}details.ft-more>summary:hover{opacity:1}'
+          'details.ft-more[open]>summary{margin-bottom:12px}details.ft-more>ul{animation:ftin .3s ease}'
+          '@keyframes ftin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}</style>')
+_nf = 0
+for _d, _, _fs in os.walk(os.path.join(OUT, "faindonesia")):
+    for _f in _fs:
+        if not _f.endswith(".html"): continue
+        _p = os.path.join(_d, _f); _t = open(_p, encoding="utf-8").read()
+        if "ft-more" in _t or '<ul class="ents flinks">' not in _t: continue
+        _i = _t.index('<ul class="ents flinks">'); _j = _t.index("</ul>", _i) + 5
+        _t = _t[:_i] + '<details class="ft-more"><summary>Menu Lainnya</summary>' + _t[_i:_j] + "</details>" + _t[_j:]
+        _t = _t.replace("</head>", _FTCSS + "</head>", 1)
+        open(_p, "w", encoding="utf-8").write(_t); _nf += 1
+print("footer dilipat:", _nf)
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
