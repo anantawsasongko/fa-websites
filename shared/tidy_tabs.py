@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup, NavigableString
 # matcher = id section, atau awalan teks judul h1/h2 (huruf kecil)
 CONFIG = {
  "faindonesia/index.html": {
-   "top": ["#jalur", "#angka", "#cek-kredit"],
+   "top": ["#mulai-cepat", "#jalur", "#angka", "#cek-kredit"],
    "bottom": ["#mulai", "#kontak"]},
  "faindonesia/layanan/index.html": {
    "top": ["layanan & rekam jejak", "#layanan", "rm bank", "implementasi psak 118", "rumah sakit dan klinik", "#fee", "#paket", "#rekam"],
@@ -20,7 +20,7 @@ CONFIG = {
  "faindonesia/apps/index.html": {"top": [], "bottom": []},
  "faindonesia/artikel/index.html": {"top": [], "bottom": []},
  "updatesak/index.html": {
-   "top": ["atau langsung pilih kebutuhan", "#kalkulator", "#update-sak", "#jadwal"],
+   "top": ["#mulai-cepat", "#kalkulator", "#update-sak", "atau langsung pilih kebutuhan", "#jadwal"],
    "bottom": ["#standar-audit", "peta memilih", "linimasa", "struktur calk", "calk sudah jadi"]},
  "updatesak/eksplor/index.html": {
    "top": ["update sak terbaru", "#standar", "psak yang berlaku"],
@@ -28,7 +28,7 @@ CONFIG = {
  "updatesak/materi/index.html": {"top": [], "bottom": []},
  "updatesak/jadwal-ujian/index.html": {"top": [], "bottom": []},
  "cariakuntan/index.html": {
-   "top": ["#screen", "screening menentukan", "atau langsung pilih", "#cek"],
+   "top": ["#mulai-cepat", "#screen", "screening menentukan", "#cek", "atau langsung pilih"],
    "bottom": ["cara kami mendampingi", "salah langkah", "#kami", "kirim laporan"]},
  "cariakuntan/artikel/index.html": {"top": [], "bottom": [], "no_grid": True, "clip": ["section.feed ul", "section.feed ol", "div.list"]},
 }

@@ -366,38 +366,69 @@ def ECO(cur):
     it = [("fa", "https://faindonesia.co.id/", "FA Indonesia", "Kredit, Investor, IPO"), ("ca", "https://cariakuntan.com/", "Cari Akuntan", "KAP, KJA, Pajak"), ("us", "https://updatesak.com/", "Update SAK", "Standar Akuntansi")]
     return ('<div class="ecobar" id="ecobar"><div class="in"><span class="lbl">Ekosistem FA:</span>' + "".join(
         f'<a href="{u}"{" class=on" if k == cur else ""}><b>{n}</b> <span>{d}</span></a>' for k, u, n, d in it) + '</div></div>')
-WANT_CSS = ('<style id="want-css">.want{padding:26px 16px 30px;background:var(--wbg);color:var(--wfg);border-bottom:1px solid var(--wln)}'
-  '.want .in{max-width:1180px;margin:0 auto}.want h2{margin:0 0 4px;font:600 clamp(20px,2.6vw,26px)/1.25 Poppins,system-ui,sans-serif;letter-spacing:0}'
-  '.want p.s{margin:0 0 16px;opacity:.75;font:400 14.5px/1.5 Poppins,system-ui,sans-serif}'
-  '.want .g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}'
-  '.want a.w{display:flex;flex-direction:column;gap:6px;padding:16px 16px 14px;border:1px solid var(--wln);background:var(--wcard);color:inherit;text-decoration:none;border-radius:6px;min-height:118px;transition:border-color .2s,transform .2s}'
-  '.want a.w:hover{border-color:var(--wac);transform:translateY(-2px)}.want a.w b{font:600 16px/1.3 Poppins,system-ui,sans-serif}'
-  '.want a.w span{font:400 13.5px/1.45 Poppins,system-ui,sans-serif;opacity:.8}.want a.w em{margin-top:auto;font:600 13px Poppins,system-ui,sans-serif;font-style:normal;color:var(--wac)}'
-  '.want a.w.main{background:var(--wac);color:var(--wacfg);border-color:var(--wac)}.want a.w.main em{color:var(--wacfg)}'
-  '@media(max-width:860px){.want .g{grid-template-columns:1fr 1fr}.want a.w{min-height:0}}</style>')
+WANT_CSS = ('<style id="want-css">'
+  '.want{padding:34px 16px 38px;background:var(--wbg);color:var(--wfg);border-top:1px solid var(--wln);border-bottom:1px solid var(--wln)}'
+  '.want .in{max-width:1080px;margin:0 auto}.want h2:after,.want h2:before{display:none!important}'
+  '.want .hd{display:flex;align-items:center;gap:12px;margin:0 0 18px}'
+  '.want .hd:before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}'
+  '.want h2{margin:0;font:600 11.5px/1.2 Poppins,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;opacity:.75}'
+  '.want .g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}'
+  '.want a.w{position:relative;display:flex;flex-direction:column;gap:16px;padding:20px 18px 18px;border:1px solid var(--wln);background:var(--wcard);'
+  'color:inherit;text-decoration:none;border-radius:var(--wr);min-height:132px;overflow:hidden;'
+  'opacity:0;transform:translateY(10px);animation:wIn .55s cubic-bezier(.2,.7,.2,1) forwards;transition:border-color .25s,transform .25s,box-shadow .25s}'
+  '.want a.w:nth-child(2){animation-delay:.07s}.want a.w:nth-child(3){animation-delay:.14s}.want a.w:nth-child(4){animation-delay:.21s}'
+  '@keyframes wIn{to{opacity:1;transform:none}}'
+  '.want a.w:after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--wac);transition:width .35s ease}'
+  '.want a.w:hover{border-color:var(--wac);transform:translateY(-3px);box-shadow:0 14px 30px -18px var(--wsh)}.want a.w:hover:after{width:100%}'
+  '.want a.w.main{border-color:var(--wac)}.want a.w.main:after{width:100%}'
+  '.want .ic{width:42px;height:42px;border-radius:50%;border:1px solid var(--wln);display:grid;place-items:center;color:var(--wic)}'
+  '.want .ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}'
+  '.want a.w b{font:var(--wtf);letter-spacing:0;padding-right:18px}'
+  '.want a.w i{position:absolute;right:16px;bottom:16px;font-style:normal;font-size:16px;opacity:.55;transition:transform .25s,opacity .25s}'
+  '.want a.w:hover i{transform:translateX(4px);opacity:1}'
+  '@media(max-width:860px){.want{padding:26px 16px 28px}.want .g{grid-template-columns:1fr 1fr;gap:10px}.want a.w{min-height:118px;padding:16px 14px 14px;gap:12px}.want .ic{width:36px;height:36px}}'
+  '@media(prefers-reduced-motion:reduce){.want a.w{animation:none;opacity:1;transform:none}}</style>')
+ICONS = {
+ "bank": '<path d="M3 10h18M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18M12 3l9 5H3z"/>',
+ "up": '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+ "doc": '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+ "chat": '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+ "check": '<path d="M9 12l2 2 4-4"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>',
+ "book": '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>',
+ "tax": '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
+ "home": '<path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/>',
+ "calc": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h2"/>',
+ "spark": '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/>',
+ "grad": '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>',
+ "search": '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+}
 def WANT(theme, title, sub, items):
-    v = {"dark": "--wbg:#0f0f10;--wfg:#fff;--wln:#2c2c2e;--wcard:#17171a;--wac:#fff;--wacfg:#111",
-         "light": "--wbg:#f6f8fc;--wfg:#0B1F33;--wln:#d8dee8;--wcard:#fff;--wac:#1F5BFF;--wacfg:#fff"}[theme]
-    cards = "".join(f'<a class="w{" main" if i == 0 else ""}" href="{h}"{" target=_blank rel=noopener" if h.startswith("https://wa.me") else ""}><b>{t}</b><span>{d}</span><em>{c} →</em></a>' for i, (t, d, h, c) in enumerate(items))
-    return f'<!--want--><section class="want" id="mulai-cepat" style="{v}"><div class="in"><h2>{title}</h2><p class="s">{sub}</p><div class="g">{cards}</div></div></section><!--/want-->'
+    v = {"dark": "--wbg:#121214;--wfg:#fff;--wln:#2a2a2d;--wcard:linear-gradient(155deg,#1c1c1f,#141416);--wac:#e9e9e9;--wic:#fff;--wsh:#000;--wr:2px;"
+                 "--wtf:400 19px/1.25 'Times New Roman',Times,Georgia,serif",
+         "light": "--wbg:#f7f9fd;--wfg:#0B1F33;--wln:#dde3ee;--wcard:#fff;--wac:#1F5BFF;--wic:#1F5BFF;--wsh:rgba(31,91,255,.45);--wr:10px;"
+                  "--wtf:600 15.5px/1.3 Poppins,system-ui,sans-serif"}[theme]
+    cards = "".join(f'<a class="w{" main" if i == 0 else ""}" href="{h}"{" target=_blank rel=noopener" if h.startswith("https://wa.me") else ""} title="{d}">'
+                    f'<span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">{ICONS[ic]}</svg></span><b>{t}</b><i>→</i></a>'
+                    for i, (t, d, h, c, ic) in enumerate(items))
+    return f'<section class="want" id="mulai-cepat" style="{v}"><div class="in"><div class="hd"><h2>{title}</h2></div><div class="g">{cards}</div></div></section>'
 WA0 = "https://wa.me/6282245260121?text="
 from urllib.parse import quote as _q
 WANTS = {
- "faindonesia": ("dark", "Saya Ingin…", "Pilih kebutuhan Anda. Diskusi awal gratis.", [
-   ("Dapat Kredit Bank", "Hitung plafon yang realistis dalam 3 menit, lalu kami dampingi sampai cair.", "#cek-kredit", "Cek Kredit Gratis"),
-   ("Cari Investor atau IPO", "Untuk aset bersih di atas Rp50 miliar: investor institusi, M&A, persiapan IPO.", "/mitra-investor/", "Lihat Jalurnya"),
-   ("Rapikan Laporan Keuangan", "Pembukuan, audit, dan pajak bersama KAP, KJA, dan KKP mitra.", "/mitra-kap-kja/", "Lihat Mitra"),
-   ("Tanya Langsung", "Ceritakan kondisi usaha Anda lewat WhatsApp.", WA0 + _q("Halo FA Indonesia, saya ingin konsultasi soal usaha saya."), "Chat Ananta, CPA")]),
- "cariakuntan": ("light", "Saya Butuh…", "Pilih jenis akuntan. Kami bantu pilihkan kantor berizin sesuai kota dan syarat bank Anda.", [
-   ("Audit Laporan Keuangan", "KAP untuk bank, tender, investor, atau wajib audit.", "/layanan/kap/", "Cari KAP"),
-   ("Pembukuan dan Laporan Keuangan", "KJA untuk pembukuan bulanan dan laporan keuangan siap pakai.", "/kota/", "Cari KJA per Kota"),
-   ("Urusan Pajak", "Konsultan pajak berizin untuk SPT, Coretax, dan pemeriksaan.", "/layanan/konsultan-pajak/", "Cari Konsultan Pajak"),
-   ("Penilaian Aset", "KJPP rekanan bank untuk agunan dan revaluasi.", "/layanan/kjpp/", "Cari KJPP")]),
- "updatesak": ("light", "Saya Ingin…", "Gratis, tanpa login, data tidak dikirim ke server.", [
-   ("Cek Standar Akuntansi Perusahaan Saya", "Isi neraca dan laba rugi, dapat kerangka SAK, laporan keuangan, dan CALK.", "/#kalkulator", "Mulai Gratis"),
-   ("Tahu Update SAK Terbaru", "PSAK, SAK EP, SAK EMKM, dan SAK Syariah yang berlaku 2026 sampai 2027.", "/update-psak-terbaru/", "Baca Update"),
-   ("Belajar Standar Audit", "Ringkasan SA IAPI 2025 untuk auditor dan ujian CPA.", "/standar-audit/", "Mulai Belajar"),
-   ("Cari Akuntan untuk Menerapkannya", "KAP, KJA, dan konsultan pajak berizin di kota Anda.", "https://cariakuntan.com/", "Cari Akuntan")]),
+ "faindonesia": ("dark", "Mulai dari Kebutuhan Anda", "", [
+   ("Dapat Kredit Bank", "Hitung plafon yang realistis dalam 3 menit, lalu kami dampingi sampai cair.", "#cek-kredit", "Cek Kredit Gratis", "bank"),
+   ("Cari Investor atau IPO", "Untuk aset bersih di atas Rp50 miliar: investor institusi, M&A, persiapan IPO.", "/mitra-investor/", "Lihat Jalurnya", "up"),
+   ("Rapikan Laporan Keuangan", "Pembukuan, audit, dan pajak bersama KAP, KJA, dan KKP mitra.", "/mitra-kap-kja/", "Lihat Mitra", "doc"),
+   ("Tanya Langsung", "Ceritakan kondisi usaha Anda lewat WhatsApp.", WA0 + _q("Halo FA Indonesia, saya ingin konsultasi soal usaha saya."), "Chat Ananta, CPA", "chat")]),
+ "cariakuntan": ("light", "Saya Butuh", "", [
+   ("Audit Laporan Keuangan", "KAP untuk bank, tender, investor, atau wajib audit.", "/layanan/kap/", "Cari KAP", "check"),
+   ("Pembukuan dan Laporan Keuangan", "KJA untuk pembukuan bulanan dan laporan keuangan siap pakai.", "/kota/", "Cari KJA per Kota", "book"),
+   ("Urusan Pajak", "Konsultan pajak berizin untuk SPT, Coretax, dan pemeriksaan.", "/layanan/konsultan-pajak/", "Cari Konsultan Pajak", "tax"),
+   ("Penilaian Aset", "KJPP rekanan bank untuk agunan dan revaluasi.", "/layanan/kjpp/", "Cari KJPP", "home")]),
+ "updatesak": ("light", "Mulai dari Sini", "", [
+   ("Cek Standar Akuntansi Saya", "Isi neraca dan laba rugi, dapat kerangka SAK, laporan keuangan, dan CALK.", "/#kalkulator", "Mulai Gratis", "calc"),
+   ("Update SAK Terbaru", "PSAK, SAK EP, SAK EMKM, dan SAK Syariah yang berlaku 2026 sampai 2027.", "/update-psak-terbaru/", "Baca Update", "spark"),
+   ("Belajar Standar Audit", "Ringkasan SA IAPI 2025 untuk auditor dan ujian CPA.", "/standar-audit/", "Mulai Belajar", "grad"),
+   ("Cari Akuntan Berizin", "KAP, KJA, dan konsultan pajak berizin di kota Anda.", "https://cariakuntan.com/", "Cari Akuntan", "search")]),
 }
 _ECOK = {"faindonesia": "fa", "cariakuntan": "ca", "updatesak": "us"}
 for _proj, _k in _ECOK.items():
@@ -415,8 +446,11 @@ for _proj, _k in _ECOK.items():
             if os.path.relpath(_p, _d) in ("index.html",):
                 th, ti, su, items = WANTS[_proj]
                 _t = _t.replace("</head>", WANT_CSS + "</head>", 1)
-                _h = _t.find("</header>")
-                if _h > 0: _t = _t[:_h + 9] + WANT(th, ti, su, items) + _t[_h + 9:]
+                _mm = _t.find("<main")
+                _h1 = _t.find("<section", _mm) if _mm > 0 else -1
+                _h2 = _t.find("<section", _t.find("</section>", _h1)) if _h1 > 0 else -1
+                # setelah hero (+ blok angka FA bila ada) = sebelum section kedua di main
+                if _h2 > 0: _t = _t[:_h2] + WANT(th, ti, su, items) + _t[_h2:]
             open(_p, "w", encoding="utf-8").write(_t)
     print("ecobar", _proj)
 
