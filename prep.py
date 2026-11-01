@@ -341,7 +341,7 @@ _tpp = _ilu.spec_from_file_location("tidy_prose", os.path.join(M, "shared", "tid
 print("tidy prose:", _tp.run(OUT))
 _SJ = os.path.join(M, "shared", "share.js")
 # ---------- tab Toko di nav CariAkuntan dan UpdateSAK (1 Nov 2026): ke toko pusat FA ----------
-TK_CSS = {"cariakuntan": '<style id="tk-tab">@media (max-width:520px){header .tabs{gap:0}header .tabs a{padding:8px 7px;font-size:.86rem}}@media (max-width:400px){header .tabs a{padding:8px 5px;font-size:.8rem}}@media (max-width:350px){header .tabs a[href="/"],header .tabs a[href="/en/"],header .tabs a[href="/zh/"],header .tabs a[href="/hokkien/"]{display:none}}</style>',
+TK_CSS = {"cariakuntan": '<style id="tk-tab">@media (max-width:520px){header .tabs{gap:0}header .tabs a{padding:8px 7px;font-size:.86rem}}@media (max-width:400px){header .tabs a{padding:8px 5px;font-size:.8rem}}@media (max-width:430px){header .tabs a[href="/"],header .tabs a[href="/en/"],header .tabs a[href="/zh/"],header .tabs a[href="/hokkien/"]{display:none}}</style>',
           "updatesak": ""}
 def add_toko_tab(root, dari, navre):
     n = 0; css = TK_CSS.get(os.path.basename(root), "")

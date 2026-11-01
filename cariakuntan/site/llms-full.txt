@@ -19,6 +19,7 @@
 ## Halaman utama
 - [Beranda](https://cariakuntan.com/)
 - [Tanya jawab](https://cariakuntan.com/artikel/tanya-jawab/)
+- [Program magang akuntansi remote](https://cariakuntan.com/magang/)
 - [Wawasan](https://cariakuntan.com/artikel/)
 - [Wilayah layanan](https://cariakuntan.com/kota/)
 - [KAP dan jasa audit per kota](https://cariakuntan.com/layanan/kap/)

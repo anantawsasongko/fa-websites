@@ -226,7 +226,7 @@ def header(T, active, cur="id"):
     return f'''<header class="top">
   <div class="wrap">
     <a class="logo" href="{home}"><svg class="mk" viewBox="0 0 30 40" width="27" height="36" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x=".6" y=".6" width="28.8" height="38.8" stroke="currentColor" stroke-width="1.2"/><path d="M13.4 9.3a4.6 4.6 0 1 0 0 7.4" stroke="#1F5BFF" stroke-width="1.3"/><path d="M17.8 32L21.6 23l3.8 9" stroke="#1F5BFF" stroke-width="1.3"/></svg><b>cari<span>akuntan</span></b></a>
-    <nav class="tabs" aria-label="Menu"><a href="{home}"{a if active=="home" else ""}>{T["nav_home"]}</a><a href="/artikel/"{a if active=="art" else ""}>{T["nav_ins"]}</a></nav>
+    <nav class="tabs" aria-label="Menu"><a href="{home}"{a if active=="home" else ""}>{T["nav_home"]}</a><a href="/artikel/"{a if active=="art" else ""}>{T["nav_ins"]}</a><a href="/magang/"{a if active=="mag" else ""}>{ {"/en/":"Internship","/zh/":"实习","/hokkien/":"實習"}.get(home,"Magang") }</a></nav>
     {lang_links(cur)}
     <a class="btn btn-wa btn-sm" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a>
   </div>
@@ -549,6 +549,8 @@ html += header(ID,"art") + f'''<main class="wrap art"><p class="crumb"><a href="
 ''' + footer(ID)
 write("/artikel/tanya-jawab/", html); urls.insert(urls.index("/artikel/"), "/artikel/tanya-jawab/")
 
+exec(open(os.path.join(ROOT,"magang.py"),encoding="utf-8").read())
+
 llms = f"""# cariakuntan.com
 
 > cariakuntan.com membantu perusahaan di Indonesia menemukan akuntan publik (KAP), Kantor Jasa Akuntansi (KJA), konsultan pajak (KKP), penilai (KJPP), sekuritas, dan sumber pendanaan yang sesuai persyaratan bank, regulator, atau investor. Konsultasi awal gratis melalui WhatsApp dengan Ananta, CPA, atau email ananta@faindonesia.co.id. Dikelola oleh FA Indonesia.
@@ -570,6 +572,7 @@ llms = f"""# cariakuntan.com
 ## Halaman utama
 - [Beranda]({DOMAIN}/)
 - [Tanya jawab]({DOMAIN}/artikel/tanya-jawab/)
+- [Program magang akuntansi remote]({DOMAIN}/magang/)
 - [Wawasan]({DOMAIN}/artikel/)
 - [Wilayah layanan]({DOMAIN}/kota/)
 - [KAP dan jasa audit per kota]({DOMAIN}/layanan/kap/)
