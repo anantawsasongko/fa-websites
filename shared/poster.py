@@ -27,7 +27,7 @@ def apply(root, brand, base):
         title = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else slug
         k = re.search(r'class="eyebrow"><a[^>]*>Eksplor · ([^<]+)<', t) or re.search(r'<p class="label"[^>]*>([^<]{2,40})</p>', t)
         kicker = html.unescape(k.group(1)).strip() if k else ""
-        h = hashlib.md5(("v4" + brand + kicker + title).encode()).hexdigest()[:6]
+        h = hashlib.md5(("v5" + brand + kicker + title).encode()).hexdigest()[:6]
         c = os.path.join(cache, f"{slug}-{h}.jpg"); keep.add(os.path.basename(c))
         if not os.path.exists(c):
             try: _img(brand, kicker, title, c)
