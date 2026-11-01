@@ -107,9 +107,26 @@ def add_donasi(site_root, pages, cfg):
         t = t.replace("</body>", "<script>window.FA_DONASI=" + cfg + "</script><script src=\"/js/donasi.js\"></script></body>", 1)
         open(pth, "w", encoding="utf-8").write(t)
 add_donasi(fa, ["buku/index.html"], "{guards:[{sel:'#unduhan a.dl:not([href*=\"fa-consult-\"])',key:'materi'}]}")
-add_donasi(fa, ["cek-kapasitas-kredit/index.html", "index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html"], "{guards:[{sel:'#kk_go',key:'venus-kredit',skip:function(){var p=document.getElementById('kk_pt'),m=document.getElementById('kk_em');if(!(p&&m&&p.value.trim().length>2&&/^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$/.test(m.value.trim())))return true;return ['kk_rev','kk_ebit','kk_da','kk_eq','kk_os','kk_ds'].some(function(i){return !document.getElementById(i).value.trim()})}}]}")
-add_donasi(fa, ["cek-psak-118/index.html"], "{guards:[{sel:'#btnXlsx,[data-tab=\"hasil\"]',key:'venus-psak118'}]}")
-add_donasi(fa, ["audit-ready/index.html"], "{guards:[{sel:'#btnXlsx,[data-act=\"calkdoc\"]',key:'jupiter',skip:function(){try{return !!localStorage.getItem('fa-auditready-v1-lic')}catch(e){return false}}}]}")
+# ---------- Paywall QRIS (1 Nov 2026): tidak ada akses gratis tanpa data (bayar QRIS + konfirmasi, atau coba 7 hari dengan data usaha) ----------
+PAY_GS = "https://script.google.com/macros/s/AKfycbzBAfPUXS1F9zcnRBz_Xg7-IhKRrLtyOtoNY9342G2gsXwgThcXwxcwq-VE3ywgK8Dniw/exec"
+PAY_JS = open(os.path.join(M, "shared", "fa-paywall.src.js"), encoding="utf-8").read().replace("__GS__", PAY_GS).replace("__QR__", open(os.path.join(M, "shared", "fa-paywall-qr.txt")).read().strip())
+def add_pay(site_root, pages):
+    os.makedirs(os.path.join(site_root, "js"), exist_ok=True)
+    open(os.path.join(site_root, "js", "fa-paywall.js"), "w", encoding="utf-8").write(PAY_JS)
+    n = 0
+    for rel, cfg in pages:
+        pth = os.path.join(site_root, rel)
+        if not os.path.exists(pth): continue
+        t = open(pth, encoding="utf-8").read()
+        if "fa-paywall.js" in t: continue
+        t = t.replace("</body>", "<script>window.FA_PAY=" + json.dumps(cfg, ensure_ascii=False) + "</script><script src=\"/js/fa-paywall.js\" defer></script></body>", 1)
+        open(pth, "w", encoding="utf-8").write(t); n += 1
+    return n
+_kk = {"app": "venus-kredit", "name": "FA Venus · Cek Kredit & Pendanaan", "price": 25000, "guard": "#kk_go"}
+print("paywall fa", add_pay(fa, [("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Audit Ready", "price": 99000, "skipKey": "fa-auditready-v1-lic"}),
+    ("saturn/index.html", {"app": "saturn", "name": "FA Saturn · Audit Workspace", "price": 99000}),
+    ("cek-psak-118/index.html", {"app": "cek-psak-118", "name": "FA Venus · Konversi PL PSAK 118", "price": 25000})]
+    + [(r, _kk) for r in ("index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html")]))
 add_donasi(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html"],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}")
 
@@ -159,6 +176,7 @@ _sp.run(["python3", os.path.join(M, "updatesak", "build_dosen.py")], check=True)
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
+print("paywall us", add_pay(u, [("index.html", {"app": "us-kalkulator", "name": "UpdateSAK · Kalkulator Standar & CALK", "price": 25000, "guard": "#go"})]))
 add_donasi(u, [os.path.relpath(os.path.join(_d, "index.html"), u) for _d, _, _fs in os.walk(os.path.join(u, "materi")) if "index.html" in _fs],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'a.dl',key:'materi-updatesak'}]}")
 
