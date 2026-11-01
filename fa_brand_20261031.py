@@ -33,7 +33,7 @@ body = (
  ])
  + "<p>Independensi tetap dijaga. Kantor yang menyusun laporan keuangan atau menjadi konsultan pajak suatu perusahaan tidak mengaudit perusahaan yang sama. Pembagian peran diatur sejak awal perikatan.</p>"
  + "<h2>Layani Seluruh Indonesia</h2><p>Mitra kami melayani perusahaan dari Aceh sampai Papua secara daring dan dengan kunjungan lapangan terjadwal. Lihat layanan per kota di <a href=\"/wilayah/\">FA per Kota</a>, misalnya <a href=\"/wilayah/jakarta/\">FA Jakarta</a>, <a href=\"/wilayah/surabaya/\">FA Surabaya</a>, <a href=\"/wilayah/malang/\">FA Malang</a>, <a href=\"/wilayah/bandung/\">FA Bandung</a>, dan <a href=\"/wilayah/denpasar/\">FA Denpasar</a>.</p>"
- + "<p>Website mitra: <a href=\"https://www.kapdhn.com/\" rel=\"noopener\" target=\"_blank\">KAP DHN &amp; Rekan</a> dan <a href=\"https://kja-farhani.pages.dev/\" rel=\"noopener\" target=\"_blank\">KJA Farhani K.N.</a>.</p>"
+ + "<p>Website mitra: <a href=\"/kap-dhn/\">KAP DHN &amp; Rekan</a> dan <a href=\"https://kja-farhani.pages.dev/\" rel=\"noopener\" target=\"_blank\">KJA Farhani K.N.</a>.</p>"
  + "<p>Ingin membandingkan dengan kantor lain di kota Anda? Gunakan <a href=\"https://cariakuntan.com/\">Cari Akuntan</a>. Untuk cek standar akuntansi terbaru sebelum audit, buka <a href=\"https://updatesak.com/\">Update SAK</a>. Profil KJA Farhani: <a href=\"/kja-farhani/\">KJA Farhani, Malang</a>.</p>")
 FAQ = [("Apakah FA Indonesia punya mitra KAP?", "Ya. FA Indonesia bermitra dengan KAP DHN & Rekan untuk audit laporan keuangan, termasuk audit untuk kredit bank, BPR, dan koperasi."),
        ("Apa beda KAP dan KJA?", "KAP memberi opini audit atas laporan keuangan. KJA menyusun pembukuan dan laporan keuangan tanpa memberi opini audit."),
