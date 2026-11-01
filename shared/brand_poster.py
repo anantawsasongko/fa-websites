@@ -47,7 +47,11 @@ def _base(brand, key, W, H, photo_box, fade):
         x = np.linspace(0, 1, pw)[None, :]; m = np.clip(x / .45, 0, 1) * .95 * np.ones((ph, 1))
     im.paste(p, (px, py), Image.fromarray((m * 255).astype("uint8"), "L"))
     return im, b
-def _logo(dr, b, m, s=1.0):
+def _logo(dr, b, m, s=1.0, im=None, brand=None):
+    lp = os.path.join(HERE, "logo", f"{brand}-lockup-dark.png") if brand in ("ca", "us") else None
+    if im is not None and lp and os.path.exists(lp):
+        lg = Image.open(lp).convert("RGBA"); hh = int(78 * s); lg = lg.resize((int(lg.width * hh / lg.height), hh))
+        im.paste(lg, (m, m), lg); return
     w, h = int(54 * s), int(72 * s)
     dr.rectangle([m, m, m + w, m + h], outline="white", width=max(2, int(3 * s)))
     dr.text((m + int(9 * s), m + int(8 * s)), b["l"], font=F("SourceSans3-300.woff", int(22 * s)), fill="white")
@@ -57,8 +61,7 @@ def story(brand, kicker, title, url, out):
     W, H = 1080, 1920
     im, b = _base(brand, url or title, W, H, (0, 0, W, 1180), "down")
     dr = ImageDraw.Draw(im); m = 96
-    top = Image.new("L", (W, 260)); 
-    _logo(dr, b, m)
+    _logo(dr, b, m, 1.0, im, brand)
     size = 88
     while True:
         f = F("LiberationSerif-Regular.ttf", size); lines = _wrap(dr, title, f, W - 2 * m)
@@ -80,7 +83,7 @@ def og(brand, kicker, title, url, out):
     W, H = 1200, 630
     im, b = _base(brand, url or title, W, H, (560, 0, 640, H), "right")
     dr = ImageDraw.Draw(im); m = 64
-    _logo(dr, b, m, .7)
+    _logo(dr, b, m, .7, im, brand)
     maxw = 680; size = 56
     while True:
         f = F("LiberationSerif-Regular.ttf", size); lines = _wrap(dr, title, f, maxw)

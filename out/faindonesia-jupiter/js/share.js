@@ -69,8 +69,8 @@
   function hash(t) { var h = 0; for (var i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) | 0; return Math.abs(h); }
   function draw(C) {
     var n = B.bg || 6, src = '/js/share-bg/' + (C.bg || (hash(C.url) % n + 1)) + '.jpg';
-    return Promise.all([loadFonts(), loadImg(src)]).then(function (r) {
-      var ph = r[1];
+    return Promise.all([loadFonts(), loadImg(src), B.l === 'F' ? Promise.resolve(null) : loadImg('/js/logo-dark.png')]).then(function (r) {
+      var ph = r[1], lg = r[2];
       return new Promise(function (res) {
       var W = 1080, Hh = 1920, c = document.createElement('canvas'); c.width = W; c.height = Hh;
       var x = c.getContext('2d');
@@ -90,8 +90,10 @@
       }
       var serif = 'FASerif, "Times New Roman", Times, serif', sans = 'FASans, "Source Sans 3", system-ui, sans-serif', sansB = 'FASansSB, "Source Sans 3", system-ui, sans-serif', sansL = 'FASansL, "Source Sans 3", system-ui, sans-serif';
       var m = 96;
+      if (lg) { var lh0 = 78; x.drawImage(lg, m, m, lg.width * lh0 / lg.height, lh0); } else {
       x.strokeStyle = '#fff'; x.lineWidth = 3; x.strokeRect(m, m, 54, 72); x.fillStyle = '#fff'; x.font = '300 22px ' + sansL; x.textBaseline = 'middle'; x.fillText(B.l, m + 9, m + 20); x.lineWidth = 2.5; x.beginPath(); x.moveTo(m + 30, m + 62); x.lineTo(m + 37, m + 44); x.lineTo(m + 44, m + 62); x.stroke();
       x.fillStyle = '#fff'; x.font = '400 42px ' + sans; x.fillText(B.n, m + 80, m + 36);
+      }
       /* judul: mulai dari bawah ke atas supaya selalu di area gelap */
       var size = 88, lines, maxw = W - 2 * m;
       do { x.font = '400 ' + size + 'px ' + serif; lines = wrap(x, C.title, maxw); size -= 4; } while (lines.length > 6 && size > 52);

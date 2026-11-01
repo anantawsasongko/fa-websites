@@ -233,6 +233,9 @@ for _proj, _k in (("cariakuntan", "ca"), ("updatesak", "us")):
             _t2 = _t2.replace("</head>", _tags + "</head>", 1)
             open(_p, "w", encoding="utf-8").write(_t2)
     print("favicon", _proj)
+import importlib.util as _ilu3
+_blp = _ilu3.spec_from_file_location("brand_logo", os.path.join(M, "shared", "brand_logo.py")); _bl = _ilu3.module_from_spec(_blp); _blp.loader.exec_module(_bl)
+print("logo A:", _bl.run(OUT))
 
 for n in sorted(os.listdir(OUT)):
     cnt = sum(len(f) for _, _, f in os.walk(os.path.join(OUT, n)))

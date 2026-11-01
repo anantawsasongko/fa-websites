@@ -101,7 +101,7 @@ def make_images(key, kicker, title):
     except Exception:
         return
     d = os.path.join(SITE, "img", "share"); os.makedirs(d, exist_ok=True)
-    ver = os.path.join(d, ".v5")
+    ver = os.path.join(d, ".v6")
     regen = not os.path.exists(ver) or os.environ.get("US_REIMG") == "1"
     for kind in ("og", "story"):
         out = os.path.join(d, f"{key}-{kind}.jpg")

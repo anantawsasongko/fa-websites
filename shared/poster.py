@@ -27,7 +27,7 @@ def apply(root, brand, base):
         title = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else slug
         k = re.search(r'class="eyebrow"><a[^>]*>Eksplor · ([^<]+)<', t) or re.search(r'<p class="label"[^>]*>([^<]{2,40})</p>', t)
         kicker = html.unescape(k.group(1)).strip() if k else ""
-        h = hashlib.md5(("v5" + brand + kicker + title).encode()).hexdigest()[:6]
+        h = hashlib.md5(("v6" + brand + kicker + title).encode()).hexdigest()[:6]
         c = os.path.join(cache, f"{slug}-{h}.jpg"); keep.add(os.path.basename(c))
         if not os.path.exists(c):
             try: _img(brand, kicker, title, c)
@@ -51,6 +51,8 @@ def _share_assets(root):
     for f in ("LiberationSerif-Regular.ttf", "SourceSans3-300.woff2", "SourceSans3-400.woff2", "SourceSans3-600.woff2"):
         shutil.copy2(os.path.join(FONTS, f), os.path.join(fd, f))
     bd = os.path.join(root, "js", "share-bg"); os.makedirs(bd, exist_ok=True)
+    k = {"cariakuntan": "ca", "updatesak": "us"}.get(os.path.basename(os.path.normpath(root)))
+    if k: shutil.copy2(os.path.join(HERE, "logo", f"{k}-lockup-dark.png"), os.path.join(root, "js", "logo-dark.png"))
     sb = os.path.join(HERE, "share-bg")
     for f in os.listdir(sb): shutil.copy2(os.path.join(sb, f), os.path.join(bd, f))
 
