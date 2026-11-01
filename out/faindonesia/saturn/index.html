@@ -428,7 +428,8 @@ table.cap td:not(:first-child),table.cap th:not(:first-child){text-align:center;
 <noscript><p style="padding:16px">FA Saturn memerlukan JavaScript. Baca <a href="/saturn/metodologi/">metodologi audit FA Saturn</a> oleh Dr. (C) Ananta W. Sasongko, S.E., M.S.A., Ak., CPA, CTT, FMVA, FPAP.</p></noscript>
 <div class="shell">
   <nav class="nav" id="nav" aria-label="Navigasi engagement"></nav>
-  <main id="main"></main>
+  <main id="main"><section class="tshare"><h3>Bermanfaat? Ajak rekan mencoba</h3><p>Gratis, langsung di browser, tanpa daftar.</p><div class="share" data-tool="FA Saturn, kertas kerja audit untuk KAP (demo)" data-lab="Bagikan"></div></section>
+</main>
 </div>
 <div id="drawerWrap"></div>
 <div id="modalWrap"></div>
@@ -628,7 +629,7 @@ function renderLic(){var l=licGet(),exp=l&&!licOK(),ok=licOK(),c=drvCfg(),on=drv
    '<p>'+esc(DRV.email)+' · '+esc(c.folderName||'')+'</p>';
   var b3=tb?'<p>TB sudah ada. Lanjut kerja dari Dashboard.</p><div class="upl"><button class="btn pri sm" data-action="view" data-v="dash">Ke Dashboard</button><button class="btn sm" data-action="view" data-v="drv">Tim & Drive</button></div>':
    '<p>Profil klien, lalu TB (wajib) dan GL (opsional). Excel atau CSV.</p><div class="upl"><button class="btn pri sm" data-action="view" data-v="imp">Upload TB & GL</button>'+(c.own===false?'<button class="btn sm" data-action="drv-pickfiles">Buka engagement tim</button>':'')+'</div>';
-  return '<div class="head"><div><h2>Mode Klien</h2><h1>Aktivasi</h1><p>Tiga langkah, sekali saja.</p></div></div><section class="acts3">'+
+  return '<div class="head"><div><h2>Mode Klien</h2><h1>Aktivasi</h1><div class="tshare-top"><div class="share" data-tool="FA Saturn, kertas kerja audit untuk KAP (demo)" data-lab="Bagikan alat ini"></div></div><p>Tiga langkah, sekali saja.</p></div></div><section class="acts3">'+
    box(1,ok,!ok,'Kode lisensi',b1)+box(2,fold,ok&&!fold,'Google Drive KAP',b2)+box(3,ok&&tb,fold&&!tb||(ok&&tb),'Data awal klien',b3)+'</section>'+
    (ok?'':'<p class="hint">Tanpa lisensi, mode klien tetap bisa dicoba penuh, tapi data hilang saat halaman di-refresh. <button class="linkbtn" data-action="go-demo">Kembali ke demo</button></p>')}
 
@@ -1487,5 +1488,5 @@ render(true);
 })();
 
 </script>
-<script>window.FA_SECURE={brand:'fa',mode:'drive',at:[{sel:'header.top',pos:'afterend',cls:'bar'}]}</script><script src="/js/secure.js?v=e02fe7b4"></script><script src="/js/lead.js" defer></script></body>
+<script>window.FA_SECURE={brand:'fa',mode:'drive',at:[{sel:'header.top',pos:'afterend',cls:'bar'}]}</script><script src="/js/secure.js?v=e02fe7b4"></script><script src="/js/lead.js" defer></script><script src="/js/share.js?v=d7e5514f" defer></script></body>
 </html>

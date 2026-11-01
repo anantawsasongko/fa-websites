@@ -320,8 +320,12 @@ print("related us", _rel.add_related(os.path.join(OUT, "updatesak"), "us", extra
 import poster as _po
 print("og artikel fa", _po.apply(os.path.join(OUT, "faindonesia"), "fa", "https://faindonesia.co.id"))
 print("og artikel ca", _po.apply(os.path.join(OUT, "cariakuntan"), "ca", "https://cariakuntan.com"))
+# tombol share di kalkulator dan apps (1 Nov 2026)
+import importlib.util as _ilu
+_tsp = _ilu.spec_from_file_location("tool_share", os.path.join(M, "shared", "tool_share.py")); _ts = _ilu.module_from_spec(_tsp); _tsp.loader.exec_module(_ts)
+print("tool share:", _ts.run(OUT))
 _SJ = os.path.join(M, "shared", "share.js")
-for _n in ("faindonesia", "cariakuntan", "updatesak"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
+for _n in ("faindonesia", "cariakuntan", "updatesak", "faindonesia-jupiter"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
 
 # ---------- Gelar lengkap Ananta di semua situs (28 Okt 2026, permintaan Bos) ----------
 GELAR = "S.E., M.S.A., Ak., CPA, CTT, FMVA, FPAP"
