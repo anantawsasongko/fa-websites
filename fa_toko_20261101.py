@@ -136,7 +136,7 @@ chips = (f'<div class="chips" role="toolbar" aria-label="Kategori produk">'
          f'<button type="button" data-f="free" aria-pressed="false">Gratis</button></div>')
 
 FAQ = [
- ("Kapan pembelian dibuka?", "Pembelian online dibuka begitu aktivasi payment gateway Midtrans selesai. Kami tidak menerima transfer manual. Sementara itu, sampel e-book dan aplikasi gratis tetap bisa dipakai."),
+ ("Kapan pembelian dibuka?", "Pembelian online dibuka begitu aktivasi payment gateway Midtrans selesai. Sementara itu, sampel e-book dan aplikasi gratis tetap bisa dipakai."),
  ("Metode pembayaran apa saja?", "GoPay dan virtual account semua bank lewat Midtrans, payment gateway berizin Bank Indonesia."),
  ("Kapan produk saya terima?", "Kode akses aplikasi FA Jupiter tampil otomatis setelah pembayaran lunas. File PDF e-book dan password dikirim ke email setelah pembayaran online berhasil, biasanya di hari yang sama pada jam kerja."),
  ("Apakah harga sudah termasuk pajak?", "E-book dibebaskan dari PPN, jadi harga yang tertera adalah harga akhir. Harga aplikasi sudah termasuk PPN dan faktur pajak dapat diminta dengan mengirim data NPWP atau NIK."),
@@ -153,7 +153,7 @@ inner = f"""{CSS}
 <p class="eyebrow">Toko FA Indonesia</p>
 <h1>E-Book dan Aplikasi Akuntansi FA Indonesia</h1>
 <p class="lede">Semua produk FA Indonesia dalam satu tempat: e-book Penerbit FA, paket hemat, dan aplikasi FA Jupiter untuk menyiapkan laporan keuangan audit ready. Pembelian online segera dibuka.</p>
-<p class="soon-note" style="margin:14px 0 0;padding:12px 16px;border:1px solid rgba(127,127,127,.35);border-radius:10px;font-size:.95rem"><b>Pembayaran online segera dibuka.</b> Kami sedang menyelesaikan aktivasi payment gateway. Kami tidak menerima transfer manual.</p>
+
 <div class="pay" aria-label="Metode pembayaran"><span><b>GoPay</b></span><span><b>Virtual Account</b> semua bank</span><span>via <b>Midtrans</b></span></div>
 </div>
 <div class="trust">

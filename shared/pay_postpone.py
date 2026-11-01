@@ -2,7 +2,7 @@
 """Tunda semua pembelian sampai Midtrans aktif (1 Nov 2026, permintaan Bos).
 - Tombol beli (href /bayar/?produk=...) jadi label nonaktif "Segera Dibuka".
 - Link footer "Pembayaran" dihapus. Link /bayar/ lain jadi teks biasa.
-- Tidak ada opsi transfer manual; QRIS hanya untuk donasi (donasi.js, tidak disentuh).
+- QRIS hanya untuk donasi (donasi.js, tidak disentuh).
 Halaman /bayar/ asli (Snap + invoice) disimpan di backup/pembayaran-20261101/ untuk dipulihkan saat Midtrans aktif:
 cukup kembalikan file itu dan hapus pemanggilan modul ini di prep.py."""
 import os, re
