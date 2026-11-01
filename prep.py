@@ -194,14 +194,27 @@ for _d, _, _fs in os.walk(u):
 with open(os.path.join(u, "_headers"), "a") as _h:
     _h.write("\n/*.html\n  Cache-Control: public, max-age=0, must-revalidate\n/\n  Cache-Control: public, max-age=0, must-revalidate\n/css/*\n  Cache-Control: public, max-age=31536000, immutable\n/js/*\n  Cache-Control: public, max-age=31536000, immutable\n")
 
-# ---------- FA: font body Georgia (30 Okt 2026), ganti EB Garamond yang tipis di layar; judul tetap Times ----------
-FONT_CSS = '<style id="fa-font">:root{--serif:Georgia,"Noto Serif","Times New Roman",serif}p,.plan>p:not(.cmph),.note,.arsip li span:not(.yr),.cmp dd,.feerow span,.sysnote{font-size:1.05em;line-height:1.65}.art p,.art li{font-size:17.5px!important;line-height:1.72!important}.dl p:not(.cmph){font-size:16px}</style>'
+# ---------- FA: paduan font (1 Nov 2026): judul tetap Times; seluruh teks body & UI pakai Source Sans 3 (humanist sans, serasi dengan serif klasik) ----------
+FONT_LINK = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+             '<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">')
+_SANS = '"Source Sans 3","Source Sans Pro",system-ui,-apple-system,"Segoe UI",sans-serif'
+FONT_CSS = ('<style id="fa-font">:root{--body:' + _SANS + ';--mono:' + _SANS + ';--serif:' + _SANS + '}'
+  'body{font-family:var(--body);font-size:16.5px;letter-spacing:.005em;font-feature-settings:"kern","liga"}'
+  'p,li,dd,td,th,label,input,select,textarea,button,.btn,summary,small,span{font-family:inherit}'
+  'p,.plan>p:not(.cmph),.note,.arsip li span:not(.yr),.cmp dd,.feerow span,.sysnote,.lnote{font-family:var(--body);font-size:1.02em;line-height:1.7;font-weight:400}'
+  '.art p,.art li{font-family:var(--body)!important;font-size:17.5px!important;line-height:1.75!important;font-weight:400!important}'
+  '.art b,.art strong{font-weight:600}.eyebrow{font-family:var(--body);font-weight:600;letter-spacing:.2em}'
+  '.btn,button,.chips2 a,.card2 b{font-family:var(--body);font-weight:600;letter-spacing:.01em}'
+  '.card2 b{font-family:"Times New Roman",Times,serif;font-weight:400;font-size:19px}'
+  '.dl p:not(.cmph){font-size:16px}'
+  'html[lang="zh"] body{font-family:' + _SANS + ',"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif}</style>')
 for _r, _, _fs in os.walk(fa):
     for _f in _fs:
         if not _f.endswith(".html"): continue
         _p = os.path.join(_r, _f); _t = open(_p, encoding="utf-8").read()
-        if 'id="fa-font"' in _t or "</head>" not in _t or "--serif" not in _t: continue
-        open(_p, "w", encoding="utf-8").write(_t.replace("</head>", FONT_CSS + "</head>", 1))
+        if 'id="fa-font"' in _t or "</head>" not in _t: continue
+        _t = re.sub(r'<link[^>]+fonts\.googleapis\.com/css2\?family=Poppins[^>]*>', lambda m: m.group(0).replace("&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400", ""), _t)
+        open(_p, "w", encoding="utf-8").write(_t.replace("</head>", FONT_LINK + FONT_CSS + "</head>", 1))
 
 # ---------- favicon CariAkuntan + UpdateSAK (Safari/Chrome/iOS): ico, png, svg, apple-touch (28 Okt 2026) ----------
 _IC = os.path.join(M, "shared", "icons")
