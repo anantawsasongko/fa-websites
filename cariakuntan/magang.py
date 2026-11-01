@@ -3,11 +3,12 @@
 # Di-exec dari build.py, memakai head(), header(), footer(), write(), urls, ID, DOMAIN, tc, ldtag.
 
 MG_SUBJ = "Magang – Nama – Kampus"
-MG_BODY = ("Nama:\nKampus dan Prodi:\nSemester:\n"
+MG_BODY = ("Nama:\nKampus dan Prodi:\nSemester dan IPK:\nKota domisili:\n"
+           "Jalur kontribusi yang dipilih (Riset dan Review / Data dan Analisis / Jejaring Usaha / Perangkat Kerja):\n"
            "Magang wajib kampus (MBKM/konversi SKS) atau mandiri:\n"
            "Tanggal mulai dan selesai:\n"
            "Dokumen yang diminta kampus (surat penerimaan, logbook, form penilaian, MoU, dll.):\n\n"
-           "Terlampir CV dan transkrip nilai.")
+           "Terlampir CV, transkrip nilai, dan proposal kontribusi 1 halaman.")
 MG_MAIL = mailto(MG_SUBJ, MG_BODY)
 
 MG_TASKS = [
@@ -17,13 +18,22 @@ MG_TASKS = [
     ("Bulan 5", "Kertas Kerja Audit", "Materialitas, walkthrough siklus pendapatan, uji substantif piutang dan persediaan, daftar temuan di FA Saturn."),
     ("Bulan 6", "Technical Paper", "Satu studi kasus PSAK (fakta, analisis, jurnal, kalimat CALK) dan presentasi hasil magang."),
 ]
-MG_FLOW = [("01", "Kirim Lamaran", "Email CV & Transkrip"), ("02", "Seleksi Berkas", "Kami Kabari via Email"),
-           ("03", "Surat Penerimaan", "Untuk Kampus"), ("04", "Penugasan Bulanan", "Remote + Logbook"),
+MG_FLOW = [("01", "Kirim Lamaran", "CV, Transkrip, Proposal"), ("02", "Seleksi Proposal", "Kami Kabari via Email"),
+           ("03", "Surat Penerimaan", "Untuk Kampus"), ("04", "Penugasan Bulanan", "Remote, Review Berkala"),
            ("05", "Surat Keterangan", "Setelah Semua Selesai")]
+MG_TRACK = [
+    ("Riset dan Review", "Menelaah standar, regulasi, atau perangkat kerja kami, lalu menulis ringkasan dan usulan perbaikan yang siap dipakai."),
+    ("Data dan Analisis", "Mengolah data keuangan publik atau data yang Anda miliki dari riset kampus menjadi benchmark dan analisis rasio."),
+    ("Jejaring Usaha", "Mendampingi UMKM, koperasi, BUMDes, atau yayasan di daerah Anda yang ingin merapikan laporan keuangannya, bersama tim kami."),
+    ("Perangkat Kerja", "Mengembangkan template Excel, checklist, atau ide fitur untuk aplikasi FA dan UpdateSAK."),
+]
 MG_FAQ = [
+    ("Apa itu proposal kontribusi?", "Satu halaman berisi jalur kontribusi yang Anda pilih, apa yang ingin Anda kerjakan selama magang, dan hasil awal yang bisa Anda tunjukkan, misalnya review singkat atas salah satu artikel atau perangkat kerja kami beserta usulan perbaikannya. Lamaran tanpa proposal belum dapat kami proses."),
+    ("Apakah ada pelatihan dari dasar?", "Program ini dirancang untuk mahasiswa yang sudah menguasai akuntansi keuangan dan perpajakan dasar dan terbiasa belajar mandiri. Materi rujukan tersedia di updatesak.com; pendampingan kami berupa review atas hasil kerja, bukan kelas."),
+    ("Saya punya kenalan UMKM atau organisasi yang butuh pembenahan laporan keuangan. Apakah relevan?", "Sangat relevan. Usaha atau organisasi tersebut bisa menjadi proyek magang Anda di jalur Jejaring Usaha, dengan pendampingan dan review dari tim kami."),
     ("Apakah bisa untuk MBKM atau konversi SKS?", "Bisa. Kirim format dokumen dari kampus (surat penerimaan, logbook, form penilaian, MoU) bersama lamaran, nanti kami isi sesuai kegiatan dan periode yang sebenarnya."),
     ("Kalau kampus hanya mewajibkan 5 bulan?", "Penugasan bisa dipadatkan menyesuaikan tanggal mulai dan selesai dari kampus. Tulis periodenya di email lamaran."),
-    ("Apakah harus datang ke kantor?", "Tidak. Seluruh program berjalan remote. Komunikasi lewat email dan grup kerja, dengan logbook mingguan."),
+    ("Apakah harus datang ke kantor?", "Tidak. Seluruh program berjalan remote dari kota Anda. Komunikasi lewat email dan grup kerja, dengan logbook mingguan dan review hasil setiap dua minggu."),
     ("Apakah ada gaji atau uang saku?", "Tidak. Program ini tidak berbayar. Kompensasinya hanya surat keterangan magang dari KJA Farhani."),
     ("Siapa yang menerbitkan surat penerimaan dan surat keterangan?", "KJA Farhani. Surat keterangan hanya diterbitkan untuk peserta yang menyelesaikan seluruh penugasan dengan baik, sesuai kegiatan dan periode pengerjaan."),
     ("Boleh memakai AI untuk mengerjakan tugas?", "Boleh sebagai alat bantu, tetapi hasil akhir harus pekerjaan sendiri. Hasil copy-paste atau mentah dari AI langsung gugur."),
@@ -58,6 +68,7 @@ MG_CSS = """<style id="mg-css">
 .mg-two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .mg-box{border-top:3px solid var(--ink);padding-top:14px}
 .mg-box h3{font-size:1.15rem}
+.mg-trkg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:22px}.mg-trk{color:var(--muted);font-size:.95rem;margin-top:8px}
 .mg-box ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem;display:grid;gap:6px}
 .mg-box.warn{border-top-color:#B4232C}
 .mg-mail{margin-top:14px;font-size:.88rem;color:var(--muted)}
@@ -70,6 +81,7 @@ _flow = "".join(f'<div style="--i:{i}"><small>{n}</small><b>{tc(t)}</b><span>{s}
 _tl = "".join(
     f'<div style="--i:{i}"><em>{m}</em><div><b>{tc(t)}</b><p>{d}</p><div class="bar-p"><i style="--w:{w}%"></i></div></div></div>'
     for i, ((m, t, d), w) in enumerate(zip(MG_TASKS, [33, 50, 67, 83, 100])))
+_trk = "".join(f'<div class="mg-box"><h3>{tc(t)}</h3><p class="mg-trk">{d}</p></div>' for t, d in MG_TRACK)
 _faq = "".join(f"<details><summary>{tc(q)}</summary><p>{a}</p></details>" for q, a in MG_FAQ)
 _ld = {"@context": "https://schema.org", "@graph": [
     {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in MG_FAQ]},
@@ -79,22 +91,26 @@ _ld = {"@context": "https://schema.org", "@graph": [
 
 url = DOMAIN + "/magang/"
 html = head("Program Magang Akuntansi Remote 6 Bulan (MBKM) | cariakuntan.com",
-            "Magang akuntansi remote 6 bulan untuk mahasiswa: penyusunan LK, perpajakan, konversi PSAK 118, kertas kerja audit. Bisa untuk MBKM dan konversi SKS. Tidak berbayar.",
+            "Magang akuntansi remote 6 bulan untuk mahasiswa yang mandiri dan siap berkontribusi: riset dan review standar, analisis data, jejaring usaha, atau perangkat kerja. Seleksi berdasarkan proposal kontribusi. Bisa untuk MBKM.",
             url, extra=MG_CSS + ldtag(_ld))
 html += header(ID, "mag") + f'''<main>
 <section class="mg-hero"><div class="wrap">
   <p class="label">Program Magang</p>
   <h1>Magang Akuntansi Remote 6 Bulan</h1>
-  <p class="sub">Kerja nyata dengan perangkat kerja FA Indonesia dan KJA Farhani: dari menyusun laporan keuangan sampai kertas kerja audit.</p>
-  <div class="mg-pills"><span>Remote</span><span>5–6 Bulan</span><span>Bisa MBKM / Konversi SKS</span><span class="off">Tidak Berbayar</span></div>
+  <p class="sub">Untuk mahasiswa yang terbiasa belajar mandiri dan ingin hasil kerjanya benar-benar dipakai. Bekerja dari kota Anda dengan perangkat kerja FA Indonesia dan KJA Farhani, dari laporan keuangan sampai kertas kerja audit.</p>
+  <div class="mg-pills"><span>Remote Penuh</span><span>5–6 Bulan</span><span>Bisa MBKM / Konversi SKS</span><span>Seleksi Berdasarkan Proposal Kontribusi</span><span class="off">Tidak Berbayar</span></div>
   <div class="mg-cta"><a class="btn btn-wa" href="{MG_MAIL}">Kirim Lamaran via Email</a><a class="btn btn-o" href="#penugasan">Lihat Penugasan</a></div>
 </div></section>
 <section id="alur"><div class="wrap">
   <div class="head"><p class="label">Alur</p><h2>Alur Pendaftaran</h2></div>
   <div class="mg-flow">{_flow}</div>
 </div></section>
+<section id="kontribusi"><div class="wrap">
+  <div class="head"><p class="label">Kontribusi</p><h2>Pilih Satu Jalur Kontribusi</h2><p>Setiap peserta datang dengan satu fokus kontribusi: ide, data, atau jejaring. Jalur yang Anda pilih menjadi dasar seleksi dan proyek utama selama magang.</p></div>
+  <div class="mg-trkg">{_trk}</div>
+</div></section>
 <section id="penugasan"><div class="wrap">
-  <div class="head"><p class="label">Penugasan</p><h2>Lima Penugasan, Semuanya Wajib</h2><p>Diberikan bertahap. Output berupa file kerja Excel/Word dan logbook mingguan.</p></div>
+  <div class="head"><p class="label">Penugasan</p><h2>Lima Penugasan Inti, Semuanya Wajib</h2><p>Dikerjakan mandiri dengan rujukan materi di updatesak.com, berjalan bersama proyek kontribusi Anda. Output berupa file kerja Excel/Word dan logbook mingguan; tim kami memberi review atas hasilnya.</p></div>
   <div class="mg-tl">{_tl}</div>
   <p class="note">Perangkat kerja: <a href="https://faindonesia.co.id/apps/" target="_blank" rel="noopener">faindonesia.co.id/apps</a> (penyusunan LK, konversi PSAK 118, FA Saturn) dan materi teknis <a href="https://updatesak.com/" target="_blank" rel="noopener">updatesak.com</a>.</p>
 </div></section>
@@ -102,6 +118,8 @@ html += header(ID, "mag") + f'''<main>
   <div class="mg-two">
     <div class="mg-box"><h3>Yang Perlu Dikirim</h3><ul>
       <li>CV dan Transkrip Nilai</li>
+      <li>Proposal Kontribusi 1 Halaman: Jalur, Rencana Kerja, dan Hasil Awal</li>
+      <li>Data atau Jejaring yang Bisa Anda Akses, Jika Ada</li>
       <li>Status Magang: Wajib Kampus (MBKM, Konversi SKS) atau Mandiri</li>
       <li>Tanggal Mulai dan Selesai</li>
       <li>Format Dokumen dari Kampus: Surat Penerimaan, Logbook, Form Penilaian, MoU</li>
@@ -109,6 +127,9 @@ html += header(ID, "mag") + f'''<main>
     <p class="mg-mail">Subjek email: <code>{MG_SUBJ}</code></p>
     <div class="mg-cta"><a class="btn btn-wa" href="{MG_MAIL}">Kirim Lamaran via Email</a></div></div>
     <div class="mg-box warn"><h3>Ketentuan</h3><ul>
+      <li>Seleksi Berdasarkan Proposal Kontribusi; Lamaran Tanpa Proposal Belum Dapat Diproses</li>
+      <li>Peserta Diharapkan Sudah Menguasai Akuntansi Keuangan dan Perpajakan Dasar</li>
+      <li>Pendampingan Berupa Review Hasil Kerja, Bukan Kelas atau Bimbingan Harian</li>
       <li>Tidak Berbayar, Tanpa Gaji atau Uang Saku</li>
       <li>Kompensasi Hanya Surat Keterangan Magang dari KJA Farhani</li>
       <li>Surat Keterangan Hanya untuk Peserta yang Menyelesaikan Seluruh Penugasan dengan Baik</li>
