@@ -337,6 +337,8 @@ print("og artikel ca", _po.apply(os.path.join(OUT, "cariakuntan"), "ca", "https:
 import importlib.util as _ilu
 _tsp = _ilu.spec_from_file_location("tool_share", os.path.join(M, "shared", "tool_share.py")); _ts = _ilu.module_from_spec(_tsp); _tsp.loader.exec_module(_ts)
 print("tool share:", _ts.run(OUT))
+_tpp = _ilu.spec_from_file_location("tidy_prose", os.path.join(M, "shared", "tidy_prose.py")); _tp = _ilu.module_from_spec(_tpp); _tpp.loader.exec_module(_tp)
+print("tidy prose:", _tp.run(OUT))
 _SJ = os.path.join(M, "shared", "share.js")
 for _n in ("faindonesia", "cariakuntan", "updatesak", "faindonesia-jupiter"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
 

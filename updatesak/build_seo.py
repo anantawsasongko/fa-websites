@@ -93,55 +93,21 @@ def chip(n):
 
 # ---------- gambar share ----------
 def make_images(key, kicker, title):
+    # desain share baru (1 Nov 2026): foto + gradasi brand, Lora + Poppins, lihat shared/brand_poster.py
+    import sys as _s
+    _s.path.insert(0, os.path.join(HERE, "..", "shared"))
     try:
-        from PIL import Image, ImageDraw, ImageFont
+        import brand_poster as _bp
     except Exception:
         return
     d = os.path.join(SITE, "img", "share"); os.makedirs(d, exist_ok=True)
-    F = os.path.join(HERE, "fonts")
-    serif = lambda s: ImageFont.truetype(os.path.join(F, "SourceSerif4-Semibold.ttf"), s)
-    sans = lambda s, b=True: ImageFont.truetype(os.path.join(F, "IBMPlexSans-SemiBold.ttf" if b else "IBMPlexSans-Regular.ttf"), s)
-    for kind, (W, H) in (("og", (1200, 630)), ("story", (1080, 1920))):
+    ver = os.path.join(d, ".v4")
+    regen = not os.path.exists(ver) or os.environ.get("US_REIMG") == "1"
+    for kind in ("og", "story"):
         out = os.path.join(d, f"{key}-{kind}.jpg")
-        if os.path.exists(out) and os.environ.get("US_REIMG") != "1":
+        if os.path.exists(out) and not regen and os.path.getmtime(out) >= os.path.getmtime(ver):
             continue
-        import numpy as np
-        yy, xx = np.mgrid[0:H, 0:W]
-        t = (xx / W * .55 + yy / H * .45)[..., None]
-        a0, a1 = np.array([11, 31, 51]), np.array([31, 91, 255])
-        im = Image.fromarray((a0 + (a1 - a0) * t).astype("uint8"), "RGB")
-        dr = ImageDraw.Draw(im)
-        for gx in range(0, W, 26):
-            for gy in range(0, H, 26):
-                dr.point((gx, gy), fill=(70, 110, 200))
-        m = 70 if kind == "og" else 90
-        # logo
-        dr.rectangle([m, m, m + 54, m + 54], fill="#1F5BFF")
-        dr.text((m + 27, m + 27), "US", font=sans(22), fill="white", anchor="mm")
-        dr.text((m + 70, m + 27), "UpdateSAK", font=serif(36), fill="white", anchor="lm")
-        ky = m + 120 if kind == "og" else 520
-        dr.text((m, ky), kicker.upper(), font=sans(26 if kind == "og" else 36), fill="#8FB2FF")
-        size = 58 if kind == "og" else 84
-        maxw = W - 2 * m
-        words, lines, cur = title.split(), [], ""
-        while True:
-            lines, cur = [], ""
-            for w in words:
-                t = (cur + " " + w).strip()
-                if dr.textlength(t, font=serif(size)) <= maxw: cur = t
-                else: lines.append(cur); cur = w
-            lines.append(cur)
-            if len(lines) <= (4 if kind == "og" else 7) or size < 30: break
-            size -= 4
-        y = ky + (56 if kind == "og" else 80)
-        for ln in lines:
-            dr.text((m, y), ln, font=serif(size), fill="white"); y += int(size * 1.18)
-        dr.rectangle([m, y + 18, m + 70, y + 24], fill="#1F5BFF")
-        fy = H - m - 30
-        dr.text((m, fy), "updatesak.com", font=sans(30 if kind == "og" else 40), fill="white")
-        if kind == "story":
-            dr.text((m, fy - 70), "Kalkulator PSAK dan CALK Format Auditor", font=sans(34, False), fill="#C9D8FF")
-        im.save(out, "JPEG", quality=82, optimize=True, progressive=True)
+        (_bp.og if kind == "og" else _bp.story)("us", kicker, title, "updatesak.com", out)
 
 pages = []  # (url, lastmod)
 

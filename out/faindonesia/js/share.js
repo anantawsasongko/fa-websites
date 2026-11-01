@@ -7,9 +7,9 @@
 (function () {
   if (window.__faShare) return; window.__faShare = 1;
   var H = location.hostname.replace(/^www\./, '');
-  var B = /cariakuntan/.test(H) ? { l: 'C', n: 'cariakuntan.com', c1: '#0B1F33', c2: '#1F5BFF', ac: '#8FB2FF', tag: 'KAP, KJPP, Pajak, Laporan Keuangan' }
-        : /updatesak/.test(H) ? { l: 'U', n: 'updatesak.com', c1: '#0B1F33', c2: '#1F5BFF', ac: '#8FB2FF', tag: 'Kalkulator PSAK dan CALK' }
-        : { l: 'F', n: 'faindonesia.co.id', c1: '#0a0a0a', c2: '#7f1d1d', ac: '#fca5a5', tag: 'Kredit Bank, Investor, IPO' };
+  var B = /cariakuntan/.test(H) ? { l: 'C', n: 'cariakuntan.com', c1: '#0B1F33', c2: '#1F5BFF', ac: '#8FB2FF', tint: 'rgba(31,91,255,.28)', bg: 5, tag: 'KAP, KJPP, Pajak, Laporan Keuangan' }
+        : /updatesak/.test(H) ? { l: 'U', n: 'updatesak.com', c1: '#0B1F33', c2: '#0E7C66', ac: '#7EE0C3', tint: 'rgba(14,124,102,.30)', bg: 5, tag: 'Kalkulator PSAK dan CALK' }
+        : { l: 'F', n: 'faindonesia.co.id', c1: '#0a0a0a', c2: '#7f1d1d', ac: '#fca5a5', tint: 'rgba(127,29,29,.32)', bg: 5, tag: 'Kredit Bank, Investor, IPO' };
   var canon = (document.querySelector('link[rel=canonical]') || {}).href || location.href.split('#')[0];
   var h1 = document.querySelector('main h1, h1');
   var title = ((h1 && h1.innerText) || document.title.split(' | ')[0]).trim().replace(/\s+/g, ' ');
@@ -52,35 +52,69 @@
   }
   function makePoster(C) {
     if (C.ready) return C.ready;
-    if (C.story) { C.ready = fetch(C.story).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).catch(function () { return draw(C); }); return C.ready; }
+    if (false && C.story) { C.ready = fetch(C.story).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).catch(function () { return draw(C); }); return C.ready; }
     C.ready = draw(C); return C.ready;
   }
+  /* Paduan font FA (judul Times, teks Source Sans 3, self-host /js/fonts/) dan foto latar /js/share-bg/ (1 Nov 2026). */
+  var FONTS = null;
+  function loadFonts() {
+    if (FONTS) return FONTS;
+    var L = [['FASerif', "local('Times New Roman'), local('TimesNewRomanPSMT'), url(/js/fonts/LiberationSerif-Regular.ttf)", '400'], ['FASans', 'url(/js/fonts/SourceSans3-400.woff2)', '400'], ['FASansSB', 'url(/js/fonts/SourceSans3-600.woff2)', '600'], ['FASansL', 'url(/js/fonts/SourceSans3-300.woff2)', '300']];
+    FONTS = Promise.all(L.map(function (f) { try { var ff = new FontFace(f[0], f[1], { weight: f[2] }); return ff.load().then(function (x) { document.fonts.add(x); }, function () {}); } catch (e) { return Promise.resolve(); } }));
+    return FONTS;
+  }
+  function loadImg(src) { return new Promise(function (r) { var i = new Image(); i.onload = function () { r(i); }; i.onerror = function () { r(null); }; i.src = src; }); }
+  function hash(t) { var h = 0; for (var i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) | 0; return Math.abs(h); }
   function draw(C) {
-    return new Promise(function (res) {
+    var n = B.bg || 6, src = '/js/share-bg/' + (hash(C.url) % n + 1) + '.jpg';
+    return Promise.all([loadFonts(), loadImg(src)]).then(function (r) {
+      var ph = r[1];
+      return new Promise(function (res) {
       var W = 1080, Hh = 1920, c = document.createElement('canvas'); c.width = W; c.height = Hh;
       var x = c.getContext('2d');
-      var g = x.createLinearGradient(0, 0, W, Hh); g.addColorStop(0, B.c1); g.addColorStop(1, B.c2); x.fillStyle = g; x.fillRect(0, 0, W, Hh);
-      x.fillStyle = 'rgba(255,255,255,.10)'; for (var i = 0; i < W; i += 28) for (var j = 0; j < Hh; j += 28) x.fillRect(i, j, 2, 2);
-      var serif = getComputedStyle(h1 || document.body).fontFamily || 'Georgia, serif';
-      var sans = getComputedStyle(document.body).fontFamily || 'system-ui, sans-serif';
+      var g = x.createRadialGradient(0, Hh, 0, 0, Hh, Hh * 1.15); g.addColorStop(0, B.c2); g.addColorStop(.62, '#070707'); g.addColorStop(1, '#050505'); x.fillStyle = g; x.fillRect(0, 0, W, Hh);
+      var PH = 1180;
+      if (ph) {
+        var o = document.createElement('canvas'); o.width = W; o.height = PH; var ox = o.getContext('2d');
+        var sc = Math.max(W / ph.width, PH / ph.height), dw = ph.width * sc, dh = ph.height * sc;
+        ox.drawImage(ph, (W - dw) / 2, (PH - dh) * .35, dw, dh);
+        var tint = ox.createLinearGradient(0, 0, W, PH); tint.addColorStop(0, 'rgba(0,0,0,.55)'); tint.addColorStop(1, B.tint || 'rgba(127,29,29,.30)');
+        ox.fillStyle = tint; ox.fillRect(0, 0, W, PH);
+        ox.globalCompositeOperation = 'destination-in';
+        var mk = ox.createLinearGradient(0, 0, 0, PH); mk.addColorStop(0, 'rgba(0,0,0,.95)'); mk.addColorStop(.55, 'rgba(0,0,0,.75)'); mk.addColorStop(1, 'rgba(0,0,0,0)');
+        ox.fillStyle = mk; ox.fillRect(0, 0, W, PH);
+        x.drawImage(o, 0, 0);
+        var top = x.createLinearGradient(0, 0, 0, 260); top.addColorStop(0, 'rgba(0,0,0,.6)'); top.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = top; x.fillRect(0, 0, W, 260);
+      }
+      var serif = 'FASerif, "Times New Roman", Times, serif', sans = 'FASans, "Source Sans 3", system-ui, sans-serif', sansB = 'FASansSB, "Source Sans 3", system-ui, sans-serif', sansL = 'FASansL, "Source Sans 3", system-ui, sans-serif';
       var m = 96;
-      x.strokeStyle = '#fff'; x.lineWidth = 3; x.strokeRect(m, m, 54, 72); x.fillStyle = '#fff'; x.font = '400 22px ' + sans; x.textBaseline = 'middle'; x.fillText(B.l, m + 9, m + 20); x.lineWidth = 2.5; x.beginPath(); x.moveTo(m + 30, m + 62); x.lineTo(m + 37, m + 44); x.lineTo(m + 44, m + 62); x.stroke();
-      x.fillStyle = '#fff'; x.font = '600 40px ' + sans; x.textBaseline = 'middle'; x.fillText(B.n, m + 80, m + 36);
-      var y = 560;
-      if (C.kick) { x.fillStyle = B.ac; x.font = '600 38px ' + sans; x.fillText(C.kick.toUpperCase(), m, y); y += 90; }
-      var size = 92, lines;
-      do { x.font = '600 ' + size + 'px ' + serif; lines = wrap(x, C.title, W - 2 * m); size -= 6; } while (lines.length > 7 && size > 50);
-      size += 6; x.fillStyle = '#fff'; x.textBaseline = 'top';
-      lines.forEach(function (l) { x.fillText(l, m, y); y += size * 1.2; });
-      x.fillStyle = B.ac; x.fillRect(m, y + 30, 90, 8);
-      x.fillStyle = 'rgba(255,255,255,.85)'; x.font = '400 38px ' + sans; x.fillText(B.tag, m, Hh - 330);
-      x.fillStyle = '#fff'; x.fillRect(m, Hh - 250, W - 2 * m, 120);
-      x.fillStyle = B.c1; x.font = '600 40px ' + sans; x.textBaseline = 'middle';
-      var u = C.url.replace(/^https?:\/\//, ''); if (x.measureText(u).width > W - 2 * m - 60) u = B.n;
-      x.fillText('Baca: ' + u, m + 30, Hh - 190);
-      c.toBlob(function (b) { res(b); }, 'image/jpeg', .88);
+      x.strokeStyle = '#fff'; x.lineWidth = 3; x.strokeRect(m, m, 54, 72); x.fillStyle = '#fff'; x.font = '300 22px ' + sansL; x.textBaseline = 'middle'; x.fillText(B.l, m + 9, m + 20); x.lineWidth = 2.5; x.beginPath(); x.moveTo(m + 30, m + 62); x.lineTo(m + 37, m + 44); x.lineTo(m + 44, m + 62); x.stroke();
+      x.fillStyle = '#fff'; x.font = '400 42px ' + sans; x.fillText(B.n, m + 80, m + 36);
+      /* judul: mulai dari bawah ke atas supaya selalu di area gelap */
+      var size = 88, lines, maxw = W - 2 * m;
+      do { x.font = '400 ' + size + 'px ' + serif; lines = wrap(x, C.title, maxw); size -= 4; } while (lines.length > 6 && size > 52);
+      size += 4; var lh = size * 1.18;
+      var yEnd = Hh - 420, y = yEnd - lines.length * lh;
+      if (C.kick) {
+        x.fillStyle = B.ac; x.font = '600 34px ' + sansB; x.textBaseline = 'alphabetic';
+        var k = C.kick.toUpperCase(), ks = ''; for (var i = 0; i < k.length; i++) ks += k[i] + (i < k.length - 1 ? ' ' : '');
+        x.fillText(ks.slice(0, 80), m, y - 40);
+      }
+      x.fillStyle = '#fff'; x.textBaseline = 'top'; x.font = '400 ' + size + 'px ' + serif;
+      lines.forEach(function (l) { x.fillText(l, m, y); y += lh; });
+      x.fillStyle = B.ac; x.fillRect(m, y + 26, 84, 6);
+      x.fillStyle = 'rgba(255,255,255,.78)'; x.font = '300 34px ' + sansL; x.textBaseline = 'middle'; x.fillText(B.tag, m, Hh - 300);
+      x.fillStyle = '#fff'; var bx = m, by = Hh - 236, bw = W - 2 * m, bh = 112, rr = 56;
+      x.beginPath(); x.moveTo(bx + rr, by); x.arcTo(bx + bw, by, bx + bw, by + bh, rr); x.arcTo(bx + bw, by + bh, bx, by + bh, rr); x.arcTo(bx, by + bh, bx, by, rr); x.arcTo(bx, by, bx + bw, by, rr); x.closePath(); x.fill();
+      x.fillStyle = '#0a0a0a'; x.font = '600 36px ' + sansB;
+      var u = C.url.replace(/^https?:\/\//, '').replace(/[?#].*$/, ''); var pre = /^Coba gratis/.test(C.title) ? 'Coba: ' : 'Baca: ';
+      if (x.measureText(pre + u).width > bw - 90) u = B.n;
+      x.textAlign = 'center'; x.fillText(pre + u, W / 2, by + bh / 2 + 2); x.textAlign = 'left';
+      c.toBlob(function (b) { res(b); }, 'image/jpeg', .9);
+      });
     });
   }
+
   function fileOf(C, b) { var slug = (C.url.split('#')[0].split('/').filter(Boolean).pop() || 'faindonesia').replace(/[^\w-]/g, '').slice(0, 60) || 'share'; return new File([b], slug + '-story.jpg', { type: 'image/jpeg' }); }
   function download(C, b) { var u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = fileOf(C, b).name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 4000); }
   function nativeShare(C, withFile, imgOnly) {
