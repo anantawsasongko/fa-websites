@@ -156,6 +156,7 @@ function setMode(m) {
   $$(".stepnav .fs-only").forEach(e => e.hidden = m === "std");
   $("#go").textContent = {calk: "Susun CALK", lk: "Susun Laporan Keuangan", cf: "Susun Laporan Arus Kas", eq: "Susun Laporan Perubahan Ekuitas"}[m] || "Cek Standar";
   goStep(Math.min(step, lastStep()));
+  try { document.dispatchEvent(new CustomEvent("us-mode", { detail: m })); } catch (e) {}
 }
 let step = 0;
 function lastStep() { return mode === "calk" ? 4 : mode === "std" ? 2 : 3; }
@@ -835,4 +836,8 @@ $$("#pages div").forEach((e, i) => e.style.transitionDelay = (i * .12) + "s");
 $$("[data-count]").forEach(el => { const n = +el.dataset.count; if (!n) return; let c = 0; const st = performance.now(); const tick = t => { c = Math.min(1, (t - st) / 1200); el.textContent = Math.round(n * (1 - Math.pow(1 - c, 3))); if (c < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
 if (window.SAK_DATA && $("#sakUpd")) $("#sakUpd").textContent = "Sumber SAK Online IAI, dicek " + SAK_DATA.updated + ".";
 goStep(0); live();
+/* link langsung per aplikasi: #kalkulator-psak, #laporan-keuangan, #arus-kas, #perubahan-ekuitas, #calk (1 Nov 2026) */
+const HM = {"kalkulator-psak": "std", "laporan-keuangan": "lk", "arus-kas": "cf", "perubahan-ekuitas": "eq", "calk": "calk"};
+function fromHash() { const m = HM[location.hash.slice(1)]; if (!m) return; setMode(m); const k = $("#kalkulator"); if (k) setTimeout(() => k.scrollIntoView({behavior: "smooth"}), 60); }
+fromHash(); window.addEventListener("hashchange", fromHash);
 })();

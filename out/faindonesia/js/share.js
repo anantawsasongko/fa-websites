@@ -46,6 +46,8 @@
     }
     if (!C.story && !old) { var d = document.querySelector('[data-story]'); if (d) C.story = d.getAttribute('data-story'); var a = document.querySelector('a[href*="-story.jpg"]'); if (!C.story && a) C.story = a.getAttribute('href'); }
     if (old && old.getAttribute('data-url')) C.url = new URL(old.getAttribute('data-url'), location.href).href;
+    if (old && old.getAttribute('data-bg')) C.bg = +old.getAttribute('data-bg');
+    if (old && old.getAttribute('data-kick')) C.kick = old.getAttribute('data-kick');
     if (old && old.hasAttribute('data-tool')) C.title = 'Coba gratis: ' + (old.getAttribute('data-tool') || C.title);
     C.text = C.title + '\n\n' + C.url;
     return C;
@@ -66,7 +68,7 @@
   function loadImg(src) { return new Promise(function (r) { var i = new Image(); i.onload = function () { r(i); }; i.onerror = function () { r(null); }; i.src = src; }); }
   function hash(t) { var h = 0; for (var i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) | 0; return Math.abs(h); }
   function draw(C) {
-    var n = B.bg || 6, src = '/js/share-bg/' + (hash(C.url) % n + 1) + '.jpg';
+    var n = B.bg || 6, src = '/js/share-bg/' + (C.bg || (hash(C.url) % n + 1)) + '.jpg';
     return Promise.all([loadFonts(), loadImg(src)]).then(function (r) {
       var ph = r[1];
       return new Promise(function (res) {
