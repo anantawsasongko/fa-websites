@@ -1,0 +1,29 @@
+name: Ambil foto Unsplash untuk poster share
+on:
+  push:
+    paths: ["shared/unsplash/ids.txt"]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        run: |
+          mkdir -p shared/unsplash/img
+          i=0
+          while read id; do
+            [ -z "$id" ] && continue
+            i=$((i+1))
+            curl -fsSL "https://images.unsplash.com/photo-${id}?w=1400&q=82&fm=jpg" -o "shared/unsplash/img/${id}.jpg" || echo "gagal $id" >> shared/unsplash/gagal.txt
+          done < shared/unsplash/ids.txt
+          ls -la shared/unsplash/img
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add shared/unsplash
+          git commit -m "Foto Unsplash untuk poster share [skip ci]" || exit 0
+          git pull --rebase
+          git push
