@@ -6,9 +6,12 @@ from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import build_seo as B
 import dosen_slides as DS
+import dosen_slides2 as DS2
+import dosen_panduan as DP
+DS.DECKS = DS.DECKS + [d for d in DS2.DECKS if d not in DS.DECKS]
 esc = html.escape
 SITE = B.SITE; BASE = B.BASE
-UPD_ISO = "2026-10-31"; UPD = "31 Oktober 2026"
+UPD_ISO = "2026-11-01"; UPD = "1 November 2026"
 J = json.load(open(os.path.join(HERE, "dosen_jurnal.json"), encoding="utf-8"))
 FREE = sum(1 for j in J if j["akses"] != "OA APC rendah" and "submit" not in j["apc"].lower())
 C = sorted(json.load(open(os.path.join(HERE, "dosen_cfp.json"), encoding="utf-8")), key=lambda x: x["batas_iso"])
@@ -56,11 +59,11 @@ def head(path, title, desc, crumbs, faq, key, kicker):
         if g["@type"] == "Article": g["datePublished"] = g["dateModified"] = UPD_ISO
     B.make_images(key, kicker, title)
     h = B.HEAD.format(title=esc(title + " | UpdateSAK"), desc=esc(desc), url=url, ogt=esc(title), img=img, ld=json.dumps(ld, ensure_ascii=False))
-    return h.replace(' aria-current="page">Eksplor', '>Eksplor')
+    return h.replace(' aria-current="page">Eksplor', '>Eksplor').replace('<a href="/materi/">Materi</a>', '<a href="/materi/" aria-current="page">Materi</a>')
 
 
 def crumb(*parts):
-    s = '<nav class="crumb"><a href="/">Beranda</a> / <a href="/eksplor/">Eksplor</a> / <a href="/dosen/">Ruang Dosen</a>'
+    s = '<nav class="crumb"><a href="/">Beranda</a> / <a href="/materi/">Materi</a> / <a href="/dosen/">Ruang Dosen</a>'
     return s + "".join(f" / {esc(p)}" for p in parts) + "</nav>"
 
 
@@ -182,8 +185,8 @@ BA_FAQ = [("Bolehkah slide ini dipakai di kelas?", "Boleh. Bahan ajar bebas dipa
 
 def p_bahan(res):
     path = "/dosen/bahan-ajar/"
-    title = "Bahan Ajar Akuntansi Keuangan PDF Gratis: PSAK 118, 116, 115, 109"
-    desc = f"{len(res)} bahan ajar slide PDF gratis untuk dosen akuntansi, maksimal 8 slide per topik: PSAK 118, penomoran PSAK baru, PSAK 116 sewa, PSAK 115 pendapatan, PSAK 109 ECL, dan laporan arus kas. Lengkap contoh angka dan soal diskusi."
+    title = "Bahan Ajar Akuntansi Keuangan PDF Gratis: PSAK 118, 116, 115, 109, 216, 212, 202, SAK EMKM"
+    desc = f"{len(res)} bahan ajar slide PDF gratis untuk dosen akuntansi, maksimal 8 slide per topik: PSAK 118, penomoran PSAK, PSAK 116, 115, 109, 216, 212, 202, SAK EMKM, arus kas, dan menulis untuk jurnal Scopus. Lengkap contoh angka dan soal diskusi."
     cards = "".join(
         f'''<article class="ba"><img src="/img/dosen/{d["slug"]}-cover.jpg" alt="Slide sampul {esc(d["judul"])}" width="480" height="270" loading="lazy">
 <div><span class="ds-pill b">{n} slide · PDF</span><h3>{esc(d["judul"])}</h3><p>{esc(d["desk"])}</p>
@@ -217,9 +220,10 @@ def p_bahan(res):
 def cards3(res, href=lambda p: p):
     nf = FREE
     return (f'<div class="ds-grid">'
+            f'<a class="ds-card" href="{href("/dosen/bahan-ajar/")}"><span class="k">Bahan Ajar</span><b>Slide PDF Maksimal 8 Halaman</b><span>{len(res)} topik: PSAK 118, 116, 115, 109, 216, 212, 202, SAK EMKM, arus kas, dan menulis untuk Scopus.</span><span class="n">Download Gratis →</span></a>'
+            f'<a class="ds-card" href="{href("/dosen/panduan-submit-scopus/")}"><span class="k">Submit Scopus</span><b>Panduan Submit dan Template</b><span>Memilih jurnal, cek jurnal bajakan, template cover letter dan balasan reviewer.</span><span class="n">Buka Panduan →</span></a>'
             f'<a class="ds-card" href="{href("/dosen/jurnal-scopus-gratis/")}"><span class="k">Publikasi</span><b>Jurnal Scopus Gratis dan APC Rendah</b><span>{len(J)} jurnal akuntansi, keuangan, dan bisnis; {nf} tanpa biaya bagi penulis.</span><span class="n">Lihat Daftar →</span></a>'
-            f'<a class="ds-card" href="{href("/dosen/call-for-paper/")}"><span class="k">Berita</span><b>Call for Paper yang Masih Dibuka</b><span>{len(C)} konferensi dan special issue. Tenggat terdekat {C[0]["batas"]}.</span><span class="n">Lihat Tenggat →</span></a>'
-            f'<a class="ds-card" href="{href("/dosen/bahan-ajar/")}"><span class="k">Bahan Ajar</span><b>Slide PDF Maksimal 8 Halaman</b><span>{len(res)} topik: PSAK 118, penomoran PSAK, 116, 115, 109, dan arus kas.</span><span class="n">Download Gratis →</span></a></div>')
+            f'<a class="ds-card" href="{href("/dosen/call-for-paper/")}"><span class="k">Berita</span><b>Call for Paper yang Masih Dibuka</b><span>{len(C)} konferensi dan special issue. Tenggat terdekat {C[0]["batas"]}.</span><span class="n">Lihat Tenggat →</span></a></div>')
 
 
 def p_hub(res):
@@ -229,10 +233,10 @@ def p_hub(res):
     nxt = "".join(f'<li><a href="{esc(x["url"])}" target="_blank" rel="noopener">{esc(x["judul"])}</a>: tenggat {esc(x["batas"])}</li>' for x in C[:4])
     key = "dosen"
     out = f'''{CSS}<article class="art"><div class="wrap">
-<nav class="crumb"><a href="/">Beranda</a> / <a href="/eksplor/">Eksplor</a> / Ruang Dosen</nav>
+<nav class="crumb"><a href="/">Beranda</a> / <a href="/materi/">Materi</a> / Ruang Dosen</nav>
 <p class="label">Ruang Dosen</p>
 <h1>Ruang Dosen Akuntansi</h1>
-<p class="lede">Tiga kebutuhan rutin dosen akuntansi dalam satu tempat: jurnal Scopus yang terjangkau, tenggat call for paper, dan bahan ajar standar terbaru yang siap dipakai di kelas.</p>
+<p class="lede">Kebutuhan rutin dosen akuntansi dalam satu tempat: bahan ajar standar terbaru yang siap dipakai di kelas, jurnal Scopus yang terjangkau, tenggat call for paper, dan panduan submit artikel.</p>
 <p class="upd">Tim UpdateSAK · Diperbarui {UPD}</p>
 {B.share(BASE + path, title, key)}
 {cards3(res)}
@@ -254,7 +258,7 @@ def p_hub(res):
 
 EKS = '''<!--dosen:start-->{css}
 <section id="dosen"><div class="wrap">
-  <div class="head"><h2>Ruang Dosen</h2><p>Jurnal Scopus gratis dan berbiaya rendah, berita call for paper, dan bahan ajar slide PDF. Diperbarui {upd}.</p></div>
+  <div class="head"><h2>Ruang Dosen</h2><p>Bahan ajar slide PDF, panduan submit Scopus, jurnal Scopus gratis dan berbiaya rendah, serta call for paper. Diperbarui {upd}.</p></div>
   {cards}
   <p><a class="btn arrow" href="/dosen/">Masuk Ruang Dosen</a></p>
 </div></section>
@@ -262,11 +266,14 @@ EKS = '''<!--dosen:start-->{css}
 
 
 def wire(res, pages):
+    # Ruang Dosen dipindah dari Eksplor ke tab Materi, paling atas (1 Nov 2026)
     p = os.path.join(SITE, "eksplor", "index.html"); s = open(p, encoding="utf-8").read()
+    s = re.sub(r"<!--dosen:start-->.*?<!--dosen:end-->\n?", "", s, flags=re.S); open(p, "w", encoding="utf-8").write(s)
+    p = os.path.join(SITE, "materi", "index.html"); s = open(p, encoding="utf-8").read()
     blk = EKS.format(css=CSS, upd=UPD, cards=cards3(res))
-    if "<!--dosen:start-->" in s: s = re.sub(r"<!--dosen:start-->.*?<!--dosen:end-->", lambda m: blk, s, flags=re.S)
-    else:
-        i = s.find('<section id="standar">'); s = s[:i] + blk + "\n" + s[i:]
+    s = re.sub(r"<!--dosen:start-->.*?<!--dosen:end-->\n?", "", s, flags=re.S)
+    i = s.find("</section>", s.find('<section class="hero')) + len("</section>")
+    s = s[:i] + "\n" + blk + "\n" + s[i:]
     open(p, "w", encoding="utf-8").write(s)
     # footer semua halaman: tautan Ruang Dosen
     n = 0
@@ -285,10 +292,20 @@ def wire(res, pages):
     p = os.path.join(SITE, "llms.txt"); s = open(p, encoding="utf-8").read().split("\n## Ruang Dosen")[0].rstrip()
     s += "\n\n## Ruang Dosen\n" + "".join(f"- [{t}]({BASE}{pa}): {d}\n" for pa, t, d in pages)
     open(p, "w", encoding="utf-8").write(s)
+    # tab Jadwal Ujian menjadi Sertifikasi (1 Nov 2026); halaman yang dibuat setelah build_jadwal ikut diberi tab
+    for root, _, files in os.walk(SITE):
+        for f in files:
+            if not f.endswith(".html"): continue
+            q = os.path.join(root, f); s0 = open(q, encoding="utf-8").read(); s = s0
+            m = re.search(r'<nav class="tabs".*?</nav>', s, flags=re.S)
+            if m and "/jadwal-ujian/" not in m.group(0):
+                s = s.replace(m.group(0), m.group(0)[:-6] + '<a href="/jadwal-ujian/">Sertifikasi</a></nav>', 1)
+            s = s.replace('>Jadwal Ujian</a></nav>', '>Sertifikasi</a></nav>').replace('<a href="/jadwal-ujian/">Jadwal Ujian</a> · ', '<a href="/jadwal-ujian/">Sertifikasi</a> · ')
+            if s != s0: open(q, "w", encoding="utf-8").write(s)
     return n
 
 
 if __name__ == "__main__":
     res = DS.build(PDFDIR); thumbs(res)
-    pages = [p_hub(res), p_jurnal(), p_cfp(), p_bahan(res)]
+    pages = [p_hub(res), p_jurnal(), p_cfp(), p_bahan(res), DP.make(B, esc, CSS, UPD, crumb, head, cta_dosen)]
     print("dosen ok, footer", wire(res, pages), "pdf", len(res))

@@ -94,6 +94,45 @@ CSS = """<style>
 @media (prefers-color-scheme:dark){.excard{background:#0f1a28;color:#e8edf5;border-color:#26364a}.excard small{color:#9fb0c5}.exnav a{border-color:#26364a}.exsec .nx{background:#0f1a28;color:#e8edf5}}
 </style>"""
 
+
+UPD_M = "1 November 2026"
+MAT = [
+ ("Pelaporan Korporat dan Akuntansi Keuangan", "CA (Pelaporan Korporat), CPA (Akuntansi Keuangan), CPMA", [
+   ("/artikel/peta-belajar-psak-ujian-ca-cpa/", "Peta Belajar PSAK untuk Ujian CA dan CPA"),
+   ("/artikel/penomoran-psak-3-digit/", "Penomoran PSAK Baru 3 Digit"),
+   ("/psak/118/", "PSAK 118 Penyajian Laporan Keuangan (berlaku 2027)"),
+   ("/psak/115/", "PSAK 115 Pendapatan"), ("/psak/116/", "PSAK 116 Sewa"), ("/psak/109/", "PSAK 109 Instrumen Keuangan"),
+   ("/psak/216/", "PSAK 216 Aset Tetap"), ("/psak/202/", "PSAK 202 Persediaan"), ("/psak/219/", "PSAK 219 Imbalan Kerja"),
+   ("/artikel/contoh-calk-format-big-4/", "Contoh CALK Format Auditor Big 4")]),
+ ("Audit dan Asurans", "CPA (Auditing dan Asurans), CA (Audit dan Asurans)", [
+   ("/standar-audit/", "Daftar Standar Audit (SA) dan Perikatan Lain"),
+   ("/standar-audit/sa-315/", "SA 315 Identifikasi dan Penilaian Risiko"), ("/standar-audit/sa-330/", "SA 330 Respons Auditor"),
+   ("/standar-audit/sa-600/", "SA 600 Audit Grup (revisi)"), ("/standar-audit/sa-700/", "SA 700 Opini Auditor"),
+   ("/materi/pdf/daftar-pbc-audit.pdf", "Daftar PBC Audit (PDF)")]),
+ ("Perpajakan", "BKP / Uji Kompetensi Perpajakan, CA (Manajemen Perpajakan)", [
+   ("/psak/212/", "PSAK 212 Pajak Penghasilan"), ("/artikel/rekonsiliasi-tarif-pajak-efektif/", "Rekonsiliasi Tarif Pajak Efektif"),
+   ("/materi/rekonsiliasi-fiskal-dan-pajak-tangguhan/", "Studi Kasus Rekonsiliasi Fiskal dan Pajak Tangguhan")]),
+ ("Studi Kasus dan Latihan Soal", "Semua sertifikasi", [
+   ("/materi/", "Materi Studi Kasus (jurnal, dampak LK, kalimat CALK, prosedur auditor)"),
+   ("/materi/pdf/kumpulan-studi-kasus-updatesak.pdf", "Kumpulan Studi Kasus (PDF)"),
+   ("/materi/pdf/peta-psak-2026.pdf", "Peta PSAK 2026 (PDF)"),
+   ("/materi/pdf/checklist-tutup-buku-akhir-tahun.pdf", "Checklist Tutup Buku Akhir Tahun (PDF)")]),
+ ("Slide Ringkas per Topik", "Belajar mandiri atau kelompok", [
+   ("/dosen/pdf/psak-118-penyajian-laporan-keuangan.pdf", "PSAK 118 (PDF)"), ("/dosen/pdf/psak-115-pendapatan-lima-langkah.pdf", "PSAK 115 (PDF)"),
+   ("/dosen/pdf/psak-116-sewa-penyewa.pdf", "PSAK 116 (PDF)"), ("/dosen/pdf/psak-109-ecl-matriks-provisi.pdf", "PSAK 109 (PDF)"),
+   ("/dosen/pdf/psak-216-aset-tetap-penyusutan.pdf", "PSAK 216 (PDF)"), ("/dosen/pdf/psak-202-persediaan-fifo-rata-rata.pdf", "PSAK 202 (PDF)"),
+   ("/dosen/pdf/psak-212-pajak-penghasilan-tangguhan.pdf", "PSAK 212 (PDF)"), ("/dosen/pdf/laporan-arus-kas-metode-tidak-langsung.pdf", "Arus Kas PSAK 207 (PDF)")]),
+]
+BARU = [("/update-sak-2027/", "PSAK 118 dan perubahan yang berlaku 1 Januari 2027, termasuk angka komparatif 2026"),
+        ("/update-psak-2026/", "Amendemen yang berlaku 2026"), ("/update-sak-ep/", "SAK EP pengganti SAK ETAP sejak 2025"),
+        ("/standar-audit/sa-600/", "SA 600 revisi: audit grup berbasis risiko"), ("/penomoran-psak-baru/", "Penomoran PSAK 3 digit yang dipakai di soal")]
+MATERI = ('<section class="exsec" id="materi-belajar" style="--c:#0B6E4F"><h2>Materi Belajar Terbaru</h2>'
+  f'<p>Disusun mengikuti standar yang berlaku dan penomoran PSAK SAK Online IAI. Diperbarui {UPD_M}.</p>'
+  '<div class="exgrid">' + "".join(
+    f'<div class="excard" style="--c:#0B6E4F"><span class="st">{esc(w)}</span><b style="font-size:18px">{esc(h)}</b>'
+    + "".join(f'<em><a href="{u}">{esc(n)}</a></em>' for u, n in L) + '</div>' for h, w, L in MAT) + '</div>'
+  '<h3>Yang Baru dan Mulai Muncul di Soal</h3><div class="prose"><ul>' + "".join(f'<li><a href="{u}">{esc(n)}</a></li>' for u, n in BARU) + '</ul></div></section>')
+
 def card(e, href):
     return f'<a class="excard" href="{href}" style="--c:{e["warna"]}"><span class="st">{esc(e["status"])}</span><b>{e["kode"]}</b><small>{esc(e["org"])} · {esc(e["nama"])}</small><em>{esc(e["next"])}</em></a>'
 
@@ -113,25 +152,26 @@ def section(e):
 </section>'''
 
 def page():
-    title = "Jadwal Ujian CPA, CA, CPMA, dan Konsultan Pajak 2026"
-    desc = "Jadwal ujian sertifikasi akuntan 2026: CPA IAPI periode IV Nov–Des, CA IAI mulai 29 Oktober, CPMA IAMI November, dan USKP serta Uji Kompetensi Perpajakan BPPK. Diperbarui " + UPD + "."
+    title = "Sertifikasi Akuntan 2026: Jadwal Ujian dan Materi Belajar CPA, CA, CPMA, Konsultan Pajak"
+    desc = "Jadwal ujian dan materi belajar sertifikasi akuntan 2026: CPA IAPI periode IV Nov–Des, CA IAI mulai 29 Oktober, CPMA IAMI November, dan USKP serta Uji Kompetensi Perpajakan BPPK. Diperbarui " + UPD + "."
     desc = desc.replace("–", " sampai ")
     img = f"{BASE}/img/share/{KEY}-og.jpg"
-    crumbs = [("UpdateSAK", BASE + "/"), ("Jadwal Ujian", URL)]
+    crumbs = [("UpdateSAK", BASE + "/"), ("Sertifikasi", URL)]
     ld = json.loads(B.ld_graph(URL, title, desc, crumbs, FAQ, img))
     for g in ld["@graph"]:
         if g["@type"] == "Article": g["datePublished"] = g["dateModified"] = UPD_ISO
     ld = json.dumps(ld, ensure_ascii=False)
     srcs = "".join(f'<li><a href="{u}" target="_blank" rel="noopener">{esc(t)}</a></li>' for t, u in [e["src"] for e in EX] + SRC2)
     out = f'''{CSS}<article class="art"><div class="wrap">
-<nav class="crumb"><a href="/">Beranda</a> / <a href="/jadwal-ujian/">Jadwal Ujian</a></nav>
+<nav class="crumb"><a href="/">Beranda</a> / Sertifikasi</nav>
 <p class="label">Sertifikasi Profesi</p>
-<h1>Jadwal Ujian CPA, CA, CPMA, dan Konsultan Pajak 2026</h1>
-<p class="lede">Empat sertifikasi yang paling sering ditanyakan mahasiswa akuntansi dan praktisi, dalam satu halaman. Tanggal diambil dari pengumuman resmi penyelenggara.</p>
+<h1>Sertifikasi Akuntan 2026: Jadwal Ujian dan Materi Belajar</h1>
+<p class="lede">CPA, CA, CPMA, dan konsultan pajak dalam satu halaman: jadwal ujian dari pengumuman resmi penyelenggara dan materi belajar terbaru yang bisa langsung dipakai.</p>
 <p class="upd">Tim UpdateSAK · Diperbarui {UPD}</p>
 {B.share(URL, title, KEY)}
 <div class="exgrid">{"".join(card(e, "#" + e["id"]) for e in EX)}</div>
-<div class="exnav">{"".join(f'<a href="#{e["id"]}">{e["kode"]}</a>' for e in EX)}<a href="#siapkan">Persiapan</a></div>
+<div class="exnav">{"".join(f'<a href="#{e["id"]}">{e["kode"]}</a>' for e in EX)}<a href="#materi-belajar">Materi Belajar</a><a href="#siapkan">Persiapan</a></div>
+{MATERI}
 {"".join(section(e) for e in EX)}
 <section class="exsec" id="siapkan" style="--c:#0B1F33"><h2>Persiapan Yang Bisa Dimulai Hari Ini</h2>
 <div class="prose"><ol>
@@ -147,13 +187,13 @@ def page():
 </div></article>
 '''
     B.write("jadwal-ujian", B.HEAD.format(title=esc(title + " | UpdateSAK"), desc=esc(desc), url=URL, ogt=esc(title), img=img, ld=ld) + out + B.FOOT)
-    B.make_images(KEY, "Jadwal Ujian 2026", "Jadwal Ujian CPA, CA, CPMA, dan Konsultan Pajak")
+    B.make_images(KEY, "Sertifikasi 2026", "Jadwal Ujian dan Materi Belajar CPA, CA, CPMA, Konsultan Pajak")
 
 HOME = '''<!--jadwal:start-->{css}
 <section id="jadwal"><div class="wrap">
-  <div class="head"><h2>Jadwal Ujian Sertifikasi Terdekat</h2><p>CPA, CA, CPMA, dan konsultan pajak dalam satu tempat. Diperbarui {upd}.</p></div>
+  <div class="head"><h2>Sertifikasi: Jadwal Ujian Terdekat</h2><p>CPA, CA, CPMA, dan konsultan pajak dalam satu tempat. Diperbarui {upd}.</p></div>
   <div class="exgrid">{cards}</div>
-  <p><a class="btn arrow" href="/jadwal-ujian/">Lihat Jadwal Lengkap</a></p>
+  <p><a class="btn arrow" href="/jadwal-ujian/">Jadwal dan Materi Belajar</a></p>
 </div></section>
 <!--jadwal:end-->'''
 
