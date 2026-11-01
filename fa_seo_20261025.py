@@ -196,7 +196,7 @@ SECT_TXT = {"kesehatan": "rumah sakit dan klinik", "manufaktur": "pabrik dan man
             "migas": "penunjang migas", "perikanan": "perikanan", "smelter": "pemasok kawasan smelter", "bumd": "BUMD"}
 def sect(secs): return ", ".join(SECT_TXT.get(x, x) for x in secs[:4])
 def near(c):
-    return [x for x in CITIES if x[2] == c[2] and x[0] != c[0]][:8]
+    return sorted([x for x in CITIES if x[2] == c[2] and x[0] != c[0]], key=lambda x: x[1] != c[1])[:8]
 
 for c in CITIES:
     name, prov, reg, secs, note = c
@@ -250,7 +250,7 @@ for c in CITIES:
             + ("".join(f"<p>{E(x)}</p>" for x in BOOST.get(name, [])))
             + (f'<h2>Kawasan Bisnis di {E(name)}</h2><p class="t">' + " · ".join(f'<a href="/wilayah/{cs}/{slug(k[0])}/">{E(k[0])}</a>' for k in kws) + "</p>" if kws else "")
             + f'<h2>Cari KAP, KJPP, dan Konsultan Pajak di {E(name)}</h2><p>Untuk memilih kantor akuntan publik, jasa penilai (KJPP), atau konsultan pajak berizin di {E(name)}, gunakan <a href="{ca}">cariakuntan.com/kota/{cs}</a>: <a href="{ca}kap/">KAP {E(name)}</a> · <a href="{ca}kjpp/">KJPP {E(name)}</a> · <a href="{ca}konsultan-pajak/">Konsultan Pajak {E(name)}</a> · <a href="{ca}jasa-laporan-keuangan/">Jasa Laporan Keuangan {E(name)}</a>.</p>'
-            + f'<h2>KAP, KJA, dan Konsultan Pajak Mitra FA untuk {E(name)}</h2><p>FA {E(name)} bekerja dengan jaringan mitra lengkap: <b>KAP DHN &amp; Rekan</b> untuk audit, <b>KJA DHN</b> dan <b>KJA Farhani</b> untuk pembukuan dan penyusunan laporan keuangan, serta <b>KKP DHN</b> untuk konsultan pajak. Satu pintu dari pembukuan, audit, pajak, sampai kredit cair. <a href="/mitra-kap-kja/">Lihat mitra KAP dan KJA FA</a>.</p>'
+            + f'<h2>KAP, KJA, dan Konsultan Pajak Mitra FA untuk {E(name)}</h2><p>FA {E(name)} bekerja dengan jaringan mitra lengkap: <a href="https://www.kapdhn.com/" rel="noopener" target="_blank">KAP DHN &amp; Rekan</a> untuk audit, <b>KJA DHN</b> dan <a href="https://kja-farhani.pages.dev/" rel="noopener" target="_blank">KJA Farhani</a> untuk pembukuan dan penyusunan laporan keuangan, serta <b>KKP DHN</b> untuk konsultan pajak. Satu pintu dari pembukuan, audit, pajak, sampai kredit cair. <a href="/mitra-kap-kja/">Lihat mitra KAP dan KJA FA</a>.</p>'
             + f'<p>Ingin membandingkan kantor lain? Gunakan <a href="{ca}">Cari Akuntan {E(name)}</a> untuk KAP, KJA, KJPP, dan konsultan pajak berizin di {E(name)}. Untuk cek standar akuntansi terbaru (PSAK, SAK EP, SAK EMKM), buka <a href="https://updatesak.com/">Update SAK</a>.</p>'
             + f'<h2>Kota Sekitar</h2><p class="t">' + " · ".join(f'<a href="/wilayah/{slug(x[0])}/">FA {E(x[0])}</a>' for x in nb) + "</p>")
     faq = [(f"Apa itu FA {name}?", f"FA {name} adalah layanan FA Indonesia (financial advisor) untuk perusahaan di {name}: kredit bank sampai cair, investor dan IPO, laporan keuangan, serta audit dan pajak bersama KAP, KJA, dan KKP mitra."),

@@ -1,0 +1,95 @@
+[
+ {
+  "slug": "pembukuan-usaha-perorangan-pisahkan-keuangan-pribadi",
+  "judul": "Pembukuan Usaha Perorangan: Cara Memisahkan Uang Pribadi dan Uang Usaha",
+  "desc": "Langkah praktis memisahkan keuangan pribadi dan usaha perorangan sesuai SAK EMKM: rekening terpisah, gaji pemilik, prive, dan saldo awal yang rapi untuk bank dan investor.",
+  "kat": "SAK EMKM",
+  "body": "<p>Sebagian besar usaha di Indonesia berjalan atas nama pribadi. Penjualan masuk ke rekening pemilik, belanja rumah tangga dibayar dari kas toko, dan tidak ada yang tahu berapa laba usaha sebenarnya. Masalahnya baru terasa ketika bank meminta laporan keuangan atau calon investor bertanya berapa nilai usaha ini.</p>\n<h2>Prinsip Dasarnya: Entitas Usaha Terpisah</h2>\n<p>SAK EMKM memakai asumsi entitas bisnis. Usaha dianggap terpisah dari pemiliknya, walaupun secara hukum masih perorangan. Artinya, yang dicatat di pembukuan hanya transaksi usaha. Uang yang diambil pemilik untuk keperluan pribadi dicatat sebagai pengambilan pemilik (prive), bukan sebagai beban usaha.</p>\n<h2>Lima Langkah Memisahkan Keuangan</h2>\n<table class=\"tbl\"><thead><tr><th>Langkah</th><th>Yang Dilakukan</th><th>Efeknya di Laporan</th></tr></thead><tbody>\n<tr><td>1. Rekening Usaha</td><td>Buka satu rekening khusus usaha. Semua penjualan masuk ke sana, semua pembayaran usaha keluar dari sana.</td><td>Mutasi rekening bisa langsung dicocokkan dengan penjualan</td></tr>\n<tr><td>2. Saldo Awal</td><td>Catat kas, persediaan, peralatan, dan utang usaha per tanggal mulai pembukuan.</td><td>Neraca awal dan modal pemilik</td></tr>\n<tr><td>3. Gaji Pemilik</td><td>Tetapkan angka tetap per bulan untuk pemilik yang ikut bekerja.</td><td>Laba lebih realistis dan mudah dibandingkan</td></tr>\n<tr><td>4. Prive</td><td>Pengambilan di luar gaji untuk keperluan pribadi dicatat sebagai prive.</td><td>Mengurangi modal, bukan menambah beban</td></tr>\n<tr><td>5. Tutup Buku Bulanan</td><td>Cocokkan kas, rekening, dan stok setiap akhir bulan.</td><td>Kesalahan ketahuan cepat, laporan siap kapan pun diminta</td></tr>\n</tbody></table>\n<h2>Contoh Jurnal Sederhana</h2>\n<p>Pemilik mengambil Rp3.000.000 dari rekening usaha untuk biaya sekolah anak: debit Prive Rp3.000.000, kredit Kas di Bank Rp3.000.000. Pemilik menyetor Rp10.000.000 dari tabungan pribadi untuk membeli bahan baku: debit Kas di Bank Rp10.000.000, kredit Modal Pemilik Rp10.000.000.</p>\n<h2>Kenapa Ini Penting untuk Bank dan Investor</h2>\n<p>Analis kredit mencocokkan laporan keuangan dengan mutasi rekening. Investor menormalkan laba sebelum menghitung valuasi. Kalau keuangan masih tercampur, kedua pihak akan memakai asumsi yang biasanya merugikan pemilik usaha. Pembukuan yang terpisah membuat angka Anda yang dipakai, bukan tebakan mereka.</p>\n<h2>Bila Usaha Akan Menjadi CV atau PT</h2>\n<p>Saldo yang sudah rapi memudahkan perpindahan aset dan modal ke badan usaha baru. Pembahasannya ada di artikel <a href=\"/artikel/usaha-perorangan-menjadi-cv-atau-pt-saldo-awal/\">usaha perorangan menjadi CV atau PT</a>.</p>",
+  "faq": [
+   [
+    "Apakah usaha perorangan wajib membuat laporan keuangan?",
+    "Tidak ada kewajiban umum, tetapi bank, investor, dan sebagian program pembiayaan meminta laporan keuangan. Untuk pajak, wajib pajak orang pribadi tertentu juga wajib menyelenggarakan pembukuan."
+   ],
+   [
+    "Apa bedanya prive dan gaji pemilik?",
+    "Gaji pemilik adalah imbalan tetap atas pekerjaan pemilik di usaha dan bisa diperlakukan sebagai beban sesuai kebijakan yang dipilih. Prive adalah pengambilan untuk keperluan pribadi yang mengurangi modal."
+   ],
+   [
+    "Mulai dari mana kalau catatan lama berantakan?",
+    "Tetapkan tanggal mulai, misalnya awal bulan depan, hitung saldo awal per tanggal itu, lalu catat rapi dari sana. Data lama bisa dirapikan belakangan bila dibutuhkan bank."
+   ]
+  ],
+  "psak": []
+ },
+ {
+  "slug": "usaha-perorangan-menjadi-cv-atau-pt-saldo-awal",
+  "judul": "Usaha Perorangan Menjadi CV atau PT: Saldo Awal, Setoran Modal, dan Aset",
+  "desc": "Perlakuan akuntansi saat usaha perorangan berubah menjadi CV atau PT: menentukan saldo awal, setoran modal berupa uang atau aset, persediaan, aset tetap, dan utang yang ikut pindah.",
+  "kat": "Kerangka SAK",
+  "body": "<p>Banyak usaha yang tumbuh akhirnya berubah dari perorangan menjadi CV atau PT, biasanya karena diminta bank, mitra, atau calon investor. Dari sisi akuntansi, yang paling sering salah adalah saldo awal badan usaha baru: aset dicatat sembarangan, modal tidak jelas, dan utang pemilik tercampur.</p>\n<h2>Tentukan Tanggal Peralihan</h2>\n<p>Pilih satu tanggal ketika usaha secara operasional pindah ke badan usaha baru. Per tanggal itu, susun daftar aset dan utang usaha perorangan yang akan dialihkan. Aset dan utang yang tidak dialihkan tetap milik pribadi.</p>\n<h2>Bentuk Setoran Modal</h2>\n<table class=\"tbl\"><thead><tr><th>Yang Disetor</th><th>Pencatatan di Badan Usaha Baru</th><th>Catatan</th></tr></thead><tbody>\n<tr><td>Uang</td><td>Kas pada modal disetor</td><td>Paling sederhana dan mudah dibuktikan</td></tr>\n<tr><td>Persediaan</td><td>Persediaan pada nilai yang disepakati (PSAK 202 bila memakai SAK Indonesia)</td><td>Hitung fisik dan daftar harga pokok per tanggal peralihan</td></tr>\n<tr><td>Peralatan, kendaraan, bangunan</td><td>Aset tetap pada nilai yang disepakati sebagai harga perolehan baru</td><td>Untuk nilai besar, gunakan penilaian KJPP agar bisa dipertanggungjawabkan</td></tr>\n<tr><td>Utang usaha yang ikut dialihkan</td><td>Liabilitas, mengurangi nilai bersih setoran</td><td>Perlu persetujuan kreditur untuk pinjaman bank</td></tr>\n</tbody></table>\n<h2>Modal Disetor vs Pinjaman Pemilik</h2>\n<p>Tidak semua yang dialihkan harus menjadi modal. Sebagian bisa dicatat sebagai pinjaman dari pemegang saham atau sekutu, asalkan ada perjanjian tertulis. Struktur ini memengaruhi rasio utang terhadap ekuitas yang dibaca bank, jadi putuskan dengan sengaja, bukan kebetulan.</p>\n<h2>Standar yang Dipakai Setelah Berubah</h2>\n<p>CV dan PT kecil masih bisa memakai SAK EMKM selama memenuhi kriteria. Bila sudah melewati kriteria atau butuh laporan lebih lengkap untuk bank dan investor, gunakan SAK EP. Panduan memilihnya ada di artikel <a href=\"/artikel/cara-memilih-kerangka-sak/\">cara memilih kerangka SAK</a>.</p>\n<h2>Pajak Ikut Diperhatikan</h2>\n<p>Pengalihan aset dari pribadi ke badan usaha bisa menimbulkan konsekuensi pajak, misalnya atas pengalihan tanah dan bangunan. Diskusikan dengan konsultan pajak sebelum akta dibuat.</p>",
+  "faq": [
+   [
+    "Apakah aset pribadi wajib dimasukkan ke PT?",
+    "Tidak. Pemilik bisa memilih aset mana yang dialihkan. Aset yang tetap pribadi tetapi dipakai usaha sebaiknya disewakan ke perusahaan dengan perjanjian tertulis."
+   ],
+   [
+    "Nilai berapa yang dipakai untuk aset yang disetor?",
+    "Nilai yang disepakati para pendiri dan bisa dipertanggungjawabkan. Untuk aset bernilai besar, laporan penilai KJPP membuat angkanya lebih kuat di mata bank, auditor, dan kantor pajak."
+   ],
+   [
+    "Apakah laporan keuangan tahun pertama PT harus diaudit?",
+    "Tergantung kriteria dan siapa yang meminta. Bank sering meminta laporan audit untuk plafon tertentu. Kriteria wajib audit dibahas di artikel kapan PT wajib audit."
+   ]
+  ],
+  "psak": [
+   202,
+   216
+  ]
+ },
+ {
+  "slug": "membaca-nilai-usaha-dari-laporan-keuangan",
+  "judul": "Membaca Nilai Usaha dari Laporan Keuangan: Ekuitas, Laba Normalisasi, dan EBITDA",
+  "desc": "Kenapa nilai usaha tidak sama dengan ekuitas di neraca, cara menormalkan laba UMKM, menghitung EBITDA, dan pos laporan keuangan yang paling memengaruhi valuasi.",
+  "kat": "Analisis",
+  "body": "<p>Pemilik usaha sering mengira nilai usahanya sama dengan total modal di neraca. Investor hampir tidak pernah berpikir begitu. Ekuitas di neraca mencatat apa yang sudah disetor dan laba yang ditahan, sementara nilai usaha bergantung pada berapa kas yang bisa dihasilkan ke depan.</p>\n<h2>Tiga Angka yang Dibaca Investor</h2>\n<table class=\"tbl\"><thead><tr><th>Angka</th><th>Sumber</th><th>Dipakai Untuk</th></tr></thead><tbody>\n<tr><td>Ekuitas</td><td>Laporan posisi keuangan</td><td>Batas bawah nilai untuk usaha padat aset</td></tr>\n<tr><td>Laba normalisasi</td><td>Laba rugi setelah disesuaikan</td><td>Dasar multiple laba atau proyeksi DCF</td></tr>\n<tr><td>EBITDA</td><td>Laba usaha ditambah penyusutan dan amortisasi</td><td>Perbandingan antar usaha sejenis dan kemampuan bayar utang</td></tr>\n</tbody></table>\n<h2>Normalisasi Laba UMKM</h2>\n<ul><li>Gaji pemilik dan keluarga disesuaikan ke harga pasar untuk posisi yang sama.</li>\n<li>Biaya pribadi yang tercatat sebagai biaya usaha dikeluarkan.</li>\n<li>Sewa tempat milik keluarga yang tidak dibayar dihitung ulang dengan tarif wajar.</li>\n<li>Pendapatan atau beban sekali terjadi, seperti penjualan aset atau klaim asuransi, dikeluarkan.</li></ul>\n<p>Hasilnya bisa lebih tinggi atau lebih rendah dari laba yang dilaporkan. Yang penting, setiap penyesuaian punya alasan yang bisa ditunjukkan.</p>\n<h2>EBITDA di Era PSAK 118</h2>\n<p>Mulai 2027, entitas yang memakai SAK Indonesia dan menampilkan ukuran kinerja seperti EBITDA disesuaikan di luar laporan keuangan perlu memperhatikan ketentuan ukuran kinerja yang ditetapkan manajemen dalam PSAK 118, termasuk rekonsiliasinya ke subtotal standar. Untuk UMKM yang memakai SAK EMKM, EBITDA tetap dihitung sebagai analisis tambahan.</p>\n<h2>Pos yang Paling Memengaruhi Valuasi</h2>\n<ul><li>Piutang macet dan persediaan usang yang belum dicadangkan menurunkan nilai.</li>\n<li>Aset tetap tanpa daftar dan bukti kepemilikan sulit dihargai.</li>\n<li>Utang pemilik tanpa perjanjian membuat struktur modal tidak jelas.</li>\n<li>Pendapatan yang terkonsentrasi pada satu pelanggan menaikkan risiko.</li></ul>",
+  "faq": [
+   [
+    "Kenapa valuasi usaha bisa jauh di atas ekuitas?",
+    "Karena valuasi melihat kemampuan menghasilkan kas di masa depan, termasuk merek, pelanggan, dan sistem yang tidak tercatat di neraca."
+   ],
+   [
+    "Apakah UMKM perlu menghitung EBITDA?",
+    "Tidak wajib, tetapi sangat berguna saat berbicara dengan investor dan bank karena menjadi bahasa yang sama untuk membandingkan usaha."
+   ],
+   [
+    "Siapa yang bisa membuat laporan penilaian resmi?",
+    "Laporan penilaian bisnis resmi diterbitkan oleh penilai di KJPP berizin. Valuasi indikatif untuk negosiasi bisa disusun konsultan keuangan."
+   ]
+  ],
+  "psak": [
+   118
+  ]
+ },
+ {
+  "slug": "laporan-keuangan-untuk-pengajuan-kur-dan-kredit-usaha-kecil",
+  "judul": "Laporan Keuangan untuk Pengajuan KUR dan Kredit Usaha Kecil: Format dan Contoh Isinya",
+  "desc": "Isi laporan keuangan yang biasa diminta bank untuk KUR dan kredit usaha kecil: format SAK EMKM, laba rugi, neraca, catatan singkat, dan pencocokan dengan mutasi rekening.",
+  "kat": "SAK EMKM",
+  "body": "<p>Untuk KUR dan kredit usaha kecil, bank biasanya tidak meminta laporan audit. Tetapi bank tetap ingin melihat angka yang masuk akal dan bisa dicocokkan. Laporan sederhana sesuai SAK EMKM sudah cukup untuk sebagian besar pengajuan, asalkan isinya konsisten.</p>\n<h2>Isi Minimal Laporan</h2>\n<table class=\"tbl\"><thead><tr><th>Bagian</th><th>Isi</th><th>Yang Dicek Analis</th></tr></thead><tbody>\n<tr><td>Laporan Posisi Keuangan</td><td>Kas, piutang, persediaan, peralatan, utang, modal</td><td>Apakah aset cukup dan utang tidak berlebihan</td></tr>\n<tr><td>Laporan Laba Rugi</td><td>Penjualan, harga pokok, beban usaha, laba</td><td>Apakah laba cukup untuk membayar angsuran</td></tr>\n<tr><td>Catatan atas Laporan Keuangan</td><td>Profil usaha, dasar penyusunan, rincian pos penting</td><td>Konsistensi dengan dokumen lain</td></tr>\n</tbody></table>\n<h2>Cocokkan dengan Mutasi Rekening</h2>\n<p>Analis hampir selalu membandingkan penjualan di laba rugi dengan uang masuk di rekening. Selisih besar tanpa penjelasan, misalnya karena banyak penjualan tunai yang tidak disetor, membuat bank meragukan seluruh laporan. Kalau sebagian penjualan memang tunai, catat dan jelaskan polanya.</p>\n<h2>Tunjukkan Kemampuan Bayar</h2>\n<p>Hitung laba bersih ditambah penyusutan per bulan, lalu bandingkan dengan angsuran yang diajukan. Ruang yang lebih lebar memberi keyakinan pada bank. Untuk kredit di atas skala KUR, rasio seperti DSCR menjadi penentu utama.</p>\n<h2>Kesalahan yang Sering Membuat Pengajuan Tertunda</h2>\n<ul><li>Laporan hanya satu periode tanpa pembanding.</li>\n<li>Persediaan dan peralatan tidak dicatat sehingga aset terlihat sangat kecil.</li>\n<li>Biaya pribadi masuk ke beban usaha sehingga laba terlihat tipis.</li>\n<li>Angka penjualan berbeda jauh dengan yang dilaporkan untuk pajak.</li></ul>\n<h2>Ketentuan Program Bisa Berubah</h2>\n<p>Plafon, suku bunga, dan syarat agunan KUR mengikuti ketentuan pemerintah yang berlaku dan kebijakan bank penyalur. Selalu konfirmasi ke bank sebelum menyiapkan dokumen.</p>",
+  "faq": [
+   [
+    "Apakah KUR mensyaratkan laporan keuangan audit?",
+    "Umumnya tidak. Bank biasanya cukup dengan laporan sederhana, catatan usaha, dan mutasi rekening, sesuai kebijakan masing-masing bank penyalur."
+   ],
+   [
+    "Format apa yang paling aman dipakai?",
+    "SAK EMKM, karena memang dirancang untuk usaha mikro, kecil, dan menengah dan dikenal oleh bank."
+   ],
+   [
+    "Berapa periode laporan yang sebaiknya disiapkan?",
+    "Minimal satu tahun terakhir ditambah bulan berjalan. Dua tahun lebih baik karena bank bisa melihat tren."
+   ]
+  ],
+  "psak": []
+ }
+]

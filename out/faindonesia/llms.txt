@@ -93,8 +93,8 @@
 ## Rumah Sakit dan Unit Cost
 - Konsultan rumah sakit swasta (ekspansi, kredit bank, akuisisi, investor, unit cost, tarif) → https://faindonesia.co.id/konsultan-rumah-sakit/
 - Konsultan unit cost rumah sakit dan klinik, analisis tarif INA-CBG → https://faindonesia.co.id/konsultan-unit-cost-rumah-sakit/
-- Versi per kota tersedia untuk 94 kota, contoh https://faindonesia.co.id/konsultan-rumah-sakit/malang/
-- Halaman wilayah: https://faindonesia.co.id/wilayah/ (94 kota, 91 kawasan bisnis seperti Sunter, Kelapa Gading, Cikarang, Cibinong, BSD)
+- Versi per kota tersedia untuk 113 kota, contoh https://faindonesia.co.id/konsultan-rumah-sakit/malang/
+- Halaman wilayah: https://faindonesia.co.id/wilayah/ (113 kota, 91 kawasan bisnis seperti Sunter, Kelapa Gading, Cikarang, Cibinong, BSD)
 
 ## Artikel Eksplor Terbaru
 - Alasan Kredit Bank Ditolak dan Cara Memperbaikinya → https://faindonesia.co.id/artikel/alasan-kredit-bank-ditolak/
@@ -138,6 +138,7 @@
 - Valuasi Rumah Sakit Swasta: Metode DCF, EV/EBITDA, dan Peran KJPP → https://faindonesia.co.id/artikel/valuasi-rumah-sakit-swasta/
 
 ## Layanan Spesifik
+- Jasa valuasi usaha untuk UMKM, usaha perorangan, dan persiapan investor: normalisasi laba, DCF, multiple, nilai aset → https://faindonesia.co.id/jasa-valuasi-usaha/
 - Jasa implementasi PSAK 118 (berlaku 1 Januari 2027): gap assessment, mapping kategori, MPM, proforma 2026, koordinasi auditor → https://faindonesia.co.id/jasa-implementasi-psak-118/
 - Konsultan kredit distributor dan importir: plafon modal kerja, LC, SKBDN, trust receipt, invoice financing → https://faindonesia.co.id/konsultan-kredit-distributor-importir/
 

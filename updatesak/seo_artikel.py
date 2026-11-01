@@ -368,7 +368,7 @@ add("update-psak-2026", "Update PSAK 2026: Daftar Lengkap Perubahan SAK Terbaru 
 # 30 Okt 2026: artikel tambahan dari seo30.json (disisipkan sebelum pilar terakhir)
 import json as _json, os as _os
 _pilar = A.pop()
-for _x in _json.load(open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "seo30.json"), encoding="utf-8")):
+for _x in [_y for _f in ("seo30.json", "seo1101.json") for _y in _json.load(open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), _f), encoding="utf-8"))]:
     add(_x["slug"], _x["judul"], _x["desc"], _x["kat"], _x["body"], [tuple(q) for q in _x["faq"]], _x.get("psak", []))
 A.append(_pilar)
 A.insert(0, A.pop())
