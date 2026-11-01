@@ -64,11 +64,11 @@ s = open(idx, encoding="utf-8").read()
 old_nav = re.search(r'<nav aria-label="Navigasi utama" class="links">.*?</nav>', s, re.S).group(0)
 new_nav = ('<nav aria-label="Navigasi utama" class="links"> <a data-i18n="kbrd" href="/">Beranda</a> <a data-i18n="kapp" href="/apps/">Apps</a> '
            '<a data-i18n="k2" href="/layanan/">Layanan</a> <a data-i18n="kwws" href="/artikel/">Eksplor</a> '
-           '<a data-i18n="k321" href="#kontak">Kontak</a> </nav>')  # 30 Okt 2026: 4 tab saja; E-Book, Cari Akuntan, Update SAK lewat Eksplor, beranda, dan footer
+           '<a data-i18n="ktoko" href="/toko/">Toko</a> <a data-i18n="k321" href="#kontak">Kontak</a> </nav>')  # 30 Okt 2026: 4 tab saja; E-Book, Cari Akuntan, Update SAK lewat Eksplor, beranda, dan footer
 s = s.replace(old_nav, new_nav)
 s = s.replace(' data-netlify="true" netlify-honeypot="bot-field"', '')
 open(idx, "w", encoding="utf-8").write(s)
-NAV_CSS = '<style id="nav4">@media (max-width:820px){nav.links{display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:0!important;overflow:visible!important;width:100%}nav.links a{text-align:center;white-space:nowrap;font-size:13px!important;padding:8px 0!important;letter-spacing:0!important}}@media (max-width:370px){nav.links a{font-size:11.8px!important}}</style>'
+NAV_CSS = '<style id="nav4">@media (max-width:820px){nav.links{display:grid!important;grid-template-columns:repeat(6,1fr)!important;gap:0!important;overflow:visible!important;width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}nav.links a{text-align:center;white-space:nowrap;font-size:12.5px!important;padding:8px 0!important;letter-spacing:0!important}}@media (max-width:390px){nav.links a{font-size:11.5px!important}}@media (max-width:340px){nav.links a{font-size:10.5px!important}}</style>'
 # same nav on other FA pages that carry the main nav
 for root, _, files in os.walk(fa):
     for f in files:
@@ -88,7 +88,7 @@ for root, _, files in os.walk(fa):
             t2 = t2.replace('<div class="chips2">', '<div class="chips2"><a href="/buku/">E-Book</a><a href="https://cariakuntan.com/" target="_blank" rel="noopener">Cari Akuntan</a><a href="https://updatesak.com/" target="_blank" rel="noopener">Update SAK</a>', 1)
         if 'Navigasi utama' in t2 and 'id="nav4"' not in t2:
             t2 = t2.replace('</head>', NAV_CSS + '</head>', 1)
-            if '"kbrd": "Home"' not in t2: t2 = t2.replace('"en": {', '"en": {"kbrd": "Home", "kapp": "Apps", "kebk": "E-Books", "kcak": "Find Accountants", "kusak": "SAK Updates", "kwws": "Explore", ').replace('"zh": {', '"zh": {"kbrd": "首页", "kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kusak": "SAK 更新", "kwws": "探索", ')
+            if '"kbrd": "Home"' not in t2: t2 = t2.replace('"en": {', '"en": {"kbrd": "Home", "kapp": "Apps", "kebk": "E-Books", "kcak": "Find Accountants", "kusak": "SAK Updates", "kwws": "Explore", "ktoko": "Shop", ').replace('"zh": {', '"zh": {"kbrd": "首页", "kapp": "应用", "kebk": "电子书", "kcak": "找会计师", "kusak": "SAK 更新", "kwws": "探索", "ktoko": "商店", ')
         if m or t2 != t: open(p, "w", encoding="utf-8").write(t2)
 # beranda FA dibuat ringkas (25 Okt 2026): berita hanya di tab Wawasan
 if os.path.exists(os.path.join(fa, "artikel", "index.html")):
@@ -340,6 +340,26 @@ print("tool share:", _ts.run(OUT))
 _tpp = _ilu.spec_from_file_location("tidy_prose", os.path.join(M, "shared", "tidy_prose.py")); _tp = _ilu.module_from_spec(_tpp); _tpp.loader.exec_module(_tp)
 print("tidy prose:", _tp.run(OUT))
 _SJ = os.path.join(M, "shared", "share.js")
+# ---------- tab Toko di nav CariAkuntan dan UpdateSAK (1 Nov 2026): ke toko pusat FA ----------
+TK_CSS = {"cariakuntan": '<style id="tk-tab">@media (max-width:520px){header .tabs{gap:0}header .tabs a{padding:8px 7px;font-size:.86rem}}@media (max-width:400px){header .tabs a{padding:8px 5px;font-size:.8rem}}@media (max-width:350px){header .tabs a[href="/"],header .tabs a[href="/en/"],header .tabs a[href="/zh/"],header .tabs a[href="/hokkien/"]{display:none}}</style>',
+          "updatesak": ""}
+def add_toko_tab(root, dari, navre):
+    n = 0; css = TK_CSS.get(os.path.basename(root), "")
+    for d, _, fs in os.walk(root):
+        for f in fs:
+            if not f.endswith(".html"): continue
+            p = os.path.join(d, f); t = open(p, encoding="utf-8").read()
+            m = re.search(navre, t, re.S)
+            if not m or "faindonesia.co.id/toko/" in m.group(0): continue
+            lang = (re.search(r'<html[^>]*lang="([a-z]+)', t) or [None, "id"])[1]
+            lbl = {"en": "Shop", "zh": "商店", "nan": "商店"}.get(lang, "Toko")
+            nav = m.group(0).replace("</nav>", f'<a href="https://faindonesia.co.id/toko/?dari={dari}" class="tk-tab">{lbl}</a></nav>')
+            t = t.replace(m.group(0), nav, 1)
+            if css and 'id="tk-tab"' not in t: t = t.replace("</head>", css + "</head>", 1)
+            open(p, "w", encoding="utf-8").write(t); n += 1
+    return n
+print("toko ca", add_toko_tab(os.path.join(OUT, "cariakuntan"), "cariakuntan", r'<nav (?:class="tabs" aria-label="Menu"|aria-label="Menu" class="tabs")>.*?</nav>'))
+print("toko us", add_toko_tab(os.path.join(OUT, "updatesak"), "updatesak", r'<nav (?:class="tabs" aria-label="Menu utama"|aria-label="Menu utama" class="tabs")>.*?</nav>'))
 for _n in ("faindonesia", "cariakuntan", "updatesak", "faindonesia-jupiter"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
 
 # ---------- Gelar lengkap Ananta di semua situs (28 Okt 2026, permintaan Bos) ----------
