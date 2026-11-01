@@ -52,10 +52,15 @@ CSS = """<style id="tk-css">
 .tk .cv img{position:absolute;left:50%;top:14px;transform:translateX(-50%);height:calc(100% - 28px);width:auto;max-width:none;border-radius:4px;box-shadow:0 12px 26px rgba(0,0,0,.55)}
 .tk .cv .rb{position:absolute;left:12px;top:12px;background:var(--tk-a);color:#2a0c0c;font-size:11.5px;font-weight:600;letter-spacing:.04em;border-radius:999px;padding:3px 10px;display:none}
 .tk .it.pick .cv .rb{display:block}
-.tk .app{display:grid;place-items:center;background:linear-gradient(135deg,#3b0f0f,#111 70%)}
-.tk .app .ic{width:46%;aspect-ratio:1;border-radius:22%;background:linear-gradient(140deg,#7f1d1d,#1a1a1a);border:1px solid #5a2a2a;display:grid;place-items:center;box-shadow:0 14px 30px rgba(0,0,0,.5)}
-.tk .app .ic svg{width:56%;height:56%}
-.tk .app em{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#d4d4d4}
+.tk .app{background-size:cover;background-position:center}
+.tk .app:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.15) 0%,rgba(10,10,10,.55) 45%,rgba(20,6,6,.92) 100%)}
+.tk .app .lg{position:absolute;left:14px;right:14px;bottom:14px;z-index:1;display:flex;align-items:center;gap:10px}
+.tk .app .lg .fa{height:34px!important;top:auto!important;width:26px!important;flex:0 0 auto;max-width:none;position:static;transform:none;box-shadow:none;border-radius:0}
+.tk .app .lg i{width:1px;height:30px;background:rgba(255,255,255,.45)}
+.tk .app .lg svg{width:30px;height:30px;flex:0 0 30px}
+.tk .app .lg span{display:flex;flex-direction:column;line-height:1.15;color:#fff;font-size:15px;font-weight:600;white-space:nowrap}
+.tk .app .lg small{font-size:10.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:#e5e5e5}
+.tk .app .rb{z-index:2}
 .tk .in{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px;flex:1}
 .tk .tg{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tk-a)}
 .tk .in h3{font-family:"Times New Roman",Times,serif;font-size:20px;line-height:1.2;margin:0}
@@ -88,12 +93,13 @@ CSS = """<style id="tk-css">
 @media (max-width:620px){.tk .grid{grid-template-columns:1fr 1fr;gap:12px}.tk .in{padding:12px 12px 14px}.tk .in h3{font-size:16.5px}.tk .in p{font-size:13px}
  .tk .pr b{font-size:17px}.tk .ac{flex-direction:column}.tk .ac a{padding:9px 6px;font-size:13.5px}.tk .flow{grid-template-columns:1fr}.tk .chips button{padding:7px 13px;font-size:13.5px}
  .tk .pk .in{padding:20px 18px}.tk .pk .ac{flex-direction:row}
- .tk .cv .rb{left:8px;top:8px;font-size:10.5px;padding:2px 8px}.tk .app .ic{width:36%;margin-top:6px}.tk .app em{display:none}.tk .cv img{top:34px;height:calc(100% - 42px)}.tk .it:not(.pick) .cv img{top:12px;height:calc(100% - 24px)}}
+ .tk .cv .rb{left:8px;top:8px;font-size:10.5px;padding:2px 8px}.tk .app .lg{left:10px;bottom:10px;gap:7px}.tk .app .lg .fa{height:28px!important;width:21px!important}.tk .app .lg i{height:22px}.tk .app .lg svg{width:22px;height:22px;flex-basis:22px}.tk .app .lg span{font-size:12.5px}.tk .app .lg small{font-size:9px;letter-spacing:.1em}.tk .cv img{top:34px;height:calc(100% - 42px)}.tk .it:not(.pick) .cv img{top:12px;height:calc(100% - 24px)}}
 @media (max-width:360px){.tk .grid{grid-template-columns:1fr}}
 </style>"""
 
-APP_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-           '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 15l3-3 3 2 4-5"/><path d="M7 7h4"/></svg>')
+APP_SVG = ('<svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient cx=".35" cy=".3" id="tkJ"><stop offset="0" stop-color="#f5e6e6"/><stop offset="1" stop-color="#7f1d1d"/></radialGradient><clipPath id="tkC"><circle cx="50" cy="50" r="40"/></clipPath></defs>'
+           '<circle cx="50" cy="50" r="40" fill="url(#tkJ)"/><g clip-path="url(#tkC)" fill="#fff" fill-opacity=".22"><rect x="-70" y="34" width="180" height="6" rx="3"/><rect x="-60" y="48" width="180" height="9" rx="4"/><rect x="-80" y="64" width="180" height="5" rx="2"/></g>'
+           '<ellipse cx="63" cy="59" rx="8" ry="4.5" fill="#fff" fill-opacity=".4"/><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-opacity=".5"/></svg>')
 
 def card(pid, cat, tag, title, desc, price, note, cover_html, sec_href, sec_lbl, forr="", cls="", buy="Beli"):
     return (f'<article class="it{cls}" data-cat="{cat}" data-for="{forr}" id="p-{pid}">{cover_html}<div class="in"><span class="tg">{E(tag)}</span>'
@@ -113,11 +119,13 @@ for pid, slug, tag, title, desc, price, forr in BOOKS:
            f'<img src="/img/buku/{slug}.jpg" width="600" height="891" loading="lazy" decoding="async" alt="Sampul {E(title)}"></a>')
     items.append(card(pid, "ebook", "E-Book · " + tag, title, desc, price, "bebas PPN · PDF", cov, f"/buku/#{slug}", "Baca Sampel", forr))
 for pid, title, desc, price, note in [
-    ("ar-day", "FA Jupiter Audit Ready: Day Pass", "Upload COA dan GL dari Xero, Accurate, atau Jurnal. Jadi trial balance, laporan keuangan, lead schedule, dan checklist PBC.", 39000, "termasuk PPN · berlaku sampai besok"),
-    ("ar-year", "FA Jupiter Audit Ready: Tahunan", "Akses penuh satu tahun untuk menyiapkan laporan keuangan audit ready setiap periode, termasuk kalkulator industri.", 249000, "termasuk PPN · berlaku 1 tahun"),
+    ("ar-day", "FA Jupiter Audit Ready: Day Pass", "Upload COA dan GL dari Xero, Accurate, atau Jurnal. Jadi trial balance, laporan keuangan, lead schedule, dan checklist PBC.", 39000, "termasuk PPN · akses 1 hari"),
+    ("ar-year", "FA Jupiter Audit Ready: Tahunan", "Akses penuh satu tahun untuk menyiapkan laporan keuangan audit ready setiap periode, termasuk kalkulator industri.", 249000, "termasuk PPN · akses 1 tahun"),
 ]:
-    cov = (f'<a class="cv app" href="/audit-ready/" aria-label="Buka {E(title)}"><span class="rb">Rekomendasi</span><span class="ic">{APP_SVG}</span><em>FA Jupiter</em></a>')
-    items.append(card(pid, "app", "Aplikasi · FA Jupiter", title, desc, price, note, cov, "/audit-ready/", "Coba Aplikasi", "ca us" if pid == "ar-day" else "ca"))
+    ph = "jupiter-day" if pid == "ar-day" else "jupiter-tahunan"
+    cov = (f'<a class="cv app" href="/audit-ready/" aria-label="Buka {E(title)}" style="background-image:url(/img/toko/{ph}.jpg)"><span class="rb">Rekomendasi</span>'
+           f'<span class="lg"><svg class="fa" viewBox="0 0 40 54" role="img" aria-label="Logo FA Indonesia"><rect x="1.5" y="1.5" width="37" height="51" fill="none" stroke="#fff" stroke-width="2.4"/><text x="11" y="21" fill="#fff" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">F</text><path d="M22 44 L27.5 31 L33 44" fill="none" stroke="#fff" stroke-width="2.2"/></svg><i></i>{APP_SVG}<span>FA Jupiter<small>Audit Ready</small></span></span></a>')
+    items.append(card(pid, "app", "Aplikasi", title, desc, price, note, cov, "/audit-ready/", "Detail", "ca us" if pid == "ar-day" else "ca"))
 
 n_eb, n_app = len(BOOKS), 2
 chips = (f'<div class="chips" role="toolbar" aria-label="Kategori produk">'
