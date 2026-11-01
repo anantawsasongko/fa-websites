@@ -85,7 +85,7 @@ function render(x){
   var s=x.transaction_status,dot=$('dot');dot.className='dot';$('acc').innerHTML='';
   if(x.paid){dot.classList.add('ok');$('ttl').textContent='Pembayaran Lunas';$('lead').textContent='Terima kasih, pembayaran Anda sudah kami terima.';
     var a=x.access||{};
-    if(a.kind==='lic'){$('acc').innerHTML='<p style="margin:0">Kode akses '+esc(a.product)+', berlaku sampai '+esc(a.exp)+':</p><div class="code" id="code">'+esc(a.code)+'</div><p class="hint" style="margin:0">Simpan kode ini. Halaman ini bisa dibuka lagi kapan saja dari link yang sama.</p>';
+    if(a.kind==='test'){$('acc').innerHTML='<p style="margin:0">Transaksi mode uji (sandbox). Tidak ada kode akses atau file yang diterbitkan.</p>'}else if(a.kind==='lic'){$('acc').innerHTML='<p style="margin:0">Kode akses '+esc(a.product)+', berlaku sampai '+esc(a.exp)+':</p><div class="code" id="code">'+esc(a.code)+'</div><p class="hint" style="margin:0">Simpan kode ini. Halaman ini bisa dibuka lagi kapan saja dari link yang sama.</p>';
       act('<button class="btn solid" id="cpc">Salin Kode</button><a class="btn blue" href="/audit-ready/?kode='+encodeURIComponent(a.code)+'">Aktifkan di FA Jupiter</a>');
       $('cpc').onclick=function(){var c=a.code;(navigator.clipboard?navigator.clipboard.writeText(c):Promise.reject()).then(function(){toast('Kode disalin')},function(){toast('Salin manual: '+c)})};
     }else if(a.kind==='ebook'){$('acc').innerHTML='<p style="margin:0">'+esc(a.product)+': file PDF dan password dikirim ke email Anda di hari yang sama pada jam kerja. Kalau belum masuk, cek folder spam atau chat kami dengan menyebut nomor order.</p>';

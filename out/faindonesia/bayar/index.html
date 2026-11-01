@@ -135,7 +135,7 @@ $('pr').onclick=function(){window.print()};
 var $=function(i){return document.getElementById(i)},CFG=null;
 function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},3200)}
 fetch('/api/pay/config',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(c){
-  if(!c||!c.enabled)return;CFG=c;
+  if(!c||!c.enabled)return;if(!c.production&&!/[?&]uji=1/.test(location.search))return;CFG=c;
   var s=document.createElement('script');s.src=(c.production?'https://app.midtrans.com':'https://app.sandbox.midtrans.com')+'/snap/snap.js';
   s.setAttribute('data-client-key',c.clientKey);s.onload=function(){$('paynow').style.display='';$('payhint').style.display='';
     [].forEach.call(document.querySelectorAll('.ol-on'),function(e){e.style.display=''})};document.head.appendChild(s);

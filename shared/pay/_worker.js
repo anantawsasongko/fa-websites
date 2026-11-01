@@ -65,9 +65,11 @@ function paidMs(st) {
   const ms = t ? Date.parse(t.replace(" ", "T") + "+07:00") : NaN;
   return isNaN(ms) ? Date.now() : ms;
 }
-async function access(st) {
+async function access(st, env) {
   const key = prodFromOrder(st.order_id); if (!key) return null;
   const p = PRODUCTS[key];
+  /* Sandbox: transaksi uji, kode lisensi asli tidak pernah diterbitkan */
+  if (env && env.MIDTRANS_PRODUCTION !== "true") return { kind: "test", product: p.name, code: "MODE UJI: KODE TIDAK BERLAKU", exp: "" };
   if (p.kind === "lic") { const l = await licCode(st.order_id, p.lic, paidMs(st)); return { kind: "lic", product: p.name, code: l.code, exp: l.exp }; }
   return { kind: p.kind, product: p.name };
 }
@@ -132,7 +134,7 @@ async function status(url, env) {
   const out = { order_id: id, transaction_status: st.transaction_status, payment_type: st.payment_type, gross_amount: st.gross_amount, expiry_time: st.expiry_time || null };
   const paid = PAID.indexOf(st.transaction_status) >= 0 && st.fraud_status !== "deny" && st.fraud_status !== "challenge";
   out.paid = paid;
-  if (paid) out.access = await access(st);
+  if (paid) out.access = await access(st, env);
   return json(out);
 }
 
@@ -143,7 +145,7 @@ async function notify(req, env, ctx) {
   /* Jangan percaya isi webhook mentah: ambil status resmi dari API. */
   const st = await midStatus(env, b.order_id);
   const paid = PAID.indexOf(st.transaction_status) >= 0 && st.fraud_status !== "deny";
-  const acc = paid ? await access(st) : null;
+  const acc = paid ? await access(st, env) : null;
   if (paid || ["expire", "cancel", "deny", "refund"].indexOf(st.transaction_status) >= 0) ctx.waitUntil(logSheet(st, acc, { company: st.custom_field1 }));
   return json({ ok: true });
 }
