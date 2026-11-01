@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Toko FA (1 Nov 2026): satu toko pusat di faindonesia.co.id/toko/ untuk semua produk berbayar
-(e-book Penerbit FA, paket hemat, aplikasi FA Jupiter Audit Ready) yang dibayar lewat /bayar/ (QRIS, GoPay, VA via Midtrans, atau transfer BRI).
+(e-book Penerbit FA, paket hemat, aplikasi FA Jupiter Audit Ready) yang dibayar lewat /bayar/ (payment gateway Midtrans; pembelian ditunda sampai Midtrans aktif).
 Harga sama persis dengan PRODUCTS di shared/pay/_worker.js. Tab "Toko" dipasang di nav FA, CariAkuntan, UpdateSAK oleh prep.py.
 ?dari=cariakuntan atau ?dari=updatesak menampilkan rekomendasi yang cocok. Idempoten (menulis ulang toko/index.html).
 """
@@ -136,10 +136,11 @@ chips = (f'<div class="chips" role="toolbar" aria-label="Kategori produk">'
          f'<button type="button" data-f="free" aria-pressed="false">Gratis</button></div>')
 
 FAQ = [
- ("Metode pembayaran apa saja?", "QRIS (semua e-wallet dan m-banking), GoPay, dan virtual account semua bank lewat Midtrans. Bisa juga transfer ke rekening BRI CV FA Indonesia dengan invoice otomatis dari halaman bayar."),
- ("Kapan produk saya terima?", "Kode akses aplikasi FA Jupiter tampil otomatis setelah pembayaran lunas. File PDF e-book dan password dikirim ke email atau WhatsApp setelah pembayaran dikonfirmasi, biasanya di hari yang sama pada jam kerja."),
+ ("Kapan pembelian dibuka?", "Pembelian online dibuka begitu aktivasi payment gateway Midtrans selesai. Kami tidak menerima transfer manual. Sementara itu, sampel e-book dan aplikasi gratis tetap bisa dipakai."),
+ ("Metode pembayaran apa saja?", "GoPay dan virtual account semua bank lewat Midtrans, payment gateway berizin Bank Indonesia."),
+ ("Kapan produk saya terima?", "Kode akses aplikasi FA Jupiter tampil otomatis setelah pembayaran lunas. File PDF e-book dan password dikirim ke email setelah pembayaran online berhasil, biasanya di hari yang sama pada jam kerja."),
  ("Apakah harga sudah termasuk pajak?", "E-book dibebaskan dari PPN, jadi harga yang tertera adalah harga akhir. Harga aplikasi sudah termasuk PPN dan faktur pajak dapat diminta dengan mengirim data NPWP atau NIK."),
- ("Bisa minta invoice atas nama perusahaan?", "Bisa. Isi nama perusahaan di halaman bayar, invoice dibuat otomatis dan bisa diunduh atau dicetak."),
+ ("Bisa minta bukti pembayaran atas nama perusahaan?", "Bisa. Isi nama perusahaan saat membayar online, bukti pembayaran dikirim ke email Anda."),
  ("Bagaimana dengan refund?", "E-book yang password-nya sudah dikirim tidak dapat di-refund kecuali file rusak dan tidak bisa kami ganti. Detail ada di Kebijakan Refund."),
  ("Bisa beli banyak untuk kantor atau kampus?", "Bisa. Untuk 10 lisensi atau lebih, gunakan tombol Chat Ananta, CPA untuk harga khusus."),
 ]
@@ -150,13 +151,14 @@ inner = f"""{CSS}
 <div class="wrap">
 <div class="tkh"><div>
 <p class="eyebrow">Toko FA Indonesia</p>
-<h1>E-Book dan Aplikasi Akuntansi, Bayar Pakai QRIS</h1>
-<p class="lede">Semua produk FA Indonesia dalam satu tempat: e-book Penerbit FA, paket hemat, dan aplikasi FA Jupiter untuk menyiapkan laporan keuangan audit ready. Pilih produk, bayar, lalu terima di hari yang sama.</p>
-<div class="pay" aria-label="Metode pembayaran"><span><b>QRIS</b></span><span><b>GoPay</b></span><span><b>Virtual Account</b> semua bank</span><span><b>Transfer BRI</b></span></div>
+<h1>E-Book dan Aplikasi Akuntansi FA Indonesia</h1>
+<p class="lede">Semua produk FA Indonesia dalam satu tempat: e-book Penerbit FA, paket hemat, dan aplikasi FA Jupiter untuk menyiapkan laporan keuangan audit ready. Pembelian online segera dibuka.</p>
+<p class="soon-note" style="margin:14px 0 0;padding:12px 16px;border:1px solid rgba(127,127,127,.35);border-radius:10px;font-size:.95rem"><b>Pembayaran online segera dibuka.</b> Kami sedang menyelesaikan aktivasi payment gateway. Kami tidak menerima transfer manual.</p>
+<div class="pay" aria-label="Metode pembayaran"><span><b>GoPay</b></span><span><b>Virtual Account</b> semua bank</span><span>via <b>Midtrans</b></span></div>
 </div>
 <div class="trust">
 <div><i>1</i><p><b>Pembayaran Aman via Midtrans</b><span>Gateway berizin Bank Indonesia. Data kartu dan rekening tidak melewati server kami.</span></p></div>
-<div><i>2</i><p><b>Invoice Otomatis</b><span>Atas nama pribadi atau perusahaan, siap untuk bukti biaya.</span></p></div>
+<div><i>2</i><p><b>Bukti Bayar Resmi</b><span>Atas nama pribadi atau perusahaan, dikirim ke email.</span></p></div>
 <div><i>3</i><p><b>Kirim Cepat</b><span>Kode akses aplikasi tampil begitu lunas. PDF e-book dikirim ke email atau WhatsApp.</span></p></div>
 </div></div>
 {chips}
@@ -172,7 +174,7 @@ inner = f"""{CSS}
 <a href="https://updatesak.com/materi/" target="_blank" rel="noopener"><b>Materi PSAK di UpdateSAK</b><span>Ringkasan standar, studi kasus, dan cheat sheet PDF.</span></a>
 </div></div>
 <div class="flow"><div><b>Pilih</b><span>Klik Beli pada produk. Halaman bayar terbuka dengan produk sudah terpilih.</span></div>
-<div><b>Bayar</b><span>QRIS, GoPay, virtual account, atau transfer BRI. Invoice dibuat otomatis.</span></div>
+<div><b>Bayar</b><span>GoPay atau virtual account lewat Midtrans.</span></div>
 <div><b>Terima</b><span>Kode akses aplikasi langsung tampil. E-book dikirim ke email atau WhatsApp.</span></div></div>
 <h2 class="h">Pertanyaan Seputar Pembelian</h2>
 <div class="faq">{faq_block}</div>
@@ -196,16 +198,16 @@ if(k){{rec.textContent=k==='ca'?'Dari CariAkuntan: produk bertanda Rekomendasi m
 
 ld = {"@context": "https://schema.org", "@graph": [
     {"@type": "CollectionPage", "@id": URL, "url": URL, "name": "Toko FA Indonesia", "inLanguage": "id", "isPartOf": {"@id": D + "/#website"},
-     "description": "E-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, bayar pakai QRIS, GoPay, virtual account, atau transfer."},
+     "description": "E-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online lewat Midtrans (segera dibuka)."},
     crumbs([("Beranda", D + "/"), ("Toko", URL)]),
     {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "Product", "name": n, "url": URL + "#p-" + pid,
         "brand": {"@type": "Brand", "name": "FA Indonesia"},
-        "offers": {"@type": "Offer", "price": str(p), "priceCurrency": "IDR", "availability": "https://schema.org/InStock", "url": D + "/bayar/?produk=" + pid}}}
+        "offers": {"@type": "Offer", "price": str(p), "priceCurrency": "IDR", "availability": "https://schema.org/PreOrder", "url": D + "/bayar/?produk=" + pid}}}
         for i, (pid, n, p) in enumerate([("eb-paket", "Paket 6 E-book Penerbit FA", PAKET)] + [(b[0], "E-book " + b[3], b[5]) for b in BOOKS]
                                          + [("ar-day", "FA Jupiter Audit Ready Day Pass", 39000), ("ar-year", "FA Jupiter Audit Ready Tahunan", 249000)])]}]}
 
-s = set_head(TPL_SVC, "Toko FA Indonesia: E-Book Akuntansi dan Aplikasi, Bayar QRIS",
-             "Beli e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready. Bayar pakai QRIS, GoPay, virtual account, atau transfer BRI. Invoice otomatis, kirim di hari yang sama.",
+s = set_head(TPL_SVC, "Toko FA Indonesia: E-Book Akuntansi dan Aplikasi",
+             "Beli e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready. Pembayaran online lewat Midtrans segera dibuka.",
              URL, ld)
 s = set_main(s, inner)
 os.makedirs(P("toko"), exist_ok=True)
@@ -215,5 +217,5 @@ def strip_t(t): return re.sub(r"<!--fa-toko-->.*?<!--/fa-toko-->\n?", "", t, fla
 sm = strip_t(rd(P("sitemap.xml")))
 wtxt(P("sitemap.xml"), sm.replace("</urlset>", f"<!--fa-toko-->\n<url><loc>{URL}</loc><lastmod>{TODAY}</lastmod><priority>0.9</priority></url>\n<!--/fa-toko-->\n</urlset>"))
 ll = re.sub(r"\n- \[Toko FA\].*", "", rd(P("llms.txt")))
-wtxt(P("llms.txt"), ll.rstrip("\n") + f"\n- [Toko FA]({URL}): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, bayar QRIS, GoPay, VA, transfer BRI\n")
+wtxt(P("llms.txt"), ll.rstrip("\n") + f"\n- [Toko FA]({URL}): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online segera dibuka\n")
 print("toko:", URL, len(items), "produk")

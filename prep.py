@@ -515,6 +515,11 @@ for _d, _, _fs in os.walk(os.path.join(OUT, "faindonesia")):
         open(_p, "w", encoding="utf-8").write(_t); _nf += 1
 print("footer dilipat:", _nf)
 
+# ---------- tunda pembelian sampai Midtrans aktif (1 Nov 2026) ----------
+import importlib.util as _ilu2
+_pps = _ilu2.spec_from_file_location("pay_postpone", os.path.join(M, "shared", "pay_postpone.py")); _pp = _ilu2.module_from_spec(_pps); _pps.loader.exec_module(_pp)
+print("pay postpone:", _pp.run(OUT))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
