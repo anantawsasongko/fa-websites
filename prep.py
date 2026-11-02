@@ -559,7 +559,7 @@ _tk = os.path.join(OUT, "faindonesia", "toko", "index.html")
 if os.path.exists(_tk):
     _t = open(_tk, encoding="utf-8").read()
     _t = re.sub(r'href="/bayar/\?produk=([a-z0-9-]+)"', r'href="/bayar/uji/?produk=\1&amp;uji=1"', _t)
-    _t = _t.replace("</head>", '<meta name="robots" content="noindex"/></head>', 1)
+    _t = _t.replace("</head>", '<meta name="robots" content="noindex"/></head>', 1).replace("Pembelian online segera dibuka.</p>", "Pilih produk, bayar online, lalu terima di hari yang sama.</p>")
     os.makedirs(os.path.join(OUT, "faindonesia", "toko", "uji"), exist_ok=True)
     open(os.path.join(OUT, "faindonesia", "toko", "uji", "index.html"), "w", encoding="utf-8").write(_t)
 # ---------- tunda pembelian sampai Midtrans aktif (1 Nov 2026) ----------
