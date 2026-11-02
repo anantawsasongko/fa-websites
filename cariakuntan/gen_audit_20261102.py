@@ -108,7 +108,7 @@ add("audit-hemat-yang-tetap-sah-ciri-penawaran-wajar",
  "<tr><td>Pilih ruang lingkup sesuai kebutuhan pembaca</td><td>Tidak membayar audit bila kompilasi atau AUP sudah cukup</td></tr>"
  "<tr><td>Bandingkan beberapa KAP berizin</td><td>Harga dan jadwal bisa dinegosiasikan secara wajar</td></tr>"
  "<tr><td>Kontrak beberapa tahun</td><td>Tahun berikutnya lebih efisien</td></tr></table>"
- "<p>Di sinilah peran perantara yang paham audit: membandingkan penawaran dari kantor berizin dengan ruang lingkup yang sama, dan menyiapkan dokumen agar jam audit tidak membengkak. Lihat juga <a href=\"/artikel/biaya-audit-kap-komponen-dan-cara-menghemat/\">komponen biaya audit</a>.</p>",
+ "<p>Tim kami membantu membandingkan penawaran dari beberapa kantor akuntan publik berizin dengan ruang lingkup yang setara, lalu menyiapkan dokumen agar jam audit tidak membengkak. Lihat juga <a href=\"/artikel/biaya-audit-kap-komponen-dan-cara-menghemat/\">komponen biaya audit</a>.</p>",
  [S_ETIK, S_KJA])
 
 # 4. SABH

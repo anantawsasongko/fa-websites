@@ -68,7 +68,7 @@ LANGS = {
   ("Bookkeeping","Clean books and statements","Hello Pak Ananta, we need bookkeeping and financial statements."),
   ("Tax","Returns, letters, audits","Hello Pak Ananta, we need a tax adviser."),
   ("Asset Valuation","Collateral and revaluation","Hello Pak Ananta, we need an asset valuation by a KJPP."),
-  ("Funding & IPO","IPO mapping, investors, brokers","Hello Pak Ananta, we are looking for funding or a broker for an IPO."),
+  ("Funding & IPO","IPO mapping, investors, brokers","Hello Pak Ananta, we are looking for funding or an IPO underwriter."),
  ],
  scale_h2="Matched to Your Size",
  scale_head=["","IDR 5–10 bn","IDR 10–200 bn","IDR 200 bn – 2 tn+"],
