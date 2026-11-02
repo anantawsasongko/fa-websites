@@ -7,8 +7,7 @@ const S = [
  ['04-halaman-bayar', 'Halaman Pembayaran terbuka dengan produk terpilih. Pembeli dapat mengubah produk dan jumlah.'],
  ['05-isi-data', 'Pembeli mengisi nama, email, dan nomor WhatsApp, menyetujui Syarat & Ketentuan, Kebijakan Privasi, dan Kebijakan Refund, lalu menekan Bayar Online.'],
  ['06-snap-metode', 'Jendela pembayaran Midtrans Snap terbuka. Pembeli memilih metode pembayaran.'],
- ['07-snap-va', 'Contoh: pembeli memilih virtual account.'],
- ['08-snap-instruksi', 'Midtrans menampilkan nomor virtual account dan instruksi pembayaran. Setelah lunas, notifikasi Midtrans diterima server kami (faindonesia.co.id/api/pay/notify), kode akses aplikasi tampil di halaman konfirmasi dan e-book dikirim ke email pembeli.'],
+ ['07-snap-va', 'Pembeli memilih bank virtual account, lalu Midtrans menampilkan nomor virtual account dan instruksi pembayaran. Setelah lunas, notifikasi Midtrans diterima server kami (faindonesia.co.id/api/pay/notify), kode akses aplikasi tampil di halaman konfirmasi dan e-book dikirim ke email pembeli.'],
 ];
 (async () => {
   const items = S.filter(s => fs.existsSync(`midtrans/shots/${s[0]}.png`));
