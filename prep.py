@@ -378,6 +378,8 @@ _tsp = _ilu.spec_from_file_location("tool_share", os.path.join(M, "shared", "too
 print("tool share:", _ts.run(OUT))
 _tpp = _ilu.spec_from_file_location("tidy_prose", os.path.join(M, "shared", "tidy_prose.py")); _tp = _ilu.module_from_spec(_tpp); _tpp.loader.exec_module(_tp)
 print("tidy prose:", _tp.run(OUT))
+_tlp = _ilu.spec_from_file_location("tidy_layout", os.path.join(M, "shared", "tidy_layout.py")); _tl = _ilu.module_from_spec(_tlp); _tlp.loader.exec_module(_tl)
+print("tidy layout:", _tl.run(OUT))
 _SJ = os.path.join(M, "shared", "share.js")
 # ---------- tab Toko di nav CariAkuntan dan UpdateSAK (1 Nov 2026): ke toko pusat FA ----------
 TK_CSS = {"cariakuntan": '<style id="tk-tab">@media (max-width:520px){header .tabs{gap:0}header .tabs a{padding:8px 7px;font-size:.86rem}}@media (max-width:400px){header .tabs a{padding:8px 5px;font-size:.8rem}}@media (max-width:430px){header .tabs a[href="/"],header .tabs a[href="/en/"],header .tabs a[href="/zh/"],header .tabs a[href="/hokkien/"]{display:none}}</style>',
