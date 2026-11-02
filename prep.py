@@ -339,6 +339,7 @@ def add_lead(site_root, cta_dirs=()):
 print("lead fa", add_lead(fa, cta_dirs=("artikel/", "buku/", "laporan-tahunan-pt/", "laporan-keuangan-umkm/", "jasa-penyusunan-laporan-keuangan/", "konsultan-persiapan-ipo/")))
 print("lead ca", add_lead(os.path.join(OUT, "cariakuntan")))
 print("lead kja", add_lead(k))
+print("lead us", add_lead(u))  # 2 Nov 2026: UpdateSAK ikut form singkat + tag ref + GA4
 
 # ---------- Title Case judul dan poin (aturan Bos, 25 Okt 2026) ----------
 import sys as _sys; _sys.path.insert(0, M)
