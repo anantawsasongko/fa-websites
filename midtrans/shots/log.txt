@@ -1,0 +1,2 @@
+create 200 {"token":"a47fecce-1e83-471e-bb60-7cf334044247","redirect_url":"https://app.sandbox.midtrans.com/snap/v4/redirection/a47fecce-1e83-471e-bb60-7cf334044247","order_id":"FA-261102-eb-paket-8FL777US","amount":299000}
+selesai
