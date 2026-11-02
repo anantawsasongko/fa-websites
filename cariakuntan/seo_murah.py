@@ -1,3 +1,4 @@
+GUIDE = '<div class="more"><h3>Panduan Audit</h3><div class="citylist">' + "".join(f'<a href="/artikel/{a}/">{b}</a>' for a, b in [("jasa-audit-laporan-keuangan-cara-memilih-kap","Cara Memilih KAP"),("biaya-audit-kap-komponen-dan-cara-menghemat","Komponen Biaya Audit"),("audit-hemat-yang-tetap-sah-ciri-penawaran-wajar","Audit Hemat yang Tetap Sah"),("audit-laporan-tahunan-pt-sabh-jadwal-sanksi","Audit untuk SABH"),("ganti-kap-laporan-audit-belum-terbit","Ganti KAP"),("audit-tahun-pertama-saldo-awal-belum-diaudit","Audit Tahun Pertama"),("audit-beberapa-tahun-sekaligus-kapan-perlu","Audit Beberapa Tahun"),("audit-dengan-kap-luar-kota-daring-dan-lapangan","Audit dengan KAP Luar Kota")]) + '</div></div>'
 # Dieksekusi build.py setelah seo_city.py dan seo_kawasan.py (exec, memakai helper yang sama).
 # Target kata kunci: "cari KAP murah <kota>", "KAP murah <kota>", "jasa audit murah <kota>", "biaya audit KAP <kota>".
 # Halaman: /kap-murah/ (hub) dan /kota/<kota>/kap-murah/ untuk setiap kota. Jujur: murah = fee sesuai skala dan tidak perlu audit ulang.
@@ -53,6 +54,7 @@ def murah_body(c, prov, secs, note, near, kws):
   <p>Setiap kebutuhan audit berbeda: untuk bank yang mana, berapa plafonnya, atau untuk investor dan tender. Ceritakan dulu ke kami lewat chat, kami bantu menentukan lingkup dan kelas KAP yang memang diperlukan, lalu membandingkan beberapa KAP berizin. Diskusi awal gratis.</p>
   <h2>Cek Dulu Angka Anda, Gratis</h2>
   <p>Isi angka ringkas 3 tahun di <a href="/screening/">screening instan</a> untuk melihat rasio yang dibaca bank dan jalur IPO. Ingin tahu plafon kredit yang realistis? Coba <a href="{FA}/cek-kapasitas-kredit/">Cek Kredit dan Pendanaan</a> di FA Indonesia.</p></div>
+  {GUIDE}
   {f'<div class="more"><h3>KAP per Kawasan di {c}</h3><div class="citylist">{kl}</div></div>' if kl else ""}
   <div class="more"><h3>Cari KAP Murah di Kota Lain</h3><div class="citylist">{nl} <a href="/kap-murah/">Semua Kota</a></div></div>
   <div class="more"><h3>Layanan Lain di {c}</h3><div class="citylist"><a href="/kota/{s}/kap/">KAP {c}</a><a href="/kota/{s}/kjpp/">KJPP {c}</a><a href="/kota/{s}/konsultan-pajak/">Konsultan Pajak {c}</a><a href="/kota/{s}/jasa-laporan-keuangan/">Jasa Laporan Keuangan {c}</a><a href="{FA}/wilayah/{s}/">Konsultan Keuangan {c} (FA Indonesia)</a></div></div>'''
@@ -113,6 +115,7 @@ html += header(ID, "home") + f'''<main class="wrap art">
   {tblx(["Kebutuhan", "Pilihan paling hemat yang tetap diterima", "Catatan"], HEMAT)}
   <div class="prose"><h2>5 Cara Menekan Biaya Audit</h2><ol>{"".join(f"<li><b>{a}.</b> {b}</li>" for a, b in CARA)}</ol></div>
   {hub_list}
+  {GUIDE}
   <div class="prose"><h2>Tanya Jawab</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in hfaq)}</div>
 </main>
 ''' + footer(ID)

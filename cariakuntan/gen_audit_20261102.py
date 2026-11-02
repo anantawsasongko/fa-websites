@@ -1,0 +1,297 @@
+# -*- coding: utf-8 -*-
+"""Klaster SEO "makelar audit" (2 Nov 2026): jasa audit, biaya audit, audit hemat yang tetap sah,
+audit untuk laporan tahunan SABH, ganti KAP, audit tahun pertama, audit beberapa tahun, peternakan/agribisnis,
+audit jarak jauh, audit CV dan PT kecil. Output: cariakuntan/gen/audit.json (dibaca otomatis oleh build.py).
+Prinsip: tidak menjanjikan opini WTP, tidak menjual "opini tanpa pemeriksaan", tidak menyebut merek mitra."""
+import json, os
+D = "2026-11-02"
+S_UUPT = ["BPK RI, UU Nomor 40 Tahun 2007 tentang Perseroan Terbatas", "https://peraturan.bpk.go.id/Details/39965"]
+S_ETIK = ["IAPI, Kode Etik Profesi Akuntan Publik 2025", "https://iapi.or.id/kode-etik-profesi-akuntan-publik-2025/"]
+S_KJA = ["IAI, Flyer Kantor Jasa Akuntansi (PMK 216/PMK.01/2017)", "https://web.iaiglobal.or.id/assets/files/file_publikasi/Flyer_KJA.pdf"]
+S_AHU = ["IZIN.co.id, 28 Oktober 2026, Jadwal Sanksi Laporan Tahunan PT", "https://izin.co.id/blog/ditjen-ahu-umumkan-jadwal-sanksi-laporan-tahunan-pt-blokir-sabh-mulai-januari-2027/"]
+S_DDTC = ["DDTCNews, Tak Ajukan Laporan Tahunan PT, Akses SABH Bisa Diblokir", "https://news.ddtc.co.id/berita/nasional/1819732/tak-ajukan-laporan-tahunan-pt-akses-sabh-perseroan-bisa-diblokir"]
+S_241 = ["Polije, Analisis Perlakuan Akuntansi Agrikultur Berdasarkan PSAK 241", "https://ocs.polije.ac.id/index.php/psnav/article/view/20"]
+END = "<p>Ceritakan kondisi perusahaan Anda: bidang usaha, kota, tahun buku yang perlu diaudit, dan untuk apa laporannya dipakai. Konsultasi awal gratis. Kami bantu pilihkan kantor akuntan publik berizin yang sesuai, sekaligus memastikan dokumennya siap sebelum auditor datang.</p>"
+MSG = "Selamat siang Pak Ananta, "
+
+A = []
+def add(slug, title, desc, tag, msg, body, sources):
+    A.append({"slug": slug, "title": title, "desc": desc, "tag": tag, "msg": MSG + msg, "date": D, "body": body + END, "sources": sources})
+
+# 1. PILAR
+add("jasa-audit-laporan-keuangan-cara-memilih-kap",
+ "Jasa Audit Laporan Keuangan: Cara Memilih KAP, Perkiraan Biaya, dan Alurnya",
+ "Panduan memakai jasa audit laporan keuangan: kapan wajib, cara memilih KAP berizin yang diterima bank dan notaris, apa yang menentukan biaya, dan alur dari penawaran sampai laporan terbit.",
+ "Audit dan Asurans",
+ "perusahaan kami perlu jasa audit laporan keuangan. Mohon dibantu memilih KAP dan perkiraan biayanya.",
+ "<p>Kebanyakan perusahaan mencari jasa audit karena ada pihak yang memintanya: bank, notaris untuk laporan tahunan PT, calon investor, atau panitia tender. Masalahnya, pilihan kantornya banyak dan penawarannya sulit dibandingkan. Yang satu murah tetapi laporannya lama terbit, yang lain cepat tetapi tidak diterima bank. Panduan ini membantu Anda memilih dengan urutan yang benar.</p>"
+ "<h2>Mulai dari Siapa yang Akan Membaca Laporannya</h2>"
+ "<p>Laporan auditor independen hanya boleh diterbitkan oleh akuntan publik melalui Kantor Akuntan Publik (KAP) yang berizin Kementerian Keuangan. Setelah itu, tanyakan syarat pembacanya:</p>"
+ "<table><tr><th>Pembaca</th><th>Yang Biasanya Disyaratkan</th></tr>"
+ "<tr><td>Notaris dan SABH (laporan tahunan PT)</td><td>Laporan audited bila PT memenuhi kriteria wajib audit Pasal 68 UU PT</td></tr>"
+ "<tr><td>Bank</td><td>KAP yang masuk daftar rekanan bank tersebut, kadang wajib terdaftar OJK</td></tr>"
+ "<tr><td>Investor dan calon pembeli</td><td>KAP dengan reputasi yang dikenal investor, sering ditambah due diligence</td></tr>"
+ "<tr><td>Kantor pusat atau induk PMA</td><td>KAP yang sanggup memakai format pelaporan grup</td></tr></table>"
+ "<h2>Cara Memilih KAP</h2><ol>"
+ "<li><b>Cek izin.</b> Nama akuntan publik dan KAP bisa dicek di daftar resmi Kementerian Keuangan, dan untuk kebutuhan sektor jasa keuangan di daftar OJK.</li>"
+ "<li><b>Cek penerimaan.</b> Tanyakan ke bank atau notaris apakah KAP tersebut diterima, sebelum menandatangani surat perikatan.</li>"
+ "<li><b>Cek pengalaman industri.</b> Peternakan, konstruksi, rumah sakit, dan distribusi punya risiko audit yang berbeda.</li>"
+ "<li><b>Cek jadwal.</b> Menjelang tenggat, banyak KAP penuh. Minta jadwal kerja lapangan dan tanggal draf laporan secara tertulis.</li></ol>"
+ "<h2>Apa yang Menentukan Biaya</h2>"
+ "<p>Imbalan jasa audit dihitung dari jam kerja tim yang dibutuhkan. Jam itu dipengaruhi ukuran dan kerumitan usaha, jumlah lokasi, kerapian pembukuan, ada tidaknya laporan audit tahun lalu, dan tenggat. Perusahaan dengan buku besar rapi, rekonsiliasi bank lengkap, dan daftar aset yang jelas hampir selalu membayar lebih rendah untuk ruang lingkup yang sama.</p>"
+ "<h2>Alur dari Penawaran sampai Laporan Terbit</h2><ol>"
+ "<li>Diskusi kebutuhan dan pengiriman data awal (laporan keuangan, neraca saldo, akta).</li>"
+ "<li>Surat penawaran dan surat perikatan audit.</li>"
+ "<li>Permintaan dokumen (daftar PBC), lalu kerja lapangan: konfirmasi saldo, observasi persediaan, dan pengujian transaksi.</li>"
+ "<li>Pembahasan koreksi dan draf laporan dengan manajemen.</li>"
+ "<li>Surat representasi manajemen dan penerbitan laporan auditor independen.</li></ol>"
+ "<p>Bacaan lanjutan: <a href=\"/artikel/biaya-audit-kap-komponen-dan-cara-menghemat/\">komponen biaya audit dan cara menghematnya</a>, serta <a href=\"/artikel/audit-hemat-yang-tetap-sah-ciri-penawaran-wajar/\">ciri penawaran audit yang wajar</a>.</p>",
+ [S_UUPT, S_ETIK])
+
+# 2. BIAYA
+add("biaya-audit-kap-komponen-dan-cara-menghemat",
+ "Biaya Audit KAP: Komponen yang Menentukan dan 7 Cara Menghematnya",
+ "Biaya audit ditentukan jam kerja auditor, bukan tawar-menawar semata. Ini komponen yang memengaruhinya dan tujuh langkah sah untuk menekan biaya tanpa mengorbankan kualitas laporan.",
+ "Audit dan Asurans",
+ "kami ingin tahu perkiraan biaya audit KAP untuk perusahaan kami dan cara agar biayanya efisien.",
+ "<p>Pertanyaan pertama hampir semua calon klien sama: berapa biaya auditnya. Jawaban jujurnya bergantung pada kondisi perusahaan. Kabar baiknya, sebagian besar faktor penentu biaya ada di tangan perusahaan sendiri, bukan di tangan auditor.</p>"
+ "<h2>Komponen yang Menentukan Biaya</h2>"
+ "<table><tr><th>Faktor</th><th>Mengapa Berpengaruh</th></tr>"
+ "<tr><td>Ukuran aset dan omzet</td><td>Makin besar, makin banyak saldo dan sampel transaksi yang diuji</td></tr>"
+ "<tr><td>Jumlah lokasi dan gudang</td><td>Observasi persediaan dan aset harus dilakukan di tempat</td></tr>"
+ "<tr><td>Kerapian pembukuan</td><td>Buku besar yang belum rekonsiliasi membuat auditor bekerja dua kali</td></tr>"
+ "<tr><td>Audit tahun pertama</td><td>Saldo awal harus diuji bila tahun lalu belum diaudit</td></tr>"
+ "<tr><td>Kerumitan transaksi</td><td>Pihak berelasi, mata uang asing, sewa, aset biologis, kontrak konstruksi</td></tr>"
+ "<tr><td>Tenggat</td><td>Jadwal mendesak menuntut tim lebih besar dalam waktu singkat</td></tr></table>"
+ "<h2>Gambaran Kisaran Biaya</h2>"
+ "<table><tr><th>Total Aset</th><th>Kisaran Fee Audit Umum</th></tr>"
+ "<tr><td>Di bawah Rp5 miliar</td><td>Rp15 juta sampai Rp35 juta</td></tr>"
+ "<tr><td>Rp5 miliar sampai Rp50 miliar</td><td>Rp35 juta sampai Rp100 juta</td></tr>"
+ "<tr><td>Rp50 miliar sampai Rp250 miliar</td><td>Rp100 juta sampai Rp250 juta</td></tr>"
+ "<tr><td>Di atas Rp250 miliar</td><td>Mulai Rp250 juta</td></tr></table>"
+ "<p>Kisaran ini gambaran umum, bukan tarif resmi. IAPI menerbitkan panduan penetapan imbalan jasa audit, dan fee yang terlalu rendah justru berisiko pada kualitas audit. <a href=\"/kota/jakarta/kap-murah/\">Lihat juga panduan per kota</a>.</p>"
+ "<p>Biaya perjalanan dan akomodasi tim untuk lokasi di luar kota KAP biasanya ditagihkan terpisah. Pastikan hal ini tertulis di surat penawaran.</p>"
+ "<h2>7 Cara Sah Menghemat Biaya Audit</h2><ol>"
+ "<li><b>Tutup buku dengan rapi.</b> Rekonsiliasi bank, piutang, utang, dan persediaan sebelum auditor masuk.</li>"
+ "<li><b>Siapkan daftar dokumen di depan.</b> Kontrak, akta, faktur besar, dan bukti aset dikumpulkan dalam satu folder digital.</li>"
+ "<li><b>Lengkapi catatan atas laporan keuangan.</b> CALK yang lengkap memotong jam diskusi dan revisi.</li>"
+ "<li><b>Jadwalkan lebih awal.</b> Audit di luar musim puncak memberi ruang negosiasi yang lebih baik.</li>"
+ "<li><b>Gabungkan lokasi kunjungan.</b> Atur observasi persediaan beberapa gudang dalam satu perjalanan.</li>"
+ "<li><b>Pilih ruang lingkup yang tepat.</b> Bila pembaca laporan tidak mensyaratkan audit, kompilasi atau prosedur yang disepakati bisa cukup.</li>"
+ "<li><b>Pakai KAP yang sama beberapa tahun.</b> Tahun kedua umumnya lebih efisien karena saldo awal sudah teruji.</li></ol>"
+ "<h2>Yang Tidak Boleh Dihemat</h2>"
+ "<p>Jangan memilih kantor tanpa izin, jangan meminta laporan terbit tanpa pemeriksaan, dan jangan memotong prosedur yang diminta standar. Laporan seperti itu berisiko ditolak bank atau notaris, sehingga biayanya justru menjadi dua kali.</p>",
+ [S_ETIK])
+
+# 3. AUDIT MURAH YANG AMAN
+add("audit-hemat-yang-tetap-sah-ciri-penawaran-wajar",
+ "Audit Murah yang Tetap Sah: Ciri Penawaran Wajar dan Tanda Bahayanya",
+ "Mencari audit dengan biaya terjangkau itu wajar. Yang berbahaya adalah penawaran yang memangkas pemeriksaan atau datang dari pihak tanpa izin. Begini cara membedakannya.",
+ "Audit dan Asurans",
+ "kami mencari jasa audit dengan biaya terjangkau tetapi tetap sah dan diterima bank atau notaris.",
+ "<p>Banyak pemilik usaha mengetik \"audit murah\" di mesin pencari. Itu bukan hal yang salah. Usaha menengah memang perlu biaya audit yang masuk akal. Yang perlu dihindari adalah penawaran yang terlihat hemat di depan tetapi berakhir dengan laporan yang ditolak, terlambat, atau bermasalah hukum.</p>"
+ "<h2>Ciri Penawaran yang Wajar</h2><ul>"
+ "<li>Diterbitkan oleh KAP berizin dengan nama akuntan publik penanggung jawab yang jelas.</li>"
+ "<li>Ada surat perikatan yang menjelaskan tujuan, standar, tanggung jawab manajemen, jadwal, dan biaya.</li>"
+ "<li>Menyebut bahwa opini bergantung pada hasil pemeriksaan, tanpa janji opini tertentu.</li>"
+ "<li>Ada permintaan dokumen dan rencana kerja lapangan, termasuk observasi persediaan bila relevan.</li>"
+ "<li>Biaya tambahan seperti perjalanan dijelaskan di depan.</li></ul>"
+ "<h2>Tanda Bahaya</h2><ul>"
+ "<li>Menjamin opini Wajar Tanpa Pengecualian sebelum melihat data.</li>"
+ "<li>Laporan dijanjikan terbit dalam hitungan hari tanpa permintaan dokumen.</li>"
+ "<li>Penerbit bukan KAP, atau nama akuntan publiknya tidak ada di daftar resmi.</li>"
+ "<li>Diminta tanggal laporan dimundurkan atau angka disesuaikan agar rasio terlihat bagus.</li></ul>"
+ "<p>Laporan yang dibuat dengan cara ini bisa ditolak bank, dipersoalkan pemeriksa pajak, dan menyeret pengurus perusahaan bila kemudian dipakai untuk meyakinkan pihak lain.</p>"
+ "<h2>Cara Mendapat Audit yang Hemat dengan Benar</h2>"
+ "<table><tr><th>Langkah</th><th>Dampak ke Biaya</th></tr>"
+ "<tr><td>Rapikan pembukuan sebelum audit</td><td>Jam kerja auditor berkurang</td></tr>"
+ "<tr><td>Pilih ruang lingkup sesuai kebutuhan pembaca</td><td>Tidak membayar audit bila kompilasi atau AUP sudah cukup</td></tr>"
+ "<tr><td>Bandingkan beberapa KAP berizin</td><td>Harga dan jadwal bisa dinegosiasikan secara wajar</td></tr>"
+ "<tr><td>Kontrak beberapa tahun</td><td>Tahun berikutnya lebih efisien</td></tr></table>"
+ "<p>Di sinilah peran perantara yang paham audit: membandingkan penawaran dari kantor berizin dengan ruang lingkup yang sama, dan menyiapkan dokumen agar jam audit tidak membengkak. Lihat juga <a href=\"/artikel/biaya-audit-kap-komponen-dan-cara-menghemat/\">komponen biaya audit</a>.</p>",
+ [S_ETIK, S_KJA])
+
+# 4. SABH
+add("audit-laporan-tahunan-pt-sabh-jadwal-sanksi",
+ "Audit untuk Laporan Tahunan PT di SABH: Siapa Wajib dan Jadwal Sanksi Desember 2026",
+ "Ditjen AHU mengumumkan teguran tertulis 1 sampai 31 Desember 2026 dan blokir akses SABH mulai 2 Januari 2027 bagi PT yang belum melapor tahun buku 2025. PT wajib audit harus menyiapkan laporan audited lebih dulu.",
+ "Kepatuhan PT",
+ "PT kami perlu laporan keuangan audited untuk laporan tahunan di SABH. Mohon dibantu soal KAP dan jadwalnya.",
+ "<p>Permenkum 49 Tahun 2025 mewajibkan persetujuan RUPS atas laporan tahunan PT dituangkan dalam akta notaris lalu disampaikan lewat SABH. Pengumuman Ditjen AHU akhir Oktober 2026 memperjelas jadwal sanksinya. Bagi PT yang wajib audit, langkah paling lama justru ada sebelum notaris: menunggu laporan auditor terbit.</p>"
+ "<h2>Jadwal yang Perlu Dicatat</h2>"
+ "<table><tr><th>Tanggal</th><th>Yang Terjadi</th></tr>"
+ "<tr><td>1 November 2026</td><td>Akta persetujuan laporan tahunan harus disampaikan paling lama 30 hari sejak ditandatangani</td></tr>"
+ "<tr><td>1 sampai 31 Desember 2026</td><td>Teguran tertulis bagi PT yang belum menyampaikan laporan tahunan 2025</td></tr>"
+ "<tr><td>Mulai 2 Januari 2027</td><td>Pemblokiran akses SABH bila kewajiban belum dipenuhi 30 hari setelah teguran</td></tr>"
+ "<tr><td>2 Januari sampai 30 Juni 2027</td><td>Masa penyampaian laporan tahunan tahun buku 2026</td></tr></table>"
+ "<p>Akses SABH yang diblokir membuat perubahan direksi, komisaris, pemegang saham, dan data perseroan tertahan.</p>"
+ "<h2>Kapan Laporan Keuangannya Harus Diaudit</h2>"
+ "<p>Pasal 68 UU PT mewajibkan laporan keuangan diaudit akuntan publik bila perseroan menghimpun atau mengelola dana masyarakat, menerbitkan surat pengakuan utang kepada masyarakat, merupakan perseroan terbuka, berbentuk persero BUMN, memiliki aset atau peredaran usaha paling sedikit Rp50 miliar, atau diwajibkan peraturan lain. PT di bawah kriteria itu tetap wajib menyampaikan laporan tahunan, tetapi laporan keuangannya tidak harus diaudit.</p>"
+ "<h2>Hitung Mundur untuk PT Wajib Audit</h2><ol>"
+ "<li><b>Minggu 1:</b> pilih KAP, tanda tangani surat perikatan, kirim neraca saldo dan dokumen awal.</li>"
+ "<li><b>Minggu 2 sampai 4:</b> kerja lapangan, konfirmasi saldo, observasi persediaan atau aset.</li>"
+ "<li><b>Minggu 5 sampai 6:</b> pembahasan koreksi, draf laporan, surat representasi, laporan terbit.</li>"
+ "<li><b>Minggu 7:</b> RUPS atau keputusan sirkuler, akta notaris, penyampaian ke SABH.</li></ol>"
+ "<p>Waktu di atas berlaku untuk perusahaan yang pembukuannya rapi. Bila tahun lalu belum pernah diaudit, sediakan waktu tambahan untuk pengujian saldo awal. Lihat <a href=\"/artikel/audit-tahun-pertama-saldo-awal-belum-diaudit/\">audit tahun pertama</a> dan <a href=\"/artikel/permenkum-49-2025-laporan-tahunan-pt-wajib-akta-notaris-sabh/\">ringkasan Permenkum 49/2025</a>.</p>",
+ [S_AHU, S_DDTC, S_UUPT])
+
+# 5. GANTI KAP
+add("ganti-kap-laporan-audit-belum-terbit",
+ "Ganti KAP Karena Laporan Audit Tak Kunjung Terbit: Langkah yang Aman",
+ "Audit sudah berjalan, biaya sudah dibayar, tetapi laporan tidak juga terbit. Ini cara mengurai penyebabnya, kapan sebaiknya pindah KAP, dan apa yang perlu disiapkan agar KAP baru bisa bekerja.",
+ "Audit dan Asurans",
+ "laporan audit perusahaan kami dari KAP sebelumnya belum terbit, kami mempertimbangkan pindah KAP.",
+ "<p>Kasus ini lebih sering terjadi daripada yang dibayangkan: perusahaan sudah diaudit, sebagian biaya sudah dibayar, tetapi laporan tidak terbit selama berbulan-bulan, bahkan bertahun-tahun. Sementara itu bank, notaris, atau mitra terus menagih laporan audited.</p>"
+ "<h2>Cari Tahu Penyebabnya Dulu</h2><ul>"
+ "<li><b>Dokumen belum lengkap.</b> Auditor masih menunggu bukti atau konfirmasi yang belum dikirim.</li>"
+ "<li><b>Ada koreksi yang belum disepakati.</b> Manajemen belum setuju dengan penyesuaian yang diusulkan.</li>"
+ "<li><b>Surat representasi belum ditandatangani.</b> Laporan tidak bisa terbit tanpa surat ini.</li>"
+ "<li><b>Sisa biaya belum dibayar</b> sesuai surat perikatan.</li>"
+ "<li><b>Kapasitas KAP.</b> Tim berganti atau terlalu banyak klien.</li></ul>"
+ "<p>Bila penyebabnya ada di sisi perusahaan, pindah KAP tidak otomatis menyelesaikan masalah. Bila penyebabnya kapasitas atau komunikasi, pindah bisa menjadi pilihan yang sehat.</p>"
+ "<h2>Bagaimana Proses Pindah KAP</h2>"
+ "<p>Kode Etik Profesi Akuntan Publik mengatur komunikasi antara auditor pengganti dan auditor pendahulu sebelum perikatan diterima. Perusahaan biasanya diminta memberi izin agar KAP baru dapat menghubungi KAP lama. Ini prosedur normal, bukan tanda masalah.</p>"
+ "<h2>Tahun Mana yang Diaudit</h2>"
+ "<table><tr><th>Pilihan</th><th>Kapan Masuk Akal</th></tr>"
+ "<tr><td>Tahun terakhir saja</td><td>Pembaca hanya meminta laporan audited tahun terakhir, misalnya untuk laporan tahunan PT atau bank</td></tr>"
+ "<tr><td>Beberapa tahun sekaligus</td><td>Investor, bank, atau regulator meminta laporan audited berurutan</td></tr></table>"
+ "<p>Bila hanya tahun terakhir yang diaudit, saldo awal tetap perlu diuji oleh KAP baru. Siapkan neraca saldo awal tahun, rincian saldo besar, dan bukti pendukungnya.</p>"
+ "<h2>Dokumen yang Disiapkan untuk KAP Baru</h2><ul>"
+ "<li>Laporan keuangan dan neraca saldo tahun-tahun yang relevan.</li>"
+ "<li>Surat perikatan dan korespondensi dengan KAP lama.</li>"
+ "<li>Daftar aset tetap, rincian piutang dan utang, rekening koran.</li>"
+ "<li>Akta pendirian, perubahan terakhir, dan kontrak penting.</li></ul>"
+ "<p>Lihat juga <a href=\"/artikel/audit-tahun-pertama-saldo-awal-belum-diaudit/\">audit tahun pertama dan saldo awal</a> serta <a href=\"/artikel/audit-beberapa-tahun-sekaligus-kapan-perlu/\">audit beberapa tahun sekaligus</a>.</p>",
+ [S_ETIK])
+
+# 6. TAHUN PERTAMA
+add("audit-tahun-pertama-saldo-awal-belum-diaudit",
+ "Audit Pertama Kali: Saldo Awal Belum Diaudit dan Cara Menyiapkannya",
+ "Perusahaan yang baru pertama diaudit, atau tahun lalunya belum diaudit, perlu menyiapkan bukti saldo awal. Ini yang diperiksa auditor dan cara agar prosesnya tidak memakan waktu ekstra.",
+ "Audit dan Asurans",
+ "perusahaan kami baru pertama kali akan diaudit dan tahun sebelumnya belum diaudit.",
+ "<p>Audit tahun pertama punya satu pekerjaan tambahan: auditor harus yakin bahwa saldo awal, yaitu angka neraca per awal tahun buku, tidak mengandung salah saji material. Standar audit mengatur ini dalam SA 510 tentang perikatan audit tahun pertama dan saldo awal. Bagi perusahaan, artinya ada dokumen tahun lalu yang ikut diminta.</p>"
+ "<h2>Yang Diperiksa Auditor pada Saldo Awal</h2><ul>"
+ "<li>Kas dan bank: rekening koran per akhir tahun lalu.</li>"
+ "<li>Piutang dan utang: rincian per pihak dan penyelesaiannya di tahun berjalan.</li>"
+ "<li>Persediaan: catatan stok akhir tahun lalu, karena memengaruhi harga pokok tahun ini.</li>"
+ "<li>Aset tetap: daftar aset, bukti perolehan, dan perhitungan penyusutan.</li>"
+ "<li>Ekuitas: akta, setoran modal, dan pembagian laba sebelumnya.</li></ul>"
+ "<h2>Bila Tahun Lalu Pernah Diaudit KAP Lain</h2>"
+ "<p>KAP baru dapat membaca kertas kerja auditor pendahulu dengan izin perusahaan. Ini mempercepat pengujian saldo awal. Bila laporan tahun lalu tidak pernah terbit, saldo awal diuji dengan prosedur tambahan dari dokumen perusahaan sendiri.</p>"
+ "<h2>Risiko yang Perlu Dipahami</h2>"
+ "<p>Bila bukti saldo awal tidak memadai, terutama untuk persediaan, opini bisa terpengaruh pada pos tertentu. Karena itu, persediaan akhir tahun lalu dan daftar aset adalah dokumen yang paling penting dikumpulkan sejak awal.</p>"
+ "<h2>Daftar Siap Audit Tahun Pertama</h2><ol>"
+ "<li>Neraca saldo per awal dan akhir tahun buku.</li>"
+ "<li>Rekening koran 13 bulan (Desember tahun lalu sampai Desember tahun ini).</li>"
+ "<li>Rincian piutang, utang, dan persediaan per akhir tahun lalu.</li>"
+ "<li>Daftar aset tetap dengan bukti perolehan.</li>"
+ "<li>Akta dan dokumen setoran modal.</li></ol>"
+ "<p>Lihat juga <a href=\"/artikel/proses-audit-kap-jadwal-dan-dokumen/\">proses audit KAP dan dokumen yang diminta</a>.</p>",
+ [S_ETIK])
+
+# 7. BEBERAPA TAHUN
+add("audit-beberapa-tahun-sekaligus-kapan-perlu",
+ "Audit Beberapa Tahun Sekaligus: Kapan Perlu dan Cara Menghemat",
+ "Bank, investor, atau rencana IPO kadang meminta laporan audited dua sampai tiga tahun berturut-turut. Ini kapan audit beberapa tahun benar-benar diperlukan, urutan pengerjaannya, dan cara menekan biayanya.",
+ "Audit dan Asurans",
+ "kami perlu laporan audited beberapa tahun sekaligus dan ingin tahu urutan serta perkiraan biayanya.",
+ "<p>Perusahaan yang belum pernah diaudit sering kaget ketika pihak lain meminta laporan audited tiga tahun terakhir. Audit beberapa tahun sekaligus bisa dilakukan, tetapi tidak selalu diperlukan. Pastikan dulu kebutuhan pembacanya.</p>"
+ "<h2>Kapan Benar-Benar Diperlukan</h2>"
+ "<table><tr><th>Kebutuhan</th><th>Tahun yang Biasanya Diminta</th></tr>"
+ "<tr><td>Laporan tahunan PT di SABH</td><td>Tahun buku yang dilaporkan</td></tr>"
+ "<tr><td>Kredit bank baru</td><td>Umumnya tahun terakhir, sebagian bank meminta dua tahun</td></tr>"
+ "<tr><td>Investor dan akuisisi</td><td>Dua sampai tiga tahun untuk melihat tren</td></tr>"
+ "<tr><td>Persiapan IPO</td><td>Mengikuti ketentuan pasar modal yang berlaku</td></tr></table>"
+ "<p>Konfirmasi tertulis ke bank, notaris, atau investor. Jangan mengaudit tahun yang tidak diminta.</p>"
+ "<h2>Urutan Pengerjaan</h2>"
+ "<p>Tahun yang paling awal diselesaikan lebih dulu karena saldo akhirnya menjadi saldo awal tahun berikutnya. Dalam praktik, tim auditor bisa mengerjakan beberapa tahun dalam satu kerja lapangan, sehingga perjalanan dan perencanaan tidak diulang.</p>"
+ "<h2>Cara Menekan Biaya</h2><ul>"
+ "<li>Satu surat perikatan untuk semua tahun, dengan jadwal yang berurutan.</li>"
+ "<li>Satu kali observasi lapangan, dilengkapi dokumen untuk tahun sebelumnya.</li>"
+ "<li>Pembukuan semua tahun dirapikan sebelum auditor masuk. Bila pembukuan tertinggal, susun ulang dulu bersama akuntan.</li>"
+ "<li>Prioritaskan tahun terakhir bila ada tenggat, lalu lanjutkan tahun sebelumnya.</li></ul>"
+ "<p>Bacaan terkait: <a href=\"/artikel/pembukuan-tertinggal-menyusun-ulang-dan-siap-audit/\">pembukuan tertinggal 2 sampai 3 tahun</a>.</p>",
+ [])
+
+# 8. PETERNAKAN / AGRIBISNIS
+add("audit-perusahaan-peternakan-agribisnis-aset-biologis",
+ "Audit Perusahaan Peternakan dan Agribisnis: Aset Biologis, Kemitraan, dan Observasi Kandang",
+ "Peternakan ayam, sapi, perikanan, dan perkebunan punya risiko audit khusus: aset biologis menurut PSAK 241 Agrikultur, kemitraan plasma, mortalitas, dan stok pakan. Ini yang disiapkan sebelum KAP datang.",
+ "Industri",
+ "perusahaan kami bergerak di peternakan/agribisnis dan perlu audit laporan keuangan.",
+ "<p>Perusahaan peternakan dan agribisnis sering masuk kriteria wajib audit karena omzetnya besar, walaupun margin per ekor atau per kilogram tipis. Auditnya punya ciri khas: sebagian aset hidup, tumbuh, dan bisa mati. Karena itu persiapannya berbeda dari perusahaan dagang biasa.</p>"
+ "<h2>Aset Biologis</h2>"
+ "<p>Hewan dan tanaman yang dikelola untuk dijual atau menghasilkan produk diatur dalam PSAK 241 Agrikultur. Pada prinsipnya aset biologis diukur pada nilai wajar dikurangi biaya untuk menjual, kecuali nilai wajarnya tidak dapat diukur secara andal. Perusahaan yang menerapkan SAK Entitas Privat perlu mengecek ketentuan kerangka yang dipakainya. Yang penting bagi auditor: dasar pengukuran yang konsisten dan bisa dibuktikan.</p>"
+ "<h2>Area yang Paling Sering Diperiksa</h2>"
+ "<table><tr><th>Area</th><th>Yang Disiapkan</th></tr>"
+ "<tr><td>Populasi ternak</td><td>Catatan harian per kandang: masuk, mati, afkir, panen</td></tr>"
+ "<tr><td>Pakan dan obat</td><td>Kartu stok gudang dan pemakaian per siklus</td></tr>"
+ "<tr><td>Kemitraan atau plasma</td><td>Kontrak, perhitungan bagi hasil, saldo piutang dan utang mitra</td></tr>"
+ "<tr><td>Penjualan</td><td>Nota timbang, faktur, dan pelunasan dari pembeli</td></tr>"
+ "<tr><td>Aset tetap</td><td>Kandang, peralatan, kendaraan, dan dokumen tanah</td></tr></table>"
+ "<h2>Observasi Lapangan</h2>"
+ "<p>Auditor akan datang ke kandang atau kebun untuk menghitung atau mengamati populasi dan stok pada tanggal tertentu. Jadwalkan observasi bersamaan dengan siklus panen atau tutup buku, dan pastikan kepala kandang memegang catatan harian yang sama dengan kantor.</p>"
+ "<h2>Masalah yang Sering Muncul</h2><ul>"
+ "<li>Selisih populasi antara catatan kandang dan pembukuan.</li>"
+ "<li>Mortalitas dicatat terlambat sehingga persediaan terlalu tinggi.</li>"
+ "<li>Transaksi dengan mitra plasma belum direkonsiliasi.</li>"
+ "<li>Biaya pakan tidak dialokasikan per siklus.</li></ul>"
+ "<p>Untuk perusahaan peternakan di Jawa Barat, Jawa Tengah, Jawa Timur, dan luar Jawa, kami membantu memilih KAP yang terbiasa dengan observasi kandang. Lihat juga <a href=\"/kota/sukabumi/\">Sukabumi</a>, <a href=\"/kota/bogor/\">Bogor</a>, <a href=\"/kota/malang/\">Malang</a>, dan <a href=\"/kota/medan/\">Medan</a>.</p>",
+ [S_241, S_UUPT])
+
+# 9. AUDIT JARAK JAUH
+add("audit-dengan-kap-luar-kota-daring-dan-lapangan",
+ "Audit dengan KAP Luar Kota: Bagian yang Bisa Daring dan yang Tetap Harus Hadir",
+ "Perusahaan di kota tanpa banyak KAP tetap bisa diaudit oleh KAP dari kota lain. Sebagian besar pekerjaan bisa dilakukan daring, tetapi observasi persediaan dan aset tetap memerlukan kunjungan.",
+ "Audit dan Asurans",
+ "kantor kami di daerah dan kami ingin memakai KAP dari kota lain. Bagaimana prosesnya?",
+ "<p>Tidak semua kota punya pilihan KAP yang cukup, dan tidak semua KAP lokal masuk daftar rekanan bank yang diminta. Kabar baiknya, perusahaan boleh memakai KAP dari kota mana pun. Teknologi membuat sebagian besar audit bisa dikerjakan dari jarak jauh.</p>"
+ "<h2>Yang Bisa Dikerjakan Daring</h2><ul>"
+ "<li>Permintaan dan pengiriman dokumen lewat folder digital bersama.</li>"
+ "<li>Pengujian transaksi dari salinan bukti, rekening koran, dan data sistem akuntansi.</li>"
+ "<li>Konfirmasi saldo ke bank, pelanggan, dan pemasok.</li>"
+ "<li>Wawancara manajemen dan pembahasan draf laporan lewat video call.</li></ul>"
+ "<h2>Yang Tetap Memerlukan Kunjungan</h2><ul>"
+ "<li>Observasi perhitungan fisik persediaan pada tanggal tutup buku atau mendekatinya.</li>"
+ "<li>Pengecekan keberadaan aset tetap yang material.</li>"
+ "<li>Pemeriksaan dokumen asli tertentu bila diperlukan.</li></ul>"
+ "<h2>Biaya Perjalanan</h2>"
+ "<p>Biaya tiket, penginapan, dan transportasi lokal tim biasanya ditanggung klien di luar imbalan jasa. Agar efisien, satukan observasi beberapa lokasi dalam satu kunjungan dan siapkan dokumen sebelum tim datang.</p>"
+ "<h2>Tips agar Audit Jarak Jauh Lancar</h2><ol>"
+ "<li>Tunjuk satu penanggung jawab dokumen di perusahaan.</li>"
+ "<li>Beri nama file yang konsisten sesuai daftar permintaan auditor.</li>"
+ "<li>Jadwalkan pertemuan mingguan singkat untuk membahas pertanyaan yang tertunda.</li></ol>"
+ "<p>Cek pilihan kantor di kota Anda, misalnya <a href=\"/kota/pontianak/\">Pontianak</a>, <a href=\"/kota/jayapura/\">Jayapura</a>, <a href=\"/kota/kupang/\">Kupang</a>, atau <a href=\"/kota/batam/\">Batam</a>.</p>",
+ [])
+
+# 10. CV DAN PT KECIL
+add("audit-laporan-keuangan-cv-dan-pt-kecil",
+ "Audit untuk CV dan PT Kecil: Kapan Perlu, Kapan Cukup Kompilasi atau AUP",
+ "CV dan PT kecil tidak selalu wajib diaudit, tetapi bank, tender, atau investor bisa memintanya. Ini cara menentukan jasa yang tepat agar tidak membayar lebih dari yang diperlukan.",
+ "Audit dan Asurans",
+ "usaha kami masih CV/PT kecil dan diminta laporan keuangan audited. Apakah perlu audit penuh?",
+ "<p>Pemilik CV atau PT kecil sering menerima permintaan \"laporan keuangan audited\" dari bank, panitia pengadaan, atau calon mitra. Sebelum membayar audit penuh, pastikan apa yang sebenarnya diminta. Kadang yang dibutuhkan cukup laporan keuangan yang disusun akuntan secara profesional.</p>"
+ "<h2>Wajib Audit atau Diminta Pihak Lain</h2>"
+ "<p>Kewajiban audit dalam UU PT berlaku untuk perseroan dengan kriteria tertentu, misalnya aset atau peredaran usaha minimal Rp50 miliar. CV tidak diatur dalam UU PT. Namun pihak lain bebas mensyaratkan audit dalam perjanjian atau dokumen pengadaan, dan syarat itu yang harus dipenuhi.</p>"
+ "<h2>Pilihan Jasa</h2>"
+ "<table><tr><th>Jasa</th><th>Penerbit</th><th>Cocok Untuk</th></tr>"
+ "<tr><td>Audit</td><td>KAP</td><td>Pembaca mensyaratkan opini auditor</td></tr>"
+ "<tr><td>Reviu</td><td>KAP</td><td>Pembaca menerima keyakinan terbatas</td></tr>"
+ "<tr><td>Prosedur yang disepakati (AUP)</td><td>KAP</td><td>Pembaca ingin pos tertentu diperiksa, tanpa opini</td></tr>"
+ "<tr><td>Kompilasi dan penyusunan laporan</td><td>KJA atau akuntan</td><td>Laporan rapi untuk pajak, bank kecil, atau internal</td></tr></table>"
+ "<h2>Cara Menentukan</h2><ol>"
+ "<li>Minta syarat tertulis dari bank atau panitia: apakah tertulis audit, reviu, atau cukup laporan keuangan.</li>"
+ "<li>Tanyakan apakah KAP harus dari daftar tertentu.</li>"
+ "<li>Hitung tenggat dan pastikan pembukuan siap.</li></ol>"
+ "<h2>Bila Memang Perlu Audit</h2>"
+ "<p>Usaha kecil dengan transaksi sederhana umumnya membutuhkan jam audit lebih sedikit. Biaya bisa ditekan dengan pembukuan yang rapi dan satu lokasi kunjungan. Lihat <a href=\"/artikel/biaya-audit-kap-komponen-dan-cara-menghemat/\">komponen biaya audit</a> dan <a href=\"/artikel/agreed-upon-procedures-aup-beda-dengan-audit/\">perbedaan AUP dan audit</a>.</p>",
+ [S_UUPT, S_KJA])
+
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gen", "audit.json")
+json.dump(A, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+txt = open(out, encoding="utf-8").read()
+assert "—" not in txt, "em dash"
+for a in A:
+    assert len(a["desc"]) <= 260, a["slug"]
+print("audit.json", len(A))
