@@ -41,7 +41,6 @@ def strip_kja(L, mark, prof):
     t = TK[L]; wa = f"https://wa.me/{WA}?text={quote(t['msg'])}"
     return (f'<div class="dhns kja"><img src="{mark}" alt="Logo KJA Farhani K.N." width="15" height="28" loading="lazy">'
             f'<span><a class="nm" href="{prof}"><b>KJA Farhani K.N.</b></a> <span class="s">· {t["lab"]}, {t["reg"]}</span></span>'
-            f'<span>{t["kon"]}: Ananta, CPA · <a class="t" href="tel:{TEL}">{TEL_TXT}</a></span>'
             f'<a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a></div>')
 
 def lang_of(rel):
@@ -50,13 +49,11 @@ def card(L, mark, prof):
     t = T[L]; wa = f"https://wa.me/{WA}?text={quote(t['msg'])}"
     return (f'<!--dhn--><aside class="dhnc" aria-label="KAP DHN &amp; Rekan"><img src="{mark}" alt="Logo KAP DHN &amp; Rekan" width="46" height="54" loading="lazy">'
             f'<div><small>{t["lab"]}</small><b class="n">KAP DHN &amp; Rekan</b><p>{t["desc"]}</p>'
-            f'<p class="k">{t["kon"]}: Ananta, CPA · <a href="tel:{TEL}">{TEL_TXT}</a></p>'
             f'<div class="bt"><a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a><a class="dhnl" href="{prof}" target="_blank" rel="noopener">{t["web"]}</a></div></div></aside><!--/dhn-->')
 def strip(L, mark):
     t = T[L]; wa = f"https://wa.me/{WA}?text={quote(t['msg'])}"
     return (f'<!--dhn--><div class="dhns"><img src="{mark}" alt="Logo KAP DHN &amp; Rekan" width="24" height="28" loading="lazy">'
             f'<span><b>KAP DHN &amp; Rekan</b> <span class="s">· {t["lab"]}, {t["reg"]}</span></span>'
-            f'<span>{t["kon"]}: Ananta, CPA · <a class="t" href="tel:{TEL}">{TEL_TXT}</a></span>'
             f'<a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a></div><!--/dhn-->')
 
 AUDIT = re.compile(r"(audit|(^|/)kap(-|/|$)|kap-murah|opini|laporan-tahunan|nirlaba|sabh|mitra-kap|kja|standar-audit|saldo-awal|ganti-kap|wilayah/|^kota/[^/]+/(index\.html)?$|jasa-penyusunan|laporan-keuangan-umkm)")
