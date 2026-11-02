@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09VZKH3JRJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-09VZKH3JRJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pembayaran | FA Indonesia</title>
+<meta name="description" content="Bayar FA Apps dan e-book FA Indonesia secara online lewat Midtrans.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://faindonesia.co.id/bayar/">
+<meta name="theme-color" content="#171717">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=EB+Garamond:wght@400;500&display=swap">
+<style>
+:root{--bg:#141414;--surface:#1b1b1b;--sunk:#222;--ink:#fff;--muted:#a3a3a3;--line:#2e2e2e;--blue:#00abd6;--ok:#7fd1a6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Poppins,system-ui,sans-serif}
+a{color:var(--blue)}.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line)}header.top .wrap{display:flex;align-items:center;gap:12px;min-height:62px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}.brand img{height:34px}.brand b{font:400 20px "EB Garamond",serif}
+.top nav{margin-left:auto;display:flex;gap:14px;font-size:13px}.top nav a{color:#ddd;text-decoration:none}
+h1{font:400 clamp(30px,5vw,46px)/1.1 "EB Garamond",serif;margin:34px 0 8px}.lead{color:#d6d6d6;max-width:68ch;margin:0 0 22px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h2{margin:0 0 12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px}
+input,select,textarea{width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:8px;color:#fff;padding:10px 12px;font:inherit}
+textarea{min-height:64px;resize:vertical}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:none;color:#fff;font:500 14px Poppins,sans-serif;cursor:pointer;text-decoration:none}
+.btn.solid{background:#fff;color:#141414;border-color:#fff}.btn.blue{background:var(--blue);border-color:var(--blue);color:#06232c}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.steps{margin:0;padding-left:20px;color:#dcdcdc}.steps li{margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#141414;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none}.toast.on{opacity:1}
+.hint{font-size:12px;color:var(--muted)}
+#inv{display:none;margin:22px 0 40px}
+.paper{background:#fff;color:#1e1e1e;border-radius:10px;padding:34px 38px;max-width:820px;margin:0 auto;font-size:13px}
+.paper .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid #00abd6;padding-bottom:14px}
+.paper .ph img{height:44px}.paper h3{font:500 28px "EB Garamond",serif;margin:0;color:#1f2a30;text-align:right}
+.paper .meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.paper .meta b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#777;font-weight:500}
+.paper table{width:100%;border-collapse:collapse;margin:8px 0}.paper th{background:#1f2a30;color:#fff;font-weight:500;text-align:left;padding:8px;font-size:12px}
+.paper td{padding:8px;border-bottom:1px solid #e6e6e6}.paper .r{text-align:right}.paper tfoot td{font-weight:600;border-bottom:0}
+.paper .pay{background:#f3fbfd;border:1px solid #cdeef7;border-radius:8px;padding:12px 14px;margin-top:14px}
+.paper .foot{margin-top:18px;color:#777;font-size:11px;border-top:1px solid #e6e6e6;padding-top:10px}
+.after{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0}
+@media print{body{background:#fff}header.top,.no-print,.toast{display:none!important}#inv{display:block!important;margin:0}.paper{border-radius:0;padding:0;max-width:none}}
+</style>
+</head>
+<body>
+<header class="top no-print"><div class="wrap"><a class="brand" href="/"><img src="/img/brand/mark-light.png" alt="FA Indonesia" width="26" height="34" onerror="this.style.display='none'"><b>FA Indonesia</b></a>
+<nav><a href="/">Beranda</a><a href="/toko/">Toko</a></nav></div></header>
+<main class="wrap no-print">
+<h1>Pembayaran</h1>
+<p class="lead">Pilih produk dan isi data Anda, lalu bayar online lewat Midtrans (GoPay atau virtual account semua bank). Kode akses aplikasi tampil otomatis setelah lunas; e-book dikirim ke email Anda.</p>
+<div class="grid">
+<section class="card"><h2>1. Layanan</h2>
+<label for="prod">Layanan / produk</label>
+<select id="prod">
+<option value="ar-day" data-price="39000">FA Jupiter · Laporan Keuangan - Audit Ready: day pass (berlaku sampai besok)</option>
+<option value="ar-year" data-price="249000">FA Jupiter · Laporan Keuangan - Audit Ready: tahunan (berlaku 1 tahun)</option>
+<optgroup label="E-book Penerbit FA (PDF, bebas PPN)"><option value="eb-psp" data-price="129000" data-ppn="0">E-book: Prosedur Audit Substantif Primer (PDF)</option><option value="eb-auditee" data-price="59000" data-ppn="0">E-book: Audit untuk Auditee UMKM (PDF)</option><option value="eb-lkumkm" data-price="69000" data-ppn="0">E-book: Menyusun Laporan Keuangan UMKM (PDF)</option><option value="eb-akmen" data-price="49000" data-ppn="0">E-book: Akuntansi Manajemen untuk UMKM (PDF)</option><option value="eb-iso" data-price="59000" data-ppn="0">E-book: Panduan ISO 22000: Sistem Manajemen Keamanan Pangan (PDF)</option><option value="eb-makacua" data-price="39000" data-ppn="0">E-book: Social Responsibility dalam Budaya Makacua Nelayan Bugis (PDF)</option><option value="eb-paket" data-price="299000" data-ppn="0">Paket 6 E-book Penerbit FA (PDF)</option></optgroup>
+</select>
+<div id="customBox" style="display:none"><label for="cdesc">Uraian layanan</label><input id="cdesc" placeholder="Contoh: Penyusunan laporan keuangan 2025, termin 1">
+<label for="camt">Nominal (Rp)</label><input id="camt" inputmode="numeric" placeholder="Sesuai surat penawaran"></div>
+<label for="qty">Jumlah</label><input id="qty" type="number" min="1" value="1">
+</section>
+<section class="card"><h2>2. Data pembeli</h2>
+<label for="nm">Nama</label><input id="nm" autocomplete="name">
+<label for="co">Perusahaan / instansi (opsional)</label><input id="co" autocomplete="organization">
+<div class="row2"><div><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div><div><label for="ph">No. WhatsApp (opsional)</label><input id="ph" inputmode="tel" autocomplete="tel"></div></div>
+<label for="nt">Catatan (opsional)</label><textarea id="nt" placeholder="Misalnya email yang dipakai untuk kode akses"></textarea>
+</section>
+</div>
+<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:#dcdcdc;margin-top:16px"><input type="checkbox" id="agree" style="width:auto;margin-top:4px"> <span>Saya sudah membaca dan setuju dengan <a href="/syarat-ketentuan/" target="_blank">Syarat &amp; Ketentuan</a>, <a href="/kebijakan-privasi/" target="_blank">Kebijakan Privasi</a>, dan <a href="/kebijakan-refund/" target="_blank">Kebijakan Refund</a>.</span></label>
+<p class="hint">Harga layanan dan FA Apps sudah termasuk PPN. E-book dibebaskan dari PPN. Lihat semua buku di <a href="/buku/">Toko Buku</a>.</p>
+<div class="btns"><button class="btn blue" id="paynow" style="display:none">Bayar Online</button>
+</div>
+<p class="hint" id="payhint" style="display:none">Bayar Online diproses Midtrans: GoPay dan virtual account semua bank. Kode akses FA Jupiter tampil otomatis setelah pembayaran lunas; e-book dikirim ke email Anda di hari yang sama pada jam kerja.</p>
+<section class="card" style="margin:18px 0"><h2>Langkah</h2><ol class="steps"><li><b>Bayar Online:</b> klik Bayar Online, pilih metode, selesaikan pembayaran. Kode akses FA Jupiter langsung tampil di halaman konfirmasi.</li>
+<li>Isi produk dan data pembeli, centang persetujuan.</li><li>Kode akses FA Jupiter tampil di halaman konfirmasi; e-book dikirim ke email Anda.</li></ol></section>
+<p class="hint" style="margin-bottom:40px"><a href="/syarat-ketentuan/">Syarat &amp; Ketentuan</a> · <a href="/kebijakan-privasi/">Kebijakan Privasi</a> · <a href="/kebijakan-refund/">Kebijakan Refund</a></p>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>(function(){var $=function(i){return document.getElementById(i)};var q=new URLSearchParams(location.search).get('produk');if(q&&$('prod').querySelector('option[value="'+q+'"]'))$('prod').value=q;$('customBox').style.display='none';})();</script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},CFG=null;
+function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},3200)}
+fetch('/api/pay/config',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(c){
+  if(!c||!c.enabled)return;if(!c.production&&!/[?&]uji=1/.test(location.search))return;CFG=c;
+  var s=document.createElement('script');s.src=(c.production?'https://app.midtrans.com':'https://app.sandbox.midtrans.com')+'/snap/snap.js';
+  s.setAttribute('data-client-key',c.clientKey);s.onload=function(){$('paynow').style.display='';$('payhint').style.display='';
+    [].forEach.call(document.querySelectorAll('.ol-on'),function(e){e.style.display=''})};document.head.appendChild(s);
+}).catch(function(){});
+function src(){try{return sessionStorage.getItem('fa_src')||''}catch(e){return ''}}
+$('paynow').onclick=function(){
+  var b=$('paynow'),o=$('prod').selectedOptions[0],custom=o.value==='custom';
+  var d={prod:o.value,qty:$('qty').value,nm:$('nm').value.trim(),co:$('co').value.trim(),em:$('em').value.trim(),ph:$('ph').value.trim(),nt:$('nt').value.trim(),
+    desc:custom?$('cdesc').value.trim():'',amt:custom?$('camt').value:'',agree:$('agree').checked,src:src()};
+  if(!d.nm||!d.em){toast('Isi nama dan email dulu');return}
+  if(!d.agree){toast('Centang persetujuan Syarat & Ketentuan dulu');return}
+  if(custom&&(!d.desc||!d.amt)){toast('Isi uraian dan nominal layanan');return}
+  b.disabled=true;b.textContent='Menyiapkan Pembayaran...';
+  fetch('/api/pay/create',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(x){
+    b.disabled=false;b.textContent='Bayar Online';
+    if(!x.token){toast(x.error||'Gagal membuat pembayaran, coba lagi');return}
+    try{localStorage.setItem('fa-last-order',x.order_id)}catch(e){}
+    if(window.gtag)gtag('event','begin_checkout',{value:x.amount,currency:'IDR',items:[{item_id:d.prod}]});
+    var go=function(){location.href='/bayar/selesai/?order_id='+encodeURIComponent(x.order_id)};
+    window.snap.pay(x.token,{onSuccess:go,onPending:go,onError:function(){toast('Pembayaran gagal. Coba metode lain.')},
+      onClose:function(){toast('Pembayaran belum selesai. Klik Bayar Online lagi kapan saja.')}});
+  }).catch(function(){b.disabled=false;b.textContent='Bayar Online';toast('Koneksi terputus, coba lagi')});
+};
+})();
+</script>
+</body>
+</html>

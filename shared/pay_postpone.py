@@ -29,7 +29,7 @@ def run(OUT):
         if not os.path.isdir(root): continue
         for d, _, fs in os.walk(root):
             rel = os.path.relpath(d, root).replace(os.sep, "/")
-            if rel.startswith("bayar"): continue
+            if rel.startswith("bayar") or rel.startswith("toko/uji"): continue
             for f in fs:
                 if not f.endswith(".html"): continue
                 p = os.path.join(d, f); t = open(p, encoding="utf-8").read()

@@ -554,6 +554,14 @@ for _d, _, _fs in os.walk(os.path.join(OUT, "faindonesia")):
         open(_p, "w", encoding="utf-8").write(_t); _nf += 1
 print("footer dilipat:", _nf)
 
+# toko/uji: salinan toko dengan tombol beli aktif ke /bayar/uji/ (noindex, tidak ditautkan) untuk uji Midtrans dan dokumen flow (2 Nov 2026)
+_tk = os.path.join(OUT, "faindonesia", "toko", "index.html")
+if os.path.exists(_tk):
+    _t = open(_tk, encoding="utf-8").read()
+    _t = re.sub(r'href="/bayar/\?produk=([a-z0-9-]+)"', r'href="/bayar/uji/?produk=\1&amp;uji=1"', _t)
+    _t = _t.replace("</head>", '<meta name="robots" content="noindex"/></head>', 1)
+    os.makedirs(os.path.join(OUT, "faindonesia", "toko", "uji"), exist_ok=True)
+    open(os.path.join(OUT, "faindonesia", "toko", "uji", "index.html"), "w", encoding="utf-8").write(_t)
 # ---------- tunda pembelian sampai Midtrans aktif (1 Nov 2026) ----------
 import importlib.util as _ilu2
 _pps = _ilu2.spec_from_file_location("pay_postpone", os.path.join(M, "shared", "pay_postpone.py")); _pp = _ilu2.module_from_spec(_pps); _pps.loader.exec_module(_pp)
