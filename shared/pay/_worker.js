@@ -231,7 +231,7 @@ async function aiAsk(req, env) {
       messages: [{ role: "user", content: "DATA HALAMAN (" + clean(b.page, 120) + "):\n" + (ctx || "(tidak ada)") + "\n\nPERTANYAAN:\n" + q }] })
   });
   const out = await r.json().catch(() => ({}));
-  if (!r.ok) return aj(req, { error: "Asisten AI sedang sibuk, coba lagi sebentar lagi." }, 502);
+  if (!r.ok) return aj(req, { error: "Asisten AI sedang tidak tersedia. Silakan diskusikan pertanyaan Anda dengan tim kami via WhatsApp." }, 200); /* 200: hindari halaman error Cloudflare; kredit API habis = AI berhenti, tidak ada tagihan */
   const answer = (out.content || []).filter((x) => x.type === "text").map((x) => x.text).join("\n").trim();
   if (rec) { rec.credits -= 1; rec.last = Date.now(); await env.FA_AI.put("c:" + code, JSON.stringify(rec)); return aj(req, { answer, credits: rec.credits }); }
   return aj(req, { answer, free: Math.max(0, freeLeft) });
