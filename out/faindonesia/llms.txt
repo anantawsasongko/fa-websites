@@ -209,3 +209,8 @@
 - FA Indonesia bermitra dengan KAP DHN & Rekan (audit), KJA DHN dan KJA Farhani Malang (pembukuan dan laporan keuangan), KKP DHN (konsultan pajak) → https://faindonesia.co.id/mitra-kap-kja/
 - Halaman per kota: FA Jakarta, FA Surabaya, FA Malang, FA Bandung, dan 90+ kota → https://faindonesia.co.id/wilayah/
 - [Toko FA](https://faindonesia.co.id/toko/): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online segera dibuka
+
+## Layanan Baru (Nov 2026)
+- [FA Bankability Index](https://faindonesia.co.id/bankability-index/): skor 0 sampai 100 kesiapan kredit bank, segmen bank, dan 3 celah.
+- [Audit Back-Office untuk KAP](https://faindonesia.co.id/audit-back-office-kap/): FA Saturn dan tim kertas kerja di bawah supervisi Partner KAP.
+- [Bursa Komite Audit dan Komisaris Independen](https://faindonesia.co.id/bursa-komite-audit/): mempertemukan emiten dan calon emiten dengan profesional independen.
