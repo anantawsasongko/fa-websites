@@ -41,7 +41,9 @@ function context(){
 }
 
 var css="#faai-b{position:fixed;right:18px;bottom:20px;z-index:9990;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:#171717;color:#fff;font:500 13.5px Poppins,system-ui,sans-serif;padding:11px 16px 11px 13px;cursor:pointer;box-shadow:0 12px 34px -12px rgba(0,0,0,.6)}"+
-"#faai-b:hover{background:#262626}#faai-b svg{width:17px;height:17px}"+
+"#faai-b:hover{background:#262626}#faai-b svg{width:19px;height:19px;color:#E8916B}#faai-b{border-color:rgba(217,119,87,.7)}"+
+"#faai-b .t{display:flex;flex-direction:column;line-height:1.15;text-align:left}#faai-b em{font-style:normal;font-size:10.5px;letter-spacing:.04em;color:#E8916B;font-weight:600}"+
+"#faai .pb{display:flex;width:fit-content;align-items:center;gap:6px;margin-top:6px;padding:3px 9px;border:1px solid rgba(217,119,87,.6);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.03em;color:#E8916B;background:rgba(217,119,87,.08)}#faai .pb i{width:7px;height:7px;border-radius:50%;background:#D97757}"+
 "#faai{position:fixed;right:18px;bottom:20px;z-index:9991;width:min(400px,calc(100vw - 24px));max-height:min(640px,calc(100vh - 40px));display:none;flex-direction:column;background:#1E1E1E;color:#fff;border:1px solid #2F2F2F;border-radius:12px;box-shadow:0 30px 80px -20px rgba(0,0,0,.85);font:14px/1.55 Poppins,system-ui,-apple-system,'Segoe UI',sans-serif;text-align:left;overflow:hidden}"+
 "#faai.on{display:flex}#faai *{box-sizing:border-box}"+
 "#faai .hd{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:1px solid #2F2F2F}"+
@@ -80,16 +82,16 @@ function status(){var c=credit(),r=ls("fa_ai_left");return c?("Kode "+c.slice(-4
 function build(){
   var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
   var b=document.createElement("button");b.id="faai-b";b.type="button";b.setAttribute("aria-label","Buka Asisten AI");
-  b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Asisten AI';
+  b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><span class="t">Asisten AI<em>Powered by Claude</em></span>';
   b.onclick=function(){root.classList.add("on");b.style.display="none";ga("ai_open",{app:app})};
   root=document.createElement("div");root.id="faai";root.setAttribute("role","dialog");root.setAttribute("aria-label","Asisten AI FA Indonesia");
-  root.innerHTML='<div class="hd"><div><small>FA Indonesia</small><b>Asisten AI</b></div><button class="x" type="button" aria-label="Tutup">&times;</button></div><div class="bd"></div><div class="ft"></div>';
+  root.innerHTML='<div class="hd"><div><small>FA Indonesia</small><b>Asisten AI</b><span class="pb"><i></i>Powered by Claude · Anthropic</span></div><button class="x" type="button" aria-label="Tutup">&times;</button></div><div class="bd"></div><div class="ft"></div>';
   root.querySelector(".x").onclick=function(){root.classList.remove("on");b.style.display=""};
   document.body.appendChild(b);document.body.appendChild(root);
   bd=root.querySelector(".bd");ft=root.querySelector(".ft");home();
 }
 function home(){
-  bd.innerHTML='<p class="hint">Asisten membaca angka dan hasil di halaman ini, lalu menjelaskannya dengan bahasa sederhana.</p>'+
+  bd.innerHTML='<p class="hint">Asisten ini memakai Claude, model AI dari Anthropic. Asisten membaca angka dan hasil di halaman ini, lalu menjelaskannya dengan bahasa sederhana.</p>'+
    '<button class="chip" data-q="Jelaskan hasil perhitungan di halaman ini dan apa artinya untuk usaha saya.">Jelaskan hasil di halaman ini</button>'+
    '<button class="chip" data-q="Apa risiko atau hal yang perlu saya perhatikan dari angka di halaman ini?">Apa risiko dari angka ini?</button>'+
    '<button class="chip" data-q="Apa 3 langkah praktis untuk memperbaiki hasil ini?">Langkah perbaikan</button>';
