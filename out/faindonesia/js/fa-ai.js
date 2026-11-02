@@ -131,28 +131,10 @@ function codeView(){
 }
 function buyView(box){
   var w=document.createElement("div");
-  w.innerHTML='<p class="hint" style="margin-top:6px">Pilih paket kredit Asisten AI. Berlaku di semua aplikasi FA Indonesia, UpdateSAK, dan CariAkuntan.</p><div class="pk">'+
-   PACKS.map(function(k,i){return '<button type="button" data-i="'+i+'"'+(k===pack?' class="on"':'')+'><b>'+rp(k.p)+'</b>'+k.n+' pertanyaan</button>'}).join("")+'</div>'+
-   '<div class="qr"><img alt="QRIS FA Indonesia" src="'+QR+'"></div>'+
-   '<p class="hint">Scan QRIS, bayar sesuai paket, lalu isi konfirmasi. Kode kredit dikirim ke WhatsApp Anda setelah pembayaran dicek.</p>'+
-   '<label>Nama</label><input data-k="nama" autocomplete="name"><label>Nomor WhatsApp</label><input data-k="wa" inputmode="tel" autocomplete="tel" placeholder="08xx"><label>Nama usaha atau instansi</label><input data-k="pt" autocomplete="organization"><label>Nomor referensi transaksi QRIS</label><input data-k="ref" placeholder="Lihat di bukti bayar">'+
-   '<div class="er"></div><button class="go w" type="button">Kirim konfirmasi</button><button class="lk" type="button">Sudah punya kode</button>';
+  w.innerHTML='<p class="hint" style="margin-top:6px">Paket kredit Asisten AI segera tersedia lewat pembayaran online. Sementara itu, diskusikan hasil Anda langsung dengan tim kami.</p>'+
+   '<a class="go w" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="'+waLink()+'">Diskusi via WhatsApp</a><button class="lk" type="button">Sudah punya kode</button>';
   box.appendChild(w);
-  var saved={};try{saved=JSON.parse(ls("fa_pay_data")||"{}")}catch(e){}
-  w.querySelectorAll("input[data-k]").forEach(function(i){if(saved[i.dataset.k])i.value=saved[i.dataset.k]});
-  w.querySelectorAll(".pk button").forEach(function(b){b.onclick=function(){pack=PACKS[+b.dataset.i];w.querySelectorAll(".pk button").forEach(function(x){x.classList.toggle("on",x===b)})}});
   w.querySelector(".lk").onclick=codeView;
-  w.querySelector(".go").onclick=function(){
-    var d={};w.querySelectorAll("input[data-k]").forEach(function(i){d[i.dataset.k]=i.value.trim()});var er=w.querySelector(".er");
-    if(d.nama.length<2){er.textContent="Isi nama Anda.";return}
-    if(!/^(\+?62|0)8\d{7,12}$/.test(d.wa.replace(/[\s-]/g,""))){er.textContent="Nomor WhatsApp belum valid.";return}
-    if(d.ref.length<4){er.textContent="Isi nomor referensi transaksi QRIS.";return}
-    try{var s=JSON.parse(ls("fa_pay_data")||"{}");s.nama=d.nama;s.wa=d.wa;s.pt=d.pt;ls("fa_pay_data",JSON.stringify(s))}catch(e){}
-    beacon({pt:d.pt||"-",nama:d.nama,wa:d.wa,goal:"Beli Paket AI "+pack.n+" ("+rp(pack.p)+")",unit:pack.id,lang:"id",page:location.href.split("#")[0],summary:"Ref QRIS: "+d.ref+" | App: "+app});
-    ga("ai_buy",{app:app,value:pack.p,currency:"IDR"});ga("generate_lead",{method:"ai_qris"});
-    w.innerHTML='<p class="msg"><b>Konfirmasi diterima.</b> Kode kredit '+pack.n+' pertanyaan dikirim ke WhatsApp '+esc(d.wa)+' setelah pembayaran dicek, biasanya pada jam kerja yang sama.</p><button class="lk" type="button">Sudah menerima kode</button>';
-    w.querySelector(".lk").onclick=codeView;
-  };
 }
 function init(){
   fetch(API+"/api/ai/status").then(function(r){return r.ok?r.json():{}}).then(function(j){if(j&&j.enabled)build()}).catch(function(){});
