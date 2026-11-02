@@ -133,3 +133,11 @@ Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Clo
 - 1 Nov 2026 (permintaan Bos): SEMUA pembelian ditunda sampai Midtrans aktif. /bayar/ dan /bayar/selesai/ diganti halaman "Pembayaran Online Segera Dibuka" (asli Snap + invoice + salin rekening disimpan di backup/pembayaran-20261101/bayar/). shared/pay_postpone.py (akhir prep.py): tombol /bayar/?produk= jadi label nonaktif "Segera Dibuka", link footer "Pembayaran" dihapus. Opsi transfer BRI, invoice manual, bukti transfer dihapus dari /toko/ (fa_toko_20261101.py), /buku/, syarat-ketentuan, kebijakan-refund, kebijakan-privasi, FA Jupiter. QRIS hanya untuk donasi (donasi.js). Saat Midtrans aktif: pulihkan file bayar dari backup, hapus blok pay_postpone di prep.py, kembalikan teks toko/buku.
 - 1 Nov 2026: UpdateSAK beranda, share per aplikasi (Kalkulator PSAK, Laporan Keuangan, Arus Kas, Perubahan Ekuitas, CALK): judul, kicker, dan foto poster beda per aplikasi (US_APPS di shared/tool_share.py), ikut tombol mode. Link langsung: /#kalkulator-psak, /#laporan-keuangan, /#arus-kas, /#perubahan-ekuitas, /#calk (app.js fromHash).
 - 1 Nov 2026: logo A (wordmark serif gaya McKinsey) dipilih Bos untuk Cari Akuntan dan UpdateSAK. Sumber shared/logo/make_logos.py (teks jadi path). Header: shared/brand_logo.py (dipanggil prep.py setelah favicon). Favicon: shared/icons/ca.svg, us.svg (+png/ico via render.js). Poster share: logo-dark.png per situs (canvas) dan lockup PNG di brand_poster.py (og cache v6, UpdateSAK .v6).
+
+## Asisten AI (2 Nov 2026)
+Fitur sudah ter-deploy tapi tersembunyi sampai 3 hal ini dipasang di Cloudflare Pages project **faindonesia-web** (Settings):
+1. Variables and Secrets: `ANTHROPIC_API_KEY` (Secret, dari console.anthropic.com > API Keys).
+2. Variables and Secrets: `AI_ADMIN_KEY` (Secret, kata sandi bebas untuk /ai-admin/). Opsional `AI_MODEL` (default claude-haiku-5-5).
+3. Bindings: KV namespace baru `fa-ai`, variable name `FA_AI`.
+Lalu Retry deployment terakhir. Tombol "Asisten AI" muncul otomatis di semua apps FA dan kalkulator UpdateSAK.
+Alur jual: gratis 3 pertanyaan per perangkat, lalu Paket AI 50 (Rp25.000) atau 300 (Rp99.000) via QRIS. Konfirmasi masuk Sheet lead (goal "Beli Paket AI"), terbitkan kode di faindonesia.co.id/ai-admin/, kirim kode via WA. Pembayaran Midtrans produk ai-50/ai-300 otomatis membuat kode.

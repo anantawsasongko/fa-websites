@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin Asisten AI</title>
+<style>
+:root{--bg:#121212;--card:#1E1E1E;--line:#2F2F2F;--ink:#fff;--mut:#A8A8A8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 Poppins,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:520px;margin:0 auto;padding:40px 16px 60px}
+small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+h1{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:30px;margin:4px 0 18px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+h2{font-size:15px;font-weight:500;margin:0 0 10px}
+label{display:block;font-size:12px;color:var(--mut);margin:10px 0 4px}
+input,select{width:100%;background:#262626;border:1px solid #4A4A4A;border-radius:6px;color:#fff;font:14px Poppins,system-ui,sans-serif;padding:10px 12px}
+input:focus,select:focus{outline:none;border-color:#fff}
+button{border:0;border-radius:999px;background:#fff;color:#171717;font:500 14px Poppins,system-ui,sans-serif;padding:11px 18px;cursor:pointer;margin-top:14px;width:100%}
+.out{margin-top:14px;font-size:13.5px;color:#E6E6E6;white-space:pre-wrap;word-break:break-word}
+.code{font:600 18px ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#fff}
+.mut{color:var(--mut);font-size:12.5px}
+</style>
+</head>
+<body>
+<main>
+<small>FA Indonesia</small>
+<h1>Admin Asisten AI</h1>
+
+<section>
+<h2>Kunci admin</h2>
+<label for="k">AI_ADMIN_KEY</label>
+<input id="k" type="password" autocomplete="off" placeholder="Disimpan di perangkat ini saja">
+<p class="mut">Status: <span id="st">memeriksa...</span></p>
+</section>
+
+<section>
+<h2>Terbitkan kode kredit</h2>
+<label for="pk">Paket</label>
+<select id="pk"><option value="50">50 pertanyaan (Rp25.000)</option><option value="300">300 pertanyaan (Rp99.000)</option><option value="0">Jumlah lain</option></select>
+<div id="cw" style="display:none"><label for="cr">Jumlah pertanyaan</label><input id="cr" type="number" min="1" max="5000" value="100"></div>
+<label for="nt">Catatan (nama, WA, ref QRIS)</label>
+<input id="nt" maxlength="200">
+<button id="mk" type="button">Terbitkan kode</button>
+<div class="out" id="o1"></div>
+</section>
+
+<section>
+<h2>Cek sisa kredit</h2>
+<label for="cc">Kode</label>
+<input id="cc" placeholder="FAI-XXXX-XXXX-XXXX">
+<button id="ck" type="button">Cek</button>
+<div class="out" id="o2"></div>
+</section>
+</main>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+$("k").value=ls("fa_ai_admin")||"";
+$("k").onchange=function(){ls("fa_ai_admin",$("k").value.trim())};
+$("pk").onchange=function(){$("cw").style.display=$("pk").value==="0"?"":"none"};
+fetch("/api/ai/status").then(function(r){return r.json()}).then(function(j){$("st").textContent=j.enabled?"aktif":"belum aktif (API key atau KV FA_AI belum dipasang)"}).catch(function(){$("st").textContent="worker tidak menjawab"});
+$("mk").onclick=function(){
+  var n=$("pk").value==="0"?+$("cr").value:+$("pk").value;$("o1").textContent="Memproses...";
+  fetch("/api/ai/admin/new",{method:"POST",headers:{"content-type":"application/json","x-admin":$("k").value.trim()},body:JSON.stringify({credits:n,note:$("nt").value})})
+  .then(function(r){return r.json()}).then(function(j){
+    if(!j.code){$("o1").textContent=j.error||"Gagal";return}
+    $("o1").innerHTML='<div class="code">'+j.code+'</div>'+j.credits+' pertanyaan\n\nTeks untuk WhatsApp:\nTerima kasih, pembayaran Paket Asisten AI sudah kami terima. Kode kredit Anda: '+j.code+' ('+j.credits+' pertanyaan). Masukkan di tombol Asisten AI, pilih "Punya kode kredit?". Berlaku di semua aplikasi FA Indonesia, UpdateSAK, dan CariAkuntan.';
+    $("nt").value="";
+  }).catch(function(){$("o1").textContent="Koneksi gagal"});
+};
+$("ck").onclick=function(){
+  fetch("/api/ai/credit?code="+encodeURIComponent($("cc").value.trim().toUpperCase())).then(function(r){return r.json()})
+  .then(function(j){$("o2").textContent=j.credits!=null?("Sisa "+j.credits+" dari "+j.total+" pertanyaan"):(j.error||"Tidak dikenal")}).catch(function(){$("o2").textContent="Koneksi gagal"});
+};
+})();
+</script>
+</body>
+</html>

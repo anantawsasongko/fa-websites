@@ -127,6 +127,23 @@ print("paywall fa", add_pay(fa, [("audit-ready/index.html", {"app": "audit-ready
     ("saturn/index.html", {"app": "saturn", "name": "FA Saturn · Audit Workspace", "price": 99000}),
     ("cek-psak-118/index.html", {"app": "cek-psak-118", "name": "FA Venus · Konversi PL PSAK 118", "price": 25000})]
     + [(r, _kk) for r in ("index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html")]))
+# ---------- Asisten AI (2 Nov 2026): tombol hanya tampil bila /api/ai/status enabled (API key + KV FA_AI di Cloudflare) ----------
+AI_JS = open(os.path.join(M, "shared", "fa-ai.src.js"), encoding="utf-8").read().replace("__GS__", PAY_GS).replace("__QR__", open(os.path.join(M, "shared", "fa-paywall-qr.txt")).read().strip())
+def add_ai(site_root):
+    os.makedirs(os.path.join(site_root, "js"), exist_ok=True)
+    open(os.path.join(site_root, "js", "fa-ai.js"), "w", encoding="utf-8").write(AI_JS)
+    n = 0
+    for d, _, fs in os.walk(site_root):
+        for f in fs:
+            if not f.endswith(".html"): continue
+            pth = os.path.join(d, f); t = open(pth, encoding="utf-8").read()
+            if "fa-paywall.js" not in t or "fa-ai.js" in t: continue
+            t = t.replace("</body>", "<script src=\"/js/fa-ai.js\" defer></script></body>", 1)
+            open(pth, "w", encoding="utf-8").write(t); n += 1
+    return n
+print("ai fa", add_ai(fa))
+os.makedirs(os.path.join(fa, "ai-admin"), exist_ok=True)
+shutil.copy2(os.path.join(M, "shared", "ai-admin.html"), os.path.join(fa, "ai-admin", "index.html"))
 add_donasi(os.path.join(OUT, "cariakuntan"), ["index.html", "en/index.html", "zh/index.html", "hokkien/index.html"],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'#f_go1',key:'screening',skip:function(){var p=document.getElementById('f_pt');return !(p&&p.value.trim().length>2)}}]}")
 
@@ -177,6 +194,7 @@ US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
 print("paywall us", add_pay(u, [("index.html", {"app": "us-kalkulator", "name": "UpdateSAK · Kalkulator Standar & CALK", "price": 25000, "guard": "#go"})]))
+print("ai us", add_ai(u))
 add_donasi(u, [os.path.relpath(os.path.join(_d, "index.html"), u) for _d, _, _fs in os.walk(os.path.join(u, "materi")) if "index.html" in _fs],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'a.dl',key:'materi-updatesak'}]}")
 
