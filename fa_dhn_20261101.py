@@ -32,7 +32,7 @@ body = (
  + "<p>Independensi tetap dijaga: pihak yang menyusun laporan keuangan atau menjadi konsultan pajak Anda tidak mengaudit perusahaan yang sama.</p>"
  "<h2>Wilayah Layanan</h2><p>Berkantor pusat di Denpasar, melayani perusahaan di Bali dan seluruh Indonesia secara daring dan dengan kunjungan lapangan terjadwal. Lihat juga layanan per kota di <a href=\"/wilayah/\">FA per Kota</a>, misalnya <a href=\"/wilayah/denpasar/\">FA Denpasar</a>, <a href=\"/wilayah/malang/\">FA Malang</a>, dan <a href=\"/wilayah/surabaya/\">FA Surabaya</a>.</p>"
  "<h2>Mitra Lain dalam Satu Jaringan</h2><p>Untuk pembukuan dan penyusunan laporan keuangan tersedia KJA DHN dan KJA Farhani, untuk pajak tersedia KKP DHN. Selengkapnya di <a href=\"/mitra-kap-kja/\">Mitra KAP, KJA, dan Konsultan Pajak FA</a>.</p>"
- "<p style=\"font-size:13px;opacity:.75\">Halaman ini dikelola FA Indonesia sebagai mitra. Website resmi KAP DHN &amp; Rekan: <a href=\"https://www.kapdhn.com/\" rel=\"nofollow noopener\" target=\"_blank\">kapdhn.com</a>.</p>")
+ "<p style=\"font-size:13px;opacity:.75\">Halaman ini dikelola FA Indonesia sebagai mitra. Website resmi KAP DHN &amp; Rekan: <a href=\"https://kap.akuntan-dhnr.com/\" rel=\"nofollow noopener\" target=\"_blank\">kap.akuntan-dhnr.com</a>.</p>")
 FAQ = [
  ("Bagaimana cara menghubungi KAP DHN & Rekan?", "Anda bisa menghubungi tim FA Indonesia lewat tombol WhatsApp di halaman ini. Kami membantu memastikan jenis perikatan, menyiapkan dokumen, dan menjadwalkan audit dengan KAP DHN & Rekan."),
  ("Apakah KAP DHN terdaftar di OJK?", "Ya. KAP DHN & Rekan terdaftar di OJK untuk sektor perbankan, pasar modal, IKNB, dan syariah, sehingga bisa dipakai untuk kebutuhan yang mensyaratkan KAP terdaftar OJK."),

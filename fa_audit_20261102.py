@@ -22,7 +22,7 @@ pa_body = (
  "<h2>Audit Hemat, Bukan Audit Asal</h2>"
  "<p>Biaya audit ditentukan jam kerja tim auditor. Jam itu yang bisa kami tekan secara sah: pembukuan dirapikan, rekonsiliasi diselesaikan, dan dokumen disiapkan sebelum auditor datang. Yang tidak kami lakukan: menjanjikan opini tertentu, memangkas prosedur, atau menerbitkan laporan tanpa pemeriksaan. Laporan seperti itu berisiko ditolak bank dan notaris.</p>"
  + tbl(["Kondisi Perusahaan", "Yang Kami Kerjakan", "Dampaknya"], [
-   ("Pembukuan belum rapi atau tertinggal", "Penyusunan ulang buku besar dan laporan keuangan bersama KJA mitra", "Auditor tidak bekerja dua kali, biaya audit lebih wajar"),
+   ("Pembukuan belum rapi atau tertinggal", "Penyusunan ulang buku besar dan laporan keuangan oleh tim yang terpisah dari tim audit KAP", "Auditor tidak bekerja dua kali, biaya audit lebih wajar"),
    ("Belum pernah diaudit", "Bukti saldo awal: rekening koran, persediaan, aset tetap, ekuitas", "Audit tahun pertama tidak molor"),
    ("Laporan dari KAP lama tidak terbit", "Pemetaan penyebab, peralihan ke KAP baru, audit tahun yang benar-benar diminta", "Tidak membayar audit tahun yang tidak dibutuhkan"),
    ("Tenggat notaris atau bank dekat", "Jadwal kerja lapangan dan draf laporan disepakati tertulis di depan", "Tanggal laporan terbit lebih pasti"),

@@ -567,6 +567,12 @@ import importlib.util as _ilu2
 _pps = _ilu2.spec_from_file_location("pay_postpone", os.path.join(M, "shared", "pay_postpone.py")); _pp = _ilu2.module_from_spec(_pps); _pps.loader.exec_module(_pp)
 print("pay postpone:", _pp.run(OUT))
 
+# ---------- KAP DHN & Rekan di semua situs (2 Nov 2026): kartu di halaman audit, strip di halaman lain ----------
+_sys.path.insert(0, os.path.join(M, "shared", "dhn")); import dhn as _dhn
+print("dhn fa", _dhn.add_dhn(os.path.join(OUT, "faindonesia"), "fa", "/kap-dhn/"))
+print("dhn ca", _dhn.add_dhn(os.path.join(OUT, "cariakuntan"), "ca", _dhn.SITE_DHN))
+print("dhn us", _dhn.add_dhn(os.path.join(OUT, "updatesak"), "us", _dhn.SITE_DHN))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
