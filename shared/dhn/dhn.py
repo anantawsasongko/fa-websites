@@ -56,7 +56,7 @@ def strip(L, mark):
             f'<span><b>KAP DHN &amp; Rekan</b> <span class="s">· {t["lab"]}, {t["reg"]}</span></span>'
             f'<a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a></div><!--/dhn-->')
 
-AUDIT = re.compile(r"(audit|(^|/)kap(-|/|$)|kap-murah|opini|laporan-tahunan|nirlaba|sabh|mitra-kap|kja|standar-audit|saldo-awal|ganti-kap|wilayah/|^kota/[^/]+/(index\.html)?$|jasa-penyusunan|laporan-keuangan-umkm)")
+AUDIT = re.compile(r"(audit|(^|/)kap(-|/|$)|kap-murah|opini|laporan-tahunan|nirlaba|sabh|mitra-kap|kja|standar-audit|saldo-awal|ganti-kap|wilayah/|^kota/[^/]+/(index\.html)?$|jasa-penyusunan|laporan-keuangan-umkm|kecamatan|koperasi|sppg|dana-kampanye)")
 
 def _outside(t, pat):
     for m in re.finditer(pat, t):
