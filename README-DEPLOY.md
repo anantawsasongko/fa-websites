@@ -169,3 +169,4 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Artikel: cariakuntan/gen_pembukuan_20261103.py (harga jasa pembukuan, aplikasi vs jasa).
 - 3 Nov 2026: tombol "Segera Dibuka" (pay_postpone) kembali jadi <a> non-aktif supaya style tombol situs (radius, padding) tetap berlaku. Kotak "Jasa Pembukuan Terima Beres" di CA (seo_pembukuan PBOX) diberi kotak dan lebar konten seperti kotak screening.
 - 3 Nov 2026: Toko FA menampilkan semua aplikasi dan kalkulator gratis (FREE_APPS di fa_toko_20261101.py: Saturn, 9 Venus, 3 UpdateSAK, Screening CA, Galaxy) sebagai kartu data-free="1", harga "Gratis", tombol "Buka Aplikasi". Chip Gratis memfilter grid. Foto kartu: img/toko/app-1..10.jpg (dari shared/share-bg). Tombol .ac boleh wrap supaya "Segera Dibuka" tidak terpotong di kartu sempit.
+- 3 Nov 2026: tab Magang di nav UpdateSAK (prep.py add_magang_tab_us) → cariakuntan.com/magang/?dari=updatesak (satu halaman dengan CA).

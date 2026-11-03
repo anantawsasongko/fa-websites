@@ -406,6 +406,22 @@ def add_toko_tab(root, dari, navre):
     return n
 print("toko ca", add_toko_tab(os.path.join(OUT, "cariakuntan"), "cariakuntan", r'<nav (?:class="tabs" aria-label="Menu"|aria-label="Menu" class="tabs")>.*?</nav>'))
 print("toko us", add_toko_tab(os.path.join(OUT, "updatesak"), "updatesak", r'<nav (?:class="tabs" aria-label="Menu utama"|aria-label="Menu utama" class="tabs")>.*?</nav>'))
+# ---------- Tab Magang di UpdateSAK (3 Nov 2026): satu halaman dengan CariAkuntan /magang/ ----------
+def add_magang_tab_us(root):
+    n = 0; navre = r'<nav (?:class="tabs" aria-label="Menu utama"|aria-label="Menu utama" class="tabs")>.*?</nav>'
+    for d, _, fs in os.walk(root):
+        for f in fs:
+            if not f.endswith(".html"): continue
+            p = os.path.join(d, f); t = open(p, encoding="utf-8").read()
+            m = re.search(navre, t, re.S)
+            if not m or "cariakuntan.com/magang/" in m.group(0): continue
+            tab = '<a href="https://cariakuntan.com/magang/?dari=updatesak">Magang</a>'
+            nav = m.group(0)
+            mt = re.search(r'<a[^>]*faindonesia\.co\.id/toko/[^>]*>', nav)
+            nav = nav[:mt.start()] + tab + nav[mt.start():] if mt else nav.replace("</nav>", tab + "</nav>")
+            open(p, "w", encoding="utf-8").write(t.replace(m.group(0), nav, 1)); n += 1
+    return n
+print("magang us", add_magang_tab_us(os.path.join(OUT, "updatesak")))
 for _n in ("faindonesia", "cariakuntan", "updatesak", "faindonesia-jupiter"): print("share", _n, _po.add_share_js(os.path.join(OUT, _n), _SJ))
 
 # ---------- Gelar lengkap Ananta di semua situs (28 Okt 2026, permintaan Bos) ----------
