@@ -69,7 +69,7 @@ for pid in sorted(_tree):
   <div class="prose"><h2>Cara Kerja dan Paket</h2><ol><li>Pengurus upload nota gerai, bukti simpanan dan pinjaman anggota, mutasi rekening, dan perjanjian pinjaman bank ke folder Drive.</li><li>Tim KJA Farhani menyusun pembukuan dan laporan per unit usaha.</li><li>Laporan bulanan dan laporan tahunan untuk RAT dikirim ke pengurus.</li><li>Bila diminta, audit atau AUP dilaksanakan KAP DHN &amp; Rekan, pihak yang berbeda dari penyusun.</li></ol></div>
   {PAKET}
   <div class="prose"><h2>Tanya Jawab</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in faq)}<p>Bacaan: <a href="{ART}">Laporan Keuangan KDMP Pakai SAK Apa?</a> · <a href="{FAU}/audit-koperasi-desa-merah-putih/">Laporan Keuangan dan Audit KDMP</a> · <a href="https://updatesak.com/artikel/sak-untuk-kdkmp-koperasi-desa-merah-putih-permenkop-2-2024/">Ringkasan SAK untuk KDKMP</a></p></div>
-  <div class="more"><h3>Kecamatan Lain di {kab}</h3><div class="citylist">{sib}</div></div>
+  <style>.fold{{margin-top:30px;border-top:1px solid var(--line,#333);padding-top:14px}}.fold summary{{cursor:pointer;list-style:none;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px}}.fold summary::-webkit-details-marker{{display:none}}.fold summary::after{{content:"+";font-size:1.3em;line-height:1;opacity:.7}}.fold[open] summary::after{{content:"\2212"}}.fold .citylist,.fold p{{margin-top:12px}}</style><details class="fold"><summary>Kecamatan lain di {kab} ({len(rows)-1})</summary><div class="citylist">{sib}</div></details>
   <p style="font-size:.78rem;color:var(--muted);margin-top:18px">Data wilayah: kode Kemendagri {did}, diolah dari Wilayah Administratif Indonesia (ODbL).</p>
 </main>
 ''' + footer(ID)

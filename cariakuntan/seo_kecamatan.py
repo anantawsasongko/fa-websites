@@ -62,8 +62,7 @@ for cname, rows in KEC.items():
   <h2>Langkah Memilih Kantor yang Tepat</h2><ol><li>Tentukan siapa pembaca laporannya: bank, notaris, investor, atau kantor pajak.</li><li>Cek izin KAP atau konsultan di registri resmi.</li><li>Minta penawaran tertulis yang mencantumkan jadwal kunjungan ke {k} dan biaya perjalanan.</li></ol></div>
   {desa_html}
   <div class="prose"><h2>Tanya Jawab: KAP dan Akuntan di {k}</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in faq)}</div>
-  <div class="more"><h3>Kecamatan Lain di {kab}</h3><div class="citylist"><a href="{hub}">Semua Kecamatan {cname}</a> {sib_html}</div></div>
-  {fa_box(cname)}
+  <style>.fold{{margin-top:30px;border-top:1px solid var(--line,#333);padding-top:14px}}.fold summary{{cursor:pointer;list-style:none;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px}}.fold summary::-webkit-details-marker{{display:none}}.fold summary::after{{content:"+";font-size:1.3em;line-height:1;opacity:.7}}.fold[open] summary::after{{content:"\2212"}}.fold .citylist,.fold p{{margin-top:12px}}</style><details class="fold"><summary>Kecamatan lain di {kab} ({len(sibs)})</summary><div class="citylist"><a href="{hub}">Semua Kecamatan {cname}</a> {sib_html}</div></details>
   <p style="font-size:.78rem;color:var(--muted);margin-top:18px">Data wilayah: kode wilayah Kemendagri ({r["kode"]}), diolah dari Wilayah Administratif Indonesia (ODbL).</p>
 </main>
 ''' + footer(ID)
@@ -87,7 +86,7 @@ for cname, rows in KEC.items():
         _t = open(_cp, encoding="utf-8").read()
         if "kec-hub" not in _t:
             _top = " ".join(f'<a href="{hub}{x["slug"]}/">{x["kec"]}</a>' for x in rows[:30])
-            _b = f'<div class="more kec-hub"><h3>Cari KAP per Kecamatan di {cname}</h3><div class="citylist"><a href="{hub}">Semua {len(rows)} Kecamatan</a> {_top}</div></div>'
+            _b = f'FOLDCSS<details class="fold kec-hub"><summary>Cari KAP per kecamatan di {cname} ({len(rows)})</summary><div class="citylist"><a href="{hub}">Semua {len(rows)} Kecamatan</a> {_top}</div></details>'.replace("FOLDCSS", '<style>.fold{margin-top:30px;border-top:1px solid var(--line,#333);padding-top:14px}.fold summary{cursor:pointer;list-style:none;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px}.fold summary::-webkit-details-marker{display:none}.fold summary::after{content:"+";font-size:1.3em;line-height:1;opacity:.7}.fold[open] summary::after{content:"\\2212"}.fold .citylist,.fold p{margin-top:12px}</style>')
             _i = _t.rfind("</main>"); _t = _t[:_i] + _b + _t[_i:]
             open(_cp, "w", encoding="utf-8").write(_t)
 print("kecamatan pages:", KEC_COUNT)

@@ -609,6 +609,10 @@ print("tidy polish:", _tpm.run(OUT))
 import us_green as _ug
 print("us hijau", _ug.run(os.path.join(OUT, "updatesak")))
 
+# ---------- Lipat daftar link panjang (3 Nov 2026) ----------
+import fold as _fold
+print("fold ca", _fold.run(os.path.join(OUT, "cariakuntan"), "ca"), "fold fa", _fold.run(os.path.join(OUT, "faindonesia"), "fa"), "fold us", _fold.run(os.path.join(OUT, "updatesak"), "ca") + _fold.run(os.path.join(OUT, "updatesak"), "fa") + _fold.run(os.path.join(OUT, "updatesak"), "us"))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
