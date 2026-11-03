@@ -127,7 +127,8 @@ print("paywall fa", add_pay(fa, [("audit-ready/index.html", {"app": "audit-ready
     ("saturn/index.html", {"app": "saturn", "name": "FA Saturn · Audit Workspace", "price": 99000}),
     ("cek-psak-118/index.html", {"app": "cek-psak-118", "name": "FA Venus · Konversi PL PSAK 118", "price": 25000})]
     + [(r, _kk) for r in ("index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html")]
-    + [("bankability-index/index.html", {"app": "venus-bankability", "name": "FA Venus · Bankability Index", "price": 25000, "guard": "#bi_go"})]))
+    + [("bankability-index/index.html", {"app": "venus-bankability", "name": "FA Venus · Bankability Index", "price": 25000, "guard": "#bi_go"})]
+    + [("cek-kesiapan-pendanaan/index.html", dict(_kk, guard="#fp_go"))]))
 # ---------- Asisten AI (2 Nov 2026): tombol hanya tampil bila /api/ai/status enabled (API key + KV FA_AI di Cloudflare) ----------
 AI_JS = open(os.path.join(M, "shared", "fa-ai.src.js"), encoding="utf-8").read().replace("__GS__", PAY_GS).replace("__QR__", open(os.path.join(M, "shared", "fa-paywall-qr.txt")).read().strip())
 def add_ai(site_root):
@@ -214,6 +215,7 @@ def add_secure(site_root, pages, cfg):
 add_secure(fa, ["index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html"],
     "{brand:'fa',mode:'send',at:[{sel:'#kk',pos:'beforebegin'}]}")
 add_secure(fa, ["bankability-index/index.html"], "{brand:'fa',mode:'send',at:[{sel:'#bi',pos:'beforebegin'}]}")
+add_secure(fa, ["cek-kesiapan-pendanaan/index.html"], "{brand:'fa',mode:'send',at:[{sel:'.fp-trk',pos:'beforebegin'}]}")
 add_secure(fa, ["cek-psak-118/index.html"], "{brand:'fa',mode:'local',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
 add_secure(fa, ["audit-ready/index.html"], "{brand:'fa',mode:'drive',at:[{sel:'header.bar',pos:'afterend',cls:'bar'}]}")
 add_secure(fa, ["saturn/index.html"], "{brand:'fa',mode:'drive',at:[{sel:'header.top',pos:'afterend',cls:'bar'}]}")
