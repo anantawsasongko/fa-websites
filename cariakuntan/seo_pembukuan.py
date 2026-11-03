@@ -90,10 +90,10 @@ pb_page(PB + "malang/", "Jasa Pembukuan Malang", "Jasa Pembukuan dan Laporan Keu
   "Selamat siang Pak Ananta, saya di Malang dan tertarik jasa pembukuan terima beres. Jenis usaha saya: ", extra_top=MLG, faq=FAQ_M, area="Malang")
 
 # kotak tautan ke halaman andalan
-PBOX = ('<!--pb-box--><div class="pb-box" style="box-sizing:border-box;width:min(1008px,calc(100% - 32px));margin:30px auto 8px;padding:20px 22px;border:1px solid var(--line);background:var(--panel);border-radius:10px">'
+PBOX = ('<!--pb-box--><div class="pb-box" style="box-sizing:border-box;width:min(1008px,calc(100% - 32px));margin:30px auto 8px;padding:20px 22px;border:1px solid var(--line);background:var(--panel);border-radius:10px;text-align:center">'
         '<p style="margin:0 0 6px;font-weight:600">Jasa Pembukuan Terima Beres</p>'
         '<p style="margin:0 0 12px">Upload bon ke Google Drive, akuntan kami yang menyusun laporan keuangan tiap bulan. UMKM mulai Rp900 ribu, PT dan CV mulai Rp2 juta per bulan.</p>'
-        f'<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn btn-wa arrow" href="{PB}">Lihat Paket Jasa Pembukuan</a><a class="btn btn-line" href="{PDF}" target="_blank" rel="noopener">Contoh Laporan (PDF)</a></div></div><!--/pb-box-->')
+        f'<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px"><a class="btn btn-wa arrow" href="{PB}">Lihat Paket Jasa Pembukuan</a><a class="btn btn-line" href="{PDF}" target="_blank" rel="noopener">Contoh Laporan (PDF)</a></div></div><!--/pb-box-->')
 _n = 0
 for _d, _, _fs in os.walk(SITE):
     if "index.html" not in _fs: continue
