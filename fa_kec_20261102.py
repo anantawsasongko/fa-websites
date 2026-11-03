@@ -59,7 +59,11 @@ b2 = ("<h2>Kenapa Laporan Keuangan KDMP Penting Sejak Awal</h2>"
    ("Perhitungan hasil usaha", "Sisa hasil usaha (SHU) per unit usaha: gerai sembako, simpan pinjam, apotek desa, klinik, gudang, logistik"),
    ("Laporan arus kas", "Kemampuan membayar angsuran pembiayaan"),
    ("Catatan atas laporan keuangan", "Kebijakan akuntansi, rincian pinjaman, dan transaksi dengan pihak berelasi")])
- + "<p>Standar yang dipakai umumnya SAK EP atau SAK EMKM sesuai skala koperasi.</p>"
+ + "<h2>KDMP Pakai SAK yang Mana?</h2><p>Permenkop UKM 2/2024 tentang Kebijakan Akuntansi Koperasi (berlaku 16 Januari 2024, mencabut Permenkop 12, 13, dan 14 Tahun 2015) menentukan SAK dari kegiatan usaha. Pengingat yang sama disampaikan Ikatan Akuntan Indonesia pada 3 November 2026.</p>"
+ + tbl(["Kegiatan Usaha", "SAK yang Dapat Dipakai"], [
+   ("Simpan pinjam anggota", "SAK Indonesia atau SAK EP"),
+   ("Sektor riil: gerai, jasa, logistik, pengolahan", "Standar instansi pembina bila ada; bila belum: SAK Indonesia, SAK EP, atau SAK EMKM")])
+ + "<p>Satu koperasi menyusun satu set laporan dengan satu kerangka SAK. KDMP yang punya unit simpan pinjam praktis memakai SAK EP: pinjaman anggota dan pinjaman bank dengan metode bunga efektif, cadangan kerugian pinjaman berdasarkan bukti tunggakan, dan nilai wajar untuk pos tertentu. Kami bantu menetapkan kebijakan akuntansinya sejak tutup buku pertama. Ringkasan teknis: <a href=\"https://updatesak.com/artikel/sak-untuk-kdkmp-koperasi-desa-merah-putih-permenkop-2-2024/\">SAK untuk KDKMP di UpdateSAK</a>.</p>"
  "<h2>Kapan KDMP Perlu Audit</h2><ul>"
  "<li>Diminta bank atau lembaga pembiayaan sebagai syarat pencairan atau evaluasi pinjaman.</li>"
  "<li>Diputuskan rapat anggota untuk memperkuat kepercayaan anggota.</li>"
@@ -74,7 +78,7 @@ b2 = ("<h2>Kenapa Laporan Keuangan KDMP Penting Sejak Awal</h2>"
  + "<p>Bacaan terkait: <a href=\"https://cariakuntan.com/artikel/laporan-keuangan-koperasi-desa-merah-putih/\">Laporan Keuangan Koperasi Desa Merah Putih</a> dan <a href=\"https://cariakuntan.com/artikel/cicilan-pertama-kopdes-merah-putih-september-2026/\">Cicilan Pertama Kopdes Merah Putih</a>.</p>"
  + team("koperasi"))
 F2 = [("Apakah Koperasi Desa Merah Putih wajib diaudit akuntan publik?", "Tidak semua. Audit diperlukan bila diminta bank atau lembaga pembiayaan, diputuskan rapat anggota, diminta pemeriksa program, atau koperasi menjalankan simpan pinjam dengan skala tertentu. Yang wajib bagi semua KDMP adalah laporan keuangan untuk RAT."),
-      ("Standar akuntansi apa yang dipakai KDMP?", "Umumnya SAK EP atau SAK EMKM sesuai skala usaha koperasi, dengan laporan posisi keuangan, perhitungan hasil usaha, arus kas, dan catatan."),
+      ("Standar akuntansi apa yang dipakai KDMP?", "Menurut Permenkop UKM 2/2024, ditentukan kegiatan usahanya. Bila ada unit simpan pinjam, SAK Indonesia atau SAK EP; bila murni sektor riil dan belum ada standar instansi pembina, boleh SAK Indonesia, SAK EP, atau SAK EMKM. Dalam praktik KDMP yang menjalankan simpan pinjam umumnya memakai SAK EP."),
       ("Apakah melayani KDMP di desa terpencil?", "Ya. Pembukuan dan penyusunan laporan bisa dikerjakan daring dari foto bukti dan mutasi rekening; kunjungan dijadwalkan bila diperlukan audit.")]
 SVC.append((P2, "Layanan · Koperasi", "Laporan Keuangan dan Audit Koperasi Desa Merah Putih (KDMP)",
   "Pembukuan, laporan keuangan untuk RAT, dan audit atau AUP bagi Koperasi Desa/Kelurahan Merah Putih di seluruh Indonesia. Dikerjakan daring, siap untuk anggota, bank, dan pemeriksa.",
