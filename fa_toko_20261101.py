@@ -68,7 +68,7 @@ CSS = """<style id="tk-css">
 .tk .pr{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
 .tk .pr b{font-size:20px}.tk .pr small{color:#8f8f8f;font-size:12.5px}
 .tk .ac{display:flex;gap:8px;margin-top:10px}
-.tk .ac a{flex:1;text-align:center;border-radius:10px;padding:10px 8px;font-size:14px;text-decoration:none;white-space:nowrap}
+.tk .ac{flex-wrap:wrap}.tk .ac a{flex:1 1 auto;text-align:center;border-radius:10px;padding:10px 8px;font-size:14px;text-decoration:none;white-space:nowrap}
 .tk .ac .b{background:#fff;color:#111;font-weight:600}
 .tk .ac .s{border:1px solid #444;color:#e5e5e5}
 .tk .pk{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid #6b2b2b;background:linear-gradient(120deg,#2a1212,#1a1a1a 60%);border-radius:18px;overflow:hidden}
@@ -97,6 +97,11 @@ CSS = """<style id="tk-css">
 @media (max-width:360px){.tk .grid{grid-template-columns:1fr}}
 </style>"""
 
+def planet(pid, c1, c2):
+    return ('<svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient cx=".35" cy=".3" id="tkP' + pid + '"><stop offset="0" stop-color="' + c1 + '"/><stop offset="1" stop-color="' + c2 + '"/></radialGradient><clipPath id="tkQ' + pid + '"><circle cx="50" cy="50" r="40"/></clipPath></defs>'
+            '<circle cx="50" cy="50" r="40" fill="url(#tkP' + pid + ')"/><g clip-path="url(#tkQ' + pid + ')" fill="#fff" fill-opacity=".22"><rect x="-70" y="34" width="180" height="6" rx="3"/><rect x="-60" y="48" width="180" height="9" rx="4"/><rect x="-80" y="64" width="180" height="5" rx="2"/></g>'
+            '<ellipse cx="63" cy="59" rx="8" ry="4.5" fill="#fff" fill-opacity=".4"/><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-opacity=".5"/></svg>')
+FA_MARK = ('<svg class="fa" viewBox="0 0 40 54" role="img" aria-label="Logo FA Indonesia"><rect x="1.5" y="1.5" width="37" height="51" fill="none" stroke="#fff" stroke-width="2.4"/><text x="11" y="21" fill="#fff" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">F</text><path d="M22 44 L27.5 31 L33 44" fill="none" stroke="#fff" stroke-width="2.2"/></svg>')
 APP_SVG = ('<svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient cx=".35" cy=".3" id="tkJ"><stop offset="0" stop-color="#f5e6e6"/><stop offset="1" stop-color="#7f1d1d"/></radialGradient><clipPath id="tkC"><circle cx="50" cy="50" r="40"/></clipPath></defs>'
            '<circle cx="50" cy="50" r="40" fill="url(#tkJ)"/><g clip-path="url(#tkC)" fill="#fff" fill-opacity=".22"><rect x="-70" y="34" width="180" height="6" rx="3"/><rect x="-60" y="48" width="180" height="9" rx="4"/><rect x="-80" y="64" width="180" height="5" rx="2"/></g>'
            '<ellipse cx="63" cy="59" rx="8" ry="4.5" fill="#fff" fill-opacity=".4"/><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-opacity=".5"/></svg>')
@@ -127,13 +132,40 @@ for pid, title, desc, price, note in [
            f'<span class="lg"><svg class="fa" viewBox="0 0 40 54" role="img" aria-label="Logo FA Indonesia"><rect x="1.5" y="1.5" width="37" height="51" fill="none" stroke="#fff" stroke-width="2.4"/><text x="11" y="21" fill="#fff" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">F</text><path d="M22 44 L27.5 31 L33 44" fill="none" stroke="#fff" stroke-width="2.2"/></svg><i></i>{APP_SVG}<span>FA Jupiter<small>Audit Ready</small></span></span></a>')
     items.append(card(pid, "app", "Aplikasi", title, desc, price, note, cov, "/audit-ready/", "Detail", "ca us" if pid == "ar-day" else "ca"))
 
-n_eb, n_app = len(BOOKS), 2
+# Aplikasi dan kalkulator gratis (3 Nov 2026): semua FA Apps, UpdateSAK, dan CariAkuntan tampil di Toko.
+FREE_APPS = [
+ # pid, nama, kicker, tag, deskripsi, href, foto, warna planet (terang, gelap), untuk siapa
+ ("saturn", "FA Saturn", "Audit Workspace", "Aplikasi · Audit KAP", "Ruang kerja audit untuk KAP: template tugas, kertas kerja, materialitas, dan sign-off berjenjang.", "/saturn/", 6, ("#fde9c9", "#92400e"), "ca"),
+ ("venus-pph21", "FA Venus", "PPh 21 TER", "Kalkulator · Pajak", "TER bulanan kategori A, B, C, masa Desember Pasal 17, BPJS, gross-up, dan take home pay.", "/kalkulator-pph-21/", 3, ("#f3e8ff", "#5b21b6"), "ca us"),
+ ("venus-pphbadan", "FA Venus", "PPh Badan", "Kalkulator · Pajak", "Tarif umum 22%, fasilitas Pasal 31E, PPh final 0,5% PP 55, dan angsuran PPh 25.", "/kalkulator-pph-badan/", 10, ("#f3e8ff", "#5b21b6"), "ca us"),
+ ("venus-potput", "FA Venus", "Potput dan PPN", "Kalkulator · Pajak", "PPh 23, 4 ayat (2), 26, 22 impor, jasa konstruksi, dan PPN 12% DPP 11/12 dalam satu invoice.", "/kalkulator-potput-ppn/", 7, ("#f3e8ff", "#5b21b6"), "ca us"),
+ ("venus-susut", "FA Venus", "Penyusutan Fiskal", "Kalkulator · Pajak", "Jadwal susut fiskal vs komersial, koreksi fiskal, dan pajak tangguhan PSAK 212.", "/kalkulator-penyusutan-fiskal/", 1, ("#f3e8ff", "#5b21b6"), "ca us"),
+ ("venus-psak118", "FA Venus", "PSAK 118", "Kalkulator · Laporan Keuangan", "Ubah laba rugi format PSAK 201 ke PSAK 118: kategori, subtotal wajib, dan rekonsiliasi MPM.", "/cek-psak-118/", 5, ("#f3e8ff", "#5b21b6"), "ca us"),
+ ("venus-kredit", "FA Venus", "Cek Kredit", "Kalkulator · Pendanaan", "DSCR, plafon kredit per bunga dan tenor, serta cek cepat syarat IPO.", "/cek-kapasitas-kredit/", 2, ("#f3e8ff", "#5b21b6"), "ca"),
+ ("venus-cicilan", "FA Venus", "Cicilan Kredit", "Kalkulator · Pendanaan", "Anuitas, efektif, flat, provisi dan admin, bunga efektif sesungguhnya, dan plafon maksimal dari DSCR.", "/kalkulator-cicilan-pinjaman/", 8, ("#f3e8ff", "#5b21b6"), "ca"),
+ ("venus-dcf", "FA Venus", "Valuasi DCF", "Kalkulator · Pendanaan", "WACC CAPM, proyeksi FCFF 5 tahun, nilai terminal, nilai ekuitas, dan tabel sensitivitas.", "/kalkulator-valuasi-dcf/", 9, ("#f3e8ff", "#5b21b6"), "ca"),
+ ("venus-rasio", "FA Venus", "Rasio Keuangan", "Kalkulator · Analisis", "Likuiditas, DER, DSCR, margin, ROE, cash conversion cycle, dan Altman Z'' dengan indikator warna.", "/kalkulator-rasio-keuangan/", 4, ("#f3e8ff", "#5b21b6"), "ca us"),
+ ("us-psak", "UpdateSAK", "Kalkulator PSAK", "Aplikasi · Standar Akuntansi", "Tentukan kerangka SAK yang tepat, daftar PSAK per akun, dan kewajiban audit untuk entitas Anda.", "https://updatesak.com/#kalkulator-psak", 2, ("#d1fae5", "#065f46"), "us"),
+ ("us-lk", "UpdateSAK", "Laporan Keuangan", "Aplikasi · Laporan Keuangan", "Susun neraca, laba rugi, arus kas, dan perubahan ekuitas dari saldo akun, format sesuai SAK.", "https://updatesak.com/#laporan-keuangan", 5, ("#d1fae5", "#065f46"), "us"),
+ ("us-calk", "UpdateSAK", "Penyusun CALK", "Aplikasi · Laporan Keuangan", "Catatan atas laporan keuangan format auditor: kebijakan akuntansi, rincian akun, dan pengungkapan wajib.", "https://updatesak.com/#calk", 3, ("#d1fae5", "#065f46"), "us"),
+ ("ca-screening", "CariAkuntan", "Screening Instan", "Aplikasi · Kelayakan", "Isi angka ringkas 3 tahun, lihat langsung rasio kredit bank dan jalur IPO BEI sebelum memilih KAP.", "https://cariakuntan.com/screening/", 1, ("#dbeafe", "#1e3a8a"), "ca"),
+ ("galaxy", "FA Galaxy", "Panduan Apps", "Panduan", "Panduan pemakaian semua FA Apps, metodologi perhitungan, dan artikel pendukung.", "/galaxy/", 6, ("#e5e7eb", "#1f2937"), "ca us"),
+]
+for pid, nm, kick, tag, desc, href, ph, (c1, c2), forr in FREE_APPS:
+    ext = href.startswith("http")
+    cov = (f'<a class="cv app" href="{href}"{" target=_blank rel=noopener" if ext else ""} aria-label="Buka {E(nm)} {E(kick)}" style="background-image:url(/img/toko/app-{ph}.jpg)">'
+           f'<span class="lg">{FA_MARK}<i></i>{planet(pid, c1, c2)}<span>{E(nm)}<small>{E(kick)}</small></span></span></a>')
+    items.append(f'<article class="it" data-cat="app" data-free="1" data-for="{forr}" id="p-{pid}">{cov}<div class="in"><span class="tg">{E(tag)}</span>'
+                 f'<h3>{E(nm)}: {E(kick)}</h3><p>{E(desc)}</p><div class="pr"><b>Gratis</b><small>langsung pakai, tanpa kartu</small></div>'
+                 f'<div class="ac"><a class="b" href="{href}"{" target=_blank rel=noopener" if ext else ""}>Buka Aplikasi</a></div></div></article>')
+
+n_eb, n_app = len(BOOKS), 2 + len(FREE_APPS)
 chips = (f'<div class="chips" role="toolbar" aria-label="Kategori produk">'
          f'<button type="button" data-f="all" aria-pressed="true">Semua<small>{n_eb + n_app + 1}</small></button>'
          f'<button type="button" data-f="ebook" aria-pressed="false">E-Book<small>{n_eb}</small></button>'
          f'<button type="button" data-f="app" aria-pressed="false">Aplikasi<small>{n_app}</small></button>'
          f'<button type="button" data-f="paket" aria-pressed="false">Paket Hemat<small>1</small></button>'
-         f'<button type="button" data-f="free" aria-pressed="false">Gratis</button></div>')
+         f'<button type="button" data-f="free" aria-pressed="false">Gratis<small>{len(FREE_APPS)}</small></button></div>')
 
 FAQ = [
  ("Kapan pembelian dibuka?", "Pembelian online dibuka begitu aktivasi payment gateway Midtrans selesai. Sementara itu, sampel e-book dan aplikasi gratis tetap bisa dipakai."),
@@ -152,7 +184,7 @@ inner = f"""{CSS}
 <div class="tkh"><div>
 <p class="eyebrow">Toko FA Indonesia</p>
 <h1>E-Book dan Aplikasi Akuntansi FA Indonesia</h1>
-<p class="lede">Semua produk FA Indonesia dalam satu tempat: e-book Penerbit FA, paket hemat, dan aplikasi FA Jupiter untuk menyiapkan laporan keuangan audit ready. Pembelian online segera dibuka.</p>
+<p class="lede">Semua produk FA Indonesia dalam satu tempat: e-book Penerbit FA, paket hemat, aplikasi FA Jupiter, serta belasan kalkulator dan aplikasi gratis dari FA Venus, UpdateSAK, dan CariAkuntan.</p>
 
 <div class="pay" aria-label="Metode pembayaran"><span><b>GoPay</b></span><span><b>Virtual Account</b> semua bank</span><span>via <b>Midtrans</b></span></div>
 </div>
@@ -186,10 +218,9 @@ inner = f"""{CSS}
 (function(){{
 var g=document.getElementById('tk-grid'),fr=document.getElementById('tk-free'),bs=document.querySelectorAll('.tk .chips button'),rec=document.getElementById('tk-rec');
 function set(f){{bs.forEach(function(b){{b.setAttribute('aria-pressed',b.dataset.f===f?'true':'false')}});
- if(f==='free'){{g.style.display='none';fr.scrollIntoView({{behavior:'smooth',block:'start'}});return}}
- g.style.display='';g.querySelectorAll('.it').forEach(function(it){{it.hidden=!(f==='all'||it.dataset.cat===f)}});}}
+ g.querySelectorAll('.it').forEach(function(it){{it.hidden=!(f==='all'||(f==='free'?it.dataset.free==='1':it.dataset.cat===f))}});}}
 bs.forEach(function(b){{b.addEventListener('click',function(){{set(b.dataset.f);try{{history.replaceState(null,'',b.dataset.f==='all'?location.pathname+location.search:'#'+b.dataset.f)}}catch(e){{}}}})}});
-var h=(location.hash||'').slice(1);if(['ebook','app','paket'].indexOf(h)>=0)set(h);
+var h=(location.hash||'').slice(1);if(['ebook','app','paket','free'].indexOf(h)>=0)set(h);
 var d=(new URLSearchParams(location.search).get('dari')||'').toLowerCase(),k=d.indexOf('cari')===0?'ca':d.indexOf('update')===0?'us':'';
 if(k){{rec.textContent=k==='ca'?'Dari CariAkuntan: produk bertanda Rekomendasi membantu perusahaan menyiapkan laporan keuangan dan dokumen sebelum diaudit KAP.':'Dari UpdateSAK: produk bertanda Rekomendasi melengkapi materi PSAK untuk praktik audit dan penyusunan laporan keuangan.';rec.classList.add('on');
  var first=g.querySelector('.it:not(.pk)');g.querySelectorAll('.it:not(.pk)').forEach(function(it){{if((' '+it.dataset.for+' ').indexOf(' '+k+' ')>=0){{it.classList.add('pick');g.insertBefore(it,first)}}}});}}
