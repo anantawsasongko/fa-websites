@@ -14,7 +14,7 @@ CSS = ('<style id="fa-wajah-css">.wj{display:grid;grid-template-columns:repeat(3
 CARDS = [
  ("/ananta-w-sasongko/", "/img/ananta-w-sasongko-cpa.jpg", "FA Indonesia", "Ananta W. Sasongko, CPA", "Koordinator, kredit, investor, dan pendampingan audit"),
  ("/kja-farhani/", "/img/farhani-k-nugraha-fa-indonesia.jpg", "KJA Farhani", "Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA", "Pembukuan dan penyusunan laporan keuangan"),
- ("/kap-dhn/", "/img/dwi-haryadi-nugraha-kap-dhn.jpg", "KAP DHN &amp; Rekan", "Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI", "Pemimpin Rekan, audit laporan keuangan"),
+ ("/kap-dhn/", "/img/dwi-haryadi-nugraha-kap-dhn.jpg", "KAP DHN &amp; Rekan", "Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI", "Pemimpin Rekan, audit laporan keuangan"),
 ]
 def block(title="Tim yang Menangani"):
     cards = "".join(f'<a href="{h}"><img src="{im}" alt="{n}" width="700" height="1050" loading="lazy" decoding="async"><div><small>{r}</small><b>{n}</b><span>{d}</span></div></a>' for h, im, r, n, d in CARDS)
@@ -45,7 +45,7 @@ for x in CORE:
 # profil Dwi di /kap-dhn/
 p = os.path.join(B, "kap-dhn", "index.html"); t = open(p, encoding="utf-8").read()
 t = re.sub(r"<!--fa-dwi-->.*?<!--/fa-dwi-->", "", t, flags=re.S)
-dwi = ('<!--fa-dwi--><h2>Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI</h2>'
+dwi = ('<!--fa-dwi--><h2>Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI</h2>'
        '<p>Pemimpin Rekan KAP DHN &amp; Rekan, akuntan publik dengan nomor register AP.1723. Memimpin perikatan audit laporan keuangan, audit BPR dan lembaga keuangan, serta prosedur yang disepakati untuk perusahaan di Bali, Kalimantan Timur, dan seluruh Indonesia.</p><!--/fa-dwi-->')
 k = t.find("<!--fa-wajah-->"); k = k if k > 0 else t.find("<h2>Pertanyaan Umum</h2>")
 open(p, "w", encoding="utf-8").write(t[:k] + dwi + t[k:])
