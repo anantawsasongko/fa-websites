@@ -6,7 +6,7 @@
 Halaman /bayar/ asli (Snap + invoice) disimpan di backup/pembayaran-20261101/ untuk dipulihkan saat Midtrans aktif:
 cukup kembalikan file itu dan hapus pemanggilan modul ini di prep.py."""
 import os, re
-CSS = ('<style id="pay-soon-css">.pay-soon{opacity:.55;cursor:not-allowed;pointer-events:none}'
+CSS = ('<style id="pay-soon-css">.pay-soon{opacity:.6;cursor:not-allowed;pointer-events:none;white-space:nowrap}'
        '.pay-soon-note{font-size:.85rem;opacity:.7;margin-top:6px}</style>')
 BUY = re.compile(r'<a\b([^>]*?)href="(?:https://faindonesia\.co\.id)?/bayar/\?[^"]*"([^>]*)>(.*?)</a>', re.S)
 FOOT = re.compile(r'(\s*·\s*)?<a\b[^>]*href="(?:https://faindonesia\.co\.id)?/bayar/"[^>]*>\s*Pembayaran\s*</a>')
@@ -18,10 +18,10 @@ def _buy(m):
     attrs = m.group(1) + m.group(2); inner = m.group(3)
     txt = re.sub(r"<[^>]+>", "", inner).strip()
     lab = "Segera Dibuka" if re.match(r"^(Beli|Bayar)\b", txt) else inner
-    return f'<span class="{_cls(attrs)} pay-soon" aria-disabled="true" title="Pembayaran online segera dibuka">{lab}</span>'
+    return f'<a class="{_cls(attrs)} pay-soon" role="link" aria-disabled="true" tabindex="-1" title="Pembayaran online segera dibuka">{lab}</a>'
 def _other(m):
     attrs = m.group(1) + m.group(2)
-    return f'<span class="{_cls(attrs)} pay-soon" aria-disabled="true">{m.group(3)}</span>'
+    return f'<a class="{_cls(attrs)} pay-soon" role="link" aria-disabled="true" tabindex="-1">{m.group(3)}</a>'
 def run(OUT):
     n = 0
     for site in os.listdir(OUT):

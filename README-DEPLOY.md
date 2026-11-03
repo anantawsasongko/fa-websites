@@ -167,3 +167,4 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Contoh laporan PDF fiktif: cariakuntan/contoh_laporan_pdf.py → cariakuntan/site/files/contoh-laporan-keuangan-bulanan-jasa-pembukuan.pdf.
 - Kotak tautan ke halaman andalan: semua halaman jasa laporan keuangan, kecamatan, layanan, beranda CA; FA (fa_pembukuan_20261103.py).
 - Artikel: cariakuntan/gen_pembukuan_20261103.py (harga jasa pembukuan, aplikasi vs jasa).
+- 3 Nov 2026: tombol "Segera Dibuka" (pay_postpone) kembali jadi <a> non-aktif supaya style tombol situs (radius, padding) tetap berlaku. Kotak "Jasa Pembukuan Terima Beres" di CA (seo_pembukuan PBOX) diberi kotak dan lebar konten seperti kotak screening.
