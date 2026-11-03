@@ -238,7 +238,7 @@ def footer(T, cur="id"):
   <div class="wrap">
     <span>ananta@faindonesia.co.id<button class="copy" type="button" data-copy="ananta@faindonesia.co.id">{T["copy"]}</button></span>
     {lang_links(cur, True)}
-    <span>© 2026 cariakuntan.com · {T["managed"]} <a href="https://faindonesia.co.id/">FA Indonesia</a> (CV FA Indonesia, NIB 0208001900096) · <a href="/kota/">Wilayah</a> · <a href="/layanan/kap/">KAP</a> · <a href="/layanan/kjpp/">KJPP</a> · <a href="/layanan/konsultan-pajak/">Konsultan Pajak</a> · <a href="/layanan/jasa-laporan-keuangan/">Jasa Laporan Keuangan</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">{T["privacy"]}</a></span>
+    <span>© 2026 cariakuntan.com · {T["managed"]} <a href="https://faindonesia.co.id/">FA Indonesia</a> (CV FA Indonesia, NIB 0208001900096) · <a href="/kota/">Wilayah</a> · <a href="/layanan/kap/">KAP</a> · <a href="/layanan/kjpp/">KJPP</a> · <a href="/layanan/konsultan-pajak/">Konsultan Pajak</a> · <a href="/layanan/jasa-laporan-keuangan/">Jasa Laporan Keuangan</a> · <a href="/jasa-pembukuan/">Jasa Pembukuan</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">{T["privacy"]}</a></span>
   </div>
 </footer>
 <div class="bar"><a class="btn btn-wa" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
@@ -533,6 +533,7 @@ exec(open(os.path.join(ROOT, "seo_city.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_kawasan.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_murah.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_kecamatan.py"), encoding="utf-8").read())
+exec(open(os.path.join(ROOT, "seo_pembukuan.py"), encoding="utf-8").read())
 
 blocks = ""
 for r,(rname, rline) in REGIONS.items():
