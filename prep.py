@@ -609,6 +609,8 @@ print("tidy polish:", _tpm.run(OUT))
 # ---------- Tata letak halaman konten FA (3 Nov 2026 malam): jarak judul, akordeon FAQ ----------
 import art_layout as _al
 print("art layout fa", _al.run(os.path.join(OUT, "faindonesia")))
+import polish_global as _pg
+print("polish global", _pg.run([os.path.join(OUT, s) for s in ("faindonesia", "cariakuntan", "updatesak")]))
 
 # ---------- UpdateSAK hijau putih sesuai logo (3 Nov 2026) ----------
 import us_green as _ug
