@@ -601,6 +601,10 @@ _sys.path.insert(0, os.path.join(M, "shared")); import kja_redirect as _kr
 print("kja redirect rules", _kr.build(os.path.join(OUT, "kja-farhani")))
 print("kja relink", _kr.relink([os.path.join(OUT, x) for x in ("faindonesia", "cariakuntan", "updatesak", "faindonesia-jupiter", "faindonesia-saturn", "faindonesia-venus")]))
 
+# ---------- Poles kerapian 3 situs (3 Nov 2026): peta isi, lipat teks per bagian, paragraf panjang, huruf min 12px ----------
+_tpo = _ilu.spec_from_file_location("tidy_polish", os.path.join(M, "shared", "tidy_polish.py")); _tpm = _ilu.module_from_spec(_tpo); _tpo.loader.exec_module(_tpm)
+print("tidy polish:", _tpm.run(OUT))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)

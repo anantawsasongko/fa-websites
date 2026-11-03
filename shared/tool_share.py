@@ -25,7 +25,7 @@ def ph(name, lab, url=None):
     u = f' data-url="{url}"' if url else ""
     return f'<div class="share" data-tool="{name}" data-lab="{lab}"{u}></div>'
 def block(name, url=None):
-    return ('<section class="tshare"><h3>Bermanfaat? Ajak rekan mencoba</h3>'
+    return ('<section class="tshare"><h3>Bermanfaat? Ajak Rekan Mencoba</h3>'
             '<p>Gratis, langsung di browser, tanpa daftar.</p>' + ph(name, "Bagikan", url) + '</section>')
 def _end(t):
     for k in ("<footer", "</main>", "</body>"):
@@ -39,7 +39,7 @@ US_APPS = [  # mode, hash, nama, kicker, nomor foto
     ("eq", "perubahan-ekuitas", "Generator Laporan Perubahan Ekuitas", "Perubahan Ekuitas", 2),
     ("calk", "calk", "Penyusun CALK Format Auditor", "Kalkulator CALK", 8),
 ]
-US_BLOCK = ('<section class="tshare" style="margin:28px auto 0"><h3>Bermanfaat? Ajak rekan mencoba <span class="tsm-name">' + US_APPS[0][3] + '</span></h3>'
+US_BLOCK = ('<section class="tshare" style="margin:28px auto 0"><h3>Bermanfaat? Ajak Rekan Mencoba <span class="tsm-name">' + US_APPS[0][3] + '</span></h3>'
             '<p>Gratis, langsung di browser, tanpa daftar.</p>'
             + "".join(f'<div class="tsm" data-m="{m}"{"" if i == 0 else " hidden"}><div class="share" data-tool="{name}" data-lab="Bagikan" data-url="/#{h}" data-kick="UpdateSAK · {kick}" data-bg="{bg}"></div></div>'
                       for i, (m, h, name, kick, bg) in enumerate(US_APPS))
