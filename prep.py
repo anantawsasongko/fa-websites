@@ -596,6 +596,11 @@ print("dhn fa", _dhn.add_dhn(os.path.join(OUT, "faindonesia"), "fa", "/kap-dhn/"
 print("dhn ca", _dhn.add_dhn(os.path.join(OUT, "cariakuntan"), "ca", _dhn.SITE_DHN))
 print("dhn us", _dhn.add_dhn(os.path.join(OUT, "updatesak"), "us", _dhn.SITE_DHN))
 
+# ---------- KJA Farhani masuk ekosistem FA (3 Nov 2026): situs lama jadi redirect 301, link pages.dev diarahkan ke /kja-farhani/ ----------
+_sys.path.insert(0, os.path.join(M, "shared")); import kja_redirect as _kr
+print("kja redirect rules", _kr.build(os.path.join(OUT, "kja-farhani")))
+print("kja relink", _kr.relink([os.path.join(OUT, x) for x in ("faindonesia", "cariakuntan", "updatesak", "faindonesia-jupiter", "faindonesia-saturn", "faindonesia-venus")]))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)
