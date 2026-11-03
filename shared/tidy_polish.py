@@ -172,6 +172,7 @@ def run(OUT):
                 if 'id="tidy-polish"' in t or "</head>" not in t or "</body>" not in t: continue
                 if 'http-equiv="refresh"' in t or "noindex" in t and rel.startswith("toko/uji"): continue
                 is_content = any(re.search(rx, rel) for rx in CONTENT) and not rel.startswith(("en/", "zh/", "hokkien/", "ja/"))
+                if not is_content and site == "faindonesia" and 'class="wrap art"' in t and not rel.startswith(("en/", "zh/", "hokkien/", "ja/", "ko/")): is_content = True
                 if is_content:
                     soup = BeautifulSoup(t, "html.parser"); fid = [0]
                     k = polish_content(soup, fid); n_fold += k; n_content += 1

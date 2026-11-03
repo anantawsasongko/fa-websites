@@ -27,7 +27,7 @@ body = (
    ("Cek kebutuhan", "Kami pastikan jenis perikatan yang tepat: audit, reviu, atau AUP, dan apakah bank atau regulator Anda mensyaratkan KAP terdaftar OJK."),
    ("Rapikan laporan", "Bila laporan keuangan belum siap, KJA mitra merapikannya lebih dulu supaya audit tidak molor dan biaya tidak membengkak."),
    ("Siapkan dokumen", "Daftar PBC, lead schedule, dan rekonsiliasi disiapkan sebelum auditor datang."),
-   ("Audit di KAP DHN", "Audit dilaksanakan KAP DHN &amp; Rekan secara independen."),
+   ("Audit di KAP DHN", "Audit dilaksanakan KAP DHN & Rekan secara independen."),
    ("Lanjut ke tujuan", "Laporan audit dipakai untuk kredit, tender, investor, atau kewajiban regulator, dan kami dampingi sampai tahap itu.")])
  + "<p>Independensi tetap dijaga: pihak yang menyusun laporan keuangan atau menjadi konsultan pajak Anda tidak mengaudit perusahaan yang sama.</p>"
  "<h2>Wilayah Layanan</h2><p>Berkantor pusat di Denpasar, melayani perusahaan di Bali dan seluruh Indonesia secara daring dan dengan kunjungan lapangan terjadwal. Lihat juga layanan per kota di <a href=\"/wilayah/\">FA per Kota</a>, misalnya <a href=\"/wilayah/denpasar/\">FA Denpasar</a>, <a href=\"/wilayah/malang/\">FA Malang</a>, dan <a href=\"/wilayah/surabaya/\">FA Surabaya</a>.</p>"

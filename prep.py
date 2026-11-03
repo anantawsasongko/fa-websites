@@ -606,6 +606,9 @@ print("kja relink", _kr.relink([os.path.join(OUT, x) for x in ("faindonesia", "c
 # ---------- Poles kerapian 3 situs (3 Nov 2026): peta isi, lipat teks per bagian, paragraf panjang, huruf min 12px ----------
 _tpo = _ilu.spec_from_file_location("tidy_polish", os.path.join(M, "shared", "tidy_polish.py")); _tpm = _ilu.module_from_spec(_tpo); _tpo.loader.exec_module(_tpm)
 print("tidy polish:", _tpm.run(OUT))
+# ---------- Tata letak halaman konten FA (3 Nov 2026 malam): jarak judul, akordeon FAQ ----------
+import art_layout as _al
+print("art layout fa", _al.run(os.path.join(OUT, "faindonesia")))
 
 # ---------- UpdateSAK hijau putih sesuai logo (3 Nov 2026) ----------
 import us_green as _ug
