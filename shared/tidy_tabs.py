@@ -15,7 +15,7 @@ CONFIG = {
    "top": ["#mulai-cepat", "#jalur", "#angka", "#cek-kredit"],
    "bottom": ["#mulai", "#kontak"]},
  "faindonesia/layanan/index.html": {
-   "top": ["layanan & rekam jejak", "#layanan", "rm bank", "implementasi psak 118", "rumah sakit dan klinik", "#fee", "#paket", "#rekam"],
+   "top": ["layanan & rekam jejak", "#layanan", "rm bank", "implementasi psak 118", "rumah sakit dan klinik", "#fee", "#paket", "#rekam", "#galeri-layanan"],
    "bottom": ["#pendiri", "#afiliasi", "#arsip", "#grup", "#ekosistem", "#kontak"]},
  "faindonesia/apps/index.html": {"top": [], "bottom": []},
  "faindonesia/artikel/index.html": {"top": [], "bottom": []},
