@@ -63,7 +63,7 @@ b2 = ("<h2>Kenapa Laporan Keuangan KDMP Penting Sejak Awal</h2>"
  + tbl(["Kegiatan Usaha", "SAK yang Dapat Dipakai"], [
    ("Simpan pinjam anggota", "SAK Indonesia atau SAK EP"),
    ("Sektor riil: gerai, jasa, logistik, pengolahan", "Standar instansi pembina bila ada; bila belum: SAK Indonesia, SAK EP, atau SAK EMKM")])
- + "<p>Satu koperasi menyusun satu set laporan dengan satu kerangka SAK. KDMP yang punya unit simpan pinjam praktis memakai SAK EP: pinjaman anggota dan pinjaman bank dengan metode bunga efektif, cadangan kerugian pinjaman berdasarkan bukti tunggakan, dan nilai wajar untuk pos tertentu. Kami bantu menetapkan kebijakan akuntansinya sejak tutup buku pertama. Ringkasan teknis: <a href=\"https://updatesak.com/artikel/sak-untuk-kdkmp-koperasi-desa-merah-putih-permenkop-2-2024/\">SAK untuk KDKMP di UpdateSAK</a>.</p>"
+ + "<p>Satu koperasi menyusun satu set laporan dengan satu kerangka SAK. KDMP yang punya unit simpan pinjam praktis memakai SAK EP: pinjaman anggota dan pinjaman bank dengan metode bunga efektif, cadangan kerugian pinjaman berdasarkan bukti tunggakan, dan nilai wajar untuk pos tertentu. Kami bantu menetapkan kebijakan akuntansinya sejak tutup buku pertama. Ringkasan teknis: <a href=\"https://updatesak.com/artikel/sak-untuk-kdkmp-koperasi-desa-merah-putih-permenkop-2-2024/\">SAK untuk KDKMP di UpdateSAK</a>. Halaman per kecamatan seluruh Indonesia: <a href=\"https://cariakuntan.com/kdmp/\">KDMP per Kecamatan</a>.</p>"
  "<h2>Kapan KDMP Perlu Audit</h2><ul>"
  "<li>Diminta bank atau lembaga pembiayaan sebagai syarat pencairan atau evaluasi pinjaman.</li>"
  "<li>Diputuskan rapat anggota untuk memperkuat kepercayaan anggota.</li>"
