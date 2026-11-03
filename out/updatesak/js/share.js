@@ -7,7 +7,7 @@
 (function () {
   if (window.__faShare) return; window.__faShare = 1;
   var H = location.hostname.replace(/^www\./, '');
-  var B = /cariakuntan/.test(H) ? { l: 'C', n: 'cariakuntan.com', c1: '#0B1F33', c2: '#1F5BFF', ac: '#8FB2FF', tint: 'rgba(31,91,255,.28)', bg: 10, tag: 'KAP, KJPP, Pajak, Laporan Keuangan' }
+  var B = /cariakuntan/.test(H) ? { l: 'C', n: 'cariakuntan.com', c1: '#0B1F33', c2: '#0E7C66', ac: '#7EE0C3', tint: 'rgba(14,124,102,.28)', bg: 10, tag: 'KAP, KJPP, Pajak, Laporan Keuangan' }
         : /updatesak/.test(H) ? { l: 'U', n: 'updatesak.com', c1: '#0B1F33', c2: '#0E7C66', ac: '#7EE0C3', tint: 'rgba(14,124,102,.30)', bg: 10, tag: 'Kalkulator PSAK dan CALK' }
         : { l: 'F', n: 'faindonesia.co.id', c1: '#0a0a0a', c2: '#7f1d1d', ac: '#fca5a5', tint: 'rgba(127,29,29,.32)', bg: 10, tag: 'Kredit Bank, Investor, IPO' };
   var canon = (document.querySelector('link[rel=canonical]') || {}).href || location.href.split('#')[0];

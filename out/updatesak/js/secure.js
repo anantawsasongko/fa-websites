@@ -9,8 +9,8 @@
   var C = window.FA_SECURE || {};
   var BR = {
     fa: { name: 'FA', full: 'FA Indonesia', c1: '#1a1a1a', c2: '#3a3a3a', acc: '#16a34a' },
-    ca: { name: 'CariAkuntan', full: 'CariAkuntan', c1: '#0f2e8a', c2: '#1F5BFF', acc: '#16a34a' },
-    us: { name: 'UpdateSAK', full: 'UpdateSAK', c1: '#0B1F33', c2: '#1F5BFF', acc: '#16a34a' }
+    ca: { name: 'CariAkuntan', full: 'CariAkuntan', c1: '#0f2e8a', c2: '#0E7C66', acc: '#16a34a' },
+    us: { name: 'UpdateSAK', full: 'UpdateSAK', c1: '#0B1F33', c2: '#0E7C66', acc: '#16a34a' }
   }[C.brand || 'fa'];
   var M = C.mode || 'local';
   var L = (document.documentElement.lang || 'id').toLowerCase();

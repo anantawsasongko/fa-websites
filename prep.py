@@ -605,6 +605,10 @@ print("kja relink", _kr.relink([os.path.join(OUT, x) for x in ("faindonesia", "c
 _tpo = _ilu.spec_from_file_location("tidy_polish", os.path.join(M, "shared", "tidy_polish.py")); _tpm = _ilu.module_from_spec(_tpo); _tpo.loader.exec_module(_tpm)
 print("tidy polish:", _tpm.run(OUT))
 
+# ---------- UpdateSAK hijau putih sesuai logo (3 Nov 2026) ----------
+import us_green as _ug
+print("us hijau", _ug.run(os.path.join(OUT, "updatesak")))
+
 # ---------- zip per project for Cloudflare Direct Upload (<=10MB per upload) ----------
 Z = os.path.join(M, "zips")
 if os.path.exists(Z): shutil.rmtree(Z)

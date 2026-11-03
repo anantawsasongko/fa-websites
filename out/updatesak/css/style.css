@@ -1,7 +1,7 @@
 /* UpdateSAK: gaya CariAkuntan (serif headline, satu aksen biru, deep ink), visual dan animasi lebih banyak dari teks. */
 :root{
-  --paper:#FFFFFF; --panel:#F3F5F8; --ink:#0B1F33; --muted:#516173; --line:#DCE2E9;
-  --accent:#1F5BFF; --accent-ink:#FFFFFF; --deep:#0B1F33; --soft:#EAF0FF; --teal:#12A39A;
+  --paper:#FFFFFF; --panel:#F2F6F4; --ink:#0F241F; --muted:#4F625C; --line:#D9E3DF;
+  --accent:#0E7C66; --accent-ink:#FFFFFF; --deep:#0E2A24; --soft:#E6F3EE; --teal:#12A39A;
   --warn:#B26A00; --bad:#C2352B;
   --display:"Source Serif 4", Georgia, "Times New Roman", serif;
   --body:"IBM Plex Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -128,7 +128,7 @@ table.fin td.num{text-align:right;font-variant-numeric:tabular-nums}
 .badge{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);margin-bottom:12px}
 .badge small{display:block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
 .badge b{font-family:var(--display);font-size:1.45rem;font-weight:500}
-.badge em{font-style:normal;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border:1px solid currentColor;color:#8FB2FF;white-space:nowrap}
+.badge em{font-style:normal;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border:1px solid currentColor;color:#7EE0C3;white-space:nowrap}
 .badge em.w{color:#FF9B8F}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .tiles div{padding:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);min-width:0}
@@ -139,7 +139,7 @@ table.fin td.num{text-align:right;font-variant-numeric:tabular-nums}
 .barr{display:grid;grid-template-columns:78px 1fr 46px;align-items:center;gap:8px;font-size:.74rem}
 .barr i{display:block;height:10px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
 .barr i u{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);transition:width .8s cubic-bezier(.2,.8,.2,1)}
-.barr:nth-of-type(2) i u{background:#4FD1C5}.barr:nth-of-type(3) i u{background:#FFB547}.barr:nth-of-type(4) i u{background:#8FB2FF}
+.barr:nth-of-type(2) i u{background:#4FD1C5}.barr:nth-of-type(3) i u{background:#FFB547}.barr:nth-of-type(4) i u{background:#7EE0C3}
 .barr span:last-child{text-align:right;font-variant-numeric:tabular-nums;opacity:.85}
 .gauges{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .gauge{display:flex;align-items:center;gap:10px}
@@ -159,7 +159,7 @@ table.fin td.num{text-align:right;font-variant-numeric:tabular-nums}
 .verdict b{font-family:var(--display);font-size:1.5rem;font-weight:500;display:block}
 .verdict p{opacity:.8;font-size:.92rem;margin-top:4px}
 .pill{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;color:var(--accent);margin-right:6px}
-.verdict .pill{color:#8FB2FF}.verdict .pill.r{color:#FF9B8F}
+.verdict .pill{color:#7EE0C3}.verdict .pill.r{color:#FF9B8F}
 .pill.w{color:var(--warn)}.pill.r{color:var(--bad)}
 .lock{margin-top:10px;font-size:.88rem;color:var(--muted)}
 .lock b{color:var(--ink)}
@@ -244,7 +244,7 @@ table.std td:nth-child(2){min-width:170px}
 @media (max-width:860px){.needs{grid-template-columns:1fr 1fr}}
 
 .final{background:var(--deep);color:#fff;border-top:0;text-align:center}
-.final h2{color:#fff}.final h2::after{margin-inline:auto;background:#8FB2FF}
+.final h2{color:#fff}.final h2::after{margin-inline:auto;background:#7EE0C3}
 .final p{opacity:.8;margin:14px auto 26px;max-width:48ch}
 
 .timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);display:grid}
@@ -305,7 +305,7 @@ details.more summary{font-size:.95rem}
 .art .lede{font-size:1.1rem;color:var(--muted)}
 .art h2{margin:40px 0 16px}
 .art h3.gh,.gh{font-size:1rem;margin:26px 0 12px;color:var(--muted);font-family:var(--body);text-transform:uppercase;letter-spacing:.08em}
-.prose p,.prose li{color:#24384C}
+.prose p,.prose li{color:#2A3F39}
 .prose p{margin:0 0 14px}
 .prose ul,.prose ol{padding-left:20px;margin:0 0 16px}
 .prose li{margin-bottom:6px}
@@ -316,7 +316,7 @@ details.more summary{font-size:.95rem}
 .keys{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);margin:8px 0 18px}
 .keys div{padding:16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:4px;align-content:start}
 .keys b{font-family:var(--display);font-size:1.4rem;color:var(--accent);font-weight:500}
-.keys span{font-size:.92rem;color:#24384C}
+.keys span{font-size:.92rem;color:#2A3F39}
 @media (max-width:620px){.keys{grid-template-columns:1fr}}
 blockquote.calk{margin:0;padding:18px 20px;background:var(--panel);border-left:4px solid var(--accent);font-family:"Times New Roman",Georgia,serif;font-size:1.05rem;line-height:1.55}
 .note{font-size:.8rem;color:var(--muted);margin-top:8px}
@@ -374,7 +374,7 @@ a.pages-link:hover .pages div{border-color:var(--accent)}
 .mcard .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 .mcard.pdf{padding-top:22px}
 .pdfic{position:absolute;top:16px;right:16px;font:700 .7rem var(--body);color:#fff;background:#C2352B;padding:4px 7px}
-ul.facts{padding-left:20px;margin:0 0 14px}ul.facts li{margin-bottom:8px;color:#24384C}
+ul.facts{padding-left:20px;margin:0 0 14px}ul.facts li{margin-bottom:8px;color:#2A3F39}
 ol.qs{counter-reset:q;list-style:none;padding:0;margin:0;display:grid;gap:8px}
 ol.qs li{counter-increment:q;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:12px 14px;border:1px solid var(--line);background:#fff}
 ol.qs li::before{content:counter(q);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.8rem}
@@ -382,7 +382,7 @@ details.solve{margin-top:22px;border:1px solid var(--accent);padding:0 18px;max-
 details.solve>summary{padding:16px 0;font-size:1.1rem;color:var(--accent)}
 details.solve[open]{padding-bottom:18px}
 details.solve h3{margin:20px 0 10px;font-size:1.05rem}
-details.solve p{color:#24384C;margin-top:0;margin-bottom:10px}
+details.solve p{color:#2A3F39;margin-top:0;margin-bottom:10px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media (max-width:760px){.two{grid-template-columns:1fr}}
 ul.flags.ok li::before{content:"✓";background:var(--teal)}

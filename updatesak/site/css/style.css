@@ -1,7 +1,7 @@
 /* UpdateSAK: gaya CariAkuntan (serif headline, satu aksen biru, deep ink), visual dan animasi lebih banyak dari teks. */
 :root{
   --paper:#FFFFFF; --panel:#F3F5F8; --ink:#0B1F33; --muted:#516173; --line:#DCE2E9;
-  --accent:#1F5BFF; --accent-ink:#FFFFFF; --deep:#0B1F33; --soft:#EAF0FF; --teal:#12A39A;
+  --accent:#0E7C66; --accent-ink:#FFFFFF; --deep:#0E2A24; --soft:#E6F3EE; --teal:#12A39A;
   --warn:#B26A00; --bad:#C2352B;
   --display:"Source Serif 4", Georgia, "Times New Roman", serif;
   --body:"IBM Plex Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
