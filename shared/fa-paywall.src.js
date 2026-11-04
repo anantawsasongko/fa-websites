@@ -11,7 +11,10 @@ var S=document.currentScript||{},C=window.FA_PAY||{},ds=(S.dataset||{});
 var app=C.app||ds.app||location.pathname.replace(/\W+/g,"-")||"app";
 var name=C.name||ds.name||document.title.split("|")[0].trim();
 var price=+(C.price||ds.price||25000);
-var guard=C.guard||ds.guard||"";
+/* 4 Nov 2026: semua aplikasi bebas dipakai. Yang berbayar hanya unduhan hasil lengkap (PDF, Excel, Word, export, salin).
+   Selektor tombol berbayar: C.full / data-full, default DEF. Konfigurasi guard lama (tombol hitung) diabaikan. */
+var DEF='[data-fa-full],#btnXlsx,#cp,#cpY,#fp_pr,[data-act="calkdoc"],[data-action="c-export"]';
+var guard=C.full||ds.full||DEF;
 var GS="__GS__",QR="__QR__",TRIAL_DAYS=7;
 var KP="fa_akses_"+app,KT="fa_trial_"+app,KD="fa_pay_data";
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
@@ -46,13 +49,16 @@ function field(id,lab,ph,type,extra){return '<label for="'+id+'">'+lab+'</label>
 function build(){
  if(!st){st=document.createElement("style");st.textContent=css;document.head.appendChild(st)}
  d=document.createElement("div");d.id="fapw";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Akses "+name);
- d.innerHTML='<div class="bx"><small>Akses aplikasi</small><h2></h2>'+
-  '<div data-v="pay"><p class="ft" style="margin:4px 0 14px;color:#D8D8D8;font-size:14px;line-height:1.6">Gunakan aplikasi ini penuh selama '+TRIAL_DAYS+' hari. Cukup isi data singkat usaha Anda.</p>'+
-  '<button class="go" type="button" data-to="trial">Coba '+TRIAL_DAYS+' hari</button></div>'+
-  '<form data-v="paid" hidden novalidate><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:13px">Konfirmasi pembayaran '+rp(price)+'. Kami cocokkan dengan mutasi QRIS dan menghubungi Anda bila ada yang belum sesuai.</p>'+
+ d.innerHTML='<div class="bx"><small>Unduh hasil lengkap</small><h2></h2>'+
+  '<div data-v="pay"><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:14px;line-height:1.6">Aplikasi tetap gratis dipakai. Untuk mengunduh hasil lengkap dan strategi, bayar sekali:</p>'+
+  '<div class="pr">'+rp(price)+'<span>termasuk PPN · per aplikasi</span></div>'+
+  '<div class="qr"><img alt="QRIS CV FA Indonesia" src="'+QR+'"></div>'+
+  '<ol><li>Scan QRIS dengan m-banking atau e-wallet, bayar <b>'+rp(price)+'</b>.</li><li>Tekan <b>Saya sudah bayar</b> dan isi nomor referensi.</li><li>Unduhan langsung terbuka di perangkat ini.</li></ol>'+
+  '<button class="go" type="button" data-to="paid">Saya sudah bayar</button><button class="lk" type="button" data-x>Nanti saja</button></div>'+
+'<form data-v="paid" hidden novalidate><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:13px">Konfirmasi pembayaran '+rp(price)+'. Kami cocokkan dengan mutasi QRIS dan menghubungi Anda bila ada yang belum sesuai.</p>'+
   field("fp_nm","Nama","Nama lengkap")+field("fp_wa","Nomor WhatsApp","08xxxxxxxxxx","tel",'inputmode="tel"')+field("fp_us","Nama usaha atau instansi","PT, CV, toko, kampus, dll.")+
   field("fp_ref","Nomor referensi transaksi QRIS","Lihat di bukti bayar m-banking")+
-  '<div class="er" aria-live="polite"></div><button class="go" type="submit">Buka aplikasi</button><button class="lk" type="button" data-to="pay">Kembali ke QRIS</button></form>'+
+  '<div class="er" aria-live="polite"></div><button class="go" type="submit">Buka unduhan</button><button class="lk" type="button" data-to="pay">Kembali ke QRIS</button></form>'+
   '<form data-v="trial" hidden novalidate><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:13px">Akses penuh '+TRIAL_DAYS+' hari di perangkat ini. Pembelian akses penuh segera tersedia lewat pembayaran online.</p>'+
   field("ft_nm","Nama","Nama lengkap")+field("ft_wa","Nomor WhatsApp","08xxxxxxxxxx","tel",'inputmode="tel"')+field("ft_us","Nama usaha atau instansi","PT, CV, toko, kampus, dll.")+
   '<label for="ft_bt">Bentuk usaha</label><select id="ft_bt"><option value="">Pilih</option><option>Perorangan</option><option>CV</option><option>PT</option><option>Koperasi atau Yayasan</option><option>Instansi atau Kampus</option><option>Mahasiswa</option><option>Lainnya</option></select>'+
@@ -81,12 +87,13 @@ function build(){
   try{window.gtag&&gtag("event",kind==="paid"?"qris_paid":"trial_start",{app:app,value:kind==="paid"?price:0,currency:"IDR"});window.gtag&&gtag("event","generate_lead",{method:"paywall_"+kind,app:app})}catch(e){}}
  d.querySelector('[data-v="paid"]').onsubmit=function(e){e.preventDefault();var o=ok(this,["fp_nm","fp_wa","fp_us","fp_ref"]);if(!o)return;send("paid",o,{ref:val("fp_ref")});ls(KP,new Date().toISOString());done()};
  d.querySelector('[data-v="trial"]').onsubmit=function(e){e.preventDefault();var o=ok(this,["ft_nm","ft_wa","ft_us","ft_bt","ft_kt"]);if(!o)return;send("trial",o,{bt:val("ft_bt"),kt:val("ft_kt")});ls(KT,String(Date.now()));done()};
- setTimeout(function(){d.querySelector('[data-to="trial"]').focus()},50);
+ var x=d.querySelector("[data-x]");if(x)x.onclick=function(){after=null;done()};
+ d.addEventListener("click",function(e){if(e.target===d){after=null;done()}});
+ setTimeout(function(){d.querySelector('[data-to="paid"]').focus()},50);
 }
 function done(){if(d){d.remove();d=null}document.documentElement.classList.remove("fapw-on");if(after){var b=after;after=null;setTimeout(function(){b.click()},30)}}
 function start(){
- if(guard){document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(guard);if(!b||open_()||d)return;e.preventDefault();e.stopImmediatePropagation();after=b;build()},true);return}
- if(!open_())build();
+ document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(guard);if(!b||open_()||d)return;e.preventDefault();e.stopImmediatePropagation();after=b;build()},true);
 }
 if(document.body)start();else document.addEventListener("DOMContentLoaded",start);
 })();
