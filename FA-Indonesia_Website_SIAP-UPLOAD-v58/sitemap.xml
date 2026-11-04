@@ -52,7 +52,7 @@
 <url><loc>https://faindonesia.co.id/kalkulator-cicilan-pinjaman/</loc><lastmod>2026-11-01</lastmod></url>
 <url><loc>https://faindonesia.co.id/kalkulator-valuasi-dcf/</loc><lastmod>2026-11-01</lastmod></url>
 <url><loc>https://faindonesia.co.id/kalkulator-rasio-keuangan/</loc><lastmod>2026-11-01</lastmod></url>
-<url><loc>https://faindonesia.co.id/bankability-index/</loc><lastmod>2026-11-02</lastmod></url><url><loc>https://faindonesia.co.id/audit-back-office-kap/</loc><lastmod>2026-11-02</lastmod></url><url><loc>https://faindonesia.co.id/bursa-komite-audit/</loc><lastmod>2026-11-02</lastmod></url><!--fa-seo-->
+<url><loc>https://faindonesia.co.id/bankability-index/</loc><lastmod>2026-11-02</lastmod></url><url><loc>https://faindonesia.co.id/audit-back-office-kap/</loc><lastmod>2026-11-02</lastmod></url><url><loc>https://faindonesia.co.id/bursa-komite-audit/</loc><lastmod>2026-11-02</lastmod></url><url><loc>https://faindonesia.co.id/cek-kesiapan-pendanaan/</loc><lastmod>2026-11-03</lastmod></url><url><loc>https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/</loc><lastmod>2026-11-04</lastmod></url><!--fa-seo-->
 <url><loc>https://faindonesia.co.id/artikel/alasan-kredit-bank-ditolak/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
 <url><loc>https://faindonesia.co.id/artikel/apakah-perusahaan-butuh-audit-kap/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
 <url><loc>https://faindonesia.co.id/artikel/audit-rumah-sakit-pertama-kali/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
@@ -572,10 +572,7 @@
 <!--fa-viral-b-->
 <url><loc>https://faindonesia.co.id/artikel/syarat-biaya-cara-take-over-kredit-usaha/</loc><lastmod>2026-10-28</lastmod><priority>0.8</priority></url>
 <!--/fa-viral-b-->
-<url><loc>https://faindonesia.co.id/cek-kesiapan-pendanaan/</loc><lastmod>2026-11-03</lastmod></url><!--fa-kapm-->
-<url><loc>https://faindonesia.co.id/artikel/kap-murah-apakah-bijak/</loc><lastmod>2026-10-26</lastmod><priority>0.7</priority></url>
-<!--/fa-kapm-->
-<url><loc>https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/</loc><lastmod>2026-11-04</lastmod></url><!--fa-seo20-->
+<!--fa-seo20-->
 <url><loc>https://faindonesia.co.id/artikel/jasa-konsultan-kredit-bank-perusahaan/</loc><lastmod>2026-10-30</lastmod><priority>0.8</priority></url>
 <url><loc>https://faindonesia.co.id/artikel/syarat-dokumen-kredit-modal-kerja-perusahaan-2026/</loc><lastmod>2026-10-30</lastmod><priority>0.8</priority></url>
 <url><loc>https://faindonesia.co.id/artikel/kredit-investasi-pabrik-gudang-mesin-syarat/</loc><lastmod>2026-10-30</lastmod><priority>0.8</priority></url>
@@ -627,4 +624,7 @@
 <url><loc>https://faindonesia.co.id/ja/statutory-audit-indonesia/</loc><lastmod>2026-11-03</lastmod><priority>0.8</priority></url>
 <url><loc>https://faindonesia.co.id/ko/statutory-audit-indonesia/</loc><lastmod>2026-11-03</lastmod><priority>0.8</priority></url>
 <!--/fa-peluang-->
+<!--fa-kapm-->
+<url><loc>https://faindonesia.co.id/artikel/kap-murah-apakah-bijak/</loc><lastmod>2026-10-26</lastmod><priority>0.7</priority></url>
+<!--/fa-kapm-->
 </urlset>

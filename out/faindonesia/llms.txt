@@ -221,7 +221,7 @@
 ## Mitra KAP dan KJA
 - FA Indonesia bermitra dengan KAP DHN & Rekan (audit), KJA DHN dan KJA Farhani Malang (pembukuan dan laporan keuangan), KKP DHN (konsultan pajak) → https://faindonesia.co.id/mitra-kap-kja/
 - Halaman per kota: FA Jakarta, FA Surabaya, FA Malang, FA Bandung, dan 90+ kota → https://faindonesia.co.id/wilayah/
-- [Toko FA](https://faindonesia.co.id/toko/): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online segera dibuka
+- [Toko FA](https://faindonesia.co.id/toko/): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online lewat QRIS, virtual account, e-wallet, dan kartu kredit
 
 - [Peta Pendanaan FA](https://faindonesia.co.id/cek-kesiapan-pendanaan/): cek kesiapan kredit bank atau investor, celah beserta mitra penutupnya (KJA, KAP, KJPP, notaris, konsultan pajak), dan checklist data room.
 

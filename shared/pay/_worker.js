@@ -165,7 +165,46 @@ async function notify(req, env, ctx) {
      POST /api/ai/ask               -> {answer, credits|free}
      POST /api/ai/admin/new         -> {code}     (header x-admin: AI_ADMIN_KEY)
    Kuota gratis: 3 pertanyaan per perangkat dan 10 per IP per hari. Setelah itu wajib kode kredit (Paket AI). */
-const AI_ORIGINS = ["https://faindonesia.co.id", "https://cariakuntan.com", "https://updatesak.com", "https://www.faindonesia.co.id", "https://www.cariakuntan.com", "https://www.updatesak.com"];
+const AI_ORIGINS = ["https://faindonesia.co.id", "https://cariakuntan.com", "https://updatesak.com", "https://www.faindonesia.co.id", "https://www.cariakuntan.com", "https://www.updatesak.com", "https://faindonesia-jupiter.pages.dev", "https://faindonesia-web.pages.dev"];
+
+/* ---------- Lisensi FA Jupiter via Mayar (4 Nov 2026) ----------
+   Toko Mayar (fa-indonesia-14404.myr.id) menjual produk "Lisensi Software"; Mayar membuat kode lisensi otomatis
+   setelah bayar dan menampilkannya ke pembeli. App Audit Ready mengirim kode ke sini, worker memverifikasi ke API Mayar.
+   Variabel Cloudflare: MAYAR_API_KEY (Secret) dari web.mayar.id > Integrasi > API Key.
+   Endpoint: POST /api/lic/verify {code} -> {ok, type, exp:"YYMMDD"} atau {ok:false, error}. */
+const MAYAR_LIC = [
+  { id: "2c4bf378-18fe-4126-8fef-91c6a7ea9606", type: "Day pass" },
+  { id: "88cf6ba4-96a9-4a8c-a529-c4dffb3fc802", type: "Tahunan" }
+];
+async function licVerify(req, env) {
+  if (!env.MAYAR_API_KEY) return aj(req, { ok: false, error: "Verifikasi kode Mayar belum aktif. Hubungi kami via WhatsApp." }, 503);
+  let b; try { b = await req.json(); } catch (e) { b = {}; }
+  const code = clean(b.code, 64).replace(/\s+/g, "");
+  if (!/^[A-Za-z0-9-]{6,64}$/.test(code)) return aj(req, { ok: false, error: "Format kode tidak dikenali." }, 400);
+  const cacheKey = "lic:" + code.toUpperCase();
+  if (env.FA_AI) { const c = await env.FA_AI.get(cacheKey); if (c) { const r = JSON.parse(c); if (r.ok && r.exp >= yymmdd(jktDate(Date.now()))) return aj(req, r); } }
+  let last = "Kode lisensi tidak ditemukan.";
+  for (const p of MAYAR_LIC) {
+    try {
+      const r = await fetch("https://api.mayar.id/software/v2/license/verify", {
+        method: "POST", headers: { authorization: "Bearer " + env.MAYAR_API_KEY, "content-type": "application/json" },
+        body: JSON.stringify({ licenseCode: code, productId: p.id })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.status === 404) continue;
+      if (r.ok && j.isLicenseActive) {
+        const ex = j.licenseCode && j.licenseCode.expiredAt, ms = ex && !isNaN(Date.parse(ex)) ? Date.parse(ex) : NaN;
+        const exp = isNaN(ms) ? yymmdd(jktDate(Date.now() + (p.type === "Tahunan" ? 366 : 1) * 864e5)) : yymmdd(jktDate(ms));
+        const out = { ok: true, type: p.type, exp };
+        if (env.FA_AI) await env.FA_AI.put(cacheKey, JSON.stringify(out), { expirationTtl: 3600 });
+        return aj(req, out);
+      }
+      const st = j.licenseCode && j.licenseCode.status;
+      last = st === "EXPIRED" ? "Kode lisensi sudah berakhir." : st ? "Kode lisensi tidak aktif (" + st + ")." : (j.message || "Kode lisensi tidak valid.");
+    } catch (e) { last = "Gangguan sementara saat memeriksa kode. Coba lagi."; }
+  }
+  return aj(req, { ok: false, error: last }, 402);
+}
 const AI_FREE_DEVICE = 3, AI_FREE_IP_DAY = 10, AI_MAX_CTX = 7000, AI_MAX_Q = 600;
 const AI_APPS = {
   "kalkulator-pph-21": "Kalkulator PPh 21 TER (PP 58/2023, PMK 168/2023): tarif efektif rata-rata kategori A/B/C, perhitungan Desember pakai tarif Pasal 17, BPJS, gross-up.",
@@ -261,6 +300,11 @@ export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     if (url.pathname.startsWith("/api/ai/")) return aiRoute(req, env, url);
+    if (url.pathname === "/api/lic/verify") {
+      if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: aiHeaders(req) });
+      if (req.method !== "POST") return aj(req, { ok: false, error: "Tidak ditemukan" }, 404);
+      try { return await licVerify(req, env); } catch (e) { return aj(req, { ok: false, error: "Gangguan sementara" }, 500); }
+    }
     if (!url.pathname.startsWith("/api/pay/")) return env.ASSETS.fetch(req);
     const ck = env.MIDTRANS_CLIENT_KEY || "";
     /* Pengaman: jangan pernah kirim Server Key ke browser walau salah diisi di variabel Client Key. */
