@@ -2,6 +2,8 @@
 
 Deploy OTOMATIS: push ke GitHub anantawsasongko/fa-websites (branch main) -> Cloudflare Pages project faindonesia-web (out/faindonesia) dan cariakuntan-web (out/cariakuntan). Project lama faindonesia/cariakuntan (upload manual) jadi cadangan. Deploy HANYA ke Cloudflare Pages (akun ananta.w.sasongko@gmail.com, account id afb677a1f9df62a249d390aef72c233c). Netlify sudah tidak dipakai.
 
+> CATATAN TETAP (4 Nov 2026): Tidak ada langganan Netlify sama sekali. Semua hosting, DNS, Workers, dan KV di Cloudflare. Jangan cek, sebut, atau deploy apa pun ke Netlify. Baris lama tentang Netlify di bawah hanya sejarah.
+
 ## 7 Project Cloudflare Pages
 | Project | Domain | Isi |
 |---|---|---|
