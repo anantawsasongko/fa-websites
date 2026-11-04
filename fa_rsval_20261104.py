@@ -245,3 +245,54 @@ if u not in t: open(sp, "w", encoding="utf-8").write(t.replace("</urlset>", "<ur
 lp = os.path.join(B, "llms.txt"); t = open(lp, encoding="utf-8").read()
 if SLUG not in t:
     open(lp, "a", encoding="utf-8").write("\n- [Kalkulator Valuasi Rumah Sakit](%s): estimasi harga jual RS, RSIA, dan RS khusus (EBITDA x multiple dan nilai aset, dikurangi utang bank), termasuk RS dengan masalah kerja sama BPJS; pendampingan sell side sampai closing.\n" % u)
+
+# ---------- 4 Nov pagi: masuk daftar aplikasi berbayar Rp49.000 (paywall QRIS dipasang prep.py: app venus-rsval) ----------
+def _rw(rel, fn):
+    p = os.path.join(B, rel)
+    if not os.path.exists(p): print("skip", rel); return
+    t = open(p, encoding="utf-8").read(); n = fn(t)
+    if n != t: open(p, "w", encoding="utf-8").write(n); print("patch", rel)
+    else: print("tetap", rel)
+
+def _apps(t):
+    if 'href="/%s/"' % SLUG in t: return t
+    m = re.search(r'<a class="card" data-c="dana" data-q="fa venus · valuasi dcf.*?</a>', t, flags=re.S)
+    if not m: print("dcf card tidak ketemu"); return t
+    card = ('<a class="card" data-c="dana" data-q="fa venus · valuasi rumah sakit harga jual rs rsia, ebitda, nilai aset, bpjs, utang bank, investor rumah sakit. pendanaan" href="/%s/">'
+            '<b>FA Venus · Valuasi Rumah Sakit</b><p>Estimasi harga jual RS, RSIA, dan RS khusus: EBITDA x multiple, nilai aset, utang bank, dan dampak status BPJS.</p>'
+            '<div class="meta"><span class="badge">Live</span><span class="cat">Rp49 rb</span><span class="cat">Pendanaan</span><span class="src">FA Indonesia</span></div></a>') % SLUG
+    return t[:m.end()] + card + t[m.end():]
+_rw("apps/index.html", _apps)
+
+def _toko(t):
+    if 'id="p-venus-rsval"' in t: return t
+    m = re.search(r'<article class="it" data-cat="app" data-free="1" data-for="ca" id="p-venus-dcf">(.*?)</article>', t, flags=re.S)
+    k = t.find('id="p-ar-year"')
+    if not m or k < 0: print("toko anchor tidak ketemu"); return t
+    cov = re.search(r'<a class="cv app".*?</a>', m.group(1), flags=re.S).group(0)
+    cov = (cov.replace("/kalkulator-valuasi-dcf/", "/%s/" % SLUG).replace("Buka FA Venus Valuasi DCF", "Buka FA Venus Valuasi Rumah Sakit")
+              .replace("venus-dcf", "venus-rsval").replace("<small>Valuasi DCF</small>", "<small>Valuasi RS</small>").replace("app-9.jpg", "app-2.jpg"))
+    art = ('<article class="it" data-cat="app" data-for="ca" id="p-venus-rsval">' + cov +
+           '<div class="in"><span class="tg">Aplikasi · Rumah Sakit</span><h3>FA Venus: Valuasi Rumah Sakit</h3>'
+           '<p>Estimasi harga jual RS dan RSIA dari EBITDA, nilai aset, utang bank, dan status BPJS, lengkap dengan faktor penaik dan penurun harga.</p>'
+           '<div class="pr"><b>Rp49.000</b><small>termasuk PPN · bayar QRIS di aplikasi</small></div>'
+           '<div class="ac"><a class="b" href="/%s/">Buka Aplikasi</a><a class="s" href="/artikel/harga-jual-rumah-sakit-cara-menghitung/">Cara Hitung</a></div></div></article>') % SLUG
+    e = t.find("</article>", k) + len("</article>")
+    t = t[:e] + art + t[e:]
+    t = re.sub(r'(data-f="app" aria-pressed="false">Aplikasi<small>)(\d+)', lambda x: x.group(1) + str(int(x.group(2)) + 1), t, count=1)
+    t = re.sub(r'(data-f="all" aria-pressed="true">Semua<small>)(\d+)', lambda x: x.group(1) + str(int(x.group(2)) + 1), t, count=1)
+    return t
+_rw("toko/index.html", _toko)
+
+# kotak CTA di artikel RS lama
+BOX = ('<!--rsval-cta--><div class="cta" style="margin:24px 0;border:1px solid currentColor;padding:18px 20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between">'
+       '<div><b style="display:block;font-size:17px">Berapa Harga Jual RS Anda?</b><span style="opacity:.75;font-size:14px">Kalkulator Valuasi Rumah Sakit: EBITDA, Nilai Aset, Utang Bank, dan Status BPJS</span></div>'
+       '<a class="btn red" href="/%s/">Hitung Harga Jual RS</a></div><!--/rsval-cta-->') % SLUG
+for rel in ("artikel/valuasi-rumah-sakit-swasta/index.html", "artikel/menjual-rumah-sakit-persiapan-sisi-penjual/index.html",
+            "artikel/due-diligence-akuisisi-rumah-sakit-swasta/index.html", "artikel/indikator-keuangan-rumah-sakit-yang-dilihat-investor/index.html"):
+    def _box(t):
+        if "<!--rsval-cta-->" in t: return t
+        k = t.find("<h2", t.find("<h1"))
+        if k < 0: print("no h2", rel); return t
+        return t[:k] + BOX + t[k:]
+    _rw(rel, _box)

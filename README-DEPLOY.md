@@ -178,3 +178,4 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - 3 Nov 2026: fa_wajah_20261103.py, kartu foto tiga wajah (FA = Ananta, KJA = Farhani, KAP = Dwi) di halaman layanan, kecamatan, wilayah, inti; profil Dwi di /kap-dhn/. Foto: img/ananta-w-sasongko-cpa.jpg, img/farhani-k-nugraha-fa-indonesia.jpg, img/dwi-haryadi-nugraha-kap-dhn-v2.jpg (700x1050).
 
 - 4 Nov 2026: fa_rsval_20261104.py, /kalkulator-valuasi-rumah-sakit/ (FA Venus, gratis tanpa paywall, gaya Peta Pendanaan). Tombol "Kalkulator Valuasi RS" di /rumah-sakit-dijual/, /konsultan-rumah-sakit/, /jasa-valuasi-usaha/. GA4 rsval_calc, rsval_wa.
+- 4 Nov 2026 (2): Valuasi RS masuk aplikasi berbayar Rp49.000 (prep.py add_pay app venus-rsval, tanpa guard), kartu di /apps/ (Rp49 rb) dan /toko/ (p-venus-rsval). SEO: 3 artikel RS di fa_content/seo30_rs.json (dibangun fa_seo20), kotak CTA rsval-cta di 4 artikel RS lama.
