@@ -567,6 +567,10 @@ for _proj, _k in _ECOK.items():
 _sys.path.insert(0, os.path.join(M, "shared"))
 import tidy_tabs as _tt
 print("tidy tabs:", _tt.run(OUT))
+# halaman programatik tipis (desa KDMP, kecamatan) -> noindex,follow + keluar dari sitemap (4 Nov 2026)
+import thin_noindex as _tn
+print("thin noindex:", _tn.run(OUT))
+print("GA per situs:", _tn.ga_split(OUT))
 # footer FA: deretan link dilipat jadi "Menu Lainnya" (31 Okt 2026)
 _FTCSS = ('<style id="ftmore-css">details.ft-more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;'
           'padding:8px 14px;border:1px solid currentColor;border-radius:999px;font-size:12.5px;opacity:.7}'

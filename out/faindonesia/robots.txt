@@ -24,4 +24,3 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://faindonesia.co.id/sitemap.xml
-Sitemap: https://faindonesia.co.id/sitemap-kecamatan.xml
