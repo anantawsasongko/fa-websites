@@ -168,9 +168,12 @@ open(os.path.join(d, "_redirects"), "w").write("/  https://faindonesia.co.id/app
 open(os.path.join(d, "robots.txt"), "w").write("User-agent: *\nAllow: /files/\nDisallow: /files/cv/\n")
 # saturn/kk dilayani dari project faindonesia-saturn
 shutil.rmtree(os.path.join(fa, "saturn", "kk"), ignore_errors=True)
+SRC_FA_KW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "FA-Indonesia_Website_SIAP-UPLOAD-v58")
 with open(os.path.join(fa, "_redirects"), "a") as f:
     f.write("/files/*      https://faindonesia-apps.pages.dev/files/:splat        302\n")
     f.write("/saturn/kk/*  https://faindonesia-saturn.pages.dev/saturn/kk/:splat  302\n")
+    _kw = re.search(r"# fa-kw\n.*?# /fa-kw\n", open(os.path.join(SRC_FA_KW, "_redirects"), encoding="utf-8").read(), re.S) if os.path.exists(os.path.join(SRC_FA_KW, "_redirects")) else None
+    if _kw: f.write(_kw.group(0))
 open(os.path.join(d, "index.html"), "w").write('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://faindonesia.co.id/apps/"><link rel="canonical" href="https://faindonesia.co.id/apps/"><title>FA Apps</title><a href="https://faindonesia.co.id/apps/">FA Apps</a>')
 
 # ---------- KJA ----------

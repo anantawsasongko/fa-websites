@@ -14,3 +14,10 @@ https://www.faindonesia.co.id/*  https://faindonesia.co.id/:splat  301!
 /app/*           https://faindonesia-venus.netlify.app/app/:splat             200!
 
 /unduhan/*  /buku/#unduhan  301
+# fa-kw
+/konsultan-ipo/ /konsultan-persiapan-ipo/ 301
+/konsultan-ipo /konsultan-persiapan-ipo/ 301
+/jasa-laporan-keuangan/ /jasa-penyusunan-laporan-keuangan/ 301
+/jasa-laporan-keuangan /jasa-penyusunan-laporan-keuangan/ 301
+/akuntan-publik-terdekat/ /akuntan-terdekat/ 301
+# /fa-kw
