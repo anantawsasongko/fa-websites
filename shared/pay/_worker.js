@@ -200,7 +200,8 @@ async function licVerify(req, env) {
         return aj(req, out);
       }
       const st = j.licenseCode && j.licenseCode.status;
-      last = st === "EXPIRED" ? "Kode lisensi sudah berakhir." : st ? "Kode lisensi tidak aktif (" + st + ")." : (j.message || "Kode lisensi tidak valid.");
+      /* Pesan mentah Mayar tidak diteruskan (memuat email akun). */
+      last = st === "EXPIRED" ? "Kode lisensi sudah berakhir." : st ? "Kode lisensi tidak aktif (" + st + ")." : "Kode lisensi tidak ditemukan. Salin kode persis seperti di halaman pembayaran Mayar.";
     } catch (e) { last = "Gangguan sementara saat memeriksa kode. Coba lagi."; }
   }
   return aj(req, { ok: false, error: last }, 402);
