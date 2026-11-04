@@ -385,6 +385,8 @@ print("og artikel ca", _po.apply(os.path.join(OUT, "cariakuntan"), "ca", "https:
 import importlib.util as _ilu
 _tsp = _ilu.spec_from_file_location("tool_share", os.path.join(M, "shared", "tool_share.py")); _ts = _ilu.module_from_spec(_tsp); _tsp.loader.exec_module(_ts)
 print("tool share:", _ts.run(OUT))
+_sap = _ilu.spec_from_file_location("share_all", os.path.join(M, "shared", "share_all.py")); _sa = _ilu.module_from_spec(_sap); _sap.loader.exec_module(_sa)
+print("share all:", _sa.run(OUT))
 _tpp = _ilu.spec_from_file_location("tidy_prose", os.path.join(M, "shared", "tidy_prose.py")); _tp = _ilu.module_from_spec(_tpp); _tpp.loader.exec_module(_tp)
 print("tidy prose:", _tp.run(OUT))
 _tlp = _ilu.spec_from_file_location("tidy_layout", os.path.join(M, "shared", "tidy_layout.py")); _tl = _ilu.module_from_spec(_tlp); _tlp.loader.exec_module(_tl)
