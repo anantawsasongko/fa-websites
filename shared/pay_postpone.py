@@ -70,7 +70,7 @@ def run(OUT):
                 if not f.endswith(".html"): continue
                 p = os.path.join(d, f); t = open(p, encoding="utf-8").read()
                 t0 = t
-                t = t.replace('/js/fa-paywall.js"', '/js/fa-paywall.js?v=20261102b"').replace('/js/fa-ai.js"', '/js/fa-ai.js?v=20261102b"')
+                t = t.replace('/js/fa-paywall.js"', '/js/fa-paywall.js?v=20261105"').replace('/js/fa-ai.js"', '/js/fa-ai.js?v=20261105"')
                 if t != t0: open(p, "w", encoding="utf-8").write(t)
                 for a, b in TEXT: t = t.replace(a, b)
                 if "/bayar/" not in t:
