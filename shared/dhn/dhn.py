@@ -40,7 +40,7 @@ TK = {
 def strip_kja(L, mark, prof):
     t = TK[L]; wa = f"https://wa.me/{WA}?text={quote(t['msg'])}"
     return (f'<div class="dhns kja"><img src="{mark}" alt="Logo KJA Farhani K.N." width="15" height="28" loading="lazy">'
-            f'<span><a class="nm" href="{prof}"><b>KJA Farhani K.N.</b></a> <span class="s">· {t["lab"]}, {t["reg"]}</span></span>'
+            f'<span><b>KJA Farhani K.N.</b> <span class="s">· {t["lab"]}, {t["reg"]}</span></span>'
             f'<a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a></div>')
 
 def lang_of(rel):
@@ -49,7 +49,7 @@ def card(L, mark, prof):
     t = T[L]; wa = f"https://wa.me/{WA}?text={quote(t['msg'])}"
     return (f'<!--dhn--><aside class="dhnc" aria-label="KAP DHN &amp; Rekan"><img src="{mark}" alt="Logo KAP DHN &amp; Rekan" width="46" height="54" loading="lazy">'
             f'<div><small>{t["lab"]}</small><b class="n">KAP DHN &amp; Rekan</b><p>{t["desc"]}</p>'
-            f'<div class="bt"><a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a><a class="dhnl" href="{prof}" target="_blank" rel="noopener">{t["web"]}</a></div></div></aside><!--/dhn-->')
+            f'<div class="bt"><a class="dhnb" href="{wa}" target="_blank" rel="noopener">{t["wa"]}</a></div></div></aside><!--/dhn-->')
 def strip(L, mark):
     t = T[L]; wa = f"https://wa.me/{WA}?text={quote(t['msg'])}"
     return (f'<!--dhn--><div class="dhns"><img src="{mark}" alt="Logo KAP DHN &amp; Rekan" width="24" height="28" loading="lazy">'

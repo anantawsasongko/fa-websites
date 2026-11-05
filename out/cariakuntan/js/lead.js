@@ -45,7 +45,7 @@
     if(!document.getElementById('fal-css')){var st=document.createElement('style');st.id='fal-css';st.textContent=css;document.head.appendChild(st)}
     var d=load(),ov=document.createElement('div');ov.className='fal-ov';
     ov.innerHTML='<div class="fal-box" role="dialog" aria-modal="true" aria-label="Data Singkat Sebelum Chat">'
-      +'<h3>Sedikit Info Sebelum Chat</h3><p class="fal-sub">Supaya tim kami bisa langsung menyapa dengan benar dan memberi estimasi yang pas.</p>'
+      +'<h3>Sedikit Info Sebelum Chat</h3><p class="fal-sub">Semua isian opsional. Boleh dikosongkan dan langsung lanjut ke WhatsApp.</p>'
       +'<label for="fal-n">Nama Usaha</label><input type="text" id="fal-n" autocomplete="organization" placeholder="Contoh: Toko Maju Jaya" value="'+esc(d.n)+'">'
       +'<label>Bentuk Usaha</label><div class="fal-seg">'
       +['Perorangan','CV','PT','Lainnya'].map(function(x){return '<button type="button" data-v="'+x+'"'+(d.b===x?' class="on"':'')+'>'+x+'</button>'}).join('')+'</div>'
@@ -64,11 +64,11 @@
     ov.querySelector('.fal-x').addEventListener('click',close);
     ov.querySelector('.fal-go').addEventListener('click',function(){
       var nv=n.value.trim(),kv=k.value.trim();
-      if(!nv||!b||!kv){err.textContent='Mohon isi Nama Usaha, Bentuk Usaha, dan Kota.';(!nv?n:!kv&&b?k:n).focus();return}
+      
       var wv=(w.value||'').replace(/[^\d+]/g,'');if(wv&&wv.replace(/\D/g,'').length<9){err.textContent='Nomor WhatsApp sepertinya belum lengkap.';w.focus();return}
       save({n:nv,b:b,k:kv,w:wv});
       var U=new URL(h,location.href),t=(U.searchParams.get('text')||'').replace(/\s*\[ref:[^\]]*\]\s*$/,'');
-      t=(t||'Halo, saya ingin konsultasi.')+'\n\nNama usaha: '+nv+'\nBentuk usaha: '+b+'\nKota: '+kv+'\n'+tag().trim();
+      var info=(nv?'\nNama usaha: '+nv:'')+(b?'\nBentuk usaha: '+b:'')+(kv?'\nKota: '+kv:'');t=(t||'Halo, saya ingin konsultasi.')+(info?'\n'+info:'')+'\n'+tag().trim();
       U.searchParams.delete('text');var base=U.toString(),url=base+(base.indexOf('?')<0?'?':'&')+'text='+encodeURIComponent(t);
       ga('generate_lead',{method:'whatsapp',lead_page:path(),lead_source:S,landing_page:land(),link_text:(a.textContent||'').trim().slice(0,60),bentuk_usaha:b,kota:kv});
       sheet({n:nv,b:b,k:kv,wa:wv,page:path(),src:S,land:land(),msg:t.slice(0,600),site:location.hostname.replace(/^www\./,'')});

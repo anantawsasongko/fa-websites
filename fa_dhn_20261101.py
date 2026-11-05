@@ -53,7 +53,7 @@ t = re.sub(r'<a href="https://www\.kapdhn\.com/"[^>]*>KAP DHN &amp; Rekan</a>', 
 t = re.sub(r"<!--fa-dhn-->.*?<!--/fa-dhn-->", "", t, flags=re.S)
 k = t.find("<h2>Satu Pintu")
 if k > 0:
-    t = t[:k] + '<!--fa-dhn--><p><a class="btn line" href="/kap-dhn/">Profil KAP DHN &amp; Rekan</a></p><!--/fa-dhn-->' + t[k:]
+    pass  # 5 Nov 2026: tombol profil KAP DHN dihapus (permintaan Bos, pakai WA)
 wtxt(mp, t)
 
 sm = re.sub(r"<!--fa-dhn-->.*?<!--/fa-dhn-->\n?", "", rd(P("sitemap.xml")), flags=re.S)
