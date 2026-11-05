@@ -859,7 +859,7 @@ async function importGL(file){
   if(add.length)S.coa=S.coa.concat(add);
   save();render();toast(nf.format(out.length)+" baris GL terbaca"+(add.length?", "+add.length+" akun baru ditambahkan ke COA":""));
 }
-function gate(msg){tab="mulai";render();window.scrollTo(0,0);toast(msg);setTimeout(()=>{const i=$("#lic-code");if(i)i.focus()},50)}
+function gate(msg){if(window.FAPaywall&&!licensed()){window.FAPaywall.open();return}tab="mulai";render();window.scrollTo(0,0);toast(msg);setTimeout(()=>{const i=$("#lic-code");if(i)i.focus()},50)}
 function fresh(){return {co:"",per:"",pemb:"",std:"SAK Indonesia",coa:[],gl:[],aje:[],draft:null,bukti:{},pbc:{},demo:false}}
 
 // ---------- export ----------

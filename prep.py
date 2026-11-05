@@ -127,7 +127,7 @@ def add_pay(site_root, pages):
 _JUP_PAY = {"type": "mayar", "items": [{"label": "Akses 1 Hari", "url": "https://fa-indonesia-14404.myr.id/pl/fa-jupiter-audit-ready-day-pass-1-hari"},
                                        {"label": "Akses 1 Tahun", "url": "https://fa-indonesia-14404.myr.id/pl/fa-jupiter-audit-ready-tahunan-1-tahun"}]}
 print("paywall fa", add_pay(fa, [
-    ("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Laporan Keuangan", "what": "Excel, Word CALK, dan file proyek", "full": '#btnXlsx,[data-act="calkdoc"],[data-act="saveproj"]', "skipKey": "fa-auditready-v1-lic", "codeSel": "#lic-code", "pay": _JUP_PAY}),
+    ("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Laporan Keuangan", "what": "Excel, Word CALK, dan file proyek", "full": "[data-fa-none]", "skipKey": "fa-auditready-v1-lic", "codeSel": "#lic-code", "pay": _JUP_PAY}),
     ("kalkulator-valuasi-rumah-sakit/index.html", {"app": "venus-rsval", "name": "FA Venus · Valuasi Rumah Sakit", "what": "laporan lengkap dan strategi (PDF)", "full": "[data-fa-full]", "pay": {"type": "qris", "amount": 49000}}),
     ("kalkulator-valuasi-dcf/index.html", {"app": "venus-dcf", "name": "FA Venus · Valuasi DCF & WACC", "what": "laporan valuasi lengkap (PDF)", "full": "[data-fa-full]", "pay": {"type": "qris", "amount": 49000}})]))
 # QRIS donasi di semua aplikasi gratis: pill tampil sejak awal, popup sekali per sesi saat salin/unduh/cetak hasil
