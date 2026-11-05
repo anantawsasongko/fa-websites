@@ -33,7 +33,7 @@ def _poster(brand, kicker, title, key, root):
     import brand_poster as bp
     pb = brand if brand in ("fa", "ca") else "ca"
     cache = os.path.join(HERE, "og", "page-" + brand); os.makedirs(cache, exist_ok=True)
-    h = hashlib.md5(("p1" + brand + kicker + title).encode()).hexdigest()[:6]
+    h = hashlib.md5((("p5" if brand == "fa" else "p1") + brand + kicker + title).encode()).hexdigest()[:6]
     c = os.path.join(cache, f"{key}-{h}.jpg")
     if not os.path.exists(c):
         for f in os.listdir(cache):
@@ -89,6 +89,14 @@ def run(OUT):
                     i = max(t.rfind("<footer"), 0) or t.rfind("</body>")
                     t = t[:i] + ('<section class="tshare"><h3>Bermanfaat? Ajak Rekan Mencoba</h3><p>Langsung di browser, tanpa daftar.</p>'
                                  f'<div class="share" data-tool="{name}" data-lab="Bagikan"></div></section>\n') + t[i:]
+                sh += 1; ch = True
+            # 3. aplikasi tanpa H1 (FA Venus kalkulator dll., 5 Nov 2026): blok share di bawah
+            elif 'class="share"' not in t and not m and (TOOL.match(rel) or rel.startswith("kalkulator")):
+                name = h1[:90] or rel
+                if "tshare-css" not in t: t = t.replace("</head>", CSS + "</head>", 1)
+                i = max(t.rfind("<footer"), 0) or t.rfind("</body>")
+                t = t[:i] + ('<section class="tshare"><h3>Bermanfaat? Ajak Rekan Mencoba</h3><p>Gratis, langsung di browser, tanpa daftar.</p>'
+                             f'<div class="share" data-tool="{name}" data-lab="Bagikan"></div></section>\n') + t[i:]
                 sh += 1; ch = True
             if ch: open(p, "w", encoding="utf-8").write(t)
         res[site] = {"og": og, "share": sh}

@@ -7,9 +7,9 @@
 (function () {
   if (window.__faShare) return; window.__faShare = 1;
   var H = location.hostname.replace(/^www\./, '');
-  var B = /cariakuntan/.test(H) ? { l: 'C', n: 'cariakuntan.com', c1: '#0B1F33', c2: '#1F5BFF', ac: '#8FB2FF', tint: 'rgba(31,91,255,.28)', bg: 10, tag: 'KAP, KJPP, Pajak, Laporan Keuangan' }
-        : /updatesak/.test(H) ? { l: 'U', n: 'updatesak.com', c1: '#0B1F33', c2: '#0E7C66', ac: '#7EE0C3', tint: 'rgba(14,124,102,.30)', bg: 10, tag: 'Kalkulator PSAK dan CALK' }
-        : { l: 'F', n: 'faindonesia.co.id', c1: '#0a0a0a', c2: '#7f1d1d', ac: '#fca5a5', tint: 'rgba(127,29,29,.32)', bg: 10, tag: 'Kredit Bank, Investor, IPO' };
+  var B = /cariakuntan/.test(H) ? { l: 'C', n: 'cariakuntan.com', c1: '#0B1F33', c2: '#1F5BFF', ac: '#8FB2FF', tint: 'rgba(31,91,255,.28)', bg: 22, tag: 'KAP, KJPP, Pajak, Laporan Keuangan' }
+        : /updatesak/.test(H) ? { l: 'U', n: 'updatesak.com', c1: '#0B1F33', c2: '#0E7C66', ac: '#7EE0C3', tint: 'rgba(14,124,102,.30)', bg: 22, tag: 'Kalkulator PSAK dan CALK' }
+        : { l: 'F', n: 'faindonesia.co.id', c1: '#0a0a0a', c2: '#7f1d1d', ac: '#fca5a5', tint: 'rgba(127,29,29,.32)', bg: 22, tag: 'Kredit Bank, Investor, IPO' };
   var canon = (document.querySelector('link[rel=canonical]') || {}).href || location.href.split('#')[0];
   var h1 = document.querySelector('main h1, h1');
   var title = ((h1 && h1.innerText) || document.title.split(' | ')[0]).trim().replace(/\s+/g, ' ');
@@ -67,7 +67,11 @@
   }
   function loadImg(src) { return new Promise(function (r) { var i = new Image(); i.onload = function () { r(i); }; i.onerror = function () { r(null); }; i.src = src; }); }
   function hash(t) { var h = 0; for (var i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) | 0; return Math.abs(h); }
+  /* Variasi warna poster FA (5 Nov 2026): palet dipilih dari hash url + judul, sama dengan brand_poster.py */
+  var FA_PAL = [['#7f1d1d', '#fca5a5'], ['#065f46', '#6ee7b7'], ['#1e296e', '#a5b4fc'], ['#78480a', '#fcd34d'], ['#0f5e6c', '#67e8f9'], ['#581c69', '#e9a8f5'], ['#9a3412', '#fdba74']];
+  function rgba(hx, a) { var v = parseInt(hx.slice(1), 16); return 'rgba(' + (v >> 16 & 255) + ',' + (v >> 8 & 255) + ',' + (v & 255) + ',' + a + ')'; }
   function draw(C) {
+    if (B.l === 'F') { var P = FA_PAL[hash(C.url + '|' + C.title) % FA_PAL.length]; B = Object.assign({}, B, { c2: P[0], ac: P[1], tint: rgba(P[0], .34) }); }
     var n = B.bg || 6, src = '/js/share-bg/' + (C.bg || (hash(C.url) % n + 1)) + '.jpg';
     return Promise.all([loadFonts(), loadImg(src), B.l === 'F' ? Promise.resolve(null) : loadImg('/js/logo-dark.png')]).then(function (r) {
       var ph = r[1], lg = r[2];
@@ -107,7 +111,7 @@
       x.fillStyle = '#fff'; x.textBaseline = 'top'; x.font = '400 ' + size + 'px ' + serif;
       lines.forEach(function (l) { x.fillText(l, m, y); y += lh; });
       x.fillStyle = B.ac; x.fillRect(m, y + 26, 84, 6);
-      x.fillStyle = 'rgba(255,255,255,.78)'; x.font = '300 34px ' + sansL; x.textBaseline = 'middle'; x.fillText(B.tag, m, Hh - 300);
+      x.fillStyle = 'rgba(255,255,255,.78)'; x.font = '300 34px ' + sansL; x.textBaseline = 'middle'; x.fillText(/^Coba gratis/.test(C.title) ? 'Gratis, langsung di browser' : B.tag, m, Hh - 300);
       x.fillStyle = '#fff'; var bx = m, by = Hh - 236, bw = W - 2 * m, bh = 112, rr = 56;
       x.beginPath(); x.moveTo(bx + rr, by); x.arcTo(bx + bw, by, bx + bw, by + bh, rr); x.arcTo(bx + bw, by + bh, bx, by + bh, rr); x.arcTo(bx, by + bh, bx, by, rr); x.arcTo(bx, by, bx + bw, by, rr); x.closePath(); x.fill();
       x.fillStyle = '#0a0a0a'; x.font = '600 36px ' + sansB;

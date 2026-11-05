@@ -9,6 +9,20 @@ BG = os.path.join(HERE, "share-bg")
 BR = {"fa": dict(l="F", dom="faindonesia.co.id", c2=(127, 29, 29), ac=(252, 165, 165), tag="Kredit Bank, Investor, IPO"),
       "ca": dict(l="C", dom="cariakuntan.com", c2=(31, 91, 255), ac=(143, 178, 255), tag="KAP, KJPP, Pajak, Laporan Keuangan"),
       "us": dict(l="U", dom="updatesak.com", c2=(14, 124, 102), ac=(126, 224, 195), tag="Kalkulator PSAK dan CALK")}
+# Variasi warna poster FA (5 Nov 2026, Bos: poster share monoton merah). Dipilih dari hash judul/url.
+FA_PAL = [((127, 29, 29), (252, 165, 165)),   # marun
+          ((6, 95, 70), (110, 231, 183)),     # emerald
+          ((30, 41, 110), (165, 180, 252)),   # indigo
+          ((120, 72, 10), (252, 211, 77)),    # amber
+          ((15, 94, 108), (103, 232, 249)),   # teal
+          ((88, 28, 105), (233, 168, 245)),   # plum
+          ((154, 52, 18), (253, 186, 116))]   # terracotta
+def _pal(brand, key):
+    b = dict(BR[brand])
+    if brand == "fa":
+        c2, ac = FA_PAL[int(hashlib.md5(("pal" + (key or "")).encode()).hexdigest(), 16) % len(FA_PAL)]
+        b["c2"], b["ac"] = c2, ac
+    return b
 def F(name, s): return ImageFont.truetype(os.path.join(FONTS, name), s)
 def _photo(key, W, H):
     fs = sorted(f for f in os.listdir(BG) if f.endswith(".jpg"))
@@ -29,7 +43,7 @@ def _wrap(dr, text, font, maxw):
     return lines
 def _base(brand, key, W, H, photo_box, fade):
     import numpy as np
-    b = BR[brand]
+    b = _pal(brand, key)
     yy, xx = np.mgrid[0:H, 0:W].astype("float32")
     d = np.sqrt((xx / W) ** 2 + ((H - yy) / H) ** 2) / 1.25
     d = np.clip(d / .62, 0, 1)[..., None]
@@ -79,9 +93,16 @@ def story(brand, kicker, title, url, out):
     if dr.textlength("Baca: " + u, font=fnt) > bw - 90: u = b["dom"]
     dr.text((W // 2, by + bh // 2), "Baca: " + u, font=fnt, fill=(10, 10, 10), anchor="mm")
     os.makedirs(os.path.dirname(out), exist_ok=True); im.save(out, "JPEG", quality=84, optimize=True, progressive=True)
+TOOL_RE = None
+def _tag(b, kicker, title):
+    import re
+    if re.search(r"\bFA (Apps|Venus|Jupiter|Saturn|Galaxy)\b|Kalkulator|Cek |Simulasi|Aplikasi", (kicker or "") + " " + (title or ""), re.I):
+        return "Gratis, langsung di browser"
+    return b["tag"]
 def og(brand, kicker, title, url, out):
     W, H = 1200, 630
     im, b = _base(brand, url or title, W, H, (560, 0, 640, H), "right")
+    b = dict(b, tag=_tag(b, kicker, title)) if brand == "fa" else b
     dr = ImageDraw.Draw(im); m = 64
     _logo(dr, b, m, .7, im, brand)
     maxw = 680; size = 56
