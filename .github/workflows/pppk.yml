@@ -1,0 +1,27 @@
+name: Registri PPPK Kemenkeu (KAP, KJA, KJPP, AP, AB, Penilai, Konsultan Pajak)
+on:
+  schedule:
+    - cron: "17 22 1 * *"   # tiap tanggal 1 pukul 05.17 WIB
+  workflow_dispatch:
+  push:
+    paths: ["shared/pppk/fetch.py"]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ambil registri
+        run: python3 shared/pppk/fetch.py
+      - name: Terapkan ke halaman yang sudah di-build (out/), bila modul sudah ada
+        run: |
+          if [ -f shared/pppk/izin.py ] && [ -d out/cariakuntan ]; then python3 shared/pppk/izin.py out; fi
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add shared/pppk/registry.json out 2>/dev/null || git add shared/pppk/registry.json
+          git commit -m "Registri PPPK diperbarui $(TZ=Asia/Jakarta date +%Y-%m-%d)" || exit 0
+          git pull --rebase
+          git push
