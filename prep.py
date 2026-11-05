@@ -610,6 +610,9 @@ for _proj, _k in _ECOK.items():
 _sys.path.insert(0, os.path.join(M, "shared"))
 import tidy_tabs as _tt
 print("tidy tabs:", _tt.run(OUT))
+# area layanan per kota: semua kecamatan + desa/kelurahan + nama populer (Jogja, Solo) di halaman kota terindeks (5 Nov 2026)
+import area_layanan as _al
+print("area layanan:", _al.run(OUT))
 # halaman programatik tipis (desa KDMP, kecamatan) -> noindex,follow + keluar dari sitemap (4 Nov 2026)
 import thin_noindex as _tn
 print("thin noindex:", _tn.run(OUT))
