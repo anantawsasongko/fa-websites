@@ -151,7 +151,7 @@ p = os.path.join(FA, "kalkulator-valuasi-dcf", "index.html"); t = rd(p)
 if 'id="dcf_wa"' not in t:
     t = re.sub(r'<p style="margin:14px 0 0"><button class="btn primary" id="dcf_pdf"[^>]*>[^<]*</button></p>\n  ', '', t)
     t = t.replace('<p class="note">Baris = WACC, kolom = pertumbuhan terminal.',
-                  '<p style="margin:14px 0 0"><a class="btn primary" id="dcf_wa" href="https://wa.me/6282245260121" rel="noopener" target="_blank">Minta Laporan Valuasi Lengkap via WhatsApp</a></p>\n  <p class="note">Laporan lengkap (PDF: asumsi, WACC, proyeksi, sensitivitas, dan catatan tim FA) dikirim lewat WhatsApp. Baris = WACC, kolom = pertumbuhan terminal.', 1)
+                  '<p style="margin:14px 0 0"><a class="btn primary" id="dcf_wa" style="white-space:normal;max-width:100%;text-align:center;line-height:1.35" href="https://wa.me/6282245260121" rel="noopener" target="_blank">Minta Laporan Valuasi Lengkap via WhatsApp</a></p>\n  <p class="note">Laporan lengkap (PDF: asumsi, WACC, proyeksi, sensitivitas, dan catatan tim FA) dikirim lewat WhatsApp. Baris = WACC, kolom = pertumbuhan terminal.', 1)
     t = t.replace('$("#dcf_pdf").addEventListener("click",()=>{calc();window.print()});\n', '')
     t = t.replace("calc();\n\n})();",
                   'const DIDS=["fcf","g1","g2","gt","rf","beta","erp","sp","kd","tx","dw","debt","cash","dlom","sh"];\n'

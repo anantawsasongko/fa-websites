@@ -307,7 +307,7 @@ def link_home(site_root):
         if s2 == s:
             k = s.rfind("</main>")
             if k < 0: continue
-            s2 = s[:k] + f'<p style="margin:18px 0 0"><a class="btn btn-line" href="/cek-izin/">{E(lab)}</a></p>' + s[k:]
+            s2 = s[:k] + f'<div class="wrap" style="padding-top:18px;padding-bottom:28px"><p style="margin:0"><a class="btn btn-line" href="/cek-izin/">{E(lab)}</a></p></div>' + s[k:]
         open(p, "w", encoding="utf-8").write(s2); n += 1
     return n
 

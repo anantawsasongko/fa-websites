@@ -156,9 +156,9 @@ open(p, "w", encoding="utf-8").write(t)
 # beranda: satu kalimat di bawah Pendekatan/Pilih Jalur kalau belum ada
 p = os.path.join(B, "index.html"); t = open(p, encoding="utf-8").read()
 t = re.sub(r"<!--fa-tools-home-->.*?<!--/fa-tools-home-->", "", t, flags=re.S)
-home = ('<!--fa-tools-home--><p style="margin:14px 0 0;font-size:15px;line-height:1.6;opacity:.85">Semua layanan dikerjakan dengan tools buatan FA sendiri '
+home = ('<!--fa-tools-home--><div class="wrap" style="padding-top:8px;padding-bottom:28px"><p style="margin:0;font-size:15px;line-height:1.6;opacity:.85">Semua layanan dikerjakan dengan tools buatan FA sendiri '
         '(<a href="/audit-ready/">FA Jupiter</a>, <a href="/saturn/">FA Saturn</a>, <a href="/cek-kapasitas-kredit/">FA Venus</a>), '
-        'dibangun mengikuti standar kertas kerja KAP dan metodologi advisory firma Big Four. <a href="/layanan/#tools-fa">Lihat caranya</a>.</p><!--/fa-tools-home-->')
+        'dibangun mengikuti standar kertas kerja KAP dan metodologi advisory firma Big Four. <a href="/layanan/#tools-fa">Lihat caranya</a>.</p></div><!--/fa-tools-home-->')
 k = t.find("<!--fa-wajah-->")
 if k < 0:
     m = re.search(r'id="cara-mulai"', t); k = t.rfind("<section", 0, m.start()) if m else t.rfind("</main>")
