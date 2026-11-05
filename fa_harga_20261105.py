@@ -128,6 +128,17 @@ if "RSV2" not in t:
     new = new.replace('$("rv_pdf").addEventListener("click",function(){calc();report(LAST);try{if(window.gtag)gtag("event","rsval_pdf",{jenis:$("jenis").value})}catch(e){}setTimeout(function(){window.print()},80)});',
                       '$("rv_pdf").addEventListener("click",function(){calc();try{if(window.gtag)gtag("event","rsval_pdf",{jenis:$("jenis").value})}catch(e){}},true);\n'
                       '(function(){var q=new URLSearchParams(location.search);if(!q.has("laporan")&&!q.has("tt"))return;q.forEach(function(v,k){var el=$(k);if(!el)return;if(el.type==="checkbox")el.checked=v==="1";else el.value=v});calc();if(q.get("laporan")==="1"){report(LAST);setTimeout(function(){window.print()},400)}})();')
+    # rapikan tampilan: Rp0 tanpa desimal, rentang dari nol = "hingga", tanpa treatment = after sama dengan before, selisih utang sebagai rentang
+    for a, b in [
+        ('function fmt(v){if(v===null||!isFinite(v))return"-";var a=Math.abs(v),', 'function fmt(v){if(v===null||!isFinite(v))return"-";if(Math.abs(v)<0.05)return"Rp0";var a=Math.abs(v),'),
+        ('function rng(a,b){if(a===null||b===null)return"-";if(Math.abs(a-b)<0.05)return fmt(a);', 'function rng(a,b){if(a===null||b===null)return"-";if(Math.abs(a-b)<0.05||(a<0.05&&b<0.05))return fmt(a);if(a<0.05)return"hingga "+fmt(b);'),
+        ('var gL=base*(tP?0.85:0.75),gH=base*(tP?1:0.85);', 'var anyT=tB||tM||tO||tA||tP;var gL=anyT?base*(tP?0.85:0.75):pL,gH=anyT?base*(tP?1:0.85):pH;'),
+        ('var evaL=Math.max(gL,aiL||0),evaH=Math.max(gH,aiH||0),aL=eqc(evaL,utang),aH=eqc(evaH,utang);', 'var evaL=Math.max(gL,aiL||0),evaH=Math.max(gH,aiH||0);if(!anyT){evaL=evbL;evaH=evbH}var aL=eqc(evaL,utang),aH=eqc(evaH,utang);'),
+        ('var gapB=utang-evbH,gapA=utang-evaH;', 'var gapB=utang-evbH,gapBH=utang-evbL,gapA=utang-evaH,gapAH=utang-evaL;'),
+        ('"Before: utang bank melebihi nilai RS sekitar "+fmt(gapB)+", pemilik tidak menerima apa pun"', '"Before: utang bank melebihi nilai RS "+rng(gapB,gapBH)+", pemilik tidak menerima apa pun"'),
+        ('"Utang bank melebihi nilai RS bahkan setelah treatment (kurang "+fmt(gapA)+"); perlu restrukturisasi utang"', '"Utang bank melebihi nilai RS bahkan setelah treatment (kurang "+rng(gapA,gapAH)+"); perlu restrukturisasi utang"'),
+    ]:
+        assert new.count(a) == 1, a[:60]; new = new.replace(a, b)
     assert new.count("RSV2") == 1 and "eqc(evbL" in new and "laporan=1" in new and 'rv_pdf").href' in new, "patch RS gagal"
     t = t.replace(old, new)
     t = t.replace('"offers": {"@type": "Offer", "price": "49000", "priceCurrency": "IDR", "description": "Kalkulator gratis; laporan lengkap dan strategi berbayar"}',

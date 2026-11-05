@@ -659,8 +659,8 @@ h3{font-weight:400}
 (function(){
 var WA="6282245260121",$=function(i){return document.getElementById(i)};
 function num(i){var v=($(i).value||"").toString().trim().replace(/\./g,"").replace(",",".");if(v==="")return null;v=parseFloat(v);return isNaN(v)?null:v}
-function fmt(v){if(v===null||!isFinite(v))return"-";var a=Math.abs(v),s=a<10?a.toFixed(1):Math.round(a).toString();return(v<0?"-":"")+"Rp"+s.replace(".",",")+" M"}
-function rng(a,b){if(a===null||b===null)return"-";if(Math.abs(a-b)<0.05)return fmt(a);if(a>=0&&b>=0)return fmt(a).replace(" M","")+" sampai "+fmt(b).replace("Rp","");return fmt(a)+" sampai "+fmt(b)}
+function fmt(v){if(v===null||!isFinite(v))return"-";if(Math.abs(v)<0.05)return"Rp0";var a=Math.abs(v),s=a<10?a.toFixed(1):Math.round(a).toString();return(v<0?"-":"")+"Rp"+s.replace(".",",")+" M"}
+function rng(a,b){if(a===null||b===null)return"-";if(Math.abs(a-b)<0.05||(a<0.05&&b<0.05))return fmt(a);if(a<0.05)return"hingga "+fmt(b);if(a>=0&&b>=0)return fmt(a).replace(" M","")+" sampai "+fmt(b).replace("Rp","");return fmt(a)+" sampai "+fmt(b)}
 function ck(i){return $(i).checked}
 var perTT={rsu:1.0,rsia:0.8,rsk:0.9},kelasAdj={b:1.1,c:1.0,d:0.9},bpjsAdj={aktif:1.0,proses:0.85,putus:0.55,non:0.8},
 lbl={rsu:"RS Umum",rsia:"RSIA",rsk:"RS Khusus"},bt={aktif:"Aktif",proses:"Sedang perpanjangan",putus:"Diputus / sanksi",non:"Tidak kerja sama"};
@@ -704,15 +704,15 @@ function calc(){
  var ebA=revA*mA,audA=aud||tA,adjA=kelasAdj[kelas]*akA*bpjsAdj[bpA]*sw*(audA?1:0.85)*(borA!==null&&borA>=75?1.05:1);
  var mL=Math.min(8,6+(tP?0.5:0)),mH=Math.min(8,7.5+(tP?0.5:0)),aiL=null,aiH=null;
  if(ebA>0){aiL=ebA*mL*adjA;aiH=ebA*mH*adjA}
- var gL=base*(tP?0.85:0.75),gH=base*(tP?1:0.85);
- var evaL=Math.max(gL,aiL||0),evaH=Math.max(gH,aiH||0),aL=eqc(evaL,utang),aH=eqc(evaH,utang);
+ var anyT=tB||tM||tO||tA||tP;var gL=anyT?base*(tP?0.85:0.75):pL,gH=anyT?base*(tP?1:0.85):pH;
+ var evaL=Math.max(gL,aiL||0),evaH=Math.max(gH,aiH||0);if(!anyT){evaL=evbL;evaH=evbH}var aL=eqc(evaL,utang),aH=eqc(evaH,utang);
  if(aL<bL)aL=bL;if(aH<bH)aH=bH;
  var sbL=bL*po,sbH=bH*po,saL=aL*po,saH=aH*po;
  $("rv_b").textContent=rng(sbL,sbH);$("rv_a").textContent=rng(saL,saH);
  var bm=(sbL+sbH)/2,am=(saL+saH)/2,mx=Math.max(am,bm,0.1);
  $("rv_bb").style.width=Math.max(2,bm/mx*100)+"%";$("rv_ba").style.width=Math.max(2,am/mx*100)+"%";
- var up=am-bm;$("rv_up").textContent=up>0.05?"+"+fmt(up):"Rp0";var gapB=utang-evbH,gapA=utang-evaH;
- $("rv_upx").textContent=(up>0.05&&bm>0.1)?"Sekitar "+(am/bm).toFixed(1).replace(".",",")+" kali harga before (nilai tengah)":(bm<=0.1&&up>0.05?"Before: utang bank melebihi nilai RS sekitar "+fmt(gapB)+", pemilik tidak menerima apa pun":(am<=0.1?"Utang bank melebihi nilai RS bahkan setelah treatment (kurang "+fmt(gapA)+"); perlu restrukturisasi utang":"Pilih treatment untuk melihat selisih"));
+ var up=am-bm;$("rv_up").textContent=up>0.05?"+"+fmt(up):"Rp0";var gapB=utang-evbH,gapBH=utang-evbL,gapA=utang-evaH,gapAH=utang-evaL;
+ $("rv_upx").textContent=(up>0.05&&bm>0.1)?"Sekitar "+(am/bm).toFixed(1).replace(".",",")+" kali harga before (nilai tengah)":(bm<=0.1&&up>0.05?"Before: utang bank melebihi nilai RS "+rng(gapB,gapBH)+", pemilik tidak menerima apa pun":(am<=0.1?"Utang bank melebihi nilai RS bahkan setelah treatment (kurang "+rng(gapA,gapAH)+"); perlu restrukturisasi utang":"Pilih treatment untuk melihat selisih"));
  $("rv_prop").textContent=rng(pL,pH)+(ap?" (appraisal)":"");
  $("rv_inc").textContent=iL===null?"Tidak relevan (EBITDA negatif)":rng(iL,iH);
  $("rv_eba").textContent=fmt(ebA)+" (margin "+Math.round(mA*100)+"%)";
