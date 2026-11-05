@@ -1,0 +1,26 @@
+name: Berita Terkini harian
+on:
+  schedule:
+    - cron: "13 23 * * *"   # 06.13 WIB setiap hari
+  workflow_dispatch: {}
+  push:
+    paths: ["shared/update_feed.py", ".github/workflows/berita.yml"]
+permissions:
+  contents: write
+concurrency: { group: berita, cancel-in-progress: false }
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Ambil berita dan perbarui halaman
+        run: python3 shared/update_feed.py
+      - name: Commit dan push (Cloudflare Pages deploy otomatis)
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add cariakuntan/feed.json out
+          git diff --cached --quiet && { echo "tidak ada perubahan"; exit 0; }
+          git commit -m "Berita Terkini otomatis $(TZ=Asia/Jakarta date +%Y-%m-%d)"
+          git pull --rebase; git push
