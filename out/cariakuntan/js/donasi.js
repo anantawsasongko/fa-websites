@@ -43,7 +43,7 @@
     '<a class="fs" href="' + IMG + '" download="QRIS-FA-Indonesia.jpg">' + T.save + '</a></div></div>';
   var pill = document.createElement('div'); pill.id = 'faDonPill'; pill.hidden = true;
   pill.innerHTML = '<i>&#9829;</i><a href="#" role="button"><span class="lg">' + T.pill + '</span><span class="sh">' + T.short + '</span></a><button type="button" aria-label="' + T.x + '">&times;</button>';
-  function mount() { document.body.appendChild(m); document.body.appendChild(pill); }
+  function mount() { document.body.appendChild(m); document.body.appendChild(pill); if (C.pill) pill.hidden = false; }
   if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
 
   var cont = null;

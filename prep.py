@@ -122,14 +122,19 @@ def add_pay(site_root, pages):
         t = t.replace("</body>", "<script>window.FA_PAY=" + json.dumps(cfg, ensure_ascii=False) + "</script><script src=\"/js/fa-paywall.js\" defer></script></body>", 1)
         open(pth, "w", encoding="utf-8").write(t); n += 1
     return n
-_kk = {"app": "venus-kredit", "name": "FA Venus · Cek Kredit & Pendanaan", "price": 25000, "guard": "#kk_go"}
-print("paywall fa", add_pay(fa, [("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Audit Ready", "price": 99000, "skipKey": "fa-auditready-v1-lic"}),
-    ("saturn/index.html", {"app": "saturn", "name": "FA Saturn · Audit Workspace", "price": 99000}),
-    ("cek-psak-118/index.html", {"app": "cek-psak-118", "name": "FA Venus · Konversi PL PSAK 118", "price": 25000})]
-    + [(r, _kk) for r in ("index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html")]
-    + [("bankability-index/index.html", {"app": "venus-bankability", "name": "FA Venus · Bankability Index", "price": 25000, "guard": "#bi_go"})]
-    + [("cek-kesiapan-pendanaan/index.html", dict(_kk, guard="#fp_go"))]
-    + [("kalkulator-valuasi-rumah-sakit/index.html", {"app": "venus-rsval", "name": "FA Venus · Valuasi Rumah Sakit", "price": 49000})]))
+# 5 Nov 2026 (aturan Bos): paywall v4 hanya di aplikasi yang punya laporan lengkap untuk diunduh; tidak ada harga di muka.
+# Jupiter: pilihan akses Mayar (kode akses). Valuasi RS dan DCF: QRIS Rp49.000 saat unduh laporan. Sisanya gratis + QRIS donasi.
+_JUP_PAY = {"type": "mayar", "items": [{"label": "Akses 1 Hari", "url": "https://fa-indonesia-14404.myr.id/pl/fa-jupiter-audit-ready-day-pass-1-hari"},
+                                       {"label": "Akses 1 Tahun", "url": "https://fa-indonesia-14404.myr.id/pl/fa-jupiter-audit-ready-tahunan-1-tahun"}]}
+print("paywall fa", add_pay(fa, [
+    ("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Laporan Keuangan", "what": "Excel, Word CALK, dan file proyek", "full": '#btnXlsx,[data-act="calkdoc"],[data-act="saveproj"]', "skipKey": "fa-auditready-v1-lic", "codeSel": "#lic-code", "pay": _JUP_PAY}),
+    ("kalkulator-valuasi-rumah-sakit/index.html", {"app": "venus-rsval", "name": "FA Venus · Valuasi Rumah Sakit", "what": "laporan lengkap dan strategi (PDF)", "full": "[data-fa-full]", "pay": {"type": "qris", "amount": 49000}}),
+    ("kalkulator-valuasi-dcf/index.html", {"app": "venus-dcf", "name": "FA Venus · Valuasi DCF & WACC", "what": "laporan valuasi lengkap (PDF)", "full": "[data-fa-full]", "pay": {"type": "qris", "amount": 49000}})]))
+# QRIS donasi di semua aplikasi gratis: pill tampil sejak awal, popup sekali per sesi saat salin/unduh/cetak hasil
+_DON_FREE = "{pill:true,guards:[{sel:'#cp,#cpY,#btnXlsx,#fp_pr,[data-action=\"c-export\"],[data-action=\"c-glcsv\"]',key:'apps-gratis'}]}"
+add_donasi(fa, ["saturn/index.html", "cek-psak-118/index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html",
+    "bankability-index/index.html", "cek-kesiapan-pendanaan/index.html", "kalkulator-pph-21/index.html", "kalkulator-pph-badan/index.html", "kalkulator-potput-ppn/index.html",
+    "kalkulator-penyusutan-fiskal/index.html", "kalkulator-cicilan-pinjaman/index.html", "kalkulator-rasio-keuangan/index.html", "galaxy/index.html"], _DON_FREE)
 # ---------- Asisten AI (2 Nov 2026): tombol hanya tampil bila /api/ai/status enabled (API key + KV FA_AI di Cloudflare) ----------
 AI_JS = open(os.path.join(M, "shared", "fa-ai.src.js"), encoding="utf-8").read().replace("__GS__", PAY_GS).replace("__QR__", open(os.path.join(M, "shared", "fa-paywall-qr.txt")).read().strip())
 def add_ai(site_root):
@@ -140,7 +145,7 @@ def add_ai(site_root):
         for f in fs:
             if not f.endswith(".html"): continue
             pth = os.path.join(d, f); t = open(pth, encoding="utf-8").read()
-            if "fa-paywall.js" not in t or "fa-ai.js" in t: continue
+            if ("fa-paywall.js" not in t and "key:'apps-gratis'" not in t and "key:'us-kalkulator'" not in t) or "fa-ai.js" in t: continue  # 5 Nov 2026: juga di app gratis (donasi)
             t = t.replace("</body>", "<script src=\"/js/fa-ai.js\" defer></script></body>", 1)
             open(pth, "w", encoding="utf-8").write(t); n += 1
     return n
@@ -199,7 +204,7 @@ _sp.run(["python3", os.path.join(M, "updatesak", "build_dosen.py")], check=True)
 US = os.path.join(M, "updatesak", "site")
 u = os.path.join(OUT, "updatesak"); shutil.copytree(US, u)
 inject_before_footer(os.path.join(u, "eksplor", "index.html"), feed_block(n=12, accent="#0B6E4F"))
-print("paywall us", add_pay(u, [("index.html", {"app": "us-kalkulator", "name": "UpdateSAK · Kalkulator Standar & CALK", "price": 25000, "guard": "#go"})]))
+add_donasi(u, ["index.html"], "{accent:'#1F5BFF',accentInk:'#fff',pill:true,guards:[{sel:'#copy,#dl',key:'us-kalkulator'}]}")  # 5 Nov 2026: kalkulator UpdateSAK gratis + QRIS donasi
 print("ai us", add_ai(u))
 add_donasi(u, [os.path.relpath(os.path.join(_d, "index.html"), u) for _d, _, _fs in os.walk(os.path.join(u, "materi")) if "index.html" in _fs],
     "{accent:'#1F5BFF',accentInk:'#fff',guards:[{sel:'a.dl',key:'materi-updatesak'}]}")

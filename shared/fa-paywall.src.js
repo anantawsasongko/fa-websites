@@ -1,24 +1,23 @@
-/* FA Paywall QRIS v2 (1 Nov 2026). Tidak ada akses gratis tanpa data:
-   1) "Saya sudah bayar": isi nama, WA, nama usaha, dan referensi transaksi QRIS, lalu terbuka di perangkat ini.
-   2) "Coba dulu 7 hari": isi nama, WA, nama usaha, bentuk usaha, kota, lalu terbuka 7 hari.
-   Data dikirim ke Google Sheet lead (Apps Script) yang sama dengan Cek Kredit.
-   Pakai: window.FA_PAY={app,name,price,guard?} lalu <script src="/js/fa-paywall.js" defer>,
-   atau atribut data-app, data-name, data-price, data-guard pada tag script.
-   guard = selector tombol: modal baru muncul saat tombol itu diklik (untuk halaman yang juga berisi artikel). */
+/* FA Paywall v4 (5 Nov 2026, aturan Bos): aplikasi dan hasil ringkas selalu gratis, tidak ada kata "bayar" dan tidak ada harga
+   yang diumumkan di muka. Pembayaran hanya muncul saat pengguna mau mengunduh laporan hasil lengkap (Excel, Word, PDF, export).
+   Pakai: window.FA_PAY={app,name,what,full?,skipKey?,pay:{type:"mayar",items:[{label,url}],code?:true}
+                                                      |{type:"qris",amount}} lalu <script src="/js/fa-paywall.js" defer>.
+   - type mayar: tombol pilihan akses membuka halaman Mayar (tab baru, harga tampil di sana); kode akses dimasukkan di aplikasi.
+   - type qris : QRIS dengan nominal muncul di langkah ini saja, lalu konfirmasi referensi -> unduhan terbuka di perangkat ini.
+   Selektor tombol hasil lengkap: C.full / data-full, default DEF. Data konfirmasi ke Google Sheet lead (Apps Script). */
 (function(){
 "use strict";
 var S=document.currentScript||{},C=window.FA_PAY||{},ds=(S.dataset||{});
 var app=C.app||ds.app||location.pathname.replace(/\W+/g,"-")||"app";
 var name=C.name||ds.name||document.title.split("|")[0].trim();
-var price=+(C.price||ds.price||25000);
-/* 4 Nov 2026: semua aplikasi bebas dipakai. Yang berbayar hanya unduhan hasil lengkap (PDF, Excel, Word, export, salin).
-   Selektor tombol berbayar: C.full / data-full, default DEF. Konfigurasi guard lama (tombol hitung) diabaikan. */
+var what=C.what||ds.what||"laporan lengkap";
+var PAY=C.pay||{type:"qris",amount:+(C.price||ds.price||25000)};
 var DEF='[data-fa-full],#btnXlsx,#cp,#cpY,#fp_pr,[data-act="calkdoc"],[data-action="c-export"]';
 var guard=C.full||ds.full||DEF;
-var GS="__GS__",QR="__QR__",TRIAL_DAYS=7;
-var KP="fa_akses_"+app,KT="fa_trial_"+app,KD="fa_pay_data";
+var GS="__GS__",QR="__QR__";
+var KP="fa_akses_"+app,KD="fa_pay_data";
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
-function open_(){if(ls(KP)||(C.skipKey&&ls(C.skipKey)))return true;var t=+ls(KT);return !!(t&&Date.now()-t<TRIAL_DAYS*864e5)}
+function open_(){return !!(ls(KP)||(C.skipKey&&ls(C.skipKey)))}
 var rp=function(n){return "Rp"+new Intl.NumberFormat("id-ID").format(n)};
 var css="#fapw{position:fixed;inset:0;z-index:9999;background:rgba(10,10,10,.84);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:max(16px,env(safe-area-inset-top)) 16px 24px;font-family:Poppins,system-ui,-apple-system,'Segoe UI',sans-serif;color:#fff;text-align:left}"+
 "#fapw *{box-sizing:border-box}"+
@@ -26,74 +25,82 @@ var css="#fapw{position:fixed;inset:0;z-index:9999;background:rgba(10,10,10,.84)
 "@keyframes fapwIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}"+
 "#fapw small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A8A8A8}"+
 "#fapw h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;margin:6px 0 2px;color:#fff}"+
-"#fapw .pr{font-size:30px;font-weight:300;margin:6px 0 2px;font-variant-numeric:tabular-nums}"+
+"#fapw p{margin:8px 0 0;color:#D8D8D8;font-size:14px;line-height:1.6}"+
+"#fapw ul.ok{margin:10px 0 0;padding:0;list-style:none;font-size:13.5px;color:#D8D8D8;line-height:1.6}#fapw ul.ok li{padding-left:22px;position:relative}#fapw ul.ok li:before{content:'✓';position:absolute;left:0;color:#7CD992}"+
+"#fapw .pr{font-size:30px;font-weight:300;margin:10px 0 2px;font-variant-numeric:tabular-nums}"+
 "#fapw .pr span{font-size:12.5px;color:#A8A8A8;margin-left:6px}"+
-"#fapw .qr{background:#fff;border-radius:8px;padding:10px;margin:14px 0 12px;text-align:center}"+
-"#fapw .qr img{width:100%;max-width:280px;height:auto;display:block;margin:0 auto}"+
-"#fapw ol{margin:0 0 14px;padding-left:18px;font-size:13px;color:#D8D8D8;line-height:1.55}"+
+"#fapw .qr{background:#fff;border-radius:8px;padding:10px;margin:12px 0;text-align:center}"+
+"#fapw .qr img{width:100%;max-width:260px;height:auto;display:block;margin:0 auto}"+
+"#fapw ol{margin:0 0 10px;padding-left:18px;font-size:13px;color:#D8D8D8;line-height:1.55}"+
 "#fapw ol b{color:#fff;font-weight:500}"+
-"#fapw .go{display:block;width:100%;border:0;border-radius:999px;background:#fff;color:#171717;font:500 14px Poppins,system-ui,sans-serif;padding:12px 18px;cursor:pointer;margin-top:8px}"+
+"#fapw .go,#fapw a.go{display:block;width:100%;border:0;border-radius:999px;background:#fff;color:#171717;font:500 14px Poppins,system-ui,sans-serif;padding:12px 18px;cursor:pointer;margin-top:10px;text-align:center;text-decoration:none}"+
 "#fapw .go:hover{background:#E8E8E8}"+
-"#fapw .alt{display:block;width:100%;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:transparent;color:#fff;font:500 13.5px Poppins,system-ui,sans-serif;padding:11px 18px;cursor:pointer;margin-top:8px}"+
+"#fapw .alt,#fapw a.alt{display:block;width:100%;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:transparent;color:#fff;font:500 13.5px Poppins,system-ui,sans-serif;padding:11px 18px;cursor:pointer;margin-top:8px;text-align:center;text-decoration:none}"+
 "#fapw .alt:hover{border-color:#fff}"+
-"#fapw .lk{background:none;border:0;color:#A8A8A8;font:inherit;font-size:12.5px;cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}"+
+"#fapw .lk{background:none;border:0;color:#A8A8A8;font:inherit;font-size:12.5px;cursor:pointer;padding:8px 0 0;text-decoration:underline;text-underline-offset:3px;display:block;width:100%;text-align:center}"+
 "#fapw label{display:block;font-size:12px;color:#A8A8A8;margin:10px 0 4px}"+
-"#fapw input,#fapw select{width:100%;background:#262626;border:1px solid #4A4A4A;border-radius:6px;color:#fff;font:14px Poppins,system-ui,sans-serif;padding:10px 12px}"+
-"#fapw input:focus,#fapw select:focus{outline:none;border-color:#fff}"+
+"#fapw input{width:100%;background:#262626;border:1px solid #4A4A4A;border-radius:6px;color:#fff;font:14px Poppins,system-ui,sans-serif;padding:10px 12px}"+
+"#fapw input:focus{outline:none;border-color:#fff}"+
 "#fapw .er{color:#F08A7E;font-size:12px;min-height:16px;margin-top:8px}"+
 "#fapw .ft{margin-top:12px;font-size:11px;color:#7a7a7a;line-height:1.5}"+
 "#fapw [hidden]{display:none!important}"+
 "html.fapw-on,html.fapw-on body{overflow:hidden}";
 var st,d,after=null;
 function field(id,lab,ph,type,extra){return '<label for="'+id+'">'+lab+'</label><input id="'+id+'" type="'+(type||"text")+'" placeholder="'+(ph||"")+'" '+(extra||"")+'>'}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function build(){
  if(!st){st=document.createElement("style");st.textContent=css;document.head.appendChild(st)}
- d=document.createElement("div");d.id="fapw";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Akses "+name);
- d.innerHTML='<div class="bx"><small>Unduh hasil lengkap</small><h2></h2>'+
-  '<div data-v="pay"><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:14px;line-height:1.6">Aplikasi tetap gratis dipakai. Untuk mengunduh hasil lengkap dan strategi, bayar sekali:</p>'+
-  '<div class="pr">'+rp(price)+'<span>termasuk PPN · per aplikasi</span></div>'+
-  '<div class="qr"><img alt="QRIS CV FA Indonesia" src="'+QR+'"></div>'+
-  '<ol><li>Scan QRIS dengan m-banking atau e-wallet, bayar <b>'+rp(price)+'</b>.</li><li>Tekan <b>Saya sudah bayar</b> dan isi nomor referensi.</li><li>Unduhan langsung terbuka di perangkat ini.</li></ol>'+
-  '<button class="go" type="button" data-to="paid">Saya sudah bayar</button><button class="lk" type="button" data-x>Nanti saja</button></div>'+
-'<form data-v="paid" hidden novalidate><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:13px">Konfirmasi pembayaran '+rp(price)+'. Kami cocokkan dengan mutasi QRIS dan menghubungi Anda bila ada yang belum sesuai.</p>'+
-  field("fp_nm","Nama","Nama lengkap")+field("fp_wa","Nomor WhatsApp","08xxxxxxxxxx","tel",'inputmode="tel"')+field("fp_us","Nama usaha atau instansi","PT, CV, toko, kampus, dll.")+
-  field("fp_ref","Nomor referensi transaksi QRIS","Lihat di bukti bayar m-banking")+
-  '<div class="er" aria-live="polite"></div><button class="go" type="submit">Buka unduhan</button><button class="lk" type="button" data-to="pay">Kembali ke QRIS</button></form>'+
-  '<form data-v="trial" hidden novalidate><p class="ft" style="margin:4px 0 0;color:#D8D8D8;font-size:13px">Akses penuh '+TRIAL_DAYS+' hari di perangkat ini. Pembelian akses penuh segera tersedia lewat pembayaran online.</p>'+
-  field("ft_nm","Nama","Nama lengkap")+field("ft_wa","Nomor WhatsApp","08xxxxxxxxxx","tel",'inputmode="tel"')+field("ft_us","Nama usaha atau instansi","PT, CV, toko, kampus, dll.")+
-  '<label for="ft_bt">Bentuk usaha</label><select id="ft_bt"><option value="">Pilih</option><option>Perorangan</option><option>CV</option><option>PT</option><option>Koperasi atau Yayasan</option><option>Instansi atau Kampus</option><option>Mahasiswa</option><option>Lainnya</option></select>'+
-  field("ft_kt","Kota","Kota domisili usaha")+
-  '<div class="er" aria-live="polite"></div><button class="go" type="submit">Mulai coba</button><button class="lk" type="button" data-to="pay">Kembali</button></form>'+
-  '<p class="ft">CV FA Indonesia. Data hanya dipakai untuk konfirmasi akses dan tindak lanjut layanan, tidak dibagikan ke pihak lain.</p></div>';
- d.querySelector("h2").textContent=name;
+ d=document.createElement("div");d.id="fapw";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label",name);
+ var isM=PAY.type==="mayar";
+ var intro='<div data-v="intro"><p>Hasil ringkas di layar gratis dan bisa dipakai sepuasnya. Kalau hasilnya cocok, '+esc(what)+' siap diunduh.</p>'+
+  '<ul class="ok"><li>Hasil lengkap dalam file yang bisa dibuka di laptop</li><li>Siap dibawa ke auditor, bank, atau calon pembeli</li><li>'+(isM?"Kode akses tampil otomatis, berlaku sesuai pilihan":"Terbuka langsung di perangkat ini")+'</li></ul>'+
+  '<button class="go" type="button" data-to="pay">Lanjutkan</button><button class="lk" type="button" data-x>Nanti saja, lanjut pakai gratis</button></div>';
+ var pay;
+ if(isM){
+  pay='<div data-v="pay" hidden><p>Pilih masa akses. Halaman berikutnya terbuka di tab baru; setelah selesai, kode akses tampil otomatis dan tinggal ditempel di aplikasi.</p>'+
+   (PAY.items||[]).map(function(it){return '<a class="go" target="_blank" rel="noopener" href="'+esc(it.url)+'" data-mayar="'+esc(it.label)+'">'+esc(it.label)+'</a>'}).join("")+
+   '<button class="alt" type="button" data-code>Saya sudah punya kode akses</button><button class="lk" type="button" data-to="intro">Kembali</button></div>';
+ }else{
+  var amt=+PAY.amount||25000;
+  pay='<div data-v="pay" hidden><div class="pr">'+rp(amt)+'<span>termasuk PPN · sekali untuk perangkat ini</span></div>'+
+   '<div class="qr"><img alt="QRIS CV FA Indonesia" src="'+QR+'"></div>'+
+   '<ol><li>Scan QRIS dengan m-banking atau e-wallet, isi nominal <b>'+rp(amt)+'</b>.</li><li>Tekan <b>Sudah, lanjutkan</b> dan isi nomor referensi dari bukti transaksi.</li><li>Unduhan langsung terbuka.</li></ol>'+
+   '<button class="go" type="button" data-to="paid">Sudah, lanjutkan</button><button class="lk" type="button" data-to="intro">Kembali</button></div>'+
+   '<form data-v="paid" hidden novalidate><p style="font-size:13px">Konfirmasi '+rp(amt)+'. Kami cocokkan dengan mutasi QRIS dan menghubungi Anda bila ada yang belum sesuai.</p>'+
+   field("fp_nm","Nama","Nama lengkap")+field("fp_wa","Nomor WhatsApp","08xxxxxxxxxx","tel",'inputmode="tel"')+field("fp_us","Nama usaha atau instansi","PT, CV, toko, kampus, dll.")+
+   field("fp_ref","Nomor referensi transaksi QRIS","Lihat di bukti transaksi m-banking")+
+   '<div class="er" aria-live="polite"></div><button class="go" type="submit">Buka unduhan</button><button class="lk" type="button" data-to="pay">Kembali ke QRIS</button></form>';
+ }
+ d.innerHTML='<div class="bx"><small>'+esc(what)+'</small><h2>'+esc(name)+'</h2>'+intro+pay+'<p class="ft">CV FA Indonesia. Data hanya dipakai untuk konfirmasi akses dan tindak lanjut layanan, tidak dibagikan ke pihak lain.</p></div>';
  document.body.appendChild(d);document.documentElement.classList.add("fapw-on");
  var prev={};try{prev=JSON.parse(ls(KD)||"{}")}catch(e){}
- ["fp_nm","ft_nm"].forEach(function(i){d.querySelector("#"+i).value=prev.nm||""});["fp_wa","ft_wa"].forEach(function(i){d.querySelector("#"+i).value=prev.wa||""});
- ["fp_us","ft_us"].forEach(function(i){d.querySelector("#"+i).value=prev.us||""});d.querySelector("#ft_kt").value=prev.kt||"";d.querySelector("#ft_bt").value=prev.bt||"";
- function show(v){[].forEach.call(d.querySelectorAll("[data-v]"),function(x){x.hidden=x.getAttribute("data-v")!==v});var f=d.querySelector('[data-v="'+v+'"] input,[data-v="'+v+'"] .go');if(f)setTimeout(function(){f.focus()},30)}
+ ["fp_nm","fp_wa","fp_us"].forEach(function(i){var el=d.querySelector("#"+i);if(el)el.value=prev[i.slice(3)]||""});
+ function show(v){[].forEach.call(d.querySelectorAll("[data-v]"),function(x){x.hidden=x.getAttribute("data-v")!==v});var f=d.querySelector('[data-v="'+v+'"] input,[data-v="'+v+'"] .go');if(f)setTimeout(function(){f.focus()},30);
+  try{window.gtag&&gtag("event","paywall_"+v,{app:app})}catch(e){}}
  [].forEach.call(d.querySelectorAll("[data-to]"),function(b){b.onclick=function(){show(b.getAttribute("data-to"))}});
- function val(i){return (d.querySelector("#"+i).value||"").trim()}
- function ok(form,ids){var er=form.querySelector(".er"),nm=val(ids[0]),wa=val(ids[1]).replace(/[^\d+]/g,""),us=val(ids[2]);
-  if(nm.length<2){er.textContent="Isi nama Anda.";return false}
-  if(!/^(\+?62|0)8\d{7,12}$/.test(wa)){er.textContent="Isi nomor WhatsApp yang aktif, contoh 081234567890.";return false}
-  if(us.length<2){er.textContent="Isi nama usaha atau instansi.";return false}
-  for(var k=3;k<ids.length;k++){if(!val(ids[k])){er.textContent="Lengkapi semua isian.";return false}}
-  er.textContent="";return {nm:nm,wa:wa,us:us}}
- function send(kind,o,extra){ls(KD,JSON.stringify({nm:o.nm,wa:o.wa,us:o.us,kt:extra.kt||prev.kt||"",bt:extra.bt||prev.bt||""}));
-  try{var p=new URLSearchParams();p.append("pt",o.us);p.append("email","");p.append("goal",(kind==="paid"?"Bayar QRIS ":"Coba 7 hari ")+name+" ("+rp(price)+")");
-   p.append("unit",extra.bt||"");p.append("nama",o.nm);p.append("wa","'"+o.wa);p.append("lang","id");p.append("page",location.host+location.pathname+" (paywall "+kind+")");
-   p.append("summary",kind==="paid"?"Konfirmasi bayar QRIS "+rp(price)+", referensi: "+extra.ref:"Coba "+TRIAL_DAYS+" hari. Bentuk usaha: "+(extra.bt||"-")+", kota: "+(extra.kt||"-"));
-   if(!(navigator.sendBeacon&&navigator.sendBeacon(GS,p)))fetch(GS,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(e){}
-  try{window.gtag&&gtag("event",kind==="paid"?"qris_paid":"trial_start",{app:app,value:kind==="paid"?price:0,currency:"IDR"});window.gtag&&gtag("event","generate_lead",{method:"paywall_"+kind,app:app})}catch(e){}}
- d.querySelector('[data-v="paid"]').onsubmit=function(e){e.preventDefault();var o=ok(this,["fp_nm","fp_wa","fp_us","fp_ref"]);if(!o)return;send("paid",o,{ref:val("fp_ref")});ls(KP,new Date().toISOString());done()};
- d.querySelector('[data-v="trial"]').onsubmit=function(e){e.preventDefault();var o=ok(this,["ft_nm","ft_wa","ft_us","ft_bt","ft_kt"]);if(!o)return;send("trial",o,{bt:val("ft_bt"),kt:val("ft_kt")});ls(KT,String(Date.now()));done()};
+ [].forEach.call(d.querySelectorAll("[data-mayar]"),function(a){a.addEventListener("click",function(){try{window.gtag&&gtag("event","mayar_open",{app:app,item:a.getAttribute("data-mayar")})}catch(e){}})});
+ var cb=d.querySelector("[data-code]");if(cb)cb.onclick=function(){after=null;done();if(typeof C.onCode==="function")C.onCode();else{var t=document.querySelector(C.codeSel||"#lic-code");if(t){var tab=document.querySelector('[data-tab="mulai"]');if(tab)tab.click();setTimeout(function(){var i=document.querySelector(C.codeSel||"#lic-code");if(i){if(i.scrollIntoView)i.scrollIntoView({block:"center"});i.focus()}},80)}}};
+ function val(i){var el=d.querySelector("#"+i);return el?(el.value||"").trim():""}
+ var pf=d.querySelector('[data-v="paid"]');
+ if(pf)pf.onsubmit=function(e){e.preventDefault();var er=pf.querySelector(".er"),nm=val("fp_nm"),wa=val("fp_wa").replace(/[^\d+]/g,""),us=val("fp_us"),ref=val("fp_ref");
+  if(nm.length<2){er.textContent="Isi nama Anda.";return}
+  if(!/^(\+?62|0)8\d{7,12}$/.test(wa)){er.textContent="Isi nomor WhatsApp yang aktif, contoh 081234567890.";return}
+  if(us.length<2){er.textContent="Isi nama usaha atau instansi.";return}
+  if(!ref){er.textContent="Isi nomor referensi transaksi.";return}
+  er.textContent="";ls(KD,JSON.stringify({nm:nm,wa:wa,us:us}));
+  try{var p=new URLSearchParams();p.append("pt",us);p.append("email","");p.append("goal","Konfirmasi QRIS "+name+" ("+rp(PAY.amount)+")");p.append("unit","");p.append("nama",nm);p.append("wa","'"+wa);p.append("lang","id");
+   p.append("page",location.host+location.pathname+" (paywall qris)");p.append("summary","Konfirmasi QRIS "+rp(PAY.amount)+", referensi: "+ref);
+   if(!(navigator.sendBeacon&&navigator.sendBeacon(GS,p)))fetch(GS,{method:"POST",mode:"no-cors",body:p,keepalive:true})}catch(x){}
+  try{window.gtag&&gtag("event","qris_paid",{app:app,value:PAY.amount,currency:"IDR"});window.gtag&&gtag("event","generate_lead",{method:"paywall_qris",app:app})}catch(x){}
+  ls(KP,new Date().toISOString());done()};
  var x=d.querySelector("[data-x]");if(x)x.onclick=function(){after=null;done()};
  d.addEventListener("click",function(e){if(e.target===d){after=null;done()}});
- setTimeout(function(){d.querySelector('[data-to="paid"]').focus()},50);
+ setTimeout(function(){var b=d.querySelector('[data-v="intro"] .go');if(b)b.focus()},50);
 }
 function done(){if(d){d.remove();d=null}document.documentElement.classList.remove("fapw-on");if(after){var b=after;after=null;setTimeout(function(){b.click()},30)}}
 function start(){
  document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(guard);if(!b||open_()||d)return;e.preventDefault();e.stopImmediatePropagation();after=b;build()},true);
 }
 if(document.body)start();else document.addEventListener("DOMContentLoaded",start);
+window.FAPaywall={open:function(){if(!d)build()},unlocked:open_};
 })();

@@ -19,7 +19,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}@media print{header,nav,footer,.toast,#fapw,#faDon,#faDonPill,#faai-b,#faai,.fa-share,#dcf_pdf{display:none!important}body{background:#fff;color:#000}.sec{break-inside:avoid}}
+</style>
 <style>
 /* Layout: brand bar, input ledger on the left, PSAK 201 vs PSAK 118 statements and reconciliation below. */
 :root{
@@ -248,6 +249,7 @@ nav.main a{color:var(--muted);text-decoration:none;font-size:13.5px}nav.main a:h
 <section class="sec">
   <h3>Sensitivitas nilai ekuitas (Rp miliar)</h3>
   <div class="tw"><table id="sens"></table></div>
+  <p style="margin:14px 0 0"><button class="btn primary" id="dcf_pdf" type="button" data-fa-full="">Unduh Laporan Lengkap (PDF)</button></p>
   <p class="note">Baris = WACC, kolom = pertumbuhan terminal. Mid-year convention tidak dipakai; arus kas diasumsikan akhir tahun.</p>
 </section>
 
@@ -300,9 +302,10 @@ function calc(){
 }
 $$("input,select").forEach(e=>{e.addEventListener("input",calc);e.addEventListener("change",calc)});
 calc();
+$("#dcf_pdf").addEventListener("click",()=>{calc();window.print()});
 
 })();
 </script>
-<script>window.FA_PAY={"app": "kalkulator-valuasi-dcf", "name": "FA Venus · Kalkulator Valuasi DCF & WACC", "price": 99000};</script><script src="/js/fa-paywall.js" defer></script>
+
 </body>
 </html>

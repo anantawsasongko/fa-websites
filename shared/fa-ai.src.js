@@ -2,7 +2,7 @@
    Tombol "Asisten AI" hanya muncul bila /api/ai/status menjawab enabled:true
    (ANTHROPIC_API_KEY dan KV FA_AI sudah dipasang di Cloudflare Pages faindonesia-web).
    Gratis 3 pertanyaan per perangkat, setelah itu kode kredit (Paket AI 50 = Rp25.000, 300 = Rp99.000)
-   dibayar via QRIS, konfirmasi masuk ke Google Sheet lead, kode diterbitkan dari /ai-admin/.
+   lewat QRIS yang hanya muncul setelah paket dipilih (5 Nov 2026), konfirmasi masuk ke Google Sheet lead, kode diterbitkan dari /ai-admin/.
    Pakai: window.FA_AI={app:"..."} (opsional; default ikut window.FA_PAY.app) lalu <script src="/js/fa-ai.js" defer>. */
 (function(){
 "use strict";
@@ -124,7 +124,7 @@ function ask(q){
 }
 function waLink(){var t="Halo FA Indonesia, saya memakai "+document.title.split("|")[0].trim()+" ("+location.href.split("#")[0]+").\n\nPertanyaan saya: "+lastQ+"\n\nSaya ingin mendiskusikan hasilnya.";return "https://wa.me/"+WA+"?text="+encodeURIComponent(t)}
 function codeView(){
-  bd.innerHTML='<p class="hint">Masukkan kode kredit Asisten AI yang Anda terima setelah pembayaran.</p><label for="faai-c">Kode kredit</label><input id="faai-c" placeholder="FAI-XXXX-XXXX-XXXX" value="'+esc(credit())+'" autocomplete="off"><div class="er"></div><button class="go w" type="button">Simpan kode</button><button class="alt" type="button">Beli paket kredit</button><button class="lk" type="button">Kembali</button>';
+  bd.innerHTML='<p class="hint">Masukkan kode paket Asisten AI yang Anda terima lewat WhatsApp.</p><label for="faai-c">Kode kredit</label><input id="faai-c" placeholder="FAI-XXXX-XXXX-XXXX" value="'+esc(credit())+'" autocomplete="off"><div class="er"></div><button class="go w" type="button">Simpan kode</button><button class="alt" type="button">Ambil paket pertanyaan</button><button class="lk" type="button">Kembali</button>';
   var i=bd.querySelector("input"),er=bd.querySelector(".er");
   bd.querySelector(".go").onclick=function(){var c=i.value.trim().toUpperCase();if(!/^FAI-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(c)){er.textContent="Format kode belum sesuai.";return}
     er.textContent="Memeriksa kode...";fetch(API+"/api/ai/credit?code="+encodeURIComponent(c)).then(function(r){return r.json()}).then(function(j){
@@ -132,12 +132,33 @@ function codeView(){
   bd.querySelector(".alt").onclick=function(){bd.innerHTML="";buyView(bd)};bd.querySelector(".lk").onclick=home;
 }
 function buyView(box){
+  /* 5 Nov 2026 (aturan Bos): 3 pertanyaan gratis. Setelah habis, pilihan paket muncul di sini saja; nominal tampil bersama QRIS
+     hanya setelah paket dipilih. Konfirmasi masuk Sheet lead (goal "Beli Paket AI"), kode diterbitkan dari /ai-admin/ dan dikirim via WA. */
+  var PK=[{n:50,amt:25000,l:"50 pertanyaan"},{n:300,amt:99000,l:"300 pertanyaan"}];
   var w=document.createElement("div");
-  w.innerHTML='<p class="hint" style="margin-top:6px">Paket kredit Asisten AI segera tersedia lewat pembayaran online. Sementara itu, diskusikan hasil Anda langsung dengan tim kami.</p>'+
-   '<a class="go w" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="'+waLink()+'">Diskusi via WhatsApp</a><button class="lk" type="button">Sudah punya kode</button>';
-  box.appendChild(w);
-  w.querySelector(".lk").onclick=codeView;
+  function pick(){w.innerHTML='<p class="hint" style="margin-top:6px">Kuota gratis di perangkat ini sudah terpakai. Lanjutkan dengan paket pertanyaan, kodenya berlaku di semua aplikasi FA.</p>'+
+    PK.map(function(k,i){return '<button class="chip" type="button" data-i="'+i+'">Paket '+k.l+'</button>'}).join("")+
+    '<a class="alt" target="_blank" rel="noopener" href="'+waLink()+'">Diskusi via WhatsApp saja</a><button class="lk" type="button">Sudah punya kode</button>';
+    w.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){qris(PK[+c.getAttribute("data-i")])}});w.querySelector(".lk").onclick=codeView}
+  function qris(k){ga("ai_pack_pick",{app:app,pack:k.n});
+    w.innerHTML='<p class="hint" style="margin-top:6px">Paket '+k.l+' · <b style="color:#fff">'+rp(k.amt)+'</b> termasuk PPN. Scan QRIS, isi nominal, lalu tekan Sudah, lanjutkan.</p>'+
+     '<div style="background:#fff;border-radius:8px;padding:8px;margin:8px 0"><img alt="QRIS CV FA Indonesia" src="'+QR+'" style="width:100%;max-width:220px;display:block;margin:0 auto"></div>'+
+     '<button class="go w" type="button">Sudah, lanjutkan</button><button class="lk" type="button">Kembali</button>';
+    w.querySelector(".go").onclick=function(){confirm_(k)};w.querySelector(".lk").onclick=pick}
+  function confirm_(k){w.innerHTML='<p class="hint" style="margin-top:6px">Konfirmasi paket '+k.l+' ('+rp(k.amt)+'). Kode dikirim ke WhatsApp Anda pada jam kerja setelah mutasi QRIS cocok.</p>'+
+     '<label for="faai-nm">Nama</label><input id="faai-nm" placeholder="Nama lengkap"><label for="faai-wa">Nomor WhatsApp</label><input id="faai-wa" inputmode="tel" placeholder="08xxxxxxxxxx">'+
+     '<label for="faai-rf">Nomor referensi transaksi QRIS</label><input id="faai-rf" placeholder="Lihat di bukti transaksi m-banking"><div class="er"></div>'+
+     '<button class="go w" type="button">Kirim konfirmasi</button><button class="lk" type="button">Kembali</button>';
+    var er=w.querySelector(".er");w.querySelector(".lk").onclick=function(){qris(k)};
+    w.querySelector(".go").onclick=function(){var nm=w.querySelector("#faai-nm").value.trim(),wa=w.querySelector("#faai-wa").value.replace(/[^\d+]/g,""),rf=w.querySelector("#faai-rf").value.trim();
+      if(nm.length<2){er.textContent="Isi nama Anda.";return}if(!/^(\+?62|0)8\d{7,12}$/.test(wa)){er.textContent="Isi nomor WhatsApp yang aktif.";return}if(!rf){er.textContent="Isi nomor referensi transaksi.";return}
+      beacon({pt:"Paket AI "+k.n,email:"",goal:"Beli Paket AI "+k.n+" ("+rp(k.amt)+")",unit:"",nama:nm,wa:"'"+wa,lang:"id",page:location.host+location.pathname+" (asisten ai)",summary:"Konfirmasi QRIS "+rp(k.amt)+", referensi: "+rf+", perangkat: "+dev()});
+      ga("ai_pack_paid",{app:app,pack:k.n,value:k.amt,currency:"IDR"});
+      w.innerHTML='<p class="hint" style="margin-top:6px">Terima kasih. Konfirmasi diterima; kode paket dikirim ke WhatsApp '+esc(wa)+' pada jam kerja. Setelah diterima, tekan Sudah punya kode.</p><button class="go w" type="button">Sudah punya kode</button>';
+      w.querySelector(".go").onclick=codeView}}
+  box.appendChild(w);pick();
 }
+function rp(n){return "Rp"+new Intl.NumberFormat("id-ID").format(n)}
 function init(){
   fetch(API+"/api/ai/status").then(function(r){return r.ok?r.json():{}}).then(function(j){if(j&&j.enabled)build()}).catch(function(){});
 }
