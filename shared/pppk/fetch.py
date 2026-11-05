@@ -94,8 +94,19 @@ def fetch_set(key, ep, cols, fmap, durl):
 
 def main():
     reg = {"source": BASE, "updated": datetime.date.today().isoformat(), "sets": {}}
+    prev = {}
+    if os.path.exists(OUT):
+        try: prev = json.load(open(OUT, encoding="utf-8")).get("sets", {})
+        except Exception: prev = {}
+    reg["failed"] = []
     for key, ep, cols, fmap, durl in SETS:
-        reg["sets"][key] = fetch_set(key, ep, cols, fmap, durl)
+        try:
+            reg["sets"][key] = fetch_set(key, ep, cols, fmap, durl)
+        except Exception as e:
+            # registri kadang error 500 per jenis (mis. Konsultan Pajak); pakai data bulan lalu bila ada
+            print("GAGAL", key, e, file=sys.stderr)
+            reg["failed"].append(key)
+            reg["sets"][key] = prev.get(key, [])
     n = sum(len(v) for v in reg["sets"].values())
     if n < 5000:
         print("terlalu sedikit data (%d), registry.json tidak ditulis" % n, file=sys.stderr); sys.exit(1)
