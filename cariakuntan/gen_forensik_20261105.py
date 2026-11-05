@@ -6,7 +6,7 @@ FA = "https://faindonesia.co.id"
 PIL = f'<a href="{FA}/akuntan-forensik/">Akuntan Forensik FA Indonesia</a>'
 TEAM = ('<h2>Hubungi Tim Kami</h2><ul>'
  f'<li><b>Ananta W. Sasongko, CPA</b>, koordinator dan kontak lewat tombol WhatsApp di halaman ini (<a href="{FA}/ananta-w-sasongko/">profil</a>)</li>'
- f'<li><b>KAP DHN &amp; Rekan</b>, akuntan publik penandatangan laporan, izin KMK No. 592/KM.1/2023 (<a href="{FA}/kap-dhn/">profil</a>)</li></ul>'
+ f'<li><b>KAP DHN &amp; Rekan</b>, akuntan publik penandatangan laporan (Pemimpin Rekan pemegang Certified Financial Investigator/CFI dari IAPI), izin KMK No. 592/KM.1/2023 (<a href="{FA}/kap-dhn/">profil</a>)</li></ul>'
  '<p>Ceritakan kasusnya lewat tombol WhatsApp. Review awal dokumen gratis, biaya tetap disepakati sebelum mulai.</p>')
 S_KUHAP = ["Hukumonline, Jenis Alat Bukti Sah Menurut KUHAP Baru", "https://www.hukumonline.com/klinik/a/jenis-alat-bukti-sah-menurut-kuhap-baru-lt657ae25924ac9/"]
 MSG = "Selamat siang Pak Ananta, saya butuh laporan penghitungan kerugian untuk diserahkan ke penyidik."

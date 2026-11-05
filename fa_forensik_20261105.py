@@ -30,7 +30,7 @@ KAPAN = tbl(["Kasus", "Yang Dihitung"], [
 ALUR = flow([("Upload dokumen", "Bukti transfer, kontrak, chat, nota, rekening koran. Cukup lewat WhatsApp atau Google Drive."),
              ("Review dan biaya tetap", "Kami cek kecukupan bukti, lalu kirim penawaran biaya tetap."),
              ("Penghitungan", "Setiap angka ditelusuri ke dokumen sumber. Bagian yang belum ada buktinya kami tandai."),
-             ("Laporan tertulis", "Ditandatangani akuntan publik, siap diserahkan ke penyidik atau kuasa hukum.")])
+             ("Laporan tertulis", "Ditandatangani akuntan publik bersertifikat CFI dari IAPI, siap diserahkan ke penyidik atau kuasa hukum.")])
 ISI = ("<ul><li>Ringkasan kasus dan kronologi transaksi.</li><li>Daftar dokumen yang diperiksa.</li>"
        "<li>Metode penghitungan dan asumsinya.</li><li>Tabel kerugian per transaksi dan totalnya.</li>"
        "<li>Batasan: hal yang tidak dapat dihitung karena dokumennya tidak tersedia.</li></ul>")
@@ -40,17 +40,17 @@ BATAS = ("<h2>Yang Perlu Diketahui</h2><ul>"
          "<li>Layanan ini untuk perkara antar pihak swasta. Kerugian keuangan negara (perkara korupsi) dihitung oleh BPK atau BPKP.</li></ul>")
 BIAYA = ("<h2>Biaya</h2><p>Biaya tetap disepakati setelah review dokumen, supaya tidak ada kejutan di tengah jalan. "
          "Kasus perorangan dengan dokumen sederhana mulai <b>Rp15 juta</b>, DP 50% saat mulai, pelunasan saat laporan final diserahkan.</p>")
-FAQ = [("Apakah laporan ini diterima penyidik?", "Laporan ditandatangani akuntan publik dan menjelaskan metode serta dokumen sumbernya, sehingga bisa dipakai penyidik sebagai dasar. Penilaian akhir tetap ada pada penyidik dan hakim."),
+FAQ = [("Apakah laporan ini diterima penyidik?", "Laporan ditandatangani akuntan publik bersertifikat Certified Financial Investigator (CFI) dari IAPI dan menjelaskan metode serta dokumen sumbernya, sehingga bisa dipakai penyidik sebagai dasar. Penilaian akhir tetap ada pada penyidik dan hakim."),
        ("Berapa lama prosesnya?", "Kasus sederhana umumnya 5 sampai 10 hari kerja setelah dokumen lengkap."),
        ("Apakah harus datang ke kantor?", "Tidak. Dokumen dikirim daring dan diskusi lewat video call, dari kota mana pun di Indonesia."),
        ("Bagaimana kalau buktinya belum lengkap?", "Kami kirim daftar kekurangan. Bagian yang tidak ada buktinya dicatat sebagai batasan, tidak ikut dihitung.")]
 
 body = ("<h2>Kapan Anda Butuh Akuntan Forensik</h2>" + KAPAN + "<h2>Cara Kerja</h2>" + ALUR + "<h2>Isi Laporan</h2>" + ISI + BIAYA + BATAS +
-        "<h2>Siapa yang Mengerjakan</h2><p>Penghitungan dikerjakan tim FA Indonesia dan laporan ditandatangani akuntan publik dari "
-        "<a href=\"/kap-dhn/\">KAP DHN &amp; Rekan</a>, kantor akuntan publik berizin Menteri Keuangan.</p>"
+        "<h2>Siapa yang Mengerjakan</h2><p>Penghitungan dikerjakan tim FA Indonesia dan laporan ditandatangani <a href=\"/kap-dhn/\">Dwi Haryadi Nugraha</a>, akuntan publik (AP.1723) dan pemegang sertifikasi "
+        "<b>Certified Financial Investigator (CFI)</b> dari IAPI, Pemimpin Rekan KAP DHN &amp; Rekan, kantor akuntan publik berizin Menteri Keuangan.</p>"
         "<p>Terkait: <a href=\"/akuntan-terdekat/\">Akuntan Terdekat</a> · <a href=\"/jasa-audit-laporan-keuangan/\">Audit Laporan Keuangan</a> · <a href=\"/wilayah/\">Cari per Kota</a></p>")
 svc_page(PIL, "Layanan · Akuntan Forensik", "Akuntan Forensik: Laporan Penghitungan Kerugian untuk Penyidik",
-  "Untuk korban penipuan, penggelapan, atau sengketa usaha yang perlu angka kerugian yang rapi dan bisa dipertanggungjawabkan, ditandatangani akuntan publik.",
+  "Untuk korban penipuan, penggelapan, atau sengketa usaha yang perlu angka kerugian yang rapi dan bisa dipertanggungjawabkan, ditandatangani akuntan publik bersertifikat Certified Financial Investigator (CFI) dari IAPI.",
   body, FAQ, "Akuntan Forensik: Jasa Hitung Kerugian Penipuan dan Penggelapan untuk Laporan Polisi | FA Indonesia",
   "Jasa akuntan forensik: laporan penghitungan kerugian penipuan, penggelapan, dan sengketa usaha, ditandatangani akuntan publik, siap diserahkan ke penyidik. Daring.",
   "Akuntansi Forensik dan Penghitungan Kerugian", "Forensic accounting", "/wilayah/", "Pilih Kota", MSG, "Akuntan Forensik")
@@ -64,9 +64,9 @@ for slug, city in CITIES:
          "<h2>Kasus yang Kami Hitung</h2>" + KAPAN + "<h2>Cara Kerja</h2>" + ALUR + BIAYA + BATAS +
          f"<p>Selengkapnya: <a href=\"{PIL}\">Akuntan Forensik FA Indonesia</a> · Layanan lain di kota ini: <a href=\"/wilayah/{slug}/\">Akuntan dan KAP {E(city)}</a></p>")
     svc_page(path, f"Akuntan Forensik · {city}", f"Akuntan Forensik {city}: Hitung Kerugian Penipuan dan Penggelapan",
-      f"Laporan penghitungan kerugian untuk diserahkan ke penyidik di {city}, ditandatangani akuntan publik. Dokumen dikirim daring.",
+      f"Laporan penghitungan kerugian untuk diserahkan ke penyidik di {city}, ditandatangani akuntan publik bersertifikat CFI (IAPI). Dokumen dikirim daring.",
       b, FAQ[:3], f"Akuntan Forensik {city}: Hitung Kerugian Penipuan, Penggelapan untuk Laporan Polisi | FA Indonesia",
-      f"Butuh akuntan forensik di {city}? Laporan penghitungan kerugian penipuan dan penggelapan, ditandatangani akuntan publik, siap untuk penyidik. Mulai Rp15 juta.",
+      f"Butuh akuntan forensik di {city}? Laporan penghitungan kerugian penipuan dan penggelapan, ditandatangani akuntan publik bersertifikat CFI, siap untuk penyidik. Mulai Rp15 juta.",
       f"Akuntan Forensik {city}", "Forensic accounting", PIL, "Semua Kota",
       f"Halo FA Indonesia, saya dari {city}, butuh laporan penghitungan kerugian untuk penyidik.", f"Akuntan Forensik {city}")
     URLS.append(path)

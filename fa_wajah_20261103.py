@@ -46,7 +46,7 @@ for x in CORE:
 p = os.path.join(B, "kap-dhn", "index.html"); t = open(p, encoding="utf-8").read()
 t = re.sub(r"<!--fa-dwi-->.*?<!--/fa-dwi-->", "", t, flags=re.S)
 dwi = ('<!--fa-dwi--><h2>Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI</h2>'
-       '<p>Pemimpin Rekan KAP DHN &amp; Rekan, akuntan publik dengan nomor register AP.1723. Memimpin perikatan audit laporan keuangan, audit BPR dan lembaga keuangan, serta prosedur yang disepakati untuk perusahaan di Bali, Kalimantan Timur, dan seluruh Indonesia.</p><!--/fa-dwi-->')
+       '<p>Pemimpin Rekan KAP DHN &amp; Rekan, akuntan publik dengan nomor register AP.1723. Memimpin perikatan audit laporan keuangan, audit BPR dan lembaga keuangan, prosedur yang disepakati, serta investigasi keuangan dan penghitungan kerugian untuk perusahaan di Bali, Kalimantan Timur, dan seluruh Indonesia. Pemegang sertifikasi Certified Financial Investigator (CFI) dari IAPI.</p><!--/fa-dwi-->')
 k = t.find("<!--fa-wajah-->"); k = k if k > 0 else t.find("<h2>Pertanyaan Umum</h2>")
 open(p, "w", encoding="utf-8").write(t[:k] + dwi + t[k:])
 print("fa_wajah", n)
