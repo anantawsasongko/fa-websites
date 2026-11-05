@@ -81,3 +81,67 @@ def update_sitemap():
 if __name__ == "__main__":
     print("halaman dibuat:", build())
     print("sitemap cek:", update_sitemap())
+
+# ================= TIER 1b: SEMUA 514 KABUPATEN/KOTA (5 Nov 2026 sore) =================
+# Halaman /jasa-audit-laporan-keuangan/<kabupaten-x|kota-x>/ untuk kabupaten/kota yang belum ada di 113 kota.
+# Isi unik: daftar kecamatan (BPS/Kemendagri) + jumlah desa/kelurahan per kecamatan.
+import csv
+def _t(x): return " ".join(w.capitalize() for w in x.split())
+def build_regencies():
+    W = os.path.join(HERE, "shared", "wilayah")
+    prov = {r[0]: _t(r[1]) for r in csv.reader(open(os.path.join(W, "provinces.csv"), encoding="utf-8"))}
+    kec = {}
+    for r in csv.reader(open(os.path.join(W, "districts.csv"), encoding="utf-8")): kec.setdefault(r[1], []).append((r[0], _t(r[2])))
+    nv = {}
+    for r in csv.reader(open(os.path.join(W, "villages.csv"), encoding="utf-8")): nv[r[1]] = nv.get(r[1], 0) + 1
+    have = {slug(c[0]) for c in CITIES}
+    out = []
+    for code, pc, name in csv.reader(open(os.path.join(W, "regencies.csv"), encoding="utf-8")):
+        jenis = "Kota" if name.startswith("KOTA ") else "Kabupaten"
+        base = _t(name.split(" ", 1)[1]); full = f"{jenis} {base}"
+        if slug(base) in have: continue
+        s = slug(full); path = f"{PARENT}{s}/"; pv = prov.get(pc, "")
+        ks = sorted(kec.get(code, []), key=lambda x: x[1]); nd = sum(nv.get(k[0], 0) for k in ks)
+        rows = [(E(k[1]), str(nv.get(k[0], 0))) for k in ks]
+        body = ("<h2>Kebutuhan Audit di " + E(full) + "</h2>"
+                f"<p>{E(full)}, {E(pv)}, terdiri dari {len(ks)} kecamatan dan {nd} desa/kelurahan. Perusahaan, koperasi, yayasan, BUMDes, dan badan usaha di wilayah ini "
+                "biasanya butuh audit laporan keuangan untuk kredit bank, laporan tahunan PT, pertanggungjawaban dana, atau persiapan investor.</p>"
+                "<h2>Area Layanan: Kecamatan di " + E(full) + "</h2>"
+                + tbl(["Kecamatan", "Jumlah desa/kelurahan"], rows)
+                + "<h2>Yang Perlu Disiapkan Sebelum Audit</h2>"
+                "<p>Laporan keuangan tahunan, buku besar, rekening koran, daftar aset tetap, rincian piutang dan utang, serta akta dan izin usaha. "
+                "Tim kami membantu memeriksa kelengkapannya sebelum audit dimulai, dan pekerjaan bisa dilakukan jarak jauh untuk wilayah di luar kota besar.</p>"
+                + team_audit(full))
+        faq = faq_for(full, pv)
+        kk = ", ".join(k[1] for k in ks[:3])
+        title = f"Jasa Audit Laporan Keuangan {full} | KAP Terdaftar OJK | FA Indonesia"
+        desc = f"Audit laporan keuangan di {full}, {pv}: {kk}, dan kecamatan lain. Audit kredit bank, laporan tahunan PT, koperasi. Konsultasi lewat WhatsApp."[:160]
+        svc_page(path, f"Audit · {full}", f"Jasa Audit Laporan Keuangan di {full}, {pv}",
+                 f"Audit laporan keuangan untuk perusahaan, koperasi, yayasan, dan badan usaha di {E(full)} dan seluruh kecamatannya. Auditor dari KAP DHN &amp; Rekan yang terdaftar OJK.",
+                 body, faq, title, desc, f"Jasa Audit Laporan Keuangan {full}", "Jasa Audit", PARENT, "Semua Layanan Audit",
+                 f"Halo FA Indonesia, saya di {full} dan ingin tanya jasa audit laporan keuangan.", f"Audit {full}")
+        fp = P(*path.strip("/").split("/"), "index.html"); t = open(fp, encoding="utf-8").read()
+        open(fp, "w", encoding="utf-8").write(t.replace(AUTHOR_BOX, "").replace("Chat Ananta, CPA", "Chat WhatsApp"))
+        out.append(f"{D}{path}")
+    return out
+
+def hub_and_sitemap(urls_all):
+    # Daftar semua wilayah di halaman induk (link terlipat rapi dalam <details> per huruf)
+    pp = P("jasa-audit-laporan-keuangan", "index.html"); t = open(pp, encoding="utf-8").read()
+    t = re.sub(r"<!--audit-wil-->.*?<!--/audit-wil-->", "", t, flags=re.S)
+    items = sorted(((u.rstrip("/").rsplit("/", 1)[1].replace("-", " ").title(), u.replace(D, "")) for u in urls_all))
+    groups = {}
+    for nm, u in items: groups.setdefault(nm[0], []).append((nm, u))
+    blk = ('<!--audit-wil--><h2>Jasa Audit di Seluruh Kabupaten dan Kota</h2>'
+           + "".join(f'<details><summary>{g} ({len(v)})</summary><p>' + ", ".join(f'<a href="{u}">{E(n)}</a>' for n, u in v) + '</p></details>' for g, v in sorted(groups.items()))
+           + '<!--/audit-wil-->')
+    k = t.find("<h2>Pertanyaan Umum</h2>")
+    if k > 0: t = t[:k] + blk + t[k:]
+    open(pp, "w", encoding="utf-8").write(t)
+    sp = os.path.join(HERE, "FA-Indonesia_Website_SIAP-UPLOAD-v58", "sitemap.xml"); s = open(sp, encoding="utf-8").read()
+    add = "".join(f"<url><loc>{u}</loc><lastmod>2026-11-05</lastmod></url>" for u in urls_all if u not in s)
+    if add: open(sp, "w", encoding="utf-8").write(s.replace("</urlset>", add + "</urlset>"))
+
+if __name__ == "__main__":
+    r = build_regencies(); print("kabupaten/kota tambahan:", len(r))
+    hub_and_sitemap([f"{D}{PARENT}{slug(c[0])}/" for c in CITIES] + r)
