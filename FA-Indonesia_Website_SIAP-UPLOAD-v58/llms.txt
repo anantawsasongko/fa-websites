@@ -95,6 +95,9 @@
 - [Audit Back-Office untuk KAP](https://faindonesia.co.id/audit-back-office-kap/): FA Saturn dan tim kertas kerja di bawah supervisi Partner KAP.
 - [Bursa Komite Audit dan Komisaris Independen](https://faindonesia.co.id/bursa-komite-audit/): mempertemukan emiten dan calon emiten dengan profesional independen.
 
+## Cara kerja
+- Semua layanan dikerjakan dengan tools buatan FA sendiri: FA Jupiter (laporan keuangan audit ready), FA Saturn (kertas kerja audit standar SA/SPAP IAPI), FA Venus (kalkulator kredit, PSAK 118, IPO, valuasi). Metodologi mengikuti praktik advisory firma Big Four; sebagian besar tools gratis di https://faindonesia.co.id/apps/
+
 ## Rumah Sakit dan Unit Cost
 - Konsultan rumah sakit swasta (ekspansi, kredit bank, akuisisi, investor, unit cost, tarif) → https://faindonesia.co.id/konsultan-rumah-sakit/
 - Konsultan unit cost rumah sakit dan klinik, analisis tarif INA-CBG → https://faindonesia.co.id/konsultan-unit-cost-rumah-sakit/
@@ -208,6 +211,14 @@
 - [Cara Menjual Perusahaan atau Sebagian Saham: Persiapan Sisi Penjual sampai Closing](https://faindonesia.co.id/artikel/cara-menjual-perusahaan-atau-sebagian-saham/): Tahapan menjual perusahaan atau sebagian saham: kesiapan data, normalisasi EBITDA, valuasi, teaser, NDA, IM, data room, LOI, due diligence, SPA, closing.
 - [Cara Menghitung Valuasi Perusahaan Swasta: DCF, Multiple EBITDA, dan Diskon Likuiditas](https://faindonesia.co.id/artikel/valuasi-perusahaan-swasta-dcf-multiple-ebitda/): Cara menghitung valuasi perusahaan swasta dengan DCF dan multiple EBITDA, beda enterprise value dan equity value, normalisasi, serta diskon likuiditas.
 - [Outsourcing Akuntansi atau Rekrut Staf Keuangan: Perbandingan Biaya dan Risiko](https://faindonesia.co.id/artikel/outsourcing-accounting-vs-rekrut-staf-biaya/): Bandingkan biaya total rekrut staf akuntansi (gaji, BPJS, THR, software, turnover) dengan outsourcing, plus model hybrid agar laporan keuangan siap audit.
+- [Cara Menghitung PPh 21 dengan TER 2026: Contoh Perhitungan Gaji, THR, dan Masa Desember](https://faindonesia.co.id/artikel/cara-menghitung-pph-21-ter-2026-contoh/): Cara menghitung PPh 21 dengan TER 2026: kategori A, B, C, contoh gaji bulanan, bulan THR, dan perhitungan ulang Desember tarif Pasal 17.
+- [Cara Menghitung PPh Badan 2026: Tarif 22%, Fasilitas Pasal 31E, dan Kapan UMKM Pindah dari PPh Final 0,5%](https://faindonesia.co.id/artikel/cara-menghitung-pph-badan-2026-tarif-22-persen-31e/): Contoh hitung PPh Badan 2026: tarif 22%, pengurangan 50% Pasal 31E, batas waktu PPh final 0,5%, kredit pajak, dan angsuran PPh 25.
+- [PPN 12% dengan DPP 11/12: Cara Menghitung Satu Invoice Jasa Lengkap dengan PPh 23 atau PPh 4 Ayat 2](https://faindonesia.co.id/artikel/ppn-12-persen-dpp-11-12-cara-hitung-invoice-pph-23/): PPN 12% dengan DPP 11/12 tetap efektif 11%. Contoh hitung invoice jasa, sewa, dan konstruksi bersama PPh 23 atau PPh final 4(2).
+- [Penyusutan Fiskal vs Komersial: Cara Menghitung Koreksi Fiskal dan Pajak Tangguhan dengan Contoh](https://faindonesia.co.id/artikel/penyusutan-fiskal-vs-komersial-cara-hitung-pajak-tangguhan/): Penyusutan fiskal vs komersial: kelompok harta PMK 72/2023, contoh mesin Rp1 miliar, koreksi fiskal tahunan, dan pajak tangguhan PSAK 212.
+- [Bunga Flat, Efektif, dan Anuitas: Cara Menghitung Cicilan Kredit Usaha dan Bunga yang Sebenarnya Anda Bayar](https://faindonesia.co.id/artikel/bunga-flat-efektif-anuitas-cara-hitung-cicilan-kredit-usaha/): Bunga flat, efektif, dan anuitas dengan contoh pinjaman Rp500 juta, cara konversi flat ke efektif, bunga sesungguhnya, dan cicilan aman.
+- [Cara Menghitung WACC dan Valuasi DCF Perusahaan di Indonesia, Langkah demi Langkah dengan Contoh Angka](https://faindonesia.co.id/artikel/cara-menghitung-wacc-dan-valuasi-dcf-perusahaan-indonesia/): Langkah valuasi DCF perusahaan swasta Indonesia: FCFF, CAPM dan premi ukuran, WACC, nilai terminal, equity value, dan uji sensitivitas.
+- [Aplikasi Laporan Keuangan Gratis Sesuai SAK EMKM, SAK EP, dan PSAK: Mana yang Cocok untuk Usaha Anda](https://faindonesia.co.id/artikel/aplikasi-laporan-keuangan-gratis-sesuai-sak-emkm-ep-psak/): Aplikasi laporan keuangan gratis sesuai SAK EMKM, SAK EP, dan PSAK: penyusun laporan, CALK, dan FA Jupiter audit ready. Mana yang cocok.
+- [Software Audit untuk KAP Kecil dan Menengah: Pindah dari Kertas Kerja Excel ke Workspace Digital](https://faindonesia.co.id/artikel/software-audit-untuk-kap-kecil-kertas-kerja-digital/): Software audit untuk KAP kecil dan menengah: fitur wajib sesuai SA 230 dan SMM 1, perbandingan Excel, software asing, dan FA Saturn.
 - [Financial Advisor untuk Pemilik Usaha: Apa yang Dikerjakan dan Kapan Butuh](https://faindonesia.co.id/artikel/financial-advisor-untuk-pemilik-usaha/): Apa yang dikerjakan financial advisor untuk pemilik usaha, tanda usaha Anda butuh pendamping keuangan, dan cara memulai sesuai ukuran usaha.
 - [Cara Mendapatkan Pinjaman Bank untuk Usaha: 7 Langkah dari Nol](https://faindonesia.co.id/artikel/cara-mendapatkan-pinjaman-bank-untuk-usaha/): Tujuh langkah praktis mendapatkan pinjaman bank untuk usaha: dari menentukan tujuan dana, cek SLIK, merapikan laporan keuangan, sampai mengajukan berkas.
 - [Modal Usaha dari Investor atau Bank: Mana yang Cocok untuk Usaha Anda](https://faindonesia.co.id/artikel/modal-usaha-dari-investor-atau-bank/): Bedanya modal dari bank dan dari investor, kapan masing-masing cocok, dan cara memilih sesuai ukuran serta kondisi usaha Anda. Bahasa sederhana untuk pemilik.
@@ -227,9 +238,30 @@
 - Halaman per kota: FA Jakarta, FA Surabaya, FA Malang, FA Bandung, dan 90+ kota → https://faindonesia.co.id/wilayah/
 - [Toko FA](https://faindonesia.co.id/toko/): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online lewat QRIS, virtual account, e-wallet, dan kartu kredit
 
-- [Peta Pendanaan FA](https://faindonesia.co.id/cek-kesiapan-pendanaan/): cek kesiapan kredit bank atau investor, celah beserta mitra penutupnya (KJA, KAP, KJPP, notaris, konsultan pajak), dan checklist data room.
-
-- [Kalkulator Valuasi Rumah Sakit](https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/): estimasi harga jual RS, RSIA, dan RS khusus (EBITDA x multiple dan nilai aset, dikurangi utang bank), termasuk RS dengan masalah kerja sama BPJS; pendampingan sell side sampai closing.
-
-## Cara kerja
-- Semua layanan dikerjakan dengan tools buatan FA sendiri: FA Jupiter (laporan keuangan audit ready), FA Saturn (kertas kerja audit standar SA/SPAP IAPI), FA Venus (kalkulator kredit, PSAK 118, IPO, valuasi). Metodologi mengikuti praktik advisory firma Big Four; sebagian besar tools gratis di https://faindonesia.co.id/apps/
+## Hub Kalkulator dan Aplikasi (Nov 2026)
+- [Kalkulator Pajak](https://faindonesia.co.id/kalkulator-pajak/)
+- [Kalkulator Keuangan](https://faindonesia.co.id/kalkulator-keuangan/)
+- [Aplikasi Akuntansi Gratis](https://faindonesia.co.id/aplikasi-akuntansi-gratis/)
+- [Aplikasi Audit untuk KAP](https://faindonesia.co.id/aplikasi-audit-kap/)
+- [Free Indonesian tax and finance calculators (EN)](https://faindonesia.co.id/en/free-tax-finance-calculators-indonesia/)
+- Kalkulator PPh 21 TER: TER bulanan, Desember, THR, gross up → https://faindonesia.co.id/kalkulator-pph-21/
+- Kalkulator PPh Badan: Tarif 22%, Pasal 31E, PPh final 0,5%, PPh 25 → https://faindonesia.co.id/kalkulator-pph-badan/
+- Kalkulator PPh Potput dan PPN: PPh 23, 4(2), 26, 22, PPN 12% DPP 11/12 → https://faindonesia.co.id/kalkulator-potput-ppn/
+- Kalkulator Penyusutan Fiskal: Susut fiskal vs komersial, pajak tangguhan → https://faindonesia.co.id/kalkulator-penyusutan-fiskal/
+- Cek Kapasitas Kredit: DSCR, plafon, syarat IPO → https://faindonesia.co.id/cek-kapasitas-kredit/
+- Kalkulator DSCR: Rumus, contoh, batas aman bank → https://faindonesia.co.id/kalkulator-dscr/
+- Simulasi Plafon Kredit Usaha: KI, KMK, top up, take over → https://faindonesia.co.id/simulasi-plafon-kredit-usaha/
+- Kalkulator Cicilan Pinjaman: Anuitas, flat, efektif, biaya kredit → https://faindonesia.co.id/kalkulator-cicilan-pinjaman/
+- Kalkulator Rasio Keuangan: Likuiditas, DER, ROE, Altman Z → https://faindonesia.co.id/kalkulator-rasio-keuangan/
+- Kalkulator Valuasi DCF: WACC, FCFF, nilai terminal, sensitivitas → https://faindonesia.co.id/kalkulator-valuasi-dcf/
+- Kalkulator Valuasi Rumah Sakit: Harga jual RS before dan after → https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/
+- Cek Kelayakan IPO: Papan Utama, Pengembangan, Akselerasi → https://faindonesia.co.id/cek-kelayakan-ipo/
+- Cek Kesiapan Pendanaan: Skor siap kredit bank atau investor → https://faindonesia.co.id/cek-kesiapan-pendanaan/
+- Bankability Index: Seberapa siap dibiayai bank → https://faindonesia.co.id/bankability-index/
+- Konverter PSAK 118: Laba rugi PSAK 201 ke PSAK 118 → https://faindonesia.co.id/cek-psak-118/
+- FA Jupiter Audit Ready: GL jadi laporan keuangan dan CALK → https://faindonesia.co.id/audit-ready/
+- FA Saturn Audit Workspace: Kertas kerja audit untuk KAP → https://faindonesia.co.id/saturn/
+- Kalkulator PSAK (UpdateSAK): Kerangka SAK dan PSAK per akun → https://updatesak.com/#kalkulator-psak
+- Penyusun Laporan Keuangan (UpdateSAK): Neraca, laba rugi, arus kas dari saldo → https://updatesak.com/#laporan-keuangan
+- Penyusun CALK (UpdateSAK): Catatan atas laporan keuangan → https://updatesak.com/#calk
+- Screening Instan (CariAkuntan): Rasio bank dan jalur IPO sebelum pilih KAP → https://cariakuntan.com/screening/

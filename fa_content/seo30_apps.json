@@ -1,0 +1,470 @@
+[
+ {
+  "slug": "cara-menghitung-pph-21-ter-2026-contoh",
+  "cat": "Pajak",
+  "topic": "t-pajak",
+  "title": "Cara Menghitung PPh 21 TER 2026: Contoh Gaji, THR, dan Masa Desember | FA Indonesia",
+  "h1": "Cara Menghitung PPh 21 dengan TER 2026: Contoh Perhitungan Gaji, THR, dan Masa Desember",
+  "desc": "Cara menghitung PPh 21 dengan TER 2026: kategori A, B, C, contoh gaji bulanan, bulan THR, dan perhitungan ulang Desember tarif Pasal 17.",
+  "minutes": "7",
+  "body": "<p>Sejak 1 Januari 2024, pemotongan PPh 21 untuk pegawai tetap tidak lagi dihitung dengan rumus setahun dibagi dua belas setiap bulan. Januari sampai November memakai <b>tarif efektif rata-rata (TER)</b> yang langsung dikalikan penghasilan bruto bulanan, lalu Desember menjadi bulan penyesuaian dengan tarif progresif Pasal 17. Cara ini diatur PP 58 Tahun 2023 dan PMK 168 Tahun 2023, dan masih berlaku di 2026.</p><h2>Langkah 1: Tentukan Kategori TER dari Status PTKP</h2><p>Kategori A untuk TK/0, TK/1, dan K/0. Kategori B untuk TK/2, TK/3, K/1, dan K/2. Kategori C untuk K/3. Status diambil dari keadaan awal tahun pajak.</p><h2>Langkah 2: Hitung Bruto Bulanan</h2><p>Bruto bulanan mencakup gaji pokok, tunjangan tetap dan tidak tetap, lembur, serta premi JKK, JKM, dan BPJS Kesehatan yang dibayar pemberi kerja. Iuran JHT dan JP yang dibayar pegawai tidak mengurangi bruto saat hitung TER; pengurang itu baru dipakai di perhitungan Desember.</p><h2>Langkah 3: Kalikan TER</h2><p>Contoh: pegawai K/1 (kategori B) dengan gaji Rp10.000.000 dan premi BPJS yang dibayar perusahaan Rp400.000. Bruto Rp10.400.000. Tarif TER kategori B untuk bruto di rentang itu, misalnya 2%, menghasilkan potongan Rp208.000 per bulan. Angka tarif persis diambil dari lampiran PP 58/2023; kalkulator di bawah sudah memuat tabelnya.</p><h2>Langkah 4: Bulan Ada THR atau Bonus</h2><p>Di bulan pembayaran THR, bruto bulan itu menjadi gaji ditambah THR. Dengan contoh di atas, bruto menjadi Rp20.400.000, masuk rentang TER yang lebih tinggi, misalnya 9%, sehingga potongan bulan itu melonjak menjadi sekitar Rp1.836.000. Lonjakan ini normal dan akan diperhitungkan di Desember.</p><h2>Langkah 5: Masa Desember</h2><p>Hitung penghasilan neto setahun: bruto setahun dikurangi biaya jabatan (5%, maksimal Rp6 juta) dan iuran JHT serta JP yang dibayar pegawai. Kurangi PTKP (K/1 = Rp63 juta). Kalikan tarif Pasal 17 (5% sampai Rp60 juta, 15% sampai Rp250 juta, dan seterusnya). PPh 21 Desember = PPh setahun dikurangi total potongan TER Januari sampai November. Hasilnya bisa lebih kecil dari bulan biasa, bahkan nol, atau lebih besar bila ada kenaikan gaji di tengah tahun.</p><h2>Kesalahan yang Sering Terjadi</h2><ul><li>Memakai status PTKP tahun berjalan padahal seharusnya keadaan awal tahun.</li><li>Lupa memasukkan premi BPJS yang dibayar perusahaan ke bruto.</li><li>Menghitung Desember dengan TER lagi, bukan tarif Pasal 17.</li><li>Pegawai yang baru masuk di tengah tahun: penghasilan disetahunkan hanya bila ia pindah dari pemberi kerja lain dengan bukti potong.</li></ul><h2>Hitung Otomatis</h2><p>Semua langkah di atas sudah ada di <a href=\"/kalkulator-pph-21/\">Kalkulator PPh 21 TER FA Venus</a>: bulan reguler, bulan THR, simulasi Januari sampai Desember, gross up, dan tab bukan pegawai. Gratis dan dihitung di browser.</p>",
+  "faq": [
+   [
+    "Apakah TER membuat pajak setahun lebih besar?",
+    "Tidak. TER hanya cara memotong bulanan. Total PPh setahun tetap dihitung dengan tarif Pasal 17 di Desember, sehingga jumlah akhirnya sama dengan cara lama."
+   ],
+   [
+    "Bagaimana jika potongan Desember negatif?",
+    "Kelebihan potong dikembalikan pemberi kerja ke pegawai bersama gaji Desember dan dilaporkan di SPT Masa Desember."
+   ],
+   [
+    "Apakah pegawai harus lapor SPT Tahunan?",
+    "Ya, pegawai tetap melaporkan SPT Tahunan 1770 S atau 1770 SS dengan bukti potong 1721-A1 yang diterbitkan pemberi kerja."
+   ],
+   [
+    "Di mana melihat tabel TER lengkap?",
+    "Lampiran PP 58 Tahun 2023. Kalkulator PPh 21 FA Venus sudah memuat tabel itu dan menunjukkan rentang yang dipakai."
+   ]
+  ],
+  "related": [
+   [
+    "/kalkulator-pph-21/",
+    "Kalkulator PPh 21 TER"
+   ],
+   [
+    "/kalkulator-pph-badan/",
+    "Kalkulator PPh Badan"
+   ],
+   [
+    "/kalkulator-pajak/",
+    "Hub Kalkulator Pajak"
+   ],
+   [
+    "/artikel/coretax-untuk-badan-usaha-yang-perlu-disiapkan/",
+    "Coretax untuk Badan Usaha"
+   ]
+  ],
+  "sources": [
+   [
+    "DJP: Mengulik PP 58/2023, TER dan Perhitungan PPh yang Lebih Simpel",
+    "https://pajak.go.id/id/artikel/mengulik-pp-582023-ter-dan-perhitungan-pph-yang-lebih-simpel"
+   ],
+   [
+    "PMK 168 Tahun 2023 tentang Petunjuk Pelaksanaan Pemotongan PPh 21",
+    "https://jdih.kemenkeu.go.id/dok/pmk-168-tahun-2023"
+   ]
+  ],
+  "cta_href": "/kalkulator-pph-21/",
+  "cta_label": "Hitung PPh 21 Sekarang",
+  "wa": "Halo FA Indonesia, saya ingin bertanya soal perhitungan PPh 21 TER untuk karyawan kami."
+ },
+ {
+  "slug": "cara-menghitung-pph-badan-2026-tarif-22-persen-31e",
+  "cat": "Pajak",
+  "topic": "t-pajak",
+  "title": "Cara Menghitung PPh Badan 2026: Tarif 22%, Pasal 31E, PPh Final 0,5%, Contoh | FA Indonesia",
+  "h1": "Cara Menghitung PPh Badan 2026: Tarif 22%, Fasilitas Pasal 31E, dan Kapan UMKM Pindah dari PPh Final 0,5%",
+  "desc": "Contoh hitung PPh Badan 2026: tarif 22%, pengurangan 50% Pasal 31E, batas waktu PPh final 0,5%, kredit pajak, dan angsuran PPh 25.",
+  "minutes": "7",
+  "body": "<p>PPh Badan adalah pajak atas laba fiskal perusahaan setahun. Ada tiga skema yang perlu dipahami pemilik PT dan CV: tarif umum 22%, fasilitas Pasal 31E, dan PPh final 0,5% untuk UMKM. Salah pilih skema bisa membuat pajak terbayar lebih besar dari seharusnya, atau sebaliknya menimbulkan kurang bayar saat diperiksa.</p><h2>Tarif Umum 22%</h2><p>Berlaku sejak tahun pajak 2022 (UU HPP). Dasarnya penghasilan kena pajak, yaitu laba komersial yang sudah dikoreksi fiskal: biaya yang tidak boleh dikurangkan (sumbangan tertentu, sanksi pajak, biaya pribadi pemegang saham) ditambahkan kembali, penghasilan yang sudah kena PPh final (bunga deposito, sewa tanah bangunan) dikeluarkan.</p><h2>Fasilitas Pasal 31E</h2><p>Wajib pajak badan dengan peredaran bruto sampai Rp50 miliar mendapat pengurangan tarif 50% atas bagian penghasilan kena pajak dari peredaran bruto sampai Rp4,8 miliar. Contoh: omzet Rp20 miliar, laba fiskal Rp2 miliar. Bagian yang dapat fasilitas = Rp4,8 miliar / Rp20 miliar x Rp2 miliar = Rp480 juta, dikenai 11%. Sisanya Rp1,52 miliar dikenai 22%. PPh terutang = Rp52,8 juta + Rp334,4 juta = Rp387,2 juta, bukan Rp440 juta.</p><h2>PPh Final 0,5% untuk UMKM</h2><p>Badan dengan omzet sampai Rp4,8 miliar setahun boleh memakai PPh final 0,5% dari omzet bulanan (PP 55 Tahun 2022) selama 3 tahun pajak untuk PT dan 4 tahun untuk CV, firma, dan koperasi, dihitung sejak terdaftar atau sejak PP berlaku. Setelah jangka waktu habis, atau bila omzet melewati Rp4,8 miliar, perusahaan wajib pindah ke tarif umum dengan pembukuan lengkap. Banyak CV yang terdaftar 2018 sudah habis masa finalnya; cek tahun terdaftar Anda.</p><h2>Final 0,5% atau Tarif Umum, Mana Lebih Hemat?</h2><p>Final 0,5% dari omzet setara tarif umum 22% atas margin laba fiskal sekitar 2,3%. Artinya, bila margin laba fiskal Anda di bawah 2,3% (dagang bermargin tipis), tarif umum lebih hemat; bila margin di atas itu, final lebih ringan. Untuk perusahaan yang akan mengajukan kredit atau mencari investor, pembukuan lengkap dengan tarif umum juga memberi laporan keuangan yang lebih dipercaya.</p><h2>Kredit Pajak dan Angsuran PPh 25</h2><p>PPh terutang dikurangi PPh 22 (impor atau pembelian dari pemungut), PPh 23 (dipotong pelanggan atas jasa), PPh 24 (luar negeri), dan PPh 25 yang sudah diangsur. Sisanya PPh 29 kurang bayar, dibayar sebelum SPT Tahunan dilaporkan (akhir April). Angsuran PPh 25 tahun berikutnya = (PPh terutang dikurangi PPh 22, 23, 24) dibagi 12.</p><h2>Hitung Otomatis</h2><p><a href=\"/kalkulator-pph-badan/\">Kalkulator PPh Badan FA Venus</a> menghitung ketiga skema, memperingatkan bila omzet melewati batas, dan langsung memberi angsuran PPh 25. Untuk koreksi penyusutan, pakai <a href=\"/kalkulator-penyusutan-fiskal/\">Kalkulator Penyusutan Fiskal</a>.</p>",
+  "faq": [
+   [
+    "Apakah CV kena PPh Badan?",
+    "Ya. CV adalah wajib pajak badan. Bedanya, bagian laba yang dibagikan ke sekutu CV bukan objek pajak lagi di tingkat sekutu."
+   ],
+   [
+    "Omzet Rp6 miliar, apakah masih bisa final 0,5%?",
+    "Tidak. Batas omzet PPh final adalah Rp4,8 miliar setahun. Mulai tahun pajak berikutnya wajib tarif umum."
+   ],
+   [
+    "Apa itu Pasal 31E dan apakah otomatis?",
+    "Pengurangan tarif 50% untuk bagian laba dari omzet sampai Rp4,8 miliar bagi badan beromzet sampai Rp50 miliar. Fasilitas ini dihitung sendiri di SPT Tahunan, tidak perlu permohonan."
+   ],
+   [
+    "Kapan PPh 29 harus dibayar?",
+    "Sebelum SPT Tahunan Badan disampaikan, paling lambat akhir bulan keempat setelah tahun pajak berakhir, yaitu 30 April untuk tahun buku Januari sampai Desember."
+   ]
+  ],
+  "related": [
+   [
+    "/kalkulator-pph-badan/",
+    "Kalkulator PPh Badan"
+   ],
+   [
+    "/kalkulator-penyusutan-fiskal/",
+    "Kalkulator Penyusutan Fiskal"
+   ],
+   [
+    "/kalkulator-pajak/",
+    "Hub Kalkulator Pajak"
+   ],
+   [
+    "/artikel/pisahkan-uang-pribadi-dan-perusahaan/",
+    "Pisahkan Uang Pribadi dan Perusahaan"
+   ]
+  ],
+  "sources": [
+   [
+    "PP 55 Tahun 2022 tentang Penyesuaian Pengaturan di Bidang PPh",
+    "https://peraturan.go.id/id/pp-no-55-tahun-2022"
+   ],
+   [
+    "UU 7 Tahun 2021 tentang Harmonisasi Peraturan Perpajakan",
+    "https://peraturan.go.id/id/uu-no-7-tahun-2021"
+   ]
+  ],
+  "cta_href": "/kalkulator-pph-badan/",
+  "cta_label": "Hitung PPh Badan",
+  "wa": "Halo FA Indonesia, saya ingin konsultasi perhitungan PPh Badan dan pilihan skema pajak perusahaan kami."
+ },
+ {
+  "slug": "ppn-12-persen-dpp-11-12-cara-hitung-invoice-pph-23",
+  "cat": "Pajak",
+  "topic": "t-pajak",
+  "title": "PPN 12% dengan DPP 11/12: Cara Hitung Satu Invoice Bersama PPh 23 dan PPh 4(2) | FA Indonesia",
+  "h1": "PPN 12% dengan DPP 11/12: Cara Menghitung Satu Invoice Jasa Lengkap dengan PPh 23 atau PPh 4 Ayat 2",
+  "desc": "PPN 12% dengan DPP 11/12 tetap efektif 11%. Contoh hitung invoice jasa, sewa, dan konstruksi bersama PPh 23 atau PPh final 4(2).",
+  "minutes": "6",
+  "body": "<p>Tarif PPN 12% berlaku sejak 1 Januari 2025, tetapi untuk barang dan jasa selain barang mewah tertentu dasar pengenaannya adalah <b>nilai lain sebesar 11/12 dari harga jual</b> (PMK 131 Tahun 2024). Hasilnya, PPN yang dipungut tetap 11% dari harga. Yang sering membingungkan bukan PPN-nya, tetapi bagaimana menggabungkannya dengan PPh yang dipotong di invoice yang sama.</p><h2>Contoh: Invoice Jasa Konsultan Rp100 Juta</h2><ul><li>DPP PPN = 11/12 x Rp100.000.000 = Rp91.666.667. PPN = 12% x Rp91.666.667 = Rp11.000.000 (efektif 11%).</li><li>PPh 23 jasa = 2% x Rp100.000.000 = Rp2.000.000, dipotong dari jumlah bruto tidak termasuk PPN.</li><li>Dibayar ke vendor = Rp100.000.000 + Rp11.000.000 - Rp2.000.000 = Rp109.000.000.</li><li>Disetor pembeli ke kas negara: PPh 23 Rp2.000.000. PPN Rp11.000.000 disetor oleh vendor (PKP) lewat SPT Masa PPN, dan menjadi pajak masukan pembeli bila pembeli PKP.</li></ul><h2>Contoh: Sewa Ruko Rp60 Juta Setahun</h2><p>Sewa tanah dan bangunan dikenai PPh final Pasal 4 ayat 2 sebesar 10%, bukan PPh 23. Bila pemilik PKP, PPN 11% efektif tetap dipungut. Dibayar ke pemilik = Rp60 juta + Rp6,6 juta PPN - Rp6 juta PPh final = Rp60,6 juta.</p><h2>Contoh: Jasa Konstruksi</h2><p>Jasa konstruksi dikenai PPh final 4(2) dengan tarif 1,75% sampai 6% tergantung kualifikasi usaha dan jenis pekerjaan (PP 9 Tahun 2022): pelaksanaan oleh kontraktor kualifikasi kecil 1,75%, tanpa kualifikasi 4%, selain itu 2,65%; perencanaan dan pengawasan 3,5% atau 6%. PPN tetap dipungut penuh atas nilai kontrak.</p><h2>Vendor Tanpa NPWP dan Vendor Luar Negeri</h2><p>Tanpa NPWP, tarif PPh 23 naik 100% menjadi 4%. Untuk vendor luar negeri, yang berlaku PPh 26 sebesar 20% atau tarif tax treaty bila ada SKD (DGT form), dan PPN jasa luar negeri 11% efektif disetor sendiri oleh pembeli.</p><h2>Hitung Otomatis</h2><p><a href=\"/kalkulator-potput-ppn/\">Kalkulator PPh Potput dan PPN FA Venus</a> menghitung DPP, PPN, PPh yang dipotong, jumlah dibayar, dan jumlah disetor untuk semua skema di atas dalam satu layar.</p>",
+  "faq": [
+   [
+    "Apakah harga di invoice harus ditulis 12% atau 11%?",
+    "Faktur pajak mencantumkan tarif 12% dengan DPP nilai lain 11/12 dari harga jual. Nilai PPN yang muncul tetap 11% dari harga."
+   ],
+   [
+    "Barang apa yang kena PPN 12% penuh?",
+    "Barang mewah tertentu yang juga dikenai PPnBM, seperti kendaraan dan hunian mewah, dengan DPP harga jual penuh."
+   ],
+   [
+    "Apakah PPh 23 dipotong dari jumlah termasuk PPN?",
+    "Tidak. Dasar PPh 23 adalah jumlah bruto tidak termasuk PPN."
+   ],
+   [
+    "Siapa yang menyetor PPN jika vendor bukan PKP?",
+    "Vendor non PKP tidak memungut PPN, jadi tidak ada PPN di invoice. PPh 23 tetap dipotong pembeli."
+   ]
+  ],
+  "related": [
+   [
+    "/kalkulator-potput-ppn/",
+    "Kalkulator PPh Potput dan PPN"
+   ],
+   [
+    "/kalkulator-pph-21/",
+    "Kalkulator PPh 21 TER"
+   ],
+   [
+    "/kalkulator-pajak/",
+    "Hub Kalkulator Pajak"
+   ],
+   [
+    "/artikel/memilih-konsultan-pajak-berizin/",
+    "Memilih Konsultan Pajak Berizin"
+   ]
+  ],
+  "sources": [
+   [
+    "DJP: Siaran Pers Aturan DPP Nilai Lain dan Besaran Tertentu PPN (PMK 131/2024)",
+    "https://www.pajak.go.id/sites/default/files/2025-02/SP-4%20PEMERINTAH%20TERBITKAN%20ATURAN%20DPP%20NILAI%20LAIN%20DAN%20BESARAN%20TERTENTU%20PPN.pdf"
+   ],
+   [
+    "PP 9 Tahun 2022 tentang PPh atas Penghasilan dari Usaha Jasa Konstruksi",
+    "https://peraturan.go.id/id/pp-no-9-tahun-2022"
+   ]
+  ],
+  "cta_href": "/kalkulator-potput-ppn/",
+  "cta_label": "Hitung Invoice Sekarang",
+  "wa": "Halo FA Indonesia, saya ingin bertanya soal perhitungan PPN dan PPh potong pungut di invoice vendor."
+ },
+ {
+  "slug": "penyusutan-fiskal-vs-komersial-cara-hitung-pajak-tangguhan",
+  "cat": "Pajak",
+  "topic": "t-pajak",
+  "title": "Penyusutan Fiskal vs Komersial: Kelompok Harta, Koreksi Fiskal, dan Pajak Tangguhan | FA Indonesia",
+  "h1": "Penyusutan Fiskal vs Komersial: Cara Menghitung Koreksi Fiskal dan Pajak Tangguhan dengan Contoh",
+  "desc": "Penyusutan fiskal vs komersial: kelompok harta PMK 72/2023, contoh mesin Rp1 miliar, koreksi fiskal tahunan, dan pajak tangguhan PSAK 212.",
+  "minutes": "6",
+  "body": "<p>Satu mesin, dua jadwal penyusutan. Untuk laporan keuangan, manajemen menyusutkan sesuai masa manfaat ekonomis (PSAK 216 Aset Tetap). Untuk SPT, penyusutan mengikuti kelompok harta dan tarif Pasal 11 UU PPh. Selisih keduanya menjadi koreksi fiskal setiap tahun dan memunculkan pajak tangguhan di neraca.</p><h2>Kelompok Harta Fiskal</h2><p>Bukan bangunan: kelompok 1 masa 4 tahun (garis lurus 25%, saldo menurun 50%), kelompok 2 masa 8 tahun (12,5% atau 25%), kelompok 3 masa 16 tahun (6,25% atau 12,5%), kelompok 4 masa 20 tahun (5% atau 10%). Bangunan permanen 20 tahun (5%), tidak permanen 10 tahun (10%), hanya garis lurus. Daftar jenis harta per kelompok ada di PMK 72 Tahun 2023.</p><h2>Contoh: Mesin Produksi Rp1 Miliar</h2><p>Komersial: masa manfaat 5 tahun, garis lurus, beban Rp200 juta per tahun. Fiskal: kelompok 2, garis lurus 8 tahun, Rp125 juta per tahun. Tahun pertama, beban komersial lebih besar Rp75 juta dari fiskal, sehingga ada koreksi fiskal positif Rp75 juta (laba fiskal lebih tinggi). Setelah tahun kelima, komersial sudah nol sementara fiskal masih Rp125 juta per tahun sampai tahun kedelapan, sehingga koreksi berbalik negatif.</p><h2>Pajak Tangguhan</h2><p>Perbedaan temporer tahun pertama Rp75 juta akan memulihkan pajak di masa depan, sehingga dicatat <b>aset pajak tangguhan</b> Rp16,5 juta (22% x Rp75 juta), dengan manfaat pajak tangguhan di laba rugi. Saat perbedaan berbalik, aset itu dipulihkan. PSAK 212 Pajak Penghasilan mengatur pengakuannya; auditor hampir selalu memeriksa rekonsiliasinya.</p><h2>Saldo Menurun atau Garis Lurus?</h2><p>Saldo menurun mempercepat beban fiskal di tahun-tahun awal, berguna untuk perusahaan yang labanya besar di awal. Metode harus konsisten; perubahan memerlukan persetujuan Dirjen Pajak. Untuk bangunan, fiskal hanya mengizinkan garis lurus.</p><h2>Hitung Otomatis</h2><p><a href=\"/kalkulator-penyusutan-fiskal/\">Kalkulator Penyusutan Fiskal FA Venus</a> membuat jadwal komersial dan fiskal per aset, koreksi fiskal tahunan, dan pajak tangguhan. Masukkan beberapa aset untuk mendapatkan rekap satu perusahaan.</p>",
+  "faq": [
+   [
+    "Kenapa laporan keuangan dan SPT memakai penyusutan berbeda?",
+    "Karena tujuannya beda. Laporan keuangan mencerminkan pemakaian ekonomis aset; SPT mengikuti tarif yang ditetapkan undang-undang supaya seragam antar wajib pajak."
+   ],
+   [
+    "Apakah UMKM dengan PPh final perlu menghitung penyusutan fiskal?",
+    "Tidak selama memakai PPh final 0,5% dari omzet. Saat pindah ke tarif umum, penyusutan fiskal mulai diperlukan."
+   ],
+   [
+    "Apa beda aset dan liabilitas pajak tangguhan?",
+    "Aset pajak tangguhan muncul bila beban komersial mendahului fiskal (pajak dibayar lebih dulu, dipulihkan nanti). Liabilitas pajak tangguhan muncul sebaliknya, misalnya pada revaluasi aset."
+   ],
+   [
+    "Apakah pajak tangguhan wajib untuk SAK EMKM?",
+    "Tidak. SAK EMKM tidak mengakui pajak tangguhan. SAK EP dan PSAK mewajibkannya."
+   ]
+  ],
+  "related": [
+   [
+    "/kalkulator-penyusutan-fiskal/",
+    "Kalkulator Penyusutan Fiskal"
+   ],
+   [
+    "/artikel/revaluasi-aset-tetap-psak-216-dan-pajak/",
+    "Revaluasi Aset Tetap PSAK 216 dan Pajak"
+   ],
+   [
+    "/kalkulator-pph-badan/",
+    "Kalkulator PPh Badan"
+   ],
+   [
+    "/kalkulator-pajak/",
+    "Hub Kalkulator Pajak"
+   ]
+  ],
+  "sources": [
+   [
+    "PMK 72 Tahun 2023 tentang Penyusutan Harta Berwujud dan Amortisasi Harta Tak Berwujud",
+    "https://jdih.kemenkeu.go.id/dok/pmk-72-tahun-2023"
+   ],
+   [
+    "SAK Online IAI: PSAK 212 Pajak Penghasilan dan PSAK 216 Aset Tetap",
+    "https://web.iaiglobal.or.id/"
+   ]
+  ],
+  "cta_href": "/kalkulator-penyusutan-fiskal/",
+  "cta_label": "Hitung Penyusutan",
+  "wa": "Halo FA Indonesia, saya ingin bertanya soal penyusutan fiskal dan pajak tangguhan di laporan keuangan kami."
+ },
+ {
+  "slug": "bunga-flat-efektif-anuitas-cara-hitung-cicilan-kredit-usaha",
+  "cat": "Kredit Bank",
+  "topic": "t-kredit-bank",
+  "title": "Bunga Flat, Efektif, dan Anuitas: Cara Hitung Cicilan Kredit Usaha dan Bunga Sesungguhnya | FA Indonesia",
+  "h1": "Bunga Flat, Efektif, dan Anuitas: Cara Menghitung Cicilan Kredit Usaha dan Bunga yang Sebenarnya Anda Bayar",
+  "desc": "Bunga flat, efektif, dan anuitas dengan contoh pinjaman Rp500 juta, cara konversi flat ke efektif, bunga sesungguhnya, dan cicilan aman.",
+  "minutes": "6",
+  "body": "<p>Dua penawaran kredit: bank A bunga 7% flat, bank B bunga 12% efektif. Mana lebih murah? Jawabannya bank B, dan selisihnya tidak kecil. Memahami tiga metode bunga ini menghemat puluhan juta rupiah sepanjang tenor.</p><h2>Bunga Efektif (Sliding)</h2><p>Bunga dihitung dari sisa pokok setiap bulan. Pokok diangsur sama rata, bunga menurun, sehingga angsuran total menurun. Pinjaman Rp500 juta, 12% per tahun, 36 bulan: angsuran pokok Rp13,9 juta per bulan, bunga bulan pertama Rp5 juta, bulan terakhir Rp139 ribu. Total bunga sekitar Rp92,5 juta.</p><h2>Bunga Anuitas</h2><p>Juga dihitung dari sisa pokok, tetapi angsuran dibuat tetap tiap bulan. Dengan angka yang sama, angsuran sekitar Rp16,6 juta per bulan, porsi bunga besar di awal dan mengecil di akhir. Total bunga sekitar Rp98 juta, sedikit lebih besar dari sliding karena pokok turun lebih lambat. Ini metode yang paling umum untuk KPR dan kredit investasi.</p><h2>Bunga Flat</h2><p>Bunga dihitung dari plafon awal sepanjang tenor. Rp500 juta, 7% flat, 36 bulan: bunga Rp35 juta per tahun, total Rp105 juta, angsuran tetap Rp16,8 juta. Padahal pokok terus berkurang. Bunga flat 7% ternyata setara bunga efektif sekitar 12,7%. Aturan praktisnya: bunga efektif kira-kira 1,8 sampai 1,9 kali bunga flat.</p><h2>Provisi, Admin, dan Bunga Sesungguhnya</h2><p>Provisi 1% dan admin Rp2,5 juta yang dipotong di muka berarti dana bersih yang diterima hanya Rp492,5 juta, tetapi angsuran dihitung dari Rp500 juta. Bunga sesungguhnya (APR) dihitung dengan IRR arus kas: untuk contoh bank B naik dari 12% menjadi sekitar 13,2%. Bandingkan bank selalu dengan angka ini.</p><h2>Berapa Cicilan yang Aman?</h2><p>Analis kredit memakai DSCR: EBITDA setahun dibagi angsuran pokok dan bunga setahun, minimal 1,25 kali. Usaha dengan EBITDA Rp300 juta aman menanggung angsuran sekitar Rp240 juta setahun atau Rp20 juta per bulan. Dari situ plafon maksimal bisa dihitung mundur untuk bunga dan tenor tertentu.</p><h2>Hitung Otomatis</h2><p><a href=\"/kalkulator-cicilan-pinjaman/\">Kalkulator Cicilan Pinjaman FA Venus</a> menampilkan ketiga metode, tabel amortisasi, bunga sesungguhnya setelah biaya, dan plafon maksimal dari DSCR. Untuk melihat posisi perusahaan di mata bank, lanjutkan ke <a href=\"/cek-kapasitas-kredit/\">Cek Kapasitas Kredit</a>.</p>",
+  "faq": [
+   [
+    "Kenapa bank menawarkan bunga flat?",
+    "Karena angkanya terlihat kecil dan angsurannya tetap, mudah dijelaskan ke nasabah. Umum dipakai multifinance dan kredit tanpa agunan."
+   ],
+   [
+    "Bagaimana mengubah bunga flat ke efektif?",
+    "Perkiraan cepat: kalikan 1,8 sampai 1,9. Perhitungan persis memakai IRR arus kas angsuran, yang dilakukan otomatis oleh kalkulator."
+   ],
+   [
+    "Apakah melunasi lebih cepat menghemat bunga?",
+    "Pada bunga efektif dan anuitas, ya, karena bunga berhenti saat pokok lunas, dikurangi penalti. Pada bunga flat, sering tidak banyak menghemat karena bunga sudah dihitung penuh di depan; cek klausul perjanjian."
+   ],
+   [
+    "Berapa DSCR yang diminta bank?",
+    "Umumnya 1,2 sampai 1,5 kali. Ini praktik analis kredit, bukan peraturan, dan bisa berbeda tiap bank dan sektor."
+   ]
+  ],
+  "related": [
+   [
+    "/kalkulator-cicilan-pinjaman/",
+    "Kalkulator Cicilan Pinjaman"
+   ],
+   [
+    "/kalkulator-dscr/",
+    "Kalkulator DSCR"
+   ],
+   [
+    "/cek-kapasitas-kredit/",
+    "Cek Kapasitas Kredit"
+   ],
+   [
+    "/artikel/syarat-biaya-cara-take-over-kredit-usaha/",
+    "Take Over Kredit Usaha"
+   ]
+  ],
+  "sources": [
+   [
+    "OJK: Suku Bunga Dasar Kredit",
+    "https://www.ojk.go.id/id/kanal/perbankan/Pages/Suku-Bunga-Dasar.aspx"
+   ]
+  ],
+  "cta_href": "/kalkulator-cicilan-pinjaman/",
+  "cta_label": "Hitung Cicilan",
+  "wa": "Halo FA Indonesia, saya ingin membandingkan penawaran kredit usaha dari beberapa bank."
+ },
+ {
+  "slug": "cara-menghitung-wacc-dan-valuasi-dcf-perusahaan-indonesia",
+  "cat": "Investor & IPO",
+  "topic": "t-investor-ipo",
+  "title": "Cara Menghitung WACC dan Valuasi DCF Perusahaan di Indonesia: Contoh Langkah demi Langkah | FA Indonesia",
+  "h1": "Cara Menghitung WACC dan Valuasi DCF Perusahaan di Indonesia, Langkah demi Langkah dengan Contoh Angka",
+  "desc": "Langkah valuasi DCF perusahaan swasta Indonesia: FCFF, CAPM dan premi ukuran, WACC, nilai terminal, equity value, dan uji sensitivitas.",
+  "minutes": "8",
+  "body": "<p>Investor, pembeli saham, dan penjamin emisi hampir selalu meminta valuasi DCF di samping multiple EBITDA. Artikel ini menjalankan contoh lengkap untuk perusahaan swasta Indonesia dengan pendapatan Rp100 miliar, supaya pemilik usaha tahu asumsi mana yang paling menentukan angka akhirnya.</p><h2>Langkah 1: Proyeksi Free Cash Flow to Firm (FCFF)</h2><p>FCFF = EBIT x (1 - tarif pajak) + penyusutan - capex - kenaikan modal kerja. Dengan margin EBITDA 15%, penyusutan 3% pendapatan, capex 4%, kenaikan modal kerja 2%, dan pajak 22%, FCFF tahun pertama sekitar Rp9,4 miliar. Proyeksikan 5 tahun dengan pertumbuhan yang bisa dipertanggungjawabkan, misalnya 10% menurun ke 6%.</p><h2>Langkah 2: Biaya Ekuitas dengan CAPM</h2><p>Biaya ekuitas = Rf + beta x premi risiko pasar + premi ukuran dan likuiditas. Rf memakai imbal hasil SUN 10 tahun (sekitar 6,5% sampai 7%). Premi risiko pasar Indonesia umumnya 6% sampai 8%. Beta sektor dari perusahaan tercatat sejenis, di-relever sesuai struktur utang. Untuk perusahaan swasta menengah, premi ukuran dan likuiditas 2% sampai 5% lazim ditambahkan. Hasilnya biaya ekuitas sekitar 16% sampai 20%.</p><h2>Langkah 3: WACC</h2><p>WACC = porsi ekuitas x biaya ekuitas + porsi utang x biaya utang x (1 - pajak). Dengan 70% ekuitas berbiaya 17% dan 30% utang berbunga 11%, WACC = 11,9% + 2,6% = 14,5%. Porsi memakai nilai pasar atau target struktur modal, bukan nilai buku.</p><h2>Langkah 4: Nilai Terminal</h2><p>Nilai terminal = FCFF tahun ke-6 / (WACC - g). Dengan g 3%, FCFF tahun ke-6 Rp14 miliar, nilai terminal = Rp14 miliar / 11,5% = Rp122 miliar, lalu didiskonto 5 tahun ke nilai kini. Nilai terminal biasanya 60% sampai 80% dari total; karena itu g harus konservatif, tidak melebihi pertumbuhan ekonomi jangka panjang.</p><h2>Langkah 5: Dari Enterprise Value ke Equity Value</h2><p>Jumlahkan nilai kini FCFF 5 tahun dan nilai terminal, itulah enterprise value, dalam contoh sekitar Rp100 miliar. Kurangi utang berbunga, tambahkan kas: dengan utang bersih Rp20 miliar, equity value Rp80 miliar. Dibagi jumlah saham, didapat nilai per saham.</p><h2>Langkah 6: Uji Sensitivitas</h2><p>Buat tabel WACC 12% sampai 17% terhadap g 2% sampai 4%. Rentang nilai yang muncul, misalnya Rp65 sampai Rp110 miliar, lebih jujur daripada satu angka dan menjadi dasar negosiasi.</p><h2>Hitung Otomatis</h2><p><a href=\"/kalkulator-valuasi-dcf/\">Kalkulator Valuasi DCF dan WACC FA Venus</a> menjalankan keenam langkah dengan tabel sensitivitas. Untuk transaksi resmi, kredit, atau IPO, laporan penilaian KJPP tetap diperlukan; <a href=\"/jasa-valuasi-usaha/\">tim FA</a> membantu menyiapkan model dan mendampingi sampai penilai.</p>",
+  "faq": [
+   [
+    "DCF atau multiple EBITDA, mana yang dipakai investor?",
+    "Keduanya. DCF menguji nilai dari arus kas sendiri; multiple membandingkan dengan transaksi sejenis. Angka yang disepakati biasanya di antara keduanya."
+   ],
+   [
+    "Berapa WACC yang wajar untuk UMKM dan perusahaan menengah?",
+    "Umumnya 14% sampai 20% karena premi ukuran dan likuiditas. Perusahaan besar tercatat bisa 9% sampai 12%."
+   ],
+   [
+    "Apakah valuasi DCF diterima bank?",
+    "Bank lebih melihat kemampuan bayar (DSCR) dan agunan. DCF berguna untuk investor, jual beli saham, dan IPO."
+   ],
+   [
+    "Apa bedanya FCFF dan FCFE?",
+    "FCFF adalah arus kas untuk seluruh penyedia modal, didiskonto dengan WACC menghasilkan enterprise value. FCFE adalah arus kas untuk pemegang saham setelah utang, didiskonto dengan biaya ekuitas menghasilkan equity value langsung."
+   ]
+  ],
+  "related": [
+   [
+    "/kalkulator-valuasi-dcf/",
+    "Kalkulator Valuasi DCF"
+   ],
+   [
+    "/artikel/valuasi-perusahaan-swasta-dcf-multiple-ebitda/",
+    "Valuasi Perusahaan Swasta: DCF vs Multiple EBITDA"
+   ],
+   [
+    "/jasa-valuasi-usaha/",
+    "Jasa Valuasi Usaha"
+   ],
+   [
+    "/kalkulator-valuasi-rumah-sakit/",
+    "Kalkulator Valuasi Rumah Sakit"
+   ]
+  ],
+  "sources": [
+   [
+    "Bank Indonesia: Data Suku Bunga dan Imbal Hasil SBN",
+    "https://www.bi.go.id/"
+   ],
+   [
+    "Damodaran Online: Country Risk Premiums",
+    "https://pages.stern.nyu.edu/~adamodar/"
+   ]
+  ],
+  "cta_href": "/kalkulator-valuasi-dcf/",
+  "cta_label": "Hitung Valuasi DCF",
+  "wa": "Halo FA Indonesia, saya ingin menghitung valuasi perusahaan untuk ditawarkan ke investor."
+ },
+ {
+  "slug": "aplikasi-laporan-keuangan-gratis-sesuai-sak-emkm-ep-psak",
+  "cat": "Laporan Keuangan",
+  "topic": "t-laporan-keuangan",
+  "title": "Aplikasi Laporan Keuangan Gratis Sesuai SAK EMKM, SAK EP, dan PSAK: Mana yang Cocok | FA Indonesia",
+  "h1": "Aplikasi Laporan Keuangan Gratis Sesuai SAK EMKM, SAK EP, dan PSAK: Mana yang Cocok untuk Usaha Anda",
+  "desc": "Aplikasi laporan keuangan gratis sesuai SAK EMKM, SAK EP, dan PSAK: penyusun laporan, CALK, dan FA Jupiter audit ready. Mana yang cocok.",
+  "minutes": "6",
+  "body": "<p>Banyak pemilik usaha sudah punya pembukuan di Accurate, Jurnal, atau Excel, tetapi saat bank atau notaris meminta laporan keuangan sesuai SAK, hasil ekspor softwarenya belum cukup: tidak ada arus kas, tidak ada perubahan ekuitas, dan tidak ada catatan atas laporan keuangan (CALK). Tiga aplikasi gratis berikut mengisi celah itu.</p><h2>1. Penyusun Laporan Keuangan UpdateSAK</h2><p>Masukkan saldo akun, pilih kerangka SAK EMKM, SAK EP, atau PSAK, dan aplikasi menyusun neraca, laba rugi, arus kas, dan perubahan ekuitas dengan format yang benar. Cocok untuk UMKM, CV, dan PT kecil yang butuh laporan tahunan untuk bank, KUR, tender, atau laporan tahunan PT. Buka di <a href=\"https://updatesak.com/#laporan-keuangan\">updatesak.com</a>.</p><h2>2. Penyusun CALK UpdateSAK</h2><p>CALK adalah bagian yang paling sering hilang dari laporan buatan sendiri. Aplikasi ini membuat catatan format auditor: informasi umum, kebijakan akuntansi sesuai kerangka yang dipilih, rincian tiap akun, dan pengungkapan wajib. Buka di <a href=\"https://updatesak.com/#calk\">updatesak.com</a>.</p><h2>3. FA Jupiter Audit Ready</h2><p>Untuk perusahaan yang punya general ledger dan akan diaudit KAP. Upload COA dan GL, buat jurnal penyesuaian, dan FA Jupiter menghasilkan trial balance, laporan keuangan, CALK, lead schedule, dan checklist PBC. Semua fitur bisa dicoba gratis. Buka <a href=\"/audit-ready/\">FA Jupiter</a>.</p><h2>Pilih Kerangka SAK Dulu</h2><p>SAK EMKM untuk usaha mikro, kecil, menengah tanpa akuntabilitas publik signifikan. SAK EP untuk entitas privat yang lebih besar atau punya pengguna laporan eksternal seperti bank besar dan investor. PSAK (SAK Umum) untuk perusahaan tercatat, lembaga keuangan, dan yang disyaratkan regulator. Tidak yakin? <a href=\"https://updatesak.com/#kalkulator-psak\">Kalkulator PSAK UpdateSAK</a> menentukannya dari skala dan jenis usaha Anda.</p><h2>Kapan Aplikasi Gratis Tidak Cukup</h2><ul><li>Transaksi harian banyak dan butuh stok, piutang, dan pajak terintegrasi: pakai software pembukuan berlangganan, lalu aplikasi di atas untuk laporan akhirnya.</li><li>Tidak ada staf akuntansi: <a href=\"https://cariakuntan.com/jasa-pembukuan/\">jasa pembukuan terima beres</a> oleh KJA mulai Rp900 ribu per bulan.</li><li>Laporan harus diaudit: siapkan dengan FA Jupiter, lalu audit oleh KAP independen.</li></ul>",
+  "faq": [
+   [
+    "Apakah laporan dari aplikasi gratis diterima bank?",
+    "Diterima sebagai laporan keuangan manajemen bila formatnya sesuai SAK dan angkanya didukung pembukuan. Untuk plafon besar, bank biasanya meminta laporan audited atau reviu KAP."
+   ],
+   [
+    "Apakah data saya disimpan di server?",
+    "Tidak. Aplikasi berjalan di browser. FA Jupiter menyimpan proyek di Google Drive akun Anda sendiri."
+   ],
+   [
+    "Apakah bisa untuk koperasi dan yayasan?",
+    "Bisa dengan penyesuaian. Koperasi dan entitas nonlaba punya pengaturan tersendiri (misalnya ISAK 335 untuk nonlaba); pilih kerangka yang sesuai dan sesuaikan nama akun."
+   ],
+   [
+    "Apakah hasilnya langsung bisa diaudit?",
+    "Formatnya sudah mengikuti yang diminta auditor. Kelengkapan bukti dan rekonsiliasi tetap perlu disiapkan; checklist PBC di FA Jupiter membantu."
+   ]
+  ],
+  "related": [
+   [
+    "/aplikasi-akuntansi-gratis/",
+    "Hub Aplikasi Akuntansi Gratis"
+   ],
+   [
+    "/audit-ready/",
+    "FA Jupiter Audit Ready"
+   ],
+   [
+    "/artikel/sak-emkm-vs-sak-ep/",
+    "SAK EMKM vs SAK EP"
+   ],
+   [
+    "/artikel/contoh-laporan-keuangan-umkm/",
+    "Contoh Laporan Keuangan UMKM"
+   ]
+  ],
+  "sources": [
+   [
+    "SAK Online IAI",
+    "https://web.iaiglobal.or.id/"
+   ],
+   [
+    "UpdateSAK: Materi PSAK dan SAK",
+    "https://updatesak.com/materi/"
+   ]
+  ],
+  "cta_href": "/aplikasi-akuntansi-gratis/",
+  "cta_label": "Pilih Aplikasi",
+  "wa": "Halo FA Indonesia, saya butuh laporan keuangan sesuai SAK untuk usaha saya."
+ },
+ {
+  "slug": "software-audit-untuk-kap-kecil-kertas-kerja-digital",
+  "cat": "Audit & KAP",
+  "topic": "t-audit-kap",
+  "title": "Software Audit untuk KAP Kecil dan Menengah: Dari Kertas Kerja Excel ke Workspace Digital | FA Indonesia",
+  "h1": "Software Audit untuk KAP Kecil dan Menengah: Pindah dari Kertas Kerja Excel ke Workspace Digital",
+  "desc": "Software audit untuk KAP kecil dan menengah: fitur wajib sesuai SA 230 dan SMM 1, perbandingan Excel, software asing, dan FA Saturn.",
+  "minutes": "7",
+  "body": "<p>Sebagian besar KAP kecil di Indonesia masih mengaudit dengan kumpulan file Excel: satu untuk materialitas, satu untuk program audit, puluhan untuk kertas kerja, dan folder yang berbeda tiap senior. Cara ini berjalan sampai ada pergantian staf, reviu mutu IAPI, atau klien kedua puluh. Artikel ini merangkum apa yang perlu ada dalam software audit dan pilihan yang masuk akal untuk KAP dengan 2 sampai 30 staf.</p><h2>Yang Wajib Ada</h2><ul><li><b>Penerimaan dan keberlanjutan klien</b> (SA 220, SMM 1): independensi, integritas klien, kompetensi tim.</li><li><b>Materialitas</b>: keseluruhan, performance materiality, dan ambang salah saji yang jelas-jelas tidak material (SA 320).</li><li><b>Pemahaman entitas dan penilaian risiko per asersi</b> (SA 315 revisi), termasuk walkthrough dan test of control, yang otomatis membentuk program audit substantif (SA 330).</li><li><b>Kertas kerja dengan referensi silang</b> ke lead schedule dan laporan keuangan, penanggung jawab, tanggal, dan status reviu (SA 230).</li><li><b>Review notes dan sign-off berjenjang</b> junior, senior, manajer, partner, serta EQR bila diperlukan.</li><li><b>Arsip engagement</b> yang terkunci setelah tanggal laporan, dengan jejak perubahan.</li></ul><h2>Tiga Pilihan untuk KAP Kecil</h2><p><b>Excel plus folder.</b> Murah dan fleksibel, tetapi referensi silang manual, versi file mudah tertukar, dan sulit menunjukkan jejak reviu saat inspeksi mutu.</p><p><b>Software audit asing.</b> Lengkap, tetapi lisensi per pengguna dalam dolar, template IFRS dan ISA yang harus diterjemahkan ke penomoran SAK dan SA Indonesia, dan sering butuh server atau IT sendiri.</p><p><b>FA Saturn.</b> Dibuat untuk KAP Indonesia: template enam industri (jasa, dagang, manufaktur, konstruksi, rumah sakit, BPR), pembeda Complex dan Non-Complex Entity, materialitas, walkthrough, Combined Risk Assessment, program audit, kertas kerja, review notes, sign-off berjenjang, dan mode klien untuk PBC. Berjalan di browser, file engagement di Google Drive KAP sendiri. Demo gratis di <a href=\"/saturn/\">faindonesia.co.id/saturn</a>.</p><h2>Sisi Klien Juga Penting</h2><p>Separuh waktu audit habis menunggu data klien. Perusahaan yang menyiapkan laporan keuangannya dengan <a href=\"/audit-ready/\">FA Jupiter</a> datang dengan trial balance, lead schedule, dan checklist PBC yang sudah terisi, sehingga tim audit langsung menguji bukti.</p><h2>Cara Pindah Tanpa Mengganggu Musim Audit</h2><ol><li>Mulai dengan satu atau dua engagement baru di luar puncak musim (Juni sampai Oktober).</li><li>Pakai template industri yang sesuai, sesuaikan program audit dengan kebiasaan KAP.</li><li>Tetapkan aturan: semua kertas kerja baru di workspace, Excel hanya untuk perhitungan pendukung yang dilampirkan.</li><li>Jadikan review notes dan sign-off sebagai bukti pemantauan mutu untuk SMM 1.</li></ol>",
+  "faq": [
+   [
+    "Apakah software audit wajib bagi KAP?",
+    "Tidak ada kewajiban memakai software tertentu, tetapi SA 230 dan SMM 1 mewajibkan dokumentasi dan sistem manajemen mutu yang bisa ditunjukkan saat reviu mutu IAPI dan pemeriksaan PPPK."
+   ],
+   [
+    "Berapa staf minimal agar software audit masuk akal?",
+    "Sejak dua orang, karena masalah utamanya adalah referensi silang, reviu, dan versi file, bukan jumlah staf."
+   ],
+   [
+    "Apakah FA Saturn bisa dipakai untuk audit BPR dan rumah sakit?",
+    "Bisa. Template BPR memuat siklus kredit dan kolektibilitas; template rumah sakit memuat pendapatan klaim BPJS, obat multi gudang, dan jasa medis."
+   ],
+   [
+    "Di mana data klien disimpan?",
+    "Di Google Drive milik KAP. FA tidak menyimpan file engagement di servernya."
+   ]
+  ],
+  "related": [
+   [
+    "/saturn/",
+    "FA Saturn Audit Workspace"
+   ],
+   [
+    "/aplikasi-audit-kap/",
+    "Hub Aplikasi Audit untuk KAP"
+   ],
+   [
+    "/audit-ready/",
+    "FA Jupiter Audit Ready"
+   ],
+   [
+    "/artikel/kompilasi-review-audit/",
+    "Kompilasi, Reviu, atau Audit"
+   ]
+  ],
+  "sources": [
+   [
+    "IAPI: Standar Audit dan Standar Manajemen Mutu",
+    "https://iapi.or.id/"
+   ],
+   [
+    "UpdateSAK: Ringkasan Standar Audit SA 200 sampai SA 810",
+    "https://updatesak.com/standar-audit/"
+   ]
+  ],
+  "cta_href": "/saturn/",
+  "cta_label": "Coba Demo FA Saturn",
+  "wa": "Halo FA Indonesia, kami KAP dan ingin mencoba FA Saturn bersama tim."
+ }
+]
