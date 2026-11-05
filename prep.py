@@ -607,6 +607,10 @@ import importlib.util as _ilu2
 _pps = _ilu2.spec_from_file_location("pay_postpone", os.path.join(M, "shared", "pay_postpone.py")); _pp = _ilu2.module_from_spec(_pps); _pps.loader.exec_module(_pp)
 print("pay postpone:", _pp.run(OUT))
 
+# ---------- Cek Izin registri PPPK Kemenkeu di halaman kota CA + wilayah FA + /cek-izin/ (5 Nov 2026) ----------
+_sys.path.insert(0, os.path.join(M, "shared", "pppk")); import izin as _izin
+_izin.apply(OUT)
+
 # ---------- KAP DHN & Rekan di semua situs (2 Nov 2026): kartu di halaman audit, strip di halaman lain ----------
 _sys.path.insert(0, os.path.join(M, "shared", "dhn")); import dhn as _dhn
 print("dhn fa", _dhn.add_dhn(os.path.join(OUT, "faindonesia"), "fa", "/kap-dhn/"))

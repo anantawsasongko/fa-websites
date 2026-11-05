@@ -163,3 +163,6 @@
 - [Insentif Kawasan Industri Morowali Disorot: Saatnya Pemasok Lokal Rapikan Kepatuhan](https://cariakuntan.com/artikel/sorotan-insentif-kawasan-industri-morowali-kepatuhan-pajak/): Polemik bandara kawasan nikel di Morowali memicu sorotan atas fasilitas pajak dan bea. Pengawasan yang lebih ketat juga merembet ke rantai pasok.
 - [PSAK 118 Berlaku 2027: Format Laporan Laba Rugi Berubah](https://cariakuntan.com/artikel/psak-118-berlaku-2027-format-laba-rugi-berubah/): PSAK 118 menggantikan PSAK 201 mulai Januari 2027. Laba rugi wajib dikelompokkan ke kategori operasi, investasi, dan pendanaan.
 - [KUR 2026: Bunga Tetap 6 Persen dan Batas Pengajuan Ulang Dihapus](https://cariakuntan.com/artikel/kur-2026-bunga-tetap-6-persen-tanpa-batas-pengajuan/): Pemerintah menetapkan skema KUR 2026 dengan bunga 6 persen untuk semua debitur. Usaha yang tumbuh perlu bersiap naik ke kredit komersial.
+
+## Cek izin profesi keuangan
+- [Cek Izin KAP, KJA, KJPP, Konsultan Pajak, Penilai Publik](https://cariakuntan.com/cek-izin/): pencarian nama dan nomor izin dari registri PPPK Kemenkeu, diperbarui tiap bulan; daftar per kota ada di tiap halaman /kota/<kota>/.

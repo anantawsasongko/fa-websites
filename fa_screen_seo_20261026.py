@@ -18,7 +18,7 @@ for root, dirs, files in os.walk(CA):
     p = os.path.join(root, "index.html"); s = open(p, encoding="utf-8").read()
     s = re.sub(r"<!--ca-scr-->.*?<!--/ca-scr-->", "", s, flags=re.S)
     parts = rel.split(os.sep)
-    where = f" di {nice(parts[-1] if len(parts) > 2 and parts[0] == 'kota' else parts[1])}" if parts[0] == "kota" and len(parts) > 1 else ""
+    where = f" di {nice(parts[-1] if len(parts) > 3 and parts[2] == 'kecamatan' else parts[1])}" if parts[0] == "kota" and len(parts) > 1 else ""
     box = ('<!--ca-scr--><div style="box-sizing:border-box;width:min(1008px,calc(100% - 32px));margin:30px auto 8px;padding:20px 22px;border-radius:10px;border:1px solid var(--line);background:var(--panel)">'
            f'<p style="margin:0 0 6px;font-weight:600">Screening Instan Gratis untuk Perusahaan{where}</p>'
            '<p style="margin:0 0 12px">Isi angka ringkas 3 tahun, lihat langsung rasio kredit bank dan jalur IPO BEI sebelum memilih KAP atau mengajukan kredit.</p>'
