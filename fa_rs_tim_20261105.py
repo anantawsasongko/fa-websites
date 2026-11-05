@@ -21,7 +21,7 @@ CSS = ('<style id="fa-rstim-css">.rstb{margin:22px 0 26px;max-width:560px}.rstb 
 
 CARDS = [
  ("/ananta-w-sasongko/", "/img/ananta-w-sasongko-cpa-rs.jpg", "Ananta W. Sasongko", "CPA · Keuangan, M&amp;A, Seller Side"),
- (None, "/img/dr-sigit-riyarto-mkes-aak.jpg", "dr. Sigit Riyarto", "M.Kes, AAK · Medis, Marketing, Operasional"),
+ ("/dr-sigit-riyarto/", "/img/dr-sigit-riyarto-mkes-aak.jpg", "dr. Sigit Riyarto", "M.Kes, AAK · Medis, Marketing, Operasional"),
 ]
 WA = "https://wa.me/6282245260121?text="
 from urllib.parse import quote
@@ -40,9 +40,10 @@ CITY = {}
 def pages():
     out = []
     for x in ["konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "rumah-sakit-dijual", "jasa-valuasi-usaha",
-              "mitra-investor", "kalkulator-valuasi-rumah-sakit", "kalkulator-valuasi-dcf"]:
+              "mitra-investor", "kalkulator-valuasi-rumah-sakit", "kalkulator-valuasi-dcf",
+              "konsultan-akreditasi-rumah-sakit", "konsultan-bpjs-rumah-sakit", "direktur-rumah-sakit", "menjual-rumah-sakit"]:
         out.append(os.path.join(B, x, "index.html"))
-    for base in ["konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit"]:
+    for base in ["konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "konsultan-akreditasi-rumah-sakit", "konsultan-bpjs-rumah-sakit", "direktur-rumah-sakit", "menjual-rumah-sakit"]:
         out += glob.glob(os.path.join(B, base, "*", "index.html"))
     art = os.path.join(B, "artikel")
     KW = re.compile(r"rumah-sakit|klinik|rsia|idrg|akuisisi|menjual-perusahaan|due-diligence|valuasi|merger|seller|divest")
@@ -56,7 +57,7 @@ for p in pages():
     t = open(p, encoding="utf-8").read()
     rel = os.path.relpath(os.path.dirname(p), B).split(os.sep)
     city = None
-    if len(rel) == 2 and rel[0] in ("konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit"):
+    if len(rel) == 2 and rel[0] in ("konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "konsultan-akreditasi-rumah-sakit", "konsultan-bpjs-rumah-sakit", "direktur-rumah-sakit", "menjual-rumah-sakit"):
         m1 = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S)
         mm = re.search(r" di ([^<:]+)$", re.sub(r"<[^>]+>", "", m1.group(1)).strip()) if m1 else None
         city = _h.unescape(mm.group(1)).strip() if mm else rel[1].replace("-", " ").title()

@@ -105,6 +105,7 @@
 - Halaman wilayah: https://faindonesia.co.id/wilayah/ (113 kota, 91 kawasan bisnis seperti Sunter, Kelapa Gading, Cikarang, Cibinong, BSD)
 
 ## Artikel Eksplor Terbaru
+- Akreditasi Rumah Sakit dan Kerja Sama BPJS: Dampaknya ke Keuangan dan Nilai RS → https://faindonesia.co.id/artikel/akreditasi-rumah-sakit-dan-kerja-sama-bpjs-dampak-keuangan/
 - Alasan Kredit Bank Ditolak dan Cara Memperbaikinya → https://faindonesia.co.id/artikel/alasan-kredit-bank-ditolak/
 - Apakah Perusahaan Saya Butuh Diaudit KAP? Checklist untuk Pemilik → https://faindonesia.co.id/artikel/apakah-perusahaan-butuh-audit-kap/
 - Audit Rumah Sakit Pertama Kali: Area yang Diuji dan Persiapannya → https://faindonesia.co.id/artikel/audit-rumah-sakit-pertama-kali/
@@ -134,18 +135,26 @@
 - Cara Mengembangkan Usaha tanpa Utang: 9 Sumber Dana Selain Bank → https://faindonesia.co.id/artikel/mengembangkan-usaha-tanpa-utang/
 - Menghitung Tarif Layanan Klinik dan Rumah Sakit dari Unit Cost → https://faindonesia.co.id/artikel/menghitung-tarif-layanan-klinik-dan-rumah-sakit/
 - Menjual Rumah Sakit: Persiapan Sisi Penjual agar Harga Optimal → https://faindonesia.co.id/artikel/menjual-rumah-sakit-persiapan-sisi-penjual/
+- Permenkes 6/2026 tentang Rumah Sakit: Kelas A-D Dihapus, Apa Dampaknya bagi RS Swasta → https://faindonesia.co.id/artikel/permenkes-6-2026-rumah-sakit-kelas-dihapus-dampak-rs-swasta/
 - Persiapan Audit Pertama Kali: Saldo Awal, Daftar PBC, dan Timeline → https://faindonesia.co.id/artikel/persiapan-audit-pertama-kali-saldo-awal/
 - Private Equity vs Utang Bank untuk Perusahaan Menengah: Cara Memilih → https://faindonesia.co.id/artikel/private-equity-vs-utang-bank/
 - Prosedur Pengajuan Kredit Perusahaan ke Bank: 10 Tahap sampai Cair → https://faindonesia.co.id/artikel/prosedur-pengajuan-kredit-perusahaan-ke-bank/
 - Rasio Keuangan yang Dilihat Bank untuk Kredit Korporasi → https://faindonesia.co.id/artikel/rasio-keuangan-yang-dilihat-bank/
 - Revaluasi Aset Tetap PSAK 216 dan Pajaknya: Jurnal dan PPh Final → https://faindonesia.co.id/artikel/revaluasi-aset-tetap-psak-216-dan-pajak/
+- Rumah Sakit Future Proof: Medical Tourism dan Layanan Unggulan yang Menguntungkan → https://faindonesia.co.id/artikel/rumah-sakit-future-proof-medical-tourism-layanan-unggulan/
 - Strategi Rumah Sakit Swasta Bertahan di Tengah iDRG dan KRIS → https://faindonesia.co.id/artikel/strategi-rumah-sakit-swasta-bertahan/
+- Syarat Direktur Rumah Sakit Menurut Permenkes 6/2026 dan Cara Memilihnya → https://faindonesia.co.id/artikel/syarat-direktur-rumah-sakit-permenkes-6-2026/
 - Tata Kelola Keuangan Klinik Menjadi Rumah Sakit: Peta Jalan 7 Tahap → https://faindonesia.co.id/artikel/tata-kelola-keuangan-klinik-menjadi-rumah-sakit/
 - Unit Cost iDRG: Clinical Pathway untuk Membaca Kasus yang Rugi → https://faindonesia.co.id/artikel/unit-cost-clinical-pathway-menghadapi-idrg/
 - Unit Cost vs Tarif INA-CBG: Analisis Margin JKN Rumah Sakit Swasta → https://faindonesia.co.id/artikel/unit-cost-vs-tarif-ina-cbgs-rumah-sakit-swasta/
 - Valuasi Rumah Sakit Swasta: Metode DCF, EV/EBITDA, dan Peran KJPP → https://faindonesia.co.id/artikel/valuasi-rumah-sakit-swasta/
 
 ## Layanan Spesifik
+- Akreditasi Rumah Sakit: Konsultan akreditasi rumah sakit: gap assessment, dokumen regulasi, simulasi telusur, indikator mutu, dan anggaran. → https://faindonesia.co.id/konsultan-akreditasi-rumah-sakit/
+- BPJS Rumah Sakit: Konsultan BPJS untuk rumah sakit swasta: analisis klaim pending dan dispute, unit cost vs tarif INA-CBG/iDRG, piutang BPJS. → https://faindonesia.co.id/konsultan-bpjs-rumah-sakit/
+- Direktur Rumah Sakit: Direktur rumah sakit: syarat menurut Permenkes 6/2026, direktur interim, pendampingan direksi, dan rekrutmen. Tim. → https://faindonesia.co.id/direktur-rumah-sakit/
+- Menjual Rumah Sakit: Jasa menjual rumah sakit: valuasi before dan after dengan FA Venus, pembenahan sebelum dijual, teaser dan information. → https://faindonesia.co.id/menjual-rumah-sakit/
+- dr. Sigit Riyarto, M.Kes, AAK (tim RS FA, mantan Direktur Persada Hospital Malang dan Dirut RS Queen Latifa Yogyakarta) → https://faindonesia.co.id/dr-sigit-riyarto/
 - Akuntan forensik: laporan penghitungan kerugian penipuan/penggelapan untuk penyidik, ditandatangani akuntan publik → https://faindonesia.co.id/akuntan-forensik/
 - Aplikasi unggulan FA Venus: Valuasi Rumah Sakit (harga jual RS before dan after) → https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/
 - Akuntan dan KAP terdekat, seluruh Indonesia daring → https://faindonesia.co.id/akuntan-terdekat/
