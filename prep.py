@@ -326,6 +326,44 @@ CTA = ('<section class="fa-cta" aria-label="Konsultasi"><style>'
        '<a class="l" href="/konsultan-kredit-bank/">Lihat Layanan Kredit Bank</a>'
        '<a class="l" href="https://cariakuntan.com/screening/" target="_blank" rel="noopener">Screening Rasio Gratis</a></div></section>')
 
+# (3 Nov 2026) CTA tambahan untuk pengguna aplikasi/kalkulator gratis: arahkan ke jasa LK & audit
+WA_LK = "https://wa.me/6282245260121?text=" + "Halo%20FA%20Indonesia%2C%20saya%20baru%20memakai%20aplikasi%20di%20website%20dan%20ingin%20dibantu%20menyusun%20laporan%20keuangan%20perusahaan%20kami."
+CTA_TOOL = ('<section class="fa-cta2" aria-label="Bantuan Tim"><style>'
+       '.fa-cta2{width:min(1080px,calc(100% - 32px));box-sizing:border-box;margin:36px auto 24px;padding:24px;border-radius:8px;border:1.5px solid #25D366;background:rgba(37,211,102,.06);color:inherit;font-family:inherit}'
+       '.fa-cta2 h2{margin:0 0 6px;font-size:1.22rem;color:inherit}.fa-cta2 p{margin:0 0 14px;opacity:.85;font-size:.95rem;line-height:1.55}'
+       '.fa-cta2 ul{margin:0 0 16px;padding-left:18px;font-size:.92rem;line-height:1.6;opacity:.9}'
+       '.fa-cta2 .b{display:flex;flex-wrap:wrap;gap:10px}.fa-cta2 a{display:inline-block;padding:11px 18px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.92rem}'
+       '.fa-cta2 a.w{background:#25D366;color:#06301a}.fa-cta2 a.l{border:1px solid rgba(127,127,127,.45);color:inherit}'
+       '@media (max-width:720px){.fa-cta2{padding:20px 16px}}</style>'
+       '<h2>Hasilnya Sudah Keluar. Mau Kami yang Kerjakan Sampai Beres?</h2>'
+       '<p>Aplikasi ini membantu menghitung. Kalau laporan keuangan, pajak, atau audit perusahaan Anda belum rapi, tim kami bisa mengerjakannya: Anda cukup upload bon dan catatan ke Drive.</p>'
+       '<ul><li>Pembukuan dan laporan keuangan siap audit, UMKM sampai PT</li><li>Pendampingan audit KAP dan laporan tahunan PT</li><li>Persiapan kredit bank dan investor</li></ul>'
+       '<div class="b"><a class="w" href="' + WA_LK + '" target="_blank" rel="noopener">Konsultasi Gratis via WhatsApp</a>'
+       '<a class="l" href="https://faindonesia.co.id/jasa-penyusunan-laporan-keuangan/">Jasa Laporan Keuangan</a>'
+       '<a class="l" href="https://faindonesia.co.id/jasa-audit-laporan-keuangan/">Pendampingan Audit</a></div></section>')
+WA_US = "https://wa.me/6282245260121?text=" + "Halo%20tim%20UpdateSAK%2C%20kami%20ingin%20dibantu%20menerapkan%20standar%20ini%20di%20laporan%20keuangan%20perusahaan%20kami."
+CTA_US = CTA_TOOL.replace(WA_LK, WA_US).replace(
+    "<h2>Hasilnya Sudah Keluar. Mau Kami yang Kerjakan Sampai Beres?</h2>",
+    "<h2>Perlu Menerapkan Standar Ini di Perusahaan Anda?</h2>").replace(
+    "<p>Aplikasi ini membantu menghitung. Kalau laporan keuangan, pajak, atau audit perusahaan Anda belum rapi, tim kami bisa mengerjakannya: Anda cukup upload bon dan catatan ke Drive.</p>",
+    "<p>Membaca standar itu satu hal, menerapkannya di laporan keuangan sampai lolos audit itu lain. Tim kami membantu dari jurnal penyesuaian, CALK, sampai pendampingan KAP.</p>")
+
+TOOL_DIRS = ("audit-ready/", "cek-psak-118/", "saturn/", "apps/", "galaxy/", "cek-kapasitas-kredit/", "cek-kelayakan-ipo/", "bankability-index/", "kalkulator-")
+def add_cta_tool(site_root, dirs, block):
+    n = 0
+    for root, _, files in os.walk(site_root):
+        for f in files:
+            if f != "index.html": continue
+            p = os.path.join(root, f); rel = os.path.relpath(p, site_root).replace(os.sep, "/")
+            if not any(rel.startswith(d) for d in dirs): continue
+            t = open(p, encoding="utf-8").read()
+            if "</body>" not in t or 'http-equiv="refresh"' in t: continue
+            o = t; t = re.sub(r'<section class="fa-cta2".*?</section>\n?', "", t, flags=re.S)
+            i = t.rfind("<footer"); i = i if i >= 0 else t.rfind("</body>")
+            t = t[:i] + block + "\n" + t[i:]
+            if t != o: open(p, "w", encoding="utf-8").write(t); n += 1
+    return n
+
 def add_lead(site_root, cta_dirs=()):
     os.makedirs(os.path.join(site_root, "js"), exist_ok=True)
     shutil.copy2(LEAD_JS, os.path.join(site_root, "js", "lead.js"))
@@ -351,6 +389,8 @@ print("lead fa", add_lead(fa, cta_dirs=("artikel/", "buku/", "laporan-tahunan-pt
 print("lead ca", add_lead(os.path.join(OUT, "cariakuntan")))
 print("lead kja", add_lead(k))
 print("lead us", add_lead(u))  # 2 Nov 2026: UpdateSAK ikut form singkat + tag ref + GA4
+print("cta tool fa", add_cta_tool(fa, TOOL_DIRS, CTA_TOOL))
+print("cta us", add_cta_tool(u, ("psak/", "materi/", "standar-audit/", "update-sak-emkm/", "update-psak-2026/"), CTA_US))
 
 # ---------- Title Case judul dan poin (aturan Bos, 25 Okt 2026) ----------
 import sys as _sys; _sys.path.insert(0, M)

@@ -2,8 +2,12 @@
    1) Simpan sumber kunjungan pertama (google, instagram, threads, linkedin, langsung) di sessionStorage.
    2) Klik tombol WhatsApp ke nomor bisnis: tampilkan form singkat (Nama Usaha, Bentuk Usaha, Kota),
       lalu buka WA dengan pesan yang sudah memuat data itu + kode ref. Link share WA (tanpa nomor) tidak diubah.
-   3) Event GA4: lead_form_open saat form muncul, generate_lead saat lanjut ke WA / klik email. */
+   3) Event GA4: lead_form_open saat form muncul, generate_lead saat lanjut ke WA / klik email.
+   4) (3 Nov 2026) Tambahan: nomor WA opsional; data form dikirim ke Google Sheet 'Leads WA' + email ke Bos,
+      supaya calon klien yang batal kirim chat tetap bisa dihubungi. Alur WA tidak berubah. */
 (function(){
+  var GS='https://script.google.com/macros/s/AKfycbzBAfPUXS1F9zcnRBz_Xg7-IhKRrLtyOtoNY9342G2gsXwgThcXwxcwq-VE3ywgK8Dniw/exec';
+  function sheet(o){try{var p=new URLSearchParams(o);p.append('type','wa');if(navigator.sendBeacon&&navigator.sendBeacon(GS,p))return;fetch(GS,{method:'POST',mode:'no-cors',body:p,keepalive:true})}catch(e){}}
   var NUM=/wa\.me\/(6282245260121|6287872558626)|api\.whatsapp\.com\/send\?phone=(6282245260121|6287872558626)/;
   function src(){
     try{var s=sessionStorage.getItem('fa_src');if(s)return s}catch(e){}
@@ -26,8 +30,8 @@
   +'.fal-box h3{margin:0 0 4px;font-size:19px;line-height:1.3;font-family:var(--display,inherit);color:#171717}'
   +'.fal-box p.fal-sub{margin:0 0 16px;font-size:13.5px;line-height:1.45;color:#5c5c5c}'
   +'.fal-box label{display:block;font-size:12.5px;font-weight:600;margin:0 0 6px;color:#2f2f2f;letter-spacing:.2px}'
-  +'.fal-box input[type=text]{display:block;width:100%;box-sizing:border-box;font-size:16px;padding:11px 12px;border:1.5px solid #d4d4d4;border-radius:10px;margin:0 0 14px;color:#171717;background:#fff;font-family:inherit}'
-  +'.fal-box input[type=text]:focus{outline:none;border-color:#25D366}'
+  +'.fal-box input[type=text],.fal-box input[type=tel]{display:block;width:100%;box-sizing:border-box;font-size:16px;padding:11px 12px;border:1.5px solid #d4d4d4;border-radius:10px;margin:0 0 14px;color:#171717;background:#fff;font-family:inherit}'
+  +'.fal-box input[type=text]:focus,.fal-box input[type=tel]:focus{outline:none;border-color:#25D366}'
   +'.fal-seg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:6px;margin:0 0 14px}'
   +'.fal-seg button{font-size:13px;font-weight:500;padding:10px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1.5px solid #d4d4d4;border-radius:10px;background:#fff;color:#2f2f2f;cursor:pointer;font-family:inherit;min-width:0}'
   +'.fal-seg button.on{border-color:#171717;background:#171717;color:#fff}'
@@ -46,10 +50,11 @@
       +'<label>Bentuk Usaha</label><div class="fal-seg">'
       +['Perorangan','CV','PT','Lainnya'].map(function(x){return '<button type="button" data-v="'+x+'"'+(d.b===x?' class="on"':'')+'>'+x+'</button>'}).join('')+'</div>'
       +'<label for="fal-k">Kota</label><input type="text" id="fal-k" autocomplete="address-level2" placeholder="Contoh: Malang" value="'+esc(d.k)+'">'
+      +'<label for="fal-w">Nomor WhatsApp <span style="font-weight:400;color:#7a7a7a">(opsional, supaya kami bisa menyapa duluan)</span></label><input type="tel" id="fal-w" autocomplete="tel" inputmode="tel" placeholder="Contoh: 0812 3456 7890" value="'+esc(d.w)+'">'
       +'<div class="fal-err"></div>'
       +'<button type="button" class="fal-go">Lanjut Ke WhatsApp</button><button type="button" class="fal-x">Batal</button></div>';
     document.body.appendChild(ov);
-    var b=d.b||'',err=ov.querySelector('.fal-err'),n=ov.querySelector('#fal-n'),k=ov.querySelector('#fal-k');
+    var b=d.b||'',err=ov.querySelector('.fal-err'),n=ov.querySelector('#fal-n'),k=ov.querySelector('#fal-k'),w=ov.querySelector('#fal-w');
     ov.querySelectorAll('.fal-seg button').forEach(function(x){x.addEventListener('click',function(){
       ov.querySelectorAll('.fal-seg button').forEach(function(y){y.classList.remove('on')});x.classList.add('on');b=x.getAttribute('data-v')})});
     function close(){ov.remove();document.removeEventListener('keydown',kd)}
@@ -60,14 +65,16 @@
     ov.querySelector('.fal-go').addEventListener('click',function(){
       var nv=n.value.trim(),kv=k.value.trim();
       if(!nv||!b||!kv){err.textContent='Mohon isi Nama Usaha, Bentuk Usaha, dan Kota.';(!nv?n:!kv&&b?k:n).focus();return}
-      save({n:nv,b:b,k:kv});
+      var wv=(w.value||'').replace(/[^\d+]/g,'');if(wv&&wv.replace(/\D/g,'').length<9){err.textContent='Nomor WhatsApp sepertinya belum lengkap.';w.focus();return}
+      save({n:nv,b:b,k:kv,w:wv});
       var U=new URL(h,location.href),t=(U.searchParams.get('text')||'').replace(/\s*\[ref:[^\]]*\]\s*$/,'');
       t=(t||'Halo, saya ingin konsultasi.')+'\n\nNama usaha: '+nv+'\nBentuk usaha: '+b+'\nKota: '+kv+'\n'+tag().trim();
       U.searchParams.delete('text');var base=U.toString(),url=base+(base.indexOf('?')<0?'?':'&')+'text='+encodeURIComponent(t);
       ga('generate_lead',{method:'whatsapp',lead_page:path(),lead_source:S,landing_page:land(),link_text:(a.textContent||'').trim().slice(0,60),bentuk_usaha:b,kota:kv});
+      sheet({n:nv,b:b,k:kv,wa:wv,page:path(),src:S,land:land(),msg:t.slice(0,600),site:location.hostname.replace(/^www\./,'')});
       close();
-      var w=null;if(a.target==='_blank'){try{w=window.open(url,'_blank','noopener')}catch(e){}}
-      if(!w)location.href=url;
+      var win=null;if(a.target==='_blank'){try{win=window.open(url,'_blank','noopener')}catch(e){}}
+      if(!win)setTimeout(function(){location.href=url},150);
     });
     setTimeout(function(){(d.n?k:n).focus()},50);
   }
