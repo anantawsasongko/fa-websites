@@ -132,32 +132,21 @@ function codeView(){
   bd.querySelector(".alt").onclick=function(){bd.innerHTML="";buyView(bd)};bd.querySelector(".lk").onclick=home;
 }
 function buyView(box){
-  /* 5 Nov 2026 (aturan Bos): 3 pertanyaan gratis. Setelah habis, pilihan paket muncul di sini saja; nominal tampil bersama QRIS
-     hanya setelah paket dipilih. Konfirmasi masuk Sheet lead (goal "Beli Paket AI"), kode diterbitkan dari /ai-admin/ dan dikirim via WA. */
-  var PK=[{n:50,amt:25000,l:"50 pertanyaan"},{n:300,amt:99000,l:"300 pertanyaan"}];
+  /* 6 Nov 2026: paket dibayar online lewat Midtrans di /bayar/?produk=ai-50|ai-300. Kode tampil di /bayar/selesai/ setelah lunas. */
+  var PK=[{id:"ai-50",n:50,amt:25000,l:"50 pertanyaan"},{id:"ai-300",n:300,amt:99000,l:"300 pertanyaan"}];
   var w=document.createElement("div");
   function pick(){w.innerHTML='<p class="hint" style="margin-top:6px">Kuota gratis di perangkat ini sudah terpakai. Lanjutkan dengan paket pertanyaan, kodenya berlaku di semua aplikasi FA.</p>'+
-    PK.map(function(k,i){return '<button class="chip" type="button" data-i="'+i+'">Paket '+k.l+'</button>'}).join("")+
+    PK.map(function(k,i){return '<button class="chip" type="button" data-i="'+i+'">Paket '+k.l+' · '+rp(k.amt)+'</button>'}).join("")+
     '<a class="alt" target="_blank" rel="noopener" href="'+waLink()+'">Diskusi via WhatsApp saja</a><button class="lk" type="button">Sudah punya kode</button>';
-    w.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){qris(PK[+c.getAttribute("data-i")])}});w.querySelector(".lk").onclick=codeView}
-  function qris(k){ga("ai_pack_pick",{app:app,pack:k.n});
-    w.innerHTML='<p class="hint" style="margin-top:6px">Paket '+k.l+' · <b style="color:#fff">'+rp(k.amt)+'</b> termasuk PPN. Scan QRIS, isi nominal, lalu tekan Sudah, lanjutkan.</p>'+
-     '<div style="background:#fff;border-radius:8px;padding:8px;margin:8px 0"><img alt="QRIS CV FA Indonesia" src="'+QR+'" style="width:100%;max-width:220px;display:block;margin:0 auto"></div>'+
-     '<button class="go w" type="button">Sudah, lanjutkan</button><button class="lk" type="button">Kembali</button>';
-    w.querySelector(".go").onclick=function(){confirm_(k)};w.querySelector(".lk").onclick=pick}
-  function confirm_(k){w.innerHTML='<p class="hint" style="margin-top:6px">Konfirmasi paket '+k.l+' ('+rp(k.amt)+'). Kode dikirim ke WhatsApp Anda pada jam kerja setelah mutasi QRIS cocok.</p>'+
-     '<label for="faai-nm">Nama</label><input id="faai-nm" placeholder="Nama lengkap"><label for="faai-wa">Nomor WhatsApp</label><input id="faai-wa" inputmode="tel" placeholder="08xxxxxxxxxx">'+
-     '<label for="faai-rf">Nomor referensi transaksi QRIS</label><input id="faai-rf" placeholder="Lihat di bukti transaksi m-banking"><div class="er"></div>'+
-     '<button class="go w" type="button">Kirim konfirmasi</button><button class="lk" type="button">Kembali</button>';
-    var er=w.querySelector(".er");w.querySelector(".lk").onclick=function(){qris(k)};
-    w.querySelector(".go").onclick=function(){var nm=w.querySelector("#faai-nm").value.trim(),wa=w.querySelector("#faai-wa").value.replace(/[^\d+]/g,""),rf=w.querySelector("#faai-rf").value.trim();
-      if(nm.length<2){er.textContent="Isi nama Anda.";return}if(!/^(\+?62|0)8\d{7,12}$/.test(wa)){er.textContent="Isi nomor WhatsApp yang aktif.";return}if(!rf){er.textContent="Isi nomor referensi transaksi.";return}
-      beacon({pt:"Paket AI "+k.n,email:"",goal:"Beli Paket AI "+k.n+" ("+rp(k.amt)+")",unit:"",nama:nm,wa:"'"+wa,lang:"id",page:location.host+location.pathname+" (asisten ai)",summary:"Konfirmasi QRIS "+rp(k.amt)+", referensi: "+rf+", perangkat: "+dev()});
-      ga("ai_pack_paid",{app:app,pack:k.n,value:k.amt,currency:"IDR"});
-      w.innerHTML='<p class="hint" style="margin-top:6px">Terima kasih. Konfirmasi diterima; kode paket dikirim ke WhatsApp '+esc(wa)+' pada jam kerja. Setelah diterima, tekan Sudah punya kode.</p><button class="go w" type="button">Sudah punya kode</button>';
-      w.querySelector(".go").onclick=codeView}}
+    w.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){bayar(PK[+c.getAttribute("data-i")])}});w.querySelector(".lk").onclick=codeView}
+  function bayar(k){ga("ai_pack_pick",{app:app,pack:k.n});
+    w.innerHTML='<p class="hint" style="margin-top:6px">Paket '+k.l+' · <b style="color:#fff">'+rp(k.amt)+'</b> termasuk PPN. Bayar online lewat Midtrans, lalu kode paket tampil di halaman status pembayaran.</p>'+
+     '<a class="go w" target="_blank" rel="noopener" href="/bayar/?produk='+k.id+'" style="display:block;text-align:center;text-decoration:none">Bayar Online</a>'+
+     '<button class="lk" type="button">Kembali</button><button class="cd" type="button">Sudah punya kode</button>';
+    w.querySelector(".lk").onclick=pick;w.querySelector(".cd").onclick=codeView}
   box.appendChild(w);pick();
 }
+
 function rp(n){return "Rp"+new Intl.NumberFormat("id-ID").format(n)}
 function init(){
   fetch(API+"/api/ai/status").then(function(r){return r.ok?r.json():{}}).then(function(j){if(j&&j.enabled)build()}).catch(function(){});

@@ -646,10 +646,10 @@ if os.path.exists(_tk):
     _t = _t.replace("</head>", '<meta name="robots" content="noindex"/></head>', 1).replace("Pembelian online segera dibuka.</p>", "Pilih produk, bayar online, lalu terima di hari yang sama.</p>")
     os.makedirs(os.path.join(OUT, "faindonesia", "toko", "uji"), exist_ok=True)
     open(os.path.join(OUT, "faindonesia", "toko", "uji", "index.html"), "w", encoding="utf-8").write(_t)
-# ---------- tunda pembelian sampai Midtrans aktif (1 Nov 2026) ----------
+# ---------- Mayar (e-book, FA Jupiter) + Midtrans aktif (6 Nov 2026) ----------
 import importlib.util as _ilu2
-_pps = _ilu2.spec_from_file_location("pay_postpone", os.path.join(M, "shared", "pay_postpone.py")); _pp = _ilu2.module_from_spec(_pps); _pps.loader.exec_module(_pp)
-print("pay postpone:", _pp.run(OUT))
+_pps = _ilu2.spec_from_file_location("pay_mayar", os.path.join(M, "shared", "pay_mayar.py")); _pp = _ilu2.module_from_spec(_pps); _pps.loader.exec_module(_pp)
+print("pay mayar:", _pp.run(OUT))
 
 # ---------- Cek Izin registri PPPK Kemenkeu di halaman kota CA + wilayah FA + /cek-izin/ (5 Nov 2026) ----------
 _sys.path.insert(0, os.path.join(M, "shared", "pppk")); import izin as _izin
