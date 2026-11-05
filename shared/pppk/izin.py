@@ -196,7 +196,7 @@ def ensure_assets(site_root, reg):
 def inject(path, blk, where):
     s = open(path, encoding="utf-8").read()
     s = re.sub(r"<!--pk-->.*?<!--/pk-->", "", s, flags=re.S)
-    s = s.replace(CSS, "").replace('<script src="/js/izin.js" defer></script>', "")
+    s = re.sub(r'<style id="pk-css">.*?</style>', "", s, flags=re.S).replace('<script src="/js/izin.js" defer></script>', "")
     k = -1
     if where == "ca-scr":
         k = s.find("<!--ca-scr-->")
