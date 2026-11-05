@@ -33,6 +33,15 @@ def desa_txt(d):
     return d
 
 
+# nama kecamatan yang di data Kemendagri berbeda dari nama yang dipakai orang saat mencari
+KEC_ALIAS = {("Malang", "Sumbermanjing"): "Sumbermanjing Wetan (Sumawe)", ("Malang", "Kalipare"): "Kalipare", ("Malang", "Ngajum"): "Ngajum"}
+
+
+def kec_txt(city, k):
+    a = KEC_ALIAS.get((city, k))
+    return f"{a}, nama resmi {k}" if a and a != k else k
+
+
 def block(city, rows, site):
     alias = ALIAS.get(city)
     nm = f"{city} ({alias})" if alias and alias != city else city
@@ -47,7 +56,7 @@ def block(city, rows, site):
            'Pertemuan bisa di lokasi Anda atau daring.</p>']
     for kb in kabs:
         sub = [r for r in rows if r["kab"] == kb]
-        lines = "".join(f'<p><b>Kecamatan {E(r["kec"])}:</b> {E(", ".join(desa_txt(x) for x in r["desa"]))}.</p>' for r in sub if r["desa"])
+        lines = "".join(f'<p><b>Kecamatan {E(kec_txt(city, r["kec"]))}:</b> {E(", ".join(desa_txt(x) for x in r["desa"]))}.</p>' for r in sub if r["desa"])
         lab = f"{kb} ({len(sub)} kecamatan)" if len(kabs) > 1 else f"Semua kecamatan dan desa di {E(nm)}"
         out.append(f'<details{" open" if len(kabs) == 1 else ""}><summary>{E(lab)}</summary>{lines}</details>')
     out.append("</section><!--/area-layanan-->")
