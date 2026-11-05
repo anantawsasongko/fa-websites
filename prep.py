@@ -123,18 +123,16 @@ def add_pay(site_root, pages):
         open(pth, "w", encoding="utf-8").write(t); n += 1
     return n
 # 5 Nov 2026 (aturan Bos): paywall v4 hanya di aplikasi yang punya laporan lengkap untuk diunduh; tidak ada harga di muka.
-# Jupiter: pilihan akses Mayar (kode akses). Valuasi RS dan DCF: QRIS Rp49.000 saat unduh laporan. Sisanya gratis + QRIS donasi.
+# Jupiter: pilihan akses Mayar (kode akses). Valuasi RS dan DCF: laporan lengkap diminta lewat WhatsApp (lead.js), tanpa QRIS di browser. Sisanya gratis + QRIS donasi.
 _JUP_PAY = {"type": "mayar", "items": [{"label": "Akses 1 Hari", "url": "https://fa-indonesia-14404.myr.id/pl/fa-jupiter-audit-ready-day-pass-1-hari"},
                                        {"label": "Akses 1 Tahun", "url": "https://fa-indonesia-14404.myr.id/pl/fa-jupiter-audit-ready-tahunan-1-tahun"}]}
 print("paywall fa", add_pay(fa, [
-    ("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Laporan Keuangan", "what": "Excel, Word CALK, dan file proyek", "full": "[data-fa-none]", "skipKey": "fa-auditready-v1-lic", "codeSel": "#lic-code", "pay": _JUP_PAY}),
-    ("kalkulator-valuasi-rumah-sakit/index.html", {"app": "venus-rsval", "name": "FA Venus · Valuasi Rumah Sakit", "what": "laporan lengkap dan strategi (PDF)", "full": "[data-fa-full]", "pay": {"type": "qris", "amount": 49000}}),
-    ("kalkulator-valuasi-dcf/index.html", {"app": "venus-dcf", "name": "FA Venus · Valuasi DCF & WACC", "what": "laporan valuasi lengkap (PDF)", "full": "[data-fa-full]", "pay": {"type": "qris", "amount": 49000}})]))
+    ("audit-ready/index.html", {"app": "audit-ready", "name": "FA Jupiter · Laporan Keuangan", "what": "Excel, Word CALK, dan file proyek", "full": "[data-fa-none]", "skipKey": "fa-auditready-v1-lic", "codeSel": "#lic-code", "pay": _JUP_PAY})]))
 # QRIS donasi di semua aplikasi gratis: pill tampil sejak awal, popup sekali per sesi saat salin/unduh/cetak hasil
 _DON_FREE = "{pill:true,guards:[{sel:'#cp,#cpY,#btnXlsx,#fp_pr,[data-action=\"c-export\"],[data-action=\"c-glcsv\"]',key:'apps-gratis'}]}"
 add_donasi(fa, ["saturn/index.html", "cek-psak-118/index.html", "cek-kapasitas-kredit/index.html", "kalkulator-dscr/index.html", "simulasi-plafon-kredit-usaha/index.html", "cek-kelayakan-ipo/index.html",
     "bankability-index/index.html", "cek-kesiapan-pendanaan/index.html", "kalkulator-pph-21/index.html", "kalkulator-pph-badan/index.html", "kalkulator-potput-ppn/index.html",
-    "kalkulator-penyusutan-fiskal/index.html", "kalkulator-cicilan-pinjaman/index.html", "kalkulator-rasio-keuangan/index.html", "galaxy/index.html"], _DON_FREE)
+    "kalkulator-penyusutan-fiskal/index.html", "kalkulator-cicilan-pinjaman/index.html", "kalkulator-rasio-keuangan/index.html", "kalkulator-valuasi-rumah-sakit/index.html", "kalkulator-valuasi-dcf/index.html", "galaxy/index.html"], _DON_FREE)
 # ---------- Asisten AI (2 Nov 2026): tombol hanya tampil bila /api/ai/status enabled (API key + KV FA_AI di Cloudflare) ----------
 AI_JS = open(os.path.join(M, "shared", "fa-ai.src.js"), encoding="utf-8").read().replace("__GS__", PAY_GS).replace("__QR__", open(os.path.join(M, "shared", "fa-paywall-qr.txt")).read().strip())
 def add_ai(site_root):
