@@ -39,11 +39,11 @@ def block(city=None):
 CITY = {}
 def pages():
     out = []
-    for x in ["konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "rumah-sakit-dijual", "jasa-valuasi-usaha",
+    for x in ["konsultan-klinik", "konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "rumah-sakit-dijual", "jasa-valuasi-usaha",
               "mitra-investor", "kalkulator-valuasi-rumah-sakit", "kalkulator-valuasi-dcf",
               "konsultan-akreditasi-rumah-sakit", "konsultan-bpjs-rumah-sakit", "direktur-rumah-sakit", "menjual-rumah-sakit"]:
         out.append(os.path.join(B, x, "index.html"))
-    for base in ["konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "konsultan-akreditasi-rumah-sakit", "konsultan-bpjs-rumah-sakit", "direktur-rumah-sakit", "menjual-rumah-sakit"]:
+    for base in ["konsultan-rumah-sakit", "konsultan-unit-cost-rumah-sakit", "konsultan-klinik", "konsultan-akreditasi-rumah-sakit", "konsultan-bpjs-rumah-sakit", "direktur-rumah-sakit", "menjual-rumah-sakit"]:
         out += glob.glob(os.path.join(B, base, "*", "index.html"))
     art = os.path.join(B, "artikel")
     KW = re.compile(r"rumah-sakit|klinik|rsia|idrg|akuisisi|menjual-perusahaan|due-diligence|valuasi|merger|seller|divest")

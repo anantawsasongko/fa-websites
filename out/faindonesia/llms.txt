@@ -275,3 +275,4 @@
 - Penyusun Laporan Keuangan (UpdateSAK): Neraca, laba rugi, arus kas dari saldo → https://updatesak.com/#laporan-keuangan
 - Penyusun CALK (UpdateSAK): Catatan atas laporan keuangan → https://updatesak.com/#calk
 - Screening Instan (CariAkuntan): Rasio bank dan jalur IPO sebelum pilih KAP → https://cariakuntan.com/screening/
+- Konsultan Klinik (pratama, utama, kecantikan: kelayakan, BPJS, unit cost, pendanaan; per kabupaten/kota) → https://faindonesia.co.id/konsultan-klinik/

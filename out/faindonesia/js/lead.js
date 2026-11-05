@@ -84,10 +84,9 @@
     var h=a.getAttribute('href')||'',wa=/wa\.me\/|api\.whatsapp\.com/.test(h),ml=/^mailto:/i.test(h);
     if(!wa&&!ml)return;
     if(ml){ga('generate_lead',{method:'email',lead_page:path(),lead_source:S,landing_page:land(),link_text:(a.textContent||'').trim().slice(0,60)});return}
-    if(NUM.test(h)&&!a.hasAttribute('data-noform')){
-      ev.preventDefault();ev.stopPropagation();
-      ga('lead_form_open',{lead_page:path(),lead_source:S});
-      form(a,h);return}
+    /* 5 Nov 2026 (Bos): form sebelum WA dihapus, klik tombol WA langsung membuka WhatsApp. Kode ref tetap ditambahkan di bawah. */
+    if(NUM.test(h)){ga('generate_lead',{method:'whatsapp',lead_page:path(),lead_source:S,landing_page:land(),link_text:(a.textContent||'').trim().slice(0,60)});
+      sheet({page:path(),src:S,land:land(),site:location.hostname.replace(/^www\./,''),msg:'klik WA langsung'})}
     if(!a.dataset.refd){
       try{var U=new URL(h,location.href),t=U.searchParams.get('text')||'';
         if(/wa\.me\/\d|phone=\d/.test(h)&&t.indexOf('[ref:')<0){U.searchParams.delete('text');var b=U.toString();a.setAttribute('href',b+(b.indexOf('?')<0?'?':'&')+'text='+encodeURIComponent(t+tag()))}

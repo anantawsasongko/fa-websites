@@ -120,7 +120,7 @@ def boost_html(c, short=None):
 def fa_box(c, area=None):
     w = f"https://faindonesia.co.id/wilayah/{slug(c)}/" + (f"{slug(area)}/" if area else "")
     return (f'<div class="more"><h3>Butuh Pendampingan sampai Dana Cair?</h3><p style="color:var(--muted);margin:0 0 10px">Untuk pendampingan laporan keuangan, kredit bank, investor, IPO, konsultan rumah sakit, dan unit cost di {area or c}, lihat juga FA Indonesia.</p>'
-            f'<div class="citylist"><a href="{w}">Konsultan Keuangan {area or c}</a><a href="https://faindonesia.co.id/konsultan-rumah-sakit/{slug(c)}/">Konsultan Rumah Sakit {c}</a><a href="https://faindonesia.co.id/konsultan-unit-cost-rumah-sakit/{slug(c)}/">Konsultan Unit Cost {c}</a><a href="https://faindonesia.co.id/konsultan-kredit-bank/">Konsultan Kredit Bank</a></div></div>')
+            f'<div class="citylist"><a href="{w}">Konsultan Keuangan {area or c}</a><a href="https://faindonesia.co.id/konsultan-rumah-sakit/{slug(c)}/">Konsultan Rumah Sakit {c}</a><a href="https://faindonesia.co.id/konsultan-unit-cost-rumah-sakit/{slug(c)}/">Konsultan Unit Cost {c}</a><a href="https://faindonesia.co.id/konsultan-klinik/{slug(c)}/">Konsultan Klinik {c}</a><a href="https://faindonesia.co.id/konsultan-kredit-bank/">Konsultan Kredit Bank</a></div></div>')
 
 # ---------------- halaman kota ----------------
 for name, prov, reg, secs, note in CITIES:
