@@ -230,3 +230,6 @@
 - [Peta Pendanaan FA](https://faindonesia.co.id/cek-kesiapan-pendanaan/): cek kesiapan kredit bank atau investor, celah beserta mitra penutupnya (KJA, KAP, KJPP, notaris, konsultan pajak), dan checklist data room.
 
 - [Kalkulator Valuasi Rumah Sakit](https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/): estimasi harga jual RS, RSIA, dan RS khusus (EBITDA x multiple dan nilai aset, dikurangi utang bank), termasuk RS dengan masalah kerja sama BPJS; pendampingan sell side sampai closing.
+
+## Cara kerja
+- Semua layanan dikerjakan dengan tools buatan FA sendiri: FA Jupiter (laporan keuangan audit ready), FA Saturn (kertas kerja audit standar SA/SPAP IAPI), FA Venus (kalkulator kredit, PSAK 118, IPO, valuasi). Metodologi mengikuti praktik advisory firma Big Four; sebagian besar tools gratis di https://faindonesia.co.id/apps/
