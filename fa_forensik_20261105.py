@@ -90,6 +90,58 @@ lp = P("layanan", "index.html"); t = re.sub(r"<!--fa-forensik-lay-->.*?<!--/fa-f
 a = '<a class="btn line" href="/jasa-laporan-keuangan-bulanan/">Laporan Keuangan Bulanan</a>'
 if a in t: wtxt(lp, t.replace(a, a + f'<!--fa-forensik-lay--><a class="btn line" href="{PIL}">Akuntan Forensik</a><!--/fa-forensik-lay-->', 1))
 
+
+# ---------- daerah: kecamatan FA + kabupaten/kota yang belum punya halaman ----------
+import sys
+sys.path.insert(0, os.path.join(HERE, "shared", "wilayah")); import kec as _kec
+nkec = 0
+for p in glob.glob(P("wilayah", "*", "kecamatan", "*", "index.html")):
+    cs = p.split(os.sep)[-4]; city = dict(CITIES).get(cs)
+    if not city: continue
+    t = re.sub(r"<!--fa-forensik-k-->.*?<!--/fa-forensik-k-->", "", rd(p), flags=re.S)
+    m = re.search(r"<title>Akuntan dan KAP ([^,<]+),", t); kn = m.group(1).strip() if m else city
+    add = (f'<!--fa-forensik-k--><p class="t">Jadi korban penipuan atau penggelapan di {E(kn)}? Laporan penghitungan kerugian untuk penyidik, ditandatangani akuntan publik: '
+           f'<a href="{PIL}{cs}/">Akuntan Forensik {E(city)}</a>.</p><!--/fa-forensik-k-->')
+    k = t.find("<!--fa-wajah-->")
+    if k < 0: k = t.rfind("</main>")
+    if k < 0: continue
+    wtxt(p, t[:k] + add + t[k:]); nkec += 1
+import csv as _csv
+_W = os.path.join(HERE, "shared", "wilayah")
+PROV = {r[0]: _kec.tc(r[1]).replace("Dki ", "DKI ").replace("Di ", "DI ") for r in _csv.reader(open(os.path.join(_W, "provinces.csv"), encoding="utf-8"))}
+REG = [(r[0], r[1], _kec.kab_name(r[2])) for r in _csv.reader(open(os.path.join(_W, "regencies.csv"), encoding="utf-8"))]
+BYC = _kec.by_city([(n,) for s, n in CITIES])
+covered = {}
+for s, n in CITIES:
+    for row in BYC.get(n, []): covered.setdefault(row["kab"], s)
+city_prov = {}
+for kode, pk, kn in REG:
+    if kn in covered: city_prov.setdefault(pk, []).append((covered[kn], dict(CITIES)[covered[kn]]))
+KAB = []
+for kode, pk, kn in REG:
+    if kn in covered: continue
+    ks = _kec.slug(kn); prov = PROV.get(pk, ""); KAB.append((ks, kn, prov))
+    near = sorted(set(city_prov.get(pk, [])))[:6]
+    nl = " · ".join(f'<a href="{PIL}{s}/">{E(c)}</a>' for s, c in near)
+    b = (f"<p>Kasus penipuan atau penggelapan di {E(kn)}, {E(prov)}, sering macet karena angka kerugiannya belum jelas: transfer bercampur, sebagian uang sudah kembali, dan bukti tersebar di chat. "
+         f"Kami menyusun laporan penghitungan kerugian yang bisa diserahkan ke penyidik di {E(kn)}. Semua dikerjakan daring, Anda tidak perlu datang ke kantor.</p>"
+         "<h2>Kasus yang Kami Hitung</h2>" + KAPAN + "<h2>Cara Kerja</h2>" + ALUR + BIAYA + BATAS +
+         (f"<p>Kota terdekat di {E(prov)}: {nl}</p>" if nl else "") + f"<p>Selengkapnya: <a href=\"{PIL}\">Akuntan Forensik FA Indonesia</a></p>")
+    path = f"{PIL}{ks}/"
+    svc_page(path, f"Akuntan Forensik · {kn}", f"Akuntan Forensik {kn}: Hitung Kerugian Penipuan dan Penggelapan",
+      f"Laporan penghitungan kerugian untuk penyidik di {kn}, ditandatangani akuntan publik bersertifikat CFI (IAPI). Dokumen dikirim daring.",
+      b, FAQ[:3], f"Akuntan Forensik {kn}: Hitung Kerugian Penipuan, Penggelapan | FA Indonesia",
+      f"Akuntan forensik untuk {kn}, {prov}: laporan penghitungan kerugian penipuan dan penggelapan untuk penyidik, ditandatangani akuntan publik. Mulai Rp15 juta.",
+      f"Akuntan Forensik {kn}", "Forensic accounting", PIL, "Semua Daerah",
+      f"Halo FA Indonesia, saya dari {kn}, butuh laporan penghitungan kerugian untuk penyidik.", f"Akuntan Forensik {kn}")
+    URLS.append(path)
+pp = P("akuntan-forensik", "index.html"); t = re.sub(r"<!--fa-forensik-kab-->.*?<!--/fa-forensik-kab-->", "", rd(pp), flags=re.S)
+grp = {}
+for ks, kn, prov in KAB: grp.setdefault(prov, []).append(f'<a href="{PIL}{ks}/">{E(kn)}</a>')
+blk = "<!--fa-forensik-kab--><h2>Kabupaten dan Kota Lain</h2>" + "".join(f'<details class="fold"><summary>{E(pv)} ({len(v)})</summary><p class="t">{" · ".join(v)}</p></details>' for pv, v in sorted(grp.items())) + "<!--/fa-forensik-kab-->"
+k = t.find("<h2>Siapa yang Mengerjakan</h2>"); wtxt(pp, t[:k] + blk + t[k:])
+print("daerah: kecamatan", nkec, "kabupaten/kota baru", len(KAB))
+
 sm = re.sub(r"<!--fa-forensik-->.*?<!--/fa-forensik-->\n?", "", rd(P("sitemap.xml")), flags=re.S)
 sm = sm.replace("</urlset>", "<!--fa-forensik-->\n" + "".join(f"<url><loc>{D}{u}</loc><lastmod>{TODAY}</lastmod><priority>{'0.9' if u == PIL else '0.6'}</priority></url>\n" for u in URLS) + "<!--/fa-forensik-->\n</urlset>")
 wtxt(P("sitemap.xml"), sm)

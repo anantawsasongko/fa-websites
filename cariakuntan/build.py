@@ -534,6 +534,7 @@ exec(open(os.path.join(ROOT, "seo_kawasan.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_murah.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_kecamatan.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_pembukuan.py"), encoding="utf-8").read())
+exec(open(os.path.join(ROOT, "seo_forensik.py"), encoding="utf-8").read())
 exec(open(os.path.join(ROOT, "seo_kdmp.py"), encoding="utf-8").read())
 
 blocks = ""
