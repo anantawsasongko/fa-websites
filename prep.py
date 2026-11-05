@@ -362,6 +362,8 @@ def add_cta_tool(site_root, dirs, block):
             if t != o: open(p, "w", encoding="utf-8").write(t); n += 1
     return n
 
+import hashlib as _hl
+LEAD_V = _hl.md5(open(LEAD_JS, "rb").read()).hexdigest()[:8]
 def add_lead(site_root, cta_dirs=()):
     os.makedirs(os.path.join(site_root, "js"), exist_ok=True)
     shutil.copy2(LEAD_JS, os.path.join(site_root, "js", "lead.js"))
@@ -376,6 +378,7 @@ def add_lead(site_root, cta_dirs=()):
                 t = t.replace("</head>", GA_TAG + "</head>", 1)
             if "/js/lead.js" not in t:
                 t = t.replace("</body>", '<script src="/js/lead.js" defer></script></body>', 1)
+            t = re.sub(r'/js/lead\.js(\?v=[0-9a-f]+)?"', f'/js/lead.js?v={LEAD_V}"', t)  # cache busting (5 Nov 2026)
             rel = os.path.relpath(p, site_root).replace(os.sep, "/")
             t = re.sub(r'<section class="fa-cta".*?</section>\n?', "", t, flags=re.S)
             if cta_dirs and any(rel.startswith(d) for d in cta_dirs) and "konsultan-kredit-bank" not in rel:
