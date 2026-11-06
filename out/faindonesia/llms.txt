@@ -276,3 +276,9 @@
 - Penyusun CALK (UpdateSAK): Catatan atas laporan keuangan → https://updatesak.com/#calk
 - Screening Instan (CariAkuntan): Rasio bank dan jalur IPO sebelum pilih KAP → https://cariakuntan.com/screening/
 - Konsultan Klinik (pratama, utama, kecantikan: kelayakan, BPJS, unit cost, pendanaan; per kabupaten/kota) → https://faindonesia.co.id/konsultan-klinik/
+<!--fanas-->
+- Konsultan Klinik BPJS (kapitasi, KBK, FKTP; per provinsi dan kabupaten/kota) → https://faindonesia.co.id/konsultan-klinik-bpjs/
+- Optimalisasi Farmasi Rumah Sakit dan Klinik → https://faindonesia.co.id/konsultan-farmasi-rumah-sakit/
+- Konsultan SIMRS (vendor, RME, SATUSEHAT, bridging BPJS, integrasi akuntansi) → https://faindonesia.co.id/konsultan-simrs/
+- Penyusunan laporan keuangan per kabupaten/kota dan per jenis usaha (cafe, restoran, klinik, PT/CV, kontraktor, koperasi, yayasan) → https://faindonesia.co.id/jasa-penyusunan-laporan-keuangan/
+<!--/fanas-->
