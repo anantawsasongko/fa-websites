@@ -242,3 +242,7 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Karena PERINGATAN BUILD, out/ TIDAK dibangun ulang penuh. Halaman dibuat dari template halaman live sibling (unit-cost-vs-tarif-ina-cbgs) + tidy_polish.polish_content, OG poster lewat shared/share_all._poster. Disisipkan manual di out/: sitemap.xml, llms.txt, kartu Eksplor (artikel/index.html), daftar artikel /konsultan-rumah-sakit/ dan /konsultan-unit-cost-rumah-sakit/, Baca Juga di 3 artikel RS. Tombol WA di halaman baru: "Chat Tim FA Indonesia".
 - Insight artikel dari diskusi praktisi manajemen RS, ditulis ulang sebagai analisis Tim FA (tanpa nama/kutipan anggota forum).
 - layout_check OK (sampel + halaman baru, 1280 dan 375).
+
+## 3 Artikel RS Lanjutan (6 Nov 2026 sore)
+- Artikel baru: /artikel/titik-impas-rumah-sakit-per-dpjp/, /artikel/piutang-klaim-bpjs-dan-arus-kas-rumah-sakit/, /artikel/strategi-layanan-pasien-umum-dan-asuransi-rumah-sakit/. JSON di fa_content/articles/.
+- Cara sama dengan artikel manajemen biaya RS: template sibling live + tidy_polish, OG poster, sisip manual di sitemap, llms, Eksplor, /konsultan-rumah-sakit/, /konsultan-unit-cost-rumah-sakit/, Baca Juga di artikel manajemen biaya RS dan strategi RS swasta bertahan. layout_check OK.

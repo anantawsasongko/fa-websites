@@ -1,0 +1,42 @@
+{
+ "slug": "piutang-klaim-bpjs-dan-arus-kas-rumah-sakit",
+ "title": "Piutang Klaim BPJS dan Arus Kas Rumah Sakit: Bertahan Saat Pembayaran Tertunda",
+ "description": "Cara rumah sakit mengelola piutang klaim BPJS: aging klaim, pending dan dispute, pencatatan pendapatan yang realistis, dan proyeksi kas 13 minggu.",
+ "keyword": "piutang klaim BPJS rumah sakit",
+ "category": "Rumah Sakit",
+ "minutes": 7,
+ "cta": {
+  "href": "/konsultan-rumah-sakit/",
+  "label": "Konsultan Rumah Sakit"
+ },
+ "wa": "Halo FA Indonesia, saya ingin konsultasi pengelolaan piutang klaim dan arus kas rumah sakit kami.",
+ "sources": [
+  [
+   "detikHealth: BPJS Kesehatan Terancam Gagal Bayar Tahun Depan, Tekor Rp 2 Triliun Tiap Bulan (10 Juni 2026)",
+   "https://health.detik.com/berita-detikhealth/d-8525801/bpjs-kesehatan-terancam-gagal-bayar-tahun-depan-tekor-rp-2-triliun-tiap-bulan"
+  ],
+  [
+   "Bisnis.com: Dirut BPJS Kesehatan Ungkap 7 Penyebab Cashflow Gap Rp2 Triliun per Bulan (16 September 2026)",
+   "https://finansial.bisnis.com/read/20260916/215/2004945/dirut-bpjs-kesehatan-ungkap-7-penyebab-cashflow-gap-rp2-triliun-per-bulan"
+  ]
+ ],
+ "body_html": "<p>Untuk rumah sakit yang sebagian besar pasiennya peserta JKN, kas sangat bergantung pada kecepatan dan kepastian pembayaran klaim. Sepanjang 2026, BPJS Kesehatan beberapa kali menyampaikan selisih antara klaim dan iuran sekitar Rp2 triliun per bulan. Di lapangan, rumah sakit merasakannya sebagai klaim pending yang lebih lama, verifikasi yang lebih ketat, dan potensi pengembalian dana setelah audit.</p>\n<p>Rumah sakit tidak bisa mengendalikan kebijakan pembayar. Yang bisa dikendalikan adalah seberapa cepat klaim diajukan, seberapa bersih dokumennya, dan seberapa siap kas menghadapi keterlambatan.</p>\n\n<h2>Laba di Laporan, Kas di Rekening Kosong</h2>\n<p>Banyak rumah sakit terlihat laba tetapi kesulitan membayar supplier dan jasa medis. Salah satu penyebab yang sering luput: billing system mencatat pendapatan memakai tarif rumah sakit, sedangkan BPJS Kesehatan membayar tarif paket. Bila selisihnya tidak dikoreksi, pendapatan dan piutang di laporan lebih besar dari uang yang akan diterima.</p>\n<p>Praktik yang lebih aman:</p>\n<ul>\n<li>Pendapatan JKN dicatat sebesar tarif paket hasil grouping, bukan tarif rumah sakit.</li>\n<li>Bagian akuntansi melakukan verifikasi harian atas data billing sebelum diposting.</li>\n<li>Klaim pending dan dispute dicadangkan secara wajar sesuai pengalaman penyelesaian sebelumnya.</li>\n<li>Potensi pengembalian dana hasil audit pascaklaim dicatat sebagai risiko yang dipantau.</li>\n</ul>\n\n<h2>Aging Piutang Klaim yang Benar-Benar Dipakai</h2>\n<p>Aging piutang klaim sebaiknya disusun per bulan pelayanan dan per status, bukan hanya total saldo. Contoh kolom yang berguna:</p>\n<div class=\"tblwrap\"><table class=\"tbl\">\n<thead><tr><th>Status</th><th>Arti</th><th>Tindakan</th></tr></thead>\n<tbody>\n<tr><td>Belum diajukan</td><td>Pasien sudah pulang, berkas belum lengkap</td><td>Target pengajuan sesuai batas waktu, cek kelengkapan resume medis</td></tr>\n<tr><td>Diajukan, dalam verifikasi</td><td>Menunggu hasil verifikasi</td><td>Pantau umur, siapkan dokumen pendukung</td></tr>\n<tr><td>Pending</td><td>Diminta konfirmasi atau dokumen tambahan</td><td>Tim casemix dan DPJP menjawab cepat, catat penyebab</td></tr>\n<tr><td>Dispute</td><td>Beda pendapat koding atau kelayakan</td><td>Eskalasi sesuai mekanisme, siapkan dasar klinis</td></tr>\n<tr><td>Disetujui, belum dibayar</td><td>Menunggu transfer</td><td>Masuk proyeksi kas sesuai pola pembayaran</td></tr>\n</tbody></table></div>\n<p>Penyebab pending dan dispute perlu direkap setiap bulan. Pola yang berulang, misalnya koding diagnosis sekunder atau resume medis yang tidak lengkap, adalah sumber perbaikan yang paling cepat terasa.</p>\n\n<h2>Proyeksi Kas 13 Minggu</h2>\n<p>Laporan arus kas bulanan terlambat untuk mengambil keputusan. Proyeksi kas mingguan untuk 13 minggu ke depan membuat direksi melihat kapan kas menipis dan menyiapkan langkah lebih awal.</p>\n<ol>\n<li>Pisahkan penerimaan per sumber: JKN, pasien umum, asuransi swasta, perusahaan.</li>\n<li>Gunakan pola pembayaran historis, bukan asumsi semua klaim cair tepat waktu.</li>\n<li>Susun pengeluaran per minggu: gaji, jasa medis, supplier obat dan BMHP, utilitas, cicilan bank.</li>\n<li>Buat skenario pembayaran klaim mundur satu, dua, dan tiga bulan.</li>\n<li>Tetapkan saldo kas minimum dan pemicu tindakan bila proyeksi turun di bawahnya.</li>\n</ol>\n\n<h2>Langkah Saat Kas Mulai Tertekan</h2>\n<ul>\n<li><b>Prioritaskan pembayaran:</b> gaji dan supplier kritis lebih dulu, jadwal ulang yang bisa ditunda dengan komunikasi terbuka.</li>\n<li><b>Negosiasi supplier:</b> perpanjangan termin dengan jaminan volume, bukan sekadar menunda bayar.</li>\n<li><b>Fasilitas modal kerja bank:</b> siapkan sebelum kas kritis, karena bank menilai laporan keuangan, aging klaim, dan proyeksi kas.</li>\n<li><b>Perbaiki proses klaim:</b> percepat pengajuan dan tekan pending, ini sumber kas tercepat yang ada di tangan rumah sakit sendiri.</li>\n<li><b>Tetap patuh:</b> jangan mengejar klaim dengan cara yang melanggar ketentuan. Risiko pengembalian dana dan sanksinya jauh lebih mahal.</li>\n</ul>\n\n<h2>Bagaimana FA Indonesia Membantu</h2>\n<p>FA Indonesia membantu rumah sakit merapikan pencatatan pendapatan JKN, menyusun aging piutang klaim, membangun proyeksi kas 13 minggu, dan menyiapkan dokumen untuk pengajuan fasilitas modal kerja ke bank. Tim kami pernah menjabat di jajaran direksi dan keuangan grup rumah sakit, jadi pendekatannya praktis dan sesuai ritme operasional rumah sakit. Informasi lengkap ada di halaman <a href=\"/konsultan-rumah-sakit/\">konsultan rumah sakit</a>.</p>",
+ "faq": [
+  [
+   "Kenapa rumah sakit bisa laba tetapi kekurangan kas?",
+   "Biasanya karena pendapatan JKN dicatat memakai tarif rumah sakit, bukan tarif paket, ditambah piutang klaim pending, dispute, dan pembayaran yang tertunda. Laba di laporan belum tentu sudah menjadi kas."
+  ],
+  [
+   "Bagaimana menyusun aging piutang klaim BPJS?",
+   "Susun per bulan pelayanan dan per status: belum diajukan, dalam verifikasi, pending, dispute, dan disetujui belum dibayar. Rekap juga penyebab pending dan dispute setiap bulan."
+  ],
+  [
+   "Apa itu proyeksi kas 13 minggu?",
+   "Proyeksi penerimaan dan pengeluaran kas per minggu untuk sekitar tiga bulan ke depan, lengkap dengan skenario keterlambatan klaim, supaya direksi bisa bertindak sebelum kas kritis."
+  ],
+  [
+   "Kapan sebaiknya mengajukan fasilitas modal kerja ke bank?",
+   "Sebelum kas kritis. Bank menilai laporan keuangan, kualitas piutang klaim, dan proyeksi kas, sehingga pengajuan yang disiapkan lebih awal peluangnya lebih baik."
+  ]
+ ]
+}
