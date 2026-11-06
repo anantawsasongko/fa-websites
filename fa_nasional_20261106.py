@@ -51,6 +51,7 @@ def cut(s, n=158):
 def hid(s): return sl(html.unescape(re.sub(r"<[^>]+>", "", s)))[:60].rstrip("-")
 def wa(txt): return WA + urllib.parse.quote(txt, safe="")
 def num(x): return f"{x:,}".replace(",", ".")
+def lw(s): return s if s[:2].isupper() else s[:1].lower() + s[1:]   # SIMRS, BPJS, RS tetap kapital
 def pfix(n):
     n = KC.tc(n)
     return {"Dki Jakarta": "DKI Jakarta", "Di Yogyakarta": "DI Yogyakarta"}.get(n, n)
@@ -372,7 +373,7 @@ for k, f in F.items():
     n = 0
     for r in REG:
         path = f"/{k}/{r['slug']}/"
-        txt = f"Halo FA Indonesia, saya ingin konsultasi {f['short'].lower()} di {r['name']}."
+        txt = f"Halo FA Indonesia, saya ingin konsultasi {lw(f['short'])} di {r['name']}."
         n_ = r["disp"]
         secs = fam_secs(f, n_)
         extra = (TOOLS if f["kind"] == "lk" else "") + f'<p class="t">Lihat juga: {f["see"]}</p>'
@@ -428,7 +429,7 @@ def prov_fold(base, pred=lambda r: True):
 
 for k, f in F.items():
     if f.get("pillar_exists"): continue
-    path = f"/{k}/"; txt = f"Halo FA Indonesia, saya ingin konsultasi {f['short'].lower()}."
+    path = f"/{k}/"; txt = f"Halo FA Indonesia, saya ingin konsultasi {lw(f['short'])}."
     secs = fam_secs(f, "Seluruh Indonesia")
     secs.append((f"{f['short']} per Provinsi", '<p class="t">' + " · ".join(f'<a href="/{k}/provinsi-{sl(pv)}/">{E(pv)}</a>' for pv in PROVS) + "</p>"))
     secs.append((f"{f['short']} di Semua Kabupaten dan Kota", prov_fold(k)))
@@ -450,14 +451,14 @@ for base, lab, kind, who, what in PFAM:
         if not rs: continue
         path = f"/{base}/provinsi-{sl(pv)}/"
         nk = sum(r["nk"] for r in rs); nd = sum(r["nd"] for r in rs)
-        txt = f"Halo FA Indonesia, saya ingin konsultasi {sh.lower()} di {pv}."
+        txt = f"Halo FA Indonesia, saya ingin konsultasi {lw(sh)} di {pv}."
         lst = "<ul>" + "".join(f'<li><a href="/{base}/{r["slug"]}/">{E(lab if len(lab) < 40 else sh)} {E(r["disp"])}</a>'
                                + (f' <small>({r["nk"]} kecamatan)</small>' if r["nk"] else "") + "</li>" for r in rs) + "</ul>"
         secs = [(f"{sh} di {len(rs)} Kabupaten dan Kota di {pv}", lst)]
         if base in F: secs.append((f"Layanan {F[base]['short']}", tbl(["Layanan", "Isi"], F[base]["rows"])))
         other = [b for b in HEALTH + FIN if b != base and os.path.exists(P(f"/{b}/"))]
         secs.append((f"Layanan Lain di {pv}", '<p class="t">' + " · ".join(f'<a href="/{b}/provinsi-{sl(pv)}/">{E(SHORT[b])}</a>' for b in other) + "</p>"))
-        faq = [(f"Apakah tim FA Indonesia melayani {sh.lower()} di {pv}?", f"Ya. Kami melayani {who} di seluruh {pv}: {len(rs)} kabupaten dan kota, termasuk kecamatan dan desa di dalamnya. Pekerjaan daring dengan kunjungan lapangan terjadwal."),
+        faq = [(f"Apakah tim FA Indonesia melayani {lw(sh)} di {pv}?", f"Ya. Kami melayani {who} di seluruh {pv}: {len(rs)} kabupaten dan kota, termasuk kecamatan dan desa di dalamnya. Pekerjaan daring dengan kunjungan lapangan terjadwal."),
                ("Bagaimana memulai?", "Hubungi kami lewat tombol WhatsApp di halaman ini. Diskusi awal untuk memetakan kebutuhan, lalu ruang lingkup dan jadwal disepakati.")]
         if kind == "audit": faq.insert(1, ("Siapa auditornya?", "Audit dilakukan KAP DHN & Rekan, kantor akuntan publik mitra yang terdaftar OJK. Penyusun laporan keuangan dan auditor selalu pihak yang berbeda."))
         page(path, f"{sh} · {pv}", f"{lab} di {pv}", f"{what[0].upper() + what[1:]} untuk {E(who)} di seluruh {E(pv)}.", txt, (f"/{base}/", lab),
@@ -472,7 +473,7 @@ for base, lab, kind, who, what in PFAM:
 for sk, sn, swho, srows in SECTOR:
     pillar = f"/{sk}/"
     if srows:
-        txt = f"Halo FA Indonesia, saya ingin tanya jasa laporan keuangan untuk {sn.lower()}."
+        txt = f"Halo FA Indonesia, saya ingin tanya jasa laporan keuangan untuk {lw(sn)}."
         secs = [(f"Yang Kami Kerjakan untuk {sn}", tbl(["Bagian", "Isi"], srows)),
                 ("Deliverables yang Anda Terima", tbl(["Deliverable", "Isi", "Waktu"], F["jasa-penyusunan-laporan-keuangan"]["dlv"])),
                 (f"Laporan Keuangan {sn} per Provinsi", '<p class="t">' + " · ".join(f'<a href="/{sk}/provinsi-{sl(pv)}/">{E(pv)}</a>' for pv in PROVS) + "</p>")]
@@ -480,7 +481,7 @@ for sk, sn, swho, srows in SECTOR:
              f"Pembukuan bulanan dan laporan keuangan untuk {E(swho)} di seluruh Indonesia, dikerjakan bersama KJA mitra. Hasilnya siap untuk pajak, audit, dan pengajuan kredit.",
              txt, ("/jasa-penyusunan-laporan-keuangan/", "Penyusunan Laporan Keuangan"),
              f"Setiap jenis usaha punya titik rawan sendiri dalam pembukuan. Untuk {E(swho)}, bagian di bawah ini yang paling sering membuat laporan tidak bisa dipakai untuk bank atau pajak.",
-             secs, [(f"Apakah melayani {sn.lower()} di luar kota besar?", "Ya. Dokumen dikirim lewat Google Drive, pertemuan daring, dan kunjungan dijadwalkan bila diperlukan."),
+             secs, [(f"Apakah melayani {lw(sn)} di luar kota besar?", "Ya. Dokumen dikirim lewat Google Drive, pertemuan daring, dan kunjungan dijadwalkan bila diperlukan."),
                     ("Berapa biayanya?", "Tergantung jumlah transaksi dan kondisi pembukuan. Paket jasa pembukuan UMKM mulai Rp900 ribu per bulan, PT dan CV mulai Rp2 juta per bulan; perapian beberapa tahun dihitung setelah melihat data."),
                     ("Apakah bisa sekalian diaudit?", "Bisa diarahkan ke KAP mitra yang terdaftar OJK. Penyusun dan auditor selalu pihak yang berbeda.")],
              f"Jasa Laporan Keuangan {sn}: Pembukuan, Pajak, Kredit | FA Indonesia",
@@ -492,7 +493,7 @@ for sk, sn, swho, srows in SECTOR:
     for pv in PROVS:
         rs = sorted(BYPROV[pv], key=lambda x: x["name"])
         path = f"/{sk}/provinsi-{sl(pv)}/"
-        txt = f"Halo FA Indonesia, saya ingin tanya jasa laporan keuangan untuk {sn.lower()} di {pv}."
+        txt = f"Halo FA Indonesia, saya ingin tanya jasa laporan keuangan untuk {lw(sn)} di {pv}."
         rows = srows or [("Pembukuan sederhana", "Kas masuk dan keluar, stok, dan utang piutang yang rapi tiap bulan"),
                          ("Laporan keuangan SAK EMKM", "Neraca, laba rugi, dan catatan untuk KUR dan pinjaman"),
                          ("Pajak UMKM", "PPh Final 0,5% dan batas omzet yang berlaku")]
@@ -502,10 +503,10 @@ for sk, sn, swho, srows in SECTOR:
         page(path, f"Laporan Keuangan {sn} · {pv}", f"Jasa Laporan Keuangan {sn} di {pv}",
              f"Pembukuan dan laporan keuangan untuk {E(swho)} di seluruh {E(pv)}: siap pajak, audit, dan kredit bank.", txt, (pillar, f"Laporan Keuangan {sn}"),
              f"Melayani {len(rs)} kabupaten dan kota di {E(pv)}. Dokumen dikirim lewat Google Drive, pertemuan daring, kunjungan dijadwalkan bila diperlukan.",
-             secs, [(f"Ada jasa laporan keuangan {sn.lower()} di {pv}?", f"Ada. Tim FA Indonesia bersama KJA mitra melayani {swho} di seluruh {pv}."),
+             secs, [(f"Ada jasa laporan keuangan {lw(sn)} di {pv}?", f"Ada. Tim FA Indonesia bersama KJA mitra melayani {swho} di seluruh {pv}."),
                     ("Bagaimana memulai?", "Hubungi kami lewat tombol WhatsApp. Kirim gambaran usaha dan pembukuan yang ada, lalu kami usulkan ruang lingkupnya.")],
              f"Laporan Keuangan {sn} {pv}: Pembukuan dan Pajak | FA Indonesia",
-             f"Jasa laporan keuangan dan pembukuan {sn.lower()} di {pv}: {', '.join(r['name'] for r in rs[:3])}, dan wilayah lain. Siap pajak, audit, kredit bank.",
+             f"Jasa laporan keuangan dan pembukuan {lw(sn)} di {pv}: {', '.join(r['name'] for r in rs[:3])}, dan wilayah lain. Siap pajak, audit, kredit bank.",
              f"Laporan Keuangan {sn} {pv}", "Bookkeeping and financial statement preparation",
              [("FA Indonesia", "/"), (f"Laporan Keuangan {sn}", pillar), (pv, path)], OG["jasa-penyusunan-laporan-keuangan"], team=WAJAH)
         URLS.append(path)
