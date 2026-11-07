@@ -219,7 +219,11 @@ const AI_APPS = {
   "cek-psak-118": "Konversi laba rugi ke format PSAK 118 (berlaku 1 Januari 2027): kategori operasi, investasi, pendanaan, pajak, operasi dihentikan; subtotal laba operasi dan laba sebelum pendanaan dan pajak.",
   "audit-ready": "FA Jupiter: penyusunan laporan keuangan dan CALK siap audit dari buku besar.",
   "saturn": "FA Saturn: kertas kerja audit KAP (materialitas, walkthrough, uji substantif, temuan).",
-  "us-kalkulator": "Kalkulator UpdateSAK: menentukan kerangka SAK (SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah), daftar PSAK per akun, kewajiban audit, dan penyusunan CALK."
+  "venus-rs-abc": "FA Venus Unit Cost Rumah Sakit berbasis Activity Based Costing: biaya langsung per layanan, pool overhead dengan cost driver (luas, FTE, berkas, kg linen dan steril), unit cost ABC vs alokasi tradisional, margin per layanan terhadap tarif, rugi tersembunyi.",
+  "venus-rs-obat": "FA Venus Drug Management RS: analisis ABC-VEN, matriks kategori I/II/III, EOQ, titik pesan ulang, safety stock, ITOR, stok berlebih, risiko kedaluwarsa, FEFO, formularium dan negosiasi distributor.",
+  "venus-rs-coding": "FA Venus Cek Koding BPJS INA-CBG: under-coding dan over-coding diagnosis sekunder, severity level, LOS, klaim pending dan dispute, kas tertahan. Jangan pernah menyarankan upcoding; koding harus sesuai resume medis dan pedoman INA-CBG, kode final ditetapkan koder dan DPJP.",
+  "venus-rs-ai": "AI Analis Keuangan dan Operasional Rumah Sakit Indonesia: margin EBITDA, rasio SDM dan obat terhadap pendapatan, hari piutang BPJS, ketahanan kas, DSCR, utang/EBITDA, indikator Barber-Johnson (acuan BOR 60-85%, ALOS 6-9 hari, TOI 1-3 hari, BTO 40-50 kali). Jawab sebagai analis keuangan RS yang praktis, hitung dampak skenario dengan angka dari data.",
+  "us-kalkulator":"Kalkulator UpdateSAK: menentukan kerangka SAK (SAK Indonesia, SAK EP, SAK EMKM, SAK Syariah), daftar PSAK per akun, kewajiban audit, dan penyusunan CALK."
 };
 function aiSystem(app) {
   return "Anda adalah Asisten AI FA Indonesia untuk akuntansi, perpajakan, kredit, dan standar akuntansi Indonesia. " +

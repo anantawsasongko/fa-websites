@@ -161,6 +161,13 @@
 - dr. Sigit Riyarto, M.Kes, AAK (tim RS FA, mantan Direktur Persada Hospital Malang dan Dirut RS Queen Latifa Yogyakarta) → https://faindonesia.co.id/dr-sigit-riyarto/
 - Akuntan forensik: laporan penghitungan kerugian penipuan/penggelapan untuk penyidik, ditandatangani akuntan publik → https://faindonesia.co.id/akuntan-forensik/
 - Aplikasi unggulan FA Venus: Valuasi Rumah Sakit (harga jual RS before dan after) → https://faindonesia.co.id/kalkulator-valuasi-rumah-sakit/
+<!--rsadv-->
+- FA Venus Advanced Hospital Toolkit: Advanced Hospital Toolkit FA Venus: unit cost RS berbasis ABC, analisis ABC-VEN obat, cek koding BPJS INA-CBG, AI analis RS berbasis Claude. Gratis dicoba. → https://faindonesia.co.id/fa-venus-rumah-sakit/
+- FA Venus Unit Cost Rumah Sakit ABC: Hitung unit cost rumah sakit per layanan dengan Activity Based Costing: pool overhead, cost driver, unit cost ABC vs tradisional, layanan rugi tersembunyi. Gratis. → https://faindonesia.co.id/kalkulator-unit-cost-rumah-sakit/
+- FA Venus Drug Management Rumah Sakit: Advanced drug management RS: klasifikasi ABC-VEN, EOQ, titik pesan ulang, ITOR, stok berlebih, dan risiko kedaluwarsa. Tempel dari Excel, gratis dicoba. → https://faindonesia.co.id/analisis-abc-ven-obat-rumah-sakit/
+- FA Venus Cek Koding BPJS INA-CBG: Hitung kebocoran klaim BPJS rumah sakit: under-coding diagnosis sekunder, over-coding, klaim pending, dispute, kas tertahan, dan cek kasus. Gratis dicoba. → https://faindonesia.co.id/cek-koding-bpjs-ina-cbg/
+- FA Venus AI Analis Rumah Sakit: Dashboard indikator RS (EBITDA, piutang BPJS, DSCR, BOR, ALOS, TOI, BTO) dan AI analis berbasis Claude dari Anthropic untuk prioritas perbaikan. Gratis dicoba. → https://faindonesia.co.id/analis-ai-rumah-sakit/
+<!--/rsadv-->
 - Akuntan dan KAP terdekat, seluruh Indonesia daring → https://faindonesia.co.id/akuntan-terdekat/
 - Konsultan keuangan dan manajemen keuangan perusahaan → https://faindonesia.co.id/konsultan-keuangan/
 - Jasa laporan keuangan bulanan terima beres (mulai Rp900 ribu/bulan) → https://faindonesia.co.id/jasa-laporan-keuangan-bulanan/
