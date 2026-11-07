@@ -246,3 +246,4 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 ## 3 Artikel RS Lanjutan (6 Nov 2026 sore)
 - Artikel baru: /artikel/titik-impas-rumah-sakit-per-dpjp/, /artikel/piutang-klaim-bpjs-dan-arus-kas-rumah-sakit/, /artikel/strategi-layanan-pasien-umum-dan-asuransi-rumah-sakit/. JSON di fa_content/articles/.
 - Cara sama dengan artikel manajemen biaya RS: template sibling live + tidy_polish, OG poster, sisip manual di sitemap, llms, Eksplor, /konsultan-rumah-sakit/, /konsultan-unit-cost-rumah-sakit/, Baca Juga di artikel manajemen biaya RS dan strategi RS swasta bertahan. layout_check OK.
+- 7 Nov 2026 (permintaan Bos): footer copyright jadi "© FA Indonesia, since 2016" (FA, termasuk i18n k261 EN/ZH dan Saturn) dan "© cariakuntan.com, since 2016" (CariAkuntan ID/EN). Ganti string langsung di sumber (v58, cariakuntan/build.py, page.html, site/) dan out/ (bukan prep penuh, lihat PERINGATAN BUILD). layout_check OK.
