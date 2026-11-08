@@ -48,7 +48,9 @@
     if (old && old.getAttribute('data-url')) C.url = new URL(old.getAttribute('data-url'), location.href).href;
     if (old && old.getAttribute('data-bg')) C.bg = +old.getAttribute('data-bg');
     if (old && old.getAttribute('data-kick')) C.kick = old.getAttribute('data-kick');
-    if (old && old.hasAttribute('data-tool')) C.title = 'Coba gratis: ' + (old.getAttribute('data-tool') || C.title);
+    /* 8 Nov 2026 (Bos): awalan "Coba gratis" HANYA untuk poster apps, bukan halaman layanan/artikel/wilayah. */
+    var isApp = old && (old.hasAttribute('data-app') || /alat ini/.test(old.getAttribute('data-lab') || '') || /^\/(kalkulator-|cek-|simulasi-|analis|audit-ready|saturn|galaxy|apps\/|fa-venus|aplikasi-|en\/free-)/.test(location.pathname) || /jupiter|saturn|venus/.test(location.hostname));
+    if (old && old.hasAttribute('data-tool')) C.title = isApp ? 'Coba gratis: ' + (old.getAttribute('data-tool') || C.title) : (old.getAttribute('data-tool') || C.title);
     C.text = C.title + '\n\n' + C.url;
     return C;
   }
