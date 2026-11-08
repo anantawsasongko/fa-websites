@@ -1,0 +1,53 @@
+{
+ "slug": "dari-opini-wdp-ke-wtp",
+ "seo_title": "Dari Opini WDP ke WTP: Cara Membenahi Laporan Keuangan",
+ "title": "Dari Opini WDP ke WTP: Cara Membenahi Laporan Keuangan Sebelum Diaudit Lagi",
+ "description": "Tahun lalu opini audit WDP? Penyebab paling umum, kenapa masalahnya terbawa ke tahun berikutnya, dan langkah membenahi laporan keuangan sebelum diaudit lagi.",
+ "keyword": "opini WDP ke WTP",
+ "category": "Audit & KAP",
+ "minutes": 7,
+ "cta": {
+  "href": "/jasa-audit-laporan-keuangan/",
+  "label": "Jasa Audit Laporan Keuangan"
+ },
+ "wa": "Halo Pak Ananta, opini audit kami tahun lalu belum WTP. Saya ingin konsultasi persiapan audit tahun ini.",
+ "sources": [
+  [
+   "https://www.iaasb.org/publications/international-standard-auditing-isa-705-revised-modifications-opinion-independent-auditor-s-report-3",
+   "ISA 705 (Revised), Modifications to the Opinion in the Independent Auditor's Report (IAASB)"
+  ],
+  [
+   "https://iapi.or.id/",
+   "Institut Akuntan Publik Indonesia, Standar Audit"
+  ]
+ ],
+ "related": [
+  "opini-tidak-menyatakan-pendapat-disclaimer",
+  "laporan-audit-lama-keluar",
+  "laporan-keuangan-bankable-investor-ready",
+  "jenis-opini-audit-dan-dampaknya-ke-bank"
+ ],
+ "body_html": "<p>Opini Wajar Dengan Pengecualian (WDP) sering dianggap \"hampir WTP\". Di atas kertas memang begitu: laporan keuangan dinilai wajar kecuali untuk satu atau beberapa hal. Masalahnya, bagi analis kredit bank dan investor, satu pengecualian sudah cukup untuk menahan proses. Pertanyaan pertama mereka biasanya sederhana: apakah tahun ini masalahnya sudah selesai?</p>\n<p>Artikel ini membahas penyebab WDP yang paling sering kami temui, kenapa masalahnya cenderung terbawa ke tahun berikutnya, dan cara membenahinya sebelum audit berikutnya dimulai.</p>\n<h2>Penyebab WDP yang Paling Sering</h2>\n<p>Pengecualian hampir selalu jatuh ke salah satu dari dua kelompok: ada salah saji material yang tidak dikoreksi, atau auditor tidak mendapat bukti yang cukup untuk satu akun.</p>\n<div class=\"tblwrap\"><table class=\"tbl\"><thead><tr><th>Area</th><th>Pemicu yang Umum</th><th>Yang Perlu Disiapkan</th></tr></thead><tbody>\n<tr><td>Persediaan</td><td>Stock opname akhir tahun tidak diobservasi auditor, kartu stok tidak cocok dengan buku besar</td><td>Jadwal opname yang disepakati dengan auditor, rekonsiliasi kartu stok ke GL, metode penilaian yang konsisten</td></tr>\n<tr><td>Piutang usaha</td><td>Rincian per pelanggan tidak ada, konfirmasi tidak terjawab, cadangan kerugian tidak dihitung</td><td>Aging per pelanggan, bukti penerimaan setelah tanggal neraca, perhitungan kerugian kredit ekspektasian</td></tr>\n<tr><td>Aset tetap</td><td>Tidak ada register aset, penyusutan dihitung global, aset atas nama pribadi</td><td>Register per aset, dokumen kepemilikan, jadwal penyusutan yang bisa ditelusuri</td></tr>\n<tr><td>Imbalan kerja</td><td>Liabilitas imbalan pascakerja tidak dicatat</td><td>Data karyawan untuk perhitungan aktuaria sesuai PSAK 219</td></tr>\n<tr><td>Pajak</td><td>Pajak tangguhan tidak dihitung, utang pajak tidak cocok dengan SPT</td><td>Rekonsiliasi fiskal dan perhitungan PSAK 212</td></tr>\n</tbody></table></div>\n<h2>Kenapa Masalahnya Terbawa ke Tahun Berikutnya</h2>\n<p>Banyak pemilik usaha mengira opini tahun ini berdiri sendiri. Kenyataannya, saldo akhir tahun lalu adalah saldo awal tahun ini. Kalau persediaan akhir tahun lalu tidak bisa diverifikasi, maka harga pokok penjualan tahun ini ikut tidak bisa diyakini, karena dihitung dari saldo awal itu.</p>\n<div class=\"pf-fold\"><p>Standar audit mengatur dua hal yang relevan di sini. Pertama, auditor wajib memperoleh bukti yang cukup atas saldo awal (SA 510). Kedua, angka komparatif tahun lalu yang masih mengandung masalah bisa membuat opini tahun berjalan tetap dimodifikasi (SA 710). Jadi tanpa pembenahan, WDP bisa berulang walaupun transaksi tahun berjalan sudah rapi.</p>\n<p>Kabar baiknya, sebagian besar penyebab WDP bisa diselesaikan. Salah saji periode lalu bisa dikoreksi melalui penyajian kembali sesuai PSAK 225, dan akun yang dulu kekurangan bukti bisa didukung dengan prosedur alternatif, misalnya penelusuran mundur dari opname tahun berjalan atau penerimaan kas setelah tanggal neraca.</p></div>\n<h2>Langkah Membenahi Sebelum Audit Berikutnya</h2>\n<ol>\n<li><b>Baca paragraf basis opini dengan teliti.</b> Di situ auditor menjelaskan akun apa yang dikecualikan dan alasannya. Itulah daftar pekerjaan pertama.</li>\n<li><b>Bedakan masalah bukti dan masalah angka.</b> Masalah bukti diselesaikan dengan dokumen dan rekonsiliasi. Masalah angka diselesaikan dengan koreksi dan, bila perlu, penyajian kembali.</li>\n<li><b>Bereskan saldo awal lebih dulu.</b> Tanpa saldo awal yang bisa diyakini, perbaikan di tahun berjalan tidak cukup.</li>\n<li><b>Susun laporan keuangan lengkap dengan CALK dan lead schedule.</b> Setiap angka di neraca dan laba rugi bisa ditelusuri ke rincian dan dokumennya.</li>\n<li><b>Siapkan daftar PBC (dokumen yang diminta auditor) sebelum auditor datang.</b> Bukan menunggu diminta satu per satu.</li>\n<li><b>Jadwalkan stock opname dan konfirmasi sejak awal.</b> Dua hal ini paling sering membuat bukti tidak bisa didapat setelah lewat waktunya.</li>\n</ol>\n<h2>Metode FA: Disiapkan Dulu, Lalu Diaudit</h2>\n<p>Pola kerjanya selalu sama: <b>disiapkan dulu, baru diaudit</b>. Tim FA Indonesia merapikan pembukuan, saldo awal, dan dokumen pendukung sampai laporan keuangan siap diuji. Setelah itu audit dilakukan secara independen oleh KAP DHN &amp; Rekan, kantor akuntan publik terdaftar OJK. Penyusun laporan keuangan dan auditornya selalu pihak yang berbeda, dan opini tetap keputusan independen auditor.</p>\n<div class=\"pf-fold\"><p>Dalam praktik, persiapan dikerjakan dengan FA Jupiter: COA dan buku besar dari Accurate, Jurnal, Xero, atau Excel diolah menjadi laporan keuangan, CALK, lead schedule, dan checklist PBC. Akun yang dulu dikecualikan diberi kertas kerja tersendiri, lengkap dengan rekonsiliasi dan dokumen pendukung. Hasilnya, auditor tidak perlu menunggu dokumen datang bertahap, dan jurnal koreksi audit jauh lebih sedikit.</p>\n<p>Manfaatnya bukan hanya di opini. Laporan yang tersusun rapi lebih mudah dibaca analis kredit dan investor, karena setiap angka punya penjelasan dan jejaknya jelas.</p></div>\n<h2>Yang Perlu Diingat</h2>\n<p>Tidak ada pihak yang boleh menjanjikan opini tertentu. Opini adalah kesimpulan independen auditor atas bukti yang ada. Yang bisa dikendalikan perusahaan adalah kualitas pembukuan dan kelengkapan buktinya, dan itulah yang paling menentukan.</p>\n<h2>Bagaimana FA Indonesia Membantu</h2>\n<p>Anda bicara langsung dengan Ananta W. Sasongko, CPA sejak diskusi pertama: kami membaca laporan auditor tahun lalu, memetakan penyebab pengecualian, lalu merapikan laporan keuangan sampai siap diaudit. Informasi lengkap ada di halaman <a href=\"/jasa-audit-laporan-keuangan/\">jasa audit laporan keuangan</a> dan <a href=\"/audit-ready/\">FA Jupiter</a>.</p>",
+ "faq": [
+  [
+   "Apa bedanya opini WDP dan WTP?",
+   "WTP berarti laporan keuangan disajikan wajar dalam semua hal yang material. WDP berarti wajar kecuali untuk hal tertentu yang dijelaskan auditor di paragraf basis opini."
+  ],
+  [
+   "Kalau tahun lalu WDP, apakah tahun ini otomatis WDP lagi?",
+   "Tidak otomatis. Tetapi bila penyebabnya ada di saldo akhir tahun lalu dan belum dibenahi, saldo awal tahun ini ikut bermasalah sehingga opini berisiko dimodifikasi lagi."
+  ],
+  [
+   "Apakah bisa dijamin mendapat WTP?",
+   "Tidak. Opini adalah keputusan independen auditor. Yang bisa dipastikan adalah laporan keuangan disusun rapi dan buktinya lengkap sebelum audit dimulai."
+  ],
+  [
+   "Apakah penyusun laporan keuangan boleh sekaligus mengaudit?",
+   "Tidak boleh. Untuk menjaga independensi, laporan disiapkan Tim FA Indonesia dan diaudit KAP DHN &amp; Rekan sebagai pihak berbeda."
+  ],
+  [
+   "Data apa yang perlu disiapkan pertama kali?",
+   "Laporan auditor tahun lalu, laporan keuangan dan buku besar dua tahun terakhir, serta rincian akun yang dikecualikan."
+  ]
+ ]
+}
