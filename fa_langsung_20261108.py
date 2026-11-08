@@ -146,6 +146,62 @@ def fix_wa(m):
         return m.group(1) + 'Chat with Ananta, CPA' + m.group(3)
     return m.group(0)
 
+
+# ---- Tahap 2 (8 Nov 2026 pagi, Bos): blok foto tim di PALING ATAS, tepat di bawah tombol hero "Chat Ananta, CPA".
+# Halaman RS: blok Tim Konsultan Rumah Sakit (fa-rstim) dipindah ke atas. Halaman audit: 3 orang (Ananta, Farhani, Dwi).
+# Halaman lain yang punya fa-langsung: blok itu dipindah ke atas.
+WJ_CSS = ('<style>.wj{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0 10px}'
+          '.wj a{display:block;border:1px solid #333;border-radius:12px;overflow:hidden;background:#1e1e1e;color:inherit;text-decoration:none}'
+          '.wj a:hover{border-color:#777}.wj img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%}'
+          '.wj div{padding:12px 14px 14px}.wj small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-bottom:4px}'
+          '.wj b{display:block;font-size:15.5px;line-height:1.3;font-weight:600}.wj span{display:block;font-size:12.5px;line-height:1.45;opacity:.75;margin-top:4px}'
+          '@media(max-width:720px){.wj{grid-template-columns:1fr;gap:10px}.wj a{display:grid;grid-template-columns:96px 1fr;align-items:center}}</style>')
+
+TIGA = (WJ_CSS + '<h2 id="tim-yang-menangani-audit-anda">Tim yang Menangani Audit Anda</h2><div class="wj">'
+        '<a href="/ananta-w-sasongko/"><img alt="Ananta W. Sasongko, CPA" decoding="async" height="1050" loading="lazy" src="/img/ananta-w-sasongko-cpa.jpg" width="700"/>'
+        '<div><small>FA Indonesia</small><b>Ananta W. Sasongko, CPA</b><span>Kontak Anda Sejak Awal, Persiapan Audit dan Laporan Keuangan</span></div></a>'
+        '<a href="/kja-farhani/"><img alt="Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA" decoding="async" height="1050" loading="lazy" src="/img/farhani-k-nugraha-fa-indonesia.jpg" width="700"/>'
+        '<div><small>KJA Farhani</small><b>Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA</b><span>Pembukuan dan Penyusunan Laporan Keuangan</span></div></a>'
+        '<a href="/kap-dhn/"><img alt="Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI" decoding="async" height="1050" loading="lazy" src="/img/dwi-haryadi-nugraha-kap-dhn-v2.jpg" width="700"/>'
+        '<div><small>KAP DHN &amp; Rekan</small><b>Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI</b><span>Pemimpin Rekan, Audit Laporan Keuangan</span></div></a></div>'
+        '<p>Sejak chat pertama Anda bicara langsung dengan Ananta W. Sasongko, CPA. Audit dan opininya dilakukan KAP DHN &amp; Rekan yang terdaftar OJK. '
+        'Untuk satu entitas, penyusun laporan keuangan dan auditornya selalu pihak yang berbeda.</p>')
+
+RX_RSTIM = re.compile(r'<!--fa-rstim--><div class="rstb">.*?<!--/fa-rstim-->', re.S)
+RX_LANG = re.compile(r'<!--fa-langsung-->.*?<!--/fa-langsung-->', re.S)
+RX_HERO = re.compile(r'<div class="cbtns"[^>]*>.*?</div>', re.S)
+RX_TOC_ANY = re.compile(r'<li><a href="#(ditangani-langsung-bukan-diteruskan|tim-yang-menangani-audit-anda)">[^<]*</a></li>')
+
+def tim_atas(rel, t):
+    if '<!--fa-tim-atas-->' in t:
+        return t
+    h = t.find('<h1')
+    if h < 0:
+        return t
+    m = RX_HERO.search(t, h)
+    if not m or 'Chat Ananta, CPA' not in m.group(0):
+        return t
+    block = None
+    rs = RX_RSTIM.search(t)
+    if rs:
+        block = rs.group(0)
+        t = t[:rs.start()] + t[rs.end():]
+        t = RX_LANG.sub('', t)
+    elif is_audit(rel):
+        block = TIGA
+        t = RX_LANG.sub('', t)
+    else:
+        lg = RX_LANG.search(t)
+        if lg:
+            block = lg.group(0)
+            t = t[:lg.start()] + t[lg.end():]
+    if not block:
+        return t
+    t = RX_TOC_ANY.sub('', t)
+    m = RX_HERO.search(t, t.find('<h1'))
+    ins = '<!--fa-tim-atas--><div style="margin:30px 0 8px">' + block + '</div><!--/fa-tim-atas-->'
+    return t[:m.end()] + ins + t[m.end():]
+
 def process(rel, t):
     o = t
     audit = is_audit(rel)
@@ -168,6 +224,7 @@ def process(rel, t):
     t = t.replace(WA + '?text=Halo%20FA%20Indonesia%2C', WA + '?text=Halo%20Pak%20Ananta%2C')
     t = t.replace(WA + '?text=Halo%20Tim%20FA%20Indonesia%2C', WA + '?text=Halo%20Pak%20Ananta%2C')
     t = t.replace(WA + '?text=Hello%20FA%20Indonesia%2C', WA + '?text=Hello%20Pak%20Ananta%2C')
+    t = tim_atas(rel, t)
     return t, t != o
 
 def main():
