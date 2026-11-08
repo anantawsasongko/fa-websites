@@ -48,7 +48,7 @@ partner_page(PTH, "Mitra · KAP, KJA, dan Konsultan Pajak",
   "Pemilik usaha dan direksi yang membutuhkan KAP, KJA, atau konsultan pajak", WA_M, "Mitra KAP dan KJA")
 
 # footer: "Mitra KAP & KJA" setelah "Mitra Investor"
-FT = '<li><a href="/mitra-kap-kja/">Mitra KAP &amp; KJA</a></li>'
+FT = '<li><a href="/mitra-kap-kja/">Tim &amp; Izin</a></li>'
 for d, _, fs in os.walk(FA):
     for f in fs:
         if not f.endswith(".html"): continue
