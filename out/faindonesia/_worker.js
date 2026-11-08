@@ -266,17 +266,20 @@ async function aiAsk(req, env) {
     const fd = +(await env.FA_AI.get("f:" + device) || 0), fi = +(await env.FA_AI.get("fi:" + ip + ":" + day) || 0);
     if (fd >= AI_FREE_DEVICE || fi >= AI_FREE_IP_DAY) return aj(req, { error: "Pertanyaan gratis sudah terpakai. Masukkan kode kredit AI atau beli paket.", need: "buy", free: 0 }, 402);
     freeLeft = AI_FREE_DEVICE - fd - 1;
-    await env.FA_AI.put("f:" + device, String(fd + 1)); await env.FA_AI.put("fi:" + ip + ":" + day, String(fi + 1), { expirationTtl: 172800 });
+    rec = null; b._fd = fd; b._fi = fi;
   }
   const r = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-    body: JSON.stringify({ model: env.AI_MODEL || "claude-haiku-5-5", max_tokens: 900, system: aiSystem(app),
+    body: JSON.stringify({ model: env.AI_MODEL || "claude-haiku-5-5", max_tokens: 2500, system: aiSystem(app),
       messages: [{ role: "user", content: "DATA HALAMAN (" + clean(b.page, 120) + "):\n" + (ctx || "(tidak ada)") + "\n\nPERTANYAAN:\n" + q }] })
   });
   const out = await r.json().catch(() => ({}));
   if (!r.ok) return aj(req, { error: "Asisten AI sedang tidak tersedia. Silakan diskusikan pertanyaan Anda dengan tim kami via WhatsApp." }, 200); /* 200: hindari halaman error Cloudflare; kredit API habis = AI berhenti, tidak ada tagihan */
   const answer = (out.content || []).filter((x) => x.type === "text").map((x) => x.text).join("\n").trim();
+  /* 8 Nov 2026: kuota hanya dipotong kalau jawaban benar-benar ada (sebelumnya jawaban kosong tetap memotong kuota gratis) */
+  if (!answer) return aj(req, { error: "AI belum berhasil menyusun jawaban. Kuota Anda tidak terpakai, silakan coba lagi.", stop: clean(out.stop_reason, 30) }, 200);
+  if (!rec) { await env.FA_AI.put("f:" + device, String(b._fd + 1)); await env.FA_AI.put("fi:" + ip + ":" + day, String(b._fi + 1), { expirationTtl: 172800 }); }
   if (rec) { rec.credits -= 1; rec.last = Date.now(); await env.FA_AI.put("c:" + code, JSON.stringify(rec)); return aj(req, { answer, credits: rec.credits }); }
   return aj(req, { answer, free: Math.max(0, freeLeft) });
 }
