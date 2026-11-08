@@ -279,3 +279,7 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Tombol "Chat Tim FA Indonesia" sisa di /analis-ai-rumah-sakit/ (dan sumber fa_content/rs_advanced/*.html) jadi "Chat Ananta, CPA".
 - Belum diubah (perlu keputusan Bos): kalimat "laporan ditandatangani Akuntan Berpraktik" di halaman pembukuan/LK bulanan (izin AB siapa yang dipakai).
 - layout_check OK (sampel 40, 1280 + 375).
+
+## Poster share tanpa "Coba gratis" (8 Nov 2026 siang)
+- Bos: poster IG masih semua "Coba gratis", terasa robot. shared/share.js: judul poster TIDAK pernah diberi awalan "Coba gratis" (juga dibuang kalau ada di data-tool). Apps ditandai halus: baris kecil "Bisa dicoba langsung di browser" + pill "Coba:"; halaman lain pill "Baca:" dan tagline merek. Disalin ke out/faindonesia, out/cariakuntan, out/faindonesia-jupiter, cache-bust ?v=58a96c15. UpdateSAK punya share.js sendiri (out/updatesak/js/share.js, tanpa sumber di luar out/): dipatch sama, ?v=d9c54133.
+- data-tool homepage FA "Keuangansampai" (h1 dengan <br>) diperbaiki jadi "Keuangan sampai".

@@ -48,7 +48,10 @@
     if (old && old.getAttribute('data-url')) C.url = new URL(old.getAttribute('data-url'), location.href).href;
     if (old && old.getAttribute('data-bg')) C.bg = +old.getAttribute('data-bg');
     if (old && old.getAttribute('data-kick')) C.kick = old.getAttribute('data-kick');
-    if (old && old.hasAttribute('data-tool')) C.title = 'Coba gratis: ' + (old.getAttribute('data-tool') || C.title);
+    /* 8 Nov 2026 (Bos: "kayak robot"): tanpa awalan "Coba gratis" di judul poster. */
+    C.app = !!old && (old.hasAttribute('data-app') || /alat ini/.test(old.getAttribute('data-lab') || '') || /^\/(kalkulator|cek-|simulasi-|aplikasi|alat|tools?)/.test(location.pathname));
+    if (old && old.hasAttribute('data-tool')) C.title = old.getAttribute('data-tool') || C.title;
+    C.title = C.title.replace(/^Coba gratis:\s*/i, '');
     C.text = C.title + '\n\n' + C.url;
     return C;
   }
@@ -111,11 +114,11 @@
       x.fillStyle = '#fff'; x.textBaseline = 'top'; x.font = '400 ' + size + 'px ' + serif;
       lines.forEach(function (l) { x.fillText(l, m, y); y += lh; });
       x.fillStyle = B.ac; x.fillRect(m, y + 26, 84, 6);
-      x.fillStyle = 'rgba(255,255,255,.78)'; x.font = '300 34px ' + sansL; x.textBaseline = 'middle'; x.fillText(/^Coba gratis/.test(C.title) ? 'Gratis, langsung di browser' : B.tag, m, Hh - 300);
+      x.fillStyle = 'rgba(255,255,255,.78)'; x.font = '300 34px ' + sansL; x.textBaseline = 'middle'; x.fillText(C.app ? 'Bisa dicoba langsung di browser' : B.tag, m, Hh - 300);
       x.fillStyle = '#fff'; var bx = m, by = Hh - 236, bw = W - 2 * m, bh = 112, rr = 56;
       x.beginPath(); x.moveTo(bx + rr, by); x.arcTo(bx + bw, by, bx + bw, by + bh, rr); x.arcTo(bx + bw, by + bh, bx, by + bh, rr); x.arcTo(bx, by + bh, bx, by, rr); x.arcTo(bx, by, bx + bw, by, rr); x.closePath(); x.fill();
       x.fillStyle = '#0a0a0a'; x.font = '600 36px ' + sansB;
-      var u = C.url.replace(/^https?:\/\//, '').replace(/[?#].*$/, ''); var pre = /^Coba gratis/.test(C.title) ? 'Coba: ' : 'Baca: ';
+      var u = C.url.replace(/^https?:\/\//, '').replace(/[?#].*$/, ''); var pre = C.app ? 'Coba: ' : 'Baca: ';
       if (x.measureText(pre + u).width > bw - 90) u = B.n;
       x.textAlign = 'center'; x.fillText(pre + u, W / 2, by + bh / 2 + 2); x.textAlign = 'left';
       c.toBlob(function (b) { res(b); }, 'image/jpeg', .9);
