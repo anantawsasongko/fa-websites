@@ -71,7 +71,7 @@ def page(c):
           {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "KJA Farhani K.N.", "item": BASE + "/"}, {"@type": "ListItem", "position": 2, "name": n, "item": url}]}]
     s = re.sub(r'<script type="application/ld\+json">.*?</script>', '<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=1) + '\n</script>', s, 1, re.S)
     main = (f'<main class="article">\n<h1>Kantor Jasa Akuntan untuk usaha di {n}</h1>\n<p class="meta">Izin KMK 232/KM.1/PPPK/2020, Akuntan Berpraktik AB.715</p>\n'
-      f'<p>KJA Farhani K.N. melayani usaha di {n} dan sekitarnya, termasuk {c["near"]}, secara online dan kunjungan terjadwal. Laporan keuangan disusun dan ditandatangani Akuntan Berpraktik berizin Menteri Keuangan.</p>\n'
+      f'<p>KJA Farhani K.N. melayani usaha di {n} dan sekitarnya, termasuk {c["near"]}, secara online dan kunjungan terjadwal. Laporan keuangan disusun KJA Farhani K.N. (Kantor Jasa Akuntansi berizin) berizin Menteri Keuangan.</p>\n'
       f'<h2>Layanan untuk usaha di {n}</h2>\n<ul>\n<li>Kompilasi laporan keuangan tahunan sesuai SAK EMKM atau SAK EP, dengan laporan praktisi.</li>\n<li>Outsourcing pembukuan bulanan dan rekonsiliasi bank.</li>\n'
       '<li>Perpajakan: SPT Masa PPh dan PPN, e-Faktur, SPT Tahunan Badan.</li>\n<li>Sistem akuntansi (Accurate, Jurnal, Zahir, Xero) dan SOP keuangan.</li>\n'
       '<li>Pendampingan sampai audit KAP dan pengajuan kredit bank bersama <a href="https://faindonesia.co.id/">FA Consult</a>.</li>\n</ul>\n'
