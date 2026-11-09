@@ -228,7 +228,7 @@ def header(T, active, cur="id"):
     <a class="logo" href="{home}"><svg class="mk" viewBox="0 0 30 40" width="27" height="36" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x=".6" y=".6" width="28.8" height="38.8" stroke="currentColor" stroke-width="1.2"/><path d="M13.4 9.3a4.6 4.6 0 1 0 0 7.4" stroke="#1F5BFF" stroke-width="1.3"/><path d="M17.8 32L21.6 23l3.8 9" stroke="#1F5BFF" stroke-width="1.3"/></svg><b>cari<span>akuntan</span></b></a>
     <nav class="tabs" aria-label="Menu"><a href="{home}"{a if active=="home" else ""}>{T["nav_home"]}</a><a href="/artikel/"{a if active=="art" else ""}>{T["nav_ins"]}</a><a href="/magang/"{a if active=="mag" else ""}>{ {"/en/":"Internship","/zh/":"实习","/hokkien/":"實習"}.get(home,"Magang") }</a></nav>
     {lang_links(cur)}
-    <a class="btn btn-wa btn-sm" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a>
+    <a class="btn btn-wa btn-sm" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a>
   </div>
 </header>
 '''
@@ -241,7 +241,7 @@ def footer(T, cur="id"):
     <span>© cariakuntan.com, since 2016 · {T["managed"]} <a href="https://faindonesia.co.id/">FA Indonesia</a> (CV FA Indonesia, NIB 0208001900096) · <a href="/kota/">Wilayah</a> · <a href="/layanan/kap/">KAP</a> · <a href="/layanan/kjpp/">KJPP</a> · <a href="/layanan/konsultan-pajak/">Konsultan Pajak</a> · <a href="/layanan/jasa-laporan-keuangan/">Jasa Laporan Keuangan</a> · <a href="/jasa-pembukuan/">Jasa Pembukuan</a> · <a href="/kdmp/">Koperasi Desa Merah Putih</a> · <a href="https://faindonesia.co.id/kebijakan-privasi/">{T["privacy"]}</a></span>
   </div>
 </footer>
-<div class="bar"><a class="btn btn-wa" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+<div class="bar"><a class="btn btn-wa" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
 <script>
 document.querySelectorAll("[data-copy]").forEach(function(b){{b.addEventListener("click",function(){{var t=b.getAttribute("data-copy");try{{navigator.clipboard.writeText(t).then(function(){{b.textContent="{T["copied"]}"}},function(){{b.textContent=t}})}}catch(e){{b.textContent=t}}}})}});
 document.querySelectorAll('a[href^="https://wa.me"]').forEach(function(a){{a.addEventListener("click",function(){{try{{if(window.gtag)gtag("event","generate_lead",{{method:"whatsapp"}})}}catch(e){{}}}})}});
@@ -358,7 +358,7 @@ def landing_body(T):
         <p class="label">{T["label"]}</p>
         <h1>{T["h1"]}</h1>
         <p class="sub">{T["sub"]}</p>
-        <div class="cta"><a class="btn btn-wa arrow" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a><a class="btn btn-line" href="{mailto(T["mail_subject"], T["mail_body"])}">{T["email_btn"]}</a></div>
+        <div class="cta"><a class="btn btn-wa arrow" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><a class="btn btn-line" href="{mailto(T["mail_subject"], T["mail_body"])}">{T["email_btn"]}</a></div>
         <p class="reach">{T["reach"]} {T["cta_note"]}.</p>
       </div>
       <div class="kpi">{kpi}</div>
@@ -383,12 +383,12 @@ def landing_body(T):
     <div><h2 class="sec-h">{T["bank_h2"]}</h2>{table(T["bank_head"], T["bank_rows"], kcol=True)}</div>
     <div><h2 class="sec-h">{T["who_h2"]}</h2>{table(T["who_head"], T["who_rows"], ycol=2)}<p class="lic">{T["lic"]}</p></div>
   </div></section>
-  <section class="deep"><div class="wrap"><h2 class="sec-h">{T["rs_h2"]}</h2>{flow(T["rs_flow"])}<a class="btn arrow" href="{wa(T["needs"][3][2])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div></section>
+  <section class="deep"><div class="wrap"><h2 class="sec-h">{T["rs_h2"]}</h2>{flow(T["rs_flow"])}<a class="btn arrow" href="{wa(T["needs"][3][2])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div></section>
   <section><div class="wrap"><h2 class="sec-h">{T["cred_h2"]}</h2><div class="creds">{creds}</div></div></section>
   <section><div class="wrap"><h2 class="sec-h">{T["steps_h2"]}</h2>{flow(T["steps"])}</div></section>
   <section id="faq"><div class="wrap"><h2 class="sec-h">{T["faq_h2"]}</h2>{faqs}</div></section>
   <section id="kontak" style="background:var(--panel)"><div class="wrap"><h2 class="sec-h">{T["contact_h2"]}</h2><div class="contact2">
-    <div class="c"><h3>{T["wa_card"][0]}</h3><p>{T["wa_card"][1]}</p><a class="btn btn-wa arrow" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+    <div class="c"><h3>{T["wa_card"][0]}</h3><p>{T["wa_card"][1]}</p><a class="btn btn-wa arrow" href="{wa(T["wa_default"])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
     <div class="c"><h3>{T["em_card"][0]}</h3><p>{T["em_card"][1]}</p><p class="addr">{EMAIL}</p><div class="row"><a class="btn btn-line" href="{mailto(T["mail_subject"], T["mail_body"])}">{T["email_btn"]}</a><button class="copy" type="button" data-copy="{EMAIL}">{T["copy"]}</button></div></div>
   </div></div></section>
 </main>
@@ -471,7 +471,7 @@ for a in ALL:
   <p class="meta-line">Ananta, CPA · {date}</p>
   <p class="tldr"><b>Intinya:</b> {a["desc"]}</p>
   <article class="prose">{a["body"]}</article>{src}
-  <div class="cta-box"><h3>Diskusikan Kebutuhan Anda</h3><p style="color:var(--muted)">Kami memetakan kebutuhan Anda terhadap persyaratan bank, regulator, atau investor, lalu menghubungkan Anda dengan kantor berizin yang memenuhinya.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(a["msg"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div class="cta-box"><h3>Diskusikan Kebutuhan Anda</h3><p style="color:var(--muted)">Kami memetakan kebutuhan Anda terhadap persyaratan bank, regulator, atau investor, lalu menghubungkan Anda dengan kantor berizin yang memenuhinya.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(a["msg"])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
   <div class="more"><h3>Wawasan Lainnya</h3>{more}</div>
 </main>
 ''' + footer(ID)
@@ -549,7 +549,7 @@ qa_html = "".join(f"<h2>{tc(q)}</h2><p>{a}</p>" for q,a in QA)
 qa_ld = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in QA]}
 url = DOMAIN+"/artikel/tanya-jawab/"
 html = head("Tanya Jawab Audit, KAP, Pajak, dan Kredit Bank | cariakuntan.com","Jawaban singkat untuk pertanyaan yang paling sering diajukan pemilik usaha: siapa wajib audit, kelas KAP bank, beda KAP dan KJA, biaya audit, KJPP, AUP.",url, extra=ldtag(qa_ld))
-html += header(ID,"art") + f'''<main class="wrap art"><p class="crumb"><a href="/">Beranda</a> / <a href="/artikel/">Wawasan</a></p><h1>Tanya Jawab Audit, KAP, Pajak, dan Kredit Bank</h1><p class="sub">Jawaban singkat dan langsung untuk pertanyaan yang paling sering diajukan pemilik usaha dan tim keuangan.</p><div class="prose qa">{qa_html}</div><div class="cta-box"><h3>Masih Ragu?</h3><p style="color:var(--muted)">Ceritakan kondisi usaha Anda. Konsultasi awal gratis.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(ID["wa_default"])}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div></main>
+html += header(ID,"art") + f'''<main class="wrap art"><p class="crumb"><a href="/">Beranda</a> / <a href="/artikel/">Wawasan</a></p><h1>Tanya Jawab Audit, KAP, Pajak, dan Kredit Bank</h1><p class="sub">Jawaban singkat dan langsung untuk pertanyaan yang paling sering diajukan pemilik usaha dan tim keuangan.</p><div class="prose qa">{qa_html}</div><div class="cta-box"><h3>Masih Ragu?</h3><p style="color:var(--muted)">Ceritakan kondisi usaha Anda. Konsultasi awal gratis.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(ID["wa_default"])}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div></main>
 ''' + footer(ID)
 write("/artikel/tanya-jawab/", html); urls.insert(urls.index("/artikel/"), "/artikel/tanya-jawab/")
 

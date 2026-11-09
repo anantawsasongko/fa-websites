@@ -48,7 +48,7 @@ for kname, city, adm, secs, note in KAWASAN:
   <p class="label" style="margin-top:14px">{adm}, {prov}</p>
   <h1>KAP, Jasa Penilai (KJPP), Konsultan Pajak, dan Jasa Laporan Keuangan di {kname}</h1>
   <p class="sub">{kname} adalah {note}. Kami menghubungkan perusahaan di {kname} dan sekitarnya dengan kantor akuntan publik, KJPP, konsultan pajak, dan Kantor Jasa Akuntansi yang memenuhi syarat bank, regulator, atau investor.</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="citylist" style="margin-top:18px">{jump}</div>
   <div class="prose"><h2>Siapa Mengerjakan Apa di {kname}</h2></div>
   {overview}
@@ -80,7 +80,7 @@ for kname, city, adm, secs, note in KAWASAN:
   <p class="label" style="margin-top:14px">{disp}</p>
   <h1>{stitle} di {kname}</h1>
   <p class="sub">Cari {syn} di {kname}? Ceritakan kebutuhan Anda, kami pilihkan kantor yang sesuai syarat bank, regulator, atau investor, lengkap dengan perkiraan jadwal dan biaya.</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m2)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m2)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="prose"><h2>Kapan Perusahaan di {kname} Membutuhkan {short}</h2><p>{body[0]}</p>{f"<p>{kname} dikenal sebagai {note}. Di sini, {'objek yang paling sering dinilai adalah' if k=='kjpp' else 'yang paling sering menghubungi kami adalah'} {hk}.</p>" if hk else ""}</div>
   {tblx(["Situasi", "Yang dikerjakan", "Perkiraan waktu"], TABLE[k])}
   <div class="prose"><h2>Cara Kami Memilihkan {short} untuk {kname}</h2><p>{body[1]}</p><p>{body[2]}</p>

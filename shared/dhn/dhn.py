@@ -26,7 +26,7 @@ CSS = ("<style id=\"dhn-css\">"
  "@media print{.dhnc,.dhns{display:none}}"
  "</style>")
 T = {
- "id": dict(lab="Kantor Akuntan Publik Mitra", reg="Terdaftar OJK", desc="Izin Menteri Keuangan KMK No. 592/KM.1/2023, terdaftar OJK, anggota jaringan PA Global. Audit umum, audit untuk kredit bank dan laporan tahunan PT (SABH), reviu, dan prosedur yang disepakati untuk perusahaan di seluruh Indonesia.",
+ "id": dict(lab="Kantor Akuntan Publik", reg="Terdaftar OJK", desc="Izin Menteri Keuangan KMK No. 592/KM.1/2023, terdaftar OJK, anggota jaringan PA Global. Audit umum, audit untuk kredit bank dan laporan tahunan PT (SABH), reviu, dan prosedur yang disepakati untuk perusahaan di seluruh Indonesia.",
            kon="Kontak audit", wa="Chat WhatsApp", web="Profil KAP DHN", msg="Halo Pak Ananta, saya ingin tanya jasa audit di KAP DHN & Rekan."),
  "en": dict(lab="Partner Public Accounting Firm", reg="Registered with OJK", desc="Licensed by the Minister of Finance (KMK No. 592/KM.1/2023), registered with OJK, member of the PA Global network. Statutory audits, audits for bank loans and annual reports, reviews, and agreed-upon procedures across Indonesia.",
            kon="Audit contact", wa="Chat on WhatsApp", web="About KAP DHN", msg="Hello Pak Ananta, I would like to ask about an audit with KAP DHN & Rekan."),

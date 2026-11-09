@@ -54,7 +54,7 @@ for cname, rows in KEC.items():
   <p class="label" style="margin-top:14px">Kecamatan {k} · {kab} · {prov}</p>
   <h1>Cari KAP di {k}: Audit, Laporan Keuangan, dan Pajak untuk Usaha di Kecamatan {k}</h1>
   <p class="sub">Kantor akuntan publik jarang berkantor di tingkat kecamatan. Untuk usaha di {k}, {kab}, kami pilihkan KAP, KJA, konsultan pajak, atau KJPP berizin yang sanggup melayani dari {cname} atau kota terdekat, sesuai syarat bank, notaris, atau investor Anda.</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="citylist" style="margin-top:18px"><a href="/kota/{cs}/kap/">KAP {cname}</a> <a href="/kota/{cs}/kap-murah/">Biaya Audit {cname}</a> <a href="/kota/{cs}/laporan-tahunan-pt/">Laporan Tahunan PT {cname}</a> <a href="/artikel/jasa-audit-laporan-keuangan-cara-memilih-kap/">Cara Memilih KAP</a></div>
   <div class="prose"><h2>Siapa Mengerjakan Apa untuk Usaha di {k}</h2></div>
   {overview}

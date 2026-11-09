@@ -144,6 +144,6 @@ html += header(ID, "mag") + f'''<main>
 </main>
 ''' + footer(ID)
 # tombol bawah (mobile): lamaran via email, bukan chat WA
-html = re.sub(r'<div class="bar"><a class="btn btn-wa" href="[^"]*"[^>]*>Chat Ananta, CPA</a></div>',
+html = re.sub(r'<div class="bar"><a class="btn btn-wa" href="[^"]*"[^>]*>Tanya Ananta, CPA</a></div>',
               f'<div class="bar"><a class="btn btn-wa" href="{MG_MAIL}">Kirim Lamaran via Email</a></div>', html, count=1)
 write("/magang/", html); urls.append("/magang/")

@@ -43,7 +43,7 @@ HEAD = """<!doctype html>
 <header class="top"><div class="wrap">
   <a class="logo" href="/" aria-label="UpdateSAK beranda"><svg class="mk" viewBox="0 0 30 40" width="27" height="36" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x=".6" y=".6" width="28.8" height="38.8" stroke="#1F5BFF" stroke-width="1.2"/><path d="M6.5 8v6.2a3.2 3.2 0 0 0 6.4 0V8" stroke="#1F5BFF" stroke-width="1.3"/><path d="M24.2 24.4c-.9-1.2-5.6-1.6-5.6 1.4 0 2.9 6.1 1.6 6.1 4.6 0 3.1-5.3 2.8-6.6 1.2" stroke="#1F5BFF" stroke-width="1.3"/></svg><b>Update<span>SAK</span></b></a>
   <nav class="tabs" aria-label="Menu utama"><a href="/">Beranda</a><a href="/eksplor/" aria-current="page">Eksplor</a><a href="/materi/">Materi</a></nav>
-  <a class="btn btn-sm" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a>
+  <a class="btn btn-sm" href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Tanya Ananta, CPA</a>
 </div></header>
 <main>
 """
@@ -52,7 +52,7 @@ FOOT = """</main>
   <span>© 2026 UpdateSAK · <a href="https://faindonesia.co.id/">FA Indonesia</a> · <a href="https://cariakuntan.com/">CariAkuntan</a></span>
   <span><a href="/eksplor/">Eksplor</a> · <a href="/materi/">Materi</a> · <a href="/eksplor/#standar">Daftar PSAK</a> · <a href="mailto:ananta@faindonesia.co.id">Email</a></span>
 </div></footer>
-<div class="bar-m"><a class="btn" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+<div class="bar-m"><a class="btn" href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20diskusi%20penerapan%20SAK%20di%20perusahaan%20kami." target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
 <script>document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{try{navigator.clipboard.writeText(b.dataset.copy);b.textContent='Link Tersalin'}catch(e){}}));</script>
 </body>
 </html>
@@ -81,7 +81,7 @@ def cta(text, mode="std"):
 
 def wa_box(topic):
     from urllib.parse import quote
-    return f'''<aside class="cta-box dark"><div><b>Butuh Pendampingan {esc(topic)}?</b><span>Tim akuntan bersertifikat CA dan CPA, terbiasa dengan prosedur auditor Big 4.</span></div><a class="btn arrow" target="_blank" rel="noopener" href="{WA}{quote('Halo tim UpdateSAK, saya butuh pendampingan ' + topic + '.')}">Chat Ananta, CPA</a></aside>'''
+    return f'''<aside class="cta-box dark"><div><b>Butuh Pendampingan {esc(topic)}?</b><span>Tim akuntan bersertifikat CA dan CPA, terbiasa dengan prosedur auditor Big 4.</span></div><a class="btn arrow" target="_blank" rel="noopener" href="{WA}{quote('Halo Pak Ananta, saya butuh pendampingan ' + topic + '.')}">Tanya Ananta, CPA</a></aside>'''
 
 def faq_html(faq):
     if not faq: return ""

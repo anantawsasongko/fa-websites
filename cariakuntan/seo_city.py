@@ -156,7 +156,7 @@ for name, prov, reg, secs, note in CITIES:
   <p class="label" style="margin-top:14px">{prov}</p>
   <h1>Cari Akuntan {name}: KAP, KJA, KJPP, dan Konsultan Pajak</h1>
   <p class="sub">{name} adalah {note}. Kami menghubungkan perusahaan di {name} dengan kantor akuntan publik (KAP), KJPP, konsultan pajak, dan Kantor Jasa Akuntansi yang memenuhi persyaratan bank, regulator, atau investor.</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="citylist" style="margin-top:18px">{jump}</div>
   {boost_html(name)}
   <div class="prose"><h2>Siapa Mengerjakan Apa di {name}</h2></div>
@@ -204,7 +204,7 @@ for name, prov, reg, secs, note in CITIES:
   <p class="label" style="margin-top:14px">{name}, {prov}</p>
   <h1>{short} {name}: {stitle} di {name}</h1>
   <p class="sub">Cari {syn} di {name}? Ceritakan kebutuhan Anda, kami pilihkan kantor yang sesuai syarat bank, regulator, atau investor, lengkap dengan perkiraan jadwal dan biaya.</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m2)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(m2)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><span style="color:var(--muted);font-size:.9rem">Diskusi awal tanpa biaya</span></div>
   <div class="prose"><h2>Kapan Perusahaan di {name} Membutuhkan {short}</h2><p>{body[0]}</p>{f"<p>Di {name}, {'objek yang paling sering dinilai adalah' if k=='kjpp' else 'yang paling sering menghubungi kami adalah'} {hk}.</p>" if hk else ""}</div>
   {tblx(["Situasi", "Yang dikerjakan", "Perkiraan waktu"], TABLE[k])}
   {boost_html(name, short)}
@@ -236,7 +236,7 @@ for k in SV:
   <p class="crumb"><a href="/">Beranda</a> / <a href="/kota/">Wilayah</a> / {short}</p>
   <h1>{stitle} di Seluruh Indonesia</h1>
   <p class="sub">{body[0]}</p>
-  <div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa("Selamat siang Pak Ananta, kami sedang mencari " + wak + ".")}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa("Selamat siang Pak Ananta, kami sedang mencari " + wak + ".")}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
   {tblx(["Situasi", "Yang dikerjakan", "Perkiraan waktu"], TABLE[k])}
   <div class="prose"><p>{body[1]}</p></div>
   {rows}

@@ -60,7 +60,7 @@ def pb_page(path, crumb, h1, sub, title, desc, msg, extra_top="", faq=PB_FAQ, ar
   <p class="label" style="margin-top:14px">Terima Beres · Dikerjakan Akuntan</p>
   <h1>{h1}</h1>
   <p class="sub">{sub}</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><a class="btn" style="border:1px solid var(--line)" href="{PDF}" target="_blank" rel="noopener">Lihat Contoh Laporan (PDF)</a></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><a class="btn" style="border:1px solid var(--line)" href="{PDF}" target="_blank" rel="noopener">Lihat Contoh Laporan (PDF)</a></div>
   {extra_top}
   {ALUR}
   <div class="prose"><h2>Paket dan Harga</h2><p>Harga mulai, sebelum pajak. Angka pasti disampaikan setelah melihat contoh transaksi satu bulan.</p></div>
@@ -69,7 +69,7 @@ def pb_page(path, crumb, h1, sub, title, desc, msg, extra_top="", faq=PB_FAQ, ar
   {APP}
   {TIM}
   <div class="prose"><h2>Tanya Jawab</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in faq)}</div>
-  <div class="cta-box"><h3>Mulai Bulan Ini</h3><p style="color:var(--muted)">Kirim jenis usaha, kota, dan perkiraan jumlah transaksi per bulan. Folder Drive bisa disiapkan hari ini.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div class="cta-box"><h3>Mulai Bulan Ini</h3><p style="color:var(--muted)">Kirim jenis usaha, kota, dan perkiraan jumlah transaksi per bulan. Folder Drive bisa disiapkan hari ini.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
 </main>
 ''' + footer(ID)
     write(path, html); urls.append(path)

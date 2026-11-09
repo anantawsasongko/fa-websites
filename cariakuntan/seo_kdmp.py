@@ -62,7 +62,7 @@ for pid in sorted(_tree):
   <p class="label" style="margin-top:14px">Kecamatan {kec} · {kab} · {prov}</p>
   <h1>Laporan Keuangan dan Audit Koperasi Desa Merah Putih di Kecamatan {kec}</h1>
   <p class="sub">Untuk pengurus KDMP: pembukuan bulanan semua unit usaha, laporan keuangan untuk RAT sesuai SAK, sampai audit bila diminta bank atau anggota. Cukup foto bukti dan upload ke Google Drive, akuntan kami yang menyusun.</p>
-  <div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
   {dl}
   <div class="prose"><h2>KDMP Pakai SAK yang Mana?</h2><p>Permenkop UKM 2/2024 menentukan standar dari kegiatan usaha koperasi. KDMP yang menjalankan simpan pinjam anggota praktis memakai SAK EP.</p></div>
   {SAKT}
@@ -77,7 +77,7 @@ for pid in sorted(_tree):
         hl = " ".join(f'<a href="{kurl}{x[2]}/">{x[1]}</a>' for x in rows)
         ldk = {"@context": "https://schema.org", "@graph": [_crumbs([("Beranda", "/"), ("KDMP", "/kdmp/"), (prov, purl), (kab, kurl)])]}
         write(kurl, _lean(f"Laporan Keuangan Kopdes Merah Putih {kab}: Per Kecamatan | cariakuntan.com", f"Jasa laporan keuangan dan audit Koperasi Desa Merah Putih di {len(rows)} kecamatan {kab}, {prov}.", DOMAIN + kurl, ldk)
-              + header(ID, "home") + f'<main class="wrap art"><p class="crumb"><a href="/">Beranda</a> / <a href="/kdmp/">KDMP</a> / <a href="{purl}">{prov}</a> / {kab}</p><h1>Laporan Keuangan Koperasi Desa Merah Putih di {kab}</h1><p class="sub">Pilih kecamatan Anda.</p><div class="citylist" style="margin-top:18px">{hl}</div><div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa(f"Selamat siang Pak Ananta, kami pengurus Koperasi Desa Merah Putih di {kab}. Kami perlu bantuan laporan keuangan/RAT/audit.")}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div></main>' + footer(ID))
+              + header(ID, "home") + f'<main class="wrap art"><p class="crumb"><a href="/">Beranda</a> / <a href="/kdmp/">KDMP</a> / <a href="{purl}">{prov}</a> / {kab}</p><h1>Laporan Keuangan Koperasi Desa Merah Putih di {kab}</h1><p class="sub">Pilih kecamatan Anda.</p><div class="citylist" style="margin-top:18px">{hl}</div><div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa(f"Selamat siang Pak Ananta, kami pengurus Koperasi Desa Merah Putih di {kab}. Kami perlu bantuan laporan keuangan/RAT/audit.")}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div></main>' + footer(ID))
         urls.append(kurl)
     hp = " ".join(f'<a href="{purl}{slug(k)}/">{k}</a>' for _, k in kabs)
     write(purl, _lean(f"Laporan Keuangan Kopdes Merah Putih {prov} | cariakuntan.com", f"Jasa laporan keuangan dan audit Koperasi Desa Merah Putih di {prov}, per kabupaten dan kota.", DOMAIN + purl, {"@context": "https://schema.org", "@graph": [_crumbs([("Beranda", "/"), ("KDMP", "/kdmp/"), (prov, purl)])]})
@@ -87,7 +87,7 @@ _hp = " ".join(f'<a href="/kdmp/{slug(_P[p])}/">{_P[p]}</a>' for p in sorted(_tr
 write("/kdmp/", _lean("Laporan Keuangan dan Audit Koperasi Desa Merah Putih Seluruh Indonesia | cariakuntan.com", "Jasa pembukuan, laporan keuangan RAT sesuai SAK EP, dan audit Koperasi Desa Merah Putih untuk seluruh kecamatan di Indonesia. Pengurus cukup upload bukti ke Drive.", DOMAIN + "/kdmp/", {"@context": "https://schema.org", "@graph": [_crumbs([("Beranda", "/"), ("KDMP", "/kdmp/")])]})
       + header(ID, "home") + f'''<main class="wrap art"><p class="crumb"><a href="/">Beranda</a> / KDMP</p><h1>Laporan Keuangan dan Audit Koperasi Desa Merah Putih Seluruh Indonesia</h1>
 <p class="sub">Pembukuan bulanan, laporan untuk RAT sesuai SAK, dan audit untuk KDMP di seluruh kecamatan. Dikerjakan daring: pengurus upload bukti ke Google Drive.</p>
-<div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa("Selamat siang Pak Ananta, kami pengurus Koperasi Desa Merah Putih. Kami perlu bantuan laporan keuangan/RAT/audit.")}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+<div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa("Selamat siang Pak Ananta, kami pengurus Koperasi Desa Merah Putih. Kami perlu bantuan laporan keuangan/RAT/audit.")}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
 {SAKT}{PAKET}<div class="prose"><h2>Pilih Provinsi</h2></div><div class="citylist">{_hp}</div><p style="margin-top:18px"><a href="{ART}">Panduan: Laporan Keuangan KDMP Pakai SAK Apa?</a></p></main>''' + footer(ID))
 urls.append("/kdmp/")
 print("kdmp pages:", _n)

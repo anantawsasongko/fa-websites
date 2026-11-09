@@ -232,7 +232,7 @@ def hub():
 <h3 class="gh">Studi Kasus</h3><div class="mgrid">{cards}</div>
 <h3 class="gh">Paket Ringkas</h3><div class="mgrid">{cheats}</div>
 </div></section>
-<section class="final"><div class="wrap center"><h2>Butuh Pelatihan In-House untuk Tim Akuntansi?</h2><p>Studi kasus disesuaikan dengan industri dan sistem perusahaan Anda.</p><a class="btn arrow" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20tim%20UpdateSAK%2C%20kami%20tertarik%20pelatihan%20in-house%20untuk%20tim%20akuntansi.">Chat Ananta, CPA</a></div></section>
+<section class="final"><div class="wrap center"><h2>Butuh Pelatihan In-House untuk Tim Akuntansi?</h2><p>Studi kasus disesuaikan dengan industri dan sistem perusahaan Anda.</p><a class="btn arrow" target="_blank" rel="noopener" href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20kami%20tertarik%20pelatihan%20in-house%20untuk%20tim%20akuntansi.">Tanya Ananta, CPA</a></div></section>
 <script>document.querySelectorAll('.role').forEach(b=>b.addEventListener('click',()=>{{document.querySelectorAll('.role').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;document.querySelectorAll('.mcard').forEach(c=>{{c.hidden=!(f==='all'||c.dataset.lv.split(' ').some(v=>v===f||v==='all'))}})}}));</script>
 '''
     ld = json.dumps({"@context": "https://schema.org", "@type": "CollectionPage", "name": "Materi UpdateSAK", "url": url, "inLanguage": "id",

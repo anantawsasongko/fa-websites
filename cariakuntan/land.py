@@ -280,7 +280,7 @@ def search_widget(lang, wa_url_prefix, cities):
   <div class="row"><input id="sq" type="search" placeholder="{S["ph"]}" aria-label="{S["ph"]}" autocomplete="off"><select id="st" aria-label="Registri">{opts}</select><button class="btn btn-wa" id="sgo" type="button">{S["btn"]}</button></div>
   <p class="note" id="snote">{S["note"]}</p>
   <div class="hits" id="shits"></div>
-  <div class="help"><span>{S["help"]}</span><a class="btn btn-line btn-sm" id="swa" href="{wa_url_prefix}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div class="help"><span>{S["help"]}</span><a class="btn btn-line btn-sm" id="swa" href="{wa_url_prefix}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
   <div class="srcs">{srcs}</div>
 </div>
 <script>(function(){{var C=[{cj}],q=document.getElementById("sq"),st=document.getElementById("st"),h=document.getElementById("shits"),w=document.getElementById("swa"),n=document.getElementById("snote"),base={json_dumps(wa_url_prefix)};

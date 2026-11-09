@@ -111,7 +111,7 @@ html += header(ID, "home") + f'''<main class="wrap art">
   <p class="crumb"><a href="/">Beranda</a> / KAP Murah</p>
   <h1>KAP Murah: Apakah Bijak, Independen, dan Dapat Dipercaya?</h1>
   <p class="sub">KAP yang tepat adalah KAP berizin dan independen dengan biaya wajar untuk skala usaha Anda, serta diterima pihak yang meminta laporan audit. Diskusikan dulu kebutuhannya, lalu pilih kota Anda.</p>
-  <div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa("Selamat siang Pak Ananta, kami mencari KAP dengan biaya audit yang hemat dan diterima bank.")}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div style="margin-top:22px"><a class="btn btn-wa arrow" href="{wa("Selamat siang Pak Ananta, kami mencari KAP dengan biaya audit yang hemat dan diterima bank.")}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
   {tblx(["Kebutuhan", "Pilihan paling hemat yang tetap diterima", "Catatan"], HEMAT)}
   <div class="prose"><h2>5 Cara Menekan Biaya Audit</h2><ol>{"".join(f"<li><b>{a}.</b> {b}</li>" for a, b in CARA)}</ol></div>
   {hub_list}

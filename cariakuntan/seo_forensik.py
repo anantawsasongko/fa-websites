@@ -27,7 +27,7 @@ def fr_page(path, crumb, h1, sub, title, desc, msg, intro="", area="Indonesia", 
   <p class="label" style="margin-top:14px">Akuntan Forensik · Laporan untuk Penyidik</p>
   <h1>{h1}</h1>
   <p class="sub">{sub}</p>
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a><a class="btn" style="border:1px solid var(--line)" href="{FAF}">Detail Layanan</a></div>
+  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px"><a class="btn btn-wa arrow" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a><a class="btn" style="border:1px solid var(--line)" href="{FAF}">Detail Layanan</a></div>
   <div class="prose">{intro}<h2>Kasus yang Kami Hitung</h2></div>
   {FR_KASUS}
   <div class="prose"><h2>Cara Kerja</h2><ol><li><b>Upload dokumen</b>: bukti transfer, kontrak, chat, nota, rekening koran, lewat WhatsApp atau Google Drive.</li>
@@ -40,7 +40,7 @@ def fr_page(path, crumb, h1, sub, title, desc, msg, intro="", area="Indonesia", 
   <h2>Siapa yang Mengerjakan</h2><p>Tim FA Indonesia menghitung, laporan ditandatangani akuntan publik <a href="https://faindonesia.co.id/kap-dhn/">KAP DHN &amp; Rekan</a> yang pemimpin rekannya memegang Certified Financial Investigator (CFI) dari IAPI. Panduan: <a href="/artikel/cara-menghitung-kerugian-penipuan-untuk-laporan-polisi/">cara menghitung kerugian penipuan</a>, <a href="/artikel/dokumen-yang-disiapkan-untuk-laporan-kerugian-ke-penyidik/">dokumen yang disiapkan</a>.</p>
   <h2>Tanya Jawab</h2>{"".join(f"<h3>{q}</h3><p>{a}</p>" for q, a in FR_FAQ)}</div>
   {extra}
-  <div class="cta-box"><h3>Ceritakan Kasusnya</h3><p style="color:var(--muted)">Kirim kronologi singkat dan perkiraan jumlah transaksi. Review awal dokumen gratis.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(msg)}" target="_blank" rel="noopener">Chat Ananta, CPA</a></div>
+  <div class="cta-box"><h3>Ceritakan Kasusnya</h3><p style="color:var(--muted)">Kirim kronologi singkat dan perkiraan jumlah transaksi. Review awal dokumen gratis.</p><a class="btn btn-wa" style="justify-self:start" href="{wa(msg)}" target="_blank" rel="noopener">Tanya Ananta, CPA</a></div>
 </main>
 ''' + footer(ID)
     write(path, html); urls.append(path)

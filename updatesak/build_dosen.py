@@ -16,7 +16,7 @@ J = json.load(open(os.path.join(HERE, "dosen_jurnal.json"), encoding="utf-8"))
 FREE = sum(1 for j in J if j["akses"] != "OA APC rendah" and "submit" not in j["apc"].lower())
 C = sorted(json.load(open(os.path.join(HERE, "dosen_cfp.json"), encoding="utf-8")), key=lambda x: x["batas_iso"])
 PDFDIR = os.path.join(SITE, "dosen", "pdf"); IMGDIR = os.path.join(SITE, "img", "dosen")
-WA_DOSEN = B.WA + quote("Halo tim UpdateSAK, saya dosen akuntansi dan ingin mengusulkan topik bahan ajar berikutnya: ")
+WA_DOSEN = B.WA + quote("Halo Pak Ananta, saya dosen akuntansi dan ingin mengusulkan topik bahan ajar berikutnya: ")
 PANTAU = [("GAMAICEB, FEB Universitas Gadjah Mada", "https://gamaiceb.feb.ugm.ac.id/", "Konferensi internasional ekonomi dan bisnis tahunan"),
           ("Call for Papers FEB UGM", "https://feb.ugm.ac.id/en/call-for-papers", "Daftar pengumuman konferensi dan jurnal FEB UGM"),
           ("Ikatan Akuntan Indonesia (IAI)", "https://web.iaiglobal.or.id/", "Pengumuman Simposium Nasional Akuntansi (SNA) dari IAI KAPd")]
