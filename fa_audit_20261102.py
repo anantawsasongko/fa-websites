@@ -58,9 +58,9 @@ PA_FAQ = [
  ("Apakah PT yang tidak wajib audit tetap perlu laporan untuk SABH?", "Ya. Semua PT persekutuan modal menyampaikan laporan tahunan, tetapi laporan keuangannya tidak harus diaudit bila di bawah kriteria Pasal 68 UU PT."),
  ("Apakah melayani perusahaan di luar Jawa?", "Ya. Pengujian dokumen dilakukan daring, kunjungan lapangan dijadwalkan untuk observasi persediaan dan aset."),
 ]
-svc_page(PA, "Layanan · Audit", "Jasa Audit Laporan Keuangan: KAP Berizin, Biaya Wajar, Laporan Terbit Tepat Waktu",
+svc_page(PA, "Layanan · Audit", "Jasa Audit Laporan Keuangan oleh KAP Terdaftar OJK untuk Bank, SABH, dan Investor",
   "Audit untuk laporan tahunan PT di SABH, kredit bank, investor, atau tender. Kami siapkan pembukuan dan dokumennya, lalu audit dilaksanakan KAP mitra yang terdaftar OJK. Termasuk audit tahun pertama, ganti KAP, dan audit beberapa tahun sekaligus. Seluruh Indonesia.",
-  pa_body, PA_FAQ, "Jasa Audit Laporan Keuangan: KAP Berizin, Biaya Wajar | FA Indonesia",
+  pa_body, PA_FAQ, "Jasa Audit Laporan Keuangan oleh KAP Terdaftar OJK | FA Indonesia",
   "Jasa audit laporan keuangan lewat KAP mitra terdaftar OJK: untuk SABH, bank, investor, tender. Audit tahun pertama, ganti KAP, biaya wajar tanpa memangkas prosedur. Diskusi awal gratis.",
   "Jasa Audit Laporan Keuangan", "Financial statement audit coordination",
   "/kap-dhn/", "KAP Mitra FA", "Halo FA Indonesia, kami perlu jasa audit laporan keuangan.", "Jasa Audit")
