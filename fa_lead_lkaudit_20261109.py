@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lead WA penyusunan LK dan audit KAP (9 Nov 2026). BEKERJA LANGSUNG DI out/faindonesia, idempoten.
+"""Lead WA penyusunan LK dan audit KAP (9 Nov 2026). Revisi malam (Bos): FA = pintu kontak KJA Farhani dan KAP DHN di halaman LK/audit. BEKERJA LANGSUNG DI out/faindonesia, idempoten.
 Jalankan PALING AKHIR (setelah fa_langsung, fa_seo_rapi, fa_tim_izin).
 
 Temuan GSC 90 hari (9 Nov 2026):
@@ -68,33 +68,35 @@ def city_of(u, h):
 def lead_box(city):
     dari = f' dari {city}' if city else ''
     di = f' di {city}' if city else ''
-    lk = wa(f'Halo Pak Ananta, saya{dari} perlu penyusunan laporan keuangan. Tahun buku: ... Jenis usaha: ...')
-    au = wa(f'Halo Pak Ananta, saya{dari} perlu audit laporan keuangan oleh KAP. Keperluan: bank / SABH / tender / investor.')
-    return (f'{M1}<div class="lk2" style="{BOX}"><b style="font-size:17px">Perlu yang Mana{di}?</b>'
+    lk = wa(f'Halo Pak Ananta, saya{dari} perlu penyusunan laporan keuangan oleh KJA Farhani. Tahun buku: ... Jenis usaha: ...')
+    au = wa(f'Halo Pak Ananta, saya{dari} perlu audit laporan keuangan oleh KAP DHN & Rekan. Keperluan: bank / SABH / tender / investor.')
+    return (f'{M1}<div class="lk2" style="{BOX}"><b style="font-size:17px">Kontak KJA Farhani dan KAP DHN &amp; Rekan{di}</b>'
+            f'<p style="margin:.3em 0 0;opacity:.85">FA Indonesia adalah pintu kontak untuk kedua kantor ini. Satu chat WhatsApp, '
+            f'dijawab Ananta W. Sasongko, CPA, yang mendampingi sampai laporan selesai.</p>'
             f'<div style="{GRID}">'
-            f'<div><b>Laporan keuangan belum ada atau belum rapi</b><p style="margin:.3em 0 .6em;opacity:.85">'
-            f'Disusun sesuai SAK EMKM, SAK EP, atau PSAK, siap dipakai bank dan auditor.</p>'
-            f'<a class="btn solid" href="{lk}" rel="noopener" target="_blank">Tanya Susun Laporan Keuangan</a></div>'
-            f'<div><b>Perlu laporan audit KAP</b><p style="margin:.3em 0 .6em;opacity:.85">'
-            f'Untuk kredit bank, laporan tahunan PT di SABH, tender, atau investor. Diaudit KAP terdaftar OJK.</p>'
-            f'<a class="btn solid" href="{au}" rel="noopener" target="_blank">Tanya Audit KAP</a></div>'
-            f'</div></div>{M1E}')
+            f'<div><b>Penyusunan Laporan Keuangan</b><p style="margin:.3em 0 .6em;opacity:.85">'
+            f'Oleh KJA Farhani K.N. (Kantor Jasa Akuntansi berizin, Malang). Sesuai SAK EMKM, SAK EP, atau PSAK, siap dipakai bank dan auditor.</p>'
+            f'<a class="btn solid" href="{lk}" rel="noopener" target="_blank">Tanya KJA Farhani</a></div>'
+            f'<div><b>Audit Laporan Keuangan</b><p style="margin:.3em 0 .6em;opacity:.85">'
+            f'Oleh KAP DHN &amp; Rekan, terdaftar OJK. Untuk kredit bank, laporan tahunan PT di SABH, tender, atau investor.</p>'
+            f'<a class="btn solid" href="{au}" rel="noopener" target="_blank">Tanya KAP DHN &amp; Rekan</a></div>'
+            f'</div><p style="margin:.7em 0 0;font-size:13px;opacity:.7">Untuk satu perusahaan, penyusun laporan keuangan dan auditornya selalu kantor yang berbeda.</p></div>{M1E}')
 
 
 def art_box(kind, title):
     t = title.split(':')[0].strip()
     if kind == 'audit':
         head = 'Perusahaan Anda Perlu Audit KAP?'
-        body = ('Kirim tahun buku dan keperluannya (bank, SABH, tender, investor). Kami cek dulu kesiapan laporan '
-                'keuangannya, lalu audit oleh KAP terdaftar OJK. Penyusun laporan dan auditor selalu pihak berbeda.')
-        msg = f'Halo Pak Ananta, saya baca artikel "{t}". Perusahaan kami perlu audit laporan keuangan oleh KAP.'
-        btn = 'Tanya Audit KAP via WhatsApp'
+        body = ('Audit dikerjakan KAP DHN &amp; Rekan (terdaftar OJK); FA Indonesia pintu kontaknya. Kirim tahun buku dan '
+                'keperluannya (bank, SABH, tender, investor) lewat WhatsApp, dijawab Ananta W. Sasongko, CPA.')
+        msg = f'Halo Pak Ananta, saya baca artikel "{t}". Perusahaan kami perlu audit laporan keuangan oleh KAP DHN & Rekan.'
+        btn = 'Tanya KAP DHN &amp; Rekan'
     else:
         head = 'Laporan Keuangan Anda Belum Siap?'
-        body = ('Kirim jenis usaha dan tahun bukunya. Laporan keuangan disusun sesuai standar yang berlaku, '
-                'siap dipakai bank, auditor, dan investor.')
-        msg = f'Halo Pak Ananta, saya baca artikel "{t}". Kami perlu bantuan penyusunan laporan keuangan.'
-        btn = 'Tanya Susun Laporan Keuangan'
+        body = ('Laporan keuangan disusun KJA Farhani K.N. (Kantor Jasa Akuntansi berizin); FA Indonesia pintu kontaknya. '
+                'Kirim jenis usaha dan tahun bukunya lewat WhatsApp, dijawab Ananta W. Sasongko, CPA.')
+        msg = f'Halo Pak Ananta, saya baca artikel "{t}". Kami perlu penyusunan laporan keuangan oleh KJA Farhani.'
+        btn = 'Tanya KJA Farhani'
     return (f'{M2}<div class="lk2a" style="{BOX}"><b style="font-size:17px">{head}</b>'
             f'<p style="margin:.4em 0 .8em">{body}</p>'
             f'<a class="btn solid" href="{wa(msg)}" rel="noopener" target="_blank">{btn}</a></div>{M2E}')
@@ -109,10 +111,10 @@ def put(h, start, end, block, anchor_fn):
 
 
 def wil_desc(city):
-    for d in (f'Cari KAP atau akuntan di {city}? Audit oleh KAP terdaftar OJK, penyusunan laporan keuangan siap audit, '
-              f'dan cek izin KAP. Tanya dulu lewat WhatsApp.',
-              f'Cari KAP atau akuntan di {city}? Audit oleh KAP terdaftar OJK dan penyusunan laporan keuangan siap audit.',
-              f'KAP dan akuntan di {city}: audit oleh KAP terdaftar OJK dan laporan keuangan siap audit.'):
+    for d in (f'KAP dan akuntan di {city}: audit oleh KAP DHN & Rekan (terdaftar OJK), laporan keuangan oleh KJA Farhani. '
+              f'Kontak lewat FA Indonesia via WhatsApp.',
+              f'KAP dan akuntan di {city}: audit oleh KAP DHN & Rekan (terdaftar OJK), laporan keuangan oleh KJA Farhani.',
+              f'KAP di {city}: audit oleh KAP DHN & Rekan, laporan keuangan oleh KJA Farhani.'):
         if len(d) <= 158:
             return d
     return None
@@ -142,16 +144,14 @@ def main():
         h0 = h = open(p, encoding='utf-8').read()
         if fam.match(u):
             city = city_of(u, h)
-            if u.startswith('/wilayah/') and 'KJA Farhani, kredit bank.' in h:
-                m = re.search(r'Cari akuntan atau kantor akuntan publik \(KAP\) di ([^?]+)\?', h)
+            m = re.search(r'<meta content="(?:Cari akuntan atau kantor akuntan publik \(KAP\) di|Cari KAP atau akuntan di) ([^?]+)\?', h) if u.startswith('/wilayah/') else None
+            if m:
                 d = wil_desc(html.unescape(m.group(1))) if m else None
                 if d:
                     h = set_desc(h, d); n['desc'] += 1
             if u.startswith('/wilayah/'):
-                h2 = re.sub(r'(<meta content="[^"]*?)KAP DHN &amp; Rekan, KJA Farhani\.([^"]*" (?:name|property)="(?:og:|twitter:)?description"/>)',
-                            r'\1Audit oleh KAP terdaftar OJK.\2', h)
-                h2 = re.sub(r'(<meta content="[^"]*?), laporan keuangan oleh KJA Farhani([^"]*" (?:name|property)="(?:og:|twitter:)?description"/>)',
-                            r'\1, penyusunan laporan keuangan\2', h2)
+                h2 = re.sub(r'(<meta content="[^"]*?)Audit oleh KAP terdaftar OJK\.([^"]*" (?:name|property)="(?:og:|twitter:)?description"/>)',
+                            r'\1KAP DHN &amp; Rekan, KJA Farhani.\2', h)
                 if h2 != h:
                     h = h2; n['desc'] += 1
             h, ok = put(h, M1, M1E, lead_box(city), lambda s: s.find('<!--fa-tim-atas-->'))
