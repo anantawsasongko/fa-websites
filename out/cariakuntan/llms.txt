@@ -178,3 +178,10 @@
 
 ## Cek izin profesi keuangan
 - [Cek Izin KAP, KJA, KJPP, Konsultan Pajak, Penilai Publik](https://cariakuntan.com/cek-izin/): pencarian nama dan nomor izin dari registri PPPK Kemenkeu, diperbarui tiap bulan; daftar per kota ada di tiap halaman /kota/<kota>/.
+
+## Kata Kunci Baru 9 Nov 2026
+- [Konsultan Rumah Sakit: Cara Memilih yang Paham Keuangan dan BPJS](https://cariakuntan.com/konsultan-rumah-sakit/): per kota di /kota/<kota>/konsultan-rumah-sakit/
+- [Jasa Buku Besar: Tanda General Ledger Anda Perlu Dirapikan](https://cariakuntan.com/jasa-buku-besar/): per kota di /kota/<kota>/jasa-buku-besar/
+- [Pendampingan Audit: Menghadapi Auditor KAP Tanpa Panik](https://cariakuntan.com/pendampingan-audit/): per kota di /kota/<kota>/pendampingan-audit/
+- [Konsultan PSAK: Standar Mana yang Berlaku untuk Usaha Anda](https://cariakuntan.com/konsultan-psak/): per kota di /kota/<kota>/konsultan-psak/
+- [Laporan Keuangan untuk SABH](https://cariakuntan.com/laporan-keuangan-sabh/): cek kebutuhan dan template Word/Excel untuk Notaris

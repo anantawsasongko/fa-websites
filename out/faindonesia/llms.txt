@@ -297,3 +297,10 @@
 - Konsultan SIMRS (vendor, RME, SATUSEHAT, bridging BPJS, integrasi akuntansi) → https://faindonesia.co.id/konsultan-simrs/
 - Penyusunan laporan keuangan per kabupaten/kota dan per jenis usaha (cafe, restoran, klinik, PT/CV, kontraktor, koperasi, yayasan) → https://faindonesia.co.id/jasa-penyusunan-laporan-keuangan/
 <!--/fanas-->
+
+## Kata Kunci Baru 9 Nov 2026
+- [Laporan Keuangan untuk SABH: Panduan dan Template](https://faindonesia.co.id/laporan-keuangan-sabh/): template Word/Excel laporan tahunan PT untuk Notaris, format FA Jupiter
+- [Jasa Buku Besar](https://faindonesia.co.id/jasa-buku-besar/): general ledger, rekonsiliasi, neraca saldo, per kota
+- [Jasa Pendampingan Audit](https://faindonesia.co.id/jasa-pendampingan-audit/): menyiapkan PBC dan menjawab auditor KAP, per kota
+- [Konsultan Penerapan PSAK](https://faindonesia.co.id/konsultan-penerapan-psak/): PSAK 109, 115, 116, 118, 212, 219, per kota
+- [Laporan Tahunan PT per Kota](https://faindonesia.co.id/laporan-tahunan-pt/malang/): SABH per kota
