@@ -33,12 +33,16 @@ ART_AUDIT = ['apakah-perusahaan-butuh-audit-kap', 'audit-rumah-sakit-pertama-kal
              'kap-murah-apakah-bijak', 'kapan-perusahaan-wajib-diaudit', 'kja-vs-kap', 'kompilasi-review-audit',
              'laporan-audit-lama-keluar', 'mengembangkan-pt-tanpa-audit-kap', 'opini-tidak-menyatakan-pendapat-disclaimer',
              'persiapan-audit-pertama-kali-saldo-awal', 'laporan-tahunan-pt-permenkum-49-2025',
-             'kap-dan-kja-mitra-fa-indonesia']
+             'kap-dan-kja-mitra-fa-indonesia',
+             # 11 Nov 2026 (fa_artikel_lead_20261111.py)
+             'audit-laporan-keuangan-perusahaan-tambang-kontraktor-kalimantan', 'audit-laporan-keuangan-pt-pma-persiapan', 'audit-selesai-sebelum-akhir-tahun-target-realistis', 'cara-membaca-surat-penawaran-audit-kap', 'laporan-keuangan-audited-untuk-tender-migas-bumn']
 ART_LK = ['biaya-jasa-penyusunan-laporan-keuangan', 'contoh-laporan-keuangan-umkm', 'laporan-keuangan-bankable-investor-ready',
           'laporan-keuangan-berantakan-cara-merapikan', 'laporan-keuangan-kontraktor-psak-115',
           'laporan-keuangan-rumah-sakit-swasta-sesuai-psak', 'laporan-keuangan-untuk-kredit-bank',
           'panduan-implementasi-psak-118', 'psak-119-entitas-anak-tanpa-akuntabilitas-publik',
-          'aplikasi-laporan-keuangan-gratis-sesuai-sak-emkm-ep-psak', 'pertanyaan-komisaris-atas-laporan-keuangan']
+          'aplikasi-laporan-keuangan-gratis-sesuai-sak-emkm-ep-psak', 'pertanyaan-komisaris-atas-laporan-keuangan',
+          # 11 Nov 2026
+          'keaslian-data-laporan-keuangan-untuk-bank', 'laporan-keuangan-bank-dan-pajak-harus-sejalan', 'laporan-keuangan-usaha-pariwisata-bali', 'menyusun-laporan-keuangan-dari-rekening-koran', 'pertanyaan-sebelum-menyusun-laporan-keuangan-pt']
 
 BOX = ('border:1px solid rgba(233,185,73,.5);border-radius:12px;padding:16px 18px;margin:22px 0 8px;'
        'background:rgba(233,185,73,.07);max-width:760px')

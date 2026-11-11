@@ -1,0 +1,41 @@
+{
+ "slug": "dokumen-menghitung-kerugian-penggelapan",
+ "seo_title": "Dokumen untuk Menghitung Kerugian Penggelapan",
+ "title": "Dokumen yang Dibutuhkan untuk Menghitung Kerugian Penggelapan dan Penipuan",
+ "description": "Mau menghitung kerugian akibat penggelapan atau penipuan? Ini dokumen yang perlu dikumpulkan, cara menjaga keasliannya, dan urutan pengiriman ke akuntan.",
+ "keyword": "dokumen kerugian penggelapan",
+ "category": "Akuntansi Forensik",
+ "minutes": 5,
+ "cta": {
+  "href": "/akuntan-forensik/",
+  "label": "Akuntan Forensik"
+ },
+ "wa": "Halo Pak Ananta, kami mengalami penggelapan dan ingin tahu dokumen apa yang perlu disiapkan untuk menghitung kerugian.",
+ "sources": [
+  [
+   "https://peraturan.go.id/",
+   "Database Peraturan Perundang-undangan"
+  ]
+ ],
+ "related": [
+  "laporan-penghitungan-kerugian-proyek-akuntan-publik",
+  "metode-menghitung-kerugian-keuangan",
+  "ahli-akuntansi-di-penyidikan-dan-persidangan",
+  "pisahkan-uang-pribadi-dan-perusahaan"
+ ],
+ "body_html": "<p>Kerugian yang dihitung tanpa dokumen hanya menjadi klaim. Kerugian yang dihitung dari dokumen menjadi bukti. Begitu ada dugaan penggelapan atau penipuan, langkah paling penting adalah mengumpulkan dan mengamankan dokumen sebelum hilang atau berubah.</p>\n<h2>Dokumen Utama</h2>\n<div class=\"tblwrap\"><table class=\"tbl\"><thead><tr><th>Dokumen</th><th>Membuktikan</th></tr></thead><tbody>\n<tr><td>Kontrak, perjanjian, PO, surat penunjukan</td><td>Hak dan kewajiban para pihak</td></tr>\n<tr><td>Rekening koran asli dari bank</td><td>Aliran uang keluar dan masuk</td></tr>\n<tr><td>Bukti transfer, kuitansi, invoice</td><td>Pembayaran yang dilakukan</td></tr>\n<tr><td>Berita acara, laporan progres, foto pekerjaan</td><td>Apa yang benar-benar dikerjakan</td></tr>\n<tr><td>Pembukuan, laporan kas, stok</td><td>Catatan internal perusahaan</td></tr>\n<tr><td>Percakapan WhatsApp dan email</td><td>Kesepakatan dan pengakuan</td></tr>\n</tbody></table></div>\n<h2>Menjaga Keaslian</h2>\n<ul>\n<li>Unduh rekening koran langsung dari bank, jangan diedit.</li>\n<li>Ekspor percakapan WhatsApp lengkap, jangan hanya tangkapan layar terpilih.</li>\n<li>Simpan salinan asli di tempat terpisah sebelum diolah.</li>\n<li>Catat siapa yang menyerahkan dokumen dan kapan.</li>\n</ul>\n<div class=\"pf-fold\"><p>Dokumen yang pernah diubah, sekecil apa pun, bisa membuat pihak lawan meragukan seluruh bukti. Bila ada dokumen yang hanya tersedia dalam bentuk foto atau salinan, sampaikan apa adanya. Akuntan akan mencatat keterbatasan itu dalam laporannya.</p></div>\n<h2>Urutan Pengiriman</h2>\n<ol>\n<li>Kronologi singkat satu halaman: siapa, kapan, berapa, bagaimana.</li>\n<li>Kontrak dan dokumen dasar.</li>\n<li>Bukti pembayaran dan rekening koran.</li>\n<li>Bukti pekerjaan atau barang yang diterima.</li>\n<li>Dokumen pendukung lain.</li>\n</ol>\n<div class=\"pf-fold\"><p>Kronologi membantu akuntan memahami perkara dalam beberapa menit, sehingga diskusi awal langsung fokus pada dokumen yang menentukan. Kronologi tidak perlu ditulis dengan bahasa hukum, cukup urutan kejadian dengan tanggal dan nilai.</p></div>\n\n<h2>Contoh Kronologi Satu Halaman</h2>\n<p>Format sederhana yang bisa dipakai:</p>\n<div class=\"tblwrap\"><table class=\"tbl\"><thead><tr><th>Tanggal</th><th>Kejadian</th><th>Nilai</th><th>Dokumen</th></tr></thead><tbody>\n<tr><td>Isi tanggal</td><td>Kontrak ditandatangani</td><td>Nilai kontrak</td><td>Kontrak</td></tr>\n<tr><td>Isi tanggal</td><td>Pembayaran uang muka</td><td>Nominal</td><td>Bukti transfer</td></tr>\n<tr><td>Isi tanggal</td><td>Laporan progres pertama</td><td>Persentase</td><td>Laporan, foto</td></tr>\n<tr><td>Isi tanggal</td><td>Pekerjaan berhenti</td><td>Sisa pekerjaan</td><td>Percakapan, surat</td></tr>\n<tr><td>Isi tanggal</td><td>Teguran atau somasi</td><td>Tidak ada</td><td>Surat</td></tr>\n</tbody></table></div>\n<p>Kronologi seperti ini membantu akuntan dan kuasa hukum memahami perkara dengan cepat, dan menjadi peta untuk mencari dokumen yang belum ada.</p>\n<h2>Penggelapan oleh Karyawan Internal</h2>\n<p>Bila dugaan penggelapan dilakukan oleh karyawan, misalnya kasir, admin keuangan, atau sales, dokumen tambahan yang relevan antara lain: catatan kas harian, laporan penjualan per sales, rekap setoran, akses sistem akuntansi, dan rekening penerima transfer yang mencurigakan. Amankan akses sistem dan data sebelum karyawan yang bersangkutan sempat mengubahnya, dengan tetap memperhatikan aturan ketenagakerjaan.</p>\n<div class=\"pf-fold\"><p>Pola penggelapan internal sering berulang dalam nominal kecil selama berbulan-bulan. Analisis data transaksi secara menyeluruh, bukan hanya sampel, biasanya diperlukan untuk menghitung total kerugiannya.</p></div>\n<h2>Konsultasi Penghitungan Kerugian</h2><p>Laporan penghitungan kerugian di FA Indonesia ditandatangani akuntan publik yang bersertifikat forensik. Diskusi awal bisa langsung dengan Ananta W. Sasongko, CPA, dan bila sudah ada kuasa hukum, sebaiknya dilibatkan sejak awal supaya kebutuhan pembuktian sama. Informasi perkara dijaga kerahasiaannya.</p>",
+ "faq": [
+  [
+   "Apakah tangkapan layar WhatsApp bisa dipakai?",
+   "Bisa sebagai pendukung, tetapi ekspor percakapan lengkap lebih kuat karena konteksnya utuh."
+  ],
+  [
+   "Bagaimana bila dokumen tidak lengkap?",
+   "Perhitungan tetap bisa dibuat dengan asumsi yang ditulis jelas, dan keterbatasannya dicatat dalam laporan."
+  ],
+  [
+   "Siapa yang sebaiknya mengumpulkan dokumen?",
+   "Satu orang yang dipercaya, dengan catatan kapan dan dari siapa setiap dokumen diterima."
+  ]
+ ]
+}

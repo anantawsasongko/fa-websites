@@ -1,0 +1,41 @@
+{
+ "slug": "data-awal-konsultasi-keuangan-rumah-sakit",
+ "seo_title": "Data Awal untuk Konsultasi Keuangan Rumah Sakit",
+ "title": "Data yang Perlu Disiapkan Sebelum Konsultasi Keuangan Rumah Sakit",
+ "description": "Konsultasi keuangan rumah sakit jadi cepat dan tepat bila data awalnya siap. Ini daftar data yang perlu disiapkan, dari laporan keuangan sampai klaim BPJS.",
+ "keyword": "data konsultasi keuangan rumah sakit",
+ "category": "Rumah Sakit",
+ "minutes": 5,
+ "cta": {
+  "href": "/konsultan-rumah-sakit/",
+  "label": "Konsultan Rumah Sakit"
+ },
+ "wa": "Halo Pak Ananta, kami ingin konsultasi keuangan rumah sakit. Data apa saja yang perlu kami siapkan?",
+ "sources": [
+  [
+   "https://www.bpjs-kesehatan.go.id/",
+   "BPJS Kesehatan"
+  ]
+ ],
+ "related": [
+  "laporan-keuangan-rumah-sakit-swasta-sesuai-psak",
+  "piutang-klaim-bpjs-dan-arus-kas-rumah-sakit",
+  "cara-menghitung-unit-cost-rumah-sakit",
+  "titik-impas-rumah-sakit-per-dpjp"
+ ],
+ "body_html": "<p>Pertemuan pertama dengan konsultan sering habis untuk saling bertanya hal dasar. Bila data awal sudah disiapkan, pertemuan pertama bisa langsung membahas masalah dan pilihan solusinya. Daftar berikut tidak harus lengkap sempurna. Kirim yang sudah ada dulu, sisanya menyusul.</p>\n<h2>Data Keuangan</h2>\n<ul>\n<li>Laporan keuangan 2 tahun terakhir dan tahun berjalan sampai bulan terakhir.</li>\n<li>Rekening koran semua rekening operasional, termasuk rekening yang menerima pembayaran BPJS dan asuransi.</li>\n<li>Daftar pinjaman bank: plafon, sisa pokok, bunga, jatuh tempo, dan agunan.</li>\n<li>Rincian utang ke vendor obat dan alat kesehatan.</li>\n</ul>\n<h2>Data Operasional</h2>\n<div class=\"tblwrap\"><table class=\"tbl\"><thead><tr><th>Data</th><th>Dipakai Untuk</th></tr></thead><tbody>\n<tr><td>Pendapatan per layanan dan per penjamin (BPJS, asuransi, umum)</td><td>Melihat sumber pendapatan utama dan ketergantungan</td></tr>\n<tr><td>Jumlah pasien rawat jalan, rawat inap, BOR, ALOS</td><td>Menilai pemanfaatan kapasitas</td></tr>\n<tr><td>Umur piutang klaim, pending, dispute</td><td>Menghitung kas yang tertahan</td></tr>\n<tr><td>Kontrak jasa medis dokter</td><td>Menghitung margin per layanan</td></tr>\n<tr><td>Daftar karyawan per unit</td><td>Menghitung biaya tenaga per layanan</td></tr>\n</tbody></table></div>\n<div class=\"pf-fold\"><p>Bila sistem informasi rumah sakit bisa mengekspor data ke Excel, itu sangat membantu. Data mentah dari sistem biasanya lebih berguna daripada laporan yang sudah diringkas, karena konsultan bisa mengolahnya sesuai pertanyaan yang muncul.</p></div>\n<h2>Data Legal dan Izin</h2>\n<ul>\n<li>Akta PT dan perubahan terakhir.</li>\n<li>Izin operasional dan status akreditasi.</li>\n<li>Perjanjian kerja sama BPJS dan asuransi utama.</li>\n<li>Status kepemilikan tanah dan bangunan.</li>\n</ul>\n<h2>Pertanyaan yang Perlu Dijawab Pemilik</h2>\n<p>Selain data, konsultan perlu tahu tujuan pemilik. Apakah ingin memperbaiki kas, menambah layanan, mencari pendanaan, mengajak investor, atau menjual? Jawaban ini menentukan analisis mana yang didahulukan.</p>\n<div class=\"pf-fold\"><p>Data cukup dikirim melalui folder bersama yang aksesnya dibatasi. Hindari mengirim data pasien yang tidak diperlukan. Untuk analisis keuangan, data agregat per layanan sudah memadai.</p></div>\n<h2>Cara Mengirim Data dengan Aman</h2>\n<ul>\n<li>Gunakan folder bersama dengan akses terbatas pada orang yang ditunjuk, bukan grup chat besar.</li>\n<li>Beri nama file yang jelas, misalnya tahun, jenis data, dan unit.</li>\n<li>Kirim rekening koran dalam format PDF asli dari bank.</li>\n<li>Hindari data identitas pasien. Untuk analisis keuangan, data agregat sudah memadai.</li>\n<li>Tanda tangani perjanjian kerahasiaan sebelum data dibuka.</li>\n</ul>\n<h2>Apa yang Dihasilkan dari Data Awal</h2>\n<p>Dengan data awal, dalam satu sampai dua minggu biasanya sudah bisa disusun gambaran pertama: berapa pendapatan per penjamin, layanan mana yang menghasilkan margin terbesar, berapa kas yang tertahan di piutang klaim, dan berapa lama kas rumah sakit bisa menutup biaya operasional. Gambaran ini menjadi bahan diskusi kedua, di mana pemilik dan konsultan menentukan prioritas.</p>\n<div class=\"tblwrap\"><table class=\"tbl\"><thead><tr><th>Pertanyaan Pemilik</th><th>Data Utama yang Menjawab</th></tr></thead><tbody>\n<tr><td>Kenapa kas selalu kurang?</td><td>Rekening koran, umur piutang klaim, jadwal cicilan</td></tr>\n<tr><td>Layanan mana yang rugi?</td><td>Pendapatan per layanan, kontrak jasa medis, biaya per unit</td></tr>\n<tr><td>Apakah layak menambah layanan?</td><td>Kapasitas, data pasien, proyeksi biaya investasi</td></tr>\n<tr><td>Berapa nilai rumah sakit?</td><td>Laporan keuangan, data aset, status izin</td></tr>\n</tbody></table></div>\n<div class=\"pf-fold\"><p>Bila data belum tersedia dalam bentuk rapi, itu sendiri sudah menjadi temuan. Banyak rumah sakit memulai pendampingan dari merapikan pelaporan internal, karena keputusan yang baik membutuhkan angka yang bisa dipercaya setiap bulan.</p></div>\n",
+ "faq": [
+  [
+   "Apakah semua data harus lengkap sebelum konsultasi?",
+   "Tidak. Data yang ada dikirim dulu, konsultan akan membantu memetakan data mana yang masih perlu."
+  ],
+  [
+   "Apakah data pasien perlu dikirim?",
+   "Umumnya tidak. Untuk analisis keuangan cukup data agregat per layanan dan per penjamin."
+  ],
+  [
+   "Format data apa yang paling membantu?",
+   "Ekspor Excel dari sistem informasi rumah sakit dan PDF asli rekening koran dari bank."
+  ]
+ ]
+}
