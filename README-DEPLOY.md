@@ -362,3 +362,9 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Cek dua kartu: 120 halaman (40 per situs) di 1280 dan 375: selalu 2 kartu, lebar dan tinggi sama, tombol sama lebar, semua ke wa.me nomor Bos, tanpa scroll horizontal.
 - Urutan bila build ulang: ... -> blue_ocean_20261112.py -> fa_rapi_kolom_20261112.py -> dhn_dua_kartu_20261112.py.
 
+
+## Kotak Kontak KJA Farhani + KAP DHN Jadi Terlipat (12 Nov 2026 sore)
+- Pemicu (Bos): "Bagian ini lipat aja lah". Kotak "Kontak KJA Farhani dan KAP DHN & Rekan" (fa-lk2) di bawah tombol hero memakan satu layar.
+- `fa_lk2_lipat_20261112.py` (out/faindonesia, idempoten, jalankan PALING AKHIR setelah dhn_dua_kartu_20261112.py; dry run 0): kotak fa-lk2 di 4.393 halaman jadi <details class="lk2"> tertutup. Yang tampil hanya judul + tanda "+"; intake keperluan dan omzet serta dua tombol WhatsApp muncul saat diklik. Kelas lk2 dan penanda komentar dipertahankan, jadi CSS rapi12 dan /js/fa-intake.js tetap jalan. CSS <style id="lk2d-css">. Kotak tengah artikel (fa-lk2a) tidak diubah.
+- Cek: 150 halaman (tiap keluarga + sampel acak + Makassar) di 1280 dan 375: tertutup sejak awal, bisa dibuka, intake masuk ke pesan WA, tanpa scroll horizontal, tanpa error JS. layout_check OK.
+- Urutan bila build ulang: ... -> fa_rapi_kolom_20261112.py -> dhn_dua_kartu_20261112.py -> fa_lk2_lipat_20261112.py.
