@@ -55,6 +55,9 @@ RULES = [
     (r'(<h2[^>]*>)Ditangani Langsung, Bukan Diteruskan(</h2>)', r'\1Tim FA Indonesia\2'),
     (r'(<small[^>]*>)Kontak Anda Sejak Awal(</small>)', r'\1FA Indonesia\2'),
     (r'(<span>)Kontak Anda Sejak Awal, (Persiapan Audit dan Laporan Keuangan</span>)', r'\1\2'),
+    # tim bukan hanya audit (Bos 12 Nov malam): konsultasi, business wrapping, valuasi, penyusunan LK, baru audit
+    (r'>Tim yang Menangani Audit Anda</h2>', '>Tim Kami</h2><p style="margin:.2em 0 0;opacity:.8">Konsultasi, business wrapping, valuasi, penyusunan laporan keuangan, sampai audit.</p>'),
+    (r'(<b>Ananta W\. Sasongko, CPA</b><span>)Persiapan Audit dan Laporan Keuangan(</span>)', r'\1Konsultasi, Business Wrapping, dan Valuasi\2'),
     # sisa spasi dan paragraf kosong
     (r'<p>\s+', '<p>'),
     (r'<p[^>]*>\s*</p>', ''),
@@ -64,7 +67,7 @@ SKIP = ('ananta-w-sasongko' + os.sep,)
 
 
 def clean(t, p=''):
-    if 'Ananta' not in t and 'Ditangani Langsung' not in t and 'Kontak Anda Sejak Awal' not in t:
+    if 'Ananta' not in t and 'Ditangani Langsung' not in t and 'Kontak Anda Sejak Awal' not in t and 'Tim yang Menangani' not in t:
         return t
     for rx, rep in RULES[:-2]:
         t = rx.sub(rep, t)

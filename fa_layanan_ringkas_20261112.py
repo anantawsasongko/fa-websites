@@ -5,10 +5,10 @@ idempoten (penanda <!--lay12-->), jalankan setelah semua script lain yang menyen
 Pemicu (Bos): "tab Layanan urutannya masih berantakan. Masih ada apps. Masih ada yang ruwet ruwet.
 Rapikan, layanannya apa, dan rekam jejak, dan klien. Tombol Chat Ananta, CPA. Udah."
 
-Isi halaman sekarang hanya: (1) Layanan, lima kelompok berurutan dari yang paling sering dicari,
+Isi halaman sekarang hanya: (0) Galeri paling atas (Bos: "harusnya di atas sendiri"), (1) Layanan, lima kelompok berurutan dari yang paling sering dicari,
 (2) Rekam Jejak (daftar lama, tanpa lipatan; "Penugasan Lainnya" dilipat), (3) Klien dan bank,
 (4) tombol Chat Ananta, CPA. Dibuang dari halaman ini: apps dan kalkulator, tools buatan FA, Untuk Mitra,
-Skema Kerja Sama, Paket Fractional, galeri, blok tim, afiliasi, badan usaha, lini usaha.
+Skema Kerja Sama, Paket Fractional, blok tim, afiliasi, badan usaha, lini usaha.
 Halaman tujuan link-link itu sendiri tidak dihapus.
 """
 import os, re, sys
@@ -18,10 +18,10 @@ WA = ('https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20
 BTN = f'<a class="btn solid" href="{WA}" rel="noopener" target="_blank">Chat Ananta, CPA</a>'
 
 GROUPS = [
-    ('Audit dan Laporan Keuangan',
-     'Audit oleh KAP DHN &amp; Rekan yang terdaftar OJK, penyusunan oleh KJA Farhani K.N. Untuk bank, laporan tahunan PT, tender, dan investor.',
-     [('/jasa-audit-laporan-keuangan/', 'Audit Laporan Keuangan'),
-      ('/jasa-penyusunan-laporan-keuangan/', 'Penyusunan Laporan Keuangan'),
+    ('Laporan Keuangan dan Audit',
+     'Penyusunan oleh KJA Farhani K.N., audit oleh KAP DHN &amp; Rekan yang terdaftar OJK. Untuk bank, laporan tahunan PT, tender, dan investor.',
+     [('/jasa-penyusunan-laporan-keuangan/', 'Penyusunan Laporan Keuangan'),
+      ('/jasa-audit-laporan-keuangan/', 'Audit Laporan Keuangan'),
       ('/laporan-keuangan-umkm/', 'Laporan Keuangan UMKM'),
       ('/jasa-laporan-keuangan-bulanan/', 'Pembukuan dan Laporan Bulanan'),
       ('/laporan-tahunan-pt/', 'Laporan Tahunan PT (SABH)'),
@@ -110,6 +110,7 @@ def main():
     klien = rekam[rekam.find('<div class="lenders clients">'):]
     klien = klien[:klien.find('</p>', klien.find('class="others"')) + 4] + '\n</div>'
     klien = klien.replace('<p class="eyebrow" data-i18n="k285">Klien</p>', '')
+    galeri = section(m, 'galeri-layanan')
     arsip = section(m, 'arsip')
     arsip_body = arsip[arsip.find('</h2>') + 5:arsip.rfind('</div>')]
     arsip_body = re.sub(r'^\s*</div>', '', arsip_body.strip())
@@ -121,6 +122,7 @@ def main():
 
     new = f'''<!--lay12-->
 <section class="block subhero hs"><div class="wrap"><p class="eyebrow">FA Indonesia</p><h1 data-i18n="hs49">Layanan &amp; Rekam Jejak</h1><div class="lay12-cta">{BTN}</div></div></section>
+{galeri}
 <section class="block" id="layanan">
 <div class="wrap">
 <div class="head"><p class="eyebrow">Layanan</p><h2>Yang Kami Kerjakan</h2></div>
