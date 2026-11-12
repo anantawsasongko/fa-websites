@@ -346,3 +346,10 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Saling promote: kuis CA menaut ke FA per industri dan Kertas Kerja US; Kertas Kerja US menaut ke FA Jupiter, Cek PSAK 118, FA per industri, dan kuis CA.
 - layout_check OK (sampel 40 FA + CA; 134 URL baru dan terdampak di 3 situs, 1280 + 375, tanpa error JS). Total file out/faindonesia 13.629, out/cariakuntan 12.214 (batas 20.000).
 - BELUM: halaman kabupaten (393) di CariAkuntan untuk jasa laporan keuangan dan KAP; Timika di provinces.csv; baris "Diliput di" tim RS; versi EN/ZH kuis; redirect www ke apex updatesak (perlu login Bos).
+
+## Panduan EN PT PMA Audit Requirements (12 Nov 2026 sore)
+- Pemicu (Bos): untuk pencarian audit PT PMA, FA masih kalah dari panduan panjang berbahasa Inggris milik pesaing. Halaman EN FA yang ada (/en/statutory-audit-indonesia/) hanya ±430 kata.
+- `fa_en_pma_20261112.py` (out/faindonesia, idempoten; jalankan SETELAH fa_industri_20261112.py karena fa_industri menulis ulang 2 pilar PMA): faindonesia.co.id/en/pt-pma-audit-requirements-indonesia/ (±2.150 kata, seluruhnya bahasa Inggris, Article + FAQPage schema, hreflang en + id). Isi: jawaban singkat, wajib audit menurut UU 40/2007 Pasal 68 dan PP 24/1998 jo. PP 64/1999, kebutuhan praktis, yang bukan audit (LKPM, SPT), siapa yang boleh mengaudit, kerangka dan mata uang, alur, area uji, dokumen, faktor fee (tanpa angka), kesalahan umum, tim, 8 FAQ.
+- Catatan hukum: Permendag 25/2020 (LKTP) sudah dicabut Permendag 26/2025, jadi tidak dipakai sebagai dasar; halaman menyarankan pembaca mengonfirmasi saluran penyampaian yang berlaku.
+- Link berpenanda <!--fa-enpma--> dari /en/statutory-audit-indonesia/, /en/accountant-indonesia/, /audit-laporan-keuangan-pma/, /laporan-keuangan-pma/, /artikel/audit-laporan-keuangan-pt-pma-persiapan/; sitemap (enpma); llms. layout_check 6 URL OK.
+- BELUM: /en/statutory-audit-indonesia/ masih punya judul blok berbahasa Indonesia ("Tim yang Menangani Audit Anda", "Pertanyaan Umum"); versi ZH/JA/KO panduan ini.
