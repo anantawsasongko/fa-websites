@@ -28,6 +28,13 @@ for f in ("konsultan-rumah-sakit", "konsultan-klinik", "konsultan-klinik-bpjs", 
     FA_FAM[f] = ("kap", "rs")
 for f in ("umkm", "klinik", "perusahaan", "kontraktor", "koperasi", "yayasan-sekolah", "toko-distributor", "cafe-restoran"):
     FA_FAM["laporan-keuangan-" + f] = ("kja", "lkjenis")
+# 12 Nov 2026: keluarga audit dan LK per industri (fa_industri_20261112.py)
+sys.path.insert(0, os.path.join(R, "fa_content"))
+from industri20261112 import IND as _IND  # noqa: E402
+for _i in _IND:
+    FA_FAM["audit-laporan-keuangan-" + _i["slug"]] = ("kap", "audit")
+    if _i["lk"]:
+        FA_FAM["laporan-keuangan-" + _i["slug"]] = ("kja", "lkjenis")
 CA_SVC = {"kap": ("kap", "audit"), "kap-murah": ("kap", "murah"), "pendampingan-audit": ("kap", "dampingi"),
           "akuntan-forensik": ("kap", "forensik"), "kja": ("kja", "lk"), "jasa-laporan-keuangan": ("kja", "lk"),
           "jasa-buku-besar": ("kja", "bukubesar"), "laporan-tahunan-pt": ("kja", "sabh"), "konsultan-psak": ("kja", "psak"),

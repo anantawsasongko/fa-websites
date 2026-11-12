@@ -184,3 +184,8 @@
 - [Menghadapi Auditor KAP: Apa yang Diminta, Dasar Standar Auditnya, dan Cara Menjawab](https://updatesak.com/menghadapi-auditor/)
 - [Penerapan PSAK di Perusahaan: Menentukan Standar, Analisis Dampak, dan Langkah per PSAK](https://updatesak.com/penerapan-psak/)
 - [Akuntansi Rumah Sakit: Standar yang Berlaku, Pendapatan BPJS, Piutang Klaim, dan Persediaan Obat](https://updatesak.com/akuntansi-rumah-sakit/)
+<!--uskk-->
+
+## Kertas Kerja PSAK (12 Nov 2026)
+- [Kertas Kerja PSAK Gratis](https://updatesak.com/kertas-kerja/): template Excel PSAK 118, 116, 109, 115 berisi contoh, checklist, rumus, dan jurnal
+<!--/uskk-->

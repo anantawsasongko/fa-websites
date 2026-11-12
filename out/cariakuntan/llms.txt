@@ -185,3 +185,8 @@
 - [Pendampingan Audit: Menghadapi Auditor KAP Tanpa Panik](https://cariakuntan.com/pendampingan-audit/): per kota di /kota/<kota>/pendampingan-audit/
 - [Konsultan PSAK: Standar Mana yang Berlaku untuk Usaha Anda](https://cariakuntan.com/konsultan-psak/): per kota di /kota/<kota>/konsultan-psak/
 - [Laporan Keuangan untuk SABH](https://cariakuntan.com/laporan-keuangan-sabh/): cek kebutuhan dan template Word/Excel untuk Notaris
+<!--cakb-->
+
+## Cek Kebutuhan (12 Nov 2026)
+- [Cek Kebutuhan Jasa Akuntan](https://cariakuntan.com/cek-kebutuhan/): kuis 5 pertanyaan, hasil jenis jasa (audit, review, kompilasi, pembukuan, pajak, penilaian), dokumen, dan perkiraan waktu
+<!--/cakb-->
