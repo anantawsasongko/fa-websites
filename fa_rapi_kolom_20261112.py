@@ -36,8 +36,6 @@ CSS = ('<style id="rapi12">'
        '.wrap.art:has(.fnx)>.pf-map{margin:28px 0 8px}'
        '.wrap.art:has(.fnx) .faq-acc{margin:6px 0 22px}'
        '.wrap.art:has(.fnx)>div>table th,.wrap.art:has(.fnx)>div>table td{padding:10px 12px}'
-       'main:has(.fnx)~.dhnc,main:has(.fnx)~.dhns{width:min(820px,calc(100% - 2*clamp(16px,4vw,40px)))!important;'
-       'margin-left:max(clamp(16px,4vw,40px),calc((100% - 1000px)/2 + clamp(16px,4vw,40px)))!important;margin-right:auto!important}'
        # akordeon layanan lain
        '.fnx h2{margin-bottom:6px!important}'
        'details.rg{border-bottom:1px solid #333;max-width:820px}'
@@ -131,8 +129,10 @@ def process(t):
     if 'class="lk2-q"' in t and JSTAG not in t:
         t = t.replace('</body>', JSTAG + '</body>', 1)
     if has_fnx or has_lk2:
-        t = re.sub(r'<style id="rapi12">.*?</style>', '', t, flags=re.S)
-        t = t.replace('</head>', CSS + '</head>', 1)
+        if '<style id="rapi12">' in t:
+            t = re.sub(r'<style id="rapi12">.*?</style>', lambda m: CSS, t, count=1, flags=re.S)
+        else:
+            t = t.replace('</head>', CSS + '</head>', 1)
     return t, t != o
 
 
