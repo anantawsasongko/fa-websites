@@ -381,3 +381,11 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - `fa_brand_entity_20261112.py` (out/faindonesia, idempoten, dry run 0; jalankan sebelum fa_rendah_hati_20261112.py): JSON-LD Organization (#org) di beranda: sameAs dilengkapi Threads dan X (sebelumnya hanya LinkedIn page dan Instagram), tambah disambiguatingDescription. Title dan og:title /layanan/ jadi "Layanan dan Rekam Jejak | FA Indonesia" (kata "Paket, Fee" dibuang karena isinya sudah tidak ada).
 - Google Business Profile (dicek 12 Nov malam): profil FA Indonesia versi area layanan (alamat tersembunyi) berstatus "Verification required"; profil beralamat Jl Tunjungtirto berstatus "Duplicate"; Among Tani "Verified". Verifikasi belum dilanjutkan (menunggu Bos). Alamat fiktif tidak dipakai.
 - layout_check OK (sampel 15).
+
+## Video "Ten Years" di Rekam Jejak /layanan/ (12 Nov 2026 malam)
+- Pemicu (Bos): "Pasang di web aja lah dan captionnya ya dan bisa di share. Di bagian rekam jejak." Video bumper 10 tahun (9:16, 30 detik, English, penutup "Spirit & Hope. Since 2016") dipasang di awal section #rekam halaman /layanan/, anchor #sepuluh-tahun.
+- `fa_bumper_rekam_20261112.py` (out/faindonesia/layanan/index.html, idempoten, penanda <!--bmp10-->; dry run: --dry): blok video + caption "Sepuluh Tahun Menjaga Kepercayaan" (fokus menjaga kepercayaan klien, atas nama Tim FA Indonesia, tanpa nama pribadi dan tanpa angka) + tombol Bagikan Video (Web Share dengan file mp4, fallback download), WhatsApp, LinkedIn, X, Salin Link. JSON-LD VideoObject. Blok hanya bahasa Indonesia (belum ada kunci i18n EN/ZH).
+- Aset di sumber: FA-Indonesia_Website_SIAP-UPLOAD-v58/media/sepuluh-tahun-fa-indonesia.mp4 (9,4 MB; batas file Cloudflare Pages 25 MB, script menolak di atas 24 MB) dan .jpg (poster). Script menyalinnya ke out/faindonesia/media/.
+- Cek: blok di 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; layout_check OK (sampel 40).
+- Urutan bila build ulang: ... -> fa_layanan_ringkas_20261112.py -> fa_bumper_rekam_20261112.py -> fa_rendah_hati_20261112.py.
+- Panduan gaya bumper: project doc claude/gaya-bumper-fa.md.
