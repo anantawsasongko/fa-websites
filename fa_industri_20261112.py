@@ -268,7 +268,7 @@ for i in IND:
         w2 = f"Halo Pak Ananta, saya ingin tanya jasa laporan keuangan untuk {low} di {pn}."
         s2 = [(f"Yang Kami Kerjakan untuk {i['pendek']}", tbl(["Bagian", "Isi"], i["lk"])),
               (f"Kabupaten dan Kota di {pn}", links([(f"/jasa-penyusunan-laporan-keuangan/{s}/", n) for s, n in kab])),
-              ("Jenis Usaha Lain", links([(f"/{u}/{ps}/", n) for u, n in LAMA] + [(f"/{K(j)}/{ps}/", j["pendek"]) for j in IND if j["lk"] and j["slug"] != i["slug"]]))]
+              ("Jenis Usaha Lain", links([(f"/{u}/{ps}/", n) for u, n in LAMA if os.path.exists(P(f"/{u}/{ps}/"))] + [(f"/{K(j)}/{ps}/", j["pendek"]) for j in IND if j["lk"] and j["slug"] != i["slug"]]))]
         f2 = [(f"Ada jasa laporan keuangan {low} di {pn}?", f"Ada. KJA Farhani K.N. melayani {i['who']} di seluruh {pn}, dengan dokumen digital dan pertemuan daring.")] + FAQ_LK(i, f" di {pn}")[1:]
         URLS.append(page(f"/{k}/{ps}/", f"Laporan Keuangan {i['pendek']} · {pn}", f"Jasa Laporan Keuangan {nm} di {pn}",
                          f"Pembukuan dan laporan keuangan untuk {i['who']} di {pn}. Disusun KJA Farhani K.N., siap dibaca bank, investor, dan auditor.",
