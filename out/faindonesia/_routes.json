@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "include": ["/api/*", "/kkx/*"],
+  "include": ["/api/*", "/kkx/*", "/files/fa-psak118-*"],
   "exclude": []
 }

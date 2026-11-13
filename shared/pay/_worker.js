@@ -364,6 +364,7 @@ export default {
       if (req.method !== "POST") return aj(req, { ok: false, error: "Tidak ditemukan" }, 404);
       try { return await licVerify(req, env); } catch (e) { return aj(req, { ok: false, error: "Gangguan sementara" }, 500); }
     }
+    if (url.pathname.startsWith("/files/fa-psak118-")) return new Response("Tidak ditemukan", { status: 404, headers: { "x-robots-tag": "noindex" } });
     if (url.pathname.startsWith("/kkx/")) return new Response("Tidak ditemukan", { status: 404, headers: { "x-robots-tag": "noindex" } });
     if (!url.pathname.startsWith("/api/pay/")) return env.ASSETS.fetch(req);
     const ck = env.MIDTRANS_CLIENT_KEY || "";

@@ -192,9 +192,17 @@ if "/api/pay/check" not in t:
     t = must(t, '      if (url.pathname === "/api/pay/file" && req.method === "GET") return await paidFile(url, env);\n',
              '      if (url.pathname === "/api/pay/file" && req.method === "GET") return await paidFile(url, env);\n'
              '      if (url.pathname === "/api/pay/check" && req.method === "GET") return await paidCheck(url, env);\n')
+if 'url.pathname.startsWith("/files/fa-psak118-")' not in t:
+    t = must(t, '    if (url.pathname.startsWith("/kkx/")) return',
+             '    if (url.pathname.startsWith("/files/fa-psak118-")) return new Response("Tidak ditemukan", { status: 404, headers: { "x-robots-tag": "noindex" } });\n'
+             '    if (url.pathname.startsWith("/kkx/")) return')
 assert "kkFile" not in t and "paidFile(url, env)" in t
 wt(p, t); wt(os.path.join(FA, "_worker.js"), t)
 
+for p in (os.path.join(HERE, "shared", "pay", "_routes.json"), os.path.join(FA, "_routes.json")):
+    r = rd(p)
+    if "/files/fa-psak118-*" not in r: r = must(r, '"/kkx/*"]', '"/kkx/*", "/files/fa-psak118-*"]')
+    wt(p, r)
 p = os.path.join(FA, "_redirects"); t = rd(p)
 t = re.sub(r'\n/saturn/kk/\*[^\n]*', "", t); wt(p, t)
 
