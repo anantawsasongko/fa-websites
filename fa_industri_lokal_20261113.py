@@ -113,7 +113,16 @@ def blok(kind, loc, prov, inds):
         if ex(u): items.append((u, "UMKM"))
     lab = {"audit": "Audit industri utama di", "lk": "Laporan keuangan industri utama di", "wil": "Industri utama di"}[kind]
     return ('<!--fa-indlok--><details class="rg"><summary>' + E(f"{lab} {loc}") + f' <i>{len(items)}</i></summary><div class="rg-l">'
-            + "".join(f'<a href="{u}">{E(n)}</a>' for u, n in items) + "</div></details><!--/fa-indlok-->")
+            + "".join(f'<a href="{u}">{E(n)}</a>' for u, n in items) + "</div></details>" + fcfo(prov, loc) + "<!--/fa-indlok-->")
+
+FCFO = {"bali": ("/fractional-cfo-pt-pma-bali/", "/en/fractional-cfo-bali/"),
+        "nusa-tenggara-barat": ("/fractional-cfo-pt-pma-ntb/", "/en/fractional-cfo-lombok-ntb/"),
+        "nusa-tenggara-timur": ("/fractional-cfo-pt-pma-ntt/", "/en/fractional-cfo-labuan-bajo-ntt/")}
+def fcfo(prov, loc):   # Bos 13 Nov: jualan Fractional CFO untuk PT PMA di Bali, NTB, NTT (halaman dari fa_fcfo_pma_20261113.py)
+    if prov not in FCFO: return ""
+    i, e = FCFO[prov]
+    return (f'<details class="rg"><summary>{E("Fractional CFO untuk PT PMA di " + loc)} <i>2</i></summary><div class="rg-l">'
+            f'<a href="{i}">Fractional CFO PT PMA</a><a href="{e}">Fractional CFO (English)</a></div></details>')
 
 RX = re.compile(r"<!--fa-indlok-->.*?<!--/fa-indlok-->", re.S)
 n = 0; skip = []
