@@ -59,6 +59,13 @@ def profil(L):
 
 # ------------------------------------------------------------------ konten per wilayah
 R = {
+ "indonesia": dict(en="/en/fractional-cfo-indonesia/", id="/cfo-paruh-waktu/", prov=None, en_only=True,
+   en_place="Indonesia", id_place="Indonesia",
+   en_title="Fractional CFO in Indonesia for PT PMA | FA Indonesia",
+   en_desc="Fractional CFO for foreign-owned companies (PT PMA) across Indonesia: monthly reporting, cash control, tax and LKPM oversight, audit readiness, and financing.",
+   en_ctx="Foreign-owned companies in Indonesia usually reach the same point: the business has grown, the parent or investors want reliable reports in English, tax and LKPM deadlines keep coming, and a bank or auditor starts asking questions, yet a full-time CFO is not justified yet. Jakarta and Batam groups, Bali hospitality, and project companies in eastern Indonesia all face it.",
+   ind=[("pma", "Trading, services, and holding PT PMA", ""), ("manufaktur", "Manufacturing", ""), ("hotel", "Hotels and resorts", ""),
+        ("restoran-cafe", "Restaurants and cafes", ""), ("developer-properti", "Property", ""), ("pertambangan", "Mining services", "")]),
  "bali": dict(en="/en/fractional-cfo-bali/", id="/fractional-cfo-pt-pma-bali/", prov="provinsi-bali",
    en_place="Bali", id_place="Bali",
    en_title="Fractional CFO for PT PMA in Bali | FA Indonesia",
@@ -108,8 +115,9 @@ def isi(k, L):
                  "<li><b>Monthly engagement</b>: an agreed number of days per month, remote work through a shared folder, and scheduled site visits.</li>"
                  "<li><b>Handover</b> when you are ready for a full-time finance manager or CFO, including help with the hiring.</li></ol>"),
              ("industries", f"Businesses We Support in {pl}", "<ul>" + "".join(
-                 f'<li><a href="/audit-laporan-keuangan-{s}/{r["prov"]}/">{e}</a></li>' for s, e, i in r["ind"]) + "</ul>"
-                 "<p>Linked pages are in Indonesian and cover audit and financial statements for each industry in the province.</p>"),
+                 f'<li><a href="/audit-laporan-keuangan-{s}/' + (r["prov"] + "/" if r["prov"] else "") + f'">{e}</a></li>' for s, e, i in r["ind"]) + "</ul>"
+                 "<p>Linked pages are in Indonesian and cover audit and financial statements for each industry" + (" in the province." if r["prov"] else ".") + "</p>"
+                 + ("" if r["prov"] else '<p class="t"><b>Regional pages:</b> <a href="/en/fractional-cfo-bali/">Bali</a> · <a href="/en/fractional-cfo-lombok-ntb/">Lombok and NTB</a> · <a href="/en/fractional-cfo-labuan-bajo-ntt/">Labuan Bajo and NTT</a></p>')),
              ("team", "Who You Will Work With", tbl(["Role", "Who"], [
                  ["Fractional CFO", "Ananta W. Sasongko, CPA, FA Indonesia"],
                  ["Bookkeeping and financial statements", "KJA Farhani K.N., licensed accounting services firm"],
@@ -120,7 +128,7 @@ def isi(k, L):
              ("Will this replace our accountant or tax consultant?", "No. The fractional CFO directs and reviews their work and owns the reporting to the owners. If you have no accountant yet, bookkeeping can be done by KJA Farhani K.N."),
              ("Can you help with the statutory audit?", "Yes, by preparing the closing and the schedules. The audit itself and the opinion are by a separate licensed firm, such as KAP DHN &amp; Rekan."),
              ("Can reports be in English and in our parent's currency?", "Yes. Management reports are prepared in English, in rupiah and in the parent's currency where needed. Statutory books follow Indonesian rules unless the tax office has approved otherwise.")]
-        rel = (f'<p class="t">Related: <a href="/en/pt-pma-audit-requirements-indonesia/">PT PMA Audit Requirements in Indonesia</a> · '
+        rel = (('' if not r["prov"] else '<p class="t">All regions: <a href="/en/fractional-cfo-indonesia/">Fractional CFO in Indonesia</a></p>') + f'<p class="t">Related: <a href="/en/pt-pma-audit-requirements-indonesia/">PT PMA Audit Requirements in Indonesia</a> · '
                f'<a href="/en/statutory-audit-indonesia/">Statutory Audit in Indonesia</a> · <a href="{r["id"]}">Versi Bahasa Indonesia</a></p>')
     else:
         S = [("mengapa", f"Mengapa PT PMA di {pl} Memakai Fractional CFO", f"<p>{r['id_ctx']}</p><p>Fractional CFO memberi kepemimpinan keuangan senior beberapa hari dalam sebulan: ada yang memegang angka, melapor ke direksi dan induk, serta menjaga akuntan, konsultan pajak, dan auditor bekerja dalam satu rencana.</p>"),
@@ -148,7 +156,7 @@ def isi(k, L):
              ("Apakah menggantikan akuntan atau konsultan pajak kami?", "Tidak. Fractional CFO mengarahkan dan mereviu pekerjaan mereka serta memegang pelaporan ke pemilik. Bila belum punya akuntan, pembukuan bisa dikerjakan KJA Farhani K.N."),
              ("Bisa membantu audit tahunan?", "Bisa, dengan menyiapkan tutup buku dan rincian akun. Audit dan opininya dilakukan kantor akuntan publik yang terpisah, seperti KAP DHN &amp; Rekan."),
              ("Laporan bisa dalam bahasa Inggris dan mata uang induk?", "Bisa. Laporan manajemen disusun dalam bahasa Inggris, dalam rupiah dan mata uang induk bila perlu. Pembukuan resmi mengikuti aturan Indonesia kecuali sudah ada izin dari kantor pajak.")]
-        rel = (f'<p class="t">Terkait: <a href="/cfo-paruh-waktu/">CFO Paruh Waktu</a> · <a href="/audit-laporan-keuangan-pma/{r["prov"]}/">Audit Laporan Keuangan PT PMA di {E(pl.split(" dan ")[0])}</a> · '
+        rel = (f'<p class="t">Terkait: <a href="/cfo-paruh-waktu/">Fractional CFO dan CFO Paruh Waktu</a> · <a href="/audit-laporan-keuangan-pma/{r["prov"]}/">Audit Laporan Keuangan PT PMA di {E(pl.split(" dan ")[0])}</a> · '
                f'<a href="{r["en"]}">English Version</a></p>')
     return S, F, rel
 
@@ -159,7 +167,7 @@ DHN_ID = ('<!--dhn--><div class="dhn2"><aside class="dhnc" aria-label="KAP DHN &
 
 n = 0; URLS = []
 for k, r in R.items():
-    for L in ("en", "id"):
+    for L in (("en",) if r.get("en_only") else ("en", "id")):
         url_path = r[L]; url = D + url_path; URLS.append(url_path)
         pl = r[L + "_place"]; S, F, rel = isi(k, L)
         h1 = f"Fractional CFO for PT PMA in {pl}" if L == "en" else f"Fractional CFO untuk PT PMA di {pl}"
@@ -215,14 +223,14 @@ def put(u, blk, anchors, after=False):
     print("tanpa jangkar", u); return 0
 def fl(items, lab): return f'<!--fa-fcfo--><p class="t"><b>{lab}</b> ' + " · ".join(f'<a href="{u}">{E(x)}</a>' for u, x in items) + "</p><!--/fa-fcfo-->"
 nl = 0
-nl += put("/cfo-paruh-waktu/", fl([(R[k]["id"], f"PT PMA di {R[k]['id_place']}") for k in R], "Fractional CFO untuk PT PMA:"), [r"<h2[^>]*>Pertanyaan Umum</h2>", r'<div class="faq-acc">'])
+_p = P("/cfo-paruh-waktu/"); _t = rd(_p); wt(_p, re.sub(r"<!--fa-fcfo-->.*?<!--/fa-fcfo-->", "", _t, flags=re.S))   # diganti blok penuh fa-cfopw
 nl += put("/en/pt-pma-audit-requirements-indonesia/", fl([(R[k]["en"], R[k]["en_place"]) for k in R], "Fractional CFO for PT PMA:"), [r'<h2 id="sources">'])
-for k in R:
+for k in [x for x in R if R[x]["prov"]]:
     nl += put(f"/audit-laporan-keuangan-pma/{R[k]['prov']}/", fl([(R[k]["id"], f"Fractional CFO PT PMA di {R[k]['id_place']}"), (R[k]["en"], "English")], "Butuh pendampingan rutin?"),
               [r"<h2[^>]*>Pertanyaan Umum</h2>", r'<div class="faq-acc">'])
 
 sm = os.path.join(OUT, "sitemap.xml"); x = rd(sm); x = re.sub(r"<!--fcfo-->.*?<!--/fcfo-->\n?", "", x, flags=re.S)
 wt(sm, x.replace("</urlset>", "<!--fcfo-->" + "".join(f"<url><loc>{D}{u}</loc><lastmod>{TODAY}</lastmod></url>" for u in URLS) + "<!--/fcfo-->\n</urlset>"))
 lp = os.path.join(OUT, "llms.txt"); l = rd(lp); l = re.sub(r"\n<!--fcfo-->.*?<!--/fcfo-->", "", l, flags=re.S)
-wt(lp, l.rstrip("\n") + "\n<!--fcfo-->\n\n## Fractional CFO untuk PT PMA (13 Nov 2026)\n" + "".join(f"- [{R[k][L + '_title']}]({D}{R[k][L]})\n" for k in R for L in ("en", "id")) + "<!--/fcfo-->\n")
+wt(lp, l.rstrip("\n") + "\n<!--fcfo-->\n\n## Fractional CFO untuk PT PMA (13 Nov 2026)\n" + "".join(f"- [{R[k][L + '_title']}]({D}{R[k][L]})\n" for k in R for L in (("en",) if R[k].get("en_only") else ("en", "id"))) + "<!--/fcfo-->\n")
 print("halaman", n, "link masuk", nl)
