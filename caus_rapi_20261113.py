@@ -74,6 +74,17 @@ main.wrap.art>.sub,main.wrap.art>p.sub{max-width:none}
 body:has(main.wrap.art) .dhns{width:min(848px,calc(100% - 32px))!important}
 main.wrap.art~.dhn2{width:min(848px,calc(100% - 32px))}
 main.wrap.art+.rxf .in{max-width:848px}
+main.wrap.art>h2{margin-top:40px;margin-bottom:12px}
+main.wrap.art>h2+p{margin-top:8px}
+main.wrap.art>p{margin-bottom:14px}
+main.wrap.art>p.crumb,main.wrap.art>p.label{margin-bottom:0}
+main.wrap.art .tx{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 24px;border:1px solid var(--line);border-radius:0}
+main.wrap.art .tx table{border-collapse:collapse;width:100%;margin:0;font-size:.95rem;line-height:1.5}
+main.wrap.art .tx th,main.wrap.art .tx td{padding:12px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+main.wrap.art .tx thead th{background:var(--ink);color:#fff;font:600 11px/1.3 var(--body);letter-spacing:.16em;text-transform:uppercase}
+main.wrap.art .tx tr:last-child td{border-bottom:0}
+main.wrap.art .tx td:first-child{font-weight:600}
+main.wrap.art .faq-acc,main.wrap.art>details{margin-top:8px}
 """
 
 # ====================== CSS beranda (dipakai CA dan US) ======================
@@ -87,6 +98,22 @@ h2.rx-ey{font-family:var(--body)}h2.rx-ey:after{display:none!important}
 .rx-h:after,.rx-acc h2:after,.rx-acc h3:after{display:none!important}
 .rx-lead{color:var(--muted);max-width:62ch;margin-top:12px;font-size:1.02rem}
 .rx-hd{margin-bottom:30px}
+/* hero gelap ala FA */
+main>.hero{background:radial-gradient(1000px 520px at 88% -10%,color-mix(in srgb,var(--accent) 46%,transparent),transparent 62%),radial-gradient(700px 420px at -10% 120%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 60%),linear-gradient(180deg,#0A0C10 0%,var(--deep) 100%)!important;color:#fff;border-bottom:1px solid #000}
+main>.hero::before{opacity:.22}
+main>.hero h1{color:#fff}
+main>.hero h1 em{font-style:italic;font-weight:500;color:rgba(255,255,255,.74)}
+main>.hero .label{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.72);letter-spacing:.22em;font-size:.7rem}
+main>.hero .label:before{content:"";width:34px;height:1px;background:currentColor;flex:none}
+main>.hero .sub{color:rgba(255,255,255,.74)}
+main>.hero .cta .btn{background:#fff;color:var(--deep);border:1px solid #fff}
+main>.hero .cta .btn.btn-line,main>.hero .cta .btn.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+main>.hero .cta .btn.btn-line:hover,main>.hero .cta .btn.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+main>.hero .rx-link{color:#fff}
+main>.hero .stats{border-top-color:rgba(255,255,255,.22)}
+main>.hero .stats span{color:rgba(255,255,255,.62)}
+main>.hero .rx-path{box-shadow:0 40px 80px -40px rgba(0,0,0,.8);border-color:transparent}
+main>.hero .viz{background:#fff;padding:18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
 /* hero dua kolom + alur */
 .hero .rx-hg{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
 .rx-path{background:var(--paper);border:1px solid var(--line);padding:24px 24px 20px;box-shadow:0 30px 60px -44px rgba(11,31,51,.5)}
@@ -263,7 +290,7 @@ BAND_CA = band("Alur Memilih Kantor", [
 ])
 BAND_US = band("Dari Belajar sampai Selesai", [
     ("Pelajari Standarnya", "Ringkasan PSAK, SAK EP, SAK EMKM, dan Standar Audit.", "/eksplor/"),
-    ("Kerjakan dengan Kertas Kerja", "Template Excel berumus, gratis.", "/kertas-kerja/"),
+    ("Kerjakan dengan Kertas Kerja", "Template Excel berumus, termasuk konsultasi.", "/kertas-kerja/"),
     ("Cek dengan Kalkulator", "Kerangka SAK, laporan keuangan, dan CALK.", "/#kalkulator"),
     ("Masih Bingung? Serahkan ke Tim FA Indonesia", "Penerapan PSAK, laporan keuangan, sampai audit.", "/#dibantu"),
 ])
@@ -536,7 +563,7 @@ def home_us(t):
              'sedikit yang perlu Anda kerjakan sendiri.</p></div><div class="rx-st">'
              '<div class="c"><span class="n">Tahap 01</span><b class="h">Pelajari Standarnya</b><p>Ringkasan PSAK, SAK EP, SAK EMKM, '
              'dan Standar Audit, lengkap dengan contoh kalimat CALK.</p><ul>%s%s%s</ul></div>'
-             '<div class="c"><span class="n">Tahap 02</span><b class="h">Kerjakan Sendiri</b><p>Template Excel berumus dan kalkulator '
+             '<div class="c"><span class="n">Tahap 02</span><b class="h">Kerjakan Sendiri</b><p>Kertas kerja Excel berumus dan kalkulator '
              'yang menyusun laporan keuangan serta CALK langsung di browser.</p><ul>%s%s%s</ul></div>'
              '<div class="c end"><span class="n">Tahap 03</span><b class="h">Masih Bingung? Serahkan ke Tim FA Indonesia</b>'
              '<p>Penerapan PSAK, penyusunan laporan keuangan, sampai audit dikerjakan tim CA dan CPA.</p><ul>%s%s%s</ul></div>'
@@ -644,6 +671,24 @@ def home_us(t):
     return t
 
 
+H1_EM = [("<h1>Sebelum Bayar Akuntan, Pastikan Dulu Jasa yang Anda Butuhkan.</h1>",
+          "<h1>Sebelum Bayar Akuntan, <em>Pastikan Dulu Jasa yang Anda Butuhkan.</em></h1>"),
+         ("<h1>Standar Akuntansi yang Langsung Bisa Dikerjakan.</h1>",
+          "<h1>Standar Akuntansi yang <em>Langsung Bisa Dikerjakan.</em></h1>")]
+
+
+def magang(t):
+    """Bos 13 Nov: halaman magang diarahkan ke email, tidak ada tombol WhatsApp."""
+    m = re.search(r'href="(mailto:ananta@faindonesia\.co\.id\?subject=Magang[^"]*)"', t)
+    if not m: return t
+    mail = m.group(1)
+    t = re.sub(r'<a class="btn btn-wa btn-sm" href="https://wa\.me/[^"]*"[^>]*>[^<]*</a>',
+               '<a class="btn btn-wa btn-sm" href="%s">Kirim Lamaran via Email</a>' % mail, t)
+    t = re.sub(r'<!--dhn-->.*?<!--/dhn-->', '<!--dhn--><!--/dhn-->', t, flags=re.S)
+    t = re.sub(r'<!--rx13f-->.*?<!--/rx13f-->', '', t, flags=re.S)
+    return t
+
+
 # ====================== jalan ======================
 VCA = ver(CSS_ALL + CSS_CA); VUS = ver(CSS_ALL)
 
@@ -660,7 +705,10 @@ def run(root, site):
             t = rd(p); o = t
             if rel == "" and f == "index.html":
                 t = home_ca(t) if site == "ca" else home_us(t)
+                t = re.sub(r'<style id="rx13-home">.*?</style>', lambda m: '<style id="rx13-home">%s</style>' % CSS_HOME.replace("\n", ""), t, count=1, flags=re.S)
+                for a, b in H1_EM: t = t.replace(a, b)
             t = common(t, rel, site)
+            if site == "ca" and rel == "magang": t = magang(t)
             if t != o: wt(p, t, site)
 
 

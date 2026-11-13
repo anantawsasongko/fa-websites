@@ -187,5 +187,5 @@
 <!--uskk-->
 
 ## Kertas Kerja PSAK (12 Nov 2026)
-- [Kertas Kerja PSAK Gratis](https://updatesak.com/kertas-kerja/): template Excel PSAK 118, 116, 109, 115 berisi contoh, checklist, rumus, dan jurnal
+- [Kertas Kerja PSAK](https://updatesak.com/kertas-kerja/): template Excel PSAK 118, 116, 109, 115 berisi contoh, checklist, rumus, dan jurnal, termasuk konsultasi WhatsApp
 <!--/uskk-->

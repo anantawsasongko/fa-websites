@@ -26,6 +26,11 @@ const PRODUCTS = {
   "eb-paket":   { name: "Paket 6 E-book Penerbit FA", price: 299000, kind: "ebook" },
   "ai-50":      { name: "Paket Asisten AI 50 Pertanyaan", price: 25000, kind: "ai", credits: 50 },
   "ai-300":     { name: "Paket Asisten AI 300 Pertanyaan", price: 99000, kind: "ai", credits: 300 },
+  "kk-118":     { name: "Kertas Kerja PSAK 118 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["118"] },
+  "kk-116":     { name: "Kertas Kerja PSAK 116 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["116"] },
+  "kk-109":     { name: "Kertas Kerja PSAK 109 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["109"] },
+  "kk-115":     { name: "Kertas Kerja PSAK 115 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["115"] },
+  "kk-paket":   { name: "Paket 4 Kertas Kerja PSAK (Excel) + Konsultasi WhatsApp", price: 75000, kind: "kk", files: ["118", "116", "109", "115"] },
   "custom":     { name: "Layanan FA Indonesia", price: 0, kind: "service" }
 };
 const SITE = "https://faindonesia.co.id";
@@ -74,6 +79,7 @@ async function access(st, env) {
   if (env && env.MIDTRANS_PRODUCTION !== "true") return { kind: "test", product: p.name, code: "MODE UJI: KODE TIDAK BERLAKU", exp: "" };
   if (p.kind === "lic") { const l = await licCode(st.order_id, p.lic, paidMs(st)); return { kind: "lic", product: p.name, code: l.code, exp: l.exp }; }
   if (p.kind === "ai") { const c = await aiCodeForOrder(env, st.order_id, p.credits); return { kind: "ai", product: p.name, code: c || "Kode AI dikirim via WhatsApp", exp: "" }; }
+  if (p.kind === "kk") return { kind: "kk", product: p.name, files: p.files };
   return { kind: p.kind, product: p.name };
 }
 async function logSheet(st, acc, extra) {
@@ -89,7 +95,7 @@ async function logSheet(st, acc, extra) {
     p.append("page", "faindonesia.co.id/bayar/ (" + st.payment_type + ")");
     p.append("summary", ["Order " + st.order_id, "Status " + st.transaction_status + (st.fraud_status ? " / fraud " + st.fraud_status : ""),
       "Metode " + st.payment_type, "Nominal Rp " + st.gross_amount, "Waktu " + (st.settlement_time || st.transaction_time || "-"),
-      acc && acc.kind === "ai" ? "Kode Asisten AI: " + acc.code : acc && acc.code ? "Kode Audit Ready: " + acc.code + " (s.d. " + acc.exp + ")" : acc && acc.kind === "ebook" ? "Kirim PDF + password e-book ke pembeli" : "Layanan: tindak lanjut manual"].join("\n"));
+      acc && acc.kind === "ai" ? "Kode Asisten AI: " + acc.code : acc && acc.code ? "Kode Audit Ready: " + acc.code + " (s.d. " + acc.exp + ")" : acc && acc.kind === "kk" ? "Kertas kerja Excel: pembeli download sendiri di halaman status, termasuk konsultasi WA" : acc && acc.kind === "ebook" ? "Kirim PDF + password e-book ke pembeli" : "Layanan: tindak lanjut manual"].join("\n"));
     await fetch(SHEET, { method: "POST", body: p, redirect: "manual" });
   } catch (e) {}
 }
@@ -139,6 +145,23 @@ async function status(url, env) {
   out.paid = paid;
   if (paid) out.access = await access(st, env);
   return json(out);
+}
+
+/* Kertas kerja Excel berbayar: file di /kkx/ hanya keluar lewat sini setelah Midtrans menyatakan lunas. */
+async function kkFile(url, env) {
+  const id = url.searchParams.get("order_id") || "", f = url.searchParams.get("f") || "";
+  if (!/^FA-\d{6}-[a-z0-9-]+-[A-Z2-9]{8}$/.test(id)) return json({ error: "Nomor order tidak valid" }, 400);
+  const key = prodFromOrder(id), p = key && PRODUCTS[key];
+  if (!p || p.kind !== "kk" || p.files.indexOf(f) < 0) return json({ error: "File tidak termasuk order ini" }, 403);
+  if (env.MIDTRANS_PRODUCTION !== "true") return json({ error: "Mode uji: file tidak diterbitkan" }, 403);
+  const st = await midStatus(env, id);
+  const paid = st && PAID.indexOf(st.transaction_status) >= 0 && st.fraud_status !== "deny" && st.fraud_status !== "challenge";
+  if (!paid) return json({ error: "Pembayaran belum lunas" }, 402);
+  const name = "kertas-kerja-psak-" + f + "-updatesak.xlsx";
+  const r = await env.ASSETS.fetch(new Request(new URL("/kkx/" + name, url).toString()));
+  if (!r.ok) return json({ error: "File tidak ditemukan" }, 404);
+  return new Response(r.body, { headers: { "content-type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "content-disposition": 'attachment; filename="' + name + '"', "cache-control": "no-store", "x-robots-tag": "noindex" } });
 }
 
 async function notify(req, env, ctx) {
@@ -313,6 +336,7 @@ export default {
       if (req.method !== "POST") return aj(req, { ok: false, error: "Tidak ditemukan" }, 404);
       try { return await licVerify(req, env); } catch (e) { return aj(req, { ok: false, error: "Gangguan sementara" }, 500); }
     }
+    if (url.pathname.startsWith("/kkx/")) return new Response("Tidak ditemukan", { status: 404, headers: { "x-robots-tag": "noindex" } });
     if (!url.pathname.startsWith("/api/pay/")) return env.ASSETS.fetch(req);
     const ck = env.MIDTRANS_CLIENT_KEY || "";
     /* Pengaman: jangan pernah kirim Server Key ke browser walau salah diisi di variabel Client Key. */
@@ -323,6 +347,7 @@ export default {
       if (!on) return json({ error: "Pembayaran online belum aktif. Silakan pakai transfer bank." }, 503);
       if (url.pathname === "/api/pay/create" && req.method === "POST") return await create(req, env);
       if (url.pathname === "/api/pay/status" && req.method === "GET") return await status(url, env);
+      if (url.pathname === "/api/pay/file" && req.method === "GET") return await kkFile(url, env);
       if (url.pathname === "/api/pay/notify" && req.method === "POST") return await notify(req, env, ctx);
       return json({ error: "Tidak ditemukan" }, 404);
     } catch (e) {
