@@ -190,3 +190,14 @@
 ## Cek Kebutuhan (12 Nov 2026)
 - [Cek Kebutuhan Jasa Akuntan](https://cariakuntan.com/cek-kebutuhan/): kuis 5 pertanyaan, hasil jenis jasa (audit, review, kompilasi, pembukuan, pajak, penilaian), dokumen, dan perkiraan waktu
 <!--/cakb-->
+<!--caseg-->
+
+## Akuntan per Jenis Usaha (13 Nov 2026)
+- [Akuntan untuk Restoran dan Cafe: Pembukuan, Pajak, Audit](https://cariakuntan.com/akuntan-restoran-cafe/)
+- [Akuntan untuk Pabrik dan Manufaktur: HPP, Audit, Valuasi](https://cariakuntan.com/akuntan-manufaktur/)
+- [Akuntan untuk Travel Umrah dan Haji: Laporan dan Audit](https://cariakuntan.com/akuntan-travel-umrah/)
+- [Akuntan untuk UMKM: Pembukuan, Pajak, Laporan untuk KUR](https://cariakuntan.com/akuntan-umkm/)
+- [Akuntan untuk Kontraktor: Laporan Proyek, Audit, Tender](https://cariakuntan.com/akuntan-kontraktor/)
+- [Akuntan untuk Hotel dan Penginapan: Laporan, Audit, Valuasi](https://cariakuntan.com/akuntan-hotel/)
+- [Akuntan untuk Distributor dan Perusahaan Dagang](https://cariakuntan.com/akuntan-distributor/)
+<!--/caseg-->

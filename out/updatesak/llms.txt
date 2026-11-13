@@ -189,3 +189,14 @@
 ## Kertas Kerja PSAK (12 Nov 2026)
 - [Kertas Kerja PSAK](https://updatesak.com/kertas-kerja/): template Excel PSAK 118, 116, 109, 115 berisi contoh, checklist, rumus, dan jurnal, termasuk konsultasi WhatsApp
 <!--/uskk-->
+<!--usind-->
+
+## Akuntansi per Industri (13 Nov 2026)
+- [Akuntansi Restoran dan Cafe: HPP, Stok Bahan, Pajak](https://updatesak.com/akuntansi-restoran-cafe/)
+- [Akuntansi Manufaktur: Harga Pokok Produksi dan Persediaan](https://updatesak.com/akuntansi-manufaktur/)
+- [Akuntansi Travel Umrah dan Haji Khusus: Dana Jamaah](https://updatesak.com/akuntansi-travel-umrah/)
+- [Akuntansi UMKM: Pembukuan Sederhana sampai Laporan SAK EMKM](https://updatesak.com/akuntansi-umkm/)
+- [Akuntansi Kontraktor: Pendapatan Proyek, Retensi, Uang Muka](https://updatesak.com/akuntansi-kontraktor/)
+- [Akuntansi Hotel: Pendapatan Kamar, Deposit, OTA, Aset](https://updatesak.com/akuntansi-hotel/)
+- [Akuntansi Distributor: Persediaan, Rabat Prinsipal, Piutang](https://updatesak.com/akuntansi-distributor/)
+<!--/usind-->
