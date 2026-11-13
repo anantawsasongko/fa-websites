@@ -389,3 +389,10 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Cek: blok di 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; layout_check OK (sampel 40).
 - Urutan bila build ulang: ... -> fa_layanan_ringkas_20261112.py -> fa_bumper_rekam_20261112.py -> fa_rendah_hati_20261112.py.
 - Panduan gaya bumper: project doc claude/gaya-bumper-fa.md.
+
+## Tiga Video "How FA Indonesia Works" di Rekam Jejak /layanan/ (13 Nov 2026)
+- Pemicu (Bos): "Upload di web semua ya dan bisa di share." Tiga video 9:16, 30 detik (FA Jupiter, FA Saturn, FA Venus). Tujuan (Bos): bukan menjual apps, tetapi menunjukkan hasil kerja FA kuantitatif dan didukung alat buatan sendiri; karena itu tidak ada ajakan mencoba apps dan alamat di video hanya faindonesia.co.id.
+- `fa_bumper_apps_20261113.py` (out/faindonesia/layanan/index.html, idempoten, penanda <!--bmp3-->; dry run: --dry): blok "Cara Kerja Kami / Angka yang Bisa Ditelusuri" tepat setelah <!--/bmp10-->, anchor #cara-kerja dan #cara-kerja-jupiter, -saturn, -venus. Tiga kolom di desktop, geser menyamping di mobile. Tiap video punya bar share berikon bawaan situs (div.share, data-url ke anchor masing-masing) + tombol Video (Web Share dengan file mp4, fallback download) + JSON-LD VideoObject. Blok hanya bahasa Indonesia.
+- Aset di sumber: FA-Indonesia_Website_SIAP-UPLOAD-v58/media/cara-kerja-fa-{jupiter,saturn,venus}.mp4 (8,8 sampai 12,5 MB) dan .jpg. Script menolak file di atas 24 MB.
+- Cek: blok di 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; layout_check OK (sampel 30).
+- Urutan bila build ulang: ... -> fa_layanan_ringkas_20261112.py -> fa_bumper_rekam_20261112.py -> fa_bumper_apps_20261113.py -> fa_brand_entity_20261112.py -> fa_rendah_hati_20261112.py.
