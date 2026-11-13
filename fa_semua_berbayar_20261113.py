@@ -204,7 +204,10 @@ for p in (os.path.join(HERE, "shared", "pay", "_routes.json"), os.path.join(FA, 
     if "/files/fa-psak118-*" not in r: r = must(r, '"/kkx/*"]', '"/kkx/*", "/files/fa-psak118-*"]')
     wt(p, r)
 p = os.path.join(FA, "_redirects"); t = rd(p)
-t = re.sub(r'\n/saturn/kk/\*[^\n]*', "", t); wt(p, t)
+t = re.sub(r'\n/saturn/kk/\*[^\n]*', "", t)
+if "/files/fa-psak118-*" not in t:   # _redirects dibaca sebelum worker; arahkan link lama ke halaman pembayaran
+    t = must(t, "\n/files/*", "\n/files/fa-psak118-*  /bayar/?produk=psak118-kit  302\n/files/*")
+wt(p, t)
 
 # ====================== 3. /bayar/ dan /bayar/selesai/ ======================
 OPTS = "<!--paid13-->" + "".join('<option data-ppn="1" data-price="%d" value="%s">%s</option>\n' % (price, k, name)
