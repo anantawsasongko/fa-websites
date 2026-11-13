@@ -1,0 +1,25 @@
+/* rx13 (13 Nov 2026): menu 4 tab, pita alur ke FA Indonesia, kolom halaman dalam. Sumber: caus_rapi_20261113.py */
+.rxf{border-top:1px solid var(--line);background:var(--panel);padding:34px 16px 38px;margin-top:48px}
+.rxf .in{max-width:1008px;margin:0 auto}
+.rxf .t{display:flex;align-items:center;gap:12px;margin:0 0 20px;font:600 11.5px/1.2 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.rxf .t:before{content:"";width:28px;height:1px;background:currentColor}
+.rxf ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.rxf li{position:relative;margin:0;padding:0 16px 0 0}
+.rxf li:before{content:"";position:absolute;left:34px;right:0;top:17px;height:1px;background:var(--ink);opacity:.25}
+.rxf li:last-child:before{display:none}
+.rxf a{display:block;text-decoration:none;color:var(--ink)}
+.rxf i{position:relative;z-index:1;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--ink);background:var(--paper);font:600 12px/1 var(--body);font-style:normal}
+.rxf b{display:block;margin-top:12px;font:600 1.04rem/1.25 var(--display)}
+.rxf small{display:block;margin-top:5px;color:var(--muted);font-size:.86rem;line-height:1.45;max-width:25ch}
+.rxf li.end i{background:var(--accent);border-color:var(--accent);color:#fff}
+.rxf li.end b{color:var(--accent)}
+.rxf a:hover b{text-decoration:underline;text-underline-offset:4px}
+main+.rxf{margin-top:0}
+@media(max-width:760px){.rxf{padding:28px 16px 30px}.rxf ol{grid-template-columns:1fr;gap:16px}.rxf li{padding:0}
+.rxf li:before{left:17px;right:auto;top:34px;bottom:-16px;width:1px;height:auto}
+.rxf a{display:grid;grid-template-columns:34px 1fr;column-gap:14px;align-items:start}.rxf i{grid-row:span 2}.rxf b{margin-top:1px}.rxf small{max-width:none}}
+@media(max-width:860px){header.top .wrap{flex-wrap:wrap;row-gap:0;padding-bottom:0}
+header.top .tabs{width:100%;margin-left:0;justify-content:space-between;order:5}
+header.top .tabs{display:flex!important;flex-wrap:nowrap;gap:0}
+header.top .tabs a{white-space:nowrap;font-size:.86rem;padding:8px 4px;flex:0 1 auto}}
+@media(max-width:360px){header.top .tabs a{font-size:.8rem;padding:8px 2px}}
