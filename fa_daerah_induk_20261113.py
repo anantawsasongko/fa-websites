@@ -1,175 +1,138 @@
 # -*- coding: utf-8 -*-
-"""13 Nov 2026: halaman daerah mengikuti halaman induk /jasa-audit-laporan-keuangan/.
-Bos: "per daerah sampai desa, kecamatan, kota, harusnya halamannya persis ini dengan tambahan SEO per daerah".
+"""13 Nov 2026: halaman daerah FA ditata mengikuti halaman induk /jasa-audit-laporan-keuangan/,
+langsung ke inti, TANPA membuat isinya mirip satu sama lain dan TANPA membuang SEO yang sudah ada.
 
-Bekerja di out/faindonesia (pola blok berpenanda, idempoten). Sumber isi = halaman induk yang sudah final
-di out/, jadi jalankan SETELAH fa_rendah_hati_20261112.py (aman dijalankan ulang kapan saja).
+Arahan Bos 13 Nov: "halaman daerah harusnya seperti halaman induk dengan tambahan SEO per daerah";
+"Cek Izin gak perlu ada di halaman FA daerah, langsung to the point pakai blok biru dan orange untuk
+Chat Ananta, CPA"; "intinya jaga masih gak mirip"; "jangan sampai kehilangan SEO yang sudah ada".
 
-Keluarga yang disentuh:
-  A /jasa-audit-laporan-keuangan/<kota>/        (blok tim sudah tiga orang)
-  B /wilayah/<kota>/                            (tim satu kartu -> tiga orang)
-  C /wilayah/<kota>/kecamatan/<kec>/            (tim satu kartu -> tiga orang)
-  D /wilayah/<kota>/<kawasan>/                  (belum ada kotak kontak dan tim -> ditambah)
-Yang dipasang: blok Tim Kami induk (tiga foto), lalu inti halaman induk (Kapan Butuh Audit, Audit Hemat,
-Alur Kerja, KAP yang Mengaudit, Industri, Data Awal, Bacaan Terkait) dengan judul bernama daerah,
-tepat setelah Peta Isi dan sebelum isi lokal. Title, description, H1, JSON-LD, dan isi lokal tidak diubah.
-Keluarga B juga: blok Cek Izin KAP, KJA, KJPP dibuang; dua kartu KAP DHN + KJA Farhani (Chat Ananta, CPA)
-dipindah dari atas footer ke bawah judul "Siapa yang Mengerjakan di <kota>".
+Bekerja di out/faindonesia (blok berpenanda, idempoten). Sumber kartu dan blok tim = halaman induk yang
+sudah final di out/, jadi jalankan SETELAH fa_rendah_hati_20261112.py (aman diulang kapan saja).
+
+Keluarga:
+  A /jasa-audit-laporan-keuangan/<kota>/     B /wilayah/<kota>/
+  C /wilayah/<kota>/kecamatan/<kec>/         D /wilayah/<kota>/<kawasan>/
+Yang dilakukan:
+  1. Dua kartu KAP DHN & Rekan (oranye) + KJA Farhani K.N. (biru), tombol Chat Ananta, CPA, tepat di bawah
+     tombol hero (penanda fa-ik2). Menggantikan kotak kontak terlipat fa-lk2; kartu di atas footer dibuang
+     supaya tidak dobel. Pesan WA memuat nama daerah.
+  2. Blok "Tim Kami" tiga foto (Ananta, Farhani, Dwi) dari halaman induk.
+  3. B: blok Cek Izin KAP, KJA, KJPP tidak lagi tampil di tengah halaman. Isinya (daftar kantor per kota,
+     teks unik tiap kota, penting untuk kueri "kap <kota>") dipindah utuh ke akordeon tertutup di bawah
+     blok data lokal (penanda fa-pkfold), butir Peta Isi-nya dibuang.
+Tidak ada teks induk yang disalin ke halaman daerah (supaya antarhalaman tidak makin mirip).
+Title, description, H1, JSON-LD, URL, dan seluruh isi lokal tidak diubah.
 """
 import os, re, glob, html
+from urllib.parse import quote
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out", "faindonesia")
 PARENT = os.path.join(ROOT, "jasa-audit-laporan-keuangan", "index.html")
 
 RX_TIM = re.compile(r"<!--fa-tim-atas-->.*?<!--/fa-tim-atas-->", re.S)
 RX_LK2 = re.compile(r"<!--fa-lk2-->.*?<!--/fa-lk2-->", re.S)
-RX_IND = re.compile(r"<!--fa-induk-->.*?<!--/fa-induk-->", re.S)
+RX_IK2 = re.compile(r"<!--fa-ik2-->.*?<!--/fa-ik2-->", re.S)
+RX_IKD = re.compile(r"<!--fa-ikd-->.*?<!--/fa-ikd-->\n?", re.S)
 RX_NAV = re.compile(r'<nav aria-label="Peta Isi" class="pf-map[^"]*" id="pfmap">.*?</nav>', re.S)
-RX_LI_IK = re.compile(r'<li data-ik="1">.*?</li>', re.S)
-RX_BTN = re.compile(r'<button aria-expanded="false" class="pf-more" data-for="pfmap"[^>]*>[^<]*</button>')
-LK2D_CSS = ('<style id="lk2d-css">.lk2>summary{list-style:none;cursor:pointer;position:relative;padding-right:34px;line-height:1.4}'
-            '.lk2>summary::-webkit-details-marker{display:none}'
-            '.lk2>summary:after{content:"+";position:absolute;right:2px;top:50%;margin-top:-15px;font-size:24px;line-height:30px;font-weight:300;transition:transform .25s}'
-            '.lk2[open]>summary:after{transform:rotate(45deg)}</style>')
-
-
 RX_PK = re.compile(r"<!--pk-->.*?<!--/pk-->", re.S)
-RX_DHN2 = re.compile(r'<!--dhn-->(<div class="dhn2">.*?</aside></div>)<!--/dhn-->', re.S)
-RX_SIAPA = re.compile(r'<h2 id="siapa-yang-mengerjakan-di-[^"]*">.*?</h2>', re.S)
-
-
-def buang_cek_izin(t):
-    """Keluarga B: blok Cek Izin KAP/KJA/KJPP (daftar kantor lain) dibuang, diganti dua kartu
-    KAP DHN (oranye) dan KJA Farhani (biru) bertombol Chat Ananta, CPA. Bos 13 Nov 2026."""
-    pk = RX_PK.search(t)
-    if pk:
-        pos = pk.start()
-        t = t[:pos] + t[pk.end():]
-        nav = RX_NAV.search(t)
-        if nav:
-            n0 = nav.group(0)
-            n1, k = re.subn(r'<li(?: data-ik="1")?><a href="#cek-izin-kap[^"]*">.*?</a></li>', "", n0, flags=re.S)
-            def dec(m):
-                return "%s%d%s" % (m.group(1), max(int(m.group(2)) - 1, 0), m.group(3))
-            if 'data-ik0="' in n1:
-                n1 = re.sub(r'(data-ik0=")(\d+)(")', dec, n1, count=1)
-            else:
-                n1 = re.sub(r'(Lihat Semua \()(\d+)(\))', dec, n1)
-            t = t.replace(n0, n1, 1)
-        t = re.sub(r'<style id="pk-css">.*?</style>', "", t, count=1, flags=re.S)
-        t = re.sub(r'<script defer(?:="")? src="/js/izin\.js"></script>', "", t, count=1)
-    if "<!--fa-ikpk-->" not in t:
-        d = RX_DHN2.search(t)
-        h = RX_SIAPA.search(t)
-        if d and h and h.end() < d.start():
-            kartu = d.group(1).replace('<div class="dhn2">', '<div class="dhn2" style="width:100%;margin:22px 0 26px">', 1)
-            t = t[:d.start()] + "<!--dhn--><!--/dhn-->" + t[d.end():]
-            t = t[:h.end()] + "<!--fa-ikpk-->" + kartu + "<!--/fa-ikpk-->" + t[h.end():]
-    return t
+RX_DHN2 = re.compile(r'<div class="dhn2"[^>]*>.*?</aside></div>', re.S)
+RX_CBTNS = re.compile(r'<div class="cbtns"[^>]*>.*?</div>', re.S)
+FOLD_CSS = ('<style id="pkfold-css">details.pkfold{margin:26px 0 8px;border-top:1px solid rgba(127,127,127,.28);'
+            'border-bottom:1px solid rgba(127,127,127,.28)}details.pkfold>summary{cursor:pointer;list-style:none;'
+            'padding:16px 34px 16px 0;font-weight:600;position:relative}details.pkfold>summary::-webkit-details-marker{display:none}'
+            'details.pkfold>summary:after{content:"+";position:absolute;right:2px;top:50%;margin-top:-15px;font-size:24px;'
+            'line-height:30px;font-weight:300;transition:transform .25s}details.pkfold[open]>summary:after{transform:rotate(45deg)}'
+            'details.pkfold .pk{margin-top:4px}</style>')
 
 
 def load_parent():
     t = open(PARENT, encoding="utf-8").read()
     tim = RX_TIM.search(t).group(0)
-    lk2 = RX_LK2.search(t).group(0)
-    a = t.index('<h2 id="kapan-perusahaan-butuh-audit">')
-    b = t.index("<!--fanas-hub-->")
-    core = t[a:b].strip()
     assert "Tim Kami" in tim and tim.count("<img") == 3, "blok tim induk berubah"
-    assert core.count("<h2") == 7, "inti halaman induk berubah (%d h2)" % core.count("<h2")
-    return tim, lk2, core
-
-
-def localize(core, name, ids_on_page):
-    c = core
-    c = c.replace(">Kapan Perusahaan Butuh Audit</h2>", ">Kapan Perusahaan di %s Butuh Audit</h2>" % name)
-    c = c.replace(">Alur Kerja</h2>", ">Alur Kerja Audit di %s</h2>" % name)
-    c = c.replace("<h2>Bacaan Terkait</h2>", "<h2>Bacaan Terkait Audit</h2>")
-    toc = []
-    def fix(m):
-        i = m.group(1)
-        if i in ids_on_page:
-            i = i + "-audit"
-        toc.append((i, re.sub(r"<[^>]+>", "", m.group(2))))
-        return '<h2 id="%s">%s</h2>' % (i, m.group(2))
-    c = re.sub(r'<h2 id="([^"]+)">(.*?)</h2>', fix, c)
-    return c, toc
+    kartu = RX_DHN2.search(t).group(0)
+    assert kartu.count("<aside") == 2 and kartu.count("Chat Ananta, CPA") == 2, "dua kartu induk berubah"
+    css = "".join(re.search(r'<style id="%s">.*?</style>' % i, t, re.S).group(0) for i in ("dhn-css", "dhn2-css"))
+    return tim, kartu, css
 
 
 def place_name(t, fam):
-    m = re.search(r"<summary><b[^>]*>Kontak KJA Farhani dan KAP DHN &amp; Rekan di (.*?)</b></summary>", t)
-    if m:
-        return m.group(1).strip()
-    if fam == "D":
-        m = re.search(r"<h2[^>]*>Persiapan Audit KAP di (.*?)</h2>", t)
+    for rx in (r"<summary><b[^>]*>Kontak KJA Farhani dan KAP DHN &amp; Rekan di (.*?)</b></summary>",
+               r'<div class="dhn2" data-n="([^"]*)"',
+               r"<h2[^>]*>Persiapan Audit KAP di (.*?)</h2>"):
+        m = re.search(rx, t)
         if m:
-            return m.group(1).strip()
+            return html.unescape(m.group(1)).strip()
     return None
 
 
-def do(path, fam, tim, lk2, core):
+def kartu_lokal(kartu, name):
+    q = quote(name)
+    k = kartu.replace("saya%20ingin%20tanya", "saya%20dari%20" + q + "%20ingin%20tanya")
+    k = re.sub(r'<div class="dhn2"[^>]*>',
+               '<div class="dhn2" data-n="%s" style="width:100%%;margin:24px 0 6px">' % html.escape(name, quote=True), k, count=1)
+    return k
+
+
+def pindah_cek_izin(t, name):
+    """B: section.pk keluar dari tengah halaman, masuk akordeon tertutup setelah blok uq-lokal."""
+    if "<!--fa-pkfold-->" in t:
+        return t
+    pk = RX_PK.search(t)
+    if not pk:
+        return t
+    isi = pk.group(0)
+    t = t[:pk.start()] + t[pk.end():]
+    nav = RX_NAV.search(t)
+    if nav:
+        n0 = nav.group(0)
+        n1, k = re.subn(r'<li><a href="#cek-izin-kap[^"]*">.*?</a></li>', "", n0, flags=re.S)
+        if k:
+            n1 = re.sub(r"Lihat Semua \((\d+)\)", lambda m: "Lihat Semua (%d)" % max(int(m.group(1)) - 1, 0), n1)
+            t = t.replace(n0, n1, 1)
+    fold = ('<!--fa-pkfold-->' + FOLD_CSS + '<details class="pkfold"><summary>Daftar KAP, KJA, dan KJPP Terdaftar di %s</summary>'
+            % html.escape(name) + isi + '</details><!--/fa-pkfold-->')
+    k = t.find("<!--/uq-lokal-->")
+    if k >= 0:
+        k += len("<!--/uq-lokal-->")
+    else:
+        k = t.find("<h2>Pertanyaan Umum</h2>")
+        if k < 0:
+            k = t.rfind("</main>")
+    return t[:k] + fold + t[k:]
+
+
+def do(path, fam, tim, kartu, css):
     t = open(path, encoding="utf-8").read()
     o = t
-    # bersihkan hasil lama (idempoten)
-    t = RX_IND.sub("", t)
-    nav = RX_NAV.search(t)
-    if not nav:
-        return "nonav"
-    n0 = nav.group(0)
-    n1 = RX_LI_IK.sub("", n0)
-    if 'data-ikb="1"' in n1:
-        n1 = re.sub(r'<button aria-expanded="false" class="pf-more" data-for="pfmap" data-ikb="1"[^>]*>[^<]*</button>', "", n1)
-        n1 = n1.replace('class="pf-map many"', 'class="pf-map"', 1)
-    t = t.replace(n0, n1, 1)
-    if fam == "D":
-        t = re.sub(r"<!--fa-ikd-->.*?<!--/fa-ikd-->\n?", "", t, flags=re.S)
-
     name = place_name(t, fam)
     if not name:
         return "noname"
+    # bersihkan hasil sebelumnya
+    t = RX_IKD.sub("", t)
     if fam == "B":
-        t = buang_cek_izin(t)
-
-    # 1. blok tim tiga orang
+        t = pindah_cek_izin(t, name)
+    # kartu lama (atas footer / hasil lama) dibuang, kecuali yang ada di dalam blok fa-ik2
+    ik2 = RX_IK2.search(t)
+    if ik2:
+        t = t[:ik2.start()] + "\x00IK2\x00" + t[ik2.end():]
+    t = RX_DHN2.sub("", t)
+    blok = "<!--fa-ik2-->" + ("" if "dhn2-css" in t else css) + kartu_lokal(kartu, name) + "<!--/fa-ik2-->"
+    # 1. dua kartu di bawah tombol hero
+    if "\x00IK2\x00" in t:
+        t = t.replace("\x00IK2\x00", blok, 1)
+    elif RX_LK2.search(t):
+        t = RX_LK2.sub(lambda m: blok, t, count=1)
+    else:
+        cb = RX_CBTNS.search(t)
+        if not cb:
+            return "nohero"
+        t = t[:cb.end()] + blok + t[cb.end():]
+    # 2. blok tim tiga orang
     if RX_TIM.search(t):
         t = RX_TIM.sub(lambda m: tim, t, count=1)
-    elif fam == "D":
-        box = lk2.replace("Kontak KJA Farhani dan KAP DHN &amp; Rekan</b>", "Kontak KJA Farhani dan KAP DHN &amp; Rekan di %s</b>" % name, 1)
-        box = re.sub(r'<div class="lk2-q">.*?</div>', "", box, count=1, flags=re.S)
-        css = "" if "lk2d-css" in t else LK2D_CSS
-        css += '<style id="ikd-css">.art table{border-collapse:collapse;width:100%}.art th,.art td{border:1px solid #333;padding:9px 10px;text-align:left;vertical-align:top}</style>'
-        nav = RX_NAV.search(t)
-        t = t[:nav.start()] + "<!--fa-ikd-->" + css + box + tim + "<!--/fa-ikd-->\n" + t[nav.start():]
     else:
-        return "notim"
-
-    # 2. inti halaman induk setelah Peta Isi
-    nav = RX_NAV.search(t)
-    rest = t[:nav.start()] + t[nav.end():]
-    ids = set(re.findall(r'\sid="([^"]+)"', rest))
-    c, toc = localize(core, name, ids)
-    block = "<!--fa-induk-->" + c + "<!--/fa-induk-->"
-    # 3. Peta Isi: enam butir induk di depan
-    n0 = nav.group(0)
-    lis = "".join('<li data-ik="1"><a href="#%s">%s</a></li>' % (i, lab) for i, lab in toc)
-    n1 = n0.replace("<ol>", "<ol>" + lis, 1)
-    btn = RX_BTN.search(n1)
-    if btn:
-        m = re.search(r"Lihat Semua \((\d+)\)", btn.group(0))
-        old = int(m.group(1)) if m else n1.count("<li")
-        base = btn.group(0)
-        # simpan angka asli supaya jalan ulang tidak menumpuk
-        mo = re.search(r'data-ik0="(\d+)"', base)
-        orig = int(mo.group(1)) if mo else old
-        tot = orig + len(toc)
-        nb = ('<button aria-expanded="false" class="pf-more" data-for="pfmap" data-ik0="%d" data-l="Lihat Semua (%d)" type="button">Lihat Semua (%d) </button>'
-              % (orig, tot, tot))
-        n1 = n1.replace(base, nb, 1)
-    else:
-        tot = n1.count("<li")
-        n1 = n1.replace('class="pf-map"', 'class="pf-map many"', 1)
-        n1 = n1.replace("</ol>", '</ol><button aria-expanded="false" class="pf-more" data-for="pfmap" data-ikb="1" data-l="Lihat Semua (%d)" type="button">Lihat Semua (%d) </button>' % (tot, tot), 1)
-    t = t[:nav.start()] + n1 + block + t[nav.end():]
+        e = t.index("<!--/fa-ik2-->") + len("<!--/fa-ik2-->")
+        t = t[:e] + "<!--fa-ikd-->" + tim + "<!--/fa-ikd-->\n" + t[e:]
     if t != o:
         open(path, "w", encoding="utf-8").write(t)
         return "ok"
@@ -177,7 +140,7 @@ def do(path, fam, tim, lk2, core):
 
 
 def main():
-    tim, lk2, core = load_parent()
+    tim, kartu, css = load_parent()
     fams = {
         "A": glob.glob(os.path.join(ROOT, "jasa-audit-laporan-keuangan", "*", "index.html")),
         "B": glob.glob(os.path.join(ROOT, "wilayah", "*", "index.html")),
@@ -188,7 +151,7 @@ def main():
         res = {}
         bad = []
         for p in sorted(fams[fam]):
-            r = do(p, fam, tim, lk2, core)
+            r = do(p, fam, tim, kartu, css)
             res[r] = res.get(r, 0) + 1
             if r not in ("ok", "same"):
                 bad.append((r, os.path.relpath(p, ROOT)))
