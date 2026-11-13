@@ -12,7 +12,7 @@ Teks, link, dan id lama tidak berubah. Idempoten. Jalankan paling akhir (setelah
 """
 import os, re, glob, sys
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out", "faindonesia")
-V = "20261113c"
+V = "20261113d"
 CSS = f'<link href="/css/fa-tanim.css?v={V}" id="fa-tanim-css" rel="stylesheet"/>'
 JS = f'<script defer id="fa-tanim-js" src="/js/fa-tanim.js?v={V}"></script>'
 DIAG = ('<!--fa-tanim--><div aria-label="Alur kerja FA Indonesia" class="ftan" role="img"><p class="ttl">Alur Kerja FA <i>dari data mentah sampai keputusan</i></p><ol>'
