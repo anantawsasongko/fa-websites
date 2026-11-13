@@ -49,80 +49,7 @@ KEC = {k["code"]: [] for k in KABS}
 for c, kab, n in DIS:
     KEC[kab].append(dict(code=c, name=nm(n), slug=sl(nm(n)), vil=sorted(VIL.get(c, []))))
 
-T = rd(P("/en/fractional-cfo-bali/"))
-CSS = re.search(r'<style id="fcfo-css">.*?</style>', T, re.S).group(0)
-X_CSS = ('<style id="fcfol-css">.fcl-bi{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:6px 0 10px}.fcl-bi>div{border-left:2px solid #333;padding-left:16px}'
-         '.fcl-bi small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px}'
-         '.fcl-pr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.fcl-pr div{border:1px solid #333;border-radius:12px;padding:14px 16px;background:#1b1b1b}'
-         '.fcl-pr b{display:block;font-size:20px;margin:2px 0 6px}.fcl-pr small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}'
-         '.fcl-pr span{display:block;font-size:13px;line-height:1.5;opacity:.8}.fcl-v{column-count:3;column-gap:18px;font-size:14px;line-height:1.7;margin:8px 0 14px}'
-         '.fcl-k{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}.fcl-k a{border:1px solid #3a3a3a;border-radius:999px;padding:6px 12px;font-size:13px;text-decoration:none;color:inherit}'
-         '.fcl-k a:hover{border-color:#fff}@media(max-width:720px){.fcl-bi,.fcl-pr{grid-template-columns:1fr}.fcl-v{column-count:2}}</style>')
-
-def profil(W):
-    return (f'<div class="fcp"><img alt="{E(NAME)}" decoding="async" height="875" loading="lazy" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><div>'
-            f'<small>Fractional CFO · FA Indonesia</small><b class="nm">{E(NAME)}</b><span class="rl">Fractional CFO for PT PMA · Fractional CFO untuk PT PMA</span><ul>'
-            '<li>Certified Public Accountant (CPA), Institut Akuntan Publik Indonesia (IAPI)</li><li>FMVA and FPAP, Corporate Finance Institute</li>'
-            '<li>Audit and assurance, Ernst &amp; Young (EY)</li><li>Former Finance Director and Group CFO, multi-entity hospital group</li>'
-            '<li>Prepared a private company for IPO on the Indonesia Stock Exchange</li></ul>'
-            f'<div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn solid" href="{W}" rel="noopener" target="_blank">Chat Ananta, CPA</a>'
-            '<a class="btn line" href="/ananta-w-sasongko/">Full Profile / Profil Lengkap</a></div></div></div>')
-PRICE = ('<div class="fcl-pr"><div><small>CFO Advisory</small><b>USD 2,000 / month</b><span>Fractional CFO: monthly reporting, budget and cash, tax and LKPM, reporting to owners. '
-         '<i lang="id">Mulai USD 2.000 per bulan.</i></span></div><div><small>Full Team · Tim Lengkap</small><b>USD 5,000 / month</b><span>Plus bookkeeping (KJA Farhani K.N.), audit readiness with KAP DHN &amp; Rekan, '
-         'KJPP valuation, bank financing, IPO readiness. <i lang="id">Mulai USD 5.000 per bulan.</i></span></div></div>'
-         '<p class="t" style="font-size:13px;opacity:.8">Indicative, confirmed after a diagnostic; invoiced in rupiah. Audit opinion and KJPP report are separate engagements with the licensed firms. '
-         '<span lang="id">Harga indikatif, tagihan dalam rupiah; opini audit dan laporan KJPP adalah perikatan terpisah.</span></p>')
-LOCAL = ('<div class="fcl-bi"><div><small>Why a local CFO</small><p>We work on the Indonesian side every day: the KAP that signs your audit, the KJPP your bank accepts, '
-         'local bank credit analysts, the tax office, OSS and LKPM. Reports come to you in English.</p></div><div lang="id"><small>Mengapa CFO lokal</small>'
-         '<p>Kami bekerja di sisi Indonesia setiap hari: KAP penanda tangan audit, KJPP yang diterima bank, analis kredit bank lokal, kantor pajak, OSS dan LKPM. Laporan tetap tersedia dalam bahasa Inggris.</p></div></div>')
-
-EN_INTRO = [
- "Foreign-owned companies in {loc} need numbers their owners abroad can trust, tax and LKPM filed on time, and books a bank or auditor will accept. A fractional CFO gives you that for a few days a month.",
- "If you run a PT PMA in {loc}, a fractional CFO keeps your reporting in English, your cash under control, and your tax, LKPM, and audit on schedule, without the cost of a full-time hire.",
- "Owners of PT PMA in {loc} often manage from abroad. A fractional CFO is the senior finance person on the Indonesian side who reports to you, the parent, and the bank.",
- "Running a foreign-owned company in {loc} means rupiah books, Indonesian tax and LKPM, and owners who want reports in English. A fractional CFO bridges both sides.",
-]
-ID_INTRO = [
- "PT PMA di {loc} butuh angka yang dipercaya pemilik di luar negeri, pajak dan LKPM yang tepat waktu, serta pembukuan yang diterima bank dan auditor. Fractional CFO memberikannya beberapa hari dalam sebulan.",
- "Bila Anda mengelola PT PMA di {loc}, fractional CFO menjaga laporan berbahasa Inggris, kas terkendali, serta pajak, LKPM, dan audit tepat jadwal, tanpa biaya CFO penuh waktu.",
- "Pemilik PT PMA di {loc} sering mengelola dari luar negeri. Fractional CFO adalah orang keuangan senior di sisi Indonesia yang melapor ke Anda, induk, dan bank.",
- "Mengelola perusahaan PMA di {loc} berarti pembukuan rupiah, pajak dan LKPM Indonesia, serta pemilik yang ingin laporan berbahasa Inggris. Fractional CFO menjembatani keduanya.",
-]
-
-def page(path, title, desc, h1, eyebrow, body, W, faq, crumbs):
-    url = D + path
-    main = (f'<main id="top"><!--fa-fcfol-page-->{CSS}{X_CSS}\n<section class="block">\n<div class="wrap art">\n'
-            f'<nav class="crumb" style="font-size:13px;opacity:.75;margin:0 0 10px">' + " / ".join(f'<a href="{u}">{E(n)}</a>' for u, n in crumbs) + "</nav>"
-            f'<p class="eyebrow">{E(eyebrow)}</p>\n<h1 style="margin:.2em 0 .5em;font-size:clamp(28px,4vw,46px);line-height:1.14">{E(h1)}</h1>\n'
-            + body + "\n</div>\n</section>\n</main>")
-    t = re.sub(r'<main id="top">.*?</main>', lambda m: main, T, count=1, flags=re.S)
-    t = re.sub(r"<title>.*?</title>", f"<title>{E(title)}</title>", t, count=1, flags=re.S)
-    for prop, val in (("og:title", title), ("og:description", desc), ("og:url", url)):
-        t = re.sub(rf'<meta content="[^"]*" property="{prop}"/>', f'<meta content="{E(val)}" property="{prop}"/>', t, count=1)
-    t = re.sub(r'<meta content="[^"]*" name="description"/>', f'<meta content="{E(desc)}" name="description"/>', t, count=1)
-    t = re.sub(r'<link href="[^"]*" rel="canonical"/><link href="[^"]*" hreflang="en" rel="alternate"/><link href="[^"]*" hreflang="id" rel="alternate"/>',
-               f'<link href="{url}" rel="canonical"/>', t, count=1)
-    g = {"@context": "https://schema.org", "@graph": [
-        {"@type": "ProfessionalService", "name": h1, "description": desc, "url": url, "inLanguage": ["en", "id"],
-         "provider": {"@type": "Organization", "@id": D + "/#org", "name": "FA Indonesia", "url": D + "/"},
-         "employee": {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-cpa-rs.jpg", "url": D + "/ananta-w-sasongko/"},
-         "priceRange": "USD 2,000 - 5,000 per month"},
-        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": D + u} for i, (u, n) in enumerate(crumbs)]},
-        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]}
-    t = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda m: '<script type="application/ld+json">' + json.dumps(g, ensure_ascii=False) + "</script>", t, count=1, flags=re.S)
-    return wt(P(path), t)
-
-def fit(*cands):
-    for c in cands:
-        if len(c) <= 65: return c
-    return cands[-1][:65]
-def cut(s, n=158):
-    if len(s) <= n: return s
-    if " CFO paruh waktu" in s:   # buang ekor bahasa Indonesia dulu daripada memotong kalimat
-        s2 = s[:s.index(" CFO paruh waktu")]
-        if len(s2) <= n: return s2
-    s = s[:n].rsplit(" ", 1)[0].rstrip(",;:")
-    return s + "."
+from fcfo_kit import T, CSS, X_CSS, profil, PRICE, LOCAL, EN_INTRO, ID_INTRO, page, fit, cut
 def faqs(loc, sh):
     return [(f"How much does a fractional CFO cost in {loc}?", f"CFO Advisory starts from USD 2,000 per month and the Full Team package from USD 5,000 per month, confirmed after a diagnostic and invoiced in rupiah. Work is remote with scheduled visits to {loc}."),
             (f"Berapa biaya fractional CFO di {loc}?", f"CFO Advisory mulai USD 2.000 per bulan dan Tim Lengkap mulai USD 5.000 per bulan, dikonfirmasi setelah diagnostik, tagihan dalam rupiah. Kerja jarak jauh dengan kunjungan terjadwal ke {loc}."),
@@ -190,16 +117,7 @@ for k in KABS:
                    (f"Berapa biaya fractional CFO di {c['name']}?", "Mulai USD 2.000 per bulan (CFO Advisory) dan USD 5.000 per bulan (Tim Lengkap), tagihan dalam rupiah.")], cr)
         URLS.append(cpath)
 
-# hub
-hb = ('<div class="fcl-bi"><div><small>English</small><p>Fractional CFO for foreign-owned companies (PT PMA) in Bali, West Nusa Tenggara, and East Nusa Tenggara, by regency and district.</p></div>'
-      '<div lang="id"><small>Bahasa Indonesia</small><p>Fractional CFO untuk PT PMA di Bali, NTB, dan NTT, per kabupaten/kota dan kecamatan.</p></div></div>'
-      + profil(wa("Hello Pak Ananta, we are a PT PMA and would like to discuss fractional CFO support. Location: ... Business: ..."))
-      + "".join(f'<h2 id="{PROV[p][2]}">{E(PROV[p][1])}</h2><div class="fcl-k">' + "".join(f'<a href="{u}">{E(l)} <small style="opacity:.6">{c}</small></a>' for u, l, c in BYPROV[p]) + "</div>" for p in ("51", "52", "53"))
-      + '<h2 id="pricing">Pricing · Biaya</h2>' + PRICE + LOCAL)
-n += page("/fractional-cfo/", "Fractional CFO Bali, NTB, NTT for PT PMA | FA Indonesia",
-          "Fractional CFO for PT PMA in Bali, Lombok, Sumbawa, Flores, Sumba, and Timor, by regency and district. From USD 2,000/month. CFO paruh waktu PT PMA.",
-          "Fractional CFO for PT PMA in Bali, NTB, and NTT", "Fractional CFO · PT PMA", hb, "", [("Where do you work?", "Bali, NTB, and NTT, remote with scheduled visits.")],
-          [("/fractional-cfo/", "Fractional CFO")])
+# hub /fractional-cfo/ dibangun fa_fcfo_produk_20261113.py (data dari fa_content/fcfo_lokal_map.json)
 URLS.insert(0, "/fractional-cfo/")
 
 # link masuk: halaman regional (EN + ID) -> daftar kabupaten
@@ -216,13 +134,12 @@ for p, (sh, lg, ps) in PROV.items():
     en = {"bali": "/en/fractional-cfo-bali/", "ntb": "/en/fractional-cfo-lombok-ntb/", "ntt": "/en/fractional-cfo-labuan-bajo-ntt/"}[ps]
     for u in (en, f"/fractional-cfo-pt-pma-{ps}/"):
         nl += put(u, blk, [r'<h2 id="faq">'])
-nl += put("/cfo-paruh-waktu/", '<!--fa-fcfol--><p class="t"><b>Per kabupaten dan kecamatan (Bali, NTB, NTT):</b> <a href="/fractional-cfo/">Fractional CFO PT PMA, bilingual</a></p><!--/fa-fcfol-->',
-          [r'<div class="head" style="margin-top:36px"><h2 id="tim-kami">'])
+# link dari /cfo-paruh-waktu/ ke /fractional-cfo/ dipasang fa_cfo_paruh_waktu_20261113.py
 
 sm = os.path.join(OUT, "sitemap.xml"); x = rd(sm); x = re.sub(r"<!--fcfol-->.*?<!--/fcfol-->\n?", "", x, flags=re.S)
 wt(sm, x.replace("</urlset>", "<!--fcfol-->" + "".join(f"<url><loc>{D}{u}</loc><lastmod>{TODAY}</lastmod></url>" for u in URLS) + "<!--/fcfol-->\n</urlset>"))
 lp = os.path.join(OUT, "llms.txt"); l = rd(lp); l = re.sub(r"\n<!--fcfol-->.*?<!--/fcfol-->", "", l, flags=re.S)
 wt(lp, l.rstrip("\n") + "\n<!--fcfol-->\n\n## Fractional CFO PT PMA per Kabupaten dan Kecamatan, Bali, NTB, NTT (13 Nov 2026)\n"
    f"- [Fractional CFO Bali, NTB, NTT]({D}/fractional-cfo/): hub bilingual\n" + "".join(f"- [Fractional CFO {l}]({D}{u})\n" for p in BYPROV for u, l, c in BYPROV[p]) + "<!--/fcfol-->\n")
-json.dump({k["code"]: f"/fractional-cfo/{k['slug']}/" for k in KABS}, open(os.path.join(HERE, "fa_content", "fcfo_lokal_map.json"), "w"))
+json.dump({p: [[u, l, c] for u, l, c in v] for p, v in BYPROV.items()}, open(os.path.join(HERE, "fa_content", "fcfo_lokal_map.json"), "w"), ensure_ascii=False)
 print("halaman", n, "total URL", len(URLS), "link masuk", nl)

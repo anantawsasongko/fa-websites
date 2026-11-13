@@ -41,7 +41,7 @@ def profil(L):
         li = ["Certified Public Accountant (CPA), Indonesian Institute of Certified Public Accountants (IAPI)",
               "FMVA and FPAP, Corporate Finance Institute",
               "Audit and assurance at Ernst &amp; Young (EY)",
-              "Former Finance Director and Group CFO of a multi-entity hospital group: consolidation, acquisitions, bank financing",
+              "Finance Director and Group CFO roles from Indonesia to Singapore: consolidation, acquisitions, bank financing, investor funding",
               "Prepared a private company for IPO on the Indonesia Stock Exchange; doctoral candidate in accounting"]
         b1, b2 = "Chat Ananta, CPA", "Full Profile"
     else:
@@ -49,7 +49,7 @@ def profil(L):
         li = ["Certified Public Accountant (CPA), Institut Akuntan Publik Indonesia (IAPI)",
               "FMVA dan FPAP, Corporate Finance Institute",
               "Audit dan assurance di Ernst &amp; Young (EY)",
-              "Pernah Direktur Keuangan dan Group CFO grup rumah sakit multi-entitas: konsolidasi, akuisisi, pembiayaan bank",
+              "Direktur Keuangan dan Group CFO dari Indonesia hingga Singapura: konsolidasi, akuisisi, pembiayaan bank, pendanaan investor",
               "Menyiapkan perusahaan swasta menuju IPO di Bursa Efek Indonesia; kandidat doktor akuntansi"]
         b1, b2 = "Chat Ananta, CPA", "Profil Lengkap"
     return (f'<div class="fcp"><img alt="{E(NAME)}" decoding="async" height="875" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><div>'
@@ -222,6 +222,9 @@ for k, r in R.items():
              "inLanguage": L},
             {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": html.unescape(a)}} for q, a in F]}]}
         t = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda m: '<script type="application/ld+json">' + json.dumps(g, ensure_ascii=False) + "</script>", t, count=1, flags=re.S)
+        _old = rd(P(url_path)) if os.path.exists(P(url_path)) else ""
+        _blk = re.search(r"<!--fa-fcfol-->.*?<!--/fa-fcfol-->", _old, re.S)   # blok kabupaten dari fa_fcfo_lokal dipertahankan
+        if _blk and '<h2 id="faq">' in t: t = t.replace('<h2 id="faq">', _blk.group(0) + '<h2 id="faq">', 1)
         n += wt(P(url_path), t)
 
 # ------------------------------------------------------------------ link masuk

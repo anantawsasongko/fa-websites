@@ -384,6 +384,17 @@
 ## English Guide (12 Nov 2026)
 - [PT PMA Audit Requirements in Indonesia 2026](https://faindonesia.co.id/en/pt-pma-audit-requirements-indonesia/): when a foreign-owned company must be audited, who can sign, process, documents, fee drivers
 <!--/enpma-->
+<!--fcfo-->
+
+## Fractional CFO untuk PT PMA (13 Nov 2026)
+- [Fractional CFO in Indonesia for PT PMA | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-indonesia/)
+- [Fractional CFO for PT PMA in Bali | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-bali/)
+- [Fractional CFO PT PMA di Bali: CFO Paruh Waktu | FA Indonesia](https://faindonesia.co.id/fractional-cfo-pt-pma-bali/)
+- [Fractional CFO for PT PMA in Lombok and NTB | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-lombok-ntb/)
+- [Fractional CFO PT PMA di NTB dan Lombok | FA Indonesia](https://faindonesia.co.id/fractional-cfo-pt-pma-ntb/)
+- [Fractional CFO for PT PMA in Labuan Bajo and NTT | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-labuan-bajo-ntt/)
+- [Fractional CFO PT PMA di NTT dan Labuan Bajo | FA Indonesia](https://faindonesia.co.id/fractional-cfo-pt-pma-ntt/)
+<!--/fcfo-->
 <!--fcfol-->
 
 ## Fractional CFO PT PMA per Kabupaten dan Kecamatan, Bali, NTB, NTT (13 Nov 2026)
@@ -430,14 +441,20 @@
 - [Fractional CFO Malaka](https://faindonesia.co.id/fractional-cfo/malaka/)
 - [Fractional CFO Kota Kupang](https://faindonesia.co.id/fractional-cfo/kota-kupang/)
 <!--/fcfol-->
-<!--fcfo-->
+<!--fcfop-->
 
-## Fractional CFO untuk PT PMA (13 Nov 2026)
-- [Fractional CFO in Indonesia for PT PMA | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-indonesia/)
-- [Fractional CFO for PT PMA in Bali | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-bali/)
-- [Fractional CFO PT PMA di Bali: CFO Paruh Waktu | FA Indonesia](https://faindonesia.co.id/fractional-cfo-pt-pma-bali/)
-- [Fractional CFO for PT PMA in Lombok and NTB | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-lombok-ntb/)
-- [Fractional CFO PT PMA di NTB dan Lombok | FA Indonesia](https://faindonesia.co.id/fractional-cfo-pt-pma-ntb/)
-- [Fractional CFO for PT PMA in Labuan Bajo and NTT | FA Indonesia](https://faindonesia.co.id/en/fractional-cfo-labuan-bajo-ntt/)
-- [Fractional CFO PT PMA di NTT dan Labuan Bajo | FA Indonesia](https://faindonesia.co.id/fractional-cfo-pt-pma-ntt/)
-<!--/fcfo-->
+## Fractional CFO (produk, bilingual, 13 Nov 2026)
+- [Fractional CFO Indonesia for PT PMA and SMEs | FA Indonesia](https://faindonesia.co.id/fractional-cfo/): Fractional CFO in Indonesia for PT PMA and SMEs: reporting, cash, tax and LKPM, audit, banks, IPO. A CFO with experience from Indonesia to Singapore.
+- [How Our Fractional CFO Works | FA Indonesia](https://faindonesia.co.id/fractional-cfo/how-we-work/): How a fractional CFO engagement runs in Indonesia: free first call, health check, monthly rhythm, and handover. Bilingual English and Indonesian.
+- [Fractional CFO Pricing in Indonesia | FA Indonesia](https://faindonesia.co.id/fractional-cfo/pricing/): Fractional CFO pricing in Indonesia: CFO Advisory from USD 2,000 per month, Full Team from USD 5,000 per month, invoiced in rupiah. What drives the fee.
+- [Finance Health Check for PT PMA and SMEs | FA Indonesia](https://faindonesia.co.id/fractional-cfo/health-check/): Free one-minute finance health check for PT PMA and SMEs in Indonesia: reporting, cash, tax, LKPM, audit, and controls. Send your score on WhatsApp.
+- [Fractional CFO for PT PMA and Regional Groups | FA Indonesia](https://faindonesia.co.id/fractional-cfo/pt-pma-groups/): Fractional CFO for PT PMA and regional groups: group reporting in English, PSAK to IFRS, intercompany, transfer pricing, withholding, LKPM, audit.
+- [Profit Repatriation From Indonesia for PT PMA | FA Indonesia](https://faindonesia.co.id/fractional-cfo/profit-repatriation/): How a PT PMA repatriates profit from Indonesia: dividends, reserve rules, withholding tax and treaties, shareholder loan interest, management fees.
+- [Fundraising, Bank Financing and IPO Readiness | FA Indonesia](https://faindonesia.co.id/fractional-cfo/fundraising/): Fractional CFO support for bank financing, investors, and IPO readiness in Indonesia: models, data room, KJPP valuation, covenants, underwriter coordination.
+- [Financial Due Diligence in Indonesia | FA Indonesia](https://faindonesia.co.id/fractional-cfo/due-diligence/): Financial due diligence in Indonesia for buyers, sellers, and investors: earnings quality, cash, tax exposure, related parties, licences and LKPM history.
+- [LKPM and PT PMA Compliance Calendar | FA Indonesia](https://faindonesia.co.id/fractional-cfo/lkpm-compliance/): PT PMA compliance in Indonesia: quarterly LKPM through OSS, monthly tax and withholding, transfer pricing, statutory audit, capital rules. Bilingual guide.
+- [Interim CFO in Indonesia | FA Indonesia](https://faindonesia.co.id/fractional-cfo/interim-cfo/): Interim CFO in Indonesia when your CFO or finance manager leaves: cash control, month-end close, banks, tax, auditor, and hiring the permanent replacement.
+- [For Group CFOs With an Indonesian Subsidiary | FA Indonesia](https://faindonesia.co.id/fractional-cfo/for-cfos/): For group CFOs with an Indonesian subsidiary: on-the-ground senior finance support, group reporting on time, subsidiary review, tax and bank early warning.
+- [Fractional CFO Team: CFO, KJA, KAP | FA Indonesia](https://faindonesia.co.id/fractional-cfo/team/): The FA Indonesia fractional CFO team: a CFO with experience from Indonesia to Singapore, KJA Farhani K.N. for the books, and KAP DHN & Rekan for the audit.
+- [Fractional CFO FAQ Indonesia | FA Indonesia](https://faindonesia.co.id/fractional-cfo/faq/): Questions about fractional CFO services in Indonesia: what it is, cost, days per month, English reporting, audit independence, and locations.
+<!--/fcfop-->

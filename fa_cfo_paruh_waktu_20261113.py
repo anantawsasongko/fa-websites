@@ -28,7 +28,7 @@ CSS = eval(re.search(r"^CSS = (\(.*?\))\n\n", _src, re.S | re.M).group(1))
 PROF = ('<!--fa-cfopw-prof-->' + CSS + '<div class="fcp"><img alt="' + E(NAME) + '" decoding="async" height="875" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><div>'
         '<small>Fractional CFO · FA Indonesia</small><b class="nm">' + E(NAME) + '</b><span class="rl">Fractional CFO dan penasihat keuangan untuk perusahaan swasta, grup usaha, dan PT PMA</span><ul>'
         '<li>Certified Public Accountant (CPA), Institut Akuntan Publik Indonesia (IAPI)</li><li>FMVA dan FPAP, Corporate Finance Institute</li>'
-        '<li>Audit dan assurance di Ernst &amp; Young (EY)</li><li>Pernah Direktur Keuangan dan Group CFO grup rumah sakit multi-entitas: konsolidasi, akuisisi, pembiayaan bank</li>'
+        '<li>Audit dan assurance di Ernst &amp; Young (EY)</li><li>Direktur Keuangan dan Group CFO dari Indonesia hingga Singapura: konsolidasi, akuisisi, pembiayaan bank, pendanaan investor</li>'
         '<li>Menyiapkan perusahaan swasta menuju IPO di Bursa Efek Indonesia; kandidat doktor akuntansi</li></ul>'
         f'<div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn solid" href="{WA}" rel="noopener" target="_blank">Chat Ananta, CPA</a>'
         '<a class="btn line" href="/ananta-w-sasongko/">Profil Lengkap</a></div></div></div><!--/fa-cfopw-prof-->')
@@ -51,6 +51,7 @@ SEC = [
    '<div class="ftl"><a href="/fractional-cfo-pt-pma-bali/"><small>Bali</small><b>Fractional CFO PT PMA di Bali</b><span>Vila, resor, restoran, beach club, properti.</span></a>'
    '<a href="/fractional-cfo-pt-pma-ntb/"><small>NTB</small><b>Fractional CFO PT PMA di NTB dan Lombok</b><span>Gili, Mandalika, jasa tambang di Sumbawa.</span></a>'
    '<a href="/fractional-cfo-pt-pma-ntt/"><small>NTT</small><b>Fractional CFO PT PMA di NTT dan Labuan Bajo</b><span>Resor, kapal phinisi, operator selam, Sumba.</span></a></div>'
+   '<p class="t"><b>Bilingual, per kabupaten dan kecamatan Bali, NTB, NTT:</b> <a href="/fractional-cfo/">Fractional CFO PT PMA</a> · <a href="/fractional-cfo/pricing/">Pricing</a> · <a href="/fractional-cfo/health-check/">Health Check</a></p>'
    '<p class="t">In English: <a href="/en/fractional-cfo-indonesia/">Fractional CFO in Indonesia</a> · <a href="/en/fractional-cfo-bali/">Bali</a> · '
    '<a href="/en/fractional-cfo-lombok-ntb/">Lombok and NTB</a> · <a href="/en/fractional-cfo-labuan-bajo-ntt/">Labuan Bajo and NTT</a></p>'),
  ("biaya-fractional-cfo-pt-pma", "Biaya Fractional CFO untuk PT PMA", '<div class="tblwrap"><table class="tbl"><thead><tr><th>Paket</th><th>Mulai dari</th><th>Yang Termasuk</th></tr></thead><tbody>'
