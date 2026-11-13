@@ -1,0 +1,11 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Ambil Video | FA Indonesia</title>
+<style>body{margin:0;background:#0b0b0d;color:#fff;font:16px/1.5 -apple-system,system-ui,sans-serif;padding:20px}h1{font-size:20px;margin:0 0 14px}button{display:block;width:100%;margin:0 0 12px;padding:18px 16px;border-radius:12px;border:1px solid #555;background:#17171a;color:#fff;font:600 17px/1.2 inherit;text-align:left}p{color:#aaa;font-size:14px;min-height:20px}</style></head><body>
+<h1>Ambil Video FA Indonesia</h1>
+<button data-v="/media/cara-kerja-fa-jupiter.mp4">1. FA Jupiter (30 detik)</button>
+<button data-v="/media/cara-kerja-fa-saturn.mp4">2. FA Saturn (30 detik)</button>
+<button data-v="/media/cara-kerja-fa-venus.mp4">3. FA Venus (30 detik)</button>
+<button data-v="/media/cara-kerja-fa-90-detik.mp4">4. Gabungan 90 detik (LinkedIn)</button>
+<button data-v="/media/sepuluh-tahun-fa-indonesia.mp4">5. Ten Years (30 detik)</button>
+<p id="s"></p>
+<script>var s=document.getElementById('s');document.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-v'),n=v.split('/').pop();s.textContent='Menyiapkan '+n+' ...';fetch(v).then(function(r){return r.blob()}).then(function(bl){var f=new File([bl],n,{type:'video/mp4'});s.textContent='Siap: '+n;if(navigator.canShare&&navigator.canShare({files:[f]})){return navigator.share({files:[f]}).catch(function(){})}var o=URL.createObjectURL(bl),a=document.createElement('a');a.href=o;a.download=n;document.body.appendChild(a);a.click();a.remove()}).catch(function(){s.textContent='Gagal mengambil '+n})})});</script>
+</body></html>
