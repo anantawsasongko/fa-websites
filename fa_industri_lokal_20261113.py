@@ -50,9 +50,9 @@ PROV = {
  "jawa-tengah": "manufaktur distributor travel-umrah restoran-cafe koperasi yayasan rumah-sakit",
  "di-yogyakarta": "restoran-cafe hotel yayasan travel-umrah retail startup-teknologi",
  "jawa-timur": "manufaktur distributor travel-umrah restoran-cafe rumah-sakit koperasi logistik yayasan",
- "bali": "hotel restoran-cafe developer-properti pma retail logistik",
- "nusa-tenggara-barat": "pertambangan hotel travel-umrah restoran-cafe agribisnis distributor",
- "nusa-tenggara-timur": "hotel koperasi agribisnis distributor kontraktor yayasan",
+ "bali": "hotel pma restoran-cafe developer-properti retail logistik",
+ "nusa-tenggara-barat": "pertambangan hotel pma travel-umrah restoran-cafe agribisnis distributor",
+ "nusa-tenggara-timur": "hotel pma koperasi agribisnis distributor kontraktor yayasan",
  "kalimantan-barat": "perkebunan-sawit pertambangan distributor travel-umrah logistik kontraktor",
  "kalimantan-tengah": "perkebunan-sawit pertambangan kontraktor distributor spbu logistik",
  "kalimantan-selatan": "pertambangan perkebunan-sawit travel-umrah distributor logistik kontraktor",
@@ -76,6 +76,7 @@ PROV = {
 CITY = {}
 for nm, pv, rg, sek, cat in CITIES:
     CITY[sl(nm)] = sum((SEK.get(s, []) for s in sek), [])
+PMA_WAJIB = {"bali", "nusa-tenggara-barat", "nusa-tenggara-timur"}   # Bos 13 Nov: Bali, NTB, NTT juga PT PMA
 NONUMRAH = {"bali", "nusa-tenggara-timur", "sulawesi-utara", "maluku", "papua", "papua-barat", "papua-barat-daya",
             "papua-selatan", "papua-tengah", "papua-pegunungan"}
 
@@ -85,8 +86,9 @@ def urutan(slug, prov):
     out = []
     for s in CITY.get(slug, CITY.get(base, [])) + PROV.get(prov, "").split():
         if s in I and s not in out: out.append(s)
-    wajib = ["restoran-cafe"] + ([] if prov in NONUMRAH else ["travel-umrah"])   # segmen yang diminta Bos, selalu ada
+    wajib = (["pma"] if prov in PMA_WAJIB else []) + ["restoran-cafe"] + ([] if prov in NONUMRAH else ["travel-umrah"])   # segmen yang diminta Bos, selalu ada
     out = [s for s in out if s not in wajib][:7]
+    if prov in PMA_WAJIB: return out[:1] + ["pma"] + out[1:] + wajib[1:]   # PT PMA tampil di urutan kedua
     return out + wajib
 
 def lokasi(t, slug):
