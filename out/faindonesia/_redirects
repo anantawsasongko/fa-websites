@@ -5,7 +5,6 @@
 /unduhan/*       /buku/#unduhan      301
 /unduhan         /buku/#unduhan      301
 /files/*      https://faindonesia-apps.pages.dev/files/:splat        302
-/saturn/kk/*  https://faindonesia-saturn.pages.dev/saturn/kk/:splat  302
 # fa-kw
 /konsultan-ipo/ /konsultan-persiapan-ipo/ 301
 /konsultan-ipo /konsultan-persiapan-ipo/ 301

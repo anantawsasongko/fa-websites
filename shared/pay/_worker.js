@@ -26,11 +26,23 @@ const PRODUCTS = {
   "eb-paket":   { name: "Paket 6 E-book Penerbit FA", price: 299000, kind: "ebook" },
   "ai-50":      { name: "Paket Asisten AI 50 Pertanyaan", price: 25000, kind: "ai", credits: 50 },
   "ai-300":     { name: "Paket Asisten AI 300 Pertanyaan", price: 99000, kind: "ai", credits: 300 },
-  "kk-118":     { name: "Kertas Kerja PSAK 118 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["118"] },
-  "kk-116":     { name: "Kertas Kerja PSAK 116 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["116"] },
-  "kk-109":     { name: "Kertas Kerja PSAK 109 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["109"] },
-  "kk-115":     { name: "Kertas Kerja PSAK 115 (Excel) + Konsultasi WhatsApp", price: 25000, kind: "kk", files: ["115"] },
-  "kk-paket":   { name: "Paket 4 Kertas Kerja PSAK (Excel) + Konsultasi WhatsApp", price: 75000, kind: "kk", files: ["118", "116", "109", "115"] },
+  /* PAID13:start (fa_semua_berbayar_20261113.py) */
+  "kk-118": {"name": "Kertas Kerja PSAK 118 (Excel) + Konsultasi WhatsApp", "price": 25000, "kind": "file", "files": [["Kertas Kerja PSAK 118 (Excel)", "kertas-kerja-psak-118-updatesak.xlsx"]]},
+  "kk-116": {"name": "Kertas Kerja PSAK 116 (Excel) + Konsultasi WhatsApp", "price": 25000, "kind": "file", "files": [["Kertas Kerja PSAK 116 (Excel)", "kertas-kerja-psak-116-updatesak.xlsx"]]},
+  "kk-109": {"name": "Kertas Kerja PSAK 109 (Excel) + Konsultasi WhatsApp", "price": 25000, "kind": "file", "files": [["Kertas Kerja PSAK 109 (Excel)", "kertas-kerja-psak-109-updatesak.xlsx"]]},
+  "kk-115": {"name": "Kertas Kerja PSAK 115 (Excel) + Konsultasi WhatsApp", "price": 25000, "kind": "file", "files": [["Kertas Kerja PSAK 115 (Excel)", "kertas-kerja-psak-115-updatesak.xlsx"]]},
+  "kk-paket": {"name": "Paket 4 Kertas Kerja PSAK (Excel) + Konsultasi WhatsApp", "price": 75000, "kind": "file", "files": [["Kertas Kerja PSAK 118 (Excel)", "kertas-kerja-psak-118-updatesak.xlsx"], ["Kertas Kerja PSAK 116 (Excel)", "kertas-kerja-psak-116-updatesak.xlsx"], ["Kertas Kerja PSAK 109 (Excel)", "kertas-kerja-psak-109-updatesak.xlsx"], ["Kertas Kerja PSAK 115 (Excel)", "kertas-kerja-psak-115-updatesak.xlsx"]]},
+  "tpl-sabh": {"name": "Template Laporan Tahunan PT untuk SABH (Word, PDF, Excel) + Konsultasi WhatsApp", "price": 49000, "kind": "file", "files": [["Template Word", "sabh/template-laporan-tahunan-pt-sabh-fa-indonesia.docx"], ["Contoh PDF", "sabh/template-laporan-tahunan-pt-sabh-fa-indonesia.pdf"], ["Excel Format FA Jupiter", "sabh/template-data-laporan-tahunan-sabh-fa-jupiter.xlsx"]]},
+  "psak118-kit": {"name": "PSAK 118 Implementation Toolkit (Excel) dan Panduan (PDF) + Konsultasi WhatsApp", "price": 49000, "kind": "file", "files": [["Toolkit Excel PSAK 118", "psak118/fa-psak118-implementation-toolkit.xlsx"], ["Panduan Implementasi (PDF)", "psak118/fa-psak118-panduan-implementasi.pdf"]]},
+  "us-materi": {"name": "Paket Materi Studi Kasus UpdateSAK (PDF) + Konsultasi WhatsApp", "price": 99000, "kind": "file", "files": [["Paket Materi (ZIP)", "zip/paket-materi-studi-kasus-updatesak.zip"]], "prefix": "us-materi/"},
+  "us-dosen": {"name": "Paket Materi Ajar Dosen UpdateSAK (PDF) + Konsultasi WhatsApp", "price": 99000, "kind": "file", "files": [["Paket Materi Ajar (ZIP)", "zip/paket-materi-ajar-dosen-updatesak.zip"]], "prefix": "us-dosen/"},
+  "saturn-kk": {"name": "Pustaka Kertas Kerja FA Saturn (Excel, 6 industri) + Konsultasi WhatsApp", "price": 199000, "kind": "file", "files": [["Pustaka Kertas Kerja (ZIP)", "zip/pustaka-kertas-kerja-fa-saturn.zip"]], "prefix": "saturn/", "back": "/saturn/"},
+  "tpl-jupiter": {"name": "Template Excel FA Jupiter + Konsultasi WhatsApp", "price": 25000, "kind": "unlock", "back": "/audit-ready/"},
+  "tpl-rs-abc": {"name": "Template Excel Unit Cost RS (FA Venus) + Konsultasi WhatsApp", "price": 25000, "kind": "unlock", "back": "/kalkulator-unit-cost-rumah-sakit/"},
+  "tpl-rs-obat": {"name": "Template Excel ABC-VEN Obat RS (FA Venus) + Konsultasi WhatsApp", "price": 25000, "kind": "unlock", "back": "/analisis-abc-ven-obat-rumah-sakit/"},
+  "tpl-rs-coding": {"name": "Template Excel Cek Koding BPJS (FA Venus) + Konsultasi WhatsApp", "price": 25000, "kind": "unlock", "back": "/cek-koding-bpjs-ina-cbg/"},
+  "tpl-rs-ai": {"name": "Template Excel Analis AI RS (FA Venus) + Konsultasi WhatsApp", "price": 25000, "kind": "unlock", "back": "/analis-ai-rumah-sakit/"},
+  /* PAID13:end */
   "custom":     { name: "Layanan FA Indonesia", price: 0, kind: "service" }
 };
 const SITE = "https://faindonesia.co.id";
@@ -79,7 +91,8 @@ async function access(st, env) {
   if (env && env.MIDTRANS_PRODUCTION !== "true") return { kind: "test", product: p.name, code: "MODE UJI: KODE TIDAK BERLAKU", exp: "" };
   if (p.kind === "lic") { const l = await licCode(st.order_id, p.lic, paidMs(st)); return { kind: "lic", product: p.name, code: l.code, exp: l.exp }; }
   if (p.kind === "ai") { const c = await aiCodeForOrder(env, st.order_id, p.credits); return { kind: "ai", product: p.name, code: c || "Kode AI dikirim via WhatsApp", exp: "" }; }
-  if (p.kind === "kk") return { kind: "kk", product: p.name, files: p.files };
+  if (p.kind === "file") return { kind: "file", product: p.name, files: p.files.map(function (x, i) { return { l: x[0], i: i }; }) };
+  if (p.kind === "unlock") return { kind: "unlock", product: p.name, prod: key, back: p.back };
   return { kind: p.kind, product: p.name };
 }
 async function logSheet(st, acc, extra) {
@@ -95,7 +108,7 @@ async function logSheet(st, acc, extra) {
     p.append("page", "faindonesia.co.id/bayar/ (" + st.payment_type + ")");
     p.append("summary", ["Order " + st.order_id, "Status " + st.transaction_status + (st.fraud_status ? " / fraud " + st.fraud_status : ""),
       "Metode " + st.payment_type, "Nominal Rp " + st.gross_amount, "Waktu " + (st.settlement_time || st.transaction_time || "-"),
-      acc && acc.kind === "ai" ? "Kode Asisten AI: " + acc.code : acc && acc.code ? "Kode Audit Ready: " + acc.code + " (s.d. " + acc.exp + ")" : acc && acc.kind === "kk" ? "Kertas kerja Excel: pembeli download sendiri di halaman status, termasuk konsultasi WA" : acc && acc.kind === "ebook" ? "Kirim PDF + password e-book ke pembeli" : "Layanan: tindak lanjut manual"].join("\n"));
+      acc && acc.kind === "ai" ? "Kode Asisten AI: " + acc.code : acc && acc.code ? "Kode Audit Ready: " + acc.code + " (s.d. " + acc.exp + ")" : acc && (acc.kind === "file" || acc.kind === "unlock") ? "File/template: pembeli download sendiri di halaman status, termasuk konsultasi WA" : acc && acc.kind === "ebook" ? "Kirim PDF + password e-book ke pembeli" : "Layanan: tindak lanjut manual"].join("\n"));
     await fetch(SHEET, { method: "POST", body: p, redirect: "manual" });
   } catch (e) {}
 }
@@ -147,22 +160,37 @@ async function status(url, env) {
   return json(out);
 }
 
-/* Kertas kerja Excel berbayar: file di /kkx/ hanya keluar lewat sini setelah Midtrans menyatakan lunas. */
-async function kkFile(url, env) {
-  const id = url.searchParams.get("order_id") || "", f = url.searchParams.get("f") || "";
-  if (!/^FA-\d{6}-[a-z0-9-]+-[A-Z2-9]{8}$/.test(id)) return json({ error: "Nomor order tidak valid" }, 400);
+/* PAIDFN13:start File berbayar dan buka template aplikasi (fa_semua_berbayar_20261113.py). */
+const FILE_TYPES = { xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document", pdf: "application/pdf", zip: "application/zip" };
+async function paidOrder(env, id, kind) {
+  if (!/^FA-\d{6}-[a-z0-9-]+-[A-Z2-9]{8}$/.test(id)) return { err: json({ error: "Nomor order tidak valid" }, 400) };
   const key = prodFromOrder(id), p = key && PRODUCTS[key];
-  if (!p || p.kind !== "kk" || p.files.indexOf(f) < 0) return json({ error: "File tidak termasuk order ini" }, 403);
-  if (env.MIDTRANS_PRODUCTION !== "true") return json({ error: "Mode uji: file tidak diterbitkan" }, 403);
+  if (!p || p.kind !== kind) return { err: json({ error: "Order ini bukan untuk produk tersebut" }, 403) };
+  if (env.MIDTRANS_PRODUCTION !== "true") return { err: json({ error: "Mode uji: tidak diterbitkan" }, 403) };
   const st = await midStatus(env, id);
   const paid = st && PAID.indexOf(st.transaction_status) >= 0 && st.fraud_status !== "deny" && st.fraud_status !== "challenge";
-  if (!paid) return json({ error: "Pembayaran belum lunas" }, 402);
-  const name = "kertas-kerja-psak-" + f + "-updatesak.xlsx";
-  const r = await env.ASSETS.fetch(new Request(new URL("/kkx/" + name, url).toString()));
+  if (!paid) return { err: json({ error: "Pembayaran belum lunas" }, 402) };
+  return { key, p };
+}
+async function paidFile(url, env) {
+  const r0 = await paidOrder(env, url.searchParams.get("order_id") || "", "file"); if (r0.err) return r0.err;
+  const p = r0.p, f = url.searchParams.get("f") || "";
+  let path = null;
+  if (/^\d+$/.test(f) && p.files[+f]) path = p.files[+f][1];
+  else if (p.prefix && f.startsWith(p.prefix) && !f.includes("..") && /^[A-Za-z0-9._\/-]+\.(xlsx|pdf|docx)$/.test(f)) path = f;
+  if (!path) return json({ error: "File tidak termasuk order ini" }, 403);
+  const r = await env.ASSETS.fetch(new Request(new URL("/kkx/" + path, url).toString()));
   if (!r.ok) return json({ error: "File tidak ditemukan" }, 404);
-  return new Response(r.body, { headers: { "content-type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  const name = path.split("/").pop(), ext = name.split(".").pop();
+  return new Response(r.body, { headers: { "content-type": FILE_TYPES[ext] || "application/octet-stream",
     "content-disposition": 'attachment; filename="' + name + '"', "cache-control": "no-store", "x-robots-tag": "noindex" } });
 }
+async function paidCheck(url, env) {
+  const r0 = await paidOrder(env, url.searchParams.get("order_id") || "", "unlock"); if (r0.err) return r0.err;
+  if (r0.key !== (url.searchParams.get("prod") || "")) return json({ ok: false, error: "Order ini untuk aplikasi lain" }, 403);
+  return json({ ok: true, prod: r0.key });
+}
+/* PAIDFN13:end */
 
 async function notify(req, env, ctx) {
   let b; try { b = await req.json(); } catch (e) { return json({ ok: false }, 400); }
@@ -347,7 +375,8 @@ export default {
       if (!on) return json({ error: "Pembayaran online belum aktif. Silakan pakai transfer bank." }, 503);
       if (url.pathname === "/api/pay/create" && req.method === "POST") return await create(req, env);
       if (url.pathname === "/api/pay/status" && req.method === "GET") return await status(url, env);
-      if (url.pathname === "/api/pay/file" && req.method === "GET") return await kkFile(url, env);
+      if (url.pathname === "/api/pay/file" && req.method === "GET") return await paidFile(url, env);
+      if (url.pathname === "/api/pay/check" && req.method === "GET") return await paidCheck(url, env);
       if (url.pathname === "/api/pay/notify" && req.method === "POST") return await notify(req, env, ctx);
       return json({ error: "Tidak ditemukan" }, 404);
     } catch (e) {

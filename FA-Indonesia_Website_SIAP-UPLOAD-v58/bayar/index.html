@@ -59,11 +59,22 @@ textarea{min-height:64px;resize:vertical}.row2{display:grid;grid-template-column
 <select id="prod">
 <option value="ar-day" data-price="39000">FA Jupiter · Laporan Keuangan - Audit Ready: day pass (berlaku sampai besok)</option>
 <option value="ar-year" data-price="249000">FA Jupiter · Laporan Keuangan - Audit Ready: tahunan (berlaku 1 tahun)</option>
-<optgroup label="E-book Penerbit FA (PDF, bebas PPN)"><option value="eb-psp" data-price="129000" data-ppn="0">E-book: Prosedur Audit Substantif Primer (PDF)</option><option value="eb-auditee" data-price="59000" data-ppn="0">E-book: Audit untuk Auditee UMKM (PDF)</option><option value="eb-lkumkm" data-price="69000" data-ppn="0">E-book: Menyusun Laporan Keuangan UMKM (PDF)</option><option value="eb-akmen" data-price="49000" data-ppn="0">E-book: Akuntansi Manajemen untuk UMKM (PDF)</option><option value="eb-iso" data-price="59000" data-ppn="0">E-book: Panduan ISO 22000: Sistem Manajemen Keamanan Pangan (PDF)</option><option value="eb-makacua" data-price="39000" data-ppn="0">E-book: Social Responsibility dalam Budaya Makacua Nelayan Bugis (PDF)</option><option value="eb-paket" data-price="299000" data-ppn="0">Paket 6 E-book Penerbit FA (PDF)</option></optgroup><option data-ppn="1" data-price="25000" value="kk-118">Kertas Kerja PSAK 118 (Excel) + Konsultasi WhatsApp</option>
+<optgroup label="E-book Penerbit FA (PDF, bebas PPN)"><option value="eb-psp" data-price="129000" data-ppn="0">E-book: Prosedur Audit Substantif Primer (PDF)</option><option value="eb-auditee" data-price="59000" data-ppn="0">E-book: Audit untuk Auditee UMKM (PDF)</option><option value="eb-lkumkm" data-price="69000" data-ppn="0">E-book: Menyusun Laporan Keuangan UMKM (PDF)</option><option value="eb-akmen" data-price="49000" data-ppn="0">E-book: Akuntansi Manajemen untuk UMKM (PDF)</option><option value="eb-iso" data-price="59000" data-ppn="0">E-book: Panduan ISO 22000: Sistem Manajemen Keamanan Pangan (PDF)</option><option value="eb-makacua" data-price="39000" data-ppn="0">E-book: Social Responsibility dalam Budaya Makacua Nelayan Bugis (PDF)</option><option value="eb-paket" data-price="299000" data-ppn="0">Paket 6 E-book Penerbit FA (PDF)</option></optgroup><!--paid13--><option data-ppn="1" data-price="25000" value="kk-118">Kertas Kerja PSAK 118 (Excel) + Konsultasi WhatsApp</option>
 <option data-ppn="1" data-price="25000" value="kk-116">Kertas Kerja PSAK 116 (Excel) + Konsultasi WhatsApp</option>
 <option data-ppn="1" data-price="25000" value="kk-109">Kertas Kerja PSAK 109 (Excel) + Konsultasi WhatsApp</option>
 <option data-ppn="1" data-price="25000" value="kk-115">Kertas Kerja PSAK 115 (Excel) + Konsultasi WhatsApp</option>
 <option data-ppn="1" data-price="75000" value="kk-paket">Paket 4 Kertas Kerja PSAK (Excel) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="49000" value="tpl-sabh">Template Laporan Tahunan PT untuk SABH (Word, PDF, Excel) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="49000" value="psak118-kit">PSAK 118 Implementation Toolkit (Excel) dan Panduan (PDF) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="99000" value="us-materi">Paket Materi Studi Kasus UpdateSAK (PDF) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="99000" value="us-dosen">Paket Materi Ajar Dosen UpdateSAK (PDF) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="199000" value="saturn-kk">Pustaka Kertas Kerja FA Saturn (Excel, 6 industri) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="25000" value="tpl-jupiter">Template Excel FA Jupiter + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="25000" value="tpl-rs-abc">Template Excel Unit Cost RS (FA Venus) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="25000" value="tpl-rs-obat">Template Excel ABC-VEN Obat RS (FA Venus) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="25000" value="tpl-rs-coding">Template Excel Cek Koding BPJS (FA Venus) + Konsultasi WhatsApp</option>
+<option data-ppn="1" data-price="25000" value="tpl-rs-ai">Template Excel Analis AI RS (FA Venus) + Konsultasi WhatsApp</option>
+<!--/paid13-->
 <option value="custom" data-price="">Layanan lain sesuai penawaran</option>
 <optgroup label="Asisten AI FA (termasuk PPN)"><option value="ai-50" data-price="25000" data-ppn="1">Paket Asisten AI 50 Pertanyaan</option><option value="ai-300" data-price="99000" data-ppn="1">Paket Asisten AI 300 Pertanyaan</option></optgroup>
 </select>
@@ -105,6 +116,7 @@ function copy(){var a=acct(),done=function(){toast('Rekening BRI a.n. CV FA Indo
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(a).then(done,fb);else fb();
   function fb(){var t=document.createElement('textarea');t.value=a;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){toast('Gagal menyalin, silakan Chat Ananta, CPA')}t.remove()}}
 $('cp').onclick=copy;$('cp2').onclick=copy;
+try{var bk=new URLSearchParams(location.search).get('back');if(bk&&/^\/[a-z0-9\-\/]*$/.test(bk))sessionStorage.setItem('fa_back',bk)}catch(e){}
 var q=new URLSearchParams(location.search).get('produk');if(q&&$('prod').querySelector('option[value="'+q+'"]'))$('prod').value=q;
 function sync(){$('customBox').style.display=$('prod').value==='custom'?'block':'none'}$('prod').onchange=sync;sync();
 function terbilang(n){var h=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];n=Math.floor(n);
