@@ -53,6 +53,10 @@ SEC = [
    '<a href="/fractional-cfo-pt-pma-ntt/"><small>NTT</small><b>Fractional CFO PT PMA di NTT dan Labuan Bajo</b><span>Resor, kapal phinisi, operator selam, Sumba.</span></a></div>'
    '<p class="t">In English: <a href="/en/fractional-cfo-indonesia/">Fractional CFO in Indonesia</a> · <a href="/en/fractional-cfo-bali/">Bali</a> · '
    '<a href="/en/fractional-cfo-lombok-ntb/">Lombok and NTB</a> · <a href="/en/fractional-cfo-labuan-bajo-ntt/">Labuan Bajo and NTT</a></p>'),
+ ("biaya-fractional-cfo-pt-pma", "Biaya Fractional CFO untuk PT PMA", '<div class="tblwrap"><table class="tbl"><thead><tr><th>Paket</th><th>Mulai dari</th><th>Yang Termasuk</th></tr></thead><tbody>'
+   '<tr><td>CFO Advisory</td><td>USD 2.000 per bulan</td><td>Fractional CFO: reviu laporan bulanan, anggaran dan kas, pengawasan pajak dan LKPM, pelaporan ke pemilik dan induk</td></tr>'
+   '<tr><td>Tim Lengkap</td><td>USD 5.000 per bulan</td><td>Ditambah pembukuan dan laporan keuangan (KJA Farhani K.N.), kesiapan dan koordinasi audit dengan KAP DHN &amp; Rekan, penilaian lewat KJPP berizin, pembiayaan bank, paket investor, kesiapan IPO</td></tr></tbody></table></div>'
+   '<p>Untuk perusahaan PMA dan grup dengan pelaporan ke luar negeri. Tagihan dalam rupiah sesuai UU Mata Uang. Opini audit dan laporan KJPP adalah perikatan terpisah dengan kantornya, supaya independensinya terjaga. Untuk perusahaan lokal berlaku bagian Biaya di atas.</p>'),
  ("tim-kami", "Tim Kami", tbl(["Peran", "Siapa"], [
    ["Fractional CFO", "Ananta W. Sasongko, CPA, FA Indonesia"],
    ["Pembukuan dan penyusunan laporan keuangan", "KJA Farhani K.N., Kantor Jasa Akuntansi berizin"],
@@ -67,7 +71,7 @@ BLK = "<!--fa-cfopw-->" + CPW_CSS + '<div class="cpw">' + "".join(f'<div class="
 t = open(P, encoding="utf-8").read(); t0 = t
 t = re.sub(r"<!--fa-cfopw-prof-->.*?<!--/fa-cfopw-prof-->", "", t, flags=re.S)
 t = re.sub(r"<!--fa-cfopw-->.*?<!--/fa-cfopw-->", "", t, flags=re.S)
-t = re.sub(r'<li><a href="#(?:lingkup-kerja-fractional-cfo|alur-kerja-sama|fractional-cfo-untuk-pt-pma|tim-kami)">.*?</a></li>', "", t)
+t = re.sub(r'<li><a href="#(?:lingkup-kerja-fractional-cfo|alur-kerja-sama|fractional-cfo-untuk-pt-pma|biaya-fractional-cfo-pt-pma|tim-kami)">.*?</a></li>', "", t)
 # title, H1, og, ld
 t = t.replace(f"<title>{OLD_TITLE}</title>", f"<title>{E(TITLE)}</title>", 1)
 t = re.sub(r'<meta content="[^"]*" property="og:title"/>', f'<meta content="{E(TITLE)}" property="og:title"/>', t, count=1)

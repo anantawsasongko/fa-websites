@@ -110,6 +110,12 @@ def isi(k, L):
                  ["Shareholder funding", "Capital injections and shareholder loans documented and booked consistently with the deed, LKPM, and debt-to-equity limits"],
                  ["Audit readiness", "Closing files and schedules so the statutory audit runs on time"],
                  ["Banks and investors", "Financial model, information pack, and covenant reporting"]])),
+             ("local", "Why a Local Fractional CFO", "<p>Many fractional CFO services in Indonesia are run from abroad and see the company from the group side. The work that decides whether a PT PMA runs smoothly happens on the Indonesian side: the public accounting firm (KAP) that signs the audit, the licensed valuer (KJPP) the bank accepts, the credit analyst at a local bank, the tax office, OSS and LKPM, and the notary for the deed.</p>"
+                 "<p>Our team works on that side every day: Indonesian CPA, audit work under Indonesian Standards on Auditing, bank financing for multi-entity groups, and preparation of a private company for IPO on the Indonesia Stock Exchange. Reports still come to you in English.</p>"),
+             ("pricing", "Pricing", tbl(["Package", "From", "What is included"], [
+                 ["CFO Advisory", "USD 2,000 / month", "Fractional CFO for an agreed number of days per month: monthly reporting review, budget and cash, tax and LKPM oversight, reporting to owners and parent"],
+                 ["Full Team", "USD 5,000 / month", "Everything in CFO Advisory, plus bookkeeping and financial statements (KJA Farhani K.N.), audit readiness and coordination with KAP DHN &amp; Rekan, valuation through a licensed KJPP, bank financing and refinancing, investor and financing pack, IPO readiness"]])
+                 + "<p>Prices are indicative and confirmed in writing after the diagnostic, depending on the number of entities and the clean-up needed. Quoted in USD for reference; invoiced in rupiah, as Indonesian currency law requires for transactions in Indonesia. The statutory audit opinion and the KJPP valuation report are separate engagements signed directly with the licensed firms, so their independence is kept.</p>"),
              ("how", "How It Works", "<ol><li><b>First conversation</b> on WhatsApp or video call: your structure, owners, and the reports you need.</li>"
                  "<li><b>Diagnostic</b> of the books, cash, tax position, and LKPM, with a written list of priorities.</li>"
                  "<li><b>Monthly engagement</b>: an agreed number of days per month, remote work through a shared folder, and scheduled site visits.</li>"
@@ -123,7 +129,7 @@ def isi(k, L):
                  ["Bookkeeping and financial statements", "KJA Farhani K.N., licensed accounting services firm"],
                  ["Statutory audit", "KAP DHN &amp; Rekan, public accounting firm licensed by the Minister of Finance and registered with OJK"]])
                  + "<p>The CFO role is part of management. The audit is always done by a separate firm.</p>")]
-        F = [("What does a fractional CFO cost?", "It depends on the number of days per month, the number of entities, and how much clean-up is needed first. The fee is agreed after the diagnostic, in writing, before work starts."),
+        F = [("What does a fractional CFO cost?", "CFO Advisory starts from USD 2,000 per month and the Full Team package, from bookkeeping to audit coordination, valuation, bank financing, and IPO readiness, from USD 5,000 per month. The final fee depends on the number of entities and the clean-up needed, and is confirmed in writing after the diagnostic. Invoices are in rupiah."),
              ("Do you need to be on site?", f"Most of the work runs remotely through a shared folder and regular calls. Site visits in {pl} are scheduled when they add value, for example at year-end, for a bank meeting, or for a stock count."),
              ("Will this replace our accountant or tax consultant?", "No. The fractional CFO directs and reviews their work and owns the reporting to the owners. If you have no accountant yet, bookkeeping can be done by KJA Farhani K.N."),
              ("Can you help with the statutory audit?", "Yes, by preparing the closing and the schedules. The audit itself and the opinion are by a separate licensed firm, such as KAP DHN &amp; Rekan."),
@@ -140,6 +146,12 @@ def isi(k, L):
                  ["Pendanaan pemegang saham", "Setoran modal dan pinjaman pemegang saham didokumentasikan dan dicatat konsisten dengan akta, LKPM, dan batas rasio utang terhadap modal"],
                  ["Kesiapan audit", "Berkas tutup buku dan rincian akun supaya audit tahunan selesai tepat waktu"],
                  ["Bank dan investor", "Model keuangan, paket informasi, dan laporan covenant"]])),
+             ("lokal", "Mengapa CFO Lokal", "<p>Banyak layanan fractional CFO di Indonesia dijalankan dari luar negeri dan melihat perusahaan dari sisi grup. Padahal yang menentukan lancar tidaknya PT PMA ada di sisi Indonesia: KAP yang menandatangani audit, KJPP yang diterima bank, analis kredit bank lokal, kantor pajak, OSS dan LKPM, serta notaris untuk akta.</p>"
+                 "<p>Tim kami bekerja di sisi itu setiap hari: CPA Indonesia, audit berdasarkan Standar Audit IAPI, pembiayaan bank untuk grup multi-entitas, dan persiapan perusahaan swasta menuju IPO di Bursa Efek Indonesia. Laporan tetap tersedia dalam bahasa Inggris untuk induk dan investor.</p>"),
+             ("biaya", "Biaya", tbl(["Paket", "Mulai dari", "Yang Termasuk"], [
+                 ["CFO Advisory", "USD 2.000 per bulan", "Fractional CFO dengan jumlah hari per bulan yang disepakati: reviu laporan bulanan, anggaran dan kas, pengawasan pajak dan LKPM, pelaporan ke pemilik dan induk"],
+                 ["Tim Lengkap", "USD 5.000 per bulan", "Semua di CFO Advisory, ditambah pembukuan dan laporan keuangan (KJA Farhani K.N.), kesiapan dan koordinasi audit dengan KAP DHN &amp; Rekan, penilaian lewat KJPP berizin, pembiayaan dan refinancing bank, paket investor dan pendanaan, kesiapan IPO"]])
+                 + "<p>Harga bersifat indikatif dan dikonfirmasi tertulis setelah diagnostik, tergantung jumlah entitas dan pembenahan yang dibutuhkan. Ditulis dalam USD sebagai acuan; tagihan dalam rupiah sesuai UU Mata Uang. Opini audit dan laporan penilaian KJPP adalah perikatan terpisah yang ditandatangani langsung dengan kantornya, supaya independensinya terjaga.</p>"),
              ("alur", "Alur Kerja Sama", "<ol><li><b>Percakapan awal</b> lewat WhatsApp atau video call: struktur, pemilik, dan laporan yang dibutuhkan.</li>"
                  "<li><b>Diagnostik</b> pembukuan, kas, posisi pajak, dan LKPM, dengan daftar prioritas tertulis.</li>"
                  "<li><b>Perikatan bulanan</b>: jumlah hari per bulan yang disepakati, kerja jarak jauh lewat folder bersama, dan kunjungan terjadwal.</li>"
@@ -151,7 +163,7 @@ def isi(k, L):
                  ["Pembukuan dan penyusunan laporan keuangan", "KJA Farhani K.N., Kantor Jasa Akuntansi berizin"],
                  ["Audit laporan keuangan", "KAP DHN &amp; Rekan, Kantor Akuntan Publik berizin Menteri Keuangan dan terdaftar OJK"]])
                  + "<p>Peran CFO adalah bagian dari manajemen. Audit selalu dilakukan kantor yang berbeda.</p>")]
-        F = [("Berapa biaya fractional CFO?", "Tergantung jumlah hari per bulan, jumlah entitas, dan seberapa banyak pembenahan di awal. Biaya disepakati tertulis setelah diagnostik, sebelum pekerjaan dimulai."),
+        F = [("Berapa biaya fractional CFO?", "CFO Advisory mulai USD 2.000 per bulan dan paket Tim Lengkap, dari pembukuan sampai koordinasi audit, valuasi, pembiayaan bank, dan kesiapan IPO, mulai USD 5.000 per bulan. Biaya akhir tergantung jumlah entitas dan pembenahan yang dibutuhkan, dikonfirmasi tertulis setelah diagnostik. Tagihan dalam rupiah."),
              ("Apakah harus hadir di lokasi?", f"Sebagian besar pekerjaan berjalan jarak jauh lewat folder bersama dan rapat rutin. Kunjungan ke {pl} dijadwalkan saat memberi nilai, misalnya tutup buku akhir tahun, rapat dengan bank, atau stok opname."),
              ("Apakah menggantikan akuntan atau konsultan pajak kami?", "Tidak. Fractional CFO mengarahkan dan mereviu pekerjaan mereka serta memegang pelaporan ke pemilik. Bila belum punya akuntan, pembukuan bisa dikerjakan KJA Farhani K.N."),
              ("Bisa membantu audit tahunan?", "Bisa, dengan menyiapkan tutup buku dan rincian akun. Audit dan opininya dilakukan kantor akuntan publik yang terpisah, seperti KAP DHN &amp; Rekan."),

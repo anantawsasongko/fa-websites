@@ -100,7 +100,7 @@ def lokasi(t, slug):
     nm = html.unescape(re.sub(r"<[^>]+>", "", m.group(1)))
     m = re.search(r" di ([^:]+)", nm); return m.group(1).strip() if m else None
 
-def blok(kind, loc, prov, inds):
+def blok(kind, loc, prov, inds, slug=""):
     items = []
     for s in inds:
         if kind == "lk":
@@ -113,16 +113,28 @@ def blok(kind, loc, prov, inds):
         if ex(u): items.append((u, "UMKM"))
     lab = {"audit": "Audit industri utama di", "lk": "Laporan keuangan industri utama di", "wil": "Industri utama di"}[kind]
     return ('<!--fa-indlok--><details class="rg"><summary>' + E(f"{lab} {loc}") + f' <i>{len(items)}</i></summary><div class="rg-l">'
-            + "".join(f'<a href="{u}">{E(n)}</a>' for u, n in items) + "</div></details>" + fcfo(prov, loc) + "<!--/fa-indlok-->")
+            + "".join(f'<a href="{u}">{E(n)}</a>' for u, n in items) + "</div></details>" + fcfo(prov, loc, slug) + "<!--/fa-indlok-->")
 
 FCFO = {"bali": ("/fractional-cfo-pt-pma-bali/", "/en/fractional-cfo-bali/"),
         "nusa-tenggara-barat": ("/fractional-cfo-pt-pma-ntb/", "/en/fractional-cfo-lombok-ntb/"),
         "nusa-tenggara-timur": ("/fractional-cfo-pt-pma-ntt/", "/en/fractional-cfo-labuan-bajo-ntt/")}
-def fcfo(prov, loc):   # Bos 13 Nov: jualan Fractional CFO untuk PT PMA di Bali, NTB, NTT (halaman dari fa_fcfo_pma_20261113.py)
+import json as _json
+_FL = {}
+try:
+    for _p in glob.glob(os.path.join(OUT, "fractional-cfo", "*", "index.html")):
+        _FL[os.path.basename(os.path.dirname(_p))] = "/fractional-cfo/" + os.path.basename(os.path.dirname(_p)) + "/"
+except Exception: pass
+for _a, _k in (("bima", "kota-bima"), ("kupang", "kota-kupang"), ("maumere", "sikka"), ("singaraja", "buleleng"), ("labuan-bajo", "manggarai-barat"),
+               ("sumbawa-besar", "sumbawa"), ("karang-asem", "karangasem")):
+    if _k in _FL: _FL[_a] = _FL[_k]
+def fcfo(prov, loc, slug=""):   # Bos 13 Nov: jualan Fractional CFO untuk PT PMA di Bali, NTB, NTT (fa_fcfo_pma + fa_fcfo_lokal)
     if prov not in FCFO: return ""
     i, e = FCFO[prov]
-    return (f'<details class="rg"><summary>{E("Fractional CFO untuk PT PMA di " + loc)} <i>2</i></summary><div class="rg-l">'
-            f'<a href="{i}">Fractional CFO PT PMA</a><a href="{e}">Fractional CFO (English)</a></div></details>')
+    base = re.sub(r"^(kabupaten|kota|provinsi)-", "", slug)
+    lok = _FL.get(slug) or _FL.get(base)
+    items = ([(lok, f"Fractional CFO {loc} (EN/ID)")] if lok else []) + [(i, "Fractional CFO PT PMA"), (e, "Fractional CFO (English)")]
+    return (f'<details class="rg"><summary>{E("Fractional CFO untuk PT PMA di " + loc)} <i>{len(items)}</i></summary><div class="rg-l">'
+            + "".join(f'<a href="{u}">{E(n)}</a>' for u, n in items) + '</div></details>')
 
 RX = re.compile(r"<!--fa-indlok-->.*?<!--/fa-indlok-->", re.S)
 n = 0; skip = []
@@ -137,7 +149,7 @@ for fam, kind, anchor, after in (("jasa-audit-laporan-keuangan", "audit", "<!--f
             m = re.search(r'/laporan-keuangan-umkm/provinsi-([a-z0-9-]+)/', base); prov = m.group(1) if m else None
         loc = lokasi(base, slug)
         if not prov or not loc or base.count(anchor) != 1: skip.append((p, prov, loc)); continue
-        b = blok(kind, loc, prov, urutan(slug, prov))
+        b = blok(kind, loc, prov, urutan(slug, prov), slug)
         new = base.replace(anchor, anchor + b) if after else base.replace(anchor, b + anchor)
         if new != t:
             n += 1
