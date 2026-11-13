@@ -15,6 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out", "faindonesia")
 sys.path.insert(0, os.path.join(HERE, "shared")); sys.path.insert(0, os.path.join(HERE, "fa_content"))
 from lokal import nice
+PEN = {"Bali": "Bali", "Nusa Tenggara Barat": "West Nusa Tenggara", "Nusa Tenggara Timur": "East Nusa Tenggara"}
 from fcfo_lokal20261113 import PROV, KAB, HOT, FIX
 E = html.escape; D = "https://faindonesia.co.id"; TODAY = "2026-11-13"
 NAME = "Dr. (C) Ananta W. Sasongko, S.E., M.S.A., Ak., CPA, CTT, FMVA, FPAP"
@@ -52,8 +53,7 @@ for c, kab, n in DIS:
 from fcfo_kit import T, CSS, X_CSS, profil, PRICE, LOCAL, EN_INTRO, ID_INTRO, page, fit, cut
 def faqs(loc, sh):
     return [(f"How much does a fractional CFO cost in {loc}?", f"CFO Advisory starts from USD 2,000 per month and the Full Team package from USD 5,000 per month, confirmed after a diagnostic and invoiced in rupiah. Work is remote with scheduled visits to {loc}."),
-            (f"Berapa biaya fractional CFO di {loc}?", f"CFO Advisory mulai USD 2.000 per bulan dan Tim Lengkap mulai USD 5.000 per bulan, dikonfirmasi setelah diagnostik, tagihan dalam rupiah. Kerja jarak jauh dengan kunjungan terjadwal ke {loc}."),
-            ("Who audits the company? / Siapa yang mengaudit?", "The statutory audit is by a separate licensed firm, KAP DHN & Rekan, registered with OJK. Audit dilakukan kantor berbeda, KAP DHN & Rekan yang terdaftar OJK.")]
+            ("Who audits the company?", "The statutory audit is done by a separate licensed public accounting firm, KAP DHN & Rekan, registered with OJK, under its own engagement.")]
 
 n = 0; URLS = []; BYPROV = {}
 for k in KABS:
@@ -62,17 +62,17 @@ for k in KABS:
     kpath = f"/fractional-cfo/{k['slug']}/"; BYPROV.setdefault(k["prov"], []).append((kpath, k["label"], len(KEC[k["code"]])))
     loc = f"{k['label']}, {pv_short}"
     W = wa(f"Hello Pak Ananta, we are a PT PMA in {k['label']} ({pv_short}) and would like to discuss fractional CFO support. Business: ...")
-    crumbs = [("/fractional-cfo/", "Fractional CFO"), (f"/fractional-cfo-pt-pma-{pv_slug}/", pv_short), (kpath, k["label"])]
+    crumbs = [("/fractional-cfo/", "Fractional CFO"), (f"/en/fractional-cfo-{ {'bali': 'bali', 'ntb': 'lombok-ntb', 'ntt': 'labuan-bajo-ntt'}[pv_slug] }/", pv_short), (kpath, k["label"])]
     kecs = KEC[k["code"]]
     hot = [f"{c['name']} ({HOT[(k['code'], c['name'])]})" for c in kecs if (k["code"], c["name"]) in HOT]
     body = (f'<div class="fcl-bi"><div><small>English</small><p>{E(EN_INTRO[h(kpath, 4)].format(loc=loc))} {E(k["label"])} at a glance: {E(en_ctx)}.</p></div>'
             f'<div lang="id"><small>Bahasa Indonesia</small><p>{E(ID_INTRO[h(kpath + "i", 4)].format(loc=loc))} Sekilas {E(k["label"])}: {E(id_ctx)}.</p></div></div>'
             + profil(W)
             + f'<h2 id="kecamatan">Areas We Cover in {E(k["label"])} · Kecamatan di {E(k["label"])}</h2>'
-            + (f'<p>Known business areas / kawasan usaha: {E("; ".join(hot))}.</p>' if hot else "")
+            + (f'<p>Known business areas: {E("; ".join(hot))}.</p>' if hot else "")
             + '<div class="fcl-k">' + "".join(f'<a href="{kpath}{c["slug"]}/">{E(c["name"])}</a>' for c in kecs) + "</div>"
-            + f'<p class="t">{len(kecs)} kecamatan and {sum(len(c["vil"]) for c in kecs)} villages / desa dan kelurahan. Site visits are scheduled; most work runs remotely through a shared folder.</p>'
-            + '<details class="faq-i"><summary>Villages by district · Desa per kecamatan</summary><div class="tblwrap"><table class="tbl"><thead><tr><th>Kecamatan</th><th>Villages</th><th>Including / antara lain</th></tr></thead><tbody>'
+            + f'<p class="t">{len(kecs)} districts and {sum(len(c["vil"]) for c in kecs)} villages. Site visits are scheduled; most work runs remotely through a shared folder.</p>'
+            + '<details class="faq-i"><summary>Villages by district · Desa per kecamatan</summary><div class="tblwrap"><table class="tbl"><thead><tr><th>District</th><th>Villages</th><th>Including</th></tr></thead><tbody>'
             + "".join(f'<tr><td><a href="{kpath}{c["slug"]}/">{E(c["name"])}</a></td><td>{len(c["vil"])}</td><td>{E(", ".join(c["vil"][:6]))}</td></tr>' for c in kecs) + "</tbody></table></div></details>"
             + '<h2 id="scope">What the Fractional CFO Does · Lingkup Kerja</h2>'
             + '<div class="fcl-bi"><div><small>English</small><ul><li>Monthly management accounts in English</li><li>Cash and bank control across outlets, platforms, and agents</li>'
@@ -82,12 +82,12 @@ for k in KABS:
               '<li>Pinjaman pemegang saham dan setoran modal tercatat benar</li><li>Kesiapan audit, pembiayaan bank, paket investor, kesiapan IPO</li></ul></div></div>'
             + '<h2 id="pricing">Pricing · Biaya</h2>' + PRICE + LOCAL
             + '<h2 id="faq">FAQ · Pertanyaan Umum</h2><div class="faq-acc">' + "".join(f'<details class="faq-i"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in faqs(k["label"], pv_short)) + "</div>"
-            + f'<p class="t">More: <a href="/fractional-cfo-pt-pma-{pv_slug}/">Fractional CFO PT PMA di {E(pv_long)}</a> · <a href="/en/fractional-cfo-{ {"bali":"bali","ntb":"lombok-ntb","ntt":"labuan-bajo-ntt"}[pv_slug] }/">English guide</a> · '
-              f'<a href="/audit-laporan-keuangan-pma/provinsi-{sl(pv_long)}/">Audit PT PMA {E(pv_long)}</a> · <a href="/cfo-paruh-waktu/">CFO Paruh Waktu</a></p>'
+            + f'<p class="t">More: <a href="/fractional-cfo/">Fractional CFO in Indonesia</a> · <a href="/en/fractional-cfo-{ {"bali":"bali","ntb":"lombok-ntb","ntt":"labuan-bajo-ntt"}[pv_slug] }/">English guide</a> · '
+              f'<a href="/fractional-cfo/pricing/">Pricing</a> · <a href="/fractional-cfo/health-check/">Health Check</a></p>'
             + f'<div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 8px"><a class="btn solid" href="{W}" rel="noopener" target="_blank">Chat Ananta, CPA</a></div>')
     title = fit(f"Fractional CFO {k['label']}, {pv_short} | CFO PT PMA | FA Indonesia", f"Fractional CFO {k['label']}, {pv_short} | CFO PT PMA", f"Fractional CFO {k['label']} | CFO PT PMA")
-    desc = cut(f"Fractional CFO for PT PMA in {k['label']}, {pv_short}: English reporting, tax and LKPM, audit, bank financing. From USD 2,000/month. CFO paruh waktu PT PMA di {k['label']}.")
-    n += page(kpath, title, desc, f"Fractional CFO in {k['label']}, {pv_short} · CFO Paruh Waktu PT PMA", f"Fractional CFO · PT PMA · {pv_long}", body, W, faqs(k["label"], pv_short), crumbs)
+    desc = cut(f"Fractional CFO for PT PMA in {k['label']}, {pv_short}: English reporting, tax and LKPM, audit, bank financing. From USD 2,000/month.")
+    n += page(kpath, title, desc, f"Fractional CFO in {k['label']}, {pv_short} · CFO Paruh Waktu PT PMA", f"Fractional CFO · PT PMA · {PEN[pv_long]}", body, W, faqs(k["label"], pv_short), crumbs)
     URLS.append(kpath)
     for i, c in enumerate(kecs):
         cpath = f"{kpath}{c['slug']}/"; locc = f"{c['name']}, {k['label']}"
@@ -101,7 +101,7 @@ for k in KABS:
              f'<div lang="id"><small>Bahasa Indonesia</small><p>{E(ID_INTRO[h(cpath + "i", 4)].format(loc=locc))}{E(id_hot)} Sekilas {E(k["label"])}: {E(id_ctx)}.</p></div></div>'
              + profil(Wc)
              + f'<h2 id="villages">Villages in {E(c["name"])} · Desa dan Kelurahan</h2>'
-             + f'<p>We serve PT PMA in all {len(vil)} villages of Kecamatan {E(c["name"])} / melayani PT PMA di {len(vil)} desa dan kelurahan:</p>'
+             + f'<p>We serve PT PMA in all {len(vil)} villages of {E(c["name"])} district:</p>'
              + '<div class="fcl-v">' + "".join(f"<div>{E(v)}</div>" for v in vil) + "</div>"
              + '<h2 id="pricing">Pricing · Biaya</h2>' + PRICE + LOCAL
              + f'<h2 id="nearby">Nearby · Kecamatan Sekitar</h2><div class="fcl-k">' + "".join(f'<a href="{kpath}{x["slug"]}/">{E(x["name"])}</a>' for x in nb)
@@ -110,11 +110,10 @@ for k in KABS:
                f'<a class="btn line" href="{kpath}">Fractional CFO {E(k["label"])}</a></div>')
         title = fit(f"Fractional CFO {c['name']}, {k['label']} | CFO PT PMA | FA Indonesia", f"Fractional CFO {c['name']}, {k['label']} | CFO PT PMA",
                     f"Fractional CFO {c['name']}, {k['label']}", f"Fractional CFO {c['name']}")
-        desc = cut(f"Fractional CFO for PT PMA in {c['name']}, {k['label']}: English reporting, tax and LKPM, audit, bank financing, from USD 2,000/month. CFO paruh waktu PT PMA di {c['name']}.")
+        desc = cut(f"Fractional CFO for PT PMA in {c['name']}, {k['label']}: English reporting, tax and LKPM, audit, bank financing, from USD 2,000/month.")
         cr = crumbs + [(cpath, c["name"])]
         n += page(cpath, title, desc, f"Fractional CFO in {c['name']}, {k['label']} · CFO PT PMA", f"Fractional CFO · {k['label']} · {pv_short}", b, Wc,
-                  [(f"How much does a fractional CFO cost in {c['name']}?", "From USD 2,000 per month for CFO Advisory and USD 5,000 per month for the Full Team, invoiced in rupiah."),
-                   (f"Berapa biaya fractional CFO di {c['name']}?", "Mulai USD 2.000 per bulan (CFO Advisory) dan USD 5.000 per bulan (Tim Lengkap), tagihan dalam rupiah.")], cr)
+                  [(f"How much does a fractional CFO cost in {c['name']}?", "From USD 2,000 per month for CFO Advisory and USD 5,000 per month for the Full Team, invoiced in rupiah.")], cr)
         URLS.append(cpath)
 
 # hub /fractional-cfo/ dibangun fa_fcfo_produk_20261113.py (data dari fa_content/fcfo_lokal_map.json)
@@ -129,17 +128,17 @@ def put(u, blk, anchors):
     print("tanpa jangkar", u); return 0
 nl = 0
 for p, (sh, lg, ps) in PROV.items():
-    blk = (f'<!--fa-fcfol--><h2 id="by-regency">By Regency · Per Kabupaten/Kota</h2><div class="fcl-k" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px">'
+    blk = (f'<!--fa-fcfol--><h2 id="by-regency">{{H}}</h2><div class="fcl-k" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px">'
            + "".join(f'<a href="{u}" style="border:1px solid #3a3a3a;border-radius:999px;padding:6px 12px;font-size:13px;text-decoration:none;color:inherit">{E(l)}</a>' for u, l, c in BYPROV[p]) + "</div><!--/fa-fcfol-->")
     en = {"bali": "/en/fractional-cfo-bali/", "ntb": "/en/fractional-cfo-lombok-ntb/", "ntt": "/en/fractional-cfo-labuan-bajo-ntt/"}[ps]
-    for u in (en, f"/fractional-cfo-pt-pma-{ps}/"):
-        nl += put(u, blk, [r'<h2 id="faq">'])
+    for u, H in ((en, "By Regency"), (f"/fractional-cfo-pt-pma-{ps}/", "Per Kabupaten/Kota")):
+        nl += put(u, blk.replace("{H}", H), [r'<h2 id="faq">'])
 # link dari /cfo-paruh-waktu/ ke /fractional-cfo/ dipasang fa_cfo_paruh_waktu_20261113.py
 
 sm = os.path.join(OUT, "sitemap.xml"); x = rd(sm); x = re.sub(r"<!--fcfol-->.*?<!--/fcfol-->\n?", "", x, flags=re.S)
 wt(sm, x.replace("</urlset>", "<!--fcfol-->" + "".join(f"<url><loc>{D}{u}</loc><lastmod>{TODAY}</lastmod></url>" for u in URLS) + "<!--/fcfol-->\n</urlset>"))
 lp = os.path.join(OUT, "llms.txt"); l = rd(lp); l = re.sub(r"\n<!--fcfol-->.*?<!--/fcfol-->", "", l, flags=re.S)
-wt(lp, l.rstrip("\n") + "\n<!--fcfol-->\n\n## Fractional CFO PT PMA per Kabupaten dan Kecamatan, Bali, NTB, NTT (13 Nov 2026)\n"
+wt(lp, l.rstrip("\n") + "\n<!--fcfol-->\n\n## Fractional CFO for PT PMA by Regency and District, Bali, NTB, NTT (English, 13 Nov 2026)\n"
    f"- [Fractional CFO Bali, NTB, NTT]({D}/fractional-cfo/): hub bilingual\n" + "".join(f"- [Fractional CFO {l}]({D}{u})\n" for p in BYPROV for u, l, c in BYPROV[p]) + "<!--/fcfol-->\n")
 json.dump({p: [[u, l, c] for u, l, c in v] for p, v in BYPROV.items()}, open(os.path.join(HERE, "fa_content", "fcfo_lokal_map.json"), "w"), ensure_ascii=False)
 print("halaman", n, "total URL", len(URLS), "link masuk", nl)

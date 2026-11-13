@@ -397,7 +397,7 @@
 <!--/fcfo-->
 <!--fcfol-->
 
-## Fractional CFO PT PMA per Kabupaten dan Kecamatan, Bali, NTB, NTT (13 Nov 2026)
+## Fractional CFO for PT PMA by Regency and District, Bali, NTB, NTT (English, 13 Nov 2026)
 - [Fractional CFO Bali, NTB, NTT](https://faindonesia.co.id/fractional-cfo/): hub bilingual
 - [Fractional CFO Jembrana](https://faindonesia.co.id/fractional-cfo/jembrana/)
 - [Fractional CFO Tabanan](https://faindonesia.co.id/fractional-cfo/tabanan/)

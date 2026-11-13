@@ -16,7 +16,7 @@ from fcfo_kit import *  # noqa: F401,F403
 from fcfo_kit import E, D, TODAY, NAME, rd, P, wt, wa, profil, PRICE, LOCAL, page, OUT
 
 MAP = json.load(open(os.path.join(HERE, "fa_content", "fcfo_lokal_map.json")))
-PROVN = {"51": "Bali", "52": "Nusa Tenggara Barat (Lombok, Sumbawa)", "53": "Nusa Tenggara Timur (Flores, Sumba, Timor)"}
+PROVN = {"51": "Bali", "52": "West Nusa Tenggara (Lombok, Sumbawa)", "53": "East Nusa Tenggara (Flores, Sumba, Timor)"}
 
 def bi(en, idn, el="EN", il="ID"):
     return (f'<div class="fcl-bi"><div><small>{el}</small>{en}</div><div lang="id"><small>{il}</small>{idn}</div></div>')
@@ -38,16 +38,16 @@ EDGE_ID = ("Paham lapangan Indonesia, paham ekspektasi global. CFO kami pernah m
 TEAM = ('<div class="fcl-tm"><a href="/ananta-w-sasongko/"><img alt="' + E(NAME) + '" loading="lazy" src="/img/ananta-w-sasongko-cpa-rs.jpg"/><div><b>' + E(NAME) + '</b>'
         '<span>Fractional CFO · FA Indonesia. CPA (IAPI), FMVA, FPAP; EY; Finance Director and Group CFO from Indonesia to Singapore</span></div></a>'
         '<a href="/kja-farhani/"><img alt="Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA" loading="lazy" src="/img/farhani-k-nugraha-fa-indonesia.jpg"/><div><b>Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA</b>'
-        '<span>KJA Farhani K.N. · Bookkeeping and financial statements / pembukuan dan laporan keuangan</span></div></a>'
+        '<span>KJA Farhani K.N. · Bookkeeping and financial statements</span></div></a>'
         '<a href="/kap-dhn/"><img alt="Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI" loading="lazy" src="/img/dwi-haryadi-nugraha-kap-dhn-v2.jpg"/><div><b>Dr. (C) Dwi Haryadi Nugraha, SST, MSi, Ak, CA, BKP, ASEAN CPA, CPA, CFI</b>'
-        '<span>KAP DHN &amp; Rekan · Statutory audit, registered with OJK / audit, terdaftar OJK</span></div></a></div>')
+        '<span>KAP DHN &amp; Rekan · Statutory audit, registered with OJK</span></div></a></div>')
 
 def loc_block():
     out = ""
     for p in ("51", "52", "53"):
         out += f"<h3>{E(PROVN[p])}</h3>" + '<div class="fcl-k">' + "".join(f'<a href="{u}">{E(l)}</a>' for u, l, c in MAP[p]) + "</div>"
-    return out + ('<p class="t">Elsewhere in Indonesia (Jakarta, Batam, Surabaya, and other cities) we work remotely with scheduled visits / '
-                  '<span lang="id">di kota lain di Indonesia kami bekerja jarak jauh dengan kunjungan terjadwal</span>: <a href="/en/fractional-cfo-indonesia/">Fractional CFO in Indonesia</a> · <a href="/cfo-paruh-waktu/">CFO Paruh Waktu</a></p>')
+    return out + ('<p class="t">Elsewhere in Indonesia (Jakarta, Batam, Surabaya, and other cities) we work remotely with scheduled visits: '
+                  '<a href="/en/fractional-cfo-indonesia/">Fractional CFO in Indonesia</a>.</p>')
 
 W0 = wa("Hello Pak Ananta, I would like to discuss fractional CFO support. Company: ... Location: ... Main issue: ...")
 PAGES = []
@@ -83,16 +83,15 @@ body = (bi(f"<p>Senior finance leadership for foreign-owned companies (PT PMA), 
         + h2("where", "Where We Work · Wilayah")
         + bi("<p>Bali, West Nusa Tenggara, and East Nusa Tenggara by regency and district, plus remote support across Indonesia.</p>",
              "<p>Bali, NTB, dan NTT per kabupaten dan kecamatan, serta dukungan jarak jauh di seluruh Indonesia.</p>") + loc_block()
-        + h2("pricing", "Pricing · Biaya") + PRICE + LOCAL + '<p class="t"><a href="/fractional-cfo/pricing/">Pricing details / rincian biaya</a></p>'
+        + h2("pricing", "Pricing · Biaya") + PRICE + LOCAL + '<p class="t"><a href="/fractional-cfo/pricing/">Pricing details</a></p>'
         + h2("team", "Team · Tim") + TEAM
         + h2("faq", "FAQ · Pertanyaan Umum"))
 F_HOME = [("What is a fractional CFO?", "A senior finance leader who works for your company part-time, a set number of days per month, owning reporting, cash, budgeting, compliance, and the relationship with banks, auditors, and investors."),
-          ("Apa itu fractional CFO?", "CFO senior yang bekerja paruh waktu untuk perusahaan Anda, beberapa hari per bulan, memegang laporan, kas, anggaran, kepatuhan, serta hubungan dengan bank, auditor, dan investor."),
           ("Why a CFO who knows Indonesia?", "Most problems of a PT PMA are solved on the Indonesian side: the tax office, OSS and LKPM, local banks, the KAP, and the KJPP. Our CFO works there every day and has also run finance in Singapore, so reports meet global expectations."),
           ("How much does it cost?", "CFO Advisory from USD 2,000 per month; Full Team from USD 5,000 per month, invoiced in rupiah.")]
 PAGES.append(("/fractional-cfo/", "Fractional CFO Indonesia for PT PMA and SMEs | FA Indonesia",
               "Fractional CFO in Indonesia for PT PMA and SMEs: reporting, cash, tax and LKPM, audit, banks, IPO. A CFO with experience from Indonesia to Singapore.",
-              "Fractional CFO in Indonesia · CFO Paruh Waktu", "Fractional CFO · Indonesia · Bilingual", body + faqblock(F_HOME) + btn(W0), F_HOME))
+              "Fractional CFO in Indonesia · CFO Paruh Waktu", "Fractional CFO · Indonesia", body + faqblock(F_HOME) + btn(W0), F_HOME))
 
 # ---------------------------------------------------------------- HOW WE WORK
 body = (bi("<p>Four stages. You can stop after the first two with a clear picture of your finance function and no obligation.</p>",
@@ -146,16 +145,16 @@ Q = [("Management accounts are ready within 15 days of month-end", "Laporan mana
      ("Last year's statements were audited without major adjustments", "Laporan tahun lalu diaudit tanpa koreksi besar"),
      ("Payments need approval above a set limit", "Pembayaran di atas batas tertentu perlu persetujuan"),
      ("Someone besides the owner can explain the numbers to a bank", "Ada orang selain pemilik yang bisa menjelaskan angka ke bank")]
-qhtml = "".join(f'<label class="hcq"><input type="checkbox" data-hc="1"/><span><b>{E(a)}</b><i lang="id">{E(b)}</i></span></label>' for a, b in Q)
+qhtml = "".join(f'<label class="hcq"><input type="checkbox" data-hc="1"/><span><b>{E(a)}</b></span></label>' for a, b in Q)
 HC = ('<style id="hc-css">.hcq{display:flex;gap:12px;align-items:flex-start;border:1px solid #333;border-radius:10px;padding:11px 13px;margin:8px 0;background:#1b1b1b;cursor:pointer}'
       '.hcq input{margin-top:4px;width:18px;height:18px;accent-color:#e9b949}.hcq b{display:block;font-weight:500}.hcq i{display:block;font-style:normal;font-size:13px;opacity:.7}'
       '.hcr{border:1px solid #e9b949;border-radius:12px;padding:16px;margin:16px 0}.hcr .sc{font-size:30px;font-weight:600}.hcbar{height:6px;background:#2b2b2b;border-radius:3px;overflow:hidden;margin:8px 0}'
       '.hcbar i{display:block;height:100%;width:0;background:#e9b949;transition:width .4s}</style>'
       f'<div id="hc">{qhtml}<div class="hcr" aria-live="polite"><div class="sc"><span id="hcs">0</span> / 10</div><div class="hcbar"><i id="hcb"></i></div>'
-      '<p id="hct">Tick what is true today. / Centang yang sudah berjalan.</p><a class="btn solid" id="hcw" href="#" rel="noopener" target="_blank">Send my result on WhatsApp</a></div></div>'
+      '<p id="hct">Tick what is true today.</p><a class="btn solid" id="hcw" href="#" rel="noopener" target="_blank">Send my result on WhatsApp</a></div></div>'
       '<script>(function(){var c=document.querySelectorAll("[data-hc]"),s=document.getElementById("hcs"),b=document.getElementById("hcb"),t=document.getElementById("hct"),w=document.getElementById("hcw");'
       'function u(){var n=0;c.forEach(function(x){if(x.checked)n++});s.textContent=n;b.style.width=(n*10)+"%";'
-      't.textContent=n>=8?"Solid basics. A fractional CFO adds forecasting, financing, and investor readiness. / Fondasi kuat.":n>=5?"Gaps that banks and auditors will notice. Worth a review. / Ada celah yang akan terlihat bank dan auditor.":"The finance function needs rebuilding before growth, financing, or audit. / Fungsi keuangan perlu dibenahi dulu.";'
+      't.textContent=n>=8?"Solid basics. A fractional CFO adds forecasting, financing, and investor readiness.":n>=5?"Gaps that banks and auditors will notice. Worth a review.":"The finance function needs rebuilding before growth, financing, or audit.";'
       'w.href="https://wa.me/6282245260121?text="+encodeURIComponent("Hello Pak Ananta, my fractional CFO health check score is "+n+"/10. Company: ... Location: ...");'
       'if(window.gtag)gtag("event","fcfo_hc",{score:n});}c.forEach(function(x){x.addEventListener("change",u)});u();})();</script>')
 body = (bi("<p>Ten questions, one minute. A low score is not a failure; it shows where a fractional CFO would start.</p>",
@@ -293,7 +292,6 @@ F_ALL = F_HOME + [
     ("Do you replace our finance team?", "No. We lead and develop it. If there is no team yet, bookkeeping can be done by KJA Farhani K.N."),
     ("Do you work in English?", "Yes. Reports, meetings, and documents in English; books and filings in Indonesian as the law requires."),
     ("Where do you work?", "Bali, NTB, and NTT on site by regency and district; elsewhere in Indonesia remotely with scheduled visits."),
-    ("Apakah bisa untuk perusahaan lokal, bukan PMA?", "Bisa. Untuk perusahaan lokal lihat juga halaman CFO Paruh Waktu."),
 ]
 body = faqblock(F_ALL) + btn(W0)
 PAGES.append(("/fractional-cfo/faq/", "Fractional CFO FAQ Indonesia | FA Indonesia",
