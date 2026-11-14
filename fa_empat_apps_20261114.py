@@ -70,6 +70,12 @@ APPS = {
    soon=["IFRS", "US GAAP", "Kamus Istilah"]),
 }
 
+BUKTI = {
+ "saturn": "Dibuat sendiri oleh FA. Alur audit mengikuti Standar Audit (SA) IAPI yang merujuk ISA, dengan pendekatan berbasis risiko seperti praktik firma audit global.",
+ "jupiter": "Dibuat sendiri oleh FA. Penyajian mengikuti PSAK dan SAK EMKM, dengan kontrol tied-up dan lead schedule seperti yang diminta auditor.",
+ "venus": "Dibuat sendiri oleh FA. Metodenya lazim di praktik advisory global: DCF, WACC, multiple, dan DSCR.",
+ "galaxy": "Dibuat sendiri oleh FA. Materi mengacu pada SAK IAI, standar audit, dan rujukan IFRS.",
+}
 # slug halaman tool -> (app, nama tool)
 TOOLMAP = {}
 for ak, a in APPS.items():
@@ -97,6 +103,7 @@ CSS = """<style id="fa4-css">
 .fa4 .c4 .kk{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);font-weight:600}
 .fa4 .c4 h3{margin:0;font-family:var(--f-display,serif);font-weight:400;font-size:30px;line-height:1.15;letter-spacing:0;text-transform:none;color:var(--ink)}.fa4 .c4 h3::before{content:none;display:none}
 .fa4 .c4 p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
+.fa4 .bk{margin:0;padding:9px 12px;border-left:3px solid var(--ac);background:rgba(127,127,127,.08);border-radius:0 6px 6px 0;font-size:13px;color:var(--muted);line-height:1.5}.fa4 .bk b{color:var(--ink);font-weight:600}
 .fa4 .chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 6px}
 .fa4 .chips a,.fa4 .chips span{font-size:12.5px;line-height:1;padding:7px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:rgba(127,127,127,.08)}
 .fa4 .chips a:hover{border-color:var(--ac)}.fa4 .chips .soon{color:var(--muted);border-style:dashed}
@@ -127,8 +134,8 @@ def hub_block():
         stg = ""
         if a.get("stages"):
             stg = '<div class="stg">' + "".join('<span style="background:%s">%s</span>' % (c, esc(n)) for n, c in a["stages"]) + "</div>"
-        out.append('<article class="c4" style="--ac:%s"><span class="kk">%s</span><h3>%s</h3><p><b>%s.</b> %s</p>%s<div class="chips">%s</div><a class="go" href="%s" data-fa4="%s">Buka %s</a></article>'
-                   % (a["c"], esc(a["k"]), esc(a["n"]), esc(a["tag"]), esc(a["who"]), stg, chips, a["hub"], ak, esc(a["n"])))
+        out.append('<article class="c4" style="--ac:%s"><span class="kk">%s</span><h3>%s</h3><p><b>%s.</b> %s</p>%s<p class="bk">%s</p><div class="chips">%s</div><a class="go" href="%s" data-fa4="%s">Buka %s</a></article>'
+                   % (a["c"], esc(a["k"]), esc(a["n"]), esc(a["tag"]), esc(a["who"]), stg, esc(BUKTI[ak]), chips, a["hub"], ak, esc(a["n"])))
     out.append("</div></section><!--/fa4-hub-->")
     return "".join(out)
 
@@ -149,7 +156,7 @@ def hub_main(ak):
     return ('<main data-tidy="1" id="top"><div class="wrap">' + CSS + '<section class="sec fa4" style="--ac:%s">' % a["c"] +
             '<nav class="fa4-bc" aria-label="Breadcrumb"><a href="/">FA Indonesia</a> › <a href="/apps/">FA Apps</a> › <b>%s</b></nav>' % esc(a["n"]) +
             '<p class="kick" style="color:%s">%s</p><h1 style="font-family:var(--f-display,serif);font-weight:400;font-size:clamp(34px,5vw,58px);line-height:1.1;margin:6px 0 12px">%s: %s</h1>' % (a["c"], esc(a["n"]), esc(a["n"]), esc(a["k"])) +
-            '<p class="lead">%s</p>%s<h2 style="font-size:clamp(22px,2.6vw,30px)">Alat di %s</h2><div class="tg">%s</div>' % (esc(a["lead"]), stg, esc(a["n"]), cards) +
+            '<p class="lead">%s</p><p class="bk" style="max-width:66ch;margin:0 0 18px">%s</p>%s<h2 style="font-size:clamp(22px,2.6vw,30px)">Alat di %s</h2><div class="tg">%s</div>' % (esc(a["lead"]), esc(BUKTI[ak]), stg, esc(a["n"]), cards) +
             (('<p class="lead" style="margin-top:18px">Segera hadir: %s.</p>' % ", ".join(a["soon"])) if a.get("soon") else "") +
             sibs(ak) + '</section></div></main>')
 
