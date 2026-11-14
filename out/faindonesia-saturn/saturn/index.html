@@ -414,6 +414,20 @@ table.cap td:not(:first-child),table.cap th:not(:first-child){text-align:center;
 .warn-t{color:var(--warn)!important}
 @keyframes stIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.sstep,.fbox{animation:none}}
+</style><style id="fa-sat-warna">
+:root{--cr-min:#5b6068;--cr-low:#1f9d55;--cr-mod:#f2c230;--cr-high:#e03a3e;--st1:#4f8cff;--st2:#b07cf5;--st3:#19b5a5;--st4:#ef7fb5}
+.cell{font-weight:600;font-size:12px}
+.cell[data-cr="mod"],.cell[data-cr="mod"] small{color:#1a1400}
+.cell[data-cr="min"]{color:#e8eaed}
+.cell[data-sr="1"]{box-shadow:inset 0 0 0 3px #fff}
+.chip[style*="--cr-mod"]{color:#1a1400!important}
+.legend i{width:14px;height:14px}
+.flow .fbox{border-top:4px solid var(--stg,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--stg,#888) 14%,var(--surface)),var(--surface) 60%)}
+.flow .fbox small{color:var(--stg,var(--muted));font-weight:600}
+.flow .fbox .rk{display:inline-block;font-size:10.5px;font-weight:600;line-height:1;padding:3px 7px;border-radius:999px;margin:6px 4px 0 0;color:#fff}
+.flow .fbox .rk.h{background:var(--cr-high)}.flow .fbox .rk.m{background:var(--cr-mod);color:#1a1400}.flow .fbox .rk.l{background:var(--cr-low)}
+.flow .farr{color:var(--muted)}
+.flow .farr.gate{color:#f2c230;font-weight:600}
 </style>
 
 
@@ -762,10 +776,10 @@ function renderStart(){var nT=0;try{nT=list().length}catch(e){}
    ['Data tersimpan',n,'<span class="no">tidak</span>',y],['Simpan di Google Drive KAP, kerja bareng tim',n,n,y]];
   return '<div class="head"><div><h2>FA Saturn</h2><h1>Kertas kerja audit KAP, dari TB sampai LAI</h1><p>Coba dulu semuanya. Bayar kalau sudah yakin.</p></div></div>'+stepsHTML()+
   '<h2 class="sh">Alur audit di FA Saturn</h2><div class="flow">'+
-   '<div class="fbox" style="--i:0"><small>B · Planning</small><b>Risiko dan materialitas</b><span>Profil, NCE/Complex, B-7 materialitas, B-8 CRA, walkthrough SCOT</span></div><div class="farr gate">ASM</div>'+
-   '<div class="fbox" style="--i:1"><small>C–V · Eksekusi</small><b>Prosedur per akun</b><span>Lead schedule, PSP per asersi, AJE, salah saji</span></div><div class="farr gate">SRM</div>'+
-   '<div class="fbox" style="--i:2"><small>Z · Completion</small><b>Kesimpulan</b><span>Peristiwa kemudian, representasi, opini</span></div><div class="farr"></div>'+
-   '<div class="fbox fend" style="--i:3"><small>Partner</small><b>LAI ditandatangani</b><span>Terkunci setelah semua sign-off lengkap</span></div></div>'+
+   '<div class="fbox" style="--i:0;--stg:var(--st1)"><small>1 · Planning (B)</small><b>Kenali entitas dan materialitas</b><span>Penerimaan perikatan, profil, NCE/Complex, B-7 materialitas, walkthrough SCOT</span></div><div class="farr"></div>'+
+   '<div class="fbox" style="--i:1;--stg:var(--st2)"><small>2 · Penilaian Risiko (B-8)</small><b>CRA per akun dan asersi</b><span>Risiko bawaan dan kontrol jadi risiko gabungan.</span><div><span class="rk h">Tinggi</span><span class="rk m">Sedang</span><span class="rk l">Rendah</span></div></div><div class="farr gate">ASM</div>'+
+   '<div class="fbox" style="--i:2;--stg:var(--st3)"><small>3 · Respons Risiko (C–V)</small><b>Prosedur per akun</b><span>Lead schedule, PSP per asersi, sampel mengikuti tingkat risiko, AJE, salah saji</span></div><div class="farr gate">SRM</div>'+
+   '<div class="fbox" style="--i:3;--stg:var(--st4)"><small>4 · Pelaporan (Z)</small><b>Kesimpulan dan opini</b><span>Peristiwa kemudian, representasi, opini, LAI ditandatangani Partner setelah semua sign-off lengkap</span></div></div>'+
   '<div class="ladder"><small>Sign-off berjenjang:</small><span>Staf</span>→<span>Senior</span>→<span>Manager</span>→<span>Senior Manager</span>→<span>Partner</span></div>'+
   '<div class="kpis4"><div class="kpi4"><b>6</b><span>industri contoh</span></div><div class="kpi4"><b>'+nT+'</b><span>task dengan template KK</span></div><div class="kpi4"><b>'+PSPD.order.length+'</b><span>prosedur di pustaka PSP</span></div><div class="kpi4"><b>5</b><span>tingkat sign-off</span></div></div>'+
   '<h2 class="sh">Bisa ngapain aja</h2><div style="overflow-x:auto"><table class="tb cap"><thead><tr><th>Fitur</th><th>Demo</th><th>Coba (tanpa lisensi)</th><th>Lisensi</th></tr></thead><tbody>'+cap.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>'}).join('')+'</tbody></table></div>'+
