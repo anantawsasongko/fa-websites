@@ -246,10 +246,10 @@ FONT_LINK = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigi
              '<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">')
 _SANS = '"Source Sans 3","Source Sans Pro",system-ui,-apple-system,"Segoe UI",sans-serif'
 FONT_CSS = ('<style id="fa-font">:root{--body:' + _SANS + ';--mono:' + _SANS + ';--serif:' + _SANS + '}'
-  'body{font-family:var(--body);font-size:16.5px;letter-spacing:.005em;font-feature-settings:"kern","liga"}'
+  'body{font-family:var(--body);font-size:15px;letter-spacing:.005em;font-feature-settings:"kern","liga"}'
   'p,li,dd,td,th,label,input,select,textarea,button,.btn,summary,small,span{font-family:inherit}'
   'p,.plan>p:not(.cmph),.note,.arsip li span:not(.yr),.cmp dd,.feerow span,.sysnote,.lnote{font-family:var(--body);font-size:1.02em;line-height:1.7;font-weight:400}'
-  '.art p,.art li{font-family:var(--body)!important;font-size:17.5px!important;line-height:1.75!important;font-weight:400!important}'
+  '.art p,.art li{font-family:var(--body)!important;font-size:15.5px!important;line-height:1.7!important;font-weight:400!important}'
   '.art b,.art strong{font-weight:600}.eyebrow{font-family:var(--body);font-weight:600;letter-spacing:.2em}'
   '.btn,button,.chips2 a,.card2 b{font-family:var(--body);font-weight:600;letter-spacing:.01em}'
   '.card2 b{font-family:"Times New Roman",Times,serif;font-weight:400;font-size:19px}'
