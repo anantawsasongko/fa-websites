@@ -464,3 +464,4 @@
 - FA Jupiter: Laporan Keuangan Siap Audit (https://faindonesia.co.id/apps/jupiter/)
 - FA Venus: Akuntansi Manajemen dan Strategi (https://faindonesia.co.id/apps/venus/)
 - FA Galaxy: Belajar, Legenda, dan Kamus (https://faindonesia.co.id/galaxy/)
+- FA Jupiter TP Doc: cek kewajiban Master File dan Local File (PMK 172/2023), uji kewajaran, draf Local File → https://faindonesia.co.id/kalkulator-tp-doc/

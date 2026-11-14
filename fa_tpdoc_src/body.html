@@ -1,0 +1,99 @@
+<main><div class="wrap">
+<style id="tp-css">
+.tp-t{width:100%;border-collapse:collapse;min-width:820px}
+.tp-t th,.tp-t td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;font-size:13px;vertical-align:middle}
+.tp-t th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400;white-space:nowrap}
+.tp-t input,.tp-t select{width:100%;min-width:90px;box-sizing:border-box}
+.tp-t td.num input{text-align:right}
+.tp-ta{width:100%;box-sizing:border-box;min-height:84px;font:inherit;font-size:14px;line-height:1.5;padding:10px 12px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:4px;resize:vertical}
+.tp-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0 0}
+.tp-ok{color:#6fcf97}.tp-no{color:#f2c230}
+.tp-list{margin:10px 0 0;padding-left:20px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.tp-draft{border:1px solid var(--line);padding:22px 24px;font-size:14px;line-height:1.65;max-width:100%;overflow-x:auto}
+.tp-draft h4{margin:20px 0 6px;font-family:var(--f-display);font-weight:400;font-size:20px}
+.tp-draft h4:first-child{margin-top:0}
+.tp-draft table{border-collapse:collapse;width:100%;margin:8px 0;font-size:13px}
+.tp-draft td,.tp-draft th{border:1px solid var(--line);padding:5px 8px;text-align:left}
+.tp-draft mark{background:rgba(242,194,48,.25);color:inherit;padding:0 3px}
+.tp-draft p{margin:6px 0}
+</style>
+<section class="sec">
+<h3>FA Jupiter · Live</h3>
+<h1 style="font-family:var(--f-display);font-weight:400;font-size:clamp(24px,3vw,30px);line-height:1.15;margin:0">TP Doc: Cek Kewajiban dan Draf Local File</h1><div class="tshare-top"><div class="share" data-tool="TP Doc: Cek Kewajiban dan Draf Local File" data-lab="Bagikan"></div></div>
+<p class="lead">Cek apakah perusahaan wajib menyusun Master File dan Local File, rapikan daftar transaksi afiliasi, uji kewajaran dengan rentang interkuartil, lalu susun draf Local File yang siap disunting. Dasarnya PMK 172 Tahun 2023.</p>
+</section>
+
+<section class="sec">
+<h3>1. Cek Kewajiban</h3>
+<div class="fields">
+<label class="field">Tahun pajak<input id="th" value="2026"/></label>
+<label class="field">Akhir tahun pajak<input id="akhir" type="date" value="2026-12-31"/></label>
+<label class="field">Ada transaksi afiliasi pada tahun berjalan?<select id="ada"><option value="ya" selected>Ya</option><option value="tidak">Tidak</option></select></label>
+<label class="field">Peredaran bruto tahun pajak sebelumnya<input class="m" id="bruto" value="0"/><span class="hint">Seluruh peredaran, afiliasi maupun bukan.</span></label>
+<label class="field">Transaksi afiliasi: barang berwujud<input class="m" id="t_brg" value="0"/></label>
+<label class="field">Transaksi afiliasi: jasa<input class="m" id="t_jasa" value="0"/></label>
+<label class="field">Transaksi afiliasi: bunga<input class="m" id="t_bunga" value="0"/></label>
+<label class="field">Transaksi afiliasi: harta tidak berwujud<input class="m" id="t_htb" value="0"/></label>
+<label class="field">Transaksi afiliasi: lainnya<input class="m" id="t_lain" value="0"/></label>
+<label class="field">Lawan transaksi di negara bertarif PPh lebih rendah dari tarif Pasal 17 UU PPh?<select id="rendah"><option value="tidak" selected>Tidak</option><option value="ya">Ya</option></select></label>
+<label class="field">Entitas induk tertinggi grup berada di Indonesia?<select id="induk"><option value="tidak" selected>Tidak</option><option value="ya">Ya</option></select></label>
+<label class="field">Peredaran bruto konsolidasi grup<input class="m" id="konsol" value="0"/><span class="hint">Untuk uji CbCR, hanya jika induk di Indonesia.</span></label>
+</div>
+<p class="hint" style="margin-top:8px">Angka transaksi memakai nilai tahun pajak sebelumnya. Cukup satu kriteria terpenuhi.</p>
+<div class="out" id="kpi" style="margin-top:14px"></div>
+<ul class="tp-list" id="why"></ul>
+</section>
+
+<section class="sec">
+<div class="sec-h"><h3>2. Transaksi Afiliasi</h3><span class="sp"></span><button class="btn small" id="addRow" type="button">Tambah baris</button><button class="btn small" id="togglePaste" type="button">Tempel dari Excel</button></div>
+<div id="pasteBox" hidden style="margin:10px 0">
+<textarea class="tp-ta" id="pasteTa" placeholder="Tempel baris dari Excel. Kolom berurutan: Pihak afiliasi, Negara, Hubungan, Jenis, Nilai (Rp), Metode"></textarea>
+<div class="tp-row"><button class="btn small" id="doPaste" type="button">Masukkan ke tabel</button></div>
+</div>
+<div class="tw"><table class="tp-t" id="tx"><thead><tr><th>Pihak afiliasi</th><th>Negara</th><th>Hubungan</th><th>Jenis</th><th class="num">Nilai (Rp)</th><th>Metode</th><th></th></tr></thead><tbody></tbody></table></div>
+<div class="tw" style="margin-top:12px"><table class="tp-t" id="sumx" style="min-width:0"><thead><tr><th>Jenis transaksi</th><th class="num">Total</th><th class="num">Batas</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+<div class="tp-row"><button class="btn small" id="useSum" type="button">Pakai total ini di langkah 1</button></div>
+</section>
+
+<section class="sec">
+<h3>3. Uji Kewajaran (Rentang Interkuartil)</h3>
+<div class="fields">
+<label class="field">Margin pihak yang diuji (%)<input id="mt" value="3,5"/></label>
+<label class="field">Dasar penyesuaian (Rp)<input class="m" id="mbase" value="0"/><span class="hint">Misalnya penjualan atau total biaya, sesuai indikator laba.</span></label>
+</div>
+<label class="field" style="margin-top:12px">Margin pembanding independen (%), satu per baris<textarea class="tp-ta" id="comps" placeholder="2,1&#10;3,4&#10;4,0&#10;5,2&#10;6,1"></textarea></label>
+<div class="out" id="kpi3" style="margin-top:14px"></div>
+<p class="note" style="margin-top:8px">Kuartil dihitung seperti QUARTILE.INC di Excel. Penyesuaian ke median bila margin di luar rentang. Pastikan set pembanding Anda sudah lolos seleksi kesebandingan.</p>
+</section>
+
+<section class="sec">
+<h3>4. Data untuk Draf Local File</h3>
+<div class="fields">
+<label class="field">Nama wajib pajak<input id="nm" placeholder="PT ..."/></label>
+</div>
+<label class="field" style="margin-top:12px">Kegiatan usaha, strategi, dan pesaing<textarea class="tp-ta" id="usaha"></textarea></label>
+<label class="field" style="margin-top:12px">Struktur grup dan posisi wajib pajak<textarea class="tp-ta" id="grup"></textarea></label>
+<div class="fields" style="margin-top:12px">
+<label class="field">Fungsi yang dijalankan<textarea class="tp-ta" id="fungsi"></textarea></label>
+<label class="field">Aset yang digunakan<textarea class="tp-ta" id="aset"></textarea></label>
+<label class="field">Risiko yang ditanggung<textarea class="tp-ta" id="risiko"></textarea></label>
+</div>
+<label class="field" style="margin-top:12px">Alasan pemilihan metode<textarea class="tp-ta" id="alasan"></textarea></label>
+</section>
+
+<section class="sec">
+<div class="sec-h"><h3>Draf Local File</h3><span class="sp"></span><button class="btn small" id="dl" type="button" data-fa-full>Unduh Word (.doc)</button><button class="btn small" id="cpd" type="button" data-fa-full>Salin teks</button></div>
+<div class="tp-draft" id="draft"></div>
+<p class="note" style="margin-top:8px">Bagian bertanda kuning belum terisi. Draf menyusun kerangka dan angka dari data di atas. Analisis kesebandingan dan dokumen pendukung tetap perlu Anda lengkapi dan review sebelum dipakai.</p>
+</section>
+
+<section class="sec">
+<h3>Dasar Hitung</h3>
+<ol class="steps">
+<li>PMK 172 Tahun 2023 Pasal 16: kewajiban Master File dan Local File bagi wajib pajak yang melakukan transaksi afiliasi pada tahun berjalan dan memenuhi salah satu kriteria tahun pajak sebelumnya: peredaran bruto lebih dari Rp50 miliar, transaksi afiliasi barang berwujud lebih dari Rp20 miliar, atau masing-masing jasa, bunga, pemanfaatan harta tidak berwujud, dan transaksi afiliasi lainnya lebih dari Rp5 miliar, atau lawan transaksi di negara bertarif PPh lebih rendah dari tarif Pasal 17 UU PPh.</li>
+<li>Pasal 18: Master File dan Local File tersedia paling lambat 4 bulan setelah akhir tahun pajak. CbCR tersedia paling lambat 12 bulan setelah akhir tahun pajak, dan hanya wajib bagi entitas induk dengan peredaran bruto konsolidasi paling sedikit Rp11 triliun.</li>
+<li>Pasal 34: atas permintaan Direktur Jenderal Pajak, Master File dan Local File disampaikan paling lama 1 bulan sejak permintaan. Ikhtisar kedua dokumen dilampirkan pada SPT Tahunan.</li>
+<li>Uji kewajaran memakai rentang interkuartil (kuartil 1 sampai kuartil 3). Margin di luar rentang disesuaikan ke median.</li>
+</ol>
+</section>
+<!--fa-prod--><div class="fa-prod"><section class="sec"><h2>Aplikasi TP Doc: Cek Kewajiban Transfer Pricing dan Draf Local File</h2><p>Transaksi dengan pihak afiliasi harus mengikuti prinsip kewajaran dan kelaziman usaha. Bagi perusahaan yang melewati batas tertentu, itu berarti harus ada dokumen penentuan harga transfer: <b>Master File</b> dan <b>Local File</b>, ditambah <b>CbCR</b> untuk grup yang sangat besar.</p><p>Aplikasi ini menjawab tiga pertanyaan praktis. Wajib atau tidak, dan kapan dokumennya harus tersedia. Berapa nilai transaksi afiliasi per jenis dan mana yang melewati batas. Apakah margin transaksi masih di dalam rentang wajar, dan kerangka Local File apa yang bisa langsung disunting.</p></section><section class="sec"><h2>Untuk Siapa</h2><ul><li><b>Bagian akuntansi dan pajak</b> perusahaan yang punya transaksi dengan induk, anak, atau perusahaan sepengendali.</li><li><b>Konsultan pajak dan akuntan</b> yang menyusun kerangka dokumen sebelum masuk ke benchmarking.</li><li><b>CFO dan direksi</b> yang ingin tahu paparan kewajiban sebelum akhir tahun.</li></ul></section><section class="sec"><h2>Cara Memakai</h2><ol><li>Isi data tahun pajak sebelumnya di langkah 1 dan baca hasil kewajiban serta tenggatnya.</li><li>Masukkan transaksi afiliasi di langkah 2, atau tempel langsung dari Excel.</li><li>Isi margin pihak yang diuji dan pembanding di langkah 3 untuk melihat rentang interkuartil.</li><li>Lengkapi data di langkah 4. Draf Local File terisi otomatis dan bisa diunduh sebagai Word.</li></ol></section><section class="sec"><h2>Pertanyaan Umum</h2><details><summary>Siapa yang wajib menyusun Master File dan Local File?</summary><p>Wajib pajak yang melakukan transaksi afiliasi pada tahun berjalan dan memenuhi salah satu kriteria tahun pajak sebelumnya: peredaran bruto lebih dari Rp50 miliar, transaksi afiliasi barang berwujud lebih dari Rp20 miliar, atau jasa, bunga, harta tidak berwujud, dan transaksi lainnya masing-masing lebih dari Rp5 miliar, atau transaksi dengan afiliasi di negara bertarif PPh lebih rendah.</p></details><details><summary>Kapan Local File harus tersedia?</summary><p>Paling lambat 4 bulan setelah akhir tahun pajak, yaitu 30 April untuk tahun buku Januari sampai Desember. Bila Direktur Jenderal Pajak meminta, dokumen disampaikan paling lama 1 bulan sejak permintaan.</p></details><details><summary>Apakah draf ini langsung bisa dipakai?</summary><p>Draf menyusun kerangka dan angka dari data yang Anda isi. Analisis kesebandingan, set pembanding, dan dokumen pendukung perlu dilengkapi dan direview sebelum dipakai.</p></details></section><section class="sec"><p class="note">Lanjut: <a href="/kalkulator-penyusutan-fiskal/">Penyusutan Fiskal</a> · <a href="/kalkulator-pph-badan/">PPh Badan</a> · <a href="/audit-ready/">FA Jupiter Audit Ready</a> · <a href="/apps/jupiter/">Semua alat FA Jupiter</a> · <a href="/apps/">Semua FA Apps</a></p></section></div><!--/fa-prod--></div></main>
