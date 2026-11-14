@@ -529,3 +529,9 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Cek: dijalankan dua kali (marker tetap 1 dan 1), Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS, layout_check LAYOUT OK.
 - Urutan bila build ulang: setelah fa_empat_apps_20261114.py, sebelum teks_rapi_20261113.py.
 - Belum: tiga hub /apps/saturn|jupiter|venus/ dan /galaxy/ belum diberi hero serupa; bumper Galaxy; tema tetap gelap sesuai brand FA (bila Bos mau terang ala Mekari, itu perubahan variabel warna di halaman apps saja).
+## Tombol Bahasa EN / 中文 Berlaku di Semua Halaman FA (14 Nov 2026)
+- Pemicu (Bos): "bahasa Inggris dan Mandarinnya kayaknya kalau buka dari layanan masih indo aja. Beresin."
+- Temuan: dari 12.220 halaman FA hanya 3 yang punya kamus I18N (beranda, /layanan/, satu lagi). 25 halaman layanan yang di-link dari /layanan/ (dan semua halaman lain) tidak punya terjemahan dan tidak punya tombol bahasa, jadi pilihan EN/中文 hilang begitu pindah halaman.
+- `js/fa-lang.js` + `fa_lang_global_20261114.py` (12.214 halaman, penanda <script id="fa-lang-js">): tombol ID/EN/中文 di header; pilihan disimpan di localStorage fa-lang (sama dengan beranda); bila halaman punya versi resmi bahasa itu (hreflang, mis. /cfo-paruh-waktu/ <-> /en/fractional-cfo-indonesia/, /fractional-cfo-pt-pma-bali/ <-> /en/fractional-cfo-bali/) pengunjung dipindah ke sana; selain itu terjemahan otomatis Google di browser (banner Google disembunyikan, nama brand dan nama orang notranslate). Tidak aktif sebelum pengunjung memilih bahasa; halaman Inggris (/fractional-cfo/, /en/) tidak diterjemahkan ke Indonesia. SEO tidak berubah (teks HTML tetap asli).
+- Jalankan fa_lang_global_20261114.py paling akhir setiap build FA.
+- Lanjutan bila Bos mau kualitas terjemahan manusia: kamus I18N untuk 25 halaman layanan (±20 ribu kata x 2 bahasa).
