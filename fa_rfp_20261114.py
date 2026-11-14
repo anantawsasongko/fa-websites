@@ -171,8 +171,35 @@ def build_page():
     return h
 
 
+LAY_CTA = ('<div class="lay12-cta"><a class="btn solid" href="/rfp/">Ajukan RFP</a>'
+           '<a class="btn line" href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20tanya%20layanan%20FA%20Indonesia." '
+           'rel="noopener" target="_blank">Chat Ananta, CPA</a></div>')
+LAY_CSS = ('<style id="lay-hero">main>.subhero{position:relative;isolation:isolate;padding:140px 0 72px!important}'
+           'main>.subhero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;'
+           'background:linear-gradient(180deg,rgba(18,18,18,.35) 0%,rgba(18,18,18,.7) 60%,rgba(18,18,18,1) 100%),'
+           'url(/img/fa/landscape.jpg) center 35%/cover no-repeat;filter:grayscale(1)}'
+           'main>.subhero h1{font-family:"Newsreader","Times New Roman",serif!important;font-weight:400!important;letter-spacing:-.015em;font-size:clamp(40px,5.2vw,72px)!important;line-height:1.04!important;margin:.15em 0 .5em!important}'
+           '.lay12-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}'
+           '.lay12-cta .btn{display:inline-flex!important;justify-content:center;align-items:center;border-radius:2px!important;font-weight:600;min-width:170px;text-align:center;box-sizing:border-box}'
+           '</style>')
+
+
+def layanan():
+    p = os.path.join(ROOT, 'layanan', 'index.html')
+    h = open(p, encoding='utf-8').read()
+    o = h
+    h = re.sub(r'<div class="lay12-cta">.*?</div>', lambda _: LAY_CTA, h, count=1, flags=re.S)
+    if 'id="lay-hero"' in h:
+        h = re.sub(r'<style id="lay-hero">.*?</style>', lambda _: LAY_CSS, h, count=1, flags=re.S)
+    else:
+        h = h.replace('</head>', LAY_CSS + '</head>', 1)
+    if h != o and not DRY:
+        open(p, 'w', encoding='utf-8').write(h)
+    return int(h != o)
+
+
 def main():
-    n = 0
+    n = layanan()
     page = build_page()
     out = os.path.join(ROOT, 'rfp', 'index.html')
     if not os.path.exists(out) or open(out, encoding='utf-8').read() != page:

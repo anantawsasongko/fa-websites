@@ -52,6 +52,7 @@ TYPE_CSS = faces() + (
     "h1,h2,h3{font-optical-sizing:auto;text-rendering:optimizeLegibility;"
     "-webkit-font-smoothing:antialiased}"
     "h1{letter-spacing:-.015em!important}"
+    "main .hs .wrap{max-width:1160px!important}"
     "@media(min-width:861px){.hero:has(.hmark) h1{max-width:calc(100% - clamp(190px,19vw,280px))!important}}"
 )
 TYPE_BLOCK = ('<!--fa-type--><link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" '
