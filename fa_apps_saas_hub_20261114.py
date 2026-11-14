@@ -65,17 +65,23 @@ def facts_html(f):
     return "".join("<li><b>%s</b>%s</li>" % (esc(a), esc(b)) for a, b in f)
 
 
+NOIR_CSS = re.search(r'CSS = """(<style id="fh-css">.*?</style>)"""', open(os.path.join(ROOT, "fa_hero_noir_20261114.py"), encoding="utf-8").read(), re.S).group(1)
+FOLD_CSS = """<style id="fh-fold-css">.fh-fold{margin:0 0 26px;border-top:1px solid #2F2F2F;border-bottom:1px solid #2F2F2F}.fh-fold summary{cursor:pointer;list-style:none;padding:13px 0;font-size:12px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#C4CBDA}.fh-fold summary::-webkit-details-marker{display:none}.fh-fold summary:after{content:"+";float:right;color:#00AAD6;font-size:16px;line-height:1}.fh-fold[open] summary:after{content:"\\2212"}.fh-fold ul{margin:0 0 6px!important}.fh-fold li:first-child{border-top:0}.fh-fold p{margin:0 0 14px;font-size:14.5px;line-height:1.6;font-weight:300;color:#C4CBDA}.fh-1c .fh-in{grid-template-columns:minmax(0,760px);padding:60px 48px}.fh-shots{margin:0 0 44px}.fh-shots h2{margin:0 0 6px}.fh-shots>p{margin:0 0 16px;color:var(--muted)}</style>"""
+
+
 def hub_hero(k, a):
-    img = '<div class="sx-win sx-shot"><div class="sx-bar"><i></i><i></i><i></i><span>%s</span></div><img src="/img/apps/fa-%s-app.webp" width="1100" height="%d" alt="%s" fetchpriority="high" decoding="async"></div><p class="sx-cap">Tampilan aplikasi dengan data contoh.</p>' % (
-        esc(a["n"]), k, 653 if k in ("saturn", "venus") else 627, esc(a["alt"]))
+    facts = "".join("<li><i>%02d</i><span><b>%s</b> %s</span></li>" % (i, esc(x), esc(y)) for i, (x, y) in enumerate(a["facts"], 1))
     body = (
-            '<section class="sx-hero sx-hubhero" aria-label="%s" style="--ac:%s"><div class="sx-grid"><div>'
-            '<p class="sx-eb"><i style="background:%s"></i>FA Apps / %s</p><h1>%s</h1><p class="sx-sub">%s</p>'
-            '<div class="sx-cta"><a class="p" href="%s">%s</a><a class="w" href="%s" rel="noopener" target="_blank">Chat via WhatsApp</a></div>'
-            '<ul class="sx-facts">%s</ul></div><div>%s</div></div></section>') % (
-        esc(a["n"]), a["c"], a["c"], esc(a["n"]), esc(a["h1"]), esc(a["sub"]), a["cta"][1], esc(a["cta"][0]), S.WA,
-        facts_html(a["facts"]), img)
-    return '<!--fa-saas-hub-->' + S.CSS1 + CSS2 + body + '<!--/fa-saas-hub-->'
+        '<section class="fh fh-1c" aria-label="%s"><svg class="gr" aria-hidden="true"><filter id="fhg"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>'
+        '<feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/></filter><rect width="100%%" height="100%%" filter="url(#fhg)"/></svg>'
+        '<div class="fh-in"><div><p class="fh-eb">FA Apps / %s</p><h1>%s</h1>'
+        '<details class="fh-fold"><summary>Selengkapnya</summary><p>%s</p><ul>%s</ul></details>'
+        '<div class="fh-cta"><a class="p" href="%s">%s</a><a class="w" href="%s" rel="noopener" target="_blank">Chat via WhatsApp</a></div></div></div></section>'
+        '<section class="fh-shots" aria-label="Tampilan aplikasi"><p class="kick">Tampilan</p><h2>%s dalam Tampilan Nyata</h2><p>Data contoh, bukan data klien.</p>'
+        '<div class="sx-win sx-shot"><div class="sx-bar"><i></i><i></i><i></i><span>%s</span></div><img src="/img/apps/fa-%s-app.webp" width="1100" height="%d" alt="%s" loading="lazy" decoding="async"></div></section>') % (
+        esc(a["n"]), esc(a["n"]), esc(a["h1"]), esc(a["sub"]), facts, a["cta"][1], esc(a["cta"][0]), S.WA,
+        esc(a["n"]), esc(a["n"]), k, 653 if k in ("saturn", "venus") else 627, esc(a["alt"]))
+    return '<!--fa-saas-hub-->' + S.CSS1 + CSS2 + NOIR_CSS + FOLD_CSS + body + '<!--/fa-saas-hub-->'
 
 
 def hub_tail(k, a):
@@ -146,12 +152,16 @@ def do_apps():
     h = re.sub(r'<!--fa-saas-shot-->.*?<!--/fa-saas-shot-->', '', h, flags=re.S)
     if "sx-hub-css" not in h:
         h = h.replace('<!--/fa-saas-->', CSS2 + '<!--/fa-saas-->', 1)
-    # hero noir (fa_hero_noir): ganti jendela mockup .fh-win dengan galeri screenshot asli. Jalankan SETELAH fa_hero_noir_20261114.py
-    m = re.search(r'<div aria-hidden="true"><div class="fh-win">.*?Contoh tampilan dengan data dummy\.</p></div>', h, re.S)
-    if m:
-        h = h.replace(m.group(0), '<div>' + shot_block() + '</div>', 1)
-    elif '<div></div></div></section><!--/fa-hero-noir-->' in h:
-        h = h.replace('<div></div></div></section><!--/fa-hero-noir-->', '<div>' + shot_block() + '</div></div></section><!--/fa-hero-noir-->', 1)
+    # hero noir tetap (minim tulisan): poin dilipat, galeri screenshot asli di bawah hero. Jalankan SETELAH fa_hero_noir_20261114.py
+    h = re.sub(r'<!--fa-saas-shot-->.*?<!--/fa-saas-shot-->', '', h, flags=re.S)
+    h = re.sub(r'<section class="fh-shots".*?</section>', '', h, flags=re.S)
+    if "fh-fold-css" not in h:
+        h = h.replace('<!--/fa-hero-noir-->', FOLD_CSS + '<!--/fa-hero-noir-->', 1)
+    if '<details class="fh-fold">' not in h:
+        h = h.replace('<ul><li><i>01</i>', '<details class="fh-fold"><summary>Keunggulan</summary><ul><li><i>01</i>', 1)
+        h = h.replace('</li></ul><div class="fh-cta">', '</li></ul></details><div class="fh-cta">', 1)
+    sec = '<section class="fh-shots" aria-label="Tampilan aplikasi"><p class="kick">Tampilan</p><h2>FA Apps dalam Tampilan Nyata</h2><p>Data contoh, bukan data klien.</p>' + shot_block() + '</section>'
+    h = h.replace('<!--/fa-hero-noir-->', '<!--/fa-hero-noir-->' + sec, 1) if False else h.replace('<!--/fa-saas-->', '<!--/fa-saas-->' + sec, 1)
     if not DRY:
         open(p, "w", encoding="utf-8").write(h)
     print("apps", "OK" if not DRY else "DRY", len(h), "galeri", h.count("fa-saas-shot-->"))
