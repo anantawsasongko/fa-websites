@@ -37,7 +37,7 @@ LATX = ('U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+03
 
 def faces():
     out = []
-    for fam in ('Newsreader', 'Times New Roman', 'Times'):
+    for fam in ('Newsreader', 'Times New Roman', 'Times', 'EB Garamond', 'Cormorant Garamond', 'Georgia', 'Garamond'):
         for style in ('normal', 'italic'):
             for sub, rng in (('latin', LAT), ('latin-ext', LATX)):
                 out.append(
@@ -67,7 +67,7 @@ DV2_CSS = (
     'background:linear-gradient(180deg,rgba(18,18,18,.30) 0%,rgba(18,18,18,.62) 45%,rgba(18,18,18,1) 100%),'
     'url(/img/fa/landscape.jpg) center 30%/cover no-repeat;filter:grayscale(1)}'
     + S + ' main>section.block:first-child>.wrap{position:relative}'
-    + S + ' main>section.block:first-child>.wrap>*:not(h1){max-width:820px!important;box-sizing:border-box}'
+    + S + ' main>section.block:first-child>.wrap>*:not(h1){max-width:760px!important;box-sizing:border-box}'
     + S + ' main>section.block:first-child>.wrap>.dhn2{width:100%!important;margin-left:0!important}'
     + S + ' main .eyebrow{color:rgba(255,255,255,.72)!important}'
     + S + ' main>section.block:first-child h1{font-size:clamp(34px,4.4vw,58px)!important;'
