@@ -29,7 +29,7 @@ import importlib.util
 spec = importlib.util.spec_from_file_location('lead', os.path.join(HERE, 'fa_artikel_lead_20261111.py'))
 LEAD = importlib.util.module_from_spec(spec); spec.loader.exec_module(LEAD)
 LEAD.DATE_ISO = '2026-11-15T16:00:00+07:00'; LEAD.DATE_ID = '15 November 2026'
-import _k, fa_abc, fa_pe, fa_cfo, ca, us
+import _k, fa_abc, fa_pe, fa_cfo, ca, us, ks
 import poster_daerah as poster
 _k.check()
 ARTS = [a for a in _k.ARTS if a['site'] == 'fa']
@@ -182,6 +182,11 @@ def main():
         s2 = put_block(s, blk)
         if s2 is None: miss.append(pg); continue
         wr(p, s2)
+    # ---- poster artikel Kompasiana (akun pribadi Bos): di-host di sini karena editor Kompasiana menerima gambar lewat URL,
+    #      sedangkan upload file dari sesi otomatis tidak bisa. Tidak di-link dari halaman mana pun.
+    if not DRY:
+        for a in [x for x in _k.ARTS if x['site'] == 'ks']:
+            poster.og('ks', a['topik'], a['kota'], a['title'], os.path.join(ROOT, 'img', 'kompasiana', a['slug'] + '.jpg'))
     print(('DRY ' if DRY else '') + 'berubah:', len(written)); [print('  ', w) for w in written]
     if miss: print('TIDAK ADA TITIK SISIP:', miss)
 
