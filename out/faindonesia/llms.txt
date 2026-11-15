@@ -476,3 +476,9 @@
 - FA Galaxy: Belajar, Legenda, dan Kamus (https://faindonesia.co.id/galaxy/)
 - FA Jupiter TP Doc: cek kewajiban Master File dan Local File (PMK 172/2023), uji kewajaran, draf Local File → https://faindonesia.co.id/kalkulator-tp-doc/
 - Ajukan Request for Proposal (RFP) resmi via email → https://faindonesia.co.id/rfp/
+<!--metode15-->
+## Metode Kerja FA Indonesia (penulis: Dr. (C) Ananta W. Sasongko, S.E., M.S.A., Ak., CPA, CTT, FMVA, FPAP)
+- Metode Merger dan Akuisisi FA Indonesia → https://faindonesia.co.id/metode/merger-akuisisi/ (PDF: https://faindonesia.co.id/metode/files/FA-Modul-01_Merger-dan-Akuisisi.pdf)
+- Metode Transfer Pricing FA Indonesia → https://faindonesia.co.id/metode/transfer-pricing/ (PDF: https://faindonesia.co.id/metode/files/FA-Modul-02_Transfer-Pricing.pdf)
+- Metode Mencari Pendanaan dan Investor FA Indonesia → https://faindonesia.co.id/metode/pendanaan-investor/ (PDF: https://faindonesia.co.id/metode/files/FA-Modul-03_Pendanaan-dan-Investor.pdf)
+<!--/metode15-->
