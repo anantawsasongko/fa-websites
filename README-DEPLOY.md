@@ -581,3 +581,9 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Cek: run kedua 0 perubahan; fa_rendah_hati, fa_rapi_tipografi, fa_daerah_v2, fa_rfp --dry 0; Playwright 1280 dan 375 tanpa scroll horizontal, satu H1, tanpa error JS; layout_check LAYOUT OK.
 - Urutan bila build ulang: setelah generator yang menulis /layanan/ (fa_layanan_ringkas, fa_bumper_lini, fa_bpr_pisah), sebelum fa_rendah_hati_20261112.py dan fa_lang_global_20261114.py.
 - Request indexing: /metode/ dan 3 halaman modul masuk antrean (kuota 15 Nov sudah terpakai).
+
+## 16 Nov 2026: Asisten AI di beranda FA, CA, US
+- Pemicu (Bos): "Asisten Claude tidak muncul konsisten di semua halaman FA, US, dan CA" lalu "Minimal di beranda lah".
+- Akar masalah: `add_ai` di prep.py hanya menyisipkan /js/fa-ai.js ke halaman yang sudah punya paywall/donasi (FA 22 dari 12.237 halaman, CA 0 dari 12.022, US 1 dari 181). Beranda FA dan CA tidak punya widget sama sekali. API (/api/ai/status) sehat: enabled true; CORS worker sudah mengizinkan cariakuntan.com dan updatesak.com.
+- `fa_ai_beranda_20261116.py` (idempoten, --dry, penanda `<!--fa-ai-home-->`, jalankan SESUDAH prep.py dan script rapi terakhir): pasang `window.FA_AI={app:"beranda-fa|ca|us"}` + `/js/fa-ai.js?v=20261116` di out/{faindonesia,cariakuntan,updatesak}/index.html (hanya beranda bahasa Indonesia), salin js/fa-ai.js ke out/cariakuntan/js. Worker: AI_APPS ditambah beranda-fa/ca/us (shared/pay/_worker.js dan out/faindonesia/_worker.js).
+- Belum: halaman dalam (FA ±12.200, CA ±12.000, US ±180) dan beranda EN/ZH/Hokkien. Opsi bila Bos mau: muat fa-ai.js dari /js/secure.js yang sudah ada di semua halaman FA.

@@ -259,6 +259,9 @@ async function licVerify(req, env) {
 }
 const AI_FREE_DEVICE = 3, AI_FREE_IP_DAY = 10, AI_MAX_CTX = 7000, AI_MAX_Q = 600;
 const AI_APPS = {
+  "beranda-fa": "Beranda FA Indonesia: konsultan kredit bank, laporan keuangan, audit (lewat KAP rekanan), valuasi, M&A, CFO paruh waktu, rumah sakit. Bantu pengunjung memahami layanan dan arahkan ke WhatsApp tim FA untuk tindak lanjut.",
+  "beranda-ca": "Beranda CariAkuntan: membantu pemilik usaha memahami jenis jasa akuntan, KAP, KJA, KJPP yang dibutuhkan dan cek izin praktik. Arahkan ke Cek Kebutuhan atau WhatsApp tim FA.",
+  "beranda-us": "Beranda UpdateSAK: edukasi standar akuntansi (PSAK) dan standar audit (SA), kalkulator, dan kertas kerja. Jelaskan konsep dengan sederhana.",
   "kalkulator-pph-21": "Kalkulator PPh 21 TER (PP 58/2023, PMK 168/2023): tarif efektif rata-rata kategori A/B/C, perhitungan Desember pakai tarif Pasal 17, BPJS, gross-up.",
   "kalkulator-pph-badan": "Kalkulator PPh Badan: tarif umum 22%, fasilitas Pasal 31E, PPh final UMKM 0,5% (PP 55/2022), angsuran PPh 25.",
   "kalkulator-potput-ppn": "Kalkulator PPh potong pungut (23, 4 ayat 2, 26, 22 impor) dan PPN 12% dengan DPP nilai lain 11/12.",
