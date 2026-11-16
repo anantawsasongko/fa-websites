@@ -42,7 +42,7 @@ X_CSS = ('<style id="fcfol-css">.fcl-bi{display:grid;grid-template-columns:1fr;g
          '@media(max-width:900px){.fcl-st{grid-template-columns:1fr 1fr}}@media(max-width:720px){.fcl-bi,.fcl-pr,.fcl-st,.fcl-tm{grid-template-columns:1fr}.fcl-v{column-count:2}}</style>')
 
 def profil(W):
-    return (f'<!--fcp:{W}--><div class="fcp"><img alt="{E(NAME)}" decoding="async" height="875" loading="lazy" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><div>'
+    return (f'<!--fcp:{W}--><div class="fcp"><img alt="{E(NAME)}" decoding="async" height="875" loading="lazy" src="/img/ananta-w-sasongko-fcfo-green.jpg" width="700"/><div>'
             f'<small>Fractional CFO · FA Indonesia</small><b class="nm">{E(NAME)}</b><span class="rl">Fractional CFO for PT PMA and growing companies in Indonesia</span><ul>'
             '<li>Certified Public Accountant (CPA), Institut Akuntan Publik Indonesia (IAPI)</li><li>FMVA and FPAP, Corporate Finance Institute</li>'
             '<li>Audit and assurance, Ernst &amp; Young (EY)</li><li>Finance Director and Group CFO roles from Indonesia to Singapore: consolidation, acquisitions, bank financing</li>'
@@ -88,7 +88,7 @@ LBL = {"signs": "When to call", "function": "The gap", "scope": "Scope", "steps"
        "order": "Sequence", "bank": "Banks", "investor": "Investors", "ipo": "IPO", "sell": "Sellers", "calendar": "Calendar", "first": "First 30 days",
        "you-get": "What you get", "kecamatan": "Coverage", "villages": "Villages", "nearby": "Nearby", "by-regency": "Regencies"}
 def _hero_fig(W):
-    return (f'<figure class="fx-fig"><img alt="{E(NAME)}" decoding="async" height="875" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><figcaption>'
+    return (f'<figure class="fx-fig"><img alt="{E(NAME)}" decoding="async" height="875" src="/img/ananta-w-sasongko-fcfo-green.jpg" width="700"/><figcaption>'
             f'<b>{E(NAME)}</b><span>Fractional CFO · FA Indonesia</span><ul>'
             '<li>Certified Public Accountant (CPA), IAPI</li><li>FMVA and FPAP, Corporate Finance Institute</li><li>Audit and assurance, Ernst &amp; Young (EY)</li>'
             '<li>Finance Director and Group CFO, Indonesia to Singapore</li><li>Took a private company through IPO preparation</li></ul></figcaption></figure>')
@@ -131,7 +131,7 @@ def page(path, title, desc, h1, eyebrow, body, W, faq, crumbs, cur=None):
     g = {"@context": "https://schema.org", "@graph": [
         {"@type": "ProfessionalService", "name": h1, "description": desc, "url": url, "inLanguage": "en",
          "provider": {"@type": "Organization", "@id": D + "/#org", "name": "FA Indonesia", "url": D + "/"},
-         "employee": {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-cpa-rs.jpg", "url": D + "/ananta-w-sasongko/"},
+         "employee": {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-fcfo-green.jpg", "url": D + "/ananta-w-sasongko/"},
          "priceRange": "USD 2,000 - 5,000 per month"},
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": D + u} for i, (u, n) in enumerate(crumbs)]},
         ] + ([{"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}] if faq else [])}

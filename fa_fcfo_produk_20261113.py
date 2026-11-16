@@ -35,7 +35,7 @@ EDGE_EN = ("Indonesian ground truth, global expectations. Our CFO has run financ
 EDGE_ID = ("Paham lapangan Indonesia, paham ekspektasi global. CFO kami pernah memimpin keuangan dari Indonesia hingga Singapura, jadi tahu apa yang "
            "diharapkan direksi induk, investor regional, dan auditor internasional, serta cara mencapainya bersama bank, KAP, KJPP, kantor pajak, dan OSS di Indonesia.")
 
-TEAM = ('<div class="fcl-tm"><a href="/ananta-w-sasongko/"><img alt="' + E(NAME) + '" loading="lazy" src="/img/ananta-w-sasongko-cpa-rs.jpg"/><div><b>' + E(NAME) + '</b>'
+TEAM = ('<div class="fcl-tm"><a href="/ananta-w-sasongko/"><img alt="' + E(NAME) + '" loading="lazy" src="/img/ananta-w-sasongko-fcfo-green.jpg"/><div><b>' + E(NAME) + '</b>'
         '<span>Fractional CFO · FA Indonesia. CPA (IAPI), FMVA, FPAP; EY; Finance Director and Group CFO from Indonesia to Singapore</span></div></a>'
         '<a href="/kja-farhani/"><img alt="Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA" loading="lazy" src="/img/farhani-k-nugraha-fa-indonesia.jpg"/><div><b>Farhani Kautsar Nugraha, S.E., M.S.A., Ak., CA</b>'
         '<span>KJA Farhani K.N. · Bookkeeping and financial statements</span></div></a>'

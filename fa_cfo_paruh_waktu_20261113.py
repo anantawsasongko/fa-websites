@@ -25,7 +25,7 @@ def tbl(head, rows):
 # gaya kartu profil sama dengan halaman regional (fcfo-css), diambil dari fa_fcfo_pma_20261113.py tanpa menjalankannya
 _src = open(os.path.join(HERE, "fa_fcfo_pma_20261113.py"), encoding="utf-8").read()
 CSS = eval(re.search(r"^CSS = (\(.*?\))\n\n", _src, re.S | re.M).group(1))
-PROF = ('<!--fa-cfopw-prof-->' + CSS + '<div class="fcp"><img alt="' + E(NAME) + '" decoding="async" height="875" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><div>'
+PROF = ('<!--fa-cfopw-prof-->' + CSS + '<div class="fcp"><img alt="' + E(NAME) + '" decoding="async" height="875" src="/img/ananta-w-sasongko-fcfo-green.jpg" width="700"/><div>'
         '<small>Fractional CFO · FA Indonesia</small><b class="nm">' + E(NAME) + '</b><span class="rl">Fractional CFO dan penasihat keuangan untuk perusahaan swasta, grup usaha, dan PT PMA</span><ul>'
         '<li>Certified Public Accountant (CPA), Institut Akuntan Publik Indonesia (IAPI)</li><li>FMVA dan FPAP, Corporate Finance Institute</li>'
         '<li>Audit dan assurance di Ernst &amp; Young (EY)</li><li>Direktur Keuangan dan Group CFO dari Indonesia hingga Singapura: konsolidasi, akuisisi, pembiayaan bank, pendanaan investor</li>'
@@ -88,7 +88,7 @@ def fix_ld(m):
         if n.get("@type") == "WebPage": n["name"] = html.unescape(TITLE)
         if n.get("@type") == "Service":
             n["name"] = "Fractional CFO (CFO paruh waktu)"
-            n["employee"] = {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-cpa-rs.jpg", "url": D + "/ananta-w-sasongko/"}
+            n["employee"] = {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-fcfo-green.jpg", "url": D + "/ananta-w-sasongko/"}
     return '<script type="application/ld+json">' + json.dumps(g, ensure_ascii=False) + "</script>"
 t = re.sub(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@graph": \[\{"@type": "WebPage".*?)</script>', fix_ld, t, count=1, flags=re.S)
 # kartu profil setelah paragraf pembuka

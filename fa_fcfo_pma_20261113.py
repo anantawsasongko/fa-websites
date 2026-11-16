@@ -52,7 +52,7 @@ def profil(L):
               "Direktur Keuangan dan Group CFO dari Indonesia hingga Singapura: konsolidasi, akuisisi, pembiayaan bank, pendanaan investor",
               "Menyiapkan perusahaan swasta menuju IPO di Bursa Efek Indonesia; kandidat doktor akuntansi"]
         b1, b2 = "Chat Ananta, CPA", "Profil Lengkap"
-    return (f'<div class="fcp"><img alt="{E(NAME)}" decoding="async" height="875" src="/img/ananta-w-sasongko-cpa-rs.jpg" width="700"/><div>'
+    return (f'<div class="fcp"><img alt="{E(NAME)}" decoding="async" height="875" src="/img/ananta-w-sasongko-fcfo-green.jpg" width="700"/><div>'
             f'<small>{sm}</small><b class="nm">{E(NAME)}</b><span class="rl">{rl}</span><ul>' + "".join(f"<li>{x}</li>" for x in li) + "</ul>"
             '<div class="cbtns" style="display:flex;gap:12px;flex-wrap:wrap">'
             f'<a class="btn solid" href="{{WA}}" rel="noopener" target="_blank">{b1}</a><a class="btn line" href="/ananta-w-sasongko/">{b2}</a></div></div></div>')
@@ -210,7 +210,7 @@ for k, r in R.items():
         t = re.sub(r'<meta content="[^"]*" name="description"/>', f'<meta content="{E(de)}" name="description"/>', t, count=1)
         t = re.sub(r'<meta content="[^"]*" property="og:description"/>', f'<meta content="{E(de)}" property="og:description"/>', t, count=1)
         t = re.sub(r'<meta content="[^"]*" property="og:url"/>', f'<meta content="{url}" property="og:url"/>', t, count=1)
-        t = re.sub(r'<meta content="[^"]*" property="og:image"/>', f'<meta content="{D}/img/ananta-w-sasongko-cpa-rs.jpg" property="og:image"/>', t, count=1)
+        t = re.sub(r'<meta content="[^"]*" property="og:image"/>', f'<meta content="{D}/img/ananta-w-sasongko-fcfo-green.jpg" property="og:image"/>', t, count=1)
         t = t.replace('<meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/>', '<meta content="700" property="og:image:width"/><meta content="875" property="og:image:height"/>', 1)
         t = re.sub(r'<meta content="[^"]*" property="og:locale"/>', f'<meta content="{"en_US" if L == "en" else "id_ID"}" property="og:locale"/>', t, count=1)
         t = re.sub(r'<link href="[^"]*" rel="canonical"/><link href="[^"]*" hreflang="en" rel="alternate"/><link href="[^"]*" hreflang="id" rel="alternate"/>',
@@ -218,7 +218,7 @@ for k, r in R.items():
         g = {"@context": "https://schema.org", "@graph": [
             {"@type": "ProfessionalService", "name": h1, "description": de, "url": url, "areaServed": {"@type": "AdministrativeArea", "name": pl},
              "provider": {"@type": "Organization", "@id": D + "/#org", "name": "FA Indonesia", "url": D + "/"},
-             "employee": {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-cpa-rs.jpg", "url": D + "/ananta-w-sasongko/"},
+             "employee": {"@type": "Person", "name": NAME, "jobTitle": "Fractional CFO", "image": D + "/img/ananta-w-sasongko-fcfo-green.jpg", "url": D + "/ananta-w-sasongko/"},
              "inLanguage": L},
             {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": html.unescape(a)}} for q, a in F]}]}
         t = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda m: '<script type="application/ld+json">' + json.dumps(g, ensure_ascii=False) + "</script>", t, count=1, flags=re.S)
