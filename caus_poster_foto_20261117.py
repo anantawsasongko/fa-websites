@@ -86,6 +86,10 @@ def assign():
     for st in ('fa', 'ca', 'us', 'ks'):
         g = [a['title'] for a in _k.ARTS if a['site'] == st]
         for i, t in enumerate(g): m[t] = af.NAMES[(i + 2 * 'fa ca us ks'.split().index(st)) % len(af.NAMES)]
+    # Kompasiana: tanpa foto jas navy (Bos: "pakenya foto yang itu itu saja"), urutan tetap
+    KS = ['ananta-hijau.png', 'ananta-noir.png', 'ananta-abu.png', 'ananta-kursi-hitam.png', 'ananta-tigapotong.png',
+          'ananta-kursi-putih.png', 'ananta-abu.png', 'ananta-hijau.png', 'ananta-kursi-hitam.png', 'ananta-noir.png']
+    for a, n in zip([a for a in _k.ARTS if a['site'] == 'ks'], KS): m[a['title']] = n
     f = os.path.join(af.DIR, 'assign.json')
     if not DRY: json.dump(m, open(f, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     af._ASSIGN = m
