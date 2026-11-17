@@ -4,14 +4,17 @@ Aturan:
 - cariakuntan: /kdmp/<prov>/<kab>/<desa>/ (level 3) dan /kota/<kota>/kecamatan/<kec>/ -> noindex,follow
 - faindonesia: /wilayah/<kota>/kecamatan/<kec>/ -> noindex,follow; sitemap-kecamatan.xml tidak diiklankan
 Hub (provinsi, kabupaten, kota, kota x layanan) tetap index.
-Idempoten. Dipanggil dari prep.py setelah semua build.
+17 Nov 2026 (Bos: "noindex halaman tipis CA, sisakan kota, cek izin, artikel"): cariakuntan sekarang juga noindex,follow
+untuk SEMUA /kdmp/ (beranda, provinsi, kabupaten, desa), hub /kota/<kota>/kecamatan/, dan semua kawasan bisnis
+(/kota/<kota>/<kawasan>/ + 4 halaman layanannya). Kawasan dikenali dari struktur folder (punya anak kap/ atau kjpp/).
+Idempoten. Dipanggil dari prep.py setelah semua build. Mode lokal: python3 shared/thin_noindex.py out cariakuntan [--dry]
 """
 import os, re
 
 META = '<meta name="robots" content="noindex,follow">'
 RULES = {
-    "cariakuntan": [re.compile(r"^kdmp/[^/]+/[^/]+/[^/]+/index\.html$"),
-                    re.compile(r"^kota/[^/]+/kecamatan/[^/]+/index\.html$")],
+    "cariakuntan": [re.compile(r"^kdmp/(?:[^/]+/)*index\.html$"),
+                    re.compile(r"^kota/[^/]+/kecamatan/(?:[^/]+/)?index\.html$")],
     "faindonesia": [re.compile(r"^wilayah/[^/]+/kecamatan/[^/]+/index\.html$")],
 }
 DOMAIN = {"cariakuntan": "https://cariakuntan.com", "faindonesia": "https://faindonesia.co.id"}
@@ -21,19 +24,39 @@ def _url(site, rel):
     return DOMAIN[site] + "/" + rel[: -len("index.html")]
 
 
-def run(out_root):
+def _kawasan_prefixes(root):
+    """kota/<kota>/<kawasan>/ = folder yang punya anak kap/ atau kjpp/ (folder layanan tingkat kota tidak punya)."""
+    kroot = os.path.join(root, "kota")
+    res = set()
+    if not os.path.isdir(kroot):
+        return res
+    for city in os.listdir(kroot):
+        cp = os.path.join(kroot, city)
+        if not os.path.isdir(cp):
+            continue
+        for s in os.listdir(cp):
+            sp = os.path.join(cp, s)
+            if os.path.isdir(sp) and (os.path.exists(os.path.join(sp, "kap", "index.html")) or os.path.exists(os.path.join(sp, "kjpp", "index.html"))):
+                res.add("kota/%s/%s/" % (city, s))
+    return res
+
+
+def run(out_root, sites=None, dry=False):
     stats = {}
     for site, pats in RULES.items():
+        if sites and site not in sites:
+            continue
         root = os.path.join(out_root, site)
         if not os.path.isdir(root):
             continue
+        kaw = _kawasan_prefixes(root) if site == "cariakuntan" else set()
         urls, n = set(), 0
         for d, _, fs in os.walk(root):
             if "index.html" not in fs:
                 continue
             p = os.path.join(d, "index.html")
             rel = os.path.relpath(p, root).replace(os.sep, "/")
-            if not any(r.match(rel) for r in pats):
+            if not (any(r.match(rel) for r in pats) or (kaw and any(rel.startswith(k) for k in kaw))):
                 continue
             urls.add(_url(site, rel))
             h = open(p, encoding="utf-8").read()
@@ -41,7 +64,8 @@ def run(out_root):
             if META not in h2:
                 h2 = h2.replace("<head>", "<head>" + META, 1) if "<head>" in h2 else re.sub(r"(<head[^>]*>)", r"\1" + META, h2, 1)
             if h2 != h:
-                open(p, "w", encoding="utf-8").write(h2)
+                if not dry:
+                    open(p, "w", encoding="utf-8").write(h2)
                 n += 1
         # sitemap utama: buang URL yang noindex
         removed = 0
@@ -60,17 +84,18 @@ def run(out_root):
                 s2 = "".join(keep)
                 if "</urlset>" not in s2:
                     s2 = s2.rstrip() + "\n</urlset>\n"
-                open(sp, "w", encoding="utf-8").write(s2)
+                if not dry:
+                    open(sp, "w", encoding="utf-8").write(s2)
         # sitemap-kecamatan: hapus file dan barisnya di robots.txt
         for extra in ("sitemap-kecamatan.xml",):
             ep = os.path.join(root, extra)
-            if os.path.exists(ep):
+            if os.path.exists(ep) and not dry:
                 os.remove(ep)
         rp = os.path.join(root, "robots.txt")
         if os.path.exists(rp):
             r = open(rp, encoding="utf-8").read()
             r2 = re.sub(r"(?m)^Sitemap: \S*sitemap-kecamatan\.xml\s*\n?", "", r)
-            if r2 != r:
+            if r2 != r and not dry:
                 open(rp, "w", encoding="utf-8").write(r2)
         stats[site] = {"noindex_pages": len(urls), "changed": n, "removed_from_sitemap": removed}
     return stats
@@ -78,7 +103,8 @@ def run(out_root):
 
 if __name__ == "__main__":
     import sys, json
-    print(json.dumps(run(sys.argv[1] if len(sys.argv) > 1 else "out"), indent=1))
+    a = [x for x in sys.argv[1:] if not x.startswith("--")]
+    print(json.dumps(run(a[0] if a else "out", a[1:] or None, "--dry" in sys.argv), indent=1))
 
 
 GA_SITE = {"cariakuntan": "G-ST6NBQ1D77", "updatesak": "G-ZFJDEKN947"}  # FA tetap G-09VZKH3JRJ
