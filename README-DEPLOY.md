@@ -629,4 +629,5 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - `fa_content/daerah20261115/poster_daerah.py`: _person() memakai foto bergiliran (bukan ananta-jas.png saja) + grain merata.
 - `caus_poster_foto_20261117.py` (BEKERJA DI out/, idempoten, --dry, --noimg; jalankan PALING AKHIR untuk CA/US, sesudah caus_hero_fa_20261117.py): membuat ulang og 156 artikel CA + og/story 46 artikel US, og 30 artikel daerah FA/CA/US, 10 poster Kompasiana (out/faindonesia/img/kompasiana/, nama file tetap), dan menyisipkan gambar pembuka `<!--fotoart--><figure class="dae-fig">` tepat setelah hero gelap rxh di 146 artikel CA dan 36 artikel US. URL gambar tidak berubah, meta tag tidak disentuh.
 - Cek: 182 halaman x 1280/375 tanpa scroll horizontal, error JS, atau gambar kosong; layout_check OK; rerun --dry 0 perubahan.
+- Poster Kompasiana sengaja tanpa foto jas navy (sudah terlalu sering dipakai), urutan 6 foto lain diset manual di assign.json.
 - Kompasiana: poster di halaman yang sudah terbit adalah file yang di-upload ke server Kompasiana, jadi baru berganti bila gambar di tiap artikel diganti lewat Edit.
