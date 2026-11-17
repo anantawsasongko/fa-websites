@@ -210,3 +210,17 @@
 - [Akuntansi Hotel: Pendapatan Kamar, Deposit, OTA, Aset](https://updatesak.com/akuntansi-hotel/)
 - [Akuntansi Distributor: Persediaan, Rabat Prinsipal, Piutang](https://updatesak.com/akuntansi-distributor/)
 <!--/usind-->
+<!--ussyr-->
+## PSAK Syariah (nomor baru, dulu PSAK 1xx)
+- [PSAK 402 Akuntansi Murabahah (dulu PSAK 102)](https://updatesak.com/psak/402/): Mengatur akuntansi jual beli murabahah: barang dijual sebesar harga perolehan ditambah keuntungan yang disepakati, dengan harga perolehan diungkapkan kepada pembeli.
+- [PSAK 403 Akuntansi Salam (dulu PSAK 103)](https://updatesak.com/psak/403/): Mengatur akuntansi jual beli salam: barang dipesan dengan pembayaran penuh di muka, sedangkan barang diserahkan kemudian sesuai spesifikasi yang disepakati.
+- [PSAK 404 Akuntansi Istishna' (dulu PSAK 104)](https://updatesak.com/psak/404/): Mengatur akuntansi akad istishna': pemesanan pembuatan barang dengan kriteria tertentu, pembayaran dapat dilakukan di muka, bertahap, atau ditangguhkan sesuai kesepakatan.
+- [PSAK 405 Akuntansi Mudharabah (dulu PSAK 105)](https://updatesak.com/psak/405/): Mengatur akuntansi akad mudharabah: pemilik dana (shahibul maal) menyediakan seluruh modal, pengelola dana (mudharib) menjalankan usaha, keuntungan dibagi sesuai nisbah.
+- [PSAK 406 Akuntansi Musyarakah (dulu PSAK 106)](https://updatesak.com/psak/406/): Mengatur akuntansi akad musyarakah: dua pihak atau lebih sama-sama menyertakan dana untuk suatu usaha, keuntungan dibagi sesuai nisbah dan kerugian sesuai porsi dana.
+- [PSAK 407 Akuntansi Ijarah (dulu PSAK 107)](https://updatesak.com/psak/407/): Mengatur akuntansi akad ijarah: pemindahan hak guna atas suatu aset dalam waktu tertentu dengan imbalan sewa, termasuk ijarah muntahiyah bittamlik yang berakhir dengan pemindahan kepemilikan.
+- [PSAK 408 Akuntansi Transaksi Asuransi Syariah (dulu PSAK 108)](https://updatesak.com/psak/408/): Mengatur akuntansi transaksi asuransi syariah: dana tabarru' peserta dikelola terpisah dari dana milik entitas pengelola, dengan ujrah sebagai imbalan pengelolaan.
+- [PSAK 409 Akuntansi Zakat, Infak, dan Sedekah (dulu PSAK 109)](https://updatesak.com/psak/409/): Mengatur akuntansi zakat, infak, dan sedekah bagi amil: penerimaan, penyaluran, bagian amil, serta penyajian laporan keuangan entitas amil.
+- [PSAK 410 Akuntansi Sukuk (dulu PSAK 110)](https://updatesak.com/psak/410/): Mengatur akuntansi sukuk bagi penerbit dan investor, saat ini terutama sukuk ijarah dan sukuk mudharabah.
+- [PSAK 411 Akuntansi Wa'd (dulu PSAK 111)](https://updatesak.com/psak/411/): Mengatur akuntansi wa'd, yaitu janji satu pihak kepada pihak lain untuk melakukan sesuatu, termasuk wa'd yang dipakai dalam transaksi keuangan syariah.
+- [PSAK 412 Akuntansi Wakaf (dulu PSAK 112)](https://updatesak.com/psak/412/): Mengatur akuntansi wakaf bagi nazhir dan wakif: penerimaan aset wakaf, pengelolaan dan pengembangannya, penyaluran hasil, serta laporan keuangan entitas wakaf.
+<!--/ussyr-->
