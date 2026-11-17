@@ -1,0 +1,53 @@
+{
+ "slug": "dokumen-transfer-pricing-master-file-local-file",
+ "seo_title": "Dokumen Transfer Pricing: Master File dan Local File",
+ "title": "Dokumen Transfer Pricing: Siapa Wajib Menyusun Master File dan Local File",
+ "description": "Bertransaksi dengan pihak afiliasi? Ini batas kewajiban master file dan local file menurut PMK 172/2023, isi dokumen, dan tenggat penyediaannya.",
+ "keyword": "dokumen transfer pricing",
+ "category": "Pajak",
+ "minutes": 7,
+ "cta": {
+  "href": "/kalkulator-tp-doc/",
+  "label": "Kalkulator Kewajiban TP Doc"
+ },
+ "wa": "Halo FA Indonesia, saya ingin tahu apakah perusahaan saya wajib menyusun dokumen transfer pricing.",
+ "sources": [
+  [
+   "https://pasal.id/peraturan/pmk/pmk-no-172-tahun-2023",
+   "PMK 172 Tahun 2023 tentang Penerapan Prinsip Kewajaran dan Kelaziman Usaha"
+  ],
+  [
+   "https://news.ddtc.co.id/berita/nasional/1810531/sudah-mei-master-file-dan-local-file-harus-sudah-tersedia",
+   "DDTCNews, Master File dan Local File harus tersedia 4 bulan setelah akhir tahun pajak"
+  ],
+  [
+   "https://www.ortax.org/threshold-test-apakah-perusahaan-anda-wajib-menyiapkan-tp-doc",
+   "OrtaxMedia, Threshold test kewajiban TP Doc"
+  ]
+ ],
+ "related": [
+  "laporan-keuangan-bank-dan-pajak-harus-sejalan",
+  "coretax-untuk-badan-usaha-yang-perlu-disiapkan",
+  "penyusutan-fiskal-vs-komersial-cara-hitung-pajak-tangguhan",
+  "utang-pemegang-saham-dijadikan-modal-atau-tetap-pinjaman"
+ ],
+ "body_html": "<p>Banyak grup usaha menengah baru sadar soal transfer pricing saat pemeriksaan pajak datang. Padahal bila PT Anda bertransaksi dengan pihak afiliasi, misalnya pinjaman dari pemegang saham, jual beli dengan PT satu grup, atau jasa manajemen dari induk, ada kemungkinan Anda wajib menyiapkan dokumen penentuan harga transfer. Aturannya kini ada di PMK 172 Tahun 2023.</p>\n<h2>Tiga Dokumen yang Diatur</h2>\n<div class=\"tblwrap\"><table class=\"tbl\"><thead><tr><th>Dokumen</th><th>Isi</th><th>Siapa</th></tr></thead><tbody><tr><td>Dokumen induk (master file)</td><td>Gambaran grup: struktur, bisnis, aset tidak berwujud, pendanaan, posisi keuangan grup</td><td>Wajib pajak yang memenuhi kriteria</td></tr><tr><td>Dokumen lokal (local file)</td><td>Transaksi afiliasi wajib pajak Indonesia, analisis kesebandingan, metode yang dipakai</td><td>Wajib pajak yang memenuhi kriteria</td></tr><tr><td>Laporan per negara (CbCR)</td><td>Pelaporan kegiatan grup per negara</td><td>Entitas induk grup dengan peredaran bruto konsolidasi besar (batasnya Rp11 triliun)</td></tr></tbody></table></div>\n<h2>Siapa yang Wajib Menyusun Master File dan Local File</h2>\n<p>Syarat dasarnya adalah wajib pajak melakukan transaksi afiliasi pada tahun berjalan. Kewajiban menyusun master file dan local file muncul bila memenuhi salah satu batasan, di antaranya peredaran bruto tahun pajak sebelumnya melebihi Rp50 miliar, atau nilai transaksi afiliasi tahun sebelumnya melewati batas dalam PMK, yaitu di atas Rp20 miliar untuk transaksi barang berwujud, atau di atas Rp5 miliar untuk masing-masing jenis transaksi jasa, bunga, pemanfaatan harta tidak berwujud, dan transaksi lainnya. Perhitungan batas ini disetahunkan bila tahun pajak kurang dari 12 bulan. Karena batas dan kriterianya bisa berubah, cek ketentuan terbaru atau gunakan <a href=\"/kalkulator-tp-doc/\">kalkulator kewajiban TP Doc</a> kami sebagai pemeriksaan awal.</p>\n<p>Perusahaan yang tidak memenuhi batas tidak wajib menyusun master file dan local file, tetapi tetap harus menerapkan prinsip kewajaran dan kelaziman usaha pada transaksi afiliasinya.</p>\n<h2>Tenggat yang Perlu Diingat</h2>\n<ul><li>Master file dan local file harus sudah tersedia paling lama 4 bulan setelah akhir tahun pajak. Untuk tahun pajak yang berakhir Desember, artinya paling lambat akhir April.</li>\n<li>Ikhtisar master file dan local file dilampirkan pada SPT Tahunan.</li>\n<li>Dokumen lengkap harus diserahkan dalam 1 bulan sejak diminta dalam pengawasan kepatuhan atau pemeriksaan.</li>\n<li>Dokumen disusun berdasarkan data dan informasi yang tersedia pada saat transaksi afiliasi dilakukan (pendekatan ex ante), bukan disusun belakangan dari angka yang sudah jadi.</li></ul>\n<h2>Transaksi yang Paling Sering Disorot</h2>\n<ul><li>Pinjaman dari pemegang saham atau afiliasi, termasuk tingkat bunganya.</li>\n<li>Jasa manajemen, royalti, dan biaya bersama yang dibebankan induk.</li>\n<li>Jual beli barang atau aset antar PT satu grup.</li>\n<li>Penjualan dengan margin yang jauh berbeda dibanding pihak independen.</li></ul>\n<p>Untuk pinjaman, ada juga batas rasio utang terhadap modal yang memengaruhi biaya bunga yang dapat dikurangkan. Lihat <a href=\"/artikel/utang-pemegang-saham-dijadikan-modal-atau-tetap-pinjaman/\">artikel utang pemegang saham</a>.</p>\n<h2>Langkah Praktis</h2>\n<ol><li>Daftar semua transaksi dengan pihak afiliasi satu tahun penuh.</li>\n<li>Uji batas kewajiban (peredaran bruto dan nilai transaksi).</li>\n<li>Kumpulkan kontrak dan dasar penetapan harga.</li>\n<li>Lakukan analisis kesebandingan dan pilih metode yang sesuai.</li>\n<li>Susun dokumen dan simpan bersama bukti pendukung sebelum tenggat.</li></ol>\n<h2>Contoh Ilustrasi: Pinjaman dari Induk</h2>\n<p>Sebuah PT dengan peredaran bruto tahun lalu Rp60 miliar menerima pinjaman Rp10 miliar dari perusahaan induk dengan bunga 3 persen, sedangkan bank independen menawarkan bunga sekitar 10 persen untuk risiko serupa. Peredaran bruto sudah melewati Rp50 miliar sehingga dokumen lokal wajib disiapkan. Dalam dokumen itu, perusahaan perlu menjelaskan perjanjian, analisis kesebandingan bunga, dan alasan tingkat bunga yang dipakai. Angka ini ilustrasi; hasil analisis nyata bergantung pada data pembanding dan kondisi transaksi.</p>\n<h2>Daftar Cek Singkat</h2>\n<ul><li>Apakah ada transaksi dengan pihak afiliasi pada tahun pajak ini?</li>\n<li>Apakah peredaran bruto tahun lalu melewati Rp50 miliar, atau nilai transaksi afiliasi melewati batas PMK?</li>\n<li>Apakah ada perjanjian tertulis untuk setiap transaksi afiliasi?</li>\n<li>Apakah dasar harga bisa dijelaskan dengan data pembanding?</li>\n<li>Apakah ikhtisar sudah siap untuk dilampirkan pada SPT Tahunan?</li></ul>\n<h2>Bagaimana FA Indonesia Membantu</h2>\n<p>Tim FA Indonesia membantu memeriksa kewajiban, menyusun local file dan master file, serta menyiapkan ikhtisar untuk SPT. Penyesuaian akhir terkait pajak sebaiknya dikonsultasikan dengan konsultan pajak berizin Anda. Mulailah dari <a href=\"/kalkulator-tp-doc/\">kalkulator kewajiban TP Doc</a>.</p>",
+ "faq": [
+  [
+   "Apakah PT kecil yang punya pinjaman dari pemegang saham wajib membuat TP Doc?",
+   "Belum tentu. Kewajiban master file dan local file bergantung pada batas peredaran bruto dan nilai transaksi afiliasi. Tetapi prinsip kewajaran tetap berlaku, termasuk untuk bunga pinjaman afiliasi."
+  ],
+  [
+   "Kapan dokumen harus selesai?",
+   "Master file dan local file harus tersedia paling lama 4 bulan setelah akhir tahun pajak, dan ikhtisarnya dilampirkan pada SPT Tahunan."
+  ],
+  [
+   "Apa risikonya bila tidak menyusun?",
+   "Otoritas pajak dapat menilai harga transaksi dan melakukan koreksi, yang bisa berujung pajak tambahan dan sanksi. Detail risikonya perlu dikonfirmasi dengan konsultan pajak."
+  ],
+  [
+   "Apakah dokumen lama bisa disusun belakangan?",
+   "Dokumen harus mencerminkan informasi yang ada saat transaksi dilakukan. Menyusun belakangan sangat berisiko dan sebaiknya dibicarakan dengan konsultan pajak."
+  ]
+ ]
+}
