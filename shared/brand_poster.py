@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Poster share gaya FA (1 Nov 2026): foto latar + gradasi brand, paduan font FA: judul Times (Liberation Serif), teks Source Sans 3.
 Dipakai poster.py (og artikel FA/CariAkuntan) dan updatesak/build_seo.py (og + story UpdateSAK). Sama dengan desain canvas di share.js."""
-import os, hashlib
+import os, sys, hashlib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "..", "updatesak", "fonts")
@@ -41,9 +42,13 @@ def _wrap(dr, text, font, maxw):
             cur = w
     if cur: lines.append(cur)
     return lines
+FOTO = ("ca", "us")  # 17 Nov 2026: poster CA dan US memakai foto Ananta (shared/ananta_foto.py), latar noir bergradasi + grain
+
+
 def _base(brand, key, W, H, photo_box, fade):
     import numpy as np
     b = _pal(brand, key)
+    noir = brand in FOTO
     yy, xx = np.mgrid[0:H, 0:W].astype("float32")
     d = np.sqrt((xx / W) ** 2 + ((H - yy) / H) ** 2) / 1.25
     d = np.clip(d / .62, 0, 1)[..., None]
@@ -51,9 +56,10 @@ def _base(brand, key, W, H, photo_box, fade):
     im = Image.fromarray((c2 + (c0 - c2) * d).astype("uint8"), "RGB")
     px, py, pw, ph = photo_box
     p = _photo(key, pw, ph)
+    if noir: p = p.filter(ImageFilter.GaussianBlur(max(W, H) / 70))
     tint = Image.new("RGB", (pw, ph), tuple(int(v * .5) for v in b["c2"]))
     p = Image.blend(p, tint, .28)
-    p = Image.blend(p, Image.new("RGB", (pw, ph), (0, 0, 0)), .30)
+    p = Image.blend(p, Image.new("RGB", (pw, ph), (0, 0, 0)), .52 if noir else .30)
     m = np.ones((ph, pw), "float32")
     if fade == "down":
         y = np.linspace(0, 1, ph)[:, None]; m = np.clip((1 - y) / .55, 0, 1) * .95 * np.ones((1, pw))
@@ -74,6 +80,10 @@ def _logo(dr, b, m, s=1.0, im=None, brand=None):
 def story(brand, kicker, title, url, out):
     W, H = 1080, 1920
     im, b = _base(brand, url or title, W, H, (0, 0, W, 1180), "down")
+    if brand in FOTO:
+        import ananta_foto as af
+        af.paste(im, title, W + 10, 1260, 1060, b["c2"], fade_left=0, fade_bottom=.30)
+        im = af.grain(_shade(im, H - 1060, 520), title)
     dr = ImageDraw.Draw(im); m = 96
     _logo(dr, b, m, 1.0, im, brand)
     size = 88
@@ -93,6 +103,13 @@ def story(brand, kicker, title, url, out):
     if dr.textlength("Baca: " + u, font=fnt) > bw - 90: u = b["dom"]
     dr.text((W // 2, by + bh // 2), "Baca: " + u, font=fnt, fill=(10, 10, 10), anchor="mm")
     os.makedirs(os.path.dirname(out), exist_ok=True); im.save(out, "JPEG", quality=84, optimize=True, progressive=True)
+def _shade(im, y0, span):
+    """Gelapkan bagian bawah (story) supaya judul di atas foto tetap terbaca."""
+    import numpy as np
+    W, H = im.size; yy = np.arange(H)[:, None] * np.ones((1, W))
+    m = np.clip((yy - y0) / span, 0, 1) * .9
+    im.paste(Image.new("RGB", (W, H), (7, 7, 9)), (0, 0), Image.fromarray((m * 255).astype("uint8"), "L"))
+    return im
 TOOL_RE = None
 def _tag(b, kicker, title):
     import re
@@ -103,9 +120,13 @@ def og(brand, kicker, title, url, out):
     W, H = 1200, 630
     im, b = _base(brand, url or title, W, H, (560, 0, 640, H), "right")
     b = dict(b, tag=_tag(b, kicker, title)) if brand == "fa" else b
+    maxw = 680; size = 56
+    if brand in FOTO:
+        import ananta_foto as af
+        af.paste(im, title, W - 6, H + 30, 640, b["c2"], fade_left=.16, fade_bottom=.14)
+        im = af.grain(im, title); maxw = 610
     dr = ImageDraw.Draw(im); m = 64
     _logo(dr, b, m, .7, im, brand)
-    maxw = 680; size = 56
     while True:
         f = F("LiberationSerif-Regular.ttf", size); lines = _wrap(dr, title, f, maxw)
         if len(lines) <= 4 or size <= 34: break

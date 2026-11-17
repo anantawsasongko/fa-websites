@@ -110,29 +110,15 @@ def _bg(W, H, key, c2, photo_box):
     return Image.fromarray((a * v).clip(0, 255).astype('uint8'), 'RGB')
 
 
-def _person(im, box, c2, fade_left=.0, fade_bottom=.22):
-    """Tempel foto potong (RGBA) di box=(x, y, tinggi). Bawah dan kiri memudar ke gradasi."""
+def _person(im, box, c2, fade_left=.0, fade_bottom=.22, key=''):
+    """Tempel foto potong di box=(x, y, tinggi). 17 Nov 2026: foto dipilih bergiliran per artikel dari
+    shared/ananta_foto.py (6 foto profesional), bukan satu foto jas navy saja."""
+    import sys; sys.path.insert(0, os.path.join(REPO, 'shared'))
+    import ananta_foto as af
     x, y, h = box
-    p = Image.open(os.path.join(AS, 'ananta-jas.png')).convert('RGBA')
-    w = int(p.width * h / p.height)
-    p = p.resize((w, h), Image.LANCZOS)
-    a = np.asarray(p, 'float32')
-    rgb, al = a[..., :3], a[..., 3] / 255
-    # sedikit turunkan eksposur dan dinginkan bayangan agar menyatu dengan noir
-    lum = rgb.mean(-1, keepdims=True) / 255
-    rgb = rgb * (.90 + .06 * lum) + np.array(c2, 'float32') * .05 * (1 - lum)
-    yy, xx = np.mgrid[0:h, 0:w].astype('float32')
-    fb = np.clip((h - yy) / (h * fade_bottom), 0, 1) if fade_bottom else 1
-    fl = np.clip(xx / (w * fade_left), 0, 1) if fade_left else 1
-    al = al * fb * fl
-    # cahaya tepi tipis di belakang kepala
-    halo = Image.new('L', im.size, 0)
-    ImageDraw.Draw(halo).ellipse([x + w * .12, y + h * .02, x + w * .88, y + h * .78], fill=70)
-    halo = halo.filter(ImageFilter.GaussianBlur(h / 7))
-    glow = Image.new('RGB', im.size, tuple(int(min(255, v * 1.5 + 60)) for v in c2))
-    im.paste(glow, (0, 0), halo)
-    out = Image.fromarray(np.dstack([rgb.clip(0, 255), al * 255]).astype('uint8'), 'RGBA')
-    im.paste(out, (x, y), out)
+    pw = int(700 * h / 875)
+    af.paste(im, key, x + pw, y + h, h, c2, fade_left=fade_left, fade_bottom=fade_bottom)
+    im.paste(af.grain(im, key, 4.5))  # noise noir merata, foto ikut
 
 
 def _logo(im, dr, brand, x, y, s=1.0):
@@ -152,7 +138,7 @@ def feed(brand, topik, kota, title, out, byline='Ananta W. Sasongko, CPA'):
     im = _bg(W, H, brand + topik + kota + title, c2, (W - 760, 0, 760, 820))
     ph = 770
     pw = int(700 * ph / 875)
-    _person(im, (W - pw + 36, H - ph - 120, ph), c2, fade_left=.10, fade_bottom=.30)
+    _person(im, (W - pw + 36, H - ph - 120, ph), c2, fade_left=.10, fade_bottom=.30, key=title)
     # gradasi gelap di bawah untuk pita info
     ov = np.zeros((H, W), 'float32'); yy = np.arange(H)[:, None]
     ov[:] = np.clip((yy - (H - 420)) / 300, 0, 1) * .93
@@ -190,7 +176,7 @@ def og(brand, topik, kota, title, out):
     c2, ac = PAL[(brand, topik)]
     im = _bg(W, H, brand + topik + kota + title, c2, (W - 700, 0, 700, H))
     ph = 640; pw = int(700 * ph / 875)
-    _person(im, (W - pw - 6, H - ph + 30, ph), c2, fade_left=.12, fade_bottom=.16)
+    _person(im, (W - pw - 6, H - ph + 30, ph), c2, fade_left=.12, fade_bottom=.16, key=title)
     dr = ImageDraw.Draw(im)
     lh = _logo(im, dr, brand, m, m - 8, .8)
     y = m + lh + 44

@@ -27,7 +27,8 @@ def apply(root, brand, base):
         title = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else slug
         k = re.search(r'class="eyebrow"><a[^>]*>Eksplor · ([^<]+)<', t) or re.search(r'<p class="label"[^>]*>([^<]{2,40})</p>', t)
         kicker = html.unescape(k.group(1)).strip() if k else ""
-        h = hashlib.md5((("v7" if brand == "fa" else "v6") + brand + kicker + title).encode()).hexdigest()[:6]
+        if 'class="dae-fig"' in t and "<!--fotoart-->" not in t: continue   # artikel daerah 15 Nov: poster sendiri (poster_daerah.py)
+        h = hashlib.md5((("v7" if brand == "fa" else "v8") + brand + kicker + title).encode()).hexdigest()[:6]
         c = os.path.join(cache, f"{slug}-{h}.jpg"); keep.add(os.path.basename(c))
         if not os.path.exists(c):
             try: _img(brand, kicker, title, c)
