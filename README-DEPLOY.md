@@ -649,3 +649,10 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - `fa_jalur_redesign_20261118.py` (out/faindonesia/index.html, idempoten, --dry, JALANKAN PALING AKHIR untuk beranda FA, setelah fa_pendanaan_20261103.py dan prep/tidy_tabs): satu panel 3 kolom dengan bagan tangga 01/02/03 (tinggi naik sesuai skala aset, kolom kredit bank disorot garis putih), poin tampil terbuka, satu tombol utama + link sekunder bergaris bawah per kolom, strip "Belum Yakin Jalurnya?" pindah ke kaki panel (penanda fa-peta-pendanaan tetap), catatan batas Rp25/Rp50 miliar jadi footnote (tanpa details). HP: kolom bertumpuk, bagan jadi garis progres. Penanda `<!--fa-jalur18-->` dan `<!--fa-jalur18-css-->`.
 - Teks, link, pesan WA, dan kunci data-i18n jl1..jl24 sama persis (EN/ZH tetap jalan, dicek). Class baru jr-* supaya tidak dilipat ulang tidy_tabs (wrapper ber-id).
 - Cek: Playwright 1440 dan 390 tanpa scroll horizontal dan tanpa error JS, layout_check LAYOUT OK, rerun --dry 0 perubahan.
+
+## 19 Nov 2026: Rekam Jejak Klien RS Anonim di Halaman Rumah Sakit
+- Bos: tampilkan klien RS sebagai bukti sosial di semua halaman rumah sakit, format anonim per provinsi + jenis layanan (tanpa kota, tanpa kata jual); Persada dan grup RS BUMN ikut anonim.
+- `fa_rs_rekam_20261119.py` (out/faindonesia, idempoten, --dry): 1.088 halaman /konsultan-rumah-sakit/ dan /pendanaan-rumah-sakit/ (pilar + daerah). 114 halaman yang sudah punya H2 Rekam Jejak: butir baru disisipkan ke daftar (RSIA di atas, annual report RS BUMN dan pengalaman direksi RS di Jawa Timur dan DI Yogyakarta di bawah bila belum ada). 974 halaman lain: blok `<!--fa-rsrj-->` "Rekam Jejak Tim" (6 butir) tepat setelah blok fa-rstim, CSS `<style id="fa-rsrj-css">`.
+- Halaman kota Purwakarta dan Tangerang (konsultan + pendanaan RS) sengaja TANPA butir RSIA supaya klien tidak mudah ditebak.
+- Jalankan ulang setelah fa_rs_tim_20261105.py, fa_rs_daerah_20261105.py, fa_rs_sesak_20261113.py, atau fa_rs_amien_20261117.py.
+- Cek: layout_check LAYOUT OK, Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS, rerun --dry 0 perubahan.
