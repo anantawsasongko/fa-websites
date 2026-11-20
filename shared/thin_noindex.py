@@ -7,14 +7,22 @@ Hub (provinsi, kabupaten, kota, kota x layanan) tetap index.
 17 Nov 2026 (Bos: "noindex halaman tipis CA, sisakan kota, cek izin, artikel"): cariakuntan sekarang juga noindex,follow
 untuk SEMUA /kdmp/ (beranda, provinsi, kabupaten, desa), hub /kota/<kota>/kecamatan/, dan semua kawasan bisnis
 (/kota/<kota>/<kawasan>/ + 4 halaman layanannya). Kawasan dikenali dari struktur folder (punya anak kap/ atau kjpp/).
+20 Nov 2026 (Bos setuju CA diciutkan jadi alat/direktori): cariakuntan juga noindex,follow untuk 9 halaman
+layanan per kota yang isinya penawaran jasa tanpa data registri (CA_JASA di bawah, niatnya sama dengan halaman FA),
+dan /kota/<kota>/{kap,kja,kjpp}/ yang daftar registrinya kosong (0 kantor aktif jenis itu di kota tersebut).
+Yang tetap index: /kota/<kota>/ dan /kota/<kota>/{kap,kja,kjpp}/ yang punya daftar kantor aktif.
 Idempoten. Dipanggil dari prep.py setelah semua build. Mode lokal: python3 shared/thin_noindex.py out cariakuntan [--dry]
 """
 import os, re
 
 META = '<meta name="robots" content="noindex,follow">'
+CA_JASA = ("jasa-laporan-keuangan|kap-murah|konsultan-rumah-sakit|laporan-tahunan-pt|konsultan-psak|"
+           "jasa-buku-besar|pendampingan-audit|akuntan-forensik|konsultan-pajak")
+CA_REG = re.compile(r"^kota/[^/]+/(kap|kja|kjpp)/index\.html$")
 RULES = {
     "cariakuntan": [re.compile(r"^kdmp/(?:[^/]+/)*index\.html$"),
-                    re.compile(r"^kota/[^/]+/kecamatan/(?:[^/]+/)?index\.html$")],
+                    re.compile(r"^kota/[^/]+/kecamatan/(?:[^/]+/)?index\.html$"),
+                    re.compile(r"^kota/[^/]+/(?:%s)/index\.html$" % CA_JASA)],
     "faindonesia": [re.compile(r"^wilayah/[^/]+/kecamatan/[^/]+/index\.html$")],
 }
 DOMAIN = {"cariakuntan": "https://cariakuntan.com", "faindonesia": "https://faindonesia.co.id"}
@@ -41,6 +49,16 @@ def _kawasan_prefixes(root):
     return res
 
 
+def _reg_kosong(path, jenis):
+    """True bila halaman /kota/<kota>/<jenis>/ tidak punya kantor aktif jenis itu di blok registri (pk-sum)."""
+    h = open(path, encoding="utf-8").read()
+    m = re.search(r'<div class="pk-sum">(.*?)</div>', h, re.S)
+    if not m:
+        return True
+    a = re.search(r"<b>%s \d+</b> \((\d+) aktif\)" % jenis.upper(), m.group(1))
+    return not a or int(a.group(1)) == 0
+
+
 def run(out_root, sites=None, dry=False):
     stats = {}
     for site, pats in RULES.items():
@@ -56,7 +74,11 @@ def run(out_root, sites=None, dry=False):
                 continue
             p = os.path.join(d, "index.html")
             rel = os.path.relpath(p, root).replace(os.sep, "/")
-            if not (any(r.match(rel) for r in pats) or (kaw and any(rel.startswith(k) for k in kaw))):
+            hit = any(r.match(rel) for r in pats) or (kaw and any(rel.startswith(k) for k in kaw))
+            if not hit and site == "cariakuntan":
+                mr = CA_REG.match(rel)
+                hit = bool(mr) and _reg_kosong(p, mr.group(1))
+            if not hit:
                 continue
             urls.add(_url(site, rel))
             h = open(p, encoding="utf-8").read()
