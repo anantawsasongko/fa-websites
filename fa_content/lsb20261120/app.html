@@ -1,0 +1,93 @@
+<header class="rxh"><p class="crumb"><a href="/">Beranda</a> / LK Siap Bank</p><p class="label">Gratis Dicoba · Tanpa Daftar · Diolah di Browser Anda</p><h1>LK Siap Bank: Laporan Keuangan Usaha dari Mutasi Rekening</h1><p class="sub">Upload mutasi rekening usaha, lengkapi beberapa angka, lalu lihat laba rugi, posisi keuangan, dan skor kesiapan kredit Anda. File tidak dikirim ke server mana pun.</p><div class="cta"><a class="btn btn-wa arrow" href="#lsb">Mulai Sekarang</a><a class="btn btn-line" href="?contoh=1#lsb">Lihat Contoh Hasil</a></div></header>
+
+<div class="lsb" id="lsb">
+<p class="lsb-ref" id="lsb-refnote" hidden></p>
+<section class="lsb-step" aria-labelledby="lsb-h1">
+<p class="lsb-no">Langkah 1</p><h2 id="lsb-h1">Masukkan Data Usaha</h2>
+<div class="lsb-tabs" role="tablist"><button type="button" class="lsb-tab on" data-m="mutasi" role="tab" aria-selected="true">Upload Mutasi Rekening</button><button type="button" class="lsb-tab" data-m="manual" role="tab" aria-selected="false">Isi Angka Sendiri</button><button type="button" class="lsb-tab" data-m="contoh" role="tab" aria-selected="false">Pakai Data Contoh</button></div>
+<div class="lsb-pane" data-p="mutasi">
+<label class="lsb-drop" id="lsb-drop" for="lsb-file"><b>Pilih file mutasi rekening</b><span>CSV, XLS, atau XLSX dari internet banking. Boleh beberapa file sekaligus, idealnya 12 bulan terakhir.</span><input type="file" id="lsb-file" accept=".csv,.txt,.xls,.xlsx" multiple></label>
+<p class="lsb-hint">Bank apa saja, selama file punya kolom tanggal, keterangan, dan jumlah. Mutasi hanya ada dalam PDF? <a href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20mutasi%20rekening%20usaha%20saya%20hanya%20ada%20dalam%20PDF.%20Mohon%20dibantu%20menyusun%20laporan%20keuangan%20untuk%20bank." rel="noopener" target="_blank">Kirim lewat WhatsApp</a>.</p>
+</div>
+<div class="lsb-pane" data-p="manual" hidden>
+<p class="lsb-hint">Belum punya file mutasi? Isi perkiraan rata-rata per bulan. Hasilnya tetap keluar, tetapi bank akan meminta mutasi sebagai bukti.</p>
+<div class="lsb-grid">
+<label>Omzet rata-rata per bulan<input data-rp inputmode="numeric" id="lsb-m-omzet" placeholder="Contoh: 150.000.000"></label>
+<label>Omzet di bulan paling sepi<input data-rp inputmode="numeric" id="lsb-m-sepi" placeholder="Contoh: 110.000.000"></label>
+<label>Pembelian barang atau bahan per bulan<input data-rp inputmode="numeric" id="lsb-m-beli" placeholder="Contoh: 95.000.000"></label>
+<label>Gaji dan upah per bulan<input data-rp inputmode="numeric" id="lsb-m-gaji"></label>
+<label>Sewa, listrik, air, internet per bulan<input data-rp inputmode="numeric" id="lsb-m-sewa"></label>
+<label>Pajak dan iuran per bulan<input data-rp inputmode="numeric" id="lsb-m-pajak"></label>
+<label>Biaya lain per bulan<input data-rp inputmode="numeric" id="lsb-m-lain"></label>
+<label>Diambil untuk keperluan pribadi per bulan<input data-rp inputmode="numeric" id="lsb-m-prive"></label>
+</div>
+</div>
+<div class="lsb-pane" data-p="contoh" hidden><p class="lsb-hint">Data contoh adalah data dummy sebuah toko bangunan, hanya untuk memperlihatkan bentuk hasilnya.</p></div>
+<p class="lsb-msg" id="lsb-msg" role="status" aria-live="polite"></p>
+<div id="lsb-sum" hidden><div id="lsb-sumbody"></div><div id="lsb-map"></div></div>
+</section>
+
+<section class="lsb-step" id="lsb-form" hidden aria-labelledby="lsb-h2">
+<p class="lsb-no">Langkah 2</p><h2 id="lsb-h2">Lengkapi Angka yang Tidak Terlihat di Mutasi</h2>
+<p class="lsb-hint">Isi perkiraan terbaik Anda. Yang tidak ada boleh dikosongkan.</p>
+<div class="lsb-grid">
+<label class="w2">Nama usaha<input id="lsb-nama" maxlength="60" autocomplete="organization" placeholder="Contoh: Toko Maju Jaya"></label>
+<label>Saldo rekening usaha saat ini<input data-rp inputmode="numeric" id="lsb-saldo"></label>
+<label>Kas tunai di luar rekening<input data-rp inputmode="numeric" id="lsb-kas"></label>
+<label>Tagihan ke pelanggan yang belum dibayar<input data-rp inputmode="numeric" id="lsb-piutang"></label>
+<label>Nilai persediaan barang saat ini<input data-rp inputmode="numeric" id="lsb-sedia"></label>
+<label>Nilai aset tetap usaha<small>Kendaraan, mesin, peralatan, bangunan usaha</small><input data-rp inputmode="numeric" id="lsb-aset"></label>
+<label>Umur pakai aset tetap (tahun)<input inputmode="numeric" id="lsb-umur" value="8"></label>
+<label>Utang ke pemasok yang belum dibayar<input data-rp inputmode="numeric" id="lsb-uutang"></label>
+<label>Sisa utang bank dan leasing<input data-rp inputmode="numeric" id="lsb-ubank"></label>
+<label>Angsuran berjalan per bulan<input data-rp inputmode="numeric" id="lsb-angs"></label>
+<label>Bunga pinjaman berjalan (% per tahun)<input inputmode="decimal" id="lsb-bungalama" value="10"></label>
+<label class="lsb-only-mutasi">Tarik tunai dipakai untuk<select id="lsb-tunai"><option value="50">Campur usaha dan pribadi</option><option value="0">Keperluan usaha</option><option value="100">Keperluan pribadi</option></select></label>
+</div>
+<h3 class="lsb-sub">Rencana Pinjaman</h3>
+<div class="lsb-grid three">
+<label>Pinjaman yang ingin diajukan<input data-rp inputmode="numeric" id="lsb-ajukan" placeholder="Contoh: 250.000.000"></label>
+<label>Jangka waktu (bulan)<input inputmode="numeric" id="lsb-tenor" value="36"></label>
+<label>Bunga (% per tahun)<input inputmode="decimal" id="lsb-rate" value="10"></label>
+</div>
+<button type="button" class="btn btn-wa arrow" id="lsb-go">Lihat Hasil</button>
+</section>
+
+<section class="lsb-res" id="lsb-res" hidden aria-live="polite"></section>
+</div>
+
+<section class="lsb-sec" id="cara-kerja"><p class="lsb-ey">Cara Kerja</p><h2>Dari Mutasi Rekening Menjadi Laporan Keuangan</h2>
+<ol class="lsb-flow"><li><i>01</i><b>Upload Mutasi</b><span>File CSV atau Excel dari internet banking dibaca di browser Anda, lalu tiap transaksi dikelompokkan dari kata di kolom keterangan.</span></li><li><i>02</i><b>Lengkapi Angka</b><span>Persediaan, piutang, aset tetap, dan utang tidak terlihat di mutasi, jadi Anda yang mengisinya.</span></li><li><i>03</i><b>Lihat Hasil</b><span>Laba rugi, posisi keuangan, grafik uang masuk dan keluar, serta skor kesiapan kredit langsung tampil.</span></li><li><i>04</i><b>Naik Kelas</b><span>Bila bank meminta, laporan dilanjutkan sampai disusun kantor jasa akuntan atau diaudit kantor akuntan publik.</span></li></ol></section>
+
+<section class="lsb-sec" id="dilihat-bank"><p class="lsb-ey">Skor Siap Bank</p><h2>Enam Hal yang Dibaca Analis Kredit</h2><p class="lsb-lead">Skor disusun dari enam indikator yang lazim dipakai saat usaha kecil dan menengah mengajukan kredit. Bobotnya tampil apa adanya, supaya Anda tahu bagian mana yang perlu dibenahi dulu.</p>
+<div class="lsb-scroll"><table class="lsb-t ind"><tbody><tr class="hd"><td>Indikator</td><td>Yang Dilihat</td><td>Bobot</td></tr>
+<tr><td><b>Lama dan sumber data</b></td><td>Mutasi rekening 12 bulan memberi gambaran musim ramai dan sepi.</td><td>15</td></tr>
+<tr><td><b>Kestabilan omzet</b></td><td>Seberapa jauh penerimaan bulanan naik turun dari rata-ratanya.</td><td>15</td></tr>
+<tr><td><b>Margin laba bersih</b></td><td>Laba bersih dibanding omzet setelah penyusutan dan bunga.</td><td>15</td></tr>
+<tr><td><b>Kemampuan bayar angsuran</b></td><td>Arus kas usaha per bulan dibanding angsuran lama dan baru.</td><td>25</td></tr>
+<tr><td><b>Utang dibanding modal</b></td><td>Seluruh utang, termasuk pinjaman yang diajukan, dibanding modal sendiri.</td><td>15</td></tr>
+<tr><td><b>Pemisahan uang usaha dan pribadi</b></td><td>Porsi tarik tunai dan keperluan pribadi terhadap omzet.</td><td>15</td></tr>
+</tbody></table></div></section>
+
+<section class="lsb-sec" id="naik-kelas"><p class="lsb-ey">Setelah Hasil Keluar</p><h2>Naik Kelas Sesuai Permintaan Bank</h2><p class="lsb-lead">Tidak semua pengajuan butuh laporan yang sama. Mulai dari yang paling ringan, naik hanya bila diminta.</p>
+<div class="lsb-ladder">
+<div><span>Tahap 1</span><b>Draf dari Alat Ini</b><p>Hasil di layar untuk membaca kondisi usaha dan bahan diskusi awal dengan bank.</p></div>
+<div><span>Tahap 2</span><b>Laporan Keuangan Lengkap</b><p>Laba rugi, posisi keuangan, dan catatan atas laporan keuangan format SAK EMKM, dirapikan tim dari data Anda.</p><a href="#lsb">Mulai dari Alat Ini</a></div>
+<div><span>Tahap 3</span><b>Disusun Kantor Jasa Akuntan</b><p>KJA Farhani K.N., Kantor Jasa Akuntansi, menyusun laporan keuangan dari pembukuan dan bukti transaksi.</p><a href="https://faindonesia.co.id/jasa-penyusunan-laporan-keuangan/" data-fa-out="lk">Lihat Layanan Laporan Keuangan</a></div>
+<div><span>Tahap 4</span><b>Diaudit Kantor Akuntan Publik</b><p>KAP DHN &amp; Rekan, Kantor Akuntan Publik terdaftar OJK, untuk bank atau aturan yang mensyaratkan laporan audited.</p><a href="https://faindonesia.co.id/jasa-audit-laporan-keuangan/" data-fa-out="audit">Lihat Layanan Audit</a></div>
+<div><span>Tahap 5</span><b>Pendampingan Kredit</b><p>FA Indonesia mendampingi penyusunan proposal, proyeksi, dan proses di bank untuk kebutuhan dana yang lebih besar.</p><a href="https://faindonesia.co.id/konsultan-kredit-bank/" data-fa-out="kredit">Lihat Pendampingan Kredit</a></div>
+</div></section>
+
+<section class="lsb-sec lsb-rm" id="untuk-bank"><p class="lsb-ey">Untuk RM Bank dan BPR</p><h2>Calon Debitur Belum Punya Laporan Keuangan?</h2><p class="lsb-lead">Kirim link alat ini. Calon debitur mengisi sendiri dari mutasi rekeningnya, Anda menerima gambaran usaha yang lebih rapi sebelum kunjungan. Isi nama Anda atau kantor supaya rujukan tercatat saat mereka mengirim hasil.</p>
+<div class="lsb-rmbox"><label>Nama Anda atau kantor<input id="lsb-rmname" maxlength="40" placeholder="Contoh: Rina BPR Sejahtera"></label><label class="w2">Link untuk dibagikan<input id="lsb-rmlink" readonly value="https://cariakuntan.com/lk-siap-bank/"></label><button type="button" class="btn btn-wa" id="lsb-rmcopy">Salin Link</button></div></section>
+
+<section class="lsb-sec" id="faq"><p class="lsb-ey">Pertanyaan Umum</p><h2>Yang Sering Ditanyakan</h2>
+<div class="lsb-faq">
+<details><summary>Apakah mutasi rekening saya dikirim ke server?</summary><p>Tidak. File dibaca dan dihitung di browser Anda sendiri. Data baru berpindah saat Anda sendiri menekan tombol kirim lewat WhatsApp, dan yang terkirim hanya angka ringkas per bulan, bukan daftar transaksi.</p></details>
+<details><summary>File dari bank mana yang bisa dibaca?</summary><p>Bank apa saja yang menyediakan mutasi dalam CSV atau Excel lewat internet banking. Bila susunan kolomnya tidak dikenali, Anda bisa memilih sendiri kolom tanggal, keterangan, dan jumlah. Mutasi PDF belum dibaca otomatis.</p></details>
+<details><summary>Apakah hasil ini bisa langsung diserahkan ke bank?</summary><p>Hasil di layar adalah draf untuk membaca kondisi usaha. Untuk pengajuan, mintalah versi lengkap dengan catatan atas laporan keuangan. Sebagian bank dan sebagian plafon juga mensyaratkan laporan yang disusun kantor jasa akuntan atau diaudit kantor akuntan publik.</p></details>
+<details><summary>Usaha saya belum punya pembukuan sama sekali, bisa?</summary><p>Bisa. Mutasi rekening usaha sudah cukup sebagai titik awal. Makin terpisah rekening usaha dari rekening pribadi, makin akurat hasilnya.</p></details>
+<details><summary>Bagaimana skor dihitung?</summary><p>Dari enam indikator pada tabel di atas dengan bobot tetap. Skor adalah indikasi awal, bukan keputusan kredit. Tiap bank punya kebijakan, agunan, dan penilaian karakter sendiri.</p></details>
+<details><summary>Apakah mencoba alat ini gratis?</summary><p>Ya, mencoba dan melihat hasil di layar gratis dan tanpa daftar. Laporan lengkap disiapkan tim, rinciannya dibahas lewat WhatsApp.</p></details>
+</div></section>
+<section class="tshare"><h3>Bermanfaat? Ajak Rekan Mencoba</h3><p>Gratis, langsung di browser, tanpa daftar.</p><div class="share" data-tool="LK Siap Bank" data-lab="Bagikan"></div></section>

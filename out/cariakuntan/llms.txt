@@ -198,6 +198,7 @@
 <!--cakb-->
 
 ## Cek Kebutuhan (12 Nov 2026)
+- [LK Siap Bank](https://cariakuntan.com/lk-siap-bank/): alat gratis, upload mutasi rekening usaha (CSV atau Excel) menjadi laba rugi, posisi keuangan, dan skor kesiapan kredit bank; diolah di browser
 - [Cek Kebutuhan Jasa Akuntan](https://cariakuntan.com/cek-kebutuhan/): kuis 5 pertanyaan, hasil jenis jasa (audit, review, kompilasi, pembukuan, pajak, penilaian), dokumen, dan perkiraan waktu
 <!--/cakb-->
 <!--caseg-->
