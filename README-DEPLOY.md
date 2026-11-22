@@ -729,3 +729,8 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Logo asli GPMS, UOB, CCB belum ada di repo (sesi tidak bisa download dari situs luar). Bila file logo ada: taruh di img/clients/ atau img/banks/ (putih transparan seperti logo lain), pindahkan namanya dari daftar KLIEN/BANK script ke baris logo.
 - Cek: Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; innerText blok klien tidak memuat nama klien.
 - Update 22 Nov pagi: logo asli UOB dan CCB Indonesia (sumber Wikimedia Commons, diambil lewat Chrome, dijadikan putih transparan) masuk baris logo bank (img/banks/uob.png, ccb.png, penanda `<!--kb22l-->`); baris "Bank lainnya" hilang otomatis karena daftar BANK kosong. Logo GPMS dan Inni Joa tidak ditemukan publik: tetap gambar teks sampai ada file logo.
+
+## 22 Nov 2026: Footer Entitas FA
+- Bos: footer jadi "CV FA Indonesia (PKP)", "PT FA Indonesia Ventura", "PT LLY Ventura Indonesia (Holding)".
+- Ganti teks langsung di `<li data-i18n="k258">` dan `<li data-i18n="k260">` (k259 tetap) di sumber v58, backup, dan out/faindonesia (12.224 halaman live). Tidak ada generator .py yang menulis teks ini; kunci k258 sampai k260 tidak punya terjemahan EN/ZH. Baris rekam jejak "PT LLY Ventura (holding investasi, 2025)" tidak disentuh.
+- Cek: Playwright footer /layanan/ 1280 dan 375 rapi, teks tidak terpotong.
