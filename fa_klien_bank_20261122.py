@@ -14,7 +14,8 @@ DRY='--dry' in sys.argv
 KLIEN=["PT GPMS","PT Inni Joa","Rumah sakit swasta di Jawa Barat dan Banten (seller side)",
        "PT Semesta Cipta Lab Indonesia","PT Rinda Setya Renjana","PT Akazaya Sinergi Indonesia",
        "PT Odo Multi Aero","PT Garuda Lintas Cakrawala"]
-BANK=["Bank UOB Indonesia","Bank China Construction Bank Indonesia"]
+BANK=[]  # nama bank tanpa logo (gambar teks)
+LOGO_BANK=[("uob","UOB Indonesia",338,24),("ccb","China Construction Bank Indonesia",901,28)]
 FONT='/usr/share/fonts/truetype/google-fonts/Poppins-Regular.ttf'
 S=3; PX=13*S; COL=(168,168,168,255); TRACK=0.04*PX
 IMG='out/faindonesia/img/clients/x'
@@ -51,8 +52,13 @@ def apply(p):
     s=re.sub(r'<!--kb22-->.*?<!--/kb22-->',k,s,flags=re.S)
     s=re.sub(r'<p class="others"><span data-i18n="k294">Klien lainnya:</span>.*?</p>',k,s,count=1,flags=re.S)
     s=re.sub(r'<!--kb22b-->.*?<!--/kb22b-->','',s,flags=re.S)
+    s=re.sub(r'<!--kb22l-->.*?<!--/kb22l-->','',s,flags=re.S)
     i=s.find('data-i18n="k266"')
-    if i>0:
+    if i>0 and LOGO_BANK:
+        j=s.find('</ul>',i)
+        s=s[:j]+'<!--kb22l-->'+''.join(f'<li><img alt="{a}" height="96" loading="lazy" src="/img/banks/{f}.png" style="height:{h}px" width="{w}"/></li>' for f,a,w,h in LOGO_BANK)+'<!--/kb22l-->'+s[j:]
+    i=s.find('data-i18n="k266"')
+    if i>0 and BANK:
         j=s.find('</ul>',i)+5; s=s[:j]+b+s[j:]
     if 'id="kb22-css"' not in s: s=s.replace('</head>',CSS+'</head>',1)
     if s!=o:
