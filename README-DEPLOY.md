@@ -722,3 +722,9 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Sekalian diperbaiki: elemen `<dialog id="lightbox">` sudah hilang dari /layanan/ (CSS dan script masih ada), jadi klik foto galeri tidak membuka apa pun. Dipasang lagi setelah section galeri (penanda `<!--gal21-lb-->`); sekarang semua 17 foto bisa dibuka besar. Di /artikel/ dialog itu juga tidak ada (belum disentuh).
 - Urutan build ulang: jalankan kapan saja setelah fa_layanan_ringkas_20261112.py; tidak bersinggungan dengan script lain.
 - Cek: rerun --dry 0; Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS, bento penuh tanpa lubang, wajah tidak terpotong, lightbox jalan.
+
+## 22 Nov 2026: Klien dan Bank di /layanan/ (Nama Jadi Gambar)
+- Bos: "Update logo klien, tapi jangan Lixicon. GPMS, Inni Joa, RS seller side, dll. Bank juga baru UOB, CCB"; "klien yang tulisan atau gak punya logonya dibuat gak masuk SEO dan picture (gak bisa di copas)"; RS seller side tetap anonim.
+- `fa_klien_bank_20261122.py` (out/faindonesia + sumber v58, idempoten, --dry, penanda `<!--kb22-->` dan `<!--kb22b-->`): baris "Klien lainnya" diganti gambar teks per nama (PT GPMS, PT Inni Joa, rumah sakit swasta Jawa Barat dan Banten (seller side), 5 nama lama); baris baru "Bank lainnya" di bawah logo bank (Bank UOB Indonesia, Bank China Construction Bank Indonesia). Gambar di img/clients/x/<hash>.png, alt kosong, aria-hidden, tidak bisa dipilih/drag. Lixicon tidak dicantumkan.
+- Logo asli GPMS, UOB, CCB belum ada di repo (sesi tidak bisa download dari situs luar). Bila file logo ada: taruh di img/clients/ atau img/banks/ (putih transparan seperti logo lain), pindahkan namanya dari daftar KLIEN/BANK script ke baris logo.
+- Cek: Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; innerText blok klien tidak memuat nama klien.
