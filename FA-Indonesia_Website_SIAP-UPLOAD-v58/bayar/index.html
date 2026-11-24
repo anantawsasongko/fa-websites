@@ -178,7 +178,7 @@ $('paynow').onclick=function(){
   b.disabled=true;b.textContent='Menyiapkan Pembayaran...';
   fetch('/api/pay/create',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(x){
     b.disabled=false;b.textContent='Bayar Online';
-    if(!x.token){toast(x.error||'Gagal membuat pembayaran, coba lagi atau Chat Ananta, CPA');return}
+    if(!x.token){/*gwfb24*/if(/^Gateway menolak/.test(x.error||'')){window.FA_GW=false;if(window.FA_mode)window.FA_mode();toast('Pembayaran online sedang gangguan. Sementara gunakan invoice di bawah.');if(window.gtag)gtag('event','gateway_reject');return}toast(x.error||'Gagal membuat pembayaran, coba lagi atau Chat Ananta, CPA');return}
     try{localStorage.setItem('fa-last-order',x.order_id)}catch(e){}
     if(window.gtag)gtag('event','begin_checkout',{value:x.amount,currency:'IDR',items:[{item_id:d.prod}]});
     var go=function(){location.href='/bayar/selesai/?order_id='+encodeURIComponent(x.order_id)};
