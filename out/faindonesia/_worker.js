@@ -144,7 +144,7 @@ async function create(req, env) {
     method: "POST", headers: { authorization: auth(env), "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(payload)
   });
   const out = await r.json().catch(() => ({}));
-  if (!r.ok || !out.token) return json({ error: "Gateway menolak: " + ((out.error_messages || []).join("; ") || r.status) }, 502);
+  if (!r.ok || !out.token) return json({ error: "Gateway menolak: " + ((out.error_messages || []).join("; ") || r.status) }, 422); /* 24 Nov 2026: bukan 502, karena Cloudflare mengganti body 502 dengan halaman error sendiri sehingga pesan gateway hilang */
   return json({ token: out.token, redirect_url: out.redirect_url, order_id: id, amount: price * qty });
 }
 
