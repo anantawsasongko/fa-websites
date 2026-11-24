@@ -734,3 +734,10 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Bos: footer jadi "CV FA Indonesia (PKP)", "PT FA Indonesia Ventura", "PT LLY Ventura Indonesia (Holding)".
 - Ganti teks langsung di `<li data-i18n="k258">` dan `<li data-i18n="k260">` (k259 tetap) di sumber v58, backup, dan out/faindonesia (12.224 halaman live). Tidak ada generator .py yang menulis teks ini; kunci k258 sampai k260 tidak punya terjemahan EN/ZH. Baris rekam jejak "PT LLY Ventura (holding investasi, 2025)" tidak disentuh.
 - Cek: Playwright footer /layanan/ 1280 dan 375 rapi, teks tidak terpotong.
+
+## Bayar Tanpa Transfer (24 Nov 2026)
+- Pemicu (Bos): pembeli masih transfer BRI lalu kirim bukti lewat WA, padahal Mayar dan Midtrans sudah ada. Sebabnya /bayar/ sendiri menawarkan "Lebih suka transfer bank?" plus tombol Buat Invoice dan Salin Rekening untuk semua produk.
+- `fa_bayar_tanpa_transfer_20261124.py` (idempoten, mengedit sumber v58 dan out/ sekaligus): di /bayar/ e-book dan FA Jupiter hanya Bayar Online ke checkout Mayar (peta MY di JS harus sama dengan shared/pay_mayar.py); kertas kerja, template, dan Paket AI hanya Bayar Online Midtrans; invoice dan transfer BRI hanya untuk "Layanan lain sesuai penawaran".
+- Cadangan: selama /api/pay/config masih production:false, produk non-Mayar tetap menampilkan invoice transfer (catatan "sedang diaktifkan") supaya tetap bisa dibeli. Begitu MIDTRANS_PRODUCTION=true dan key produksi terpasang di Cloudflare faindonesia-web, transfer hilang otomatis tanpa deploy ulang.
+- S&K pasal 3.2: gateway ditulis Mayar dan Midtrans, transfer hanya layanan profesional sesuai surat penawaran; link /bayar/ diaktifkan lagi. FAQ /buku/ "Pembelian online sedang disiapkan" diganti cara beli yang berlaku.
+- Urutan: jalankan setelah us_kk_berbayar_20261113.py dan fa_semua_berbayar_20261113.py (keduanya menambah option di dropdown /bayar/), sebelum prep.py.

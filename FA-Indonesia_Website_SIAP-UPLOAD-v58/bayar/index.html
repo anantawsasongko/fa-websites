@@ -6,7 +6,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-09VZKH3JRJ');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pembayaran dan Invoice | FA Indonesia</title>
-<meta name="description" content="Bayar layanan, FA Apps, dan e-book FA Indonesia secara online (QRIS, GoPay, virtual account) lewat Midtrans, atau buat invoice untuk transfer bank.">
+<meta name="description" content="Bayar FA Apps, e-book, dan kertas kerja FA Indonesia secara online (QRIS, e-wallet, virtual account). Invoice dan transfer bank khusus layanan sesuai surat penawaran.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://faindonesia.co.id/bayar/">
 <meta name="theme-color" content="#171717">
@@ -52,7 +52,7 @@ textarea{min-height:64px;resize:vertical}.row2{display:grid;grid-template-column
 <nav><a href="/buku/">Toko Buku</a><a href="/apps/">FA Apps</a><a href="/audit-ready/">FA Jupiter · Laporan Keuangan - Audit Ready</a><a href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20konsultasi.">Chat Ananta, CPA</a></nav></div></header>
 <main class="wrap no-print">
 <h1>Pembayaran dan invoice</h1>
-<p class="lead">Pilih layanan dan isi data Anda. Bayar online lewat Midtrans (QRIS, GoPay, virtual account semua bank) dan kode akses FA Apps langsung tampil setelah lunas. Lebih suka transfer bank? Buat invoice lalu transfer ke rekening BRI CV FA Indonesia.</p>
+<p class="lead">Pilih produk dan isi data Anda, lalu klik Bayar Online (QRIS, e-wallet, atau virtual account). Akses dan file langsung tersedia setelah lunas, tanpa kirim bukti bayar. Invoice dan transfer bank hanya untuk layanan sesuai surat penawaran.</p>
 <div class="grid">
 <section class="card"><h2>1. Layanan</h2>
 <label for="prod">Layanan / produk</label>
@@ -91,12 +91,14 @@ textarea{min-height:64px;resize:vertical}.row2{display:grid;grid-template-column
 </div>
 <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:#dcdcdc;margin-top:16px"><input type="checkbox" id="agree" style="width:auto;margin-top:4px"> <span>Saya sudah membaca dan setuju dengan <a href="/syarat-ketentuan/" target="_blank">Syarat &amp; Ketentuan</a>, <a href="/kebijakan-privasi/" target="_blank">Kebijakan Privasi</a>, dan <a href="/kebijakan-refund/" target="_blank">Kebijakan Refund</a>.</span></label>
 <p class="hint">Harga layanan dan FA Apps sudah termasuk PPN. E-book dibebaskan dari PPN. Lihat semua buku di <a href="/buku/">Toko Buku</a>.</p>
-<div class="btns"><button class="btn blue" id="paynow" style="display:none">Bayar Online</button>
-<button class="btn solid" id="mk">Buat Invoice Transfer Bank</button><button class="btn" id="cp">Salin rekening BRI</button></div>
-<p class="hint" id="payhint" style="display:none">Bayar Online diproses Midtrans: QRIS, GoPay, dan virtual account semua bank. Kode akses FA Jupiter tampil otomatis setelah pembayaran lunas; e-book dikirim ke email Anda di hari yang sama pada jam kerja.</p>
-<p class="hint">Rekening atas nama CV FA Indonesia (BRI). Tombol salin menyalin nomor rekening ke clipboard. Butuh diskusi dulu? <a href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20konsultasi%20sebelum%20membeli.">Chat Ananta, CPA</a>.</p>
-<section class="card" style="margin:18px 0"><h2>Langkah</h2><ol class="steps"><li class="ol-on" style="display:none"><b>Bayar Online:</b> klik Bayar Online, pilih metode, selesaikan pembayaran. Kode akses FA Jupiter langsung tampil di halaman konfirmasi.</li>
-<li>Transfer bank: buat invoice, lalu simpan sebagai PDF (tombol Simpan PDF).</li><li>Transfer sesuai total ke rekening BRI CV FA Indonesia. Tulis nomor invoice di berita transfer.</li><li>Kirim invoice dan bukti transfer lewat tombol Chat Ananta, CPA atau email.</li><li>Kode akses atau jadwal layanan dikirim setelah pembayaran dikonfirmasi.</li></ol></section>
+<!--bayar-nt-20261124--><div class="btns"><button class="btn blue" id="paynow" style="display:none">Bayar Online</button>
+<button class="btn solid tf" id="mk" style="display:none">Buat Invoice Transfer Bank</button><button class="btn tf" id="cp" style="display:none">Salin Rekening BRI</button></div>
+<p class="hint" id="payhint" style="display:none">Bayar Online diproses payment gateway berizin: QRIS, e-wallet, dan virtual account. Kode akses dan file tersedia otomatis setelah pembayaran lunas, tanpa kirim bukti bayar.</p>
+<p class="hint" id="gwnote" style="display:none">Pembayaran online untuk produk ini sedang diaktifkan. Sementara ini gunakan invoice di bawah.</p>
+<p class="hint tf" style="display:none">Invoice dan transfer bank khusus layanan sesuai surat penawaran. Rekening atas nama CV FA Indonesia (BRI). Tombol salin menyalin nomor rekening ke clipboard.</p>
+<p class="hint">Butuh diskusi dulu? <a href="https://wa.me/6282245260121?text=Halo%20Pak%20Ananta%2C%20saya%20ingin%20konsultasi%20sebelum%20membeli.">Chat Ananta, CPA</a>.</p>
+<section class="card" style="margin:18px 0"><h2>Langkah</h2><ol class="steps"><li class="ol-on" style="display:none"><b>Bayar Online:</b> klik Bayar Online, pilih metode, selesaikan pembayaran. Kode akses dan link unduh langsung tampil, juga dikirim ke email.</li>
+<li class="tf" style="display:none">Transfer bank: buat invoice, lalu simpan sebagai PDF (tombol Simpan PDF).</li><li class="tf" style="display:none">Transfer sesuai total ke rekening BRI CV FA Indonesia. Tulis nomor invoice di berita transfer.</li><li class="tf" style="display:none">Kirim invoice dan bukti transfer lewat tombol Chat Ananta, CPA atau email.</li><li class="tf" style="display:none">Jadwal layanan atau akses dikirim setelah pembayaran dikonfirmasi.</li></ol></section>
 <p class="hint" style="margin-bottom:40px"><a href="/syarat-ketentuan/">Syarat &amp; Ketentuan</a> · <a href="/kebijakan-privasi/">Kebijakan Privasi</a> · <a href="/kebijakan-refund/">Kebijakan Refund</a></p>
 </main>
 <div id="inv">
@@ -118,7 +120,13 @@ function copy(){var a=acct(),done=function(){toast('Rekening BRI a.n. CV FA Indo
 $('cp').onclick=copy;$('cp2').onclick=copy;
 try{var bk=new URLSearchParams(location.search).get('back');if(bk&&/^\/[a-z0-9\-\/]*$/.test(bk))sessionStorage.setItem('fa_back',bk)}catch(e){}
 var q=new URLSearchParams(location.search).get('produk');if(q&&$('prod').querySelector('option[value="'+q+'"]'))$('prod').value=q;
-function sync(){$('customBox').style.display=$('prod').value==='custom'?'block':'none'}$('prod').onchange=sync;sync();
+/*nt24*/var MY={"eb-psp":"e-book-prosedur-audit-substantif-primer","eb-auditee":"e-book-audit-untuk-auditee-umkm","eb-lkumkm":"e-book-menyusun-laporan-keuangan-umkm","eb-akmen":"e-book-akuntansi-manajemen-untuk-umkm","eb-iso":"e-book-panduan-iso-22000-sistem-manajemen-keamanan-pangan","eb-makacua":"e-book-social-responsibility-dalam-budaya-makacua-nelayan-bugis","eb-paket":"paket-hemat-6-e-book-penerbit-fa","ar-day":"fa-jupiter-audit-ready-day-pass-1-hari","ar-year":"fa-jupiter-audit-ready-tahunan-1-tahun"};
+window.FA_MAYAR=function(v){return MY[v]?'https://fa-indonesia-14404.myr.id/pl/'+MY[v]:''};
+function show(sel,on){[].forEach.call(document.querySelectorAll(sel),function(e){e.style.display=on?'':'none'})}
+function mode(){var v=$('prod').value,my=!!MY[v],cu=v==='custom',gw=!!window.FA_GW,on=my||gw,tf=cu||(!my&&!gw);
+  show('#paynow,#payhint,.ol-on',on);show('.tf',tf);show('#gwnote',!my&&!cu&&!gw);if(!tf)$('inv').style.display='none'}
+window.FA_mode=mode;
+function sync(){$('customBox').style.display=$('prod').value==='custom'?'block':'none';mode()}$('prod').onchange=sync;sync();/*/nt24*/
 function terbilang(n){var h=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];n=Math.floor(n);
   if(n<12)return h[n];if(n<20)return terbilang(n-10)+' belas';if(n<100)return terbilang(n/10)+' puluh '+terbilang(n%10);if(n<200)return 'seratus '+terbilang(n-100);
   if(n<1000)return terbilang(n/100)+' ratus '+terbilang(n%100);if(n<2000)return 'seribu '+terbilang(n-1000);if(n<1e6)return terbilang(n/1000)+' ribu '+terbilang(n%1000);
@@ -155,12 +163,13 @@ function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');clearTi
 fetch('/api/pay/config',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(c){
   if(!c||!c.enabled)return;if(!c.production&&!/[?&]uji=1/.test(location.search))return;CFG=c;
   var s=document.createElement('script');s.src=(c.production?'https://app.midtrans.com':'https://app.sandbox.midtrans.com')+'/snap/snap.js';
-  s.setAttribute('data-client-key',c.clientKey);s.onload=function(){$('paynow').style.display='';$('payhint').style.display='';
-    [].forEach.call(document.querySelectorAll('.ol-on'),function(e){e.style.display=''})};document.head.appendChild(s);
+  s.setAttribute('data-client-key',c.clientKey);s.onload=function(){window.FA_GW=true;if(window.FA_mode)window.FA_mode()};document.head.appendChild(s);
 }).catch(function(){});
 function src(){try{return sessionStorage.getItem('fa_src')||''}catch(e){return ''}}
 $('paynow').onclick=function(){
   var b=$('paynow'),o=$('prod').selectedOptions[0],custom=o.value==='custom';
+  var mu=window.FA_MAYAR?window.FA_MAYAR(o.value):'';if(mu){if(window.gtag)gtag('event','begin_checkout',{currency:'IDR',items:[{item_id:o.value}]});window.open(mu,'_blank','noopener');return}
+  if(!window.snap){toast('Pembayaran online belum siap, muat ulang halaman');return}
   var d={prod:o.value,qty:$('qty').value,nm:$('nm').value.trim(),co:$('co').value.trim(),em:$('em').value.trim(),ph:$('ph').value.trim(),nt:$('nt').value.trim(),
     desc:custom?$('cdesc').value.trim():'',amt:custom?$('camt').value:'',agree:$('agree').checked,src:src()};
   if(!d.nm||!d.em){toast('Isi nama dan email dulu');return}
@@ -169,11 +178,11 @@ $('paynow').onclick=function(){
   b.disabled=true;b.textContent='Menyiapkan Pembayaran...';
   fetch('/api/pay/create',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(x){
     b.disabled=false;b.textContent='Bayar Online';
-    if(!x.token){toast(x.error||'Gagal membuat pembayaran, coba transfer bank');return}
+    if(!x.token){toast(x.error||'Gagal membuat pembayaran, coba lagi atau Chat Ananta, CPA');return}
     try{localStorage.setItem('fa-last-order',x.order_id)}catch(e){}
     if(window.gtag)gtag('event','begin_checkout',{value:x.amount,currency:'IDR',items:[{item_id:d.prod}]});
     var go=function(){location.href='/bayar/selesai/?order_id='+encodeURIComponent(x.order_id)};
-    window.snap.pay(x.token,{onSuccess:go,onPending:go,onError:function(){toast('Pembayaran gagal. Coba metode lain atau transfer bank.')},
+    window.snap.pay(x.token,{onSuccess:go,onPending:go,onError:function(){toast('Pembayaran gagal. Coba metode lain atau Chat Ananta, CPA.')},
       onClose:function(){toast('Pembayaran belum selesai. Klik Bayar Online lagi kapan saja.')}});
   }).catch(function(){b.disabled=false;b.textContent='Bayar Online';toast('Koneksi terputus, coba lagi')});
 };
