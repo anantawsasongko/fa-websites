@@ -59,7 +59,9 @@ function json(obj, status = 200) {
 }
 function api(env) { return env.MIDTRANS_PRODUCTION === "true" ? "https://api.midtrans.com" : "https://api.sandbox.midtrans.com"; }
 function snapApi(env) { return env.MIDTRANS_PRODUCTION === "true" ? "https://app.midtrans.com" : "https://app.sandbox.midtrans.com"; }
-function auth(env) { return "Basic " + btoa(env.MIDTRANS_SERVER_KEY + ":"); }
+function sk(env) { return String(env.MIDTRANS_SERVER_KEY || "").trim(); } /* 24 Nov 2026: trim, paste dari dashboard sering membawa spasi atau baris baru */
+function skKind(env) { const k = sk(env); return /^SB-Mid-server-/.test(k) ? "sandbox" : /^Mid-server-/.test(k) ? "production" : "tidak dikenal"; }
+function auth(env) { return "Basic " + btoa(sk(env) + ":"); }
 function clean(s, n) { return String(s == null ? "" : s).replace(/[\u0000-\u001f<>]/g, " ").trim().slice(0, n); }
 function rid(n) { const a = new Uint8Array(n); crypto.getRandomValues(a); return Array.from(a, (x) => ALPH[x % 32]).join(""); }
 function jktDate(ms) { return new Date(ms + 7 * 36e5); }
@@ -143,8 +145,8 @@ async function create(req, env) {
   const r = await fetch(snapApi(env) + "/snap/v1/transactions", {
     method: "POST", headers: { authorization: auth(env), "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(payload)
   });
-  const out = await r.json().catch(() => ({}));
-  if (!r.ok || !out.token) return json({ error: "Gateway menolak: " + ((out.error_messages || []).join("; ") || r.status) }, 422); /* 24 Nov 2026: bukan 502, karena Cloudflare mengganti body 502 dengan halaman error sendiri sehingga pesan gateway hilang */
+  const raw = await r.text(); let out = {}; try { out = JSON.parse(raw); } catch (e) {}
+  if (!r.ok || !out.token) return json({ error: "Gateway menolak: " + r.status + " " + ((out.error_messages || []).join("; ") || out.status_message || out.message || raw.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 160)) }, 422); /* 24 Nov 2026: bukan 502, karena Cloudflare mengganti body 502 dengan halaman error sendiri sehingga pesan gateway hilang */
   return json({ token: out.token, redirect_url: out.redirect_url, order_id: id, amount: price * qty });
 }
 
@@ -375,7 +377,7 @@ export default {
     const ckOk = !!ck && ck !== env.MIDTRANS_SERVER_KEY && !/server/i.test(ck);
     const on = !!env.MIDTRANS_SERVER_KEY && !/client/i.test(env.MIDTRANS_SERVER_KEY);
     try {
-      if (url.pathname === "/api/pay/config") return json({ enabled: on && ckOk, production: env.MIDTRANS_PRODUCTION === "true", clientKey: on && ckOk ? ck : "", ...(on && !ckOk ? { note: "Client Key belum benar" } : {}) });
+      if (url.pathname === "/api/pay/config") return json({ enabled: on && ckOk, production: env.MIDTRANS_PRODUCTION === "true", clientKey: on && ckOk ? ck : "", serverKeyKind: skKind(env), serverKeyRaw: String(env.MIDTRANS_SERVER_KEY || "").length - sk(env).length, ...(on && !ckOk ? { note: "Client Key belum benar" } : {}) });
       if (!on) return json({ error: "Pembayaran online belum aktif. Silakan pakai transfer bank." }, 503);
       if (url.pathname === "/api/pay/create" && req.method === "POST") return await create(req, env);
       if (url.pathname === "/api/pay/status" && req.method === "GET") return await status(url, env);
