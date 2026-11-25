@@ -600,7 +600,7 @@ for u in urls:
     extra = "".join(f'<xhtml:link rel="alternate" hreflang="{h}" href="{DOMAIN}{p}"/>' for h,p in alts) if u in land_paths else ""
     sm += f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod>{extra}</url>\n"
 open(os.path.join(SITE,"sitemap.xml"),"w").write(sm + "</urlset>\n")
-open(os.path.join(SITE,"robots.txt"),"w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in ["*","Googlebot","Google-Extended","Bingbot","GPTBot","OAI-SearchBot","ChatGPT-User","PerplexityBot","ClaudeBot","Claude-SearchBot","Applebot-Extended"]) + f"Sitemap: {DOMAIN}/sitemap.xml\n")
+open(os.path.join(SITE,"robots.txt"),"w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in ["*","Googlebot","Google-Extended","Bingbot","msnbot","GPTBot","OAI-SearchBot","ChatGPT-User","PerplexityBot","Perplexity-User","ClaudeBot","Claude-SearchBot","Claude-User","anthropic-ai","Applebot","Applebot-Extended","DuckDuckBot","DuckAssistBot","MistralAI-User","Amazonbot","CCBot","YouBot","cohere-ai"]) + f"Sitemap: {DOMAIN}/sitemap.xml\n")
 open(os.path.join(SITE,"_redirects"),"w").write("https://www.cariakuntan.com/*  https://cariakuntan.com/:splat  301!\n")
 
 body = open(os.path.join(SITE,"index.html")).read()
