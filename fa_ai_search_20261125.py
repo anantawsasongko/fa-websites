@@ -223,7 +223,8 @@ BOTS = ["Googlebot", "Google-Extended", "Bingbot", "msnbot", "GPTBot", "OAI-Sear
 def robots(dom, extra=""):
     body = "User-agent: *\nAllow: /\n" + extra + "\n# Mesin pencari dan asisten AI dipersilakan membaca seluruh situs\n"
     body += "".join(f"User-agent: {b}\nAllow: /\n" for b in BOTS)
-    return body + f"\nSitemap: https://{dom}/sitemap.xml\n"
+    extra_sm = "Sitemap: https://faindonesia.co.id/sitemap-audit.xml\n" if dom == "faindonesia.co.id" else ""
+    return body + f"\nSitemap: https://{dom}/sitemap.xml\n" + extra_sm
 
 
 for f, dom, extra in (

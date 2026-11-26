@@ -48,3 +48,4 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://faindonesia.co.id/sitemap.xml
+Sitemap: https://faindonesia.co.id/sitemap-audit.xml
