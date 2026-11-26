@@ -769,3 +769,12 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
   4. `sitemap-audit.xml` (788 URL: pilar audit, pendampingan audit, 543 + 113 daerah, 113 wilayah, artikel audit; lastmod 26 Nov) + lastmod URL yang sama di sitemap.xml + baris Sitemap di robots.txt FA (fa_ai_search_20261125.py ikut diperbarui supaya baris itu tidak hilang).
 - Urutan build ulang: PALING AKHIR untuk FA, sesudah fa_ai_search_20261125.py (blok fa-al26 memakai CSS fa-geo-css; di /wilayah/ CSS disertakan sendiri).
 - Cek: rerun --dry 0; description maks 158; XML sitemap valid; Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; layout_check OK.
+
+## 26 Nov 2026 (2): Penilaian KJPP dan LK Konsolidasian untuk Google + Asisten AI
+- Bos: "Untuk KJPP, merk, tanah bangunan, RS, alkes, dan jasa pendampingan penyusunan LK Konsol, dll juga."
+- `fa_kjpp_konsol_20261126.py` (idempoten, --dry; jalankan SEBELUM fa_ai_search_20261125.py karena llms dibangun dari fa_content/llms_head_20261125.md):
+  1. SATU halaman pilar baru /jasa-penilaian-kjpp/ (FA belum punya halaman layanan penilaian; bukan keluarga massal), dari template live halaman konsolidasi: blok terima beres, tabel objek (tanah dan bangunan, merek, rumah sakit dan klinik, alat kesehatan/mesin, bisnis dan saham), bagian per objek, alur, peran FA vs KJPP, 6 FAQ + JSON-LD Service/FAQPage/Breadcrumb. Nama KJPP TIDAK disebut (belum ada keputusan Bos), FA ditulis bukan KJPP, tanpa harga, tanpa janji nilai atau waktu. og:image memakai gambar umum FA.
+  2. /jasa-konsolidasi-laporan-keuangan-psak-110/: blok "Laporan Keuangan Konsolidasian Terima Beres" (fa-geo), description baru, JSON-LD Service alternateName + description.
+  3. Link masuk `<!--fa-kj26-->`: 5 artikel penilaian/valuasi ke halaman KJPP, artikel konsolidasian grup keluarga ke halaman konsolidasi, /jasa-valuasi-usaha/ (Bacaan Terkait).
+  4. sitemap.xml (+1 URL), beranda hasOfferCatalog + knowsAbout, llms.txt (ringkasan asisten AI + peta layanan).
+- Cek: rerun --dry 0 untuk tiga script; JSON-LD valid; 0 link putus; Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS.
