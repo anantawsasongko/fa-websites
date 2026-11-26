@@ -786,3 +786,11 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - Sekalian: og:image pilar audit diganti gambar umum FA (gambar lama bertuliskan "Biaya Wajar, Laporan Terbit Tepat Waktu"); priceRange "Mulai Rp2,5 juta per bulan" dibuang dari JSON-LD beranda.
 - BELUM (butuh keputusan Bos): "mulai Rp2,5 juta per bulan" masih di /jasa-penyusunan-laporan-keuangan/, /laporan-keuangan-umkm/ (termasuk title), /kja-farhani/, /konsultan-kredit-bank/ (plus success fee 1-3%), 2 artikel; stat "KAP Mitra" di 543 + 113 halaman.
 - Urutan build ulang: sesudah fa_ai_search_20261125.py (butuh penanda fa-geo).
+
+## 26 Nov 2026 (4): Stat "KAP Mitra" Jadi "KAP OJK" + Harga Dibuang dari Halaman LK dan Kredit
+- Keputusan Bos 26 Nov ("Ya"): (1) stat "KAP Mitra" diganti karena AI (ChatGPT, Gemini) menyebut FA dengan kata "mitra"; (2) harga dibuang sesuai aturan 21 Nov.
+- `fa_tanpa_harga_20261126.py` (penyapu, idempoten, --dry, JALANKAN PALING AKHIR karena generator lama masih menulis harga):
+  1. 656 halaman audit daerah + pendampingan: stat "KAP Mitra / Audit lebih lancar lewat KAP mitra terdaftar OJK" jadi "KAP OJK / Audit oleh KAP terdaftar OJK berjalan lebih lancar". Sumbernya di fa_audit_stat_20261119.py ikut diganti.
+  2. Harga dibuang: /jasa-penyusunan-laporan-keuangan/, /laporan-keuangan-umkm/ (title dan H1 jadi "Jasa Laporan Keuangan UMKM Terima Beres untuk KUR dan Bank"), /kja-farhani/ (tabel paket jadi daftar tanpa angka), /konsultan-kredit-bank/ (retainer + success fee 1-3%), /jasa-laporan-keuangan-bulanan/ (title tanpa "Mulai Rp900 Ribu", kolom Mulai dibuang), 7 halaman /laporan-keuangan-<jenis>/, /akuntan-terdekat/, /laporan-tahunan-pt/, kotak fa-pb di wilayah Malang/Batu + kecamatan, 3 artikel; JSON-LD offers.price dan priceRange dibuang. Pengganti: "disampaikan dalam penawaran tertulis setelah diskusi awal".
+  3. "Kantor Jasa Akuntan mitra" di halaman itu jadi "KJA Farhani K.N."; llms.txt (out + v58) dibersihkan dari harga yang sama.
+- TIDAK disentuh: harga Fractional CFO (Rp15 juta, USD 2.000/5.000; ditetapkan Bos 13 Nov), harga e-book dan produk /bayar/, "Rp1,1 triliun".

@@ -28,7 +28,7 @@ OLD = ('<!--fa-dv2f--><div aria-label="Rekam jejak FA Indonesia" class="dvf">'
 NEW = ('<!--fa-dv2f--><div aria-label="Rekam jejak FA Indonesia di audit" class="dvf" data-aud="1">'
        '<div><b>57+</b><span>Perusahaan klien FA Indonesia pada 2025</span></div>'
        '<div><b>2 minggu</b><span>Laporan keuangan bisa rilis secepat ini, karena data kami rapikan dulu sebelum diaudit</span></div>'
-       '<div><b>KAP Mitra</b><span>Audit lebih lancar lewat KAP mitra terdaftar OJK, karena data sudah siap sebelum auditor datang</span></div>'
+       '<div><b>KAP OJK</b><span>Audit oleh KAP terdaftar OJK berjalan lebih lancar, karena data sudah siap sebelum auditor datang</span></div>'
        '</div><!--/fa-dv2f-->')
 
 RX = re.compile(r'<!--fa-dv2f-->.*?<!--/fa-dv2f-->', re.S)
