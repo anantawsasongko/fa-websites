@@ -794,3 +794,12 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
   2. Harga dibuang: /jasa-penyusunan-laporan-keuangan/, /laporan-keuangan-umkm/ (title dan H1 jadi "Jasa Laporan Keuangan UMKM Terima Beres untuk KUR dan Bank"), /kja-farhani/ (tabel paket jadi daftar tanpa angka), /konsultan-kredit-bank/ (retainer + success fee 1-3%), /jasa-laporan-keuangan-bulanan/ (title tanpa "Mulai Rp900 Ribu", kolom Mulai dibuang), 7 halaman /laporan-keuangan-<jenis>/, /akuntan-terdekat/, /laporan-tahunan-pt/, kotak fa-pb di wilayah Malang/Batu + kecamatan, 3 artikel; JSON-LD offers.price dan priceRange dibuang. Pengganti: "disampaikan dalam penawaran tertulis setelah diskusi awal".
   3. "Kantor Jasa Akuntan mitra" di halaman itu jadi "KJA Farhani K.N."; llms.txt (out + v58) dibersihkan dari harga yang sama.
 - TIDAK disentuh: harga Fractional CFO (Rp15 juta, USD 2.000/5.000; ditetapkan Bos 13 Nov), harga e-book dan produk /bayar/, "Rp1,1 triliun".
+
+## 26 Nov 2026 (5): CA dan US Berdiri Sendiri, Corong ke FA Diputus (Langkah A)
+- Keputusan Bos 26 Nov 16.00: "Kalau gak bisa mengarah ke FA, ya gak usah diarahin. Berdiri sendiri-sendiri. Yang penting lead WA. 3 domain lebih bagus daripada 1 domain." Ini mengganti keputusan 17 dan 20 Nov (CA/US bukan kanal lead). GSC 26 Nov: CA 7 hari 26 impresi, US nol impresi sejak 21 Nov, tanpa manual action.
+- `caus_mandiri_20261126.py` (out/cariakuntan + out/updatesak, idempoten, --dry, --sisa; JALANKAN PALING AKHIR untuk CA dan US):
+  1. Strip KAP DHN / KJA Farhani: tombol "Lihat Layanan Audit / Laporan Keuangan" (ke FA) jadi "Tanya Audit via WhatsApp" / "Tanya Laporan Keuangan via WhatsApp" dengan pesan "Halo, saya dari <domain> (<judul halaman>). Mau tanya ..." (atribut data-wa-out).
+  2. Lipatan "Butuh Pendampingan sampai Dana Cair?" (daftar link FA per kota) dibuang; link KDMP ke FA dibuang; footer US tanpa link FA; bagian "Bantuan di Kota Anda" di 7 halaman segmen US dibuang; pita alur US "Serahkan ke Tim Kami".
+  3. Semua link lain ke faindonesia.co.id dilepas (teks tetap). Link CA ke FA 34.330 jadi hanya Kebijakan Privasi (nofollow); US ke FA 1.499 jadi hanya link pembayaran (/bayar/).
+  4. cariakuntan.com/kota/: "Pencarian Populer" (248 link) dilipat (permintaan Bos, tangkapan layar 16.19).
+- BELUM (langkah B dan C di claude/status-26nov-caus-mandiri.md): sebutan "FA Indonesia" di teks CA/US, pemisahan niat pencarian (halaman jasa di CA/US), isi unik halaman US, link FA ke CA/US di beranda FA, kalimat "Jaringan mitra kami" di /kota/ CA.
