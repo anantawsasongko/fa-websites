@@ -778,3 +778,11 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
   3. Link masuk `<!--fa-kj26-->`: 5 artikel penilaian/valuasi ke halaman KJPP, artikel konsolidasian grup keluarga ke halaman konsolidasi, /jasa-valuasi-usaha/ (Bacaan Terkait).
   4. sitemap.xml (+1 URL), beranda hasOfferCatalog + knowsAbout, llms.txt (ringkasan asisten AI + peta layanan).
 - Cek: rerun --dry 0 untuk tiga script; JSON-LD valid; 0 link putus; Playwright 1280 dan 375 tanpa scroll horizontal dan tanpa error JS.
+
+## 26 Nov 2026 (3): Isi Lokal Unik Halaman Audit 21 Kota Besar
+- Pemicu: cek AI 26 Nov (FA nomor 1 di ChatGPT, tidak muncul di Google AI Mode dan Claude) + URL Inspection (audit Jakarta, Denpasar, Padang, Pekanbaru, Yogyakarta "Crawled, currently not indexed").
+- `fa_audit_lokal_20261126.py` + konten `fa_content/audit_lokal_20261126.py` (idempoten, --dry; tambah kota = tambah entri): blok `<!--fa-lok26-->` setelah fa-geo di /jasa-audit-laporan-keuangan/<kota>/ untuk jakarta, surabaya, bandung, medan, semarang, makassar, bekasi, tangerang, denpasar, batam, palembang, balikpapan, yogyakarta, malang, pekanbaru, padang, pontianak, sidoarjo, cirebon, samarinda, mataram. Satu paragraf terlihat (siapa yang butuh audit di kota itu) + lipatan (titik rawan pembukuan khas kota, 3 keperluan paling sering). Tanpa harga, tanpa janji, tanpa klaim jumlah klien per kota.
+- Jaccard 21 kota: 0,502 jadi 0,432 (tools/similarity.py, shingle 5 kata).
+- Sekalian: og:image pilar audit diganti gambar umum FA (gambar lama bertuliskan "Biaya Wajar, Laporan Terbit Tepat Waktu"); priceRange "Mulai Rp2,5 juta per bulan" dibuang dari JSON-LD beranda.
+- BELUM (butuh keputusan Bos): "mulai Rp2,5 juta per bulan" masih di /jasa-penyusunan-laporan-keuangan/, /laporan-keuangan-umkm/ (termasuk title), /kja-farhani/, /konsultan-kredit-bank/ (plus success fee 1-3%), 2 artikel; stat "KAP Mitra" di 543 + 113 halaman.
+- Urutan build ulang: sesudah fa_ai_search_20261125.py (butuh penanda fa-geo).
