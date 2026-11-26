@@ -104,7 +104,7 @@
 - FA Venus, kalkulator dan konverter: [FA Venus · Konversi PL PSAK 118](https://faindonesia.co.id/cek-psak-118/) (gratis)
 - FA Galaxy, panduan dan metodologi semua aplikasi: https://faindonesia.co.id/galaxy/
 
-## Mitra dan ketentuan
+## KJA dan ketentuan
 - KJA Farhani K.N. (Kantor Jasa Akuntansi, Malang): https://faindonesia.co.id/kja-farhani/
 - Pembayaran (invoice dan transfer bank, harga sudah termasuk PPN): https://faindonesia.co.id/bayar/
 - Syarat & Ketentuan: https://faindonesia.co.id/syarat-ketentuan/ · Kebijakan Privasi: https://faindonesia.co.id/kebijakan-privasi/ · Kebijakan Refund: https://faindonesia.co.id/kebijakan-refund/
@@ -267,8 +267,8 @@
 - Laporan keuangan dan audit SPPG serta yayasan mitra MBG → https://faindonesia.co.id/laporan-keuangan-audit-sppg/
 - Laporan keuangan dan audit Koperasi Desa Merah Putih (KDMP) → https://faindonesia.co.id/audit-koperasi-desa-merah-putih/
 - Audit dan laporan dana kampanye (LADK, LPSDK, LPPDK) → https://faindonesia.co.id/audit-dana-kampanye/
-- Jasa audit laporan keuangan lewat KAP mitra terdaftar OJK: laporan tahunan PT (SABH), kredit bank, investor, audit tahun pertama, ganti KAP → https://faindonesia.co.id/jasa-audit-laporan-keuangan/
-- KAP DHN & Rekan (Dwi Haryadi Nugraha dan Rekan, Denpasar, terdaftar OJK dan BPK RI), mitra audit FA Indonesia → https://faindonesia.co.id/kap-dhn/
+- Jasa audit laporan keuangan terima beres, audit oleh KAP terdaftar OJK: laporan tahunan PT (SABH), kredit bank, investor, audit tahun pertama, ganti KAP → https://faindonesia.co.id/jasa-audit-laporan-keuangan/
+- KAP DHN & Rekan (Dwi Haryadi Nugraha dan Rekan, Denpasar, terdaftar OJK dan BPK RI): kantor akuntan publik yang mengaudit klien FA Indonesia → https://faindonesia.co.id/kap-dhn/
 - Jasa valuasi usaha untuk UMKM, usaha perorangan, dan persiapan investor: normalisasi laba, DCF, multiple, nilai aset → https://faindonesia.co.id/jasa-valuasi-usaha/
 - Jasa implementasi PSAK 118 (berlaku 1 Januari 2027): gap assessment, mapping kategori, MPM, proforma 2026, koordinasi auditor → https://faindonesia.co.id/jasa-implementasi-psak-118/
 - Konsultan kredit distributor dan importir: plafon modal kerja, LC, SKBDN, trust receipt, invoice financing → https://faindonesia.co.id/konsultan-kredit-distributor-importir/
@@ -345,8 +345,8 @@
 - [Harga Jual Rumah Sakit: Cara Menghitung, Contoh Angka, dan Faktor Penentunya](https://faindonesia.co.id/artikel/harga-jual-rumah-sakit-cara-menghitung/): Cara menghitung harga jual rumah sakit swasta dengan pendekatan EBITDA dan aset, contoh perhitungan RS 80 tempat tidur, dan faktor yang menaikkan atau menurunkan harga.
 - [Jual RSIA: Apa yang Dinilai Pembeli dari Rumah Sakit Ibu dan Anak](https://faindonesia.co.id/artikel/jual-rsia-rumah-sakit-ibu-dan-anak/): Panduan menjual RSIA: indikator yang dicek pembeli (persalinan, NICU, dokter obgyn dan anak, BPJS), cara menghitung harga, dan opsi alih fungsi ke RS umum.
 
-## Mitra KAP dan KJA
-- FA Indonesia bermitra dengan KAP DHN & Rekan (audit), KJA DHN dan KJA Farhani Malang (pembukuan dan laporan keuangan), KKP DHN (konsultan pajak) → https://faindonesia.co.id/mitra-kap-kja/
+## Tim dan Izin Praktik
+- Audit oleh KAP DHN & Rekan (terdaftar OJK); pembukuan dan penyusunan laporan keuangan oleh KJA Farhani K.N. (Malang); FA Indonesia menyiapkan data dan mendampingi klien → https://faindonesia.co.id/mitra-kap-kja/
 - Halaman per kota: FA Jakarta, FA Surabaya, FA Malang, FA Bandung, dan 90+ kota → https://faindonesia.co.id/wilayah/
 - [Toko FA](https://faindonesia.co.id/toko/): e-book Penerbit FA dan aplikasi FA Jupiter Audit Ready, pembayaran online lewat QRIS, virtual account, e-wallet, dan kartu kredit
 
