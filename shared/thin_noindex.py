@@ -11,6 +11,7 @@ untuk SEMUA /kdmp/ (beranda, provinsi, kabupaten, desa), hub /kota/<kota>/kecama
 layanan per kota yang isinya penawaran jasa tanpa data registri (CA_JASA di bawah, niatnya sama dengan halaman FA),
 dan /kota/<kota>/{kap,kja,kjpp}/ yang daftar registrinya kosong (0 kantor aktif jenis itu di kota tersebut).
 Yang tetap index: /kota/<kota>/ dan /kota/<kota>/{kap,kja,kjpp}/ yang punya daftar kantor aktif.
+27 Nov 2026 (Bos: "tidak berbenturan di google"): 10 halaman pilar jasa CA (CA_PILAR) ikut noindex,follow; kueri jasa milik FA.
 Idempoten. Dipanggil dari prep.py setelah semua build. Mode lokal: python3 shared/thin_noindex.py out cariakuntan [--dry]
 """
 import os, re
@@ -18,11 +19,15 @@ import os, re
 META = '<meta name="robots" content="noindex,follow">'
 CA_JASA = ("jasa-laporan-keuangan|kap-murah|konsultan-rumah-sakit|laporan-tahunan-pt|konsultan-psak|"
            "jasa-buku-besar|pendampingan-audit|akuntan-forensik|konsultan-pajak")
+# 27 Nov 2026 (tiga situs, tiga niat): pilar jasa CA yang kuerinya milik FA -> noindex,follow.
+CA_PILAR = ("konsultan-rumah-sakit|konsultan-psak|jasa-buku-besar|pendampingan-audit|akuntan-forensik|"
+            "laporan-keuangan-sabh|jasa-pembukuan(?:/[^/]+)?|layanan/jasa-laporan-keuangan|layanan/laporan-tahunan-pt")
 CA_REG = re.compile(r"^kota/[^/]+/(kap|kja|kjpp)/index\.html$")
 RULES = {
     "cariakuntan": [re.compile(r"^kdmp/(?:[^/]+/)*index\.html$"),
                     re.compile(r"^kota/[^/]+/kecamatan/(?:[^/]+/)?index\.html$"),
-                    re.compile(r"^kota/[^/]+/(?:%s)/index\.html$" % CA_JASA)],
+                    re.compile(r"^kota/[^/]+/(?:%s)/index\.html$" % CA_JASA),
+                    re.compile(r"^(?:%s)/index\.html$" % CA_PILAR)],
     "faindonesia": [re.compile(r"^wilayah/[^/]+/kecamatan/[^/]+/index\.html$")],
 }
 DOMAIN = {"cariakuntan": "https://cariakuntan.com", "faindonesia": "https://faindonesia.co.id"}
