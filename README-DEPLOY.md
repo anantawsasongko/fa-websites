@@ -817,3 +817,10 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - TIDAK diubah: FA (tidak ada file FA yang disentuh; link footer beranda FA ke CA dan US dibiarkan karena itu satu-satunya link kuat ke dua situs itu); halaman /akuntansi-<segmen>/ US tetap index (niatnya belajar, bukan jasa); artikel CA dan US (kemiripan teks dengan artikel FA di bawah 0,1).
 - Cek: rerun --dry 0 perubahan; JSON-LD valid di 941 halaman; 1 H1 per halaman; tanpa em dash; Playwright 24 halaman x 1280/375 tanpa scroll horizontal dan tanpa error JS; layout_check LAYOUT OK.
 - Ukur ±10 Des: GSC CA kueri "daftar kap <kota>", "kja <kota>", "kjpp <kota>"; GSC US impresi 11 halaman prioritas dan status "Crawled, currently not indexed"; lead WA per sumber dari teks pesan; GA4 klik data-us-q="ck27".
+
+## 27 Nov 2026 (sore): Logo PA Global di Kartu KAP DHN
+- Bos: "KAP DHN kan afiliasi asing PA Global. Pasang logo aja"; lalu "Boleh dipasang di semua kartu, tapi jangan mengubah design keseluruhan kartu yang sudah bagus."
+- Dasar: KAP DHN & Rekan tercatat "Member of PA Global" di pa-global.com/locations/indonesia/kap-dwi-haryadi-nugraha-partner/ dan berita "PA Global Welcomes a New Member in Indonesia" (30 Jun 2026), dicek 27 Nov 2026.
+- `pa_global_kartu_20261127.py` (out/ tiga situs, idempoten, --dry; jalankan sesudah semua generator kartu dhn): satu baris kecil "Anggota jaringan [logo PA Global]" (EN: "Member of") di bawah nama KAP DHN & Rekan pada setiap kartu `aside.dhnc` KAP DHN. FA 9.441 kartu, CA 1.315, US 50. Logo `/img/pa-global.svg` (dari situs resmi PA Global, 4 KB) di atas alas putih kecil supaya terbaca di latar gelap dan terang. Struktur, ukuran, warna, dan tombol kartu tidak berubah; tinggi dua kartu tetap sama.
+- BATAS: logo hanya di dalam kartu KAP DHN sebagai keterangan keanggotaan KAP DHN. Jangan dipasang di header, footer, hero, kartu KJA Farhani, atau sebagai logo FA/CA/US: tiga situs itu dan KJA Farhani bukan anggota PA Global.
+- Cek: rerun --dry 0 perubahan; Playwright FA (ID, EN, pilar, wilayah), CA, US di 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; layout_check LAYOUT OK.
