@@ -824,3 +824,8 @@ shared/dhn/dhn.py (dipanggil prep.py sebelum zip): kartu KAP DHN (logo, izin KMK
 - `pa_global_kartu_20261127.py` (out/ tiga situs, idempoten, --dry; jalankan sesudah semua generator kartu dhn): satu baris kecil "Anggota jaringan [logo PA Global]" (EN: "Member of") di bawah nama KAP DHN & Rekan pada setiap kartu `aside.dhnc` KAP DHN. FA 9.441 kartu, CA 1.315, US 50. Logo `/img/pa-global.svg` (dari situs resmi PA Global, 4 KB) di atas alas putih kecil supaya terbaca di latar gelap dan terang. Struktur, ukuran, warna, dan tombol kartu tidak berubah; tinggi dua kartu tetap sama.
 - BATAS: logo hanya di dalam kartu KAP DHN sebagai keterangan keanggotaan KAP DHN. Jangan dipasang di header, footer, hero, kartu KJA Farhani, atau sebagai logo FA/CA/US: tiga situs itu dan KJA Farhani bukan anggota PA Global.
 - Cek: rerun --dry 0 perubahan; Playwright FA (ID, EN, pilar, wilayah), CA, US di 1280 dan 375 tanpa scroll horizontal dan tanpa error JS; layout_check LAYOUT OK.
+
+## 27 Nov 2026 (sore 2): Nama Tampil "Dr. (C) Ananta W. Sasongko, CPA"
+- Bos (melihat blok Tim Kami): "Saya juga Dr (C) lho ubah semua."
+- `fa_drc_ananta_20261127.py` (out/ semua situs, idempoten, --dry; JALANKAN PALING AKHIR karena generator lama masih menulis nama tanpa Dr. (C)): nama tampil di kartu Tim Kami (5.760 halaman FA), kartu Tim Konsultan Rumah Sakit (5.180), byline "Oleh/By", sel tabel, dan baris "Ditinjau" UpdateSAK (172) jadi "Dr. (C) Ananta W. Sasongko". Tombol "Chat Ananta, CPA", atribut alt, dan JSON-LD tidak diubah.
+- Cek: rerun --dry 0 perubahan; Playwright /wilayah/malang/ dan /konsultan-rumah-sakit/ di 1280 dan 375 tanpa scroll horizontal; layout_check LAYOUT OK.
