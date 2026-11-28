@@ -15,6 +15,7 @@ lalu `python3 shared/thin_noindex.py out cariakuntan`.
    mulai bila cocok) tepat di bawah header halaman.
 3. Tabel <!--rx28--> tiga produk (konsultasi, audit, susun LK) dengan tombol WA per baris. Pesan WA memuat
    domain, lokasi/halaman, dan produk (atribut data-rx28).
+   Produk CA = kantor rekanan (KAP DHN & Rekan untuk audit, KJA Farhani K.N. untuk susun LK), revisi 28 Nov siang.
    CA: semua /kota/** (kota, daftar KAP/KJA/KJPP, layanan per kota, kecamatan, kawasan), /kota/,
        /akuntan-<segmen>/, pilar jasa, beranda. Artikel CA hanya pita.
    US: beranda (pita + tabel di bawah hero), halaman dalam (pita di bawah header, tabel sebelum blok bantuan).
@@ -95,12 +96,13 @@ STRIP = ('<!--rx28s--><ol class="rx28s" aria-label="Cara menghubungi kami">'
 # produk sendiri per situs: (kunci, kebutuhan, nama produk, anda kirim, anda terima, kalimat WA)
 PROD = {
     "cariakuntan.com": [
-        ("konsul", "Konsultasi", "Pilih Kantor 15 Menit", "Cerita singkat kebutuhan Anda",
-         "Jalur yang tepat: KAP, KJA, KJPP, atau konsultan pajak", "Mau konsultasi pilih kantor."),
-        ("audit", "Audit", "Audit oleh KAP Berizin", "Neraca dan laba rugi seadanya",
-         "Laporan auditor independen dari KAP terdaftar", "Mau tanya audit laporan keuangan."),
-        ("lk", "Susun LK", "Laporan Keuangan oleh KJA Berizin", "Rekening koran atau catatan usaha",
-         "Laporan keuangan lengkap dengan CALK", "Mau tanya penyusunan laporan keuangan."),
+        # 28 Nov siang (Bos: "CA itu mengarahkan ke KAP yang merupakan rekanan saya"): produk CA = kantor rekanan.
+        ("konsul", "Konsultasi", "Pilih Kantor Rekanan|KAP, KJA, atau KJPP sesuai keperluan", "Cerita singkat kebutuhan Anda",
+         "Arahan ke kantor rekanan yang tepat", "Mau konsultasi, kantor rekanan mana yang cocok."),
+        ("audit", "Audit", "KAP DHN & Rekan|KAP rekanan, terdaftar OJK", "Neraca dan laba rugi seadanya",
+         "Laporan auditor independen", "Mau tanya audit oleh KAP DHN & Rekan."),
+        ("lk", "Susun LK", "KJA Farhani K.N.|KJA rekanan, berizin Menteri Keuangan", "Rekening koran atau catatan usaha",
+         "Laporan keuangan lengkap dengan CALK", "Mau tanya penyusunan laporan keuangan oleh KJA Farhani."),
     ],
     "updatesak.com": [
         ("konsul", "Konsultasi", "Klinik PSAK", "Transaksi atau pertanyaan Anda",
@@ -121,11 +123,12 @@ def table(dom, where, lokasi=None):
     rows = []
     for key, need, name, kirim, terima, ask in PROD[dom]:
         msg = "Halo, saya dari %s (%s). %s" % (dom, where, ask)
+        name, _, subn = name.partition("|")
         rows.append(
-            '<tr><td data-l="Kebutuhan">%s</td><td><b>%s</b></td><td data-l="Anda kirim">%s</td>'
+            '<tr><td data-l="Kebutuhan">%s</td><td><b>%s</b>%s</td><td data-l="Anda kirim">%s</td>'
             '<td data-l="Anda terima">%s</td><td><a class="rx28w" data-rx28="%s" href="%s%s" rel="noopener" '
             'target="_blank">Chat WhatsApp</a></td></tr>'
-            % (need, html.escape(name), html.escape(kirim), html.escape(terima), key, WA, quote(msg, safe="/")))
+            % (need, html.escape(name), ('<span>%s</span>' % html.escape(subn)) if subn else '', html.escape(kirim), html.escape(terima), key, WA, quote(msg, safe="/")))
     return ('<!--rx28--><section class="rx28" id="mulai-chat" aria-label="Layanan dan cara menghubungi">'
             '<h2><i aria-hidden="true"></i>%s</h2>'
             '<table><thead><tr><th>Kebutuhan</th><th>Layanan</th><th>Anda Kirim</th><th>Anda Terima</th>'
