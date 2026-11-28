@@ -12,12 +12,14 @@ layanan per kota yang isinya penawaran jasa tanpa data registri (CA_JASA di bawa
 dan /kota/<kota>/{kap,kja,kjpp}/ yang daftar registrinya kosong (0 kantor aktif jenis itu di kota tersebut).
 Yang tetap index: /kota/<kota>/ dan /kota/<kota>/{kap,kja,kjpp}/ yang punya daftar kantor aktif.
 27 Nov 2026 (Bos: "tidak berbenturan di google"): 10 halaman pilar jasa CA (CA_PILAR) ikut noindex,follow; kueri jasa milik FA.
+28 Nov 2026 (Bos: CA jualan sendiri konsultasi, audit, penyusunan LK per kota): /kota/<kota>/jasa-laporan-keuangan/ dikeluarkan
+dari CA_JASA dan index lagi dengan sudut "Susun Laporan Keuangan di <Kota> oleh KJA Berizin" (caus_reach_20261128.py).
 Idempoten. Dipanggil dari prep.py setelah semua build. Mode lokal: python3 shared/thin_noindex.py out cariakuntan [--dry]
 """
 import os, re
 
 META = '<meta name="robots" content="noindex,follow">'
-CA_JASA = ("jasa-laporan-keuangan|kap-murah|konsultan-rumah-sakit|laporan-tahunan-pt|konsultan-psak|"
+CA_JASA = ("kap-murah|konsultan-rumah-sakit|laporan-tahunan-pt|konsultan-psak|"
            "jasa-buku-besar|pendampingan-audit|akuntan-forensik|konsultan-pajak")
 # 27 Nov 2026 (tiga situs, tiga niat): pilar jasa CA yang kuerinya milik FA -> noindex,follow.
 CA_PILAR = ("konsultan-rumah-sakit|konsultan-psak|jasa-buku-besar|pendampingan-audit|akuntan-forensik|"
